@@ -1,0 +1,103 @@
+[
+  {
+    "creationDate": 1514152182385,
+    "description": "",
+    "id": "Redirect_1514152182385",
+    "name": "redirects github",
+    "pairs": [
+      {
+        "destination": "https://raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/assets/$1.png",
+        "source": {
+          "key": "Url",
+          "operator": "Wildcard_Matches",
+          "value": "https://airma.sh/assets/*.png*"
+        }
+      },
+      {
+        "destination": "https://raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/assets/$1.jpg",
+        "source": {
+          "key": "Url",
+          "operator": "Wildcard_Matches",
+          "value": "https://airma.sh/assets/*.jpg*"
+        }
+      },
+      {
+        "destination": "https://raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/assets/engine.js",
+        "source": {
+          "key": "Url",
+          "operator": "Wildcard_Matches",
+          "value": "https://airma.sh/assets/engine.js*"
+        }
+      },
+      {
+        "destination": "https://raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/assets/style.css",
+        "source": {
+          "key": "Url",
+          "operator": "Wildcard_Matches",
+          "value": "https://airma.sh/assets/style.css*"
+        }
+      },
+      {
+        "destination": "https://raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/assets/map.json",
+        "source": {
+          "key": "Url",
+          "operator": "Wildcard_Matches",
+          "value": "https://airma.sh/assets/map.json*"
+        }
+      },
+      {
+        "destination": "https://raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/assets/sounds.mp3",
+        "source": {
+          "key": "Url",
+          "operator": "Wildcard_Matches",
+          "value": "https://airma.sh/assets/sounds.mp3?*"
+        }
+      }
+    ],
+    "ruleType": "Redirect",
+    "status": "Active"
+  },
+  {
+    "creationDate": 1514146290860,
+    "description": "",
+    "id": "Headers_1514146290860",
+    "name": "modify headers",
+    "pairs": [
+      {
+        "header": "Content-Type",
+        "source": {
+          "key": "Url",
+          "operator": "Contains",
+          "value": "raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash"
+        },
+        "target": "Response",
+        "type": "Remove",
+        "value": ""
+      },
+      {
+        "header": "Content-Type",
+        "source": {
+          "key": "Url",
+          "operator": "Contains",
+          "value": "raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/assets/engine.js"
+        },
+        "target": "Response",
+        "type": "Add",
+        "value": "application/javascript"
+      },
+      {
+        "header": "Content-Type",
+        "source": {
+          "key": "Url",
+          "operator": "Contains",
+          "value": "raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/assets/style.css"
+        },
+        "target": "Request",
+        "type": "Add",
+        "value": "text/css"
+      }
+    ],
+    "ruleType": "Headers",
+    "status": "Active"
+  }
+]
