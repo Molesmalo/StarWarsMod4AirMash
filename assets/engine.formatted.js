@@ -47,8 +47,8 @@
         var Ra;
         try {
             wa && Vn.isFunction(Ra = wa.promise) ? Ra.call(wa).done(Pa).fail(Ca) : wa && Vn.isFunction(Ra = wa.then) ? Ra.call(wa, Pa, Ca) : Pa.apply(void 0, [wa].slice(Aa))
-        } catch (Ma) {
-            Ca.apply(void 0, [Ma])
+        } catch (Da) {
+            Ca.apply(void 0, [Da])
         }
     }
     function Kt() {
@@ -56,10 +56,10 @@
         Bt.removeEventListener("load", Kt),
         Vn.ready()
     }
-    function Zt() {
-        this.expando = Vn.expando + Zt.uid++
+    function Qt() {
+        this.expando = Vn.expando + Qt.uid++
     }
-    function Qt(wa, Pa, Ca) {
+    function Zt(wa, Pa, Ca) {
         var Aa;
         if (void 0 === Ca && 1 === wa.nodeType)
             if (Aa = "data-" + Pa.replace(mr, "-$&").toLowerCase(),
@@ -75,21 +75,21 @@
         return Ca
     }
     function Jt(wa, Pa, Ca, Aa) {
-        var Ma = 1, Ia = 20, Da = Aa ? function() {
+        var Da = 1, Ma = 20, Ia = Aa ? function() {
             return Aa.cur()
         }
         : function() {
             return Vn.css(wa, Pa, "")
         }
-        , Oa = Da(), La = Ca && Ca[3] || (Vn.cssNumber[Pa] ? "" : "px"), ka = (Vn.cssNumber[Pa] || "px" !== La && +Oa) && _r.exec(Vn.css(wa, Pa)), Ra;
+        , Oa = Ia(), La = Ca && Ca[3] || (Vn.cssNumber[Pa] ? "" : "px"), ka = (Vn.cssNumber[Pa] || "px" !== La && +Oa) && _r.exec(Vn.css(wa, Pa)), Ra;
         if (ka && ka[3] !== La) {
             La = La || ka[3],
             Ca = Ca || [],
             ka = +Oa || 1;
             do
-                ka /= Ma = Ma || ".5",
+                ka /= Da = Da || ".5",
                 Vn.style(wa, Pa, ka + La);
-            while (Ma != (Ma = Da() / Oa) && 1 != Ma && --Ia)
+            while (Da != (Da = Ia() / Oa) && 1 != Da && --Ma)
         }
         return Ca && (ka = +ka || +Oa || 0,
         Ra = Ca[1] ? ka + (Ca[1] + 1) * Ca[2] : +Ca[2],
@@ -108,14 +108,14 @@
         Ra)
     }
     function en(wa, Pa) {
-        for (var Ra = [], Ma = 0, Ia = wa.length, Ca, Aa; Ma < Ia; Ma++)
-            (Aa = wa[Ma]).style && (Ca = Aa.style.display,
-            Pa ? ("none" === Ca && (Ra[Ma] = fr.get(Aa, "display") || null,
-            Ra[Ma] || (Aa.style.display = "")),
-            "" === Aa.style.display && xr(Aa) && (Ra[Ma] = $t(Aa))) : "none" !== Ca && (Ra[Ma] = "none",
+        for (var Ra = [], Da = 0, Ma = wa.length, Ca, Aa; Da < Ma; Da++)
+            (Aa = wa[Da]).style && (Ca = Aa.style.display,
+            Pa ? ("none" === Ca && (Ra[Da] = fr.get(Aa, "display") || null,
+            Ra[Da] || (Aa.style.display = "")),
+            "" === Aa.style.display && xr(Aa) && (Ra[Da] = $t(Aa))) : "none" !== Ca && (Ra[Da] = "none",
             fr.set(Aa, "display", Ca)));
-        for (Ma = 0; Ma < Ia; Ma++)
-            null != Ra[Ma] && (wa[Ma].style.display = Ra[Ma]);
+        for (Da = 0; Da < Ma; Da++)
+            null != Ra[Da] && (wa[Da].style.display = Ra[Da]);
         return wa
     }
     function tn(wa, Pa) {
@@ -128,31 +128,31 @@
             fr.set(wa[Ca], "globalEval", !Pa || fr.get(Pa[Ca], "globalEval"))
     }
     function rn(wa, Pa, Ca, Aa, Ra) {
-        for (var Na = Pa.createDocumentFragment(), Fa = [], Ba = 0, Ua = wa.length, Ma, Ia, Da, Oa, La, ka; Ba < Ua; Ba++)
-            if ((Ma = wa[Ba]) || 0 === Ma)
-                if ("object" === Vn.type(Ma))
-                    Vn.merge(Fa, Ma.nodeType ? [Ma] : Ma);
-                else if (Cr.test(Ma)) {
-                    for (Ia = Ia || Na.appendChild(Pa.createElement("div")),
-                    Da = (Sr.exec(Ma) || ["", ""])[1].toLowerCase(),
-                    Oa = Pr[Da] || Pr._default,
-                    Ia.innerHTML = Oa[1] + Vn.htmlPrefilter(Ma) + Oa[2],
+        for (var Na = Pa.createDocumentFragment(), Fa = [], Ba = 0, Ua = wa.length, Da, Ma, Ia, Oa, La, ka; Ba < Ua; Ba++)
+            if ((Da = wa[Ba]) || 0 === Da)
+                if ("object" === Vn.type(Da))
+                    Vn.merge(Fa, Da.nodeType ? [Da] : Da);
+                else if (Cr.test(Da)) {
+                    for (Ma = Ma || Na.appendChild(Pa.createElement("div")),
+                    Ia = (Sr.exec(Da) || ["", ""])[1].toLowerCase(),
+                    Oa = Pr[Ia] || Pr._default,
+                    Ma.innerHTML = Oa[1] + Vn.htmlPrefilter(Da) + Oa[2],
                     ka = Oa[0]; ka--; )
-                        Ia = Ia.lastChild;
-                    Vn.merge(Fa, Ia.childNodes),
-                    (Ia = Na.firstChild).textContent = ""
+                        Ma = Ma.lastChild;
+                    Vn.merge(Fa, Ma.childNodes),
+                    (Ma = Na.firstChild).textContent = ""
                 } else
-                    Fa.push(Pa.createTextNode(Ma));
+                    Fa.push(Pa.createTextNode(Da));
         for (Na.textContent = "",
-        Ba = 0; Ma = Fa[Ba++]; )
-            if (Aa && -1 < Vn.inArray(Ma, Aa))
-                Ra && Ra.push(Ma);
-            else if (La = Vn.contains(Ma.ownerDocument, Ma),
-            Ia = tn(Na.appendChild(Ma), "script"),
-            La && nn(Ia),
+        Ba = 0; Da = Fa[Ba++]; )
+            if (Aa && -1 < Vn.inArray(Da, Aa))
+                Ra && Ra.push(Da);
+            else if (La = Vn.contains(Da.ownerDocument, Da),
+            Ma = tn(Na.appendChild(Da), "script"),
+            La && nn(Ma),
             Ca)
-                for (ka = 0; Ma = Ia[ka++]; )
-                    wr.test(Ma.type || "") && Ca.push(Ma);
+                for (ka = 0; Da = Ma[ka++]; )
+                    wr.test(Da.type || "") && Ca.push(Da);
         return Na
     }
     function an() {
@@ -166,13 +166,13 @@
             return kn.activeElement
         } catch (wa) {}
     }
-    function dn(wa, Pa, Ca, Aa, Ra, Ma) {
-        var Ia, Da;
+    function dn(wa, Pa, Ca, Aa, Ra, Da) {
+        var Ma, Ia;
         if ("object" == typeof Pa) {
-            for (Da in "string" != typeof Ca && (Aa = Aa || Ca,
+            for (Ia in "string" != typeof Ca && (Aa = Aa || Ca,
             Ca = void 0),
             Pa)
-                dn(wa, Da, Ca, Aa, Pa[Da], Ma);
+                dn(wa, Ia, Ca, Aa, Pa[Ia], Da);
             return wa
         }
         if (null == Aa && null == Ra ? (Ra = Ca,
@@ -184,12 +184,12 @@
             Ra = on;
         else if (!Ra)
             return wa;
-        return 1 === Ma && (Ia = Ra,
+        return 1 === Da && (Ma = Ra,
         (Ra = function(Oa) {
             return Vn().off(Oa),
-            Ia.apply(this, arguments)
+            Ma.apply(this, arguments)
         }
-        ).guid = Ia.guid || (Ia.guid = Vn.guid++)),
+        ).guid = Ma.guid || (Ma.guid = Vn.guid++)),
         wa.each(function() {
             Vn.event.add(this, Pa, Ra, Aa, Ca)
         })
@@ -207,19 +207,19 @@
         wa
     }
     function cn(wa, Pa) {
-        var Ca, Aa, Ra, Ma, Ia, Da, Oa, La;
+        var Ca, Aa, Ra, Da, Ma, Ia, Oa, La;
         if (1 === Pa.nodeType) {
-            if (fr.hasData(wa) && (Ma = fr.access(wa),
-            Ia = fr.set(Pa, Ma),
-            La = Ma.events))
-                for (Ra in delete Ia.handle,
-                Ia.events = {},
+            if (fr.hasData(wa) && (Da = fr.access(wa),
+            Ma = fr.set(Pa, Da),
+            La = Da.events))
+                for (Ra in delete Ma.handle,
+                Ma.events = {},
                 La)
                     for (Ca = 0,
                     Aa = La[Ra].length; Ca < Aa; Ca++)
                         Vn.event.add(Pa, Ra, La[Ra][Ca]);
-            hr.hasData(wa) && (Da = hr.access(wa),
-            Oa = Vn.extend({}, Da),
+            hr.hasData(wa) && (Ia = hr.access(wa),
+            Oa = Vn.extend({}, Ia),
             hr.set(Pa, Oa))
         }
     }
@@ -229,7 +229,7 @@
     }
     function hn(wa, Pa, Ca, Aa) {
         Pa = Bn.apply([], Pa);
-        var ka = 0, Na = wa.length, Ba = Pa[0], Ua = Vn.isFunction(Ba), Ra, Ma, Ia, Da, Oa, La;
+        var ka = 0, Na = wa.length, Ba = Pa[0], Ua = Vn.isFunction(Ba), Ra, Da, Ma, Ia, Oa, La;
         if (Ua || 1 < Na && "string" == typeof Ba && !zn.checkClone && Lr.test(Ba))
             return wa.each(function(Xa) {
                 var Ha = wa.eq(Xa);
@@ -237,42 +237,42 @@
                 hn(Ha, Pa, Ca, Aa)
             });
         if (Na && (Ra = rn(Pa, wa[0].ownerDocument, !1, wa, Aa),
-        Ma = Ra.firstChild,
-        1 === Ra.childNodes.length && (Ra = Ma),
-        Ma || Aa)) {
-            for (Da = (Ia = Vn.map(tn(Ra, "script"), un)).length; ka < Na; ka++)
+        Da = Ra.firstChild,
+        1 === Ra.childNodes.length && (Ra = Da),
+        Da || Aa)) {
+            for (Ia = (Ma = Vn.map(tn(Ra, "script"), un)).length; ka < Na; ka++)
                 Oa = Ra,
                 ka != Na - 1 && (Oa = Vn.clone(Oa, !0, !0),
-                Da && Vn.merge(Ia, tn(Oa, "script"))),
+                Ia && Vn.merge(Ma, tn(Oa, "script"))),
                 Ca.call(wa[ka], Oa, ka);
-            if (Da)
-                for (La = Ia[Ia.length - 1].ownerDocument,
-                Vn.map(Ia, pn),
-                ka = 0; ka < Da; ka++)
-                    Oa = Ia[ka],
+            if (Ia)
+                for (La = Ma[Ma.length - 1].ownerDocument,
+                Vn.map(Ma, pn),
+                ka = 0; ka < Ia; ka++)
+                    Oa = Ma[ka],
                     wr.test(Oa.type || "") && !fr.access(Oa, "globalEval") && Vn.contains(La, Oa) && (Oa.src ? Vn._evalUrl && Vn._evalUrl(Oa.src) : Ht(Oa.textContent.replace(Nr, ""), La))
         }
         return wa
     }
     function gn(wa, Pa, Ca) {
-        for (var Ra = Pa ? Vn.filter(Pa, wa) : wa, Ma = 0, Aa; null != (Aa = Ra[Ma]); Ma++)
+        for (var Ra = Pa ? Vn.filter(Pa, wa) : wa, Da = 0, Aa; null != (Aa = Ra[Da]); Da++)
             Ca || 1 !== Aa.nodeType || Vn.cleanData(tn(Aa)),
             Aa.parentNode && (Ca && Vn.contains(Aa.ownerDocument, Aa) && nn(tn(Aa, "script")),
             Aa.parentNode.removeChild(Aa));
         return wa
     }
     function mn(wa, Pa, Ca) {
-        var Da = wa.style, Aa, Ra, Ma, Ia;
-        return (Ca = Ca || Ur(wa)) && ("" !== (Ia = Ca.getPropertyValue(Pa) || Ca[Pa]) || Vn.contains(wa.ownerDocument, wa) || (Ia = Vn.style(wa, Pa)),
-        !zn.pixelMarginRight() && Br.test(Ia) && Fr.test(Pa) && (Aa = Da.width,
-        Ra = Da.minWidth,
-        Ma = Da.maxWidth,
-        Da.minWidth = Da.maxWidth = Da.width = Ia,
-        Ia = Ca.width,
-        Da.width = Aa,
-        Da.minWidth = Ra,
-        Da.maxWidth = Ma)),
-        void 0 === Ia ? Ia : Ia + ""
+        var Ia = wa.style, Aa, Ra, Da, Ma;
+        return (Ca = Ca || Ur(wa)) && ("" !== (Ma = Ca.getPropertyValue(Pa) || Ca[Pa]) || Vn.contains(wa.ownerDocument, wa) || (Ma = Vn.style(wa, Pa)),
+        !zn.pixelMarginRight() && Br.test(Ma) && Fr.test(Pa) && (Aa = Ia.width,
+        Ra = Ia.minWidth,
+        Da = Ia.maxWidth,
+        Ia.minWidth = Ia.maxWidth = Ia.width = Ma,
+        Ma = Ca.width,
+        Ia.width = Aa,
+        Ia.minWidth = Ra,
+        Ia.maxWidth = Da)),
+        void 0 === Ma ? Ma : Ma + ""
     }
     function yn(wa, Pa) {
         return {
@@ -297,19 +297,19 @@
         return Aa ? Math.max(0, Aa[2] - (Ca || 0)) + (Aa[3] || "px") : Pa
     }
     function xn(wa, Pa, Ca, Aa, Ra) {
-        var Ia = 0, Ma;
-        for (Ma = Ca === (Aa ? "border" : "content") ? 4 : "width" === Pa ? 1 : 0; 4 > Ma; Ma += 2)
-            "margin" === Ca && (Ia += Vn.css(wa, Ca + br[Ma], !0, Ra)),
-            Aa ? ("content" === Ca && (Ia -= Vn.css(wa, "padding" + br[Ma], !0, Ra)),
-            "margin" !== Ca && (Ia -= Vn.css(wa, "border" + br[Ma] + "Width", !0, Ra))) : (Ia += Vn.css(wa, "padding" + br[Ma], !0, Ra),
-            "padding" !== Ca && (Ia += Vn.css(wa, "border" + br[Ma] + "Width", !0, Ra)));
-        return Ia
+        var Ma = 0, Da;
+        for (Da = Ca === (Aa ? "border" : "content") ? 4 : "width" === Pa ? 1 : 0; 4 > Da; Da += 2)
+            "margin" === Ca && (Ma += Vn.css(wa, Ca + br[Da], !0, Ra)),
+            Aa ? ("content" === Ca && (Ma -= Vn.css(wa, "padding" + br[Da], !0, Ra)),
+            "margin" !== Ca && (Ma -= Vn.css(wa, "border" + br[Da] + "Width", !0, Ra))) : (Ma += Vn.css(wa, "padding" + br[Da], !0, Ra),
+            "padding" !== Ca && (Ma += Vn.css(wa, "border" + br[Da] + "Width", !0, Ra)));
+        return Ma
     }
     function vn(wa, Pa, Ca) {
-        var Ra = Ur(wa), Ma = mn(wa, Pa, Ra), Ia = "border-box" === Vn.css(wa, "boxSizing", !1, Ra), Aa;
-        return Br.test(Ma) ? Ma : (Aa = Ia && (zn.boxSizingReliable() || Ma === wa.style[Pa]),
-        "auto" === Ma && (Ma = wa["offset" + Pa[0].toUpperCase() + Pa.slice(1)]),
-        (Ma = parseFloat(Ma) || 0) + xn(wa, Pa, Ca || (Ia ? "border" : "content"), Aa, Ra) + "px")
+        var Ra = Ur(wa), Da = mn(wa, Pa, Ra), Ma = "border-box" === Vn.css(wa, "boxSizing", !1, Ra), Aa;
+        return Br.test(Da) ? Da : (Aa = Ma && (zn.boxSizingReliable() || Da === wa.style[Pa]),
+        "auto" === Da && (Da = wa["offset" + Pa[0].toUpperCase() + Pa.slice(1)]),
+        (Da = parseFloat(Da) || 0) + xn(wa, Pa, Ca || (Ma ? "border" : "content"), Aa, Ra) + "px")
     }
     function Tn(wa, Pa, Ca, Aa, Ra) {
         return new Tn.prototype.init(wa,Pa,Ca,Aa,Ra)
@@ -334,23 +334,23 @@
         Ra
     }
     function Pn(wa, Pa, Ca) {
-        for (var Ra = (Cn.tweeners[Pa] || []).concat(Cn.tweeners["*"]), Ma = 0, Ia = Ra.length, Aa; Ma < Ia; Ma++)
-            if (Aa = Ra[Ma].call(Ca, Pa, wa))
+        for (var Ra = (Cn.tweeners[Pa] || []).concat(Cn.tweeners["*"]), Da = 0, Ma = Ra.length, Aa; Da < Ma; Da++)
+            if (Aa = Ra[Da].call(Ca, Pa, wa))
                 return Aa
     }
     function Cn(wa, Pa, Ca) {
-        var Ma = 0, Ia = Cn.prefilters.length, Da = Vn.Deferred().always(function() {
+        var Da = 0, Ma = Cn.prefilters.length, Ia = Vn.Deferred().always(function() {
             delete Oa.elem
         }), Oa = function() {
             if (Ra)
                 return !1;
             for (var Na = zr || Sn(), Fa = Math.max(0, La.startTime + La.duration - Na), Ba = 1 - (Fa / La.duration || 0), Ua = 0, Xa = La.tweens.length; Ua < Xa; Ua++)
                 La.tweens[Ua].run(Ba);
-            return Da.notifyWith(wa, [La, Ba, Fa]),
-            1 > Ba && Xa ? Fa : (Xa || Da.notifyWith(wa, [La, 1, 0]),
-            Da.resolveWith(wa, [La]),
+            return Ia.notifyWith(wa, [La, Ba, Fa]),
+            1 > Ba && Xa ? Fa : (Xa || Ia.notifyWith(wa, [La, 1, 0]),
+            Ia.resolveWith(wa, [La]),
             !1)
-        }, La = Da.promise({
+        }, La = Ia.promise({
             elem: wa,
             props: Vn.extend({}, Pa),
             opts: Vn.extend(!0, {
@@ -374,8 +374,8 @@
                     return this;
                 for (Ra = !0; Fa < Ba; Fa++)
                     La.tweens[Fa].run(1);
-                return Na ? (Da.notifyWith(wa, [La, 1, 0]),
-                Da.resolveWith(wa, [La, Na])) : Da.rejectWith(wa, [La, Na]),
+                return Na ? (Ia.notifyWith(wa, [La, 1, 0]),
+                Ia.resolveWith(wa, [La, Na])) : Ia.rejectWith(wa, [La, Na]),
                 this
             }
         }), ka = La.props, Aa, Ra;
@@ -397,8 +397,8 @@
                         Fa[Ba] = Xa);
                 else
                     Fa[Ua] = Xa
-        }(ka, La.opts.specialEasing); Ma < Ia; Ma++)
-            if (Aa = Cn.prefilters[Ma].call(La, wa, ka, La.opts))
+        }(ka, La.opts.specialEasing); Da < Ma; Da++)
+            if (Aa = Cn.prefilters[Da].call(La, wa, ka, La.opts))
                 return Vn.isFunction(Aa.stop) && (Vn._queueHooks(La.elem, La.opts.queue).stop = Vn.proxy(Aa.stop, Aa)),
                 Aa;
         return Vn.map(ka, Pn, La),
@@ -417,43 +417,43 @@
     function Rn(wa) {
         return wa.getAttribute && wa.getAttribute("class") || ""
     }
-    function Mn(wa, Pa, Ca, Aa) {
+    function Dn(wa, Pa, Ca, Aa) {
         if (Array.isArray(Pa))
-            Vn.each(Pa, function(Ma, Ia) {
-                Ca || oa.test(wa) ? Aa(wa, Ia) : Mn(wa + "[" + ("object" == typeof Ia && null != Ia ? Ma : "") + "]", Ia, Ca, Aa)
+            Vn.each(Pa, function(Da, Ma) {
+                Ca || oa.test(wa) ? Aa(wa, Ma) : Dn(wa + "[" + ("object" == typeof Ma && null != Ma ? Da : "") + "]", Ma, Ca, Aa)
             });
         else if (Ca || "object" !== Vn.type(Pa))
             Aa(wa, Pa);
         else
             for (var Ra in Pa)
-                Mn(wa + "[" + Ra + "]", Pa[Ra], Ca, Aa)
+                Dn(wa + "[" + Ra + "]", Pa[Ra], Ca, Aa)
     }
-    function In(wa) {
+    function Mn(wa) {
         return function(Pa, Ca) {
             "string" != typeof Pa && (Ca = Pa,
             Pa = "*");
-            var Ra = 0, Ma = Pa.toLowerCase().match(dr) || [], Aa;
+            var Ra = 0, Da = Pa.toLowerCase().match(dr) || [], Aa;
             if (Vn.isFunction(Ca))
-                for (; Aa = Ma[Ra++]; )
+                for (; Aa = Da[Ra++]; )
                     "+" === Aa[0] ? (Aa = Aa.slice(1) || "*",
                     (wa[Aa] = wa[Aa] || []).unshift(Ca)) : (wa[Aa] = wa[Aa] || []).push(Ca)
         }
     }
-    function Dn(wa, Pa, Ca, Aa) {
-        function Ra(Da) {
+    function In(wa, Pa, Ca, Aa) {
+        function Ra(Ia) {
             var Oa;
-            return Ma[Da] = !0,
-            Vn.each(wa[Da] || [], function(La, ka) {
+            return Da[Ia] = !0,
+            Vn.each(wa[Ia] || [], function(La, ka) {
                 var Na = ka(Pa, Ca, Aa);
-                return "string" != typeof Na || Ia || Ma[Na] ? Ia ? !(Oa = Na) : void 0 : (Pa.dataTypes.unshift(Na),
+                return "string" != typeof Na || Ma || Da[Na] ? Ma ? !(Oa = Na) : void 0 : (Pa.dataTypes.unshift(Na),
                 Ra(Na),
                 !1)
             }),
             Oa
         }
-        var Ma = {}
-          , Ia = wa === ma;
-        return Ra(Pa.dataTypes[0]) || !Ma["*"] && Ra("*")
+        var Da = {}
+          , Ma = wa === ma;
+        return Ra(Pa.dataTypes[0]) || !Da["*"] && Ra("*")
     }
     function On(wa, Pa) {
         var Ra = Vn.ajaxSettings.flatOptions || {}, Ca, Aa;
@@ -480,8 +480,8 @@
     }
       , qn = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g
       , Kn = /^-ms-/
-      , Zn = /-([a-z])/g
-      , Qn = function(wa, Pa) {
+      , Qn = /-([a-z])/g
+      , Zn = function(wa, Pa) {
         return Pa.toUpperCase()
     };
     Vn.fn = Vn.prototype = {
@@ -529,20 +529,20 @@
         splice: Ln.splice
     },
     Vn.extend = Vn.fn.extend = function() {
-        var Ia = arguments[0] || {}, Da = 1, Oa = arguments.length, La = !1, wa, Pa, Ca, Aa, Ra, Ma;
-        for ("boolean" == typeof Ia && (La = Ia,
-        Ia = arguments[Da] || {},
-        Da++),
-        "object" == typeof Ia || Vn.isFunction(Ia) || (Ia = {}),
-        Da === Oa && (Ia = this,
-        Da--); Da < Oa; Da++)
-            if (null != (wa = arguments[Da]))
+        var Ma = arguments[0] || {}, Ia = 1, Oa = arguments.length, La = !1, wa, Pa, Ca, Aa, Ra, Da;
+        for ("boolean" == typeof Ma && (La = Ma,
+        Ma = arguments[Ia] || {},
+        Ia++),
+        "object" == typeof Ma || Vn.isFunction(Ma) || (Ma = {}),
+        Ia === Oa && (Ma = this,
+        Ia--); Ia < Oa; Ia++)
+            if (null != (wa = arguments[Ia]))
                 for (Pa in wa)
-                    Ca = Ia[Pa],
-                    Ia !== (Aa = wa[Pa]) && (La && Aa && (Vn.isPlainObject(Aa) || (Ra = Array.isArray(Aa))) ? (Ra ? (Ra = !1,
-                    Ma = Ca && Array.isArray(Ca) ? Ca : []) : Ma = Ca && Vn.isPlainObject(Ca) ? Ca : {},
-                    Ia[Pa] = Vn.extend(La, Ma, Aa)) : void 0 != Aa && (Ia[Pa] = Aa));
-        return Ia
+                    Ca = Ma[Pa],
+                    Ma !== (Aa = wa[Pa]) && (La && Aa && (Vn.isPlainObject(Aa) || (Ra = Array.isArray(Aa))) ? (Ra ? (Ra = !1,
+                    Da = Ca && Array.isArray(Ca) ? Ca : []) : Da = Ca && Vn.isPlainObject(Ca) ? Ca : {},
+                    Ma[Pa] = Vn.extend(La, Da, Aa)) : void 0 != Aa && (Ma[Pa] = Aa));
+        return Ma
     }
     ,
     Vn.extend({
@@ -578,7 +578,7 @@
             Ht(wa)
         },
         camelCase: function(wa) {
-            return wa.replace(Kn, "ms-").replace(Zn, Qn)
+            return wa.replace(Kn, "ms-").replace(Qn, Zn)
         },
         each: function(wa, Pa) {
             var Aa = 0, Ca;
@@ -609,19 +609,19 @@
             wa
         },
         grep: function(wa, Pa, Ca) {
-            for (var Aa = [], Ra = 0, Ma = wa.length; Ra < Ma; Ra++)
+            for (var Aa = [], Ra = 0, Da = wa.length; Ra < Da; Ra++)
                 !Pa(wa[Ra], Ra) !== !Ca && Aa.push(wa[Ra]);
             return Aa
         },
         map: function(wa, Pa, Ca) {
-            var Ma = 0, Ia = [], Aa, Ra;
+            var Da = 0, Ma = [], Aa, Ra;
             if (Gt(wa))
-                for (Aa = wa.length; Ma < Aa; Ma++)
-                    null != (Ra = Pa(wa[Ma], Ma, Ca)) && Ia.push(Ra);
+                for (Aa = wa.length; Da < Aa; Da++)
+                    null != (Ra = Pa(wa[Da], Da, Ca)) && Ma.push(Ra);
             else
-                for (Ma in wa)
-                    null != (Ra = Pa(wa[Ma], Ma, Ca)) && Ia.push(Ra);
-            return Bn.apply([], Ia)
+                for (Da in wa)
+                    null != (Ra = Pa(wa[Da], Da, Ca)) && Ma.push(Ra);
+            return Bn.apply([], Ma)
         },
         guid: 1,
         proxy: function(wa, Pa) {
@@ -646,59 +646,59 @@
         Hn["[object " + Pa + "]"] = Pa.toLowerCase()
     });
     var Jn = function(wa) {
-        function Pa(Ko, Zo, Qo, Jo) {
-            var ii = Zo && Zo.ownerDocument, si = Zo ? Zo.nodeType : 9, $o, ei, ti, ni, ri, ai, oi;
-            if (Qo = Qo || [],
+        function Pa(Ko, Qo, Zo, Jo) {
+            var ii = Qo && Qo.ownerDocument, si = Qo ? Qo.nodeType : 9, $o, ei, ti, ni, ri, ai, oi;
+            if (Zo = Zo || [],
             "string" != typeof Ko || !Ko || 1 !== si && 9 !== si && 11 !== si)
-                return Qo;
-            if (!Jo && ((Zo ? Zo.ownerDocument || Zo : po) !== no && to(Zo),
-            Zo = Zo || no,
+                return Zo;
+            if (!Jo && ((Qo ? Qo.ownerDocument || Qo : po) !== no && to(Qo),
+            Qo = Qo || no,
             ao)) {
                 if (11 !== si && (ri = Ho.exec(Ko)))
                     if (!($o = ri[1])) {
                         if (ri[2])
-                            return To.apply(Qo, Zo.getElementsByTagName(Ko)),
-                            Qo;
-                        if (($o = ri[3]) && ja.getElementsByClassName && Zo.getElementsByClassName)
-                            return To.apply(Qo, Zo.getElementsByClassName($o)),
-                            Qo
+                            return To.apply(Zo, Qo.getElementsByTagName(Ko)),
+                            Zo;
+                        if (($o = ri[3]) && ja.getElementsByClassName && Qo.getElementsByClassName)
+                            return To.apply(Zo, Qo.getElementsByClassName($o)),
+                            Zo
                     } else if (9 === si) {
-                        if (!(ti = Zo.getElementById($o)))
-                            return Qo;
+                        if (!(ti = Qo.getElementById($o)))
+                            return Zo;
                         if (ti.id === $o)
-                            return Qo.push(ti),
-                            Qo
-                    } else if (ii && (ti = ii.getElementById($o)) && lo(Zo, ti) && ti.id === $o)
-                        return Qo.push(ti),
-                        Qo;
+                            return Zo.push(ti),
+                            Zo
+                    } else if (ii && (ti = ii.getElementById($o)) && lo(Qo, ti) && ti.id === $o)
+                        return Zo.push(ti),
+                        Zo;
                 if (ja.qsa && !mo[Ko + " "] && (!oo || !oo.test(Ko))) {
                     if (1 !== si)
-                        ii = Zo,
+                        ii = Qo,
                         oi = Ko;
-                    else if ("object" !== Zo.nodeName.toLowerCase()) {
-                        for ((ni = Zo.getAttribute("id")) ? ni = ni.replace(jo, zo) : Zo.setAttribute("id", ni = uo),
+                    else if ("object" !== Qo.nodeName.toLowerCase()) {
+                        for ((ni = Qo.getAttribute("id")) ? ni = ni.replace(jo, zo) : Qo.setAttribute("id", ni = uo),
                         ei = (ai = Ka(Ko)).length; ei--; )
                             ai[ei] = "#" + ni + " " + Ba(ai[ei]);
                         oi = ai.join(","),
-                        ii = Go.test(Ko) && Na(Zo.parentNode) || Zo
+                        ii = Go.test(Ko) && Na(Qo.parentNode) || Qo
                     }
                     if (oi)
                         try {
-                            return To.apply(Qo, ii.querySelectorAll(oi)),
-                            Qo
+                            return To.apply(Zo, ii.querySelectorAll(oi)),
+                            Zo
                         } catch (di) {} finally {
-                            ni === uo && Zo.removeAttribute("id")
+                            ni === uo && Qo.removeAttribute("id")
                         }
                 }
             }
-            return Qa(Ko.replace(Io, "$1"), Zo, Qo, Jo)
+            return Za(Ko.replace(Mo, "$1"), Qo, Zo, Jo)
         }
         function Ca() {
-            function Ko(Qo, Jo) {
-                return Zo.push(Qo + " ") > za.cacheLength && delete Ko[Zo.shift()],
-                Ko[Qo + " "] = Jo
+            function Ko(Zo, Jo) {
+                return Qo.push(Zo + " ") > za.cacheLength && delete Ko[Qo.shift()],
+                Ko[Zo + " "] = Jo
             }
-            var Zo = [];
+            var Qo = [];
             return Ko
         }
         function Aa(Ko) {
@@ -706,53 +706,53 @@
             Ko
         }
         function Ra(Ko) {
-            var Zo = no.createElement("fieldset");
+            var Qo = no.createElement("fieldset");
             try {
-                return !!Ko(Zo)
-            } catch (Qo) {
+                return !!Ko(Qo)
+            } catch (Zo) {
                 return !1
             } finally {
-                Zo.parentNode && Zo.parentNode.removeChild(Zo),
-                Zo = null
+                Qo.parentNode && Qo.parentNode.removeChild(Qo),
+                Qo = null
             }
         }
-        function Ma(Ko, Zo) {
-            for (var Qo = Ko.split("|"), Jo = Qo.length; Jo--; )
-                za.attrHandle[Qo[Jo]] = Zo
+        function Da(Ko, Qo) {
+            for (var Zo = Ko.split("|"), Jo = Zo.length; Jo--; )
+                za.attrHandle[Zo[Jo]] = Qo
         }
-        function Ia(Ko, Zo) {
-            var Qo = Zo && Ko
-              , Jo = Qo && 1 === Ko.nodeType && 1 === Zo.nodeType && Ko.sourceIndex - Zo.sourceIndex;
+        function Ma(Ko, Qo) {
+            var Zo = Qo && Ko
+              , Jo = Zo && 1 === Ko.nodeType && 1 === Qo.nodeType && Ko.sourceIndex - Qo.sourceIndex;
             if (Jo)
                 return Jo;
-            if (Qo)
-                for (; Qo = Qo.nextSibling; )
-                    if (Qo === Zo)
+            if (Zo)
+                for (; Zo = Zo.nextSibling; )
+                    if (Zo === Qo)
                         return -1;
             return Ko ? 1 : -1
         }
-        function Da(Ko) {
-            return function(Zo) {
-                return "input" === Zo.nodeName.toLowerCase() && Zo.type === Ko
+        function Ia(Ko) {
+            return function(Qo) {
+                return "input" === Qo.nodeName.toLowerCase() && Qo.type === Ko
             }
         }
         function Oa(Ko) {
-            return function(Zo) {
-                var Qo = Zo.nodeName.toLowerCase();
-                return ("input" === Qo || "button" === Qo) && Zo.type === Ko
+            return function(Qo) {
+                var Zo = Qo.nodeName.toLowerCase();
+                return ("input" === Zo || "button" === Zo) && Qo.type === Ko
             }
         }
         function La(Ko) {
-            return function(Zo) {
-                return "form"in Zo ? Zo.parentNode && !1 === Zo.disabled ? "label"in Zo ? "label"in Zo.parentNode ? Zo.parentNode.disabled === Ko : Zo.disabled === Ko : Zo.isDisabled === Ko || Zo.isDisabled !== !Ko && qo(Zo) === Ko : Zo.disabled === Ko : "label"in Zo && Zo.disabled === Ko
+            return function(Qo) {
+                return "form"in Qo ? Qo.parentNode && !1 === Qo.disabled ? "label"in Qo ? "label"in Qo.parentNode ? Qo.parentNode.disabled === Ko : Qo.disabled === Ko : Qo.isDisabled === Ko || Qo.isDisabled !== !Ko && qo(Qo) === Ko : Qo.disabled === Ko : "label"in Qo && Qo.disabled === Ko
             }
         }
         function ka(Ko) {
-            return Aa(function(Zo) {
-                return Zo = +Zo,
-                Aa(function(Qo, Jo) {
-                    for (var ei = Ko([], Qo.length, Zo), ti = ei.length, $o; ti--; )
-                        Qo[$o = ei[ti]] && (Qo[$o] = !(Jo[$o] = Qo[$o]))
+            return Aa(function(Qo) {
+                return Qo = +Qo,
+                Aa(function(Zo, Jo) {
+                    for (var ei = Ko([], Zo.length, Qo), ti = ei.length, $o; ti--; )
+                        Zo[$o = ei[ti]] && (Zo[$o] = !(Jo[$o] = Zo[$o]))
                 })
             })
         }
@@ -761,17 +761,17 @@
         }
         function Fa() {}
         function Ba(Ko) {
-            for (var Zo = 0, Qo = Ko.length, Jo = ""; Zo < Qo; Zo++)
-                Jo += Ko[Zo].value;
+            for (var Qo = 0, Zo = Ko.length, Jo = ""; Qo < Zo; Qo++)
+                Jo += Ko[Qo].value;
             return Jo
         }
-        function Ua(Ko, Zo, Qo) {
-            var Jo = Zo.dir
-              , $o = Zo.next
+        function Ua(Ko, Qo, Zo) {
+            var Jo = Qo.dir
+              , $o = Qo.next
               , ei = $o || Jo
-              , ti = Qo && "parentNode" === ei
+              , ti = Zo && "parentNode" === ei
               , ni = fo++;
-            return Zo.first ? function(ri, ai, oi) {
+            return Qo.first ? function(ri, ai, oi) {
                 for (; ri = ri[Jo]; )
                     if (1 === ri.nodeType || ti)
                         return Ko(ri, ai, oi);
@@ -801,21 +801,21 @@
             }
         }
         function Xa(Ko) {
-            return 1 < Ko.length ? function(Zo, Qo, Jo) {
+            return 1 < Ko.length ? function(Qo, Zo, Jo) {
                 for (var $o = Ko.length; $o--; )
-                    if (!Ko[$o](Zo, Qo, Jo))
+                    if (!Ko[$o](Qo, Zo, Jo))
                         return !1;
                 return !0
             }
             : Ko[0]
         }
-        function Ha(Ko, Zo, Qo, Jo, $o) {
+        function Ha(Ko, Qo, Zo, Jo, $o) {
             for (var ti = [], ni = 0, ri = Ko.length, ei; ni < ri; ni++)
-                (ei = Ko[ni]) && (Qo && !Qo(ei, Jo, $o) || (ti.push(ei),
-                null != Zo && Zo.push(ni)));
+                (ei = Ko[ni]) && (Zo && !Zo(ei, Jo, $o) || (ti.push(ei),
+                null != Qo && Qo.push(ni)));
             return ti
         }
-        function Ga(Ko, Zo, Qo, Jo, $o, ei) {
+        function Ga(Ko, Qo, Zo, Jo, $o, ei) {
             return Jo && !Jo[uo] && (Jo = Ga(Jo)),
             $o && !$o[uo] && ($o = Ga($o, ei)),
             Aa(function(ti, ni, ri, ai) {
@@ -823,8 +823,8 @@
                     for (var yi = 0, _i = gi.length; yi < _i; yi++)
                         Pa(hi, gi[yi], mi);
                     return mi
-                }(Zo || "*", ri.nodeType ? [ri] : ri, []), ci = Ko && (ti || !Zo) ? Ha(pi, di, Ko, ri, ai) : pi, fi = Qo ? $o || (ti ? Ko : ui || Jo) ? [] : ni : ci, oi, ii, si;
-                if (Qo && Qo(ci, fi, ri, ai),
+                }(Qo || "*", ri.nodeType ? [ri] : ri, []), ci = Ko && (ti || !Qo) ? Ha(pi, di, Ko, ri, ai) : pi, fi = Zo ? $o || (ti ? Ko : ui || Jo) ? [] : ni : ci, oi, ii, si;
+                if (Zo && Zo(ci, fi, ri, ai),
                 Jo)
                     for (oi = Ha(fi, li),
                     Jo(oi, [], ri, ai),
@@ -847,38 +847,38 @@
         }
         function Ya(Ko) {
             for (var $o = Ko.length, ei = za.relative[Ko[0].type], ti = ei || za.relative[" "], ni = ei ? 1 : 0, ri = Ua(function(ii) {
-                return ii === Zo
+                return ii === Qo
             }, ti, !0), ai = Ua(function(ii) {
-                return -1 < So(Zo, ii)
+                return -1 < So(Qo, ii)
             }, ti, !0), oi = [function(ii, si, di) {
-                var li = !ei && (di || si !== Ja) || ((Zo = si).nodeType ? ri(ii, si, di) : ai(ii, si, di));
-                return Zo = null,
+                var li = !ei && (di || si !== Ja) || ((Qo = si).nodeType ? ri(ii, si, di) : ai(ii, si, di));
+                return Qo = null,
                 li
             }
-            ], Zo, Qo, Jo; ni < $o; ni++)
-                if (Qo = za.relative[Ko[ni].type])
-                    oi = [Ua(Xa(oi), Qo)];
+            ], Qo, Zo, Jo; ni < $o; ni++)
+                if (Zo = za.relative[Ko[ni].type])
+                    oi = [Ua(Xa(oi), Zo)];
                 else {
-                    if ((Qo = za.filter[Ko[ni].type].apply(null, Ko[ni].matches))[uo]) {
+                    if ((Zo = za.filter[Ko[ni].type].apply(null, Ko[ni].matches))[uo]) {
                         for (Jo = ++ni; Jo < $o && !za.relative[Ko[Jo].type]; Jo++)
                             ;
                         return Ga(1 < ni && Xa(oi), 1 < ni && Ba(Ko.slice(0, ni - 1).concat({
                             value: " " === Ko[ni - 2].type ? "*" : ""
-                        })).replace(Io, "$1"), Qo, ni < Jo && Ya(Ko.slice(ni, Jo)), Jo < $o && Ya(Ko = Ko.slice(Jo)), Jo < $o && Ba(Ko))
+                        })).replace(Mo, "$1"), Zo, ni < Jo && Ya(Ko.slice(ni, Jo)), Jo < $o && Ya(Ko = Ko.slice(Jo)), Jo < $o && Ba(Ko))
                     }
-                    oi.push(Qo)
+                    oi.push(Zo)
                 }
             return Xa(oi)
         }
-        var uo = "sizzle" + 1 * new Date, po = wa.document, co = 0, fo = 0, ho = Ca(), go = Ca(), mo = Ca(), yo = function(Ko, Zo) {
-            return Ko === Zo && (eo = !0),
+        var uo = "sizzle" + 1 * new Date, po = wa.document, co = 0, fo = 0, ho = Ca(), go = Ca(), mo = Ca(), yo = function(Ko, Qo) {
+            return Ko === Qo && (eo = !0),
             0
-        }, _o = {}.hasOwnProperty, bo = [], xo = bo.pop, vo = bo.push, To = bo.push, Eo = bo.slice, So = function(Ko, Zo) {
-            for (var Qo = 0, Jo = Ko.length; Qo < Jo; Qo++)
-                if (Ko[Qo] === Zo)
-                    return Qo;
+        }, _o = {}.hasOwnProperty, bo = [], xo = bo.pop, vo = bo.push, To = bo.push, Eo = bo.slice, So = function(Ko, Qo) {
+            for (var Zo = 0, Jo = Ko.length; Zo < Jo; Zo++)
+                if (Ko[Zo] === Qo)
+                    return Zo;
             return -1
-        }, wo = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", Po = "[\\x20\\t\\r\\n\\f]", Co = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Mo = /[\x20\t\r\n\f]+/g, Io = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Do = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, Oo = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Lo = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, ko = /:((?:\\.|[\w-]|[^-\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^-\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^-\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, No = /^(?:\\.|[\w-]|[^-\xa0])+$/, Fo = {
+        }, wo = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", Po = "[\\x20\\t\\r\\n\\f]", Co = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Do = /[\x20\t\r\n\f]+/g, Mo = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Io = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, Oo = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Lo = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, ko = /:((?:\\.|[\w-]|[^-\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^-\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^-\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, No = /^(?:\\.|[\w-]|[^-\xa0])+$/, Fo = {
             ID: /^#((?:\\.|[\w-]|[^-\xa0])+)/,
             CLASS: /^\.((?:\\.|[\w-]|[^-\xa0])+)/,
             TAG: /^((?:\\.|[\w-]|[^-\xa0])+|[*])/,
@@ -887,11 +887,11 @@
             CHILD: /^:(only|first|last|nth|nth-last)-(child|of-type)(?:\([\x20\t\r\n\f]*(even|odd|(([+-]|)(\d*)n|)[\x20\t\r\n\f]*(?:([+-]|)[\x20\t\r\n\f]*(\d+)|))[\x20\t\r\n\f]*\)|)/i,
             bool: /^(?:checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped)$/i,
             needsContext: /^[\x20\t\r\n\f]*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\([\x20\t\r\n\f]*((?:-\d)?\d*)[\x20\t\r\n\f]*\)|)(?=[^-]|$)/i
-        }, Bo = /^(?:input|select|textarea|button)$/i, Uo = /^h\d$/i, Xo = /^[^{]+\{\s*\[native \w/, Ho = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, Go = /[+~]/, Yo = /\\([\da-f]{1,6}[\x20\t\r\n\f]?|([\x20\t\r\n\f])|.)/ig, Wo = function(Ko, Zo, Qo) {
-            var Jo = "0x" + Zo - 65536;
-            return Jo != Jo || Qo ? Zo : 0 > Jo ? String.fromCharCode(Jo + 65536) : String.fromCharCode(55296 | Jo >> 10, 56320 | 1023 & Jo)
-        }, jo = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g, zo = function(Ko, Zo) {
-            return Zo ? "\0" === Ko ? "\uFFFD" : Ko.slice(0, -1) + "\\" + Ko.charCodeAt(Ko.length - 1).toString(16) + " " : "\\" + Ko
+        }, Bo = /^(?:input|select|textarea|button)$/i, Uo = /^h\d$/i, Xo = /^[^{]+\{\s*\[native \w/, Ho = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, Go = /[+~]/, Yo = /\\([\da-f]{1,6}[\x20\t\r\n\f]?|([\x20\t\r\n\f])|.)/ig, Wo = function(Ko, Qo, Zo) {
+            var Jo = "0x" + Qo - 65536;
+            return Jo != Jo || Zo ? Qo : 0 > Jo ? String.fromCharCode(Jo + 65536) : String.fromCharCode(55296 | Jo >> 10, 56320 | 1023 & Jo)
+        }, jo = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g, zo = function(Ko, Qo) {
+            return Qo ? "\0" === Ko ? "\uFFFD" : Ko.slice(0, -1) + "\\" + Ko.charCodeAt(Ko.length - 1).toString(16) + " " : "\\" + Ko
         }, Vo = function() {
             to()
         }, qo = Ua(function(Ko) {
@@ -899,34 +899,34 @@
         }, {
             dir: "parentNode",
             next: "legend"
-        }), Wa, ja, za, Va, qa, Ka, Za, Qa, Ja, $a, eo, to, no, ro, ao, oo, io, so, lo;
+        }), Wa, ja, za, Va, qa, Ka, Qa, Za, Ja, $a, eo, to, no, ro, ao, oo, io, so, lo;
         try {
             To.apply(bo = Eo.call(po.childNodes), po.childNodes),
             bo[po.childNodes.length].nodeType
         } catch (Ko) {
             To = {
-                apply: bo.length ? function(Zo, Qo) {
-                    vo.apply(Zo, Eo.call(Qo))
+                apply: bo.length ? function(Qo, Zo) {
+                    vo.apply(Qo, Eo.call(Zo))
                 }
-                : function(Zo, Qo) {
-                    for (var Jo = Zo.length, $o = 0; Zo[Jo++] = Qo[$o++]; )
+                : function(Qo, Zo) {
+                    for (var Jo = Qo.length, $o = 0; Qo[Jo++] = Zo[$o++]; )
                         ;
-                    Zo.length = Jo - 1
+                    Qo.length = Jo - 1
                 }
             }
         }
         for (Wa in ja = Pa.support = {},
         qa = Pa.isXML = function(Ko) {
-            var Zo = Ko && (Ko.ownerDocument || Ko).documentElement;
-            return !!Zo && "HTML" !== Zo.nodeName
+            var Qo = Ko && (Ko.ownerDocument || Ko).documentElement;
+            return !!Qo && "HTML" !== Qo.nodeName
         }
         ,
         to = Pa.setDocument = function(Ko) {
-            var Jo = Ko ? Ko.ownerDocument || Ko : po, Zo, Qo;
+            var Jo = Ko ? Ko.ownerDocument || Ko : po, Qo, Zo;
             return Jo !== no && 9 === Jo.nodeType && Jo.documentElement ? (no = Jo,
             ro = no.documentElement,
             ao = !qa(no),
-            po !== no && (Qo = no.defaultView) && Qo.top !== Qo && (Qo.addEventListener ? Qo.addEventListener("unload", Vo, !1) : Qo.attachEvent && Qo.attachEvent("onunload", Vo)),
+            po !== no && (Zo = no.defaultView) && Zo.top !== Zo && (Zo.addEventListener ? Zo.addEventListener("unload", Vo, !1) : Zo.attachEvent && Zo.attachEvent("onunload", Vo)),
             ja.attributes = Ra(function($o) {
                 return $o.className = "i",
                 !$o.getAttribute("className")
@@ -1023,8 +1023,8 @@
             }),
             oo = oo.length && new RegExp(oo.join("|")),
             io = io.length && new RegExp(io.join("|")),
-            Zo = Xo.test(ro.compareDocumentPosition),
-            lo = Zo || Xo.test(ro.contains) ? function($o, ei) {
+            Qo = Xo.test(ro.compareDocumentPosition),
+            lo = Qo || Xo.test(ro.contains) ? function($o, ei) {
                 var ti = 9 === $o.nodeType ? $o.documentElement : $o
                   , ni = ei && ei.parentNode;
                 return $o === ni || ni && 1 === ni.nodeType && (ti.contains ? ti.contains(ni) : $o.compareDocumentPosition && 16 & $o.compareDocumentPosition(ni))
@@ -1037,7 +1037,7 @@
                 return !1
             }
             ,
-            yo = Zo ? function($o, ei) {
+            yo = Qo ? function($o, ei) {
                 if ($o === ei)
                     return eo = !0,
                     0;
@@ -1052,45 +1052,45 @@
                 if (!ri || !ai)
                     return $o === no ? -1 : ei === no ? 1 : ri ? -1 : ai ? 1 : $a ? So($a, $o) - So($a, ei) : 0;
                 if (ri === ai)
-                    return Ia($o, ei);
+                    return Ma($o, ei);
                 for (ti = $o; ti = ti.parentNode; )
                     oi.unshift(ti);
                 for (ti = ei; ti = ti.parentNode; )
                     ii.unshift(ti);
                 for (; oi[ni] === ii[ni]; )
                     ni++;
-                return ni ? Ia(oi[ni], ii[ni]) : oi[ni] === po ? -1 : ii[ni] === po ? 1 : 0
+                return ni ? Ma(oi[ni], ii[ni]) : oi[ni] === po ? -1 : ii[ni] === po ? 1 : 0
             }
             ,
             no) : no
         }
         ,
-        Pa.matches = function(Ko, Zo) {
-            return Pa(Ko, null, null, Zo)
+        Pa.matches = function(Ko, Qo) {
+            return Pa(Ko, null, null, Qo)
         }
         ,
-        Pa.matchesSelector = function(Ko, Zo) {
+        Pa.matchesSelector = function(Ko, Qo) {
             if ((Ko.ownerDocument || Ko) !== no && to(Ko),
-            Zo = Zo.replace(Lo, "='$1']"),
-            ja.matchesSelector && ao && !mo[Zo + " "] && (!io || !io.test(Zo)) && (!oo || !oo.test(Zo)))
+            Qo = Qo.replace(Lo, "='$1']"),
+            ja.matchesSelector && ao && !mo[Qo + " "] && (!io || !io.test(Qo)) && (!oo || !oo.test(Qo)))
                 try {
-                    var Qo = so.call(Ko, Zo);
-                    if (Qo || ja.disconnectedMatch || Ko.document && 11 !== Ko.document.nodeType)
-                        return Qo
+                    var Zo = so.call(Ko, Qo);
+                    if (Zo || ja.disconnectedMatch || Ko.document && 11 !== Ko.document.nodeType)
+                        return Zo
                 } catch (Jo) {}
-            return 0 < Pa(Zo, no, null, [Ko]).length
+            return 0 < Pa(Qo, no, null, [Ko]).length
         }
         ,
-        Pa.contains = function(Ko, Zo) {
+        Pa.contains = function(Ko, Qo) {
             return (Ko.ownerDocument || Ko) !== no && to(Ko),
-            lo(Ko, Zo)
+            lo(Ko, Qo)
         }
         ,
-        Pa.attr = function(Ko, Zo) {
+        Pa.attr = function(Ko, Qo) {
             (Ko.ownerDocument || Ko) !== no && to(Ko);
-            var Qo = za.attrHandle[Zo.toLowerCase()]
-              , Jo = Qo && _o.call(za.attrHandle, Zo.toLowerCase()) ? Qo(Ko, Zo, !ao) : void 0;
-            return void 0 === Jo ? ja.attributes || !ao ? Ko.getAttribute(Zo) : (Jo = Ko.getAttributeNode(Zo)) && Jo.specified ? Jo.value : null : Jo
+            var Zo = za.attrHandle[Qo.toLowerCase()]
+              , Jo = Zo && _o.call(za.attrHandle, Qo.toLowerCase()) ? Zo(Ko, Qo, !ao) : void 0;
+            return void 0 === Jo ? ja.attributes || !ao ? Ko.getAttribute(Qo) : (Jo = Ko.getAttributeNode(Qo)) && Jo.specified ? Jo.value : null : Jo
         }
         ,
         Pa.escape = function(Ko) {
@@ -1102,33 +1102,33 @@
         }
         ,
         Pa.uniqueSort = function(Ko) {
-            var Qo = [], Jo = 0, $o = 0, Zo;
+            var Zo = [], Jo = 0, $o = 0, Qo;
             if (eo = !ja.detectDuplicates,
             $a = !ja.sortStable && Ko.slice(0),
             Ko.sort(yo),
             eo) {
-                for (; Zo = Ko[$o++]; )
-                    Zo === Ko[$o] && (Jo = Qo.push($o));
+                for (; Qo = Ko[$o++]; )
+                    Qo === Ko[$o] && (Jo = Zo.push($o));
                 for (; Jo--; )
-                    Ko.splice(Qo[Jo], 1)
+                    Ko.splice(Zo[Jo], 1)
             }
             return $a = null,
             Ko
         }
         ,
         Va = Pa.getText = function(Ko) {
-            var Qo = "", Jo = 0, $o = Ko.nodeType, Zo;
+            var Zo = "", Jo = 0, $o = Ko.nodeType, Qo;
             if (!$o)
-                for (; Zo = Ko[Jo++]; )
-                    Qo += Va(Zo);
+                for (; Qo = Ko[Jo++]; )
+                    Zo += Va(Qo);
             else if (1 === $o || 9 === $o || 11 === $o) {
                 if ("string" == typeof Ko.textContent)
                     return Ko.textContent;
                 for (Ko = Ko.firstChild; Ko; Ko = Ko.nextSibling)
-                    Qo += Va(Ko)
+                    Zo += Va(Ko)
             } else if (3 === $o || 4 === $o)
                 return Ko.nodeValue;
-            return Qo
+            return Zo
         }
         ,
         (za = Pa.selectors = {
@@ -1168,39 +1168,39 @@
                     Ko
                 },
                 PSEUDO: function(Ko) {
-                    var Qo = !Ko[6] && Ko[2], Zo;
-                    return Fo.CHILD.test(Ko[0]) ? null : (Ko[3] ? Ko[2] = Ko[4] || Ko[5] || "" : Qo && ko.test(Qo) && (Zo = Ka(Qo, !0)) && (Zo = Qo.indexOf(")", Qo.length - Zo) - Qo.length) && (Ko[0] = Ko[0].slice(0, Zo),
-                    Ko[2] = Qo.slice(0, Zo)),
+                    var Zo = !Ko[6] && Ko[2], Qo;
+                    return Fo.CHILD.test(Ko[0]) ? null : (Ko[3] ? Ko[2] = Ko[4] || Ko[5] || "" : Zo && ko.test(Zo) && (Qo = Ka(Zo, !0)) && (Qo = Zo.indexOf(")", Zo.length - Qo) - Zo.length) && (Ko[0] = Ko[0].slice(0, Qo),
+                    Ko[2] = Zo.slice(0, Qo)),
                     Ko.slice(0, 3))
                 }
             },
             filter: {
                 TAG: function(Ko) {
-                    var Zo = Ko.replace(Yo, Wo).toLowerCase();
+                    var Qo = Ko.replace(Yo, Wo).toLowerCase();
                     return "*" === Ko ? function() {
                         return !0
                     }
-                    : function(Qo) {
-                        return Qo.nodeName && Qo.nodeName.toLowerCase() === Zo
+                    : function(Zo) {
+                        return Zo.nodeName && Zo.nodeName.toLowerCase() === Qo
                     }
                 },
                 CLASS: function(Ko) {
-                    var Zo = ho[Ko + " "];
-                    return Zo || (Zo = new RegExp("(^|" + Po + ")" + Ko + "(" + Po + "|$)")) && ho(Ko, function(Qo) {
-                        return Zo.test("string" == typeof Qo.className && Qo.className || void 0 !== Qo.getAttribute && Qo.getAttribute("class") || "")
+                    var Qo = ho[Ko + " "];
+                    return Qo || (Qo = new RegExp("(^|" + Po + ")" + Ko + "(" + Po + "|$)")) && ho(Ko, function(Zo) {
+                        return Qo.test("string" == typeof Zo.className && Zo.className || void 0 !== Zo.getAttribute && Zo.getAttribute("class") || "")
                     })
                 },
-                ATTR: function(Ko, Zo, Qo) {
+                ATTR: function(Ko, Qo, Zo) {
                     return function(Jo) {
                         var $o = Pa.attr(Jo, Ko);
-                        return null == $o ? "!=" === Zo : !Zo || ($o += "",
-                        "=" === Zo ? $o === Qo : "!=" === Zo ? $o !== Qo : "^=" === Zo ? Qo && 0 === $o.indexOf(Qo) : "*=" === Zo ? Qo && -1 < $o.indexOf(Qo) : "$=" === Zo ? Qo && $o.slice(-Qo.length) === Qo : "~=" === Zo ? -1 < (" " + $o.replace(Mo, " ") + " ").indexOf(Qo) : "|=" == Zo && ($o === Qo || $o.slice(0, Qo.length + 1) === Qo + "-"))
+                        return null == $o ? "!=" === Qo : !Qo || ($o += "",
+                        "=" === Qo ? $o === Zo : "!=" === Qo ? $o !== Zo : "^=" === Qo ? Zo && 0 === $o.indexOf(Zo) : "*=" === Qo ? Zo && -1 < $o.indexOf(Zo) : "$=" === Qo ? Zo && $o.slice(-Zo.length) === Zo : "~=" === Qo ? -1 < (" " + $o.replace(Do, " ") + " ").indexOf(Zo) : "|=" == Qo && ($o === Zo || $o.slice(0, Zo.length + 1) === Zo + "-"))
                     }
                 },
-                CHILD: function(Ko, Zo, Qo, Jo, $o) {
+                CHILD: function(Ko, Qo, Zo, Jo, $o) {
                     var ei = "nth" !== Ko.slice(0, 3)
                       , ti = "last" !== Ko.slice(-4)
-                      , ni = "of-type" === Zo;
+                      , ni = "of-type" === Qo;
                     return 1 === Jo && 0 === $o ? function(ri) {
                         return !!ri.parentNode
                     }
@@ -1233,58 +1233,58 @@
                         }
                     }
                 },
-                PSEUDO: function(Ko, Zo) {
-                    var Jo = za.pseudos[Ko] || za.setFilters[Ko.toLowerCase()] || Pa.error("unsupported pseudo: " + Ko), Qo;
-                    return Jo[uo] ? Jo(Zo) : 1 < Jo.length ? (Qo = [Ko, Ko, "", Zo],
+                PSEUDO: function(Ko, Qo) {
+                    var Jo = za.pseudos[Ko] || za.setFilters[Ko.toLowerCase()] || Pa.error("unsupported pseudo: " + Ko), Zo;
+                    return Jo[uo] ? Jo(Qo) : 1 < Jo.length ? (Zo = [Ko, Ko, "", Qo],
                     za.setFilters.hasOwnProperty(Ko.toLowerCase()) ? Aa(function($o, ei) {
-                        for (var ni = Jo($o, Zo), ri = ni.length, ti; ri--; )
+                        for (var ni = Jo($o, Qo), ri = ni.length, ti; ri--; )
                             $o[ti = So($o, ni[ri])] = !(ei[ti] = ni[ri])
                     }) : function($o) {
-                        return Jo($o, 0, Qo)
+                        return Jo($o, 0, Zo)
                     }
                     ) : Jo
                 }
             },
             pseudos: {
                 not: Aa(function(Ko) {
-                    var Zo = []
-                      , Qo = []
-                      , Jo = Za(Ko.replace(Io, "$1"));
+                    var Qo = []
+                      , Zo = []
+                      , Jo = Qa(Ko.replace(Mo, "$1"));
                     return Jo[uo] ? Aa(function($o, ei, ti, ni) {
                         for (var ai = Jo($o, null, ni, []), oi = $o.length, ri; oi--; )
                             (ri = ai[oi]) && ($o[oi] = !(ei[oi] = ri))
                     }) : function($o, ei, ti) {
-                        return Zo[0] = $o,
-                        Jo(Zo, null, ti, Qo),
-                        Zo[0] = null,
-                        !Qo.pop()
+                        return Qo[0] = $o,
+                        Jo(Qo, null, ti, Zo),
+                        Qo[0] = null,
+                        !Zo.pop()
                     }
                 }),
                 has: Aa(function(Ko) {
-                    return function(Zo) {
-                        return 0 < Pa(Ko, Zo).length
+                    return function(Qo) {
+                        return 0 < Pa(Ko, Qo).length
                     }
                 }),
                 contains: Aa(function(Ko) {
                     return Ko = Ko.replace(Yo, Wo),
-                    function(Zo) {
-                        return -1 < (Zo.textContent || Zo.innerText || Va(Zo)).indexOf(Ko)
+                    function(Qo) {
+                        return -1 < (Qo.textContent || Qo.innerText || Va(Qo)).indexOf(Ko)
                     }
                 }),
                 lang: Aa(function(Ko) {
                     return No.test(Ko || "") || Pa.error("unsupported lang: " + Ko),
                     Ko = Ko.replace(Yo, Wo).toLowerCase(),
-                    function(Zo) {
-                        var Qo;
+                    function(Qo) {
+                        var Zo;
                         do
-                            if (Qo = ao ? Zo.lang : Zo.getAttribute("xml:lang") || Zo.getAttribute("lang"))
-                                return (Qo = Qo.toLowerCase()) === Ko || 0 === Qo.indexOf(Ko + "-");
-                        while ((Zo = Zo.parentNode) && 1 === Zo.nodeType);return !1
+                            if (Zo = ao ? Qo.lang : Qo.getAttribute("xml:lang") || Qo.getAttribute("lang"))
+                                return (Zo = Zo.toLowerCase()) === Ko || 0 === Zo.indexOf(Ko + "-");
+                        while ((Qo = Qo.parentNode) && 1 === Qo.nodeType);return !1
                     }
                 }),
                 target: function(Ko) {
-                    var Zo = wa.location && wa.location.hash;
-                    return Zo && Zo.slice(1) === Ko.id
+                    var Qo = wa.location && wa.location.hash;
+                    return Qo && Qo.slice(1) === Ko.id
                 },
                 root: function(Ko) {
                     return Ko === ro
@@ -1295,8 +1295,8 @@
                 enabled: La(!1),
                 disabled: La(!0),
                 checked: function(Ko) {
-                    var Zo = Ko.nodeName.toLowerCase();
-                    return "input" === Zo && !!Ko.checked || "option" === Zo && !!Ko.selected
+                    var Qo = Ko.nodeName.toLowerCase();
+                    return "input" === Qo && !!Ko.checked || "option" === Qo && !!Ko.selected
                 },
                 selected: function(Ko) {
                     return Ko.parentNode && Ko.parentNode.selectedIndex,
@@ -1318,39 +1318,39 @@
                     return Bo.test(Ko.nodeName)
                 },
                 button: function(Ko) {
-                    var Zo = Ko.nodeName.toLowerCase();
-                    return "input" === Zo && "button" === Ko.type || "button" === Zo
+                    var Qo = Ko.nodeName.toLowerCase();
+                    return "input" === Qo && "button" === Ko.type || "button" === Qo
                 },
                 text: function(Ko) {
-                    var Zo;
-                    return "input" === Ko.nodeName.toLowerCase() && "text" === Ko.type && (null == (Zo = Ko.getAttribute("type")) || "text" === Zo.toLowerCase())
+                    var Qo;
+                    return "input" === Ko.nodeName.toLowerCase() && "text" === Ko.type && (null == (Qo = Ko.getAttribute("type")) || "text" === Qo.toLowerCase())
                 },
                 first: ka(function() {
                     return [0]
                 }),
-                last: ka(function(Ko, Zo) {
-                    return [Zo - 1]
+                last: ka(function(Ko, Qo) {
+                    return [Qo - 1]
                 }),
-                eq: ka(function(Ko, Zo, Qo) {
-                    return [0 > Qo ? Qo + Zo : Qo]
+                eq: ka(function(Ko, Qo, Zo) {
+                    return [0 > Zo ? Zo + Qo : Zo]
                 }),
-                even: ka(function(Ko, Zo) {
-                    for (var Qo = 0; Qo < Zo; Qo += 2)
-                        Ko.push(Qo);
+                even: ka(function(Ko, Qo) {
+                    for (var Zo = 0; Zo < Qo; Zo += 2)
+                        Ko.push(Zo);
                     return Ko
                 }),
-                odd: ka(function(Ko, Zo) {
-                    for (var Qo = 1; Qo < Zo; Qo += 2)
-                        Ko.push(Qo);
+                odd: ka(function(Ko, Qo) {
+                    for (var Zo = 1; Zo < Qo; Zo += 2)
+                        Ko.push(Zo);
                     return Ko
                 }),
-                lt: ka(function(Ko, Zo, Qo) {
-                    for (var Jo = 0 > Qo ? Qo + Zo : Qo; 0 <= --Jo; )
+                lt: ka(function(Ko, Qo, Zo) {
+                    for (var Jo = 0 > Zo ? Zo + Qo : Zo; 0 <= --Jo; )
                         Ko.push(Jo);
                     return Ko
                 }),
-                gt: ka(function(Ko, Zo, Qo) {
-                    for (var Jo = 0 > Qo ? Qo + Zo : Qo; ++Jo < Zo; )
+                gt: ka(function(Ko, Qo, Zo) {
+                    for (var Jo = 0 > Zo ? Zo + Qo : Zo; ++Jo < Qo; )
                         Ko.push(Jo);
                     return Ko
                 })
@@ -1363,7 +1363,7 @@
             password: !0,
             image: !0
         })
-            za.pseudos[Wa] = Da(Wa);
+            za.pseudos[Wa] = Ia(Wa);
         for (Wa in {
             submit: !0,
             reset: !0
@@ -1371,42 +1371,42 @@
             za.pseudos[Wa] = Oa(Wa);
         return Fa.prototype = za.filters = za.pseudos,
         za.setFilters = new Fa,
-        Ka = Pa.tokenize = function(Ko, Zo) {
-            var ai = go[Ko + " "], Qo, Jo, $o, ei, ti, ni, ri;
+        Ka = Pa.tokenize = function(Ko, Qo) {
+            var ai = go[Ko + " "], Zo, Jo, $o, ei, ti, ni, ri;
             if (ai)
-                return Zo ? 0 : ai.slice(0);
+                return Qo ? 0 : ai.slice(0);
             for (ti = Ko,
             ni = [],
             ri = za.preFilter; ti; ) {
-                for (ei in Qo && !(Jo = Do.exec(ti)) || (Jo && (ti = ti.slice(Jo[0].length) || ti),
+                for (ei in Zo && !(Jo = Io.exec(ti)) || (Jo && (ti = ti.slice(Jo[0].length) || ti),
                 ni.push($o = [])),
-                Qo = !1,
-                (Jo = Oo.exec(ti)) && (Qo = Jo.shift(),
+                Zo = !1,
+                (Jo = Oo.exec(ti)) && (Zo = Jo.shift(),
                 $o.push({
-                    value: Qo,
-                    type: Jo[0].replace(Io, " ")
+                    value: Zo,
+                    type: Jo[0].replace(Mo, " ")
                 }),
-                ti = ti.slice(Qo.length)),
+                ti = ti.slice(Zo.length)),
                 za.filter)
-                    (Jo = Fo[ei].exec(ti)) && (!ri[ei] || (Jo = ri[ei](Jo))) && (Qo = Jo.shift(),
+                    (Jo = Fo[ei].exec(ti)) && (!ri[ei] || (Jo = ri[ei](Jo))) && (Zo = Jo.shift(),
                     $o.push({
-                        value: Qo,
+                        value: Zo,
                         type: ei,
                         matches: Jo
                     }),
-                    ti = ti.slice(Qo.length));
-                if (!Qo)
+                    ti = ti.slice(Zo.length));
+                if (!Zo)
                     break
             }
-            return Zo ? ti.length : ti ? Pa.error(Ko) : go(Ko, ni).slice(0)
+            return Qo ? ti.length : ti ? Pa.error(Ko) : go(Ko, ni).slice(0)
         }
         ,
-        Za = Pa.compile = function(Ko, Zo) {
-            var Jo = [], $o = [], ei = mo[Ko + " "], Qo;
+        Qa = Pa.compile = function(Ko, Qo) {
+            var Jo = [], $o = [], ei = mo[Ko + " "], Zo;
             if (!ei) {
-                for (Zo || (Zo = Ka(Ko)),
-                Qo = Zo.length; Qo--; )
-                    (ei = Ya(Zo[Qo]))[uo] ? Jo.push(ei) : $o.push(ei);
+                for (Qo || (Qo = Ka(Ko)),
+                Zo = Qo.length; Zo--; )
+                    (ei = Ya(Qo[Zo]))[uo] ? Jo.push(ei) : $o.push(ei);
                 (ei = mo(Ko, function(ti, ni) {
                     var ri = 0 < ni.length
                       , ai = 0 < ti.length
@@ -1449,28 +1449,28 @@
             return ei
         }
         ,
-        Qa = Pa.select = function(Ko, Zo, Qo, Jo) {
+        Za = Pa.select = function(Ko, Qo, Zo, Jo) {
             var ai = "function" == typeof Ko && Ko, oi = !Jo && Ka(Ko = ai.selector || Ko), $o, ei, ti, ni, ri;
-            if (Qo = Qo || [],
+            if (Zo = Zo || [],
             1 === oi.length) {
-                if (2 < (ei = oi[0] = oi[0].slice(0)).length && "ID" === (ti = ei[0]).type && 9 === Zo.nodeType && ao && za.relative[ei[1].type]) {
-                    if (!(Zo = (za.find.ID(ti.matches[0].replace(Yo, Wo), Zo) || [])[0]))
-                        return Qo;
-                    ai && (Zo = Zo.parentNode),
+                if (2 < (ei = oi[0] = oi[0].slice(0)).length && "ID" === (ti = ei[0]).type && 9 === Qo.nodeType && ao && za.relative[ei[1].type]) {
+                    if (!(Qo = (za.find.ID(ti.matches[0].replace(Yo, Wo), Qo) || [])[0]))
+                        return Zo;
+                    ai && (Qo = Qo.parentNode),
                     Ko = Ko.slice(ei.shift().value.length)
                 }
                 for ($o = Fo.needsContext.test(Ko) ? 0 : ei.length; $o-- && (ti = ei[$o],
                 !za.relative[ni = ti.type]); )
-                    if ((ri = za.find[ni]) && (Jo = ri(ti.matches[0].replace(Yo, Wo), Go.test(ei[0].type) && Na(Zo.parentNode) || Zo))) {
+                    if ((ri = za.find[ni]) && (Jo = ri(ti.matches[0].replace(Yo, Wo), Go.test(ei[0].type) && Na(Qo.parentNode) || Qo))) {
                         if (ei.splice($o, 1),
                         !(Ko = Jo.length && Ba(ei)))
-                            return To.apply(Qo, Jo),
-                            Qo;
+                            return To.apply(Zo, Jo),
+                            Zo;
                         break
                     }
             }
-            return (ai || Za(Ko, oi))(Jo, Zo, !ao, Qo, !Zo || Go.test(Ko) && Na(Zo.parentNode) || Zo),
-            Qo
+            return (ai || Qa(Ko, oi))(Jo, Qo, !ao, Zo, !Qo || Go.test(Ko) && Na(Qo.parentNode) || Qo),
+            Zo
         }
         ,
         ja.sortStable = uo.split("").sort(yo).join("") === uo,
@@ -1482,24 +1482,24 @@
         Ra(function(Ko) {
             return Ko.innerHTML = "<a href='#'></a>",
             "#" === Ko.firstChild.getAttribute("href")
-        }) || Ma("type|href|height|width", function(Ko, Zo, Qo) {
-            if (!Qo)
-                return Ko.getAttribute(Zo, "type" === Zo.toLowerCase() ? 1 : 2)
+        }) || Da("type|href|height|width", function(Ko, Qo, Zo) {
+            if (!Zo)
+                return Ko.getAttribute(Qo, "type" === Qo.toLowerCase() ? 1 : 2)
         }),
         ja.attributes && Ra(function(Ko) {
             return Ko.innerHTML = "<input/>",
             Ko.firstChild.setAttribute("value", ""),
             "" === Ko.firstChild.getAttribute("value")
-        }) || Ma("value", function(Ko, Zo, Qo) {
-            if (!Qo && "input" === Ko.nodeName.toLowerCase())
+        }) || Da("value", function(Ko, Qo, Zo) {
+            if (!Zo && "input" === Ko.nodeName.toLowerCase())
                 return Ko.defaultValue
         }),
         Ra(function(Ko) {
             return null == Ko.getAttribute("disabled")
-        }) || Ma(wo, function(Ko, Zo, Qo) {
+        }) || Da(wo, function(Ko, Qo, Zo) {
             var Jo;
-            if (!Qo)
-                return !0 === Ko[Zo] ? Zo.toLowerCase() : (Jo = Ko.getAttributeNode(Zo)) && Jo.specified ? Jo.value : null
+            if (!Zo)
+                return !0 === Ko[Qo] ? Qo.toLowerCase() : (Jo = Ko.getAttributeNode(Qo)) && Jo.specified ? Jo.value : null
         }),
         Pa
     }(Bt);
@@ -1605,15 +1605,15 @@
             })
         },
         closest: function(wa, Pa) {
-            var Aa = 0, Ra = this.length, Ma = [], Ia = "string" != typeof wa && Vn(wa), Ca;
+            var Aa = 0, Ra = this.length, Da = [], Ma = "string" != typeof wa && Vn(wa), Ca;
             if (!tr.test(wa))
                 for (; Aa < Ra; Aa++)
                     for (Ca = this[Aa]; Ca && Ca !== Pa; Ca = Ca.parentNode)
-                        if (11 > Ca.nodeType && (Ia ? -1 < Ia.index(Ca) : 1 === Ca.nodeType && Vn.find.matchesSelector(Ca, wa))) {
-                            Ma.push(Ca);
+                        if (11 > Ca.nodeType && (Ma ? -1 < Ma.index(Ca) : 1 === Ca.nodeType && Vn.find.matchesSelector(Ca, wa))) {
+                            Da.push(Ca);
                             break
                         }
-            return this.pushStack(1 < Ma.length ? Vn.uniqueSort(Ma) : Ma)
+            return this.pushStack(1 < Da.length ? Vn.uniqueSort(Da) : Da)
         },
         index: function(wa) {
             return wa ? "string" == typeof wa ? Xn.call(Vn(wa), this[0]) : Xn.call(this, wa.jquery ? wa[0] : wa) : this[0] && this[0].parentNode ? this.first().prevAll().length : -1
@@ -1683,22 +1683,22 @@
             }),
             Na
         }(wa) : Vn.extend({}, wa);
-        var Ma = [], Ia = [], Da = -1, Oa = function() {
+        var Da = [], Ma = [], Ia = -1, Oa = function() {
             for (Ra = Ra || wa.once,
-            Aa = Pa = !0; Ia.length; Da = -1)
-                for (Ca = Ia.shift(); ++Da < Ma.length; )
-                    !1 === Ma[Da].apply(Ca[0], Ca[1]) && wa.stopOnFalse && (Da = Ma.length,
+            Aa = Pa = !0; Ma.length; Ia = -1)
+                for (Ca = Ma.shift(); ++Ia < Da.length; )
+                    !1 === Da[Ia].apply(Ca[0], Ca[1]) && wa.stopOnFalse && (Ia = Da.length,
                     Ca = !1);
             wa.memory || (Ca = !1),
             Pa = !1,
-            Ra && (Ma = Ca ? [] : "")
+            Ra && (Da = Ca ? [] : "")
         }, La = {
             add: function() {
-                return Ma && (Ca && !Pa && (Da = Ma.length - 1,
-                Ia.push(Ca)),
+                return Da && (Ca && !Pa && (Ia = Da.length - 1,
+                Ma.push(Ca)),
                 function ka(Na) {
                     Vn.each(Na, function(Fa, Ba) {
-                        Vn.isFunction(Ba) ? wa.unique && La.has(Ba) || Ma.push(Ba) : Ba && Ba.length && "string" !== Vn.type(Ba) && ka(Ba)
+                        Vn.isFunction(Ba) ? wa.unique && La.has(Ba) || Da.push(Ba) : Ba && Ba.length && "string" !== Vn.type(Ba) && ka(Ba)
                     })
                 }(arguments),
                 Ca && !Pa && Oa()),
@@ -1706,30 +1706,30 @@
             },
             remove: function() {
                 return Vn.each(arguments, function(ka, Na) {
-                    for (var Fa; -1 < (Fa = Vn.inArray(Na, Ma, Fa)); )
-                        Ma.splice(Fa, 1),
-                        Fa <= Da && Da--
+                    for (var Fa; -1 < (Fa = Vn.inArray(Na, Da, Fa)); )
+                        Da.splice(Fa, 1),
+                        Fa <= Ia && Ia--
                 }),
                 this
             },
             has: function(ka) {
-                return ka ? -1 < Vn.inArray(ka, Ma) : 0 < Ma.length
+                return ka ? -1 < Vn.inArray(ka, Da) : 0 < Da.length
             },
             empty: function() {
-                return Ma && (Ma = []),
+                return Da && (Da = []),
                 this
             },
             disable: function() {
-                return Ra = Ia = [],
-                Ma = Ca = "",
+                return Ra = Ma = [],
+                Da = Ca = "",
                 this
             },
             disabled: function() {
-                return !Ma
+                return !Da
             },
             lock: function() {
-                return Ra = Ia = [],
-                Ca || Pa || (Ma = Ca = ""),
+                return Ra = Ma = [],
+                Ca || Pa || (Da = Ca = ""),
                 this
             },
             locked: function() {
@@ -1737,7 +1737,7 @@
             },
             fireWith: function(ka, Na) {
                 return Ra || (Na = [ka, (Na = Na || []).slice ? Na.slice() : Na],
-                Ia.push(Na),
+                Ma.push(Na),
                 Pa || Oa()),
                 this
             },
@@ -1764,23 +1764,23 @@
                     return Ra.done(arguments).fail(arguments),
                     this
                 },
-                catch: function(Ma) {
-                    return Aa.then(null, Ma)
+                catch: function(Da) {
+                    return Aa.then(null, Da)
                 },
                 pipe: function() {
-                    var Ma = arguments;
-                    return Vn.Deferred(function(Ia) {
-                        Vn.each(Pa, function(Da, Oa) {
-                            var La = Vn.isFunction(Ma[Oa[4]]) && Ma[Oa[4]];
+                    var Da = arguments;
+                    return Vn.Deferred(function(Ma) {
+                        Vn.each(Pa, function(Ia, Oa) {
+                            var La = Vn.isFunction(Da[Oa[4]]) && Da[Oa[4]];
                             Ra[Oa[1]](function() {
                                 var ka = La && La.apply(this, arguments);
-                                ka && Vn.isFunction(ka.promise) ? ka.promise().progress(Ia.notify).done(Ia.resolve).fail(Ia.reject) : Ia[Oa[0] + "With"](this, La ? [ka] : arguments)
+                                ka && Vn.isFunction(ka.promise) ? ka.promise().progress(Ma.notify).done(Ma.resolve).fail(Ma.reject) : Ma[Oa[0] + "With"](this, La ? [ka] : arguments)
                             })
                         }),
-                        Ma = null
+                        Da = null
                     }).promise()
                 },
-                then: function(Ma, Ia, Da) {
+                then: function(Da, Ma, Ia) {
                     function Oa(ka, Na, Fa, Ba) {
                         return function() {
                             var Ua = this
@@ -1814,30 +1814,30 @@
                     }
                     var La = 0;
                     return Vn.Deferred(function(ka) {
-                        Pa[0][3].add(Oa(0, ka, Vn.isFunction(Da) ? Da : zt, ka.notifyWith)),
-                        Pa[1][3].add(Oa(0, ka, Vn.isFunction(Ma) ? Ma : zt)),
-                        Pa[2][3].add(Oa(0, ka, Vn.isFunction(Ia) ? Ia : Vt))
+                        Pa[0][3].add(Oa(0, ka, Vn.isFunction(Ia) ? Ia : zt, ka.notifyWith)),
+                        Pa[1][3].add(Oa(0, ka, Vn.isFunction(Da) ? Da : zt)),
+                        Pa[2][3].add(Oa(0, ka, Vn.isFunction(Ma) ? Ma : Vt))
                     }).promise()
                 },
-                promise: function(Ma) {
-                    return null == Ma ? Aa : Vn.extend(Ma, Aa)
+                promise: function(Da) {
+                    return null == Da ? Aa : Vn.extend(Da, Aa)
                 }
             }
               , Ra = {};
-            return Vn.each(Pa, function(Ma, Ia) {
-                var Da = Ia[2]
-                  , Oa = Ia[5];
-                Aa[Ia[1]] = Da.add,
-                Oa && Da.add(function() {
+            return Vn.each(Pa, function(Da, Ma) {
+                var Ia = Ma[2]
+                  , Oa = Ma[5];
+                Aa[Ma[1]] = Ia.add,
+                Oa && Ia.add(function() {
                     Ca = Oa
-                }, Pa[3 - Ma][2].disable, Pa[0][2].lock),
-                Da.add(Ia[3].fire),
-                Ra[Ia[0]] = function() {
-                    return Ra[Ia[0] + "With"](this === Ra ? void 0 : this, arguments),
+                }, Pa[3 - Da][2].disable, Pa[0][2].lock),
+                Ia.add(Ma[3].fire),
+                Ra[Ma[0]] = function() {
+                    return Ra[Ma[0] + "With"](this === Ra ? void 0 : this, arguments),
                     this
                 }
                 ,
-                Ra[Ia[0] + "With"] = Da.fireWith
+                Ra[Ma[0] + "With"] = Ia.fireWith
             }),
             Aa.promise(Ra),
             wa && wa.call(Ra, Ra),
@@ -1848,20 +1848,20 @@
               , Ca = Pa
               , Aa = Array(Ca)
               , Ra = Fn.call(arguments)
-              , Ma = Vn.Deferred()
-              , Ia = function(Da) {
+              , Da = Vn.Deferred()
+              , Ma = function(Ia) {
                 return function(Oa) {
-                    Aa[Da] = this,
-                    Ra[Da] = 1 < arguments.length ? Fn.call(arguments) : Oa,
-                    --Pa || Ma.resolveWith(Aa, Ra)
+                    Aa[Ia] = this,
+                    Ra[Ia] = 1 < arguments.length ? Fn.call(arguments) : Oa,
+                    --Pa || Da.resolveWith(Aa, Ra)
                 }
             };
-            if (1 >= Pa && (qt(wa, Ma.done(Ia(Ca)).resolve, Ma.reject, !Pa),
-            "pending" === Ma.state() || Vn.isFunction(Ra[Ca] && Ra[Ca].then)))
-                return Ma.then();
+            if (1 >= Pa && (qt(wa, Da.done(Ma(Ca)).resolve, Da.reject, !Pa),
+            "pending" === Da.state() || Vn.isFunction(Ra[Ca] && Ra[Ca].then)))
+                return Da.then();
             for (; Ca--; )
-                qt(Ra[Ca], Ia(Ca), Ma.reject);
-            return Ma.promise()
+                qt(Ra[Ca], Ma(Ca), Da.reject);
+            return Da.promise()
         }
     });
     var lr = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
@@ -1894,32 +1894,32 @@
     Vn.ready.then = ur.then,
     "complete" !== kn.readyState && ("loading" === kn.readyState || kn.documentElement.doScroll) ? (kn.addEventListener("DOMContentLoaded", Kt),
     Bt.addEventListener("load", Kt)) : Bt.setTimeout(Vn.ready);
-    var pr = function(wa, Pa, Ca, Aa, Ra, Ma, Ia) {
-        var Da = 0
+    var pr = function(wa, Pa, Ca, Aa, Ra, Da, Ma) {
+        var Ia = 0
           , Oa = wa.length
           , La = null == Ca;
         if ("object" === Vn.type(Ca))
-            for (Da in Ra = !0,
+            for (Ia in Ra = !0,
             Ca)
-                pr(wa, Pa, Da, Ca[Da], !0, Ma, Ia);
+                pr(wa, Pa, Ia, Ca[Ia], !0, Da, Ma);
         else if (void 0 !== Aa && (Ra = !0,
-        Vn.isFunction(Aa) || (Ia = !0),
-        La && (Ia ? (Pa.call(wa, Aa),
+        Vn.isFunction(Aa) || (Ma = !0),
+        La && (Ma ? (Pa.call(wa, Aa),
         Pa = null) : (La = Pa,
         Pa = function(ka, Na, Fa) {
             return La.call(Vn(ka), Fa)
         }
         )),
         Pa))
-            for (; Da < Oa; Da++)
-                Pa(wa[Da], Ca, Ia ? Aa : Aa.call(wa[Da], Da, Pa(wa[Da], Ca)));
-        return Ra ? wa : La ? Pa.call(wa) : Oa ? Pa(wa[0], Ca) : Ma
+            for (; Ia < Oa; Ia++)
+                Pa(wa[Ia], Ca, Ma ? Aa : Aa.call(wa[Ia], Ia, Pa(wa[Ia], Ca)));
+        return Ra ? wa : La ? Pa.call(wa) : Oa ? Pa(wa[0], Ca) : Da
     }
       , cr = function(wa) {
         return 1 === wa.nodeType || 9 === wa.nodeType || !+wa.nodeType
     };
-    Zt.uid = 1,
-    Zt.prototype = {
+    Qt.uid = 1,
+    Qt.prototype = {
         cache: function(wa) {
             var Pa = wa[this.expando];
             return Pa || (Pa = {},
@@ -1959,8 +1959,8 @@
             return void 0 !== Pa && !Vn.isEmptyObject(Pa)
         }
     };
-    var fr = new Zt
-      , hr = new Zt
+    var fr = new Qt
+      , hr = new Qt
       , gr = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/
       , mr = /[A-Z]/g;
     Vn.extend({
@@ -1982,29 +1982,29 @@
     }),
     Vn.fn.extend({
         data: function(wa, Pa) {
-            var Ma = this[0], Ia = Ma && Ma.attributes, Ca, Aa, Ra;
+            var Da = this[0], Ma = Da && Da.attributes, Ca, Aa, Ra;
             if (void 0 === wa) {
-                if (this.length && (Ra = hr.get(Ma),
-                1 === Ma.nodeType && !fr.get(Ma, "hasDataAttrs"))) {
-                    for (Ca = Ia.length; Ca--; )
-                        Ia[Ca] && 0 === (Aa = Ia[Ca].name).indexOf("data-") && (Aa = Vn.camelCase(Aa.slice(5)),
-                        Qt(Ma, Aa, Ra[Aa]));
-                    fr.set(Ma, "hasDataAttrs", !0)
+                if (this.length && (Ra = hr.get(Da),
+                1 === Da.nodeType && !fr.get(Da, "hasDataAttrs"))) {
+                    for (Ca = Ma.length; Ca--; )
+                        Ma[Ca] && 0 === (Aa = Ma[Ca].name).indexOf("data-") && (Aa = Vn.camelCase(Aa.slice(5)),
+                        Zt(Da, Aa, Ra[Aa]));
+                    fr.set(Da, "hasDataAttrs", !0)
                 }
                 return Ra
             }
             return "object" == typeof wa ? this.each(function() {
                 hr.set(this, wa)
-            }) : pr(this, function(Da) {
+            }) : pr(this, function(Ia) {
                 var Oa;
-                if (Ma && void 0 === Da) {
-                    if (void 0 !== (Oa = hr.get(Ma, wa)))
+                if (Da && void 0 === Ia) {
+                    if (void 0 !== (Oa = hr.get(Da, wa)))
                         return Oa;
-                    if (void 0 !== (Oa = Qt(Ma, wa)))
+                    if (void 0 !== (Oa = Zt(Da, wa)))
                         return Oa
                 } else
                     this.each(function() {
-                        hr.set(this, wa, Da)
+                        hr.set(this, wa, Ia)
                     })
             }, null, Pa, 1 < arguments.length, null, !0)
         },
@@ -2028,15 +2028,15 @@
             var Ca = Vn.queue(wa, Pa)
               , Aa = Ca.length
               , Ra = Ca.shift()
-              , Ma = Vn._queueHooks(wa, Pa);
+              , Da = Vn._queueHooks(wa, Pa);
             "inprogress" === Ra && (Ra = Ca.shift(),
             Aa--),
             Ra && ("fx" === Pa && Ca.unshift("inprogress"),
-            delete Ma.stop,
+            delete Da.stop,
             Ra.call(wa, function() {
                 Vn.dequeue(wa, Pa)
-            }, Ma)),
-            !Aa && Ma && Ma.empty.fire()
+            }, Da)),
+            !Aa && Da && Da.empty.fire()
         },
         _queueHooks: function(wa, Pa) {
             var Ca = Pa + "queueHooks";
@@ -2068,15 +2068,15 @@
             return this.queue(wa || "fx", [])
         },
         promise: function(wa, Pa) {
-            var Aa = 1, Ra = Vn.Deferred(), Ma = this, Ia = this.length, Da = function() {
-                --Aa || Ra.resolveWith(Ma, [Ma])
+            var Aa = 1, Ra = Vn.Deferred(), Da = this, Ma = this.length, Ia = function() {
+                --Aa || Ra.resolveWith(Da, [Da])
             }, Ca;
             for ("string" != typeof wa && (Pa = wa,
             wa = void 0),
-            wa = wa || "fx"; Ia--; )
-                (Ca = fr.get(Ma[Ia], wa + "queueHooks")) && Ca.empty && (Aa++,
-                Ca.empty.add(Da));
-            return Da(),
+            wa = wa || "fx"; Ma--; )
+                (Ca = fr.get(Da[Ma], wa + "queueHooks")) && Ca.empty && (Aa++,
+                Ca.empty.add(Ia));
+            return Ia(),
             Ra.promise(Pa)
         }
     });
@@ -2087,13 +2087,13 @@
         return "none" === (wa = Pa || wa).style.display || "" === wa.style.display && Vn.contains(wa.ownerDocument, wa) && "none" === Vn.css(wa, "display")
     }
       , vr = function(wa, Pa, Ca, Aa) {
-        var Ia = {}, Ra, Ma;
-        for (Ma in Pa)
-            Ia[Ma] = wa.style[Ma],
-            wa.style[Ma] = Pa[Ma];
-        for (Ma in Ra = Ca.apply(wa, Aa || []),
+        var Ma = {}, Ra, Da;
+        for (Da in Pa)
+            Ma[Da] = wa.style[Da],
+            wa.style[Da] = Pa[Da];
+        for (Da in Ra = Ca.apply(wa, Aa || []),
         Pa)
-            wa.style[Ma] = Ia[Ma];
+            wa.style[Da] = Ma[Da];
         return Ra
     }
       , Tr = {};
@@ -2138,25 +2138,25 @@
     }();
     var Ar = kn.documentElement
       , Rr = /^key/
-      , Mr = /^(?:mouse|pointer|contextmenu|drag|drop)|click/
-      , Ir = /^([^.]*)(?:\.(.+)|)/;
+      , Dr = /^(?:mouse|pointer|contextmenu|drag|drop)|click/
+      , Mr = /^([^.]*)(?:\.(.+)|)/;
     Vn.event = {
         global: {},
         add: function(wa, Pa, Ca, Aa, Ra) {
-            var Ha = fr.get(wa), Ma, Ia, Da, Oa, La, ka, Na, Fa, Ba, Ua, Xa;
+            var Ha = fr.get(wa), Da, Ma, Ia, Oa, La, ka, Na, Fa, Ba, Ua, Xa;
             if (Ha)
-                for (Ca.handler && (Ca = (Ma = Ca).handler,
-                Ra = Ma.selector),
+                for (Ca.handler && (Ca = (Da = Ca).handler,
+                Ra = Da.selector),
                 Ra && Vn.find.matchesSelector(Ar, Ra),
                 Ca.guid || (Ca.guid = Vn.guid++),
                 (Oa = Ha.events) || (Oa = Ha.events = {}),
-                (Ia = Ha.handle) || (Ia = Ha.handle = function(Ga) {
+                (Ma = Ha.handle) || (Ma = Ha.handle = function(Ga) {
                     return void 0 !== Vn && Vn.event.triggered !== Ga.type ? Vn.event.dispatch.apply(wa, arguments) : void 0
                 }
                 ),
                 La = (Pa = (Pa || "").match(dr) || [""]).length; La--; )
-                    Ba = Xa = (Da = Ir.exec(Pa[La]) || [])[1],
-                    Ua = (Da[2] || "").split(".").sort(),
+                    Ba = Xa = (Ia = Mr.exec(Pa[La]) || [])[1],
+                    Ua = (Ia[2] || "").split(".").sort(),
                     Ba && (Na = Vn.event.special[Ba] || {},
                     Ba = (Ra ? Na.delegateType : Na.bindType) || Ba,
                     Na = Vn.event.special[Ba] || {},
@@ -2169,31 +2169,31 @@
                         selector: Ra,
                         needsContext: Ra && Vn.expr.match.needsContext.test(Ra),
                         namespace: Ua.join(".")
-                    }, Ma),
+                    }, Da),
                     (Fa = Oa[Ba]) || ((Fa = Oa[Ba] = []).delegateCount = 0,
-                    Na.setup && !1 !== Na.setup.call(wa, Aa, Ua, Ia) || wa.addEventListener && wa.addEventListener(Ba, Ia)),
+                    Na.setup && !1 !== Na.setup.call(wa, Aa, Ua, Ma) || wa.addEventListener && wa.addEventListener(Ba, Ma)),
                     Na.add && (Na.add.call(wa, ka),
                     ka.handler.guid || (ka.handler.guid = Ca.guid)),
                     Ra ? Fa.splice(Fa.delegateCount++, 0, ka) : Fa.push(ka),
                     Vn.event.global[Ba] = !0)
         },
         remove: function(wa, Pa, Ca, Aa, Ra) {
-            var Ha = fr.hasData(wa) && fr.get(wa), Ma, Ia, Da, Oa, La, ka, Na, Fa, Ba, Ua, Xa;
+            var Ha = fr.hasData(wa) && fr.get(wa), Da, Ma, Ia, Oa, La, ka, Na, Fa, Ba, Ua, Xa;
             if (Ha && (Oa = Ha.events)) {
                 for (La = (Pa = (Pa || "").match(dr) || [""]).length; La--; )
-                    if (Da = Ir.exec(Pa[La]) || [],
-                    Ba = Xa = Da[1],
-                    Ua = (Da[2] || "").split(".").sort(),
+                    if (Ia = Mr.exec(Pa[La]) || [],
+                    Ba = Xa = Ia[1],
+                    Ua = (Ia[2] || "").split(".").sort(),
                     Ba) {
                         for (Na = Vn.event.special[Ba] || {},
                         Fa = Oa[Ba = (Aa ? Na.delegateType : Na.bindType) || Ba] || [],
-                        Da = Da[2] && new RegExp("(^|\\.)" + Ua.join("\\.(?:.*\\.|)") + "(\\.|$)"),
-                        Ia = Ma = Fa.length; Ma--; )
-                            ka = Fa[Ma],
-                            !Ra && Xa !== ka.origType || Ca && Ca.guid !== ka.guid || Da && !Da.test(ka.namespace) || Aa && Aa !== ka.selector && ("**" !== Aa || !ka.selector) || (Fa.splice(Ma, 1),
+                        Ia = Ia[2] && new RegExp("(^|\\.)" + Ua.join("\\.(?:.*\\.|)") + "(\\.|$)"),
+                        Ma = Da = Fa.length; Da--; )
+                            ka = Fa[Da],
+                            !Ra && Xa !== ka.origType || Ca && Ca.guid !== ka.guid || Ia && !Ia.test(ka.namespace) || Aa && Aa !== ka.selector && ("**" !== Aa || !ka.selector) || (Fa.splice(Da, 1),
                             ka.selector && Fa.delegateCount--,
                             Na.remove && Na.remove.call(wa, ka));
-                        Ia && !Fa.length && (Na.teardown && !1 !== Na.teardown.call(wa, Ua, Ha.handle) || Vn.removeEvent(wa, Ba, Ha.handle),
+                        Ma && !Fa.length && (Na.teardown && !1 !== Na.teardown.call(wa, Ua, Ha.handle) || Vn.removeEvent(wa, Ba, Ha.handle),
                         delete Oa[Ba])
                     } else
                         for (Ba in Oa)
@@ -2202,45 +2202,45 @@
             }
         },
         dispatch: function(wa) {
-            var Da = Vn.event.fix(wa), Oa = Array(arguments.length), La = (fr.get(this, "events") || {})[Da.type] || [], ka = Vn.event.special[Da.type] || {}, Pa, Ca, Aa, Ra, Ma, Ia;
-            for (Oa[0] = Da,
+            var Ia = Vn.event.fix(wa), Oa = Array(arguments.length), La = (fr.get(this, "events") || {})[Ia.type] || [], ka = Vn.event.special[Ia.type] || {}, Pa, Ca, Aa, Ra, Da, Ma;
+            for (Oa[0] = Ia,
             Pa = 1; Pa < arguments.length; Pa++)
                 Oa[Pa] = arguments[Pa];
-            if (Da.delegateTarget = this,
-            !ka.preDispatch || !1 !== ka.preDispatch.call(this, Da)) {
-                for (Ia = Vn.event.handlers.call(this, Da, La),
-                Pa = 0; (Ra = Ia[Pa++]) && !Da.isPropagationStopped(); )
-                    for (Da.currentTarget = Ra.elem,
-                    Ca = 0; (Ma = Ra.handlers[Ca++]) && !Da.isImmediatePropagationStopped(); )
-                        Da.rnamespace && !Da.rnamespace.test(Ma.namespace) || (Da.handleObj = Ma,
-                        Da.data = Ma.data,
-                        void 0 !== (Aa = ((Vn.event.special[Ma.origType] || {}).handle || Ma.handler).apply(Ra.elem, Oa)) && !1 === (Da.result = Aa) && (Da.preventDefault(),
-                        Da.stopPropagation()));
-                return ka.postDispatch && ka.postDispatch.call(this, Da),
-                Da.result
+            if (Ia.delegateTarget = this,
+            !ka.preDispatch || !1 !== ka.preDispatch.call(this, Ia)) {
+                for (Ma = Vn.event.handlers.call(this, Ia, La),
+                Pa = 0; (Ra = Ma[Pa++]) && !Ia.isPropagationStopped(); )
+                    for (Ia.currentTarget = Ra.elem,
+                    Ca = 0; (Da = Ra.handlers[Ca++]) && !Ia.isImmediatePropagationStopped(); )
+                        Ia.rnamespace && !Ia.rnamespace.test(Da.namespace) || (Ia.handleObj = Da,
+                        Ia.data = Da.data,
+                        void 0 !== (Aa = ((Vn.event.special[Da.origType] || {}).handle || Da.handler).apply(Ra.elem, Oa)) && !1 === (Ia.result = Aa) && (Ia.preventDefault(),
+                        Ia.stopPropagation()));
+                return ka.postDispatch && ka.postDispatch.call(this, Ia),
+                Ia.result
             }
         },
         handlers: function(wa, Pa) {
-            var Da = [], Oa = Pa.delegateCount, La = wa.target, Ca, Aa, Ra, Ma, Ia;
+            var Ia = [], Oa = Pa.delegateCount, La = wa.target, Ca, Aa, Ra, Da, Ma;
             if (Oa && La.nodeType && !("click" === wa.type && 1 <= wa.button))
                 for (; La !== this; La = La.parentNode || this)
                     if (1 === La.nodeType && ("click" !== wa.type || !0 !== La.disabled)) {
-                        for (Ma = [],
-                        Ia = {},
+                        for (Da = [],
+                        Ma = {},
                         Ca = 0; Ca < Oa; Ca++)
-                            void 0 === Ia[Ra = (Aa = Pa[Ca]).selector + " "] && (Ia[Ra] = Aa.needsContext ? -1 < Vn(Ra, this).index(La) : Vn.find(Ra, this, null, [La]).length),
-                            Ia[Ra] && Ma.push(Aa);
-                        Ma.length && Da.push({
+                            void 0 === Ma[Ra = (Aa = Pa[Ca]).selector + " "] && (Ma[Ra] = Aa.needsContext ? -1 < Vn(Ra, this).index(La) : Vn.find(Ra, this, null, [La]).length),
+                            Ma[Ra] && Da.push(Aa);
+                        Da.length && Ia.push({
                             elem: La,
-                            handlers: Ma
+                            handlers: Da
                         })
                     }
             return La = this,
-            Oa < Pa.length && Da.push({
+            Oa < Pa.length && Ia.push({
                 elem: La,
                 handlers: Pa.slice(Oa)
             }),
-            Da
+            Ia
         },
         addProp: function(wa, Pa) {
             Object.defineProperty(Vn.Event.prototype, wa, {
@@ -2376,7 +2376,7 @@
         touches: !0,
         which: function(wa) {
             var Pa = wa.button;
-            return null == wa.which && Rr.test(wa.type) ? null == wa.charCode ? wa.keyCode : wa.charCode : !wa.which && void 0 !== Pa && Mr.test(wa.type) ? 1 & Pa ? 1 : 2 & Pa ? 3 : 4 & Pa ? 2 : 0 : wa.which
+            return null == wa.which && Rr.test(wa.type) ? null == wa.charCode ? wa.keyCode : wa.charCode : !wa.which && void 0 !== Pa && Dr.test(wa.type) ? 1 & Pa ? 1 : 2 & Pa ? 3 : 4 & Pa ? 2 : 0 : wa.which
         }
     }, Vn.event.addProp),
     Vn.each({
@@ -2389,9 +2389,9 @@
             delegateType: Pa,
             bindType: Pa,
             handle: function(Ca) {
-                var Ra = Ca.relatedTarget, Ma = Ca.handleObj, Aa;
-                return Ra && (Ra === this || Vn.contains(this, Ra)) || (Ca.type = Ma.origType,
-                Aa = Ma.handler.apply(this, arguments),
+                var Ra = Ca.relatedTarget, Da = Ca.handleObj, Aa;
+                return Ra && (Ra === this || Vn.contains(this, Ra)) || (Ca.type = Da.origType,
+                Aa = Da.handler.apply(this, arguments),
                 Ca.type = Pa),
                 Aa
             }
@@ -2423,36 +2423,36 @@
             })
         }
     });
-    var Dr = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi
+    var Ir = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi
       , Or = /<script|<style|<link/i
       , Lr = /checked\s*(?:[^=]|=\s*.checked.)/i
       , kr = /^true\/(.*)/
       , Nr = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
     Vn.extend({
         htmlPrefilter: function(wa) {
-            return wa.replace(Dr, "<$1></$2>")
+            return wa.replace(Ir, "<$1></$2>")
         },
         clone: function(wa, Pa, Ca) {
-            var Da = wa.cloneNode(!0), Oa = Vn.contains(wa.ownerDocument, wa), Aa, Ra, Ma, Ia;
+            var Ia = wa.cloneNode(!0), Oa = Vn.contains(wa.ownerDocument, wa), Aa, Ra, Da, Ma;
             if (!(zn.noCloneChecked || 1 !== wa.nodeType && 11 !== wa.nodeType || Vn.isXMLDoc(wa)))
-                for (Ia = tn(Da),
+                for (Ma = tn(Ia),
                 Aa = 0,
-                Ra = (Ma = tn(wa)).length; Aa < Ra; Aa++)
-                    fn(Ma[Aa], Ia[Aa]);
+                Ra = (Da = tn(wa)).length; Aa < Ra; Aa++)
+                    fn(Da[Aa], Ma[Aa]);
             if (Pa)
                 if (Ca)
-                    for (Ma = Ma || tn(wa),
-                    Ia = Ia || tn(Da),
+                    for (Da = Da || tn(wa),
+                    Ma = Ma || tn(Ia),
                     Aa = 0,
-                    Ra = Ma.length; Aa < Ra; Aa++)
-                        cn(Ma[Aa], Ia[Aa]);
+                    Ra = Da.length; Aa < Ra; Aa++)
+                        cn(Da[Aa], Ma[Aa]);
                 else
-                    cn(wa, Da);
-            return 0 < (Ia = tn(Da, "script")).length && nn(Ia, !Oa && tn(wa, "script")),
-            Da
+                    cn(wa, Ia);
+            return 0 < (Ma = tn(Ia, "script")).length && nn(Ma, !Oa && tn(wa, "script")),
+            Ia
         },
         cleanData: function(wa) {
-            for (var Ra = Vn.event.special, Ma = 0, Pa, Ca, Aa; void 0 !== (Ca = wa[Ma]); Ma++)
+            for (var Ra = Vn.event.special, Da = 0, Pa, Ca, Aa; void 0 !== (Ca = wa[Da]); Da++)
                 if (cr(Ca)) {
                     if (Pa = Ca[fr.expando]) {
                         if (Pa.events)
@@ -2528,7 +2528,7 @@
                             1 === (Ca = this[Aa] || {}).nodeType && (Vn.cleanData(tn(Ca, !1)),
                             Ca.innerHTML = Pa);
                         Ca = 0
-                    } catch (Ma) {}
+                    } catch (Da) {}
                 }
                 Ca && this.empty().append(Pa)
             }, null, wa, arguments.length)
@@ -2550,9 +2550,9 @@
         replaceAll: "replaceWith"
     }, function(wa, Pa) {
         Vn.fn[wa] = function(Ca) {
-            for (var Ra = [], Ma = Vn(Ca), Ia = Ma.length - 1, Da = 0, Aa; Da <= Ia; Da++)
-                Aa = Da === Ia ? this : this.clone(!0),
-                Vn(Ma[Da])[Pa](Aa),
+            for (var Ra = [], Da = Vn(Ca), Ma = Da.length - 1, Ia = 0, Aa; Ia <= Ma; Ia++)
+                Aa = Ia === Ma ? this : this.clone(!0),
+                Vn(Da[Ia])[Pa](Aa),
                 Un.apply(Ra, Aa.get());
             return this.pushStack(Ra)
         }
@@ -2566,26 +2566,26 @@
     };
     !function() {
         function wa() {
-            if (Ia) {
-                Ia.style.cssText = "box-sizing:border-box;position:relative;display:block;margin:auto;border:1px;padding:1px;top:1%;width:50%",
-                Ia.innerHTML = "",
-                Ar.appendChild(Ma);
-                var Da = Bt.getComputedStyle(Ia);
-                Pa = "1%" !== Da.top,
-                Ra = "2px" === Da.marginLeft,
-                Ca = "4px" === Da.width,
-                Ia.style.marginRight = "50%",
-                Aa = "4px" === Da.marginRight,
-                Ar.removeChild(Ma),
-                Ia = null
+            if (Ma) {
+                Ma.style.cssText = "box-sizing:border-box;position:relative;display:block;margin:auto;border:1px;padding:1px;top:1%;width:50%",
+                Ma.innerHTML = "",
+                Ar.appendChild(Da);
+                var Ia = Bt.getComputedStyle(Ma);
+                Pa = "1%" !== Ia.top,
+                Ra = "2px" === Ia.marginLeft,
+                Ca = "4px" === Ia.width,
+                Ma.style.marginRight = "50%",
+                Aa = "4px" === Ia.marginRight,
+                Ar.removeChild(Da),
+                Ma = null
             }
         }
-        var Ma = kn.createElement("div"), Ia = kn.createElement("div"), Pa, Ca, Aa, Ra;
-        Ia.style && (Ia.style.backgroundClip = "content-box",
-        Ia.cloneNode(!0).style.backgroundClip = "",
-        zn.clearCloneStyle = "content-box" === Ia.style.backgroundClip,
-        Ma.style.cssText = "border:0;width:8px;height:0;top:0;left:-9999px;padding:0;margin-top:1px;position:absolute",
-        Ma.appendChild(Ia),
+        var Da = kn.createElement("div"), Ma = kn.createElement("div"), Pa, Ca, Aa, Ra;
+        Ma.style && (Ma.style.backgroundClip = "content-box",
+        Ma.cloneNode(!0).style.backgroundClip = "",
+        zn.clearCloneStyle = "content-box" === Ma.style.backgroundClip,
+        Da.style.cssText = "border:0;width:8px;height:0;top:0;left:-9999px;padding:0;margin-top:1px;position:absolute",
+        Da.appendChild(Ma),
         Vn.extend(zn, {
             pixelPosition: function() {
                 return wa(),
@@ -2649,26 +2649,26 @@
         },
         style: function(wa, Pa, Ca, Aa) {
             if (wa && 3 !== wa.nodeType && 8 !== wa.nodeType && wa.style) {
-                var Da = Vn.camelCase(Pa), Oa = Hr.test(Pa), La = wa.style, Ra, Ma, Ia;
-                if (Oa || (Pa = _n(Da)),
-                Ia = Vn.cssHooks[Pa] || Vn.cssHooks[Da],
+                var Ia = Vn.camelCase(Pa), Oa = Hr.test(Pa), La = wa.style, Ra, Da, Ma;
+                if (Oa || (Pa = _n(Ia)),
+                Ma = Vn.cssHooks[Pa] || Vn.cssHooks[Ia],
                 void 0 === Ca)
-                    return Ia && "get"in Ia && void 0 !== (Ra = Ia.get(wa, !1, Aa)) ? Ra : La[Pa];
-                "string" == (Ma = typeof Ca) && (Ra = _r.exec(Ca)) && Ra[1] && (Ca = Jt(wa, Pa, Ra),
-                Ma = "number"),
-                null != Ca && Ca == Ca && ("number" === Ma && (Ca += Ra && Ra[3] || (Vn.cssNumber[Da] ? "" : "px")),
+                    return Ma && "get"in Ma && void 0 !== (Ra = Ma.get(wa, !1, Aa)) ? Ra : La[Pa];
+                "string" == (Da = typeof Ca) && (Ra = _r.exec(Ca)) && Ra[1] && (Ca = Jt(wa, Pa, Ra),
+                Da = "number"),
+                null != Ca && Ca == Ca && ("number" === Da && (Ca += Ra && Ra[3] || (Vn.cssNumber[Ia] ? "" : "px")),
                 zn.clearCloneStyle || "" !== Ca || 0 !== Pa.indexOf("background") || (La[Pa] = "inherit"),
-                Ia && "set"in Ia && void 0 === (Ca = Ia.set(wa, Ca, Aa)) || (Oa ? La.setProperty(Pa, Ca) : La[Pa] = Ca))
+                Ma && "set"in Ma && void 0 === (Ca = Ma.set(wa, Ca, Aa)) || (Oa ? La.setProperty(Pa, Ca) : La[Pa] = Ca))
             }
         },
         css: function(wa, Pa, Ca, Aa) {
-            var Da = Vn.camelCase(Pa), Ra, Ma, Ia;
-            return Hr.test(Pa) || (Pa = _n(Da)),
-            (Ia = Vn.cssHooks[Pa] || Vn.cssHooks[Da]) && "get"in Ia && (Ra = Ia.get(wa, !0, Ca)),
+            var Ia = Vn.camelCase(Pa), Ra, Da, Ma;
+            return Hr.test(Pa) || (Pa = _n(Ia)),
+            (Ma = Vn.cssHooks[Pa] || Vn.cssHooks[Ia]) && "get"in Ma && (Ra = Ma.get(wa, !0, Ca)),
             void 0 === Ra && (Ra = mn(wa, Pa, Aa)),
             "normal" === Ra && Pa in Yr && (Ra = Yr[Pa]),
-            "" === Ca || Ca ? (Ma = parseFloat(Ra),
-            !0 === Ca || isFinite(Ma) ? Ma || 0 : Ra) : Ra
+            "" === Ca || Ca ? (Da = parseFloat(Ra),
+            !0 === Ca || isFinite(Da) ? Da || 0 : Ra) : Ra
         }
     }),
     Vn.each(["height", "width"], function(wa, Pa) {
@@ -2680,10 +2680,10 @@
                     })
             },
             set: function(Ca, Aa, Ra) {
-                var Ia = Ra && Ur(Ca), Da = Ra && xn(Ca, Pa, Ra, "border-box" === Vn.css(Ca, "boxSizing", !1, Ia), Ia), Ma;
-                return Da && (Ma = _r.exec(Aa)) && "px" !== (Ma[3] || "px") && (Ca.style[Pa] = Aa,
+                var Ma = Ra && Ur(Ca), Ia = Ra && xn(Ca, Pa, Ra, "border-box" === Vn.css(Ca, "boxSizing", !1, Ma), Ma), Da;
+                return Ia && (Da = _r.exec(Aa)) && "px" !== (Da[3] || "px") && (Ca.style[Pa] = Aa,
                 Aa = Vn.css(Ca, Pa)),
-                bn(0, Aa, Da)
+                bn(0, Aa, Ia)
             }
         }
     }),
@@ -2702,8 +2702,8 @@
     }, function(wa, Pa) {
         Vn.cssHooks[wa + Pa] = {
             expand: function(Ca) {
-                for (var Aa = 0, Ra = {}, Ma = "string" == typeof Ca ? Ca.split(" ") : [Ca]; 4 > Aa; Aa++)
-                    Ra[wa + br[Aa] + Pa] = Ma[Aa] || Ma[Aa - 2] || Ma[0];
+                for (var Aa = 0, Ra = {}, Da = "string" == typeof Ca ? Ca.split(" ") : [Ca]; 4 > Aa; Aa++)
+                    Ra[wa + br[Aa] + Pa] = Da[Aa] || Da[Aa - 2] || Da[0];
                 return Ra
             }
         },
@@ -2712,12 +2712,12 @@
     Vn.fn.extend({
         css: function(wa, Pa) {
             return pr(this, function(Ca, Aa, Ra) {
-                var Da = {}, Oa = 0, Ma, Ia;
+                var Ia = {}, Oa = 0, Da, Ma;
                 if (Array.isArray(Aa)) {
-                    for (Ma = Ur(Ca),
-                    Ia = Aa.length; Oa < Ia; Oa++)
-                        Da[Aa[Oa]] = Vn.css(Ca, Aa[Oa], !1, Ma);
-                    return Da
+                    for (Da = Ur(Ca),
+                    Ma = Aa.length; Oa < Ma; Oa++)
+                        Ia[Aa[Oa]] = Vn.css(Ca, Aa[Oa], !1, Da);
+                    return Ia
                 }
                 return void 0 === Ra ? Vn.css(Ca, Aa) : Vn.style(Ca, Aa, Ra)
             }, wa, Pa, 1 < arguments.length)
@@ -2726,14 +2726,14 @@
     Vn.Tween = Tn,
     (Tn.prototype = {
         constructor: Tn,
-        init: function(wa, Pa, Ca, Aa, Ra, Ma) {
+        init: function(wa, Pa, Ca, Aa, Ra, Da) {
             this.elem = wa,
             this.prop = Ca,
             this.easing = Ra || Vn.easing._default,
             this.options = Pa,
             this.start = this.now = this.cur(),
             this.end = Aa,
-            this.unit = Ma || (Vn.cssNumber[Ca] ? "" : "px")
+            this.unit = Da || (Vn.cssNumber[Ca] ? "" : "px")
         },
         cur: function() {
             var wa = Tn.propHooks[this.prop];
@@ -2793,25 +2793,25 @@
                 Cn.tweeners[Ca].unshift(Pa)
         },
         prefilters: [function(wa, Pa, Ca) {
-            var Fa = this, Ba = {}, Ua = wa.style, Xa = wa.nodeType && xr(wa), Ha = fr.get(wa, "fxshow"), Aa, Ra, Ma, Ia, Da, Oa, La, ka;
-            for (Aa in Ca.queue || (null == (Ia = Vn._queueHooks(wa, "fx")).unqueued && (Ia.unqueued = 0,
-            Da = Ia.empty.fire,
-            Ia.empty.fire = function() {
-                Ia.unqueued || Da()
+            var Fa = this, Ba = {}, Ua = wa.style, Xa = wa.nodeType && xr(wa), Ha = fr.get(wa, "fxshow"), Aa, Ra, Da, Ma, Ia, Oa, La, ka;
+            for (Aa in Ca.queue || (null == (Ma = Vn._queueHooks(wa, "fx")).unqueued && (Ma.unqueued = 0,
+            Ia = Ma.empty.fire,
+            Ma.empty.fire = function() {
+                Ma.unqueued || Ia()
             }
             ),
-            Ia.unqueued++,
+            Ma.unqueued++,
             Fa.always(function() {
                 Fa.always(function() {
-                    Ia.unqueued--,
-                    Vn.queue(wa, "fx").length || Ia.empty.fire()
+                    Ma.unqueued--,
+                    Vn.queue(wa, "fx").length || Ma.empty.fire()
                 })
             })),
             Pa)
                 if (Ra = Pa[Aa],
                 qr.test(Ra)) {
                     if (delete Pa[Aa],
-                    Ma = Ma || "toggle" === Ra,
+                    Da = Da || "toggle" === Ra,
                     Ra === (Xa ? "hide" : "show")) {
                         if ("show" !== Ra || !Ha || void 0 === Ha[Aa])
                             continue;
@@ -2843,7 +2843,7 @@
                     Oa || (Ha ? "hidden"in Ha && (Xa = Ha.hidden) : Ha = fr.access(wa, "fxshow", {
                         display: La
                     }),
-                    Ma && (Ha.hidden = !Xa),
+                    Da && (Ha.hidden = !Xa),
                     Xa && en([wa], !0),
                     Fa.done(function() {
                         for (Aa in Xa || en([wa]),
@@ -2886,19 +2886,19 @@
         },
         animate: function(wa, Pa, Ca, Aa) {
             var Ra = Vn.isEmptyObject(wa)
-              , Ma = Vn.speed(Pa, Ca, Aa)
-              , Ia = function() {
-                var Da = Cn(this, Vn.extend({}, wa), Ma);
-                (Ra || fr.get(this, "finish")) && Da.stop(!0)
+              , Da = Vn.speed(Pa, Ca, Aa)
+              , Ma = function() {
+                var Ia = Cn(this, Vn.extend({}, wa), Da);
+                (Ra || fr.get(this, "finish")) && Ia.stop(!0)
             };
-            return Ia.finish = Ia,
-            Ra || !1 === Ma.queue ? this.each(Ia) : this.queue(Ma.queue, Ia)
+            return Ma.finish = Ma,
+            Ra || !1 === Da.queue ? this.each(Ma) : this.queue(Da.queue, Ma)
         },
         stop: function(wa, Pa, Ca) {
             var Aa = function(Ra) {
-                var Ma = Ra.stop;
+                var Da = Ra.stop;
                 delete Ra.stop,
-                Ma(Ca)
+                Da(Ca)
             };
             return "string" != typeof wa && (Ca = Pa,
             Pa = wa,
@@ -2906,32 +2906,32 @@
             Pa && !1 !== wa && this.queue(wa || "fx", []),
             this.each(function() {
                 var Ra = !0
-                  , Ma = null != wa && wa + "queueHooks"
-                  , Ia = Vn.timers
-                  , Da = fr.get(this);
-                if (Ma)
-                    Da[Ma] && Da[Ma].stop && Aa(Da[Ma]);
+                  , Da = null != wa && wa + "queueHooks"
+                  , Ma = Vn.timers
+                  , Ia = fr.get(this);
+                if (Da)
+                    Ia[Da] && Ia[Da].stop && Aa(Ia[Da]);
                 else
-                    for (Ma in Da)
-                        Da[Ma] && Da[Ma].stop && Kr.test(Ma) && Aa(Da[Ma]);
-                for (Ma = Ia.length; Ma--; )
-                    Ia[Ma].elem !== this || null != wa && Ia[Ma].queue !== wa || (Ia[Ma].anim.stop(Ca),
+                    for (Da in Ia)
+                        Ia[Da] && Ia[Da].stop && Kr.test(Da) && Aa(Ia[Da]);
+                for (Da = Ma.length; Da--; )
+                    Ma[Da].elem !== this || null != wa && Ma[Da].queue !== wa || (Ma[Da].anim.stop(Ca),
                     Ra = !1,
-                    Ia.splice(Ma, 1));
+                    Ma.splice(Da, 1));
                 !Ra && Ca || Vn.dequeue(this, wa)
             })
         },
         finish: function(wa) {
             return !1 !== wa && (wa = wa || "fx"),
             this.each(function() {
-                var Ca = fr.get(this), Aa = Ca[wa + "queue"], Ra = Ca[wa + "queueHooks"], Ma = Vn.timers, Ia = Aa ? Aa.length : 0, Pa;
+                var Ca = fr.get(this), Aa = Ca[wa + "queue"], Ra = Ca[wa + "queueHooks"], Da = Vn.timers, Ma = Aa ? Aa.length : 0, Pa;
                 for (Ca.finish = !0,
                 Vn.queue(this, wa, []),
                 Ra && Ra.stop && Ra.stop.call(this, !0),
-                Pa = Ma.length; Pa--; )
-                    Ma[Pa].elem === this && Ma[Pa].queue === wa && (Ma[Pa].anim.stop(!0),
-                    Ma.splice(Pa, 1));
-                for (Pa = 0; Pa < Ia; Pa++)
+                Pa = Da.length; Pa--; )
+                    Da[Pa].elem === this && Da[Pa].queue === wa && (Da[Pa].anim.stop(!0),
+                    Da.splice(Pa, 1));
+                for (Pa = 0; Pa < Ma; Pa++)
                     Aa[Pa] && Aa[Pa].finish && Aa[Pa].finish.call(this);
                 delete Ca.finish
             })
@@ -2939,8 +2939,8 @@
     }),
     Vn.each(["toggle", "show", "hide"], function(wa, Pa) {
         var Ca = Vn.fn[Pa];
-        Vn.fn[Pa] = function(Aa, Ra, Ma) {
-            return null == Aa || "boolean" == typeof Aa ? Ca.apply(this, arguments) : this.animate(wn(Pa, !0), Aa, Ra, Ma)
+        Vn.fn[Pa] = function(Aa, Ra, Da) {
+            return null == Aa || "boolean" == typeof Aa ? Ca.apply(this, arguments) : this.animate(wn(Pa, !0), Aa, Ra, Da)
         }
     }),
     Vn.each({
@@ -3011,7 +3011,7 @@
         wa.type = "radio",
         zn.radioValue = "t" === wa.value
     }();
-    var Qr = Vn.expr.attrHandle, Zr;
+    var Zr = Vn.expr.attrHandle, Qr;
     Vn.fn.extend({
         attr: function(wa, Pa) {
             return pr(this, Vn.attr, wa, Pa, 1 < arguments.length)
@@ -3024,9 +3024,9 @@
     }),
     Vn.extend({
         attr: function(wa, Pa, Ca) {
-            var Ma = wa.nodeType, Aa, Ra;
-            if (3 !== Ma && 8 !== Ma && 2 !== Ma)
-                return void 0 === wa.getAttribute ? Vn.prop(wa, Pa, Ca) : (1 === Ma && Vn.isXMLDoc(wa) || (Ra = Vn.attrHooks[Pa.toLowerCase()] || (Vn.expr.match.bool.test(Pa) ? Zr : void 0)),
+            var Da = wa.nodeType, Aa, Ra;
+            if (3 !== Da && 8 !== Da && 2 !== Da)
+                return void 0 === wa.getAttribute ? Vn.prop(wa, Pa, Ca) : (1 === Da && Vn.isXMLDoc(wa) || (Ra = Vn.attrHooks[Pa.toLowerCase()] || (Vn.expr.match.bool.test(Pa) ? Qr : void 0)),
                 void 0 === Ca ? Ra && "get"in Ra && null !== (Aa = Ra.get(wa, Pa)) ? Aa : null == (Aa = Vn.find.attr(wa, Pa)) ? void 0 : Aa : null === Ca ? void Vn.removeAttr(wa, Pa) : Ra && "set"in Ra && void 0 !== (Aa = Ra.set(wa, Ca, Pa)) ? Aa : (wa.setAttribute(Pa, Ca + ""),
                 Ca))
         },
@@ -3049,21 +3049,21 @@
                     wa.removeAttribute(Ca)
         }
     }),
-    Zr = {
+    Qr = {
         set: function(wa, Pa, Ca) {
             return !1 === Pa ? Vn.removeAttr(wa, Ca) : wa.setAttribute(Ca, Ca),
             Ca
         }
     },
     Vn.each(Vn.expr.match.bool.source.match(/\w+/g), function(wa, Pa) {
-        var Ca = Qr[Pa] || Vn.find.attr;
-        Qr[Pa] = function(Aa, Ra, Ma) {
-            var Oa = Ra.toLowerCase(), Ia, Da;
-            return Ma || (Da = Qr[Oa],
-            Qr[Oa] = Ia,
-            Ia = null == Ca(Aa, Ra, Ma) ? null : Oa,
-            Qr[Oa] = Da),
-            Ia
+        var Ca = Zr[Pa] || Vn.find.attr;
+        Zr[Pa] = function(Aa, Ra, Da) {
+            var Oa = Ra.toLowerCase(), Ma, Ia;
+            return Da || (Ia = Zr[Oa],
+            Zr[Oa] = Ma,
+            Ma = null == Ca(Aa, Ra, Da) ? null : Oa,
+            Zr[Oa] = Ia),
+            Ma
         }
     });
     var Jr = /^(?:input|select|textarea|button)$/i
@@ -3080,9 +3080,9 @@
     }),
     Vn.extend({
         prop: function(wa, Pa, Ca) {
-            var Ma = wa.nodeType, Aa, Ra;
-            if (3 !== Ma && 8 !== Ma && 2 !== Ma)
-                return 1 === Ma && Vn.isXMLDoc(wa) || (Pa = Vn.propFix[Pa] || Pa,
+            var Da = wa.nodeType, Aa, Ra;
+            if (3 !== Da && 8 !== Da && 2 !== Da)
+                return 1 === Da && Vn.isXMLDoc(wa) || (Pa = Vn.propFix[Pa] || Pa,
                 Ra = Vn.propHooks[Pa]),
                 void 0 === Ca ? Ra && "get"in Ra && null !== (Aa = Ra.get(wa, Pa)) ? Aa : wa[Pa] : Ra && "set"in Ra && void 0 !== (Aa = Ra.set(wa, Ca, Pa)) ? Aa : wa[Pa] = Ca
         },
@@ -3116,7 +3116,7 @@
     }),
     Vn.fn.extend({
         addClass: function(wa) {
-            var Oa = 0, Pa, Ca, Aa, Ra, Ma, Ia, Da;
+            var Oa = 0, Pa, Ca, Aa, Ra, Da, Ma, Ia;
             if (Vn.isFunction(wa))
                 return this.each(function(La) {
                     Vn(this).addClass(wa.call(this, La, Rn(this)))
@@ -3125,14 +3125,14 @@
                 for (Pa = wa.match(dr) || []; Ca = this[Oa++]; )
                     if (Ra = Rn(Ca),
                     Aa = 1 === Ca.nodeType && " " + An(Ra) + " ") {
-                        for (Ia = 0; Ma = Pa[Ia++]; )
-                            0 > Aa.indexOf(" " + Ma + " ") && (Aa += Ma + " ");
-                        Ra !== (Da = An(Aa)) && Ca.setAttribute("class", Da)
+                        for (Ma = 0; Da = Pa[Ma++]; )
+                            0 > Aa.indexOf(" " + Da + " ") && (Aa += Da + " ");
+                        Ra !== (Ia = An(Aa)) && Ca.setAttribute("class", Ia)
                     }
             return this
         },
         removeClass: function(wa) {
-            var Oa = 0, Pa, Ca, Aa, Ra, Ma, Ia, Da;
+            var Oa = 0, Pa, Ca, Aa, Ra, Da, Ma, Ia;
             if (Vn.isFunction(wa))
                 return this.each(function(La) {
                     Vn(this).removeClass(wa.call(this, La, Rn(this)))
@@ -3143,10 +3143,10 @@
                 for (Pa = wa.match(dr) || []; Ca = this[Oa++]; )
                     if (Ra = Rn(Ca),
                     Aa = 1 === Ca.nodeType && " " + An(Ra) + " ") {
-                        for (Ia = 0; Ma = Pa[Ia++]; )
-                            for (; -1 < Aa.indexOf(" " + Ma + " "); )
-                                Aa = Aa.replace(" " + Ma + " ", " ");
-                        Ra !== (Da = An(Aa)) && Ca.setAttribute("class", Da)
+                        for (Ma = 0; Da = Pa[Ma++]; )
+                            for (; -1 < Aa.indexOf(" " + Da + " "); )
+                                Aa = Aa.replace(" " + Da + " ", " ");
+                        Ra !== (Ia = An(Aa)) && Ca.setAttribute("class", Ia)
                     }
             return this
         },
@@ -3155,12 +3155,12 @@
             return "boolean" == typeof Pa && "string" == Ca ? Pa ? this.addClass(wa) : this.removeClass(wa) : Vn.isFunction(wa) ? this.each(function(Aa) {
                 Vn(this).toggleClass(wa.call(this, Aa, Rn(this), Pa), Pa)
             }) : this.each(function() {
-                var Aa, Ra, Ma, Ia;
+                var Aa, Ra, Da, Ma;
                 if ("string" == Ca)
                     for (Ra = 0,
-                    Ma = Vn(this),
-                    Ia = wa.match(dr) || []; Aa = Ia[Ra++]; )
-                        Ma.hasClass(Aa) ? Ma.removeClass(Aa) : Ma.addClass(Aa);
+                    Da = Vn(this),
+                    Ma = wa.match(dr) || []; Aa = Ma[Ra++]; )
+                        Da.hasClass(Aa) ? Da.removeClass(Aa) : Da.addClass(Aa);
                 else
                     void 0 !== wa && "boolean" != Ca || ((Aa = Rn(this)) && fr.set(this, "__className__", Aa),
                     this.setAttribute && this.setAttribute("class", Aa || !1 === wa ? "" : fr.get(this, "__className__") || ""))
@@ -3179,12 +3179,12 @@
         val: function(wa) {
             var Ra = this[0], Pa, Ca, Aa;
             return arguments.length ? (Aa = Vn.isFunction(wa),
-            this.each(function(Ma) {
-                var Ia;
-                1 === this.nodeType && (null == (Ia = Aa ? wa.call(this, Ma, Vn(this).val()) : wa) ? Ia = "" : "number" == typeof Ia ? Ia += "" : Array.isArray(Ia) && (Ia = Vn.map(Ia, function(Da) {
-                    return null == Da ? "" : Da + ""
+            this.each(function(Da) {
+                var Ma;
+                1 === this.nodeType && (null == (Ma = Aa ? wa.call(this, Da, Vn(this).val()) : wa) ? Ma = "" : "number" == typeof Ma ? Ma += "" : Array.isArray(Ma) && (Ma = Vn.map(Ma, function(Ia) {
+                    return null == Ia ? "" : Ia + ""
                 })),
-                (Pa = Vn.valHooks[this.type] || Vn.valHooks[this.nodeName.toLowerCase()]) && "set"in Pa && void 0 !== Pa.set(this, Ia, "value") || (this.value = Ia))
+                (Pa = Vn.valHooks[this.type] || Vn.valHooks[this.nodeName.toLowerCase()]) && "set"in Pa && void 0 !== Pa.set(this, Ma, "value") || (this.value = Ma))
             })) : Ra ? (Pa = Vn.valHooks[Ra.type] || Vn.valHooks[Ra.nodeName.toLowerCase()]) && "get"in Pa && void 0 !== (Ca = Pa.get(Ra, "value")) ? Ca : "string" == typeof (Ca = Ra.value) ? Ca.replace(ea, "") : null == Ca ? "" : Ca : void 0
         }
     }),
@@ -3198,21 +3198,21 @@
             },
             select: {
                 get: function(wa) {
-                    var Ra = wa.options, Ma = wa.selectedIndex, Ia = "select-one" === wa.type, Da = Ia ? null : [], Oa = Ia ? Ma + 1 : Ra.length, Pa, Ca, Aa;
-                    for (Aa = 0 > Ma ? Oa : Ia ? Ma : 0; Aa < Oa; Aa++)
-                        if (((Ca = Ra[Aa]).selected || Aa === Ma) && !Ca.disabled && (!Ca.parentNode.disabled || !Yt(Ca.parentNode, "optgroup"))) {
+                    var Ra = wa.options, Da = wa.selectedIndex, Ma = "select-one" === wa.type, Ia = Ma ? null : [], Oa = Ma ? Da + 1 : Ra.length, Pa, Ca, Aa;
+                    for (Aa = 0 > Da ? Oa : Ma ? Da : 0; Aa < Oa; Aa++)
+                        if (((Ca = Ra[Aa]).selected || Aa === Da) && !Ca.disabled && (!Ca.parentNode.disabled || !Yt(Ca.parentNode, "optgroup"))) {
                             if (Pa = Vn(Ca).val(),
-                            Ia)
+                            Ma)
                                 return Pa;
-                            Da.push(Pa)
+                            Ia.push(Pa)
                         }
-                    return Da
+                    return Ia
                 },
                 set: function(wa, Pa) {
-                    for (var Ra = wa.options, Ma = Vn.makeArray(Pa), Ia = Ra.length, Ca, Aa; Ia--; )
-                        ((Aa = Ra[Ia]).selected = -1 < Vn.inArray(Vn.valHooks.option.get(Aa), Ma)) && (Ca = !0);
+                    for (var Ra = wa.options, Da = Vn.makeArray(Pa), Ma = Ra.length, Ca, Aa; Ma--; )
+                        ((Aa = Ra[Ma]).selected = -1 < Vn.inArray(Vn.valHooks.option.get(Aa), Da)) && (Ca = !0);
                     return Ca || (wa.selectedIndex = -1),
-                    Ma
+                    Da
                 }
             }
         }
@@ -3232,8 +3232,8 @@
     var ta = /^(?:focusinfocus|focusoutblur)$/;
     Vn.extend(Vn.event, {
         trigger: function(wa, Pa, Ca, Aa) {
-            var Na = [Ca || kn], Fa = Yn.call(wa, "type") ? wa.type : wa, Ba = Yn.call(wa, "namespace") ? wa.namespace.split(".") : [], Ra, Ma, Ia, Da, Oa, La, ka;
-            if (Ma = Ia = Ca = Ca || kn,
+            var Na = [Ca || kn], Fa = Yn.call(wa, "type") ? wa.type : wa, Ba = Yn.call(wa, "namespace") ? wa.namespace.split(".") : [], Ra, Da, Ma, Ia, Oa, La, ka;
+            if (Da = Ma = Ca = Ca || kn,
             3 !== Ca.nodeType && 8 !== Ca.nodeType && !ta.test(Fa + Vn.event.triggered) && (-1 < Fa.indexOf(".") && (Fa = (Ba = Fa.split(".")).shift(),
             Ba.sort()),
             Oa = 0 > Fa.indexOf(":") && "on" + Fa,
@@ -3247,23 +3247,23 @@
             ka = Vn.event.special[Fa] || {},
             Aa || !ka.trigger || !1 !== ka.trigger.apply(Ca, Pa))) {
                 if (!Aa && !ka.noBubble && !Vn.isWindow(Ca)) {
-                    for (Da = ka.delegateType || Fa,
-                    ta.test(Da + Fa) || (Ma = Ma.parentNode); Ma; Ma = Ma.parentNode)
-                        Na.push(Ma),
-                        Ia = Ma;
-                    Ia === (Ca.ownerDocument || kn) && Na.push(Ia.defaultView || Ia.parentWindow || Bt)
+                    for (Ia = ka.delegateType || Fa,
+                    ta.test(Ia + Fa) || (Da = Da.parentNode); Da; Da = Da.parentNode)
+                        Na.push(Da),
+                        Ma = Da;
+                    Ma === (Ca.ownerDocument || kn) && Na.push(Ma.defaultView || Ma.parentWindow || Bt)
                 }
-                for (Ra = 0; (Ma = Na[Ra++]) && !wa.isPropagationStopped(); )
-                    wa.type = 1 < Ra ? Da : ka.bindType || Fa,
-                    (La = (fr.get(Ma, "events") || {})[wa.type] && fr.get(Ma, "handle")) && La.apply(Ma, Pa),
-                    (La = Oa && Ma[Oa]) && La.apply && cr(Ma) && (wa.result = La.apply(Ma, Pa),
+                for (Ra = 0; (Da = Na[Ra++]) && !wa.isPropagationStopped(); )
+                    wa.type = 1 < Ra ? Ia : ka.bindType || Fa,
+                    (La = (fr.get(Da, "events") || {})[wa.type] && fr.get(Da, "handle")) && La.apply(Da, Pa),
+                    (La = Oa && Da[Oa]) && La.apply && cr(Da) && (wa.result = La.apply(Da, Pa),
                     !1 === wa.result && wa.preventDefault());
                 return wa.type = Fa,
-                Aa || wa.isDefaultPrevented() || ka._default && !1 !== ka._default.apply(Na.pop(), Pa) || !cr(Ca) || Oa && Vn.isFunction(Ca[Fa]) && !Vn.isWindow(Ca) && ((Ia = Ca[Oa]) && (Ca[Oa] = null),
+                Aa || wa.isDefaultPrevented() || ka._default && !1 !== ka._default.apply(Na.pop(), Pa) || !cr(Ca) || Oa && Vn.isFunction(Ca[Fa]) && !Vn.isWindow(Ca) && ((Ma = Ca[Oa]) && (Ca[Oa] = null),
                 Vn.event.triggered = Fa,
                 Ca[Fa](),
                 Vn.event.triggered = void 0,
-                Ia && (Ca[Oa] = Ia)),
+                Ma && (Ca[Oa] = Ma)),
                 wa.result
             }
         },
@@ -3341,9 +3341,9 @@
       , sa = /^(?:submit|button|image|reset|file)$/i
       , da = /^(?:input|select|textarea|keygen)/i;
     Vn.param = function(wa, Pa) {
-        var Aa = [], Ra = function(Ma, Ia) {
-            var Da = Vn.isFunction(Ia) ? Ia() : Ia;
-            Aa[Aa.length] = encodeURIComponent(Ma) + "=" + encodeURIComponent(null == Da ? "" : Da)
+        var Aa = [], Ra = function(Da, Ma) {
+            var Ia = Vn.isFunction(Ma) ? Ma() : Ma;
+            Aa[Aa.length] = encodeURIComponent(Da) + "=" + encodeURIComponent(null == Ia ? "" : Ia)
         }, Ca;
         if (Array.isArray(wa) || wa.jquery && !Vn.isPlainObject(wa))
             Vn.each(wa, function() {
@@ -3351,7 +3351,7 @@
             });
         else
             for (Ca in wa)
-                Mn(Ca, wa[Ca], Pa, Ra);
+                Dn(Ca, wa[Ca], Pa, Ra);
         return Aa.join("&")
     }
     ,
@@ -3434,18 +3434,18 @@
         ajaxSetup: function(wa, Pa) {
             return Pa ? On(On(wa, Vn.ajaxSettings), Pa) : On(Vn.ajaxSettings, wa)
         },
-        ajaxPrefilter: In(ga),
-        ajaxTransport: In(ma),
+        ajaxPrefilter: Mn(ga),
+        ajaxTransport: Mn(ma),
         ajax: function(wa, Pa) {
-            function Ca(qa, Ka, Za, Qa) {
+            function Ca(qa, Ka, Qa, Za) {
                 var ro = Ka, Ja, $a, eo, to, no;
                 La || (La = !0,
-                Da && Bt.clearTimeout(Da),
+                Ia && Bt.clearTimeout(Ia),
                 Aa = void 0,
-                Ma = Qa || "",
+                Da = Za || "",
                 Va.readyState = 0 < qa ? 4 : 0,
                 Ja = 200 <= qa && 300 > qa || 304 === qa,
-                Za && (to = function(ao, oo, io) {
+                Qa && (to = function(ao, oo, io) {
                     for (var co = ao.contents, fo = ao.dataTypes, so, lo, uo, po; "*" === fo[0]; )
                         fo.shift(),
                         void 0 === so && (so = ao.mimeType || oo.getResponseHeader("Content-Type"));
@@ -3469,7 +3469,7 @@
                     }
                     return uo ? (uo !== fo[0] && fo.unshift(uo),
                     io[uo]) : void 0
-                }(Ba, Va, Za)),
+                }(Ba, Va, Qa)),
                 to = function(ao, oo, io, so) {
                     var ho = {}, go = ao.dataTypes.slice(), lo, uo, po, co, fo;
                     if (go[1])
@@ -3533,15 +3533,15 @@
                 getResponseHeader: function(qa) {
                     var Ka;
                     if (La) {
-                        if (!Ia)
-                            for (Ia = {}; Ka = ca.exec(Ma); )
-                                Ia[Ka[1].toLowerCase()] = Ka[2];
-                        Ka = Ia[qa.toLowerCase()]
+                        if (!Ma)
+                            for (Ma = {}; Ka = ca.exec(Da); )
+                                Ma[Ka[1].toLowerCase()] = Ka[2];
+                        Ka = Ma[qa.toLowerCase()]
                     }
                     return null == Ka ? null : Ka
                 },
                 getAllResponseHeaders: function() {
-                    return La ? Ma : null
+                    return La ? Da : null
                 },
                 setRequestHeader: function(qa, Ka) {
                     return null == La && (qa = ja[qa.toLowerCase()] = ja[qa.toLowerCase()] || qa,
@@ -3567,7 +3567,7 @@
                     Ca(0, Ka),
                     this
                 }
-            }, Aa, Ra, Ma, Ia, Da, Oa, La, ka, Na, Fa;
+            }, Aa, Ra, Da, Ma, Ia, Oa, La, ka, Na, Fa;
             if (Ha.promise(Va),
             Ba.url = ((wa || Ba.url || na.href) + "").replace(ha, na.protocol + "//"),
             Ba.type = Pa.method || Pa.type || Ba.method || Ba.type,
@@ -3583,7 +3583,7 @@
                 }
             }
             if (Ba.data && Ba.processData && "string" != typeof Ba.data && (Ba.data = Vn.param(Ba.data, Ba.traditional)),
-            Dn(ga, Ba, Pa, Va),
+            In(ga, Ba, Pa, Va),
             La)
                 return Va;
             for (Na in (ka = Vn.event && Ba.global) && 0 == Vn.active++ && Vn.event.trigger("ajaxStart"),
@@ -3608,12 +3608,12 @@
             Ga.add(Ba.complete),
             Va.done(Ba.success),
             Va.fail(Ba.error),
-            Aa = Dn(ma, Ba, Pa, Va)) {
+            Aa = In(ma, Ba, Pa, Va)) {
                 if (Va.readyState = 1,
                 ka && Xa.trigger("ajaxSend", [Va, Ba]),
                 La)
                     return Va;
-                Ba.async && 0 < Ba.timeout && (Da = Bt.setTimeout(function() {
+                Ba.async && 0 < Ba.timeout && (Ia = Bt.setTimeout(function() {
                     Va.abort("timeout")
                 }, Ba.timeout));
                 try {
@@ -3636,14 +3636,14 @@
         }
     }),
     Vn.each(["get", "post"], function(wa, Pa) {
-        Vn[Pa] = function(Ca, Aa, Ra, Ma) {
-            return Vn.isFunction(Aa) && (Ma = Ma || Ra,
+        Vn[Pa] = function(Ca, Aa, Ra, Da) {
+            return Vn.isFunction(Aa) && (Da = Da || Ra,
             Ra = Aa,
             Aa = void 0),
             Vn.ajax(Vn.extend({
                 url: Ca,
                 type: Pa,
-                dataType: Ma,
+                dataType: Da,
                 data: Aa,
                 success: Ra
             }, Vn.isPlainObject(Ca) && Ca))
@@ -3722,40 +3722,40 @@
         if (zn.cors || xa && !wa.crossDomain)
             return {
                 send: function(Aa, Ra) {
-                    var Ia = wa.xhr(), Ma;
-                    if (Ia.open(wa.type, wa.url, wa.async, wa.username, wa.password),
+                    var Ma = wa.xhr(), Da;
+                    if (Ma.open(wa.type, wa.url, wa.async, wa.username, wa.password),
                     wa.xhrFields)
-                        for (Ma in wa.xhrFields)
-                            Ia[Ma] = wa.xhrFields[Ma];
-                    for (Ma in wa.mimeType && Ia.overrideMimeType && Ia.overrideMimeType(wa.mimeType),
+                        for (Da in wa.xhrFields)
+                            Ma[Da] = wa.xhrFields[Da];
+                    for (Da in wa.mimeType && Ma.overrideMimeType && Ma.overrideMimeType(wa.mimeType),
                     wa.crossDomain || Aa["X-Requested-With"] || (Aa["X-Requested-With"] = "XMLHttpRequest"),
                     Aa)
-                        Ia.setRequestHeader(Ma, Aa[Ma]);
-                    Pa = function(Da) {
+                        Ma.setRequestHeader(Da, Aa[Da]);
+                    Pa = function(Ia) {
                         return function() {
-                            Pa && (Pa = Ca = Ia.onload = Ia.onerror = Ia.onabort = Ia.onreadystatechange = null,
-                            "abort" === Da ? Ia.abort() : "error" === Da ? "number" == typeof Ia.status ? Ra(Ia.status, Ia.statusText) : Ra(0, "error") : Ra(ba[Ia.status] || Ia.status, Ia.statusText, "text" !== (Ia.responseType || "text") || "string" != typeof Ia.responseText ? {
-                                binary: Ia.response
+                            Pa && (Pa = Ca = Ma.onload = Ma.onerror = Ma.onabort = Ma.onreadystatechange = null,
+                            "abort" === Ia ? Ma.abort() : "error" === Ia ? "number" == typeof Ma.status ? Ra(Ma.status, Ma.statusText) : Ra(0, "error") : Ra(ba[Ma.status] || Ma.status, Ma.statusText, "text" !== (Ma.responseType || "text") || "string" != typeof Ma.responseText ? {
+                                binary: Ma.response
                             } : {
-                                text: Ia.responseText
-                            }, Ia.getAllResponseHeaders()))
+                                text: Ma.responseText
+                            }, Ma.getAllResponseHeaders()))
                         }
                     }
                     ,
-                    Ia.onload = Pa(),
-                    Ca = Ia.onerror = Pa("error"),
-                    void 0 === Ia.onabort ? Ia.onreadystatechange = function() {
-                        4 === Ia.readyState && Bt.setTimeout(function() {
+                    Ma.onload = Pa(),
+                    Ca = Ma.onerror = Pa("error"),
+                    void 0 === Ma.onabort ? Ma.onreadystatechange = function() {
+                        4 === Ma.readyState && Bt.setTimeout(function() {
                             Pa && Ca()
                         })
                     }
-                    : Ia.onabort = Ca,
+                    : Ma.onabort = Ca,
                     Pa = Pa("abort");
                     try {
-                        Ia.send(wa.hasContent && wa.data || null)
-                    } catch (Da) {
+                        Ma.send(wa.hasContent && wa.data || null)
+                    } catch (Ia) {
                         if (Pa)
-                            throw Da
+                            throw Ia
                     }
                 },
                 abort: function() {
@@ -3792,10 +3792,10 @@
                     Pa = Vn("<script>").prop({
                         charset: wa.scriptCharset,
                         src: wa.url
-                    }).on("load error", Ca = function(Ma) {
+                    }).on("load error", Ca = function(Da) {
                         Pa.remove(),
                         Ca = null,
-                        Ma && Ra("error" === Ma.type ? 404 : 200, Ma.type)
+                        Da && Ra("error" === Da.type ? 404 : 200, Da.type)
                     }
                     ),
                     kn.head.appendChild(Pa[0])
@@ -3817,27 +3817,27 @@
         }
     }),
     Vn.ajaxPrefilter("json jsonp", function(wa, Pa, Ca) {
-        var Ia = !1 !== wa.jsonp && (Ta.test(wa.url) ? "url" : "string" == typeof wa.data && 0 === (wa.contentType || "").indexOf("application/x-www-form-urlencoded") && Ta.test(wa.data) && "data"), Aa, Ra, Ma;
-        if (Ia || "jsonp" === wa.dataTypes[0])
+        var Ma = !1 !== wa.jsonp && (Ta.test(wa.url) ? "url" : "string" == typeof wa.data && 0 === (wa.contentType || "").indexOf("application/x-www-form-urlencoded") && Ta.test(wa.data) && "data"), Aa, Ra, Da;
+        if (Ma || "jsonp" === wa.dataTypes[0])
             return Aa = wa.jsonpCallback = Vn.isFunction(wa.jsonpCallback) ? wa.jsonpCallback() : wa.jsonpCallback,
-            Ia ? wa[Ia] = wa[Ia].replace(Ta, "$1" + Aa) : !1 !== wa.jsonp && (wa.url += (aa.test(wa.url) ? "&" : "?") + wa.jsonp + "=" + Aa),
+            Ma ? wa[Ma] = wa[Ma].replace(Ta, "$1" + Aa) : !1 !== wa.jsonp && (wa.url += (aa.test(wa.url) ? "&" : "?") + wa.jsonp + "=" + Aa),
             wa.converters["script json"] = function() {
-                return Ma || Vn.error(Aa + " was not called"),
-                Ma[0]
+                return Da || Vn.error(Aa + " was not called"),
+                Da[0]
             }
             ,
             wa.dataTypes[0] = "json",
             Ra = Bt[Aa],
             Bt[Aa] = function() {
-                Ma = arguments
+                Da = arguments
             }
             ,
             Ca.always(function() {
                 void 0 === Ra ? Vn(Bt).removeProp(Aa) : Bt[Aa] = Ra,
                 wa[Aa] && (wa.jsonpCallback = Pa.jsonpCallback,
                 va.push(Aa)),
-                Ma && Vn.isFunction(Ra) && Ra(Ma[0]),
-                Ma = Ra = void 0
+                Da && Vn.isFunction(Ra) && Ra(Da[0]),
+                Da = Ra = void 0
             }),
             "script"
     }),
@@ -3851,33 +3851,33 @@
             return [];
         "boolean" == typeof Pa && (Ca = Pa,
         Pa = !1);
-        var Aa, Ra, Ma;
+        var Aa, Ra, Da;
         return Pa || (zn.createHTMLDocument ? ((Aa = (Pa = kn.implementation.createHTMLDocument("")).createElement("base")).href = kn.location.href,
         Pa.head.appendChild(Aa)) : Pa = kn),
         Ra = nr.exec(wa),
-        Ma = !Ca && [],
-        Ra ? [Pa.createElement(Ra[1])] : (Ra = rn([wa], Pa, Ma),
-        Ma && Ma.length && Vn(Ma).remove(),
+        Da = !Ca && [],
+        Ra ? [Pa.createElement(Ra[1])] : (Ra = rn([wa], Pa, Da),
+        Da && Da.length && Vn(Da).remove(),
         Vn.merge([], Ra.childNodes))
     }
     ,
     Vn.fn.load = function(wa, Pa, Ca) {
-        var Ia = this, Da = wa.indexOf(" "), Aa, Ra, Ma;
-        return -1 < Da && (Aa = An(wa.slice(Da)),
-        wa = wa.slice(0, Da)),
+        var Ma = this, Ia = wa.indexOf(" "), Aa, Ra, Da;
+        return -1 < Ia && (Aa = An(wa.slice(Ia)),
+        wa = wa.slice(0, Ia)),
         Vn.isFunction(Pa) ? (Ca = Pa,
         Pa = void 0) : Pa && "object" == typeof Pa && (Ra = "POST"),
-        0 < Ia.length && Vn.ajax({
+        0 < Ma.length && Vn.ajax({
             url: wa,
             type: Ra || "GET",
             dataType: "html",
             data: Pa
         }).done(function(Oa) {
-            Ma = arguments,
-            Ia.html(Aa ? Vn("<div>").append(Vn.parseHTML(Oa)).find(Aa) : Oa)
+            Da = arguments,
+            Ma.html(Aa ? Vn("<div>").append(Vn.parseHTML(Oa)).find(Aa) : Oa)
         }).always(Ca && function(Oa, La) {
-            Ia.each(function() {
-                Ca.apply(this, Ma || [Oa.responseText, La, Oa])
+            Ma.each(function() {
+                Ca.apply(this, Da || [Oa.responseText, La, Oa])
             })
         }
         ),
@@ -3897,30 +3897,30 @@
     ,
     Vn.offset = {
         setOffset: function(wa, Pa, Ca) {
-            var La = Vn.css(wa, "position"), ka = Vn(wa), Na = {}, Aa, Ra, Ma, Ia, Da, Oa;
+            var La = Vn.css(wa, "position"), ka = Vn(wa), Na = {}, Aa, Ra, Da, Ma, Ia, Oa;
             "static" === La && (wa.style.position = "relative"),
-            Da = ka.offset(),
-            Ma = Vn.css(wa, "top"),
+            Ia = ka.offset(),
+            Da = Vn.css(wa, "top"),
             Oa = Vn.css(wa, "left"),
-            ("absolute" === La || "fixed" === La) && -1 < (Ma + Oa).indexOf("auto") ? (Ia = (Aa = ka.position()).top,
-            Ra = Aa.left) : (Ia = parseFloat(Ma) || 0,
+            ("absolute" === La || "fixed" === La) && -1 < (Da + Oa).indexOf("auto") ? (Ma = (Aa = ka.position()).top,
+            Ra = Aa.left) : (Ma = parseFloat(Da) || 0,
             Ra = parseFloat(Oa) || 0),
-            Vn.isFunction(Pa) && (Pa = Pa.call(wa, Ca, Vn.extend({}, Da))),
-            null != Pa.top && (Na.top = Pa.top - Da.top + Ia),
-            null != Pa.left && (Na.left = Pa.left - Da.left + Ra),
+            Vn.isFunction(Pa) && (Pa = Pa.call(wa, Ca, Vn.extend({}, Ia))),
+            null != Pa.top && (Na.top = Pa.top - Ia.top + Ma),
+            null != Pa.left && (Na.left = Pa.left - Ia.left + Ra),
             "using"in Pa ? Pa.using.call(wa, Na) : ka.css(Na)
         }
     },
     Vn.fn.extend({
         offset: function(wa) {
             if (arguments.length)
-                return void 0 === wa ? this : this.each(function(Ia) {
-                    Vn.offset.setOffset(this, wa, Ia)
+                return void 0 === wa ? this : this.each(function(Ma) {
+                    Vn.offset.setOffset(this, wa, Ma)
                 });
-            var Ma = this[0], Pa, Ca, Aa, Ra;
-            if (Ma)
-                return Ma.getClientRects().length ? (Aa = Ma.getBoundingClientRect(),
-                Pa = Ma.ownerDocument,
+            var Da = this[0], Pa, Ca, Aa, Ra;
+            if (Da)
+                return Da.getClientRects().length ? (Aa = Da.getBoundingClientRect(),
+                Pa = Da.ownerDocument,
                 Ca = Pa.documentElement,
                 Ra = Pa.defaultView,
                 {
@@ -3964,10 +3964,10 @@
     }, function(wa, Pa) {
         var Ca = "pageYOffset" === Pa;
         Vn.fn[wa] = function(Aa) {
-            return pr(this, function(Ra, Ma, Ia) {
-                var Da;
-                return (Vn.isWindow(Ra) ? Da = Ra : 9 === Ra.nodeType && (Da = Ra.defaultView),
-                void 0 === Ia) ? Da ? Da[Pa] : Ra[Ma] : void (Da ? Da.scrollTo(Ca ? Da.pageXOffset : Ia, Ca ? Ia : Da.pageYOffset) : Ra[Ma] = Ia)
+            return pr(this, function(Ra, Da, Ma) {
+                var Ia;
+                return (Vn.isWindow(Ra) ? Ia = Ra : 9 === Ra.nodeType && (Ia = Ra.defaultView),
+                void 0 === Ma) ? Ia ? Ia[Pa] : Ra[Da] : void (Ia ? Ia.scrollTo(Ca ? Ia.pageXOffset : Ma, Ca ? Ma : Ia.pageYOffset) : Ra[Da] = Ma)
             }, wa, Aa, arguments.length)
         }
     }),
@@ -3987,14 +3987,14 @@
             content: Pa,
             "": "outer" + wa
         }, function(Ca, Aa) {
-            Vn.fn[Aa] = function(Ra, Ma) {
-                var Ia = arguments.length && (Ca || "boolean" != typeof Ra)
-                  , Da = Ca || (!0 === Ra || !0 === Ma ? "margin" : "border");
+            Vn.fn[Aa] = function(Ra, Da) {
+                var Ma = arguments.length && (Ca || "boolean" != typeof Ra)
+                  , Ia = Ca || (!0 === Ra || !0 === Da ? "margin" : "border");
                 return pr(this, function(Oa, La, ka) {
                     var Na;
                     return Vn.isWindow(Oa) ? 0 === Aa.indexOf("outer") ? Oa["inner" + wa] : Oa.document.documentElement["client" + wa] : 9 === Oa.nodeType ? (Na = Oa.documentElement,
-                    Math.max(Oa.body["scroll" + wa], Na["scroll" + wa], Oa.body["offset" + wa], Na["offset" + wa], Na["client" + wa])) : void 0 === ka ? Vn.css(Oa, La, Da) : Vn.style(Oa, La, ka, Da)
-                }, Pa, Ia ? Ra : void 0, Ia)
+                    Math.max(Oa.body["scroll" + wa], Na["scroll" + wa], Oa.body["offset" + wa], Na["offset" + wa], Na["client" + wa])) : void 0 === ka ? Vn.css(Oa, La, Ia) : Vn.style(Oa, La, ka, Ia)
+                }, Pa, Ma ? Ra : void 0, Ma)
             }
         })
     }),
@@ -4046,13 +4046,13 @@ function Bt(Xt, Ht, Gt) {
                 throw Kt.code = "MODULE_NOT_FOUND",
                 Kt
             }
-            var Zt = Ht[zt] = {
+            var Qt = Ht[zt] = {
                 exports: {}
             };
-            Xt[zt][0].call(Zt.exports, function(Qt) {
-                var Jt = Xt[zt][1][Qt];
-                return Yt(Jt || Qt)
-            }, Zt, Zt.exports, Bt, Xt, Ht, Gt)
+            Xt[zt][0].call(Qt.exports, function(Zt) {
+                var Jt = Xt[zt][1][Zt];
+                return Yt(Jt || Zt)
+            }, Qt, Qt.exports, Bt, Xt, Ht, Gt)
         }
         return Ht[zt].exports
     }
@@ -4310,25 +4310,25 @@ function Bt(Xt, Ht, Gt) {
           , Wt = Bt("../update-scroll");
         Xt.exports = function(jt) {
             !function(zt, Vt) {
-                function qt(Zt) {
-                    return Zt.getBoundingClientRect()
+                function qt(Qt) {
+                    return Qt.getBoundingClientRect()
                 }
-                var Kt = function(Zt) {
-                    Zt.stopPropagation()
+                var Kt = function(Qt) {
+                    Qt.stopPropagation()
                 };
                 Vt.event.bind(Vt.scrollbarY, "click", Kt),
-                Vt.event.bind(Vt.scrollbarYRail, "click", function(Zt) {
-                    var Qt = Zt.pageY - window.pageYOffset - qt(Vt.scrollbarYRail).top > Vt.scrollbarYTop ? 1 : -1;
-                    Wt(zt, "top", zt.scrollTop + Qt * Vt.containerHeight),
+                Vt.event.bind(Vt.scrollbarYRail, "click", function(Qt) {
+                    var Zt = Qt.pageY - window.pageYOffset - qt(Vt.scrollbarYRail).top > Vt.scrollbarYTop ? 1 : -1;
+                    Wt(zt, "top", zt.scrollTop + Zt * Vt.containerHeight),
                     Yt(zt),
-                    Zt.stopPropagation()
+                    Qt.stopPropagation()
                 }),
                 Vt.event.bind(Vt.scrollbarX, "click", Kt),
-                Vt.event.bind(Vt.scrollbarXRail, "click", function(Zt) {
-                    var Qt = Zt.pageX - window.pageXOffset - qt(Vt.scrollbarXRail).left > Vt.scrollbarXLeft ? 1 : -1;
-                    Wt(zt, "left", zt.scrollLeft + Qt * Vt.containerWidth),
+                Vt.event.bind(Vt.scrollbarXRail, "click", function(Qt) {
+                    var Zt = Qt.pageX - window.pageXOffset - qt(Vt.scrollbarXRail).left > Vt.scrollbarXLeft ? 1 : -1;
+                    Wt(zt, "left", zt.scrollLeft + Zt * Vt.containerWidth),
                     Yt(zt),
-                    Zt.stopPropagation()
+                    Qt.stopPropagation()
                 })
             }(jt, Gt.get(jt))
         }
@@ -4339,15 +4339,15 @@ function Bt(Xt, Ht, Gt) {
         "../update-scroll": 19
     }],
     10: [function(Bt, Xt) {
-        function Gt(Kt, Zt) {
-            var Qt = null
+        function Gt(Kt, Qt) {
+            var Zt = null
               , Jt = null
               , $t = function(tn) {
                 !function(nn) {
-                    var rn = Qt + nn * Zt.railXRatio
-                      , an = Math.max(0, Zt.scrollbarXRail.getBoundingClientRect().left) + Zt.railXRatio * (Zt.railXWidth - Zt.scrollbarXWidth);
-                    Zt.scrollbarXLeft = 0 > rn ? 0 : rn > an ? an : rn;
-                    var on = Wt.toInt(Zt.scrollbarXLeft * (Zt.contentWidth - Zt.containerWidth) / (Zt.containerWidth - Zt.railXRatio * Zt.scrollbarXWidth)) - Zt.negativeScrollAdjustment;
+                    var rn = Zt + nn * Qt.railXRatio
+                      , an = Math.max(0, Qt.scrollbarXRail.getBoundingClientRect().left) + Qt.railXRatio * (Qt.railXWidth - Qt.scrollbarXWidth);
+                    Qt.scrollbarXLeft = 0 > rn ? 0 : rn > an ? an : rn;
+                    var on = Wt.toInt(Qt.scrollbarXLeft * (Qt.contentWidth - Qt.containerWidth) / (Qt.containerWidth - Qt.railXRatio * Qt.scrollbarXWidth)) - Qt.negativeScrollAdjustment;
                     qt(Kt, "left", on)
                 }(tn.pageX - Jt),
                 Vt(Kt),
@@ -4356,27 +4356,27 @@ function Bt(Xt, Ht, Gt) {
             }
               , en = function() {
                 Wt.stopScrolling(Kt, "x"),
-                Zt.event.unbind(Zt.ownerDocument, "mousemove", $t)
+                Qt.event.unbind(Qt.ownerDocument, "mousemove", $t)
             };
-            Zt.event.bind(Zt.scrollbarX, "mousedown", function(tn) {
+            Qt.event.bind(Qt.scrollbarX, "mousedown", function(tn) {
                 Jt = tn.pageX,
-                Qt = Wt.toInt(jt.css(Zt.scrollbarX, "left")) * Zt.railXRatio,
+                Zt = Wt.toInt(jt.css(Qt.scrollbarX, "left")) * Qt.railXRatio,
                 Wt.startScrolling(Kt, "x"),
-                Zt.event.bind(Zt.ownerDocument, "mousemove", $t),
-                Zt.event.once(Zt.ownerDocument, "mouseup", en),
+                Qt.event.bind(Qt.ownerDocument, "mousemove", $t),
+                Qt.event.once(Qt.ownerDocument, "mouseup", en),
                 tn.stopPropagation(),
                 tn.preventDefault()
             })
         }
-        function Yt(Kt, Zt) {
-            var Qt = null
+        function Yt(Kt, Qt) {
+            var Zt = null
               , Jt = null
               , $t = function(tn) {
                 !function(nn) {
-                    var rn = Qt + nn * Zt.railYRatio
-                      , an = Math.max(0, Zt.scrollbarYRail.getBoundingClientRect().top) + Zt.railYRatio * (Zt.railYHeight - Zt.scrollbarYHeight);
-                    Zt.scrollbarYTop = 0 > rn ? 0 : rn > an ? an : rn;
-                    var on = Wt.toInt(Zt.scrollbarYTop * (Zt.contentHeight - Zt.containerHeight) / (Zt.containerHeight - Zt.railYRatio * Zt.scrollbarYHeight));
+                    var rn = Zt + nn * Qt.railYRatio
+                      , an = Math.max(0, Qt.scrollbarYRail.getBoundingClientRect().top) + Qt.railYRatio * (Qt.railYHeight - Qt.scrollbarYHeight);
+                    Qt.scrollbarYTop = 0 > rn ? 0 : rn > an ? an : rn;
+                    var on = Wt.toInt(Qt.scrollbarYTop * (Qt.contentHeight - Qt.containerHeight) / (Qt.containerHeight - Qt.railYRatio * Qt.scrollbarYHeight));
                     qt(Kt, "top", on)
                 }(tn.pageY - Jt),
                 Vt(Kt),
@@ -4385,14 +4385,14 @@ function Bt(Xt, Ht, Gt) {
             }
               , en = function() {
                 Wt.stopScrolling(Kt, "y"),
-                Zt.event.unbind(Zt.ownerDocument, "mousemove", $t)
+                Qt.event.unbind(Qt.ownerDocument, "mousemove", $t)
             };
-            Zt.event.bind(Zt.scrollbarY, "mousedown", function(tn) {
+            Qt.event.bind(Qt.scrollbarY, "mousedown", function(tn) {
                 Jt = tn.pageY,
-                Qt = Wt.toInt(jt.css(Zt.scrollbarY, "top")) * Zt.railYRatio,
+                Zt = Wt.toInt(jt.css(Qt.scrollbarY, "top")) * Qt.railYRatio,
                 Wt.startScrolling(Kt, "y"),
-                Zt.event.bind(Zt.ownerDocument, "mousemove", $t),
-                Zt.event.once(Zt.ownerDocument, "mouseup", en),
+                Qt.event.bind(Qt.ownerDocument, "mousemove", $t),
+                Qt.event.once(Qt.ownerDocument, "mouseup", en),
                 tn.stopPropagation(),
                 tn.preventDefault()
             })
@@ -4403,9 +4403,9 @@ function Bt(Xt, Ht, Gt) {
           , Vt = Bt("../update-geometry")
           , qt = Bt("../update-scroll");
         Xt.exports = function(Kt) {
-            var Zt = zt.get(Kt);
-            Gt(Kt, Zt),
-            Yt(Kt, Zt)
+            var Qt = zt.get(Kt);
+            Gt(Kt, Qt),
+            Yt(Kt, Qt)
         }
     }
     , {
@@ -4417,18 +4417,18 @@ function Bt(Xt, Ht, Gt) {
     }],
     11: [function(Bt, Xt) {
         function Gt(qt, Kt) {
-            var Zt = !1;
+            var Qt = !1;
             Kt.event.bind(qt, "mouseenter", function() {
-                Zt = !0
+                Qt = !0
             }),
             Kt.event.bind(qt, "mouseleave", function() {
-                Zt = !1
+                Qt = !1
             });
-            var Qt = !1;
+            var Zt = !1;
             Kt.event.bind(Kt.ownerDocument, "keydown", function(Jt) {
                 if (!(Jt.isDefaultPrevented && Jt.isDefaultPrevented() || Jt.defaultPrevented)) {
                     var $t = Wt.matches(Kt.scrollbarX, ":focus") || Wt.matches(Kt.scrollbarY, ":focus");
-                    if (Zt || $t) {
+                    if (Qt || $t) {
                         var en = document.activeElement ? document.activeElement : Kt.ownerDocument.activeElement;
                         if (en) {
                             if ("IFRAME" === en.tagName)
@@ -4475,7 +4475,7 @@ function Bt(Xt, Ht, Gt) {
                         Vt(qt, "top", qt.scrollTop - nn),
                         Vt(qt, "left", qt.scrollLeft + tn),
                         zt(qt),
-                        (Qt = function(rn, an) {
+                        (Zt = function(rn, an) {
                             var on = qt.scrollTop;
                             if (0 === rn) {
                                 if (!Kt.scrollbarYActive)
@@ -4514,8 +4514,8 @@ function Bt(Xt, Ht, Gt) {
     }],
     12: [function(Bt, Xt) {
         function Gt(zt, Vt) {
-            function qt(Zt) {
-                var Qt = function(en) {
+            function qt(Qt) {
+                var Zt = function(en) {
                     var tn = en.deltaX
                       , nn = -1 * en.deltaY;
                     return void 0 !== tn && void 0 !== nn || (tn = -1 * en.wheelDeltaX / 6,
@@ -4525,9 +4525,9 @@ function Bt(Xt, Ht, Gt) {
                     tn != tn && nn != nn && (tn = 0,
                     nn = en.wheelDelta),
                     en.shiftKey ? [-nn, -tn] : [tn, nn]
-                }(Zt)
-                  , Jt = Qt[0]
-                  , $t = Qt[1];
+                }(Qt)
+                  , Jt = Zt[0]
+                  , $t = Zt[1];
                 (function(en, tn) {
                     var nn = zt.querySelector("textarea:hover, select[multiple]:hover, .ps-child:hover");
                     if (nn) {
@@ -4565,8 +4565,8 @@ function Bt(Xt, Ht, Gt) {
                             return !Vt.settings.wheelPropagation
                     }
                     return !0
-                }(Jt, $t)) && (Zt.stopPropagation(),
-                Zt.preventDefault()))
+                }(Jt, $t)) && (Qt.stopPropagation(),
+                Qt.preventDefault()))
             }
             var Kt = !1;
             void 0 === window.onwheel ? void 0 !== window.onmousewheel && Vt.event.bind(zt, "mousewheel", qt) : Vt.event.bind(zt, "wheel", qt)
@@ -4601,12 +4601,12 @@ function Bt(Xt, Ht, Gt) {
     14: [function(Bt, Xt) {
         function Gt(Vt, qt) {
             function Kt() {
-                Zt && (clearInterval(Zt),
-                Zt = null),
+                Qt && (clearInterval(Qt),
+                Qt = null),
                 Yt.stopScrolling(Vt)
             }
-            var Zt = null
-              , Qt = {
+            var Qt = null
+              , Zt = {
                 top: 0,
                 left: 0
             }
@@ -4638,16 +4638,16 @@ function Bt(Xt, Ht, Gt) {
                         top: Vt.offsetTop,
                         bottom: Vt.offsetTop + Vt.offsetHeight
                     };
-                    en.x < tn.left + 3 ? (Qt.left = -5,
-                    Yt.startScrolling(Vt, "x")) : en.x > tn.right - 3 ? (Qt.left = 5,
-                    Yt.startScrolling(Vt, "x")) : Qt.left = 0,
-                    en.y < tn.top + 3 ? (Qt.top = 5 > tn.top + 3 - en.y ? -5 : -20,
-                    Yt.startScrolling(Vt, "y")) : en.y > tn.bottom - 3 ? (Qt.top = 5 > en.y - tn.bottom + 3 ? 5 : 20,
-                    Yt.startScrolling(Vt, "y")) : Qt.top = 0,
-                    0 === Qt.top && 0 === Qt.left ? Kt() : Zt || (Zt = setInterval(function() {
-                        Wt.get(Vt) ? (zt(Vt, "top", Vt.scrollTop + Qt.top),
-                        zt(Vt, "left", Vt.scrollLeft + Qt.left),
-                        jt(Vt)) : clearInterval(Zt)
+                    en.x < tn.left + 3 ? (Zt.left = -5,
+                    Yt.startScrolling(Vt, "x")) : en.x > tn.right - 3 ? (Zt.left = 5,
+                    Yt.startScrolling(Vt, "x")) : Zt.left = 0,
+                    en.y < tn.top + 3 ? (Zt.top = 5 > tn.top + 3 - en.y ? -5 : -20,
+                    Yt.startScrolling(Vt, "y")) : en.y > tn.bottom - 3 ? (Zt.top = 5 > en.y - tn.bottom + 3 ? 5 : 20,
+                    Yt.startScrolling(Vt, "y")) : Zt.top = 0,
+                    0 === Zt.top && 0 === Zt.left ? Kt() : Qt || (Qt = setInterval(function() {
+                        Wt.get(Vt) ? (zt(Vt, "top", Vt.scrollTop + Zt.top),
+                        zt(Vt, "left", Vt.scrollLeft + Zt.left),
+                        jt(Vt)) : clearInterval(Qt)
                     }, 50))
                 }
             })
@@ -4667,8 +4667,8 @@ function Bt(Xt, Ht, Gt) {
         "../update-scroll": 19
     }],
     15: [function(Bt, Xt) {
-        function Gt(Vt, qt, Kt, Zt) {
-            function Qt(cn, fn) {
+        function Gt(Vt, qt, Kt, Qt) {
+            function Zt(cn, fn) {
                 zt(Vt, "top", Vt.scrollTop - fn),
                 zt(Vt, "left", Vt.scrollLeft - cn),
                 jt(Vt)
@@ -4706,7 +4706,7 @@ function Bt(Xt, Ht, Gt) {
                     }
                       , gn = hn.pageX - on.pageX
                       , mn = hn.pageY - on.pageY;
-                    Qt(gn, mn),
+                    Zt(gn, mn),
                     on = hn;
                     var yn = new Date().getTime()
                       , _n = yn - sn;
@@ -4732,7 +4732,7 @@ function Bt(Xt, Ht, Gt) {
                 !un && pn && (pn = !1,
                 qt.settings.swipeEasing && (clearInterval(ln),
                 ln = setInterval(function() {
-                    Wt.get(Vt) && (dn.x || dn.y) ? .01 > Math.abs(dn.x) && .01 > Math.abs(dn.y) ? clearInterval(ln) : (Qt(30 * dn.x, 30 * dn.y),
+                    Wt.get(Vt) && (dn.x || dn.y) ? .01 > Math.abs(dn.x) && .01 > Math.abs(dn.y) ? clearInterval(ln) : (Zt(30 * dn.x, 30 * dn.y),
                     dn.x *= .8,
                     dn.y *= .8) : clearInterval(ln)
                 }, 10)))
@@ -4747,7 +4747,7 @@ function Bt(Xt, Ht, Gt) {
             qt.event.bind(window, "touchend", $t),
             qt.event.bind(Vt, "touchstart", nn),
             qt.event.bind(Vt, "touchmove", rn),
-            qt.event.bind(Vt, "touchend", an)) : Zt && (window.PointerEvent ? (qt.event.bind(window, "pointerdown", Jt),
+            qt.event.bind(Vt, "touchend", an)) : Qt && (window.PointerEvent ? (qt.event.bind(window, "pointerdown", Jt),
             qt.event.bind(window, "pointerup", $t),
             qt.event.bind(Vt, "pointerdown", nn),
             qt.event.bind(Vt, "pointermove", rn),
@@ -4815,12 +4815,12 @@ function Bt(Xt, Ht, Gt) {
           , zt = Bt("../lib/event-manager")
           , Vt = Bt("../lib/guid")
           , qt = {};
-        Ht.add = function(Kt, Zt) {
-            var Qt = Vt();
+        Ht.add = function(Kt, Qt) {
+            var Zt = Vt();
             return function(Jt, $t) {
                 Jt.setAttribute("data-ps-id", $t)
-            }(Kt, Qt),
-            qt[Qt] = new function(Jt, $t) {
+            }(Kt, Zt),
+            qt[Zt] = new function(Jt, $t) {
                 function en() {
                     Jt.classList.add("ps--focus")
                 }
@@ -4882,14 +4882,14 @@ function Bt(Xt, Ht, Gt) {
                 this.railYHeight = null,
                 this.railYRatio = null
             }
-            (Kt,Zt),
-            qt[Qt]
+            (Kt,Qt),
+            qt[Zt]
         }
         ,
         Ht.remove = function(Kt) {
             delete qt[Gt(Kt)],
-            function(Zt) {
-                Zt.removeAttribute("data-ps-id")
+            function(Qt) {
+                Qt.removeAttribute("data-ps-id")
             }(Kt)
         }
         ,
@@ -4921,12 +4921,12 @@ function Bt(Xt, Ht, Gt) {
             qt.contentWidth = Vt.scrollWidth,
             qt.contentHeight = Vt.scrollHeight;
             var Kt;
-            Vt.contains(qt.scrollbarXRail) || (0 < (Kt = Wt.queryChildren(Vt, ".ps__scrollbar-x-rail")).length && Kt.forEach(function(Zt) {
-                Wt.remove(Zt)
+            Vt.contains(qt.scrollbarXRail) || (0 < (Kt = Wt.queryChildren(Vt, ".ps__scrollbar-x-rail")).length && Kt.forEach(function(Qt) {
+                Wt.remove(Qt)
             }),
             Wt.appendTo(qt.scrollbarXRail, Vt)),
-            Vt.contains(qt.scrollbarYRail) || (0 < (Kt = Wt.queryChildren(Vt, ".ps__scrollbar-y-rail")).length && Kt.forEach(function(Zt) {
-                Wt.remove(Zt)
+            Vt.contains(qt.scrollbarYRail) || (0 < (Kt = Wt.queryChildren(Vt, ".ps__scrollbar-y-rail")).length && Kt.forEach(function(Qt) {
+                Wt.remove(Qt)
             }),
             Wt.appendTo(qt.scrollbarYRail, Vt)),
             !qt.settings.suppressScrollX && qt.containerWidth + qt.settings.scrollXMarginOffset < qt.contentWidth ? (qt.scrollbarXActive = !0,
@@ -4941,26 +4941,26 @@ function Bt(Xt, Ht, Gt) {
             qt.scrollbarYTop = Yt.toInt(Vt.scrollTop * (qt.railYHeight - qt.scrollbarYHeight) / (qt.contentHeight - qt.containerHeight))) : qt.scrollbarYActive = !1,
             qt.scrollbarXLeft >= qt.railXWidth - qt.scrollbarXWidth && (qt.scrollbarXLeft = qt.railXWidth - qt.scrollbarXWidth),
             qt.scrollbarYTop >= qt.railYHeight - qt.scrollbarYHeight && (qt.scrollbarYTop = qt.railYHeight - qt.scrollbarYHeight),
-            function(Zt, Qt) {
+            function(Qt, Zt) {
                 var Jt = {
-                    width: Qt.railXWidth
+                    width: Zt.railXWidth
                 };
-                Jt.left = Qt.isRtl ? Qt.negativeScrollAdjustment + Zt.scrollLeft + Qt.containerWidth - Qt.contentWidth : Zt.scrollLeft,
-                Qt.isScrollbarXUsingBottom ? Jt.bottom = Qt.scrollbarXBottom - Zt.scrollTop : Jt.top = Qt.scrollbarXTop + Zt.scrollTop,
-                Wt.css(Qt.scrollbarXRail, Jt);
+                Jt.left = Zt.isRtl ? Zt.negativeScrollAdjustment + Qt.scrollLeft + Zt.containerWidth - Zt.contentWidth : Qt.scrollLeft,
+                Zt.isScrollbarXUsingBottom ? Jt.bottom = Zt.scrollbarXBottom - Qt.scrollTop : Jt.top = Zt.scrollbarXTop + Qt.scrollTop,
+                Wt.css(Zt.scrollbarXRail, Jt);
                 var $t = {
-                    top: Zt.scrollTop,
-                    height: Qt.railYHeight
+                    top: Qt.scrollTop,
+                    height: Zt.railYHeight
                 };
-                Qt.isScrollbarYUsingRight ? Qt.isRtl ? $t.right = Qt.contentWidth - (Qt.negativeScrollAdjustment + Zt.scrollLeft) - Qt.scrollbarYRight - Qt.scrollbarYOuterWidth : $t.right = Qt.scrollbarYRight - Zt.scrollLeft : Qt.isRtl ? $t.left = Qt.negativeScrollAdjustment + Zt.scrollLeft + 2 * Qt.containerWidth - Qt.contentWidth - Qt.scrollbarYLeft - Qt.scrollbarYOuterWidth : $t.left = Qt.scrollbarYLeft + Zt.scrollLeft,
-                Wt.css(Qt.scrollbarYRail, $t),
-                Wt.css(Qt.scrollbarX, {
-                    left: Qt.scrollbarXLeft,
-                    width: Qt.scrollbarXWidth - Qt.railBorderXWidth
+                Zt.isScrollbarYUsingRight ? Zt.isRtl ? $t.right = Zt.contentWidth - (Zt.negativeScrollAdjustment + Qt.scrollLeft) - Zt.scrollbarYRight - Zt.scrollbarYOuterWidth : $t.right = Zt.scrollbarYRight - Qt.scrollLeft : Zt.isRtl ? $t.left = Zt.negativeScrollAdjustment + Qt.scrollLeft + 2 * Zt.containerWidth - Zt.contentWidth - Zt.scrollbarYLeft - Zt.scrollbarYOuterWidth : $t.left = Zt.scrollbarYLeft + Qt.scrollLeft,
+                Wt.css(Zt.scrollbarYRail, $t),
+                Wt.css(Zt.scrollbarX, {
+                    left: Zt.scrollbarXLeft,
+                    width: Zt.scrollbarXWidth - Zt.railBorderXWidth
                 }),
-                Wt.css(Qt.scrollbarY, {
-                    top: Qt.scrollbarYTop,
-                    height: Qt.scrollbarYHeight - Qt.railBorderYWidth
+                Wt.css(Zt.scrollbarY, {
+                    top: Zt.scrollbarYTop,
+                    height: Zt.scrollbarYHeight - Zt.railBorderYWidth
                 })
             }(Vt, qt),
             qt.scrollbarXActive ? Vt.classList.add("ps--active-x") : (Vt.classList.remove("ps--active-x"),
@@ -5063,13 +5063,13 @@ function(Bt) {
                     throw Kt.code = "MODULE_NOT_FOUND",
                     Kt
                 }
-                var Zt = Ht[zt] = {
+                var Qt = Ht[zt] = {
                     exports: {}
                 };
-                Xt[zt][0].call(Zt.exports, function(Qt) {
-                    var Jt = Xt[zt][1][Qt];
-                    return Yt(Jt || Qt)
-                }, Zt, Zt.exports, Bt, Xt, Ht, Gt)
+                Xt[zt][0].call(Qt.exports, function(Zt) {
+                    var Jt = Xt[zt][1][Zt];
+                    return Yt(Jt || Zt)
+                }, Qt, Qt.exports, Bt, Xt, Ht, Gt)
             }
             return Ht[zt].exports
         }
@@ -5253,18 +5253,18 @@ function(Bt) {
                         Pn = vn[Sn] * En,
                         Cn = Sn < wn - 1 ? vn[Sn + 1] * En : xn.length,
                         (An = Yt(xn, Pn, Cn, En, !1)) === An.next && (An.steiner = !0),
-                        Rn.push(function(Mn) {
-                            var In = Mn
-                              , Dn = Mn;
+                        Rn.push(function(Dn) {
+                            var Mn = Dn
+                              , In = Dn;
                             do
-                                In.x < Dn.x && (Dn = In),
-                                In = In.next;
-                            while (In !== Mn);return Dn
+                                Mn.x < In.x && (In = Mn),
+                                Mn = Mn.next;
+                            while (Mn !== Dn);return In
                         }(An));
                     for (Rn.sort(zt),
                     Sn = 0; Sn < Rn.length; Sn++)
-                        !function(Mn, In) {
-                            if (In = function(On, Ln) {
+                        !function(Dn, Mn) {
+                            if (Mn = function(On, Ln) {
                                 var Nn = Ln, Fn = On.x, Bn = On.y, Un = -1 / 0, kn;
                                 do {
                                     if (Bn <= Nn.y && Bn >= Nn.next.y) {
@@ -5291,9 +5291,9 @@ function(Bt) {
                                     jn = Hn),
                                     Nn = Nn.next;
                                 return kn
-                            }(Mn, In)) {
-                                var Dn = $t(In, Mn);
-                                Wt(Dn, Dn.next)
+                            }(Dn, Mn)) {
+                                var In = $t(Mn, Dn);
+                                Wt(In, In.next)
                             }
                         }(Rn[Sn], Tn),
                         Tn = Wt(Tn, Tn.next);
@@ -5322,7 +5322,7 @@ function(Bt) {
                 else
                     for (un = sn - dn; un >= on; un -= dn)
                         pn = en(un, an[un], an[un + 1], pn);
-                return pn && Zt(pn, pn.next) && (tn(pn),
+                return pn && Qt(pn, pn.next) && (tn(pn),
                 pn = pn.next),
                 pn
             }
@@ -5333,7 +5333,7 @@ function(Bt) {
                 var dn = an, sn;
                 do
                     if (sn = !1,
-                    dn.steiner || !Zt(dn, dn.next) && 0 !== Kt(dn.prev, dn, dn.next))
+                    dn.steiner || !Qt(dn, dn.next) && 0 !== Kt(dn.prev, dn, dn.next))
                         dn = dn.next;
                     else {
                         if (tn(dn),
@@ -5432,7 +5432,7 @@ function(Bt) {
                                 do {
                                     var bn = _n.prev
                                       , xn = _n.next.next;
-                                    !Zt(bn, xn) && Qt(bn, _n, _n.next, xn) && Jt(bn, xn) && Jt(xn, bn) && (mn.push(bn.i / yn),
+                                    !Qt(bn, xn) && Zt(bn, _n, _n.next, xn) && Jt(bn, xn) && Jt(xn, bn) && (mn.push(bn.i / yn),
                                     mn.push(_n.i / yn),
                                     mn.push(xn.i / yn),
                                     tn(_n),
@@ -5448,17 +5448,17 @@ function(Bt) {
                                             return Sn.next.i !== wn.i && Sn.prev.i !== wn.i && !function(Pn, Cn) {
                                                 var An = Pn;
                                                 do {
-                                                    if (An.i !== Pn.i && An.next.i !== Pn.i && An.i !== Cn.i && An.next.i !== Cn.i && Qt(An, An.next, Pn, Cn))
+                                                    if (An.i !== Pn.i && An.next.i !== Pn.i && An.i !== Cn.i && An.next.i !== Cn.i && Zt(An, An.next, Pn, Cn))
                                                         return !0;
                                                     An = An.next
                                                 } while (An !== Pn);return !1
                                             }(Sn, wn) && Jt(Sn, wn) && Jt(wn, Sn) && function(Pn, Cn) {
                                                 var An = Pn
                                                   , Rn = !1
-                                                  , Mn = (Pn.x + Cn.x) / 2
-                                                  , In = (Pn.y + Cn.y) / 2;
+                                                  , Dn = (Pn.x + Cn.x) / 2
+                                                  , Mn = (Pn.y + Cn.y) / 2;
                                                 do
-                                                    An.y > In != An.next.y > In && Mn < (An.next.x - An.x) * (In - An.y) / (An.next.y - An.y) + An.x && (Rn = !Rn),
+                                                    An.y > Mn != An.next.y > Mn && Dn < (An.next.x - An.x) * (Mn - An.y) / (An.next.y - An.y) + An.x && (Rn = !Rn),
                                                     An = An.next;
                                                 while (An !== Pn);return Rn
                                             }(Sn, wn)
@@ -5500,11 +5500,11 @@ function(Bt) {
             function Kt(an, on, sn) {
                 return (on.y - an.y) * (sn.x - on.x) - (on.x - an.x) * (sn.y - on.y)
             }
-            function Zt(an, on) {
+            function Qt(an, on) {
                 return an.x === on.x && an.y === on.y
             }
-            function Qt(an, on, sn, dn) {
-                return !!(Zt(an, on) && Zt(sn, dn) || Zt(an, dn) && Zt(sn, on)) || 0 < Kt(an, on, sn) != 0 < Kt(an, on, dn) && 0 < Kt(sn, dn, an) != 0 < Kt(sn, dn, on)
+            function Zt(an, on, sn, dn) {
+                return !!(Qt(an, on) && Qt(sn, dn) || Qt(an, dn) && Qt(sn, on)) || 0 < Kt(an, on, sn) != 0 < Kt(an, on, dn) && 0 < Kt(sn, dn, an) != 0 < Kt(sn, dn, on)
             }
             function Jt(an, on) {
                 return 0 > Kt(an.prev, an, an.next) ? 0 <= Kt(an, on, an.next) && 0 <= Kt(an, an.prev, on) : 0 > Kt(an, on, an.prev) || 0 > Kt(an, an.next, on)
@@ -5619,19 +5619,19 @@ function(Bt) {
             ,
             Wt.prototype.listeners = function(Vt, qt) {
                 var Kt = zt ? zt + Vt : Vt
-                  , Zt = this._events[Kt];
+                  , Qt = this._events[Kt];
                 if (qt)
-                    return !!Zt;
-                if (!Zt)
+                    return !!Qt;
+                if (!Qt)
                     return [];
-                if (Zt.fn)
-                    return [Zt.fn];
-                for (var Qt = 0, Jt = Zt.length, $t = Array(Jt); Qt < Jt; Qt++)
-                    $t[Qt] = Zt[Qt].fn;
+                if (Qt.fn)
+                    return [Qt.fn];
+                for (var Zt = 0, Jt = Qt.length, $t = Array(Jt); Zt < Jt; Zt++)
+                    $t[Zt] = Qt[Zt].fn;
                 return $t
             }
             ,
-            Wt.prototype.emit = function(Vt, qt, Kt, Zt, Qt, Jt) {
+            Wt.prototype.emit = function(Vt, qt, Kt, Qt, Zt, Jt) {
                 var $t = zt ? zt + Vt : Vt;
                 if (!this._events[$t])
                     return !1;
@@ -5649,13 +5649,13 @@ function(Bt) {
                         return nn.fn.call(nn.context, qt, Kt),
                         !0;
                     case 4:
-                        return nn.fn.call(nn.context, qt, Kt, Zt),
+                        return nn.fn.call(nn.context, qt, Kt, Qt),
                         !0;
                     case 5:
-                        return nn.fn.call(nn.context, qt, Kt, Zt, Qt),
+                        return nn.fn.call(nn.context, qt, Kt, Qt, Zt),
                         !0;
                     case 6:
-                        return nn.fn.call(nn.context, qt, Kt, Zt, Qt, Jt),
+                        return nn.fn.call(nn.context, qt, Kt, Qt, Zt, Jt),
                         !0;
                     }
                     for (tn = 1,
@@ -5677,7 +5677,7 @@ function(Bt) {
                             nn[tn].fn.call(nn[tn].context, qt, Kt);
                             break;
                         case 4:
-                            nn[tn].fn.call(nn[tn].context, qt, Kt, Zt);
+                            nn[tn].fn.call(nn[tn].context, qt, Kt, Qt);
                             break;
                         default:
                             if (!en)
@@ -5691,35 +5691,35 @@ function(Bt) {
             }
             ,
             Wt.prototype.on = function(Vt, qt, Kt) {
-                var Zt = new Yt(qt,Kt || this)
-                  , Qt = zt ? zt + Vt : Vt;
-                return this._events[Qt] ? this._events[Qt].fn ? this._events[Qt] = [this._events[Qt], Zt] : this._events[Qt].push(Zt) : (this._events[Qt] = Zt,
+                var Qt = new Yt(qt,Kt || this)
+                  , Zt = zt ? zt + Vt : Vt;
+                return this._events[Zt] ? this._events[Zt].fn ? this._events[Zt] = [this._events[Zt], Qt] : this._events[Zt].push(Qt) : (this._events[Zt] = Qt,
                 this._eventsCount++),
                 this
             }
             ,
             Wt.prototype.once = function(Vt, qt, Kt) {
-                var Zt = new Yt(qt,Kt || this,!0)
-                  , Qt = zt ? zt + Vt : Vt;
-                return this._events[Qt] ? this._events[Qt].fn ? this._events[Qt] = [this._events[Qt], Zt] : this._events[Qt].push(Zt) : (this._events[Qt] = Zt,
+                var Qt = new Yt(qt,Kt || this,!0)
+                  , Zt = zt ? zt + Vt : Vt;
+                return this._events[Zt] ? this._events[Zt].fn ? this._events[Zt] = [this._events[Zt], Qt] : this._events[Zt].push(Qt) : (this._events[Zt] = Qt,
                 this._eventsCount++),
                 this
             }
             ,
-            Wt.prototype.removeListener = function(Vt, qt, Kt, Zt) {
-                var Qt = zt ? zt + Vt : Vt;
-                if (!this._events[Qt])
+            Wt.prototype.removeListener = function(Vt, qt, Kt, Qt) {
+                var Zt = zt ? zt + Vt : Vt;
+                if (!this._events[Zt])
                     return this;
                 if (!qt)
-                    return 0 == --this._eventsCount ? this._events = new Gt : delete this._events[Qt],
+                    return 0 == --this._eventsCount ? this._events = new Gt : delete this._events[Zt],
                     this;
-                var Jt = this._events[Qt];
+                var Jt = this._events[Zt];
                 if (Jt.fn)
-                    Jt.fn !== qt || Zt && !Jt.once || Kt && Jt.context !== Kt || (0 == --this._eventsCount ? this._events = new Gt : delete this._events[Qt]);
+                    Jt.fn !== qt || Qt && !Jt.once || Kt && Jt.context !== Kt || (0 == --this._eventsCount ? this._events = new Gt : delete this._events[Zt]);
                 else {
                     for (var $t = 0, en = [], tn = Jt.length; $t < tn; $t++)
-                        (Jt[$t].fn !== qt || Zt && !Jt[$t].once || Kt && Jt[$t].context !== Kt) && en.push(Jt[$t]);
-                    en.length ? this._events[Qt] = 1 === en.length ? en[0] : en : 0 == --this._eventsCount ? this._events = new Gt : delete this._events[Qt]
+                        (Jt[$t].fn !== qt || Qt && !Jt[$t].once || Kt && Jt[$t].context !== Kt) && en.push(Jt[$t]);
+                    en.length ? this._events[Zt] = 1 === en.length ? en[0] : en : 0 == --this._eventsCount ? this._events = new Gt : delete this._events[Zt]
                 }
                 return this
             }
@@ -5752,8 +5752,8 @@ function(Bt) {
                   , Vt = /Android/i
                   , qt = /(?=.*\bAndroid\b)(?=.*\bSD4930UR\b)/i
                   , Kt = /(?=.*\bAndroid\b)(?=.*\b(?:KFOT|KFTT|KFJWI|KFJWA|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|KFARWI|KFASWI|KFSAWI|KFSAWA)\b)/i
-                  , Zt = /Windows Phone/i
-                  , Qt = /(?=.*\bWindows\b)(?=.*\bARM\b)/i
+                  , Qt = /Windows Phone/i
+                  , Zt = /(?=.*\bWindows\b)(?=.*\bARM\b)/i
                   , Jt = /BlackBerry/i
                   , $t = /BB10/i
                   , en = /Opera Mini/i
@@ -5785,9 +5785,9 @@ function(Bt) {
                         device: an(qt, ln) || an(Kt, ln) || an(zt, ln) || an(Vt, ln)
                     },
                     this.windows = {
-                        phone: an(Zt, ln),
-                        tablet: an(Qt, ln),
-                        device: an(Zt, ln) || an(Qt, ln)
+                        phone: an(Qt, ln),
+                        tablet: an(Zt, ln),
+                        device: an(Qt, ln) || an(Zt, ln)
                     },
                     this.other = {
                         blackberry: an(Jt, ln),
@@ -5844,10 +5844,10 @@ function(Bt) {
                     if (null === $t || void 0 === $t)
                         throw new TypeError("Object.assign cannot be called with null or undefined");
                     return Object($t)
-                }(jt), Zt = 1, Vt, qt; Zt < arguments.length; Zt++) {
-                    for (var Qt in Vt = Object(arguments[Zt]),
+                }(jt), Qt = 1, Vt, qt; Qt < arguments.length; Qt++) {
+                    for (var Zt in Vt = Object(arguments[Qt]),
                     Vt)
-                        Yt.call(Vt, Qt) && (Kt[Qt] = Vt[Qt]);
+                        Yt.call(Vt, Zt) && (Kt[Zt] = Vt[Zt]);
                     if (Gt) {
                         qt = Gt(Vt);
                         for (var Jt = 0; Jt < qt.length; Jt++)
@@ -5995,11 +5995,11 @@ function(Bt) {
               , Wt = Bt("./shader/extractUniforms")
               , jt = Bt("./shader/setPrecision")
               , zt = Bt("./shader/generateUniformAccessObject")
-              , Vt = function(qt, Kt, Zt, Qt, Jt) {
+              , Vt = function(qt, Kt, Qt, Zt, Jt) {
                 this.gl = qt,
-                Qt && (Kt = jt(Kt, Qt),
-                Zt = jt(Zt, Qt)),
-                this.program = Gt(qt, Kt, Zt, Jt),
+                Zt && (Kt = jt(Kt, Zt),
+                Qt = jt(Qt, Zt)),
+                this.program = Gt(qt, Kt, Qt, Jt),
                 this.attributes = Yt(qt, this.program),
                 this.uniformData = Wt(qt, this.program),
                 this.uniforms = zt(qt, this.uniformData)
@@ -6312,8 +6312,8 @@ function(Bt) {
                 if (Yt.attachShader(Kt, Vt),
                 Yt.attachShader(Kt, qt),
                 zt)
-                    for (var Zt in zt)
-                        Yt.bindAttribLocation(Kt, zt[Zt], Zt);
+                    for (var Qt in zt)
+                        Yt.bindAttribLocation(Kt, zt[Qt], Qt);
                 return Yt.linkProgram(Kt),
                 Yt.getProgramParameter(Kt, Yt.LINK_STATUS) || (console.error("Pixi.js Error: Could not initialize shader."),
                 console.error("gl.VALIDATE_STATUS", Yt.getProgramParameter(Kt, Yt.VALIDATE_STATUS)),
@@ -6346,12 +6346,12 @@ function(Bt) {
             };
             Xt.exports = function(jt, zt) {
                 for (var Vt = {}, qt = jt.getProgramParameter(zt, jt.ACTIVE_ATTRIBUTES), Kt = 0; Kt < qt; Kt++) {
-                    var Zt = jt.getActiveAttrib(zt, Kt)
-                      , Qt = Gt(jt, Zt.type);
-                    Vt[Zt.name] = {
-                        type: Qt,
-                        size: Yt(Qt),
-                        location: jt.getAttribLocation(zt, Zt.name),
+                    var Qt = jt.getActiveAttrib(zt, Kt)
+                      , Zt = Gt(jt, Qt.type);
+                    Vt[Qt.name] = {
+                        type: Zt,
+                        size: Yt(Zt),
+                        location: jt.getAttribLocation(zt, Qt.name),
                         pointer: Wt
                     }
                 }
@@ -6368,13 +6368,13 @@ function(Bt) {
             Xt.exports = function(Wt, jt) {
                 for (var zt = {}, Vt = Wt.getProgramParameter(jt, Wt.ACTIVE_UNIFORMS), qt = 0; qt < Vt; qt++) {
                     var Kt = Wt.getActiveUniform(jt, qt)
-                      , Zt = Kt.name.replace(/\[.*?\]/, "")
-                      , Qt = Gt(Wt, Kt.type);
-                    zt[Zt] = {
-                        type: Qt,
+                      , Qt = Kt.name.replace(/\[.*?\]/, "")
+                      , Zt = Gt(Wt, Kt.type);
+                    zt[Qt] = {
+                        type: Zt,
                         size: Kt.size,
-                        location: Wt.getUniformLocation(jt, Zt),
-                        value: Yt(Qt, Kt.size)
+                        location: Wt.getUniformLocation(jt, Qt),
+                        value: Yt(Zt, Kt.size)
                     }
                 }
                 return zt
@@ -6386,22 +6386,22 @@ function(Bt) {
         }],
         18: [function(Bt, Xt) {
             var Gt = function(Kt) {
-                var Zt = jt.replace("%%", Kt);
-                return new Function(Zt)
+                var Qt = jt.replace("%%", Kt);
+                return new Function(Qt)
             }
-              , Yt = function(Kt, Zt) {
-                var Jt = zt.replace(/%%/g, Kt), Qt;
-                return (Qt = 1 === Zt.size ? Vt[Zt.type] : qt[Zt.type]) && (Jt += "\nthis.gl." + Qt + ";"),
+              , Yt = function(Kt, Qt) {
+                var Jt = zt.replace(/%%/g, Kt), Zt;
+                return (Zt = 1 === Qt.size ? Vt[Qt.type] : qt[Qt.type]) && (Jt += "\nthis.gl." + Zt + ";"),
                 new Function("value",Jt)
             }
-              , Wt = function(Kt, Zt) {
-                for (var Qt = Zt, Jt = 0, $t; Jt < Kt.length - 1; Jt++)
-                    $t = Qt[Kt[Jt]] || {
+              , Wt = function(Kt, Qt) {
+                for (var Zt = Qt, Jt = 0, $t; Jt < Kt.length - 1; Jt++)
+                    $t = Zt[Kt[Jt]] || {
                         data: {}
                     },
-                    Qt[Kt[Jt]] = $t,
-                    Qt = $t;
-                return Qt
+                    Zt[Kt[Jt]] = $t,
+                    Zt = $t;
+                return Zt
             }
               , jt = ["return this.data.%%.value;"].join("\n")
               , zt = ["this.data.%%.value = value;", "var location = this.data.%%.location;"].join("\n")
@@ -6438,16 +6438,16 @@ function(Bt) {
                 bvec4: "uniform4iv(location, value)",
                 sampler2D: "uniform1iv(location, value)"
             };
-            Xt.exports = function(Kt, Zt) {
-                for (var Qt = {
+            Xt.exports = function(Kt, Qt) {
+                for (var Zt = {
                     data: {},
                     gl: Kt
-                }, Jt = Object.keys(Zt), $t = 0; $t < Jt.length; $t++) {
+                }, Jt = Object.keys(Qt), $t = 0; $t < Jt.length; $t++) {
                     var en = Jt[$t]
                       , tn = en.split(".")
                       , nn = tn[tn.length - 1]
-                      , rn = Wt(tn, Qt)
-                      , an = Zt[en];
+                      , rn = Wt(tn, Zt)
+                      , an = Qt[en];
                     rn.data[nn] = an,
                     rn.gl = Kt,
                     Object.defineProperty(rn, nn, {
@@ -6455,7 +6455,7 @@ function(Bt) {
                         set: Yt(nn, an)
                     })
                 }
-                return Qt
+                return Zt
             }
         }
         , {}],
@@ -6546,34 +6546,34 @@ function(Bt) {
         23: [function(Bt, Xt, Ht) {
             (function(Gt) {
                 function Yt(qt, Kt) {
-                    for (var Zt = 0, Qt = qt.length - 1, Jt; 0 <= Qt; Qt--)
-                        Jt = qt[Qt],
-                        "." === Jt ? qt.splice(Qt, 1) : ".." === Jt ? (qt.splice(Qt, 1),
-                        Zt++) : Zt && (qt.splice(Qt, 1),
-                        Zt--);
+                    for (var Qt = 0, Zt = qt.length - 1, Jt; 0 <= Zt; Zt--)
+                        Jt = qt[Zt],
+                        "." === Jt ? qt.splice(Zt, 1) : ".." === Jt ? (qt.splice(Zt, 1),
+                        Qt++) : Qt && (qt.splice(Zt, 1),
+                        Qt--);
                     if (Kt)
-                        for (; Zt--; Zt)
+                        for (; Qt--; Qt)
                             qt.unshift("..");
                     return qt
                 }
                 function Wt(qt, Kt) {
                     if (qt.filter)
                         return qt.filter(Kt);
-                    for (var Zt = [], Qt = 0; Qt < qt.length; Qt++)
-                        Kt(qt[Qt], Qt, qt) && Zt.push(qt[Qt]);
-                    return Zt
+                    for (var Qt = [], Zt = 0; Zt < qt.length; Zt++)
+                        Kt(qt[Zt], Zt, qt) && Qt.push(qt[Zt]);
+                    return Qt
                 }
                 var jt = /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/
                   , zt = function(qt) {
                     return jt.exec(qt).slice(1)
                 };
                 Ht.resolve = function() {
-                    for (var qt = "", Kt = !1, Zt = arguments.length - 1, Qt; -1 <= Zt && !Kt; Zt--) {
-                        if (Qt = 0 <= Zt ? arguments[Zt] : Gt.cwd(),
-                        "string" != typeof Qt)
+                    for (var qt = "", Kt = !1, Qt = arguments.length - 1, Zt; -1 <= Qt && !Kt; Qt--) {
+                        if (Zt = 0 <= Qt ? arguments[Qt] : Gt.cwd(),
+                        "string" != typeof Zt)
                             throw new TypeError("Arguments to path.resolve must be strings");
-                        Qt && (qt = Qt + "/" + qt,
-                        Kt = "/" === Qt.charAt(0))
+                        Zt && (qt = Zt + "/" + qt,
+                        Kt = "/" === Zt.charAt(0))
                     }
                     return qt = Yt(Wt(qt.split("/"), function(Jt) {
                         return !!Jt
@@ -6583,11 +6583,11 @@ function(Bt) {
                 ,
                 Ht.normalize = function(qt) {
                     var Kt = Ht.isAbsolute(qt)
-                      , Zt = "/" === Vt(qt, -1);
-                    return (qt = Yt(Wt(qt.split("/"), function(Qt) {
-                        return !!Qt
+                      , Qt = "/" === Vt(qt, -1);
+                    return (qt = Yt(Wt(qt.split("/"), function(Zt) {
+                        return !!Zt
                     }), !Kt).join("/")) || Kt || (qt = "."),
-                    qt && Zt && (qt += "/"),
+                    qt && Qt && (qt += "/"),
                     (Kt ? "/" : "") + qt
                 }
                 ,
@@ -6605,7 +6605,7 @@ function(Bt) {
                 }
                 ,
                 Ht.relative = function(qt, Kt) {
-                    function Zt(rn) {
+                    function Qt(rn) {
                         for (var an = 0; an < rn.length && "" === rn[an]; an++)
                             ;
                         for (var on = rn.length - 1; 0 <= on && "" === rn[on]; on--)
@@ -6614,13 +6614,13 @@ function(Bt) {
                     }
                     qt = Ht.resolve(qt).substr(1),
                     Kt = Ht.resolve(Kt).substr(1);
-                    for (var Qt = Zt(qt.split("/")), Jt = Zt(Kt.split("/")), $t = Math.min(Qt.length, Jt.length), en = $t, tn = 0; tn < $t; tn++)
-                        if (Qt[tn] !== Jt[tn]) {
+                    for (var Zt = Qt(qt.split("/")), Jt = Qt(Kt.split("/")), $t = Math.min(Zt.length, Jt.length), en = $t, tn = 0; tn < $t; tn++)
+                        if (Zt[tn] !== Jt[tn]) {
                             en = tn;
                             break
                         }
                     var nn = [];
-                    for (tn = en; tn < Qt.length; tn++)
+                    for (tn = en; tn < Zt.length; tn++)
                         nn.push("..");
                     return (nn = nn.concat(Jt.slice(en))).join("/")
                 }
@@ -6629,24 +6629,24 @@ function(Bt) {
                 Ht.delimiter = ":",
                 Ht.dirname = function(qt) {
                     var Kt = zt(qt)
-                      , Zt = Kt[0]
-                      , Qt = Kt[1];
-                    return Zt || Qt ? (Qt && (Qt = Qt.substr(0, Qt.length - 1)),
-                    Zt + Qt) : "."
+                      , Qt = Kt[0]
+                      , Zt = Kt[1];
+                    return Qt || Zt ? (Zt && (Zt = Zt.substr(0, Zt.length - 1)),
+                    Qt + Zt) : "."
                 }
                 ,
                 Ht.basename = function(qt, Kt) {
-                    var Zt = zt(qt)[2];
-                    return Kt && Zt.substr(-1 * Kt.length) === Kt && (Zt = Zt.substr(0, Zt.length - Kt.length)),
-                    Zt
+                    var Qt = zt(qt)[2];
+                    return Kt && Qt.substr(-1 * Kt.length) === Kt && (Qt = Qt.substr(0, Qt.length - Kt.length)),
+                    Qt
                 }
                 ,
                 Ht.extname = function(qt) {
                     return zt(qt)[3]
                 }
                 ;
-                var Vt = function(qt, Kt, Zt) {
-                    return qt.substr(Kt, Zt)
+                var Vt = function(qt, Kt, Qt) {
+                    return qt.substr(Kt, Qt)
                 }
             }
             ).call(this, Bt("_process"))
@@ -6696,18 +6696,18 @@ function(Bt) {
                     Jt = null,
                     en = !1,
                     function(an) {
-                        if (Zt === clearTimeout)
+                        if (Qt === clearTimeout)
                             return clearTimeout(an);
-                        if ((Zt === Yt || !Zt) && clearTimeout)
-                            return Zt = clearTimeout,
+                        if ((Qt === Yt || !Qt) && clearTimeout)
+                            return Qt = clearTimeout,
                             clearTimeout(an);
                         try {
-                            Zt(an)
+                            Qt(an)
                         } catch (on) {
                             try {
-                                return Zt.call(null, an)
+                                return Qt.call(null, an)
                             } catch (sn) {
-                                return Zt.call(this, an)
+                                return Qt.call(this, an)
                             }
                         }
                     }(nn)
@@ -6718,7 +6718,7 @@ function(Bt) {
                 this.array = rn
             }
             function qt() {}
-            var Qt = Xt.exports = {}, Kt, Zt;
+            var Zt = Xt.exports = {}, Kt, Qt;
             !function() {
                 try {
                     Kt = "function" == typeof setTimeout ? setTimeout : Gt
@@ -6726,13 +6726,13 @@ function(Bt) {
                     Kt = Gt
                 }
                 try {
-                    Zt = "function" == typeof clearTimeout ? clearTimeout : Yt
+                    Qt = "function" == typeof clearTimeout ? clearTimeout : Yt
                 } catch (nn) {
-                    Zt = Yt
+                    Qt = Yt
                 }
             }();
             var $t = [], en = !1, tn = -1, Jt;
-            Qt.nextTick = function(nn) {
+            Zt.nextTick = function(nn) {
                 var rn = Array(arguments.length - 1);
                 if (1 < arguments.length)
                     for (var an = 1; an < arguments.length; an++)
@@ -6745,38 +6745,38 @@ function(Bt) {
                 this.fun.apply(null, this.array)
             }
             ,
-            Qt.title = "browser",
-            Qt.browser = !0,
-            Qt.env = {},
-            Qt.argv = [],
-            Qt.version = "",
-            Qt.versions = {},
-            Qt.on = qt,
-            Qt.addListener = qt,
-            Qt.once = qt,
-            Qt.off = qt,
-            Qt.removeListener = qt,
-            Qt.removeAllListeners = qt,
-            Qt.emit = qt,
-            Qt.prependListener = qt,
-            Qt.prependOnceListener = qt,
-            Qt.listeners = function() {
+            Zt.title = "browser",
+            Zt.browser = !0,
+            Zt.env = {},
+            Zt.argv = [],
+            Zt.version = "",
+            Zt.versions = {},
+            Zt.on = qt,
+            Zt.addListener = qt,
+            Zt.once = qt,
+            Zt.off = qt,
+            Zt.removeListener = qt,
+            Zt.removeAllListeners = qt,
+            Zt.emit = qt,
+            Zt.prependListener = qt,
+            Zt.prependOnceListener = qt,
+            Zt.listeners = function() {
                 return []
             }
             ,
-            Qt.binding = function() {
+            Zt.binding = function() {
                 throw new Error("process.binding is not supported")
             }
             ,
-            Qt.cwd = function() {
+            Zt.cwd = function() {
                 return "/"
             }
             ,
-            Qt.chdir = function() {
+            Zt.chdir = function() {
                 throw new Error("process.chdir is not supported")
             }
             ,
-            Qt.umask = function() {
+            Zt.umask = function() {
                 return 0
             }
         }
@@ -6816,10 +6816,10 @@ function(Bt) {
                     function Kt(Tn) {
                         return 10 > Tn - 48 ? Tn - 22 : 26 > Tn - 65 ? Tn - 65 : 26 > Tn - 97 ? Tn - 97 : sn
                     }
-                    function Zt(Tn, En) {
+                    function Qt(Tn, En) {
                         return Tn + 22 + 75 * (26 > Tn) - ((0 != En) << 5)
                     }
-                    function Qt(Tn, En, Sn) {
+                    function Zt(Tn, En, Sn) {
                         var wn = 0;
                         for (Tn = Sn ? xn(Tn / 700) : Tn >> 1,
                         Tn += xn(Tn / En); Tn > bn * ln >> 1; wn += sn)
@@ -6827,7 +6827,7 @@ function(Bt) {
                         return xn(wn + (bn + 1) * Tn / (Tn + 38))
                     }
                     function Jt(Tn) {
-                        var On = [], Ln = Tn.length, kn = 0, Nn = fn, Fn = cn, En, Sn, wn, Pn, Cn, An, Rn, Mn, In, Dn;
+                        var On = [], Ln = Tn.length, kn = 0, Nn = fn, Fn = cn, En, Sn, wn, Pn, Cn, An, Rn, Dn, Mn, In;
                         for (0 > (Sn = Tn.lastIndexOf(hn)) && (Sn = 0),
                         wn = 0; wn < Sn; ++wn)
                             128 <= Tn.charCodeAt(wn) && Wt("not-basic"),
@@ -6836,13 +6836,13 @@ function(Bt) {
                             for (Cn = kn,
                             An = 1,
                             Rn = sn; Pn >= Ln && Wt("invalid-input"),
-                            ((Mn = Kt(Tn.charCodeAt(Pn++))) >= sn || Mn > xn((on - kn) / An)) && Wt("overflow"),
-                            kn += Mn * An,
-                            In = Rn <= Fn ? dn : Rn >= Fn + ln ? ln : Rn - Fn,
-                            !(Mn < In); Rn += sn)
-                                An > xn(on / (Dn = sn - In)) && Wt("overflow"),
-                                An *= Dn;
-                            Fn = Qt(kn - Cn, En = On.length + 1, 0 == Cn),
+                            ((Dn = Kt(Tn.charCodeAt(Pn++))) >= sn || Dn > xn((on - kn) / An)) && Wt("overflow"),
+                            kn += Dn * An,
+                            Mn = Rn <= Fn ? dn : Rn >= Fn + ln ? ln : Rn - Fn,
+                            !(Dn < Mn); Rn += sn)
+                                An > xn(on / (In = sn - Mn)) && Wt("overflow"),
+                                An *= In;
+                            Fn = Zt(kn - Cn, En = On.length + 1, 0 == Cn),
                             xn(kn / En) > on - Nn && Wt("overflow"),
                             Nn += xn(kn / En),
                             kn %= En,
@@ -6851,7 +6851,7 @@ function(Bt) {
                         return qt(On)
                     }
                     function $t(Tn) {
-                        var Bn = [], En, Sn, wn, Pn, Cn, An, Rn, Mn, In, Dn, On, Ln, kn, Nn, Fn;
+                        var Bn = [], En, Sn, wn, Pn, Cn, An, Rn, Dn, Mn, In, On, Ln, kn, Nn, Fn;
                         for (Ln = (Tn = Vt(Tn)).length,
                         En = fn,
                         Sn = 0,
@@ -6869,15 +6869,15 @@ function(Bt) {
                             An = 0; An < Ln; ++An)
                                 if ((On = Tn[An]) < En && ++Sn > on && Wt("overflow"),
                                 On == En) {
-                                    for (Mn = Sn,
-                                    In = sn; Dn = In <= Cn ? dn : In >= Cn + ln ? ln : In - Cn,
-                                    !(Mn < Dn); In += sn)
-                                        Fn = Mn - Dn,
-                                        Nn = sn - Dn,
-                                        Bn.push(vn(Zt(Dn + Fn % Nn, 0))),
-                                        Mn = xn(Fn / Nn);
-                                    Bn.push(vn(Zt(Mn, 0))),
-                                    Cn = Qt(Sn, kn, wn == Pn),
+                                    for (Dn = Sn,
+                                    Mn = sn; In = Mn <= Cn ? dn : Mn >= Cn + ln ? ln : Mn - Cn,
+                                    !(Dn < In); Mn += sn)
+                                        Fn = Dn - In,
+                                        Nn = sn - In,
+                                        Bn.push(vn(Qt(In + Fn % Nn, 0))),
+                                        Dn = xn(Fn / Nn);
+                                    Bn.push(vn(Qt(Dn, 0))),
+                                    Cn = Zt(Sn, kn, wn == Pn),
                                     Sn = 0,
                                     ++wn
                                 }
@@ -6938,11 +6938,11 @@ function(Bt) {
                     return qt;
                 var Kt = /\+/g;
                 Wt = Wt.split(jt);
-                var Zt = 1e3;
-                Vt && "number" == typeof Vt.maxKeys && (Zt = Vt.maxKeys);
-                var Qt = Wt.length;
-                0 < Zt && Qt > Zt && (Qt = Zt);
-                for (var Jt = 0; Jt < Qt; ++Jt) {
+                var Qt = 1e3;
+                Vt && "number" == typeof Vt.maxKeys && (Qt = Vt.maxKeys);
+                var Zt = Wt.length;
+                0 < Qt && Zt > Qt && (Zt = Qt);
+                for (var Jt = 0; Jt < Zt; ++Jt) {
                     var rn = Wt[Jt].replace(Kt, "%20"), an = rn.indexOf(zt), $t, en, tn, nn;
                     0 <= an ? ($t = rn.substr(0, an),
                     en = rn.substr(an + 1)) : ($t = rn,
@@ -6983,11 +6983,11 @@ function(Bt) {
                 return Vt = Vt || "&",
                 qt = qt || "=",
                 null === zt && (zt = void 0),
-                "object" == typeof zt ? Gt(jt(zt), function(Zt) {
-                    var Qt = encodeURIComponent(Yt(Zt)) + qt;
-                    return Wt(zt[Zt]) ? Gt(zt[Zt], function(Jt) {
-                        return Qt + encodeURIComponent(Yt(Jt))
-                    }).join(Vt) : Qt + encodeURIComponent(Yt(zt[Zt]))
+                "object" == typeof zt ? Gt(jt(zt), function(Qt) {
+                    var Zt = encodeURIComponent(Yt(Qt)) + qt;
+                    return Wt(zt[Qt]) ? Gt(zt[Qt], function(Jt) {
+                        return Zt + encodeURIComponent(Yt(Jt))
+                    }).join(Vt) : Zt + encodeURIComponent(Yt(zt[Qt]))
                 }).join(Vt) : Kt ? encodeURIComponent(Yt(Kt)) + qt + encodeURIComponent(Yt(zt)) : ""
             }
             ;
@@ -7053,8 +7053,8 @@ function(Bt) {
               , Vt = /:[0-9]*$/
               , qt = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/
               , Kt = ["{", "}", "|", "\\", "^", "`"].concat(["<", ">", "\"", "`", " ", "\r", "\n", "\t"])
-              , Zt = ["'"].concat(Kt)
-              , Qt = ["%", "/", "?", ";", "#"].concat(Zt)
+              , Qt = ["'"].concat(Kt)
+              , Zt = ["%", "/", "?", ";", "#"].concat(Qt)
               , Jt = ["/", "?", "#"]
               , $t = /^[+a-z0-9A-Z_-]{0,63}$/
               , en = /^([+a-z0-9A-Z_-]{0,63})(.*)$/
@@ -7118,9 +7118,9 @@ function(Bt) {
                     cn = cn.slice(xn + 1),
                     this.auth = decodeURIComponent(bn)),
                     yn = -1,
-                    _n = 0; _n < Qt.length; _n++) {
+                    _n = 0; _n < Zt.length; _n++) {
                         var vn;
-                        -1 !== (vn = cn.indexOf(Qt[_n])) && (-1 === yn || vn < yn) && (yn = vn)
+                        -1 !== (vn = cn.indexOf(Zt[_n])) && (-1 === yn || vn < yn) && (yn = vn)
                     }
                     -1 === yn && (yn = cn.length),
                     this.host = cn.slice(0, yn),
@@ -7137,28 +7137,28 @@ function(Bt) {
                                     Pn += 127 < wn.charCodeAt(Cn) ? "x" : wn[Cn];
                                 if (!Pn.match($t)) {
                                     var Rn = En.slice(0, _n)
-                                      , Mn = En.slice(_n + 1)
-                                      , In = wn.match(en);
-                                    In && (Rn.push(In[1]),
-                                    Mn.unshift(In[2])),
-                                    Mn.length && (cn = "/" + Mn.join(".") + cn),
+                                      , Dn = En.slice(_n + 1)
+                                      , Mn = wn.match(en);
+                                    Mn && (Rn.push(Mn[1]),
+                                    Dn.unshift(Mn[2])),
+                                    Dn.length && (cn = "/" + Dn.join(".") + cn),
                                     this.hostname = Rn.join(".");
                                     break
                                 }
                             }
                     this.hostname = 255 < this.hostname.length ? "" : this.hostname.toLowerCase(),
                     Tn || (this.hostname = Wt.toASCII(this.hostname));
-                    var Dn = this.port ? ":" + this.port : ""
+                    var In = this.port ? ":" + this.port : ""
                       , On = this.hostname || "";
-                    this.host = On + Dn,
+                    this.host = On + In,
                     this.href += this.host,
                     Tn && (this.hostname = this.hostname.substr(1, this.hostname.length - 2),
                     "/" !== cn[0] && (cn = "/" + cn))
                 }
                 if (!tn[gn])
                     for (_n = 0,
-                    Sn = Zt.length; _n < Sn; _n++) {
-                        var Ln = Zt[_n];
+                    Sn = Qt.length; _n < Sn; _n++) {
+                        var Ln = Qt[_n];
                         if (-1 !== cn.indexOf(Ln)) {
                             var kn = encodeURIComponent(Ln);
                             kn === Ln && (kn = escape(Ln)),
@@ -7177,9 +7177,9 @@ function(Bt) {
                 cn && (this.pathname = cn),
                 rn[gn] && this.hostname && !this.pathname && (this.pathname = "/"),
                 this.pathname || this.search) {
-                    Dn = this.pathname || "";
+                    In = this.pathname || "";
                     var Bn = this.search || "";
-                    this.path = Dn + Bn
+                    this.path = In + Bn
                 }
                 return this.href = this.format(),
                 this
@@ -7300,8 +7300,8 @@ function(Bt) {
                     dn.query = on.query;
                 else if (!jt.isNullOrUndefined(on.search))
                     return Pn && (dn.hostname = dn.host = wn.shift(),
-                    (Dn = !!(dn.host && 0 < dn.host.indexOf("@")) && dn.host.split("@")) && (dn.auth = Dn.shift(),
-                    dn.host = dn.hostname = Dn.shift())),
+                    (In = !!(dn.host && 0 < dn.host.indexOf("@")) && dn.host.split("@")) && (dn.auth = In.shift(),
+                    dn.host = dn.hostname = In.shift())),
                     dn.search = on.search,
                     dn.query = on.query,
                     jt.isNull(dn.pathname) && jt.isNull(dn.search) || (dn.path = (dn.pathname ? dn.pathname : "") + (dn.search ? dn.search : "")),
@@ -7312,23 +7312,23 @@ function(Bt) {
                     dn.path = dn.search ? "/" + dn.search : null,
                     dn.href = dn.format(),
                     dn;
-                for (var Cn = wn.slice(-1)[0], An = (dn.host || on.host || 1 < wn.length) && ("." === Cn || ".." === Cn) || "" === Cn, Rn = 0, Mn = wn.length; 0 <= Mn; Mn--)
-                    "." === (Cn = wn[Mn]) ? wn.splice(Mn, 1) : ".." === Cn ? (wn.splice(Mn, 1),
-                    Rn++) : Rn && (wn.splice(Mn, 1),
+                for (var Cn = wn.slice(-1)[0], An = (dn.host || on.host || 1 < wn.length) && ("." === Cn || ".." === Cn) || "" === Cn, Rn = 0, Dn = wn.length; 0 <= Dn; Dn--)
+                    "." === (Cn = wn[Dn]) ? wn.splice(Dn, 1) : ".." === Cn ? (wn.splice(Dn, 1),
+                    Rn++) : Rn && (wn.splice(Dn, 1),
                     Rn--);
                 if (!En && !Sn)
                     for (; Rn--; Rn)
                         wn.unshift("..");
                 !En || "" === wn[0] || wn[0] && "/" === wn[0].charAt(0) || wn.unshift(""),
                 An && "/" !== wn.join("/").substr(-1) && wn.push("");
-                var In = "" === wn[0] || wn[0] && "/" === wn[0].charAt(0);
+                var Mn = "" === wn[0] || wn[0] && "/" === wn[0].charAt(0);
                 if (Pn) {
-                    dn.hostname = dn.host = In ? "" : wn.length ? wn.shift() : "";
-                    var Dn;
-                    (Dn = !!(dn.host && 0 < dn.host.indexOf("@")) && dn.host.split("@")) && (dn.auth = Dn.shift(),
-                    dn.host = dn.hostname = Dn.shift())
+                    dn.hostname = dn.host = Mn ? "" : wn.length ? wn.shift() : "";
+                    var In;
+                    (In = !!(dn.host && 0 < dn.host.indexOf("@")) && dn.host.split("@")) && (dn.auth = In.shift(),
+                    dn.host = dn.hostname = In.shift())
                 }
-                return (En = En || dn.host && wn.length) && !In && wn.unshift(""),
+                return (En = En || dn.host && wn.length) && !Mn && wn.unshift(""),
                 wn.length ? dn.pathname = wn.join("/") : (dn.pathname = null,
                 dn.path = null),
                 jt.isNull(dn.pathname) && jt.isNull(dn.search) || (dn.path = (dn.pathname ? dn.pathname : "") + (dn.search ? dn.search : "")),
@@ -7381,41 +7381,41 @@ function(Bt) {
         }
         , {}],
         32: [function(Bt, Xt, Ht) {
-            function Gt(Zt) {
-                return Zt && Zt.__esModule ? Zt : {
-                    default: Zt
+            function Gt(Qt) {
+                return Qt && Qt.__esModule ? Qt : {
+                    default: Qt
                 }
             }
             Ht.__esModule = !0;
-            var Yt = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(Zt) {
-                return typeof Zt
+            var Yt = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(Qt) {
+                return typeof Qt
             }
-            : function(Zt) {
-                return Zt && "function" == typeof Symbol && Zt.constructor === Symbol && Zt !== Symbol.prototype ? "symbol" : typeof Zt
+            : function(Qt) {
+                return Qt && "function" == typeof Symbol && Qt.constructor === Symbol && Qt !== Symbol.prototype ? "symbol" : typeof Qt
             }
               , Wt = Gt(Bt("mini-signals"))
               , jt = Gt(Bt("parse-uri"))
-              , zt = function(Zt) {
-                if (Zt && Zt.__esModule)
-                    return Zt;
-                var Qt = {};
-                if (null != Zt)
-                    for (var Jt in Zt)
-                        Object.prototype.hasOwnProperty.call(Zt, Jt) && (Qt[Jt] = Zt[Jt]);
-                return Qt.default = Zt,
-                Qt
+              , zt = function(Qt) {
+                if (Qt && Qt.__esModule)
+                    return Qt;
+                var Zt = {};
+                if (null != Qt)
+                    for (var Jt in Qt)
+                        Object.prototype.hasOwnProperty.call(Qt, Jt) && (Zt[Jt] = Qt[Jt]);
+                return Zt.default = Qt,
+                Zt
             }(Bt("./async"))
               , Vt = Gt(Bt("./Resource"))
               , qt = /(#[\w-]+)?$/
               , Kt = function() {
-                function Zt() {
-                    var Qt = this
+                function Qt() {
+                    var Zt = this
                       , Jt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : ""
                       , $t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : 10;
                     !function(en, tn) {
                         if (!(en instanceof tn))
                             throw new TypeError("Cannot call a class as a function")
-                    }(this, Zt),
+                    }(this, Qt),
                     this.baseUrl = Jt,
                     this.progress = 0,
                     this.loading = !1,
@@ -7424,7 +7424,7 @@ function(Bt) {
                     this._afterMiddleware = [],
                     this._resourcesParsing = [],
                     this._boundLoadResource = function(en, tn) {
-                        return Qt._loadResource(en, tn)
+                        return Zt._loadResource(en, tn)
                     }
                     ,
                     this._queue = zt.queue(this._boundLoadResource, $t),
@@ -7436,61 +7436,61 @@ function(Bt) {
                     this.onStart = new Wt.default,
                     this.onComplete = new Wt.default
                 }
-                return Zt.prototype.add = function(Qt, Jt, $t, en) {
-                    if (Array.isArray(Qt)) {
-                        for (var tn = 0; tn < Qt.length; ++tn)
-                            this.add(Qt[tn]);
+                return Qt.prototype.add = function(Zt, Jt, $t, en) {
+                    if (Array.isArray(Zt)) {
+                        for (var tn = 0; tn < Zt.length; ++tn)
+                            this.add(Zt[tn]);
                         return this
                     }
-                    if ("object" === (void 0 === Qt ? "undefined" : Yt(Qt)) && (en = Jt || Qt.callback || Qt.onComplete,
-                    $t = Qt,
-                    Jt = Qt.url,
-                    Qt = Qt.name || Qt.key || Qt.url),
+                    if ("object" === (void 0 === Zt ? "undefined" : Yt(Zt)) && (en = Jt || Zt.callback || Zt.onComplete,
+                    $t = Zt,
+                    Jt = Zt.url,
+                    Zt = Zt.name || Zt.key || Zt.url),
                     "string" != typeof Jt && (en = $t,
                     $t = Jt,
-                    Jt = Qt),
+                    Jt = Zt),
                     "string" != typeof Jt)
                         throw new Error("No url passed to add resource to loader.");
                     if ("function" == typeof $t && (en = $t,
                     $t = null),
                     this.loading && (!$t || !$t.parentResource))
                         throw new Error("Cannot add resources while the loader is running.");
-                    if (this.resources[Qt])
-                        throw new Error("Resource named \"" + Qt + "\" already exists.");
+                    if (this.resources[Zt])
+                        throw new Error("Resource named \"" + Zt + "\" already exists.");
                     if (Jt = this._prepareUrl(Jt),
-                    this.resources[Qt] = new Vt.default(Qt,Jt,$t),
-                    "function" == typeof en && this.resources[Qt].onAfterMiddleware.once(en),
+                    this.resources[Zt] = new Vt.default(Zt,Jt,$t),
+                    "function" == typeof en && this.resources[Zt].onAfterMiddleware.once(en),
                     this.loading) {
                         for (var nn = $t.parentResource, rn = [], an = 0; an < nn.children.length; ++an)
                             nn.children[an].isComplete || rn.push(nn.children[an]);
                         var on = nn.progressChunk * (rn.length + 1) / (rn.length + 2);
-                        nn.children.push(this.resources[Qt]),
+                        nn.children.push(this.resources[Zt]),
                         nn.progressChunk = on;
                         for (var sn = 0; sn < rn.length; ++sn)
                             rn[sn].progressChunk = on;
-                        this.resources[Qt].progressChunk = on
+                        this.resources[Zt].progressChunk = on
                     }
-                    return this._queue.push(this.resources[Qt]),
+                    return this._queue.push(this.resources[Zt]),
                     this
                 }
                 ,
-                Zt.prototype.pre = function(Qt) {
-                    return this._beforeMiddleware.push(Qt),
+                Qt.prototype.pre = function(Zt) {
+                    return this._beforeMiddleware.push(Zt),
                     this
                 }
                 ,
-                Zt.prototype.use = function(Qt) {
-                    return this._afterMiddleware.push(Qt),
+                Qt.prototype.use = function(Zt) {
+                    return this._afterMiddleware.push(Zt),
                     this
                 }
                 ,
-                Zt.prototype.reset = function() {
-                    for (var Qt in this.progress = 0,
+                Qt.prototype.reset = function() {
+                    for (var Zt in this.progress = 0,
                     this.loading = !1,
                     this._queue.kill(),
                     this._queue.pause(),
                     this.resources) {
-                        var Jt = this.resources[Qt];
+                        var Jt = this.resources[Zt];
                         Jt._onLoadBinding && Jt._onLoadBinding.detach(),
                         Jt.isLoading && Jt.abort()
                     }
@@ -7498,8 +7498,8 @@ function(Bt) {
                     this
                 }
                 ,
-                Zt.prototype.load = function(Qt) {
-                    if ("function" == typeof Qt && this.onComplete.once(Qt),
+                Qt.prototype.load = function(Zt) {
+                    if ("function" == typeof Zt && this.onComplete.once(Zt),
                     this.loading)
                         return this;
                     for (var Jt = 100 / this._queue._tasks.length, $t = 0; $t < this._queue._tasks.length; ++$t)
@@ -7510,12 +7510,12 @@ function(Bt) {
                     this
                 }
                 ,
-                Zt.prototype._prepareUrl = function(Qt) {
+                Qt.prototype._prepareUrl = function(Zt) {
                     var Jt = (0,
-                    jt.default)(Qt, {
+                    jt.default)(Zt, {
                         strictMode: !0
                     }), $t;
-                    if ($t = Jt.protocol || !Jt.path || 0 === Qt.indexOf("//") ? Qt : this.baseUrl.length && this.baseUrl.lastIndexOf("/") !== this.baseUrl.length - 1 && "/" !== Qt.charAt(0) ? this.baseUrl + "/" + Qt : this.baseUrl + Qt,
+                    if ($t = Jt.protocol || !Jt.path || 0 === Zt.indexOf("//") ? Zt : this.baseUrl.length && this.baseUrl.lastIndexOf("/") !== this.baseUrl.length - 1 && "/" !== Zt.charAt(0) ? this.baseUrl + "/" + Zt : this.baseUrl + Zt,
                     this.defaultQueryString) {
                         var en = qt.exec($t)[0];
                         $t += -1 === ($t = $t.substr(0, $t.length - en.length)).indexOf("?") ? "?" + this.defaultQueryString : "&" + this.defaultQueryString,
@@ -7524,43 +7524,43 @@ function(Bt) {
                     return $t
                 }
                 ,
-                Zt.prototype._loadResource = function(Qt, Jt) {
+                Qt.prototype._loadResource = function(Zt, Jt) {
                     var $t = this;
-                    Qt._dequeue = Jt,
+                    Zt._dequeue = Jt,
                     zt.eachSeries(this._beforeMiddleware, function(en, tn) {
-                        en.call($t, Qt, function() {
-                            tn(Qt.isComplete ? {} : null)
+                        en.call($t, Zt, function() {
+                            tn(Zt.isComplete ? {} : null)
                         })
                     }, function() {
-                        Qt.isComplete ? $t._onLoad(Qt) : (Qt._onLoadBinding = Qt.onComplete.once($t._onLoad, $t),
-                        Qt.load())
+                        Zt.isComplete ? $t._onLoad(Zt) : (Zt._onLoadBinding = Zt.onComplete.once($t._onLoad, $t),
+                        Zt.load())
                     }, !0)
                 }
                 ,
-                Zt.prototype._onComplete = function() {
+                Qt.prototype._onComplete = function() {
                     this.loading = !1,
                     this.onComplete.dispatch(this, this.resources)
                 }
                 ,
-                Zt.prototype._onLoad = function(Qt) {
+                Qt.prototype._onLoad = function(Zt) {
                     var Jt = this;
-                    Qt._onLoadBinding = null,
-                    this._resourcesParsing.push(Qt),
-                    Qt._dequeue(),
+                    Zt._onLoadBinding = null,
+                    this._resourcesParsing.push(Zt),
+                    Zt._dequeue(),
                     zt.eachSeries(this._afterMiddleware, function($t, en) {
-                        $t.call(Jt, Qt, en)
+                        $t.call(Jt, Zt, en)
                     }, function() {
-                        Qt.onAfterMiddleware.dispatch(Qt),
-                        Jt.progress += Qt.progressChunk,
-                        Jt.onProgress.dispatch(Jt, Qt),
-                        Qt.error ? Jt.onError.dispatch(Qt.error, Jt, Qt) : Jt.onLoad.dispatch(Jt, Qt),
-                        Jt._resourcesParsing.splice(Jt._resourcesParsing.indexOf(Qt), 1),
+                        Zt.onAfterMiddleware.dispatch(Zt),
+                        Jt.progress += Zt.progressChunk,
+                        Jt.onProgress.dispatch(Jt, Zt),
+                        Zt.error ? Jt.onError.dispatch(Zt.error, Jt, Zt) : Jt.onLoad.dispatch(Jt, Zt),
+                        Jt._resourcesParsing.splice(Jt._resourcesParsing.indexOf(Zt), 1),
                         Jt._queue.idle() && 0 === Jt._resourcesParsing.length && (Jt.progress = 100,
                         Jt._onComplete())
                     }, !0)
                 }
                 ,
-                Zt
+                Qt
             }();
             Ht.default = Kt
         }
@@ -7603,8 +7603,8 @@ function(Bt) {
               , Vt = Gt(Bt("parse-uri"))
               , qt = Gt(Bt("mini-signals"))
               , Kt = window.XDomainRequest && !("withCredentials"in new XMLHttpRequest)
-              , Zt = null
-              , Qt = function() {
+              , Qt = null
+              , Zt = function() {
                 function Jt($t, en, tn) {
                     if (function(nn, rn) {
                         if (!(nn instanceof rn))
@@ -7853,10 +7853,10 @@ function(Bt) {
                     if (0 === $t.indexOf("data:"))
                         return "";
                     en = en || window.location,
-                    Zt || (Zt = document.createElement("a")),
-                    Zt.href = $t;
+                    Qt || (Qt = document.createElement("a")),
+                    Qt.href = $t;
                     var tn = !($t = (0,
-                    Vt.default)(Zt.href, {
+                    Vt.default)(Qt.href, {
                         strictMode: !0
                     })).port && "" === en.port || $t.port === en.port
                       , nn = $t.protocol ? $t.protocol + ":" : "";
@@ -7921,14 +7921,14 @@ function(Bt) {
                 }]),
                 Jt
             }();
-            Ht.default = Qt,
-            Qt.STATUS_FLAGS = {
+            Ht.default = Zt,
+            Zt.STATUS_FLAGS = {
                 NONE: 0,
                 DATA_URL: 1,
                 COMPLETE: 2,
                 LOADING: 4
             },
-            Qt.TYPE = {
+            Zt.TYPE = {
                 UNKNOWN: 0,
                 JSON: 1,
                 XML: 2,
@@ -7937,13 +7937,13 @@ function(Bt) {
                 VIDEO: 5,
                 TEXT: 6
             },
-            Qt.LOAD_TYPE = {
+            Zt.LOAD_TYPE = {
                 XHR: 1,
                 IMAGE: 2,
                 AUDIO: 3,
                 VIDEO: 4
             },
-            Qt.XHR_RESPONSE_TYPE = {
+            Zt.XHR_RESPONSE_TYPE = {
                 DEFAULT: "text",
                 BUFFER: "arraybuffer",
                 BLOB: "blob",
@@ -7951,48 +7951,48 @@ function(Bt) {
                 JSON: "json",
                 TEXT: "text"
             },
-            Qt._loadTypeMap = {
-                gif: Qt.LOAD_TYPE.IMAGE,
-                png: Qt.LOAD_TYPE.IMAGE,
-                bmp: Qt.LOAD_TYPE.IMAGE,
-                jpg: Qt.LOAD_TYPE.IMAGE,
-                jpeg: Qt.LOAD_TYPE.IMAGE,
-                tif: Qt.LOAD_TYPE.IMAGE,
-                tiff: Qt.LOAD_TYPE.IMAGE,
-                webp: Qt.LOAD_TYPE.IMAGE,
-                tga: Qt.LOAD_TYPE.IMAGE,
-                svg: Qt.LOAD_TYPE.IMAGE,
-                "svg+xml": Qt.LOAD_TYPE.IMAGE,
-                mp3: Qt.LOAD_TYPE.AUDIO,
-                ogg: Qt.LOAD_TYPE.AUDIO,
-                wav: Qt.LOAD_TYPE.AUDIO,
-                mp4: Qt.LOAD_TYPE.VIDEO,
-                webm: Qt.LOAD_TYPE.VIDEO
+            Zt._loadTypeMap = {
+                gif: Zt.LOAD_TYPE.IMAGE,
+                png: Zt.LOAD_TYPE.IMAGE,
+                bmp: Zt.LOAD_TYPE.IMAGE,
+                jpg: Zt.LOAD_TYPE.IMAGE,
+                jpeg: Zt.LOAD_TYPE.IMAGE,
+                tif: Zt.LOAD_TYPE.IMAGE,
+                tiff: Zt.LOAD_TYPE.IMAGE,
+                webp: Zt.LOAD_TYPE.IMAGE,
+                tga: Zt.LOAD_TYPE.IMAGE,
+                svg: Zt.LOAD_TYPE.IMAGE,
+                "svg+xml": Zt.LOAD_TYPE.IMAGE,
+                mp3: Zt.LOAD_TYPE.AUDIO,
+                ogg: Zt.LOAD_TYPE.AUDIO,
+                wav: Zt.LOAD_TYPE.AUDIO,
+                mp4: Zt.LOAD_TYPE.VIDEO,
+                webm: Zt.LOAD_TYPE.VIDEO
             },
-            Qt._xhrTypeMap = {
-                xhtml: Qt.XHR_RESPONSE_TYPE.DOCUMENT,
-                html: Qt.XHR_RESPONSE_TYPE.DOCUMENT,
-                htm: Qt.XHR_RESPONSE_TYPE.DOCUMENT,
-                xml: Qt.XHR_RESPONSE_TYPE.DOCUMENT,
-                tmx: Qt.XHR_RESPONSE_TYPE.DOCUMENT,
-                svg: Qt.XHR_RESPONSE_TYPE.DOCUMENT,
-                tsx: Qt.XHR_RESPONSE_TYPE.DOCUMENT,
-                gif: Qt.XHR_RESPONSE_TYPE.BLOB,
-                png: Qt.XHR_RESPONSE_TYPE.BLOB,
-                bmp: Qt.XHR_RESPONSE_TYPE.BLOB,
-                jpg: Qt.XHR_RESPONSE_TYPE.BLOB,
-                jpeg: Qt.XHR_RESPONSE_TYPE.BLOB,
-                tif: Qt.XHR_RESPONSE_TYPE.BLOB,
-                tiff: Qt.XHR_RESPONSE_TYPE.BLOB,
-                webp: Qt.XHR_RESPONSE_TYPE.BLOB,
-                tga: Qt.XHR_RESPONSE_TYPE.BLOB,
-                json: Qt.XHR_RESPONSE_TYPE.JSON,
-                text: Qt.XHR_RESPONSE_TYPE.TEXT,
-                txt: Qt.XHR_RESPONSE_TYPE.TEXT,
-                ttf: Qt.XHR_RESPONSE_TYPE.BUFFER,
-                otf: Qt.XHR_RESPONSE_TYPE.BUFFER
+            Zt._xhrTypeMap = {
+                xhtml: Zt.XHR_RESPONSE_TYPE.DOCUMENT,
+                html: Zt.XHR_RESPONSE_TYPE.DOCUMENT,
+                htm: Zt.XHR_RESPONSE_TYPE.DOCUMENT,
+                xml: Zt.XHR_RESPONSE_TYPE.DOCUMENT,
+                tmx: Zt.XHR_RESPONSE_TYPE.DOCUMENT,
+                svg: Zt.XHR_RESPONSE_TYPE.DOCUMENT,
+                tsx: Zt.XHR_RESPONSE_TYPE.DOCUMENT,
+                gif: Zt.XHR_RESPONSE_TYPE.BLOB,
+                png: Zt.XHR_RESPONSE_TYPE.BLOB,
+                bmp: Zt.XHR_RESPONSE_TYPE.BLOB,
+                jpg: Zt.XHR_RESPONSE_TYPE.BLOB,
+                jpeg: Zt.XHR_RESPONSE_TYPE.BLOB,
+                tif: Zt.XHR_RESPONSE_TYPE.BLOB,
+                tiff: Zt.XHR_RESPONSE_TYPE.BLOB,
+                webp: Zt.XHR_RESPONSE_TYPE.BLOB,
+                tga: Zt.XHR_RESPONSE_TYPE.BLOB,
+                json: Zt.XHR_RESPONSE_TYPE.JSON,
+                text: Zt.XHR_RESPONSE_TYPE.TEXT,
+                txt: Zt.XHR_RESPONSE_TYPE.TEXT,
+                ttf: Zt.XHR_RESPONSE_TYPE.BUFFER,
+                otf: Zt.XHR_RESPONSE_TYPE.BUFFER
             },
-            Qt.EMPTY_GIF = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+            Zt.EMPTY_GIF = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
         }
         , {
             "mini-signals": 38,
@@ -8013,16 +8013,16 @@ function(Bt) {
             Ht.eachSeries = function(Wt, jt, zt, Vt) {
                 var qt = 0
                   , Kt = Wt.length;
-                !function Zt(Qt) {
-                    Qt || qt === Kt ? zt && zt(Qt) : Vt ? setTimeout(function() {
-                        jt(Wt[qt++], Zt)
-                    }, 1) : jt(Wt[qt++], Zt)
+                !function Qt(Zt) {
+                    Zt || qt === Kt ? zt && zt(Zt) : Vt ? setTimeout(function() {
+                        jt(Wt[qt++], Qt)
+                    }, 1) : jt(Wt[qt++], Qt)
                 }()
             }
             ,
             Ht.queue = function(Wt, jt) {
-                function zt(Kt, Zt, Qt) {
-                    if (null != Qt && "function" != typeof Qt)
+                function zt(Kt, Qt, Zt) {
+                    if (null != Zt && "function" != typeof Zt)
                         throw new Error("task callback must be a function");
                     if (qt.started = !0,
                     null == Kt && qt.idle())
@@ -8032,9 +8032,9 @@ function(Bt) {
                     else {
                         var Jt = {
                             data: Kt,
-                            callback: "function" == typeof Qt ? Qt : Gt
+                            callback: "function" == typeof Zt ? Zt : Gt
                         };
-                        Zt ? qt._tasks.unshift(Jt) : qt._tasks.push(Jt),
+                        Qt ? qt._tasks.unshift(Jt) : qt._tasks.push(Jt),
                         setTimeout(function() {
                             return qt.process()
                         }, 1)
@@ -8056,8 +8056,8 @@ function(Bt) {
                     error: Gt,
                     started: !1,
                     paused: !1,
-                    push: function(Kt, Zt) {
-                        zt(Kt, !1, Zt)
+                    push: function(Kt, Qt) {
+                        zt(Kt, !1, Qt)
                     },
                     kill: function() {
                         Vt = 0,
@@ -8065,19 +8065,19 @@ function(Bt) {
                         qt.started = !1,
                         qt._tasks = []
                     },
-                    unshift: function(Kt, Zt) {
-                        zt(Kt, !0, Zt)
+                    unshift: function(Kt, Qt) {
+                        zt(Kt, !0, Qt)
                     },
                     process: function() {
                         for (; !qt.paused && Vt < qt.concurrency && qt._tasks.length; ) {
                             var Kt = qt._tasks.shift();
                             0 === qt._tasks.length && qt.empty(),
                             (Vt += 1) === qt.concurrency && qt.saturated(),
-                            Wt(Kt.data, Yt(function(Zt) {
+                            Wt(Kt.data, Yt(function(Qt) {
                                 return function() {
                                     Vt -= 1,
-                                    Zt.callback.apply(Zt, arguments),
-                                    null != arguments[0] && qt.error(arguments[0], Zt.data),
+                                    Qt.callback.apply(Qt, arguments),
+                                    null != arguments[0] && qt.error(arguments[0], Qt.data),
                                     Vt <= qt.concurrency - qt.buffer && qt.unsaturated(),
                                     qt.idle() && qt.drain(),
                                     qt.process()
@@ -8170,10 +8170,10 @@ function(Bt) {
                     if (Vt.data) {
                         if (Vt.xhr && Vt.xhrType === Wt.default.XHR_RESPONSE_TYPE.BLOB)
                             if (!(window.Blob && "string" != typeof Vt.data)) {
-                                var Zt = Vt.xhr.getResponseHeader("content-type");
-                                if (Zt && 0 === Zt.indexOf("image"))
+                                var Qt = Vt.xhr.getResponseHeader("content-type");
+                                if (Qt && 0 === Qt.indexOf("image"))
                                     return Vt.data = new Image,
-                                    Vt.data.src = "data:" + Zt + ";base64," + jt.default.encodeBinary(Vt.xhr.responseText),
+                                    Vt.data.src = "data:" + Qt + ";base64," + jt.default.encodeBinary(Vt.xhr.responseText),
                                     Vt.type = Wt.default.TYPE.IMAGE,
                                     void (Vt.data.onload = function() {
                                         Vt.data.onload = null,
@@ -8182,13 +8182,13 @@ function(Bt) {
                                     )
                             } else if (0 === Vt.data.type.indexOf("image")) {
                                 var Kt = function() {
-                                    var Qt = zt.createObjectURL(Vt.data);
+                                    var Zt = zt.createObjectURL(Vt.data);
                                     return Vt.blob = Vt.data,
                                     Vt.data = new Image,
-                                    Vt.data.src = Qt,
+                                    Vt.data.src = Zt,
                                     Vt.type = Wt.default.TYPE.IMAGE,
                                     Vt.data.onload = function() {
-                                        zt.revokeObjectURL(Qt),
+                                        zt.revokeObjectURL(Zt),
                                         Vt.data.onload = null,
                                         qt()
                                     }
@@ -8232,26 +8232,26 @@ function(Bt) {
             });
             var Wt = function() {
                 function Vt(qt, Kt) {
-                    for (var Zt = 0, Qt; Zt < Kt.length; Zt++)
-                        Qt = Kt[Zt],
-                        Qt.enumerable = Qt.enumerable || !1,
-                        Qt.configurable = !0,
-                        "value"in Qt && (Qt.writable = !0),
-                        Object.defineProperty(qt, Qt.key, Qt)
+                    for (var Qt = 0, Zt; Qt < Kt.length; Qt++)
+                        Zt = Kt[Qt],
+                        Zt.enumerable = Zt.enumerable || !1,
+                        Zt.configurable = !0,
+                        "value"in Zt && (Zt.writable = !0),
+                        Object.defineProperty(qt, Zt.key, Zt)
                 }
-                return function(qt, Kt, Zt) {
+                return function(qt, Kt, Qt) {
                     return Kt && Vt(qt.prototype, Kt),
-                    Zt && Vt(qt, Zt),
+                    Qt && Vt(qt, Qt),
                     qt
                 }
             }()
               , jt = function() {
-                function Vt(qt, Kt, Zt) {
+                function Vt(qt, Kt, Qt) {
                     void 0 === Kt && (Kt = !1),
                     Gt(this, Vt),
                     this._fn = qt,
                     this._once = Kt,
-                    this._thisArg = Zt,
+                    this._thisArg = Qt,
                     this._next = this._prev = this._owner = null
                 }
                 return Wt(Vt, [{
@@ -8275,10 +8275,10 @@ function(Bt) {
                           , Kt = this._head;
                         if (qt)
                             return !!Kt;
-                        for (var Zt = []; Kt; )
-                            Zt.push(Kt),
+                        for (var Qt = []; Kt; )
+                            Qt.push(Kt),
                             Kt = Kt._next;
-                        return Zt
+                        return Qt
                     }
                 }, {
                     key: "has",
@@ -8363,28 +8363,28 @@ function(Bt) {
                 }, jt = Wt.parser[Yt.strictMode ? "strict" : "loose"].exec(Gt), zt = {}, Vt = 14; Vt--; )
                     zt[Wt.key[Vt]] = jt[Vt] || "";
                 return zt[Wt.q.name] = {},
-                zt[Wt.key[12]].replace(Wt.q.parser, function(qt, Kt, Zt) {
-                    Kt && (zt[Wt.q.name][Kt] = Zt)
+                zt[Wt.key[12]].replace(Wt.q.parser, function(qt, Kt, Qt) {
+                    Kt && (zt[Wt.q.name][Kt] = Qt)
                 }),
                 zt
             }
         }
         , {}],
         40: [function(Bt, Xt, Ht) {
-            function Gt(Qt) {
-                return Qt && Qt.__esModule ? Qt : {
-                    default: Qt
+            function Gt(Zt) {
+                return Zt && Zt.__esModule ? Zt : {
+                    default: Zt
                 }
             }
             Ht.__esModule = !0;
-            var Yt = function(Qt) {
-                if (Qt && Qt.__esModule)
-                    return Qt;
+            var Yt = function(Zt) {
+                if (Zt && Zt.__esModule)
+                    return Zt;
                 var Jt = {};
-                if (null != Qt)
-                    for (var $t in Qt)
-                        Object.prototype.hasOwnProperty.call(Qt, $t) && (Jt[$t] = Qt[$t]);
-                return Jt.default = Qt,
+                if (null != Zt)
+                    for (var $t in Zt)
+                        Object.prototype.hasOwnProperty.call(Zt, $t) && (Jt[$t] = Zt[$t]);
+                return Jt.default = Zt,
                 Jt
             }(Bt("../core"))
               , Wt = Gt(Bt("ismobilejs"))
@@ -8392,12 +8392,12 @@ function(Bt) {
             Yt.utils.mixins.delayMixin(Yt.DisplayObject.prototype, jt.default);
             var zt = 100
               , Kt = 2
-              , Zt = function() {
-                function Qt(Jt) {
+              , Qt = function() {
+                function Zt(Jt) {
                     !function(en, tn) {
                         if (!(en instanceof tn))
                             throw new TypeError("Cannot call a class as a function")
-                    }(this, Qt),
+                    }(this, Zt),
                     (Wt.default.tablet || Wt.default.phone) && !navigator.isCocoonJS && this.createTouchHook();
                     var $t = document.createElement("div");
                     $t.style.width = zt + "px",
@@ -8418,7 +8418,7 @@ function(Bt) {
                     this.isMobileAccessabillity = !1,
                     window.addEventListener("keydown", this._onKeyDown, !1)
                 }
-                return Qt.prototype.createTouchHook = function() {
+                return Zt.prototype.createTouchHook = function() {
                     var Jt = this
                       , $t = document.createElement("button");
                     $t.style.width = "1px",
@@ -8437,7 +8437,7 @@ function(Bt) {
                     document.body.appendChild($t)
                 }
                 ,
-                Qt.prototype.activate = function() {
+                Zt.prototype.activate = function() {
                     this.isActive || (this.isActive = !0,
                     window.document.addEventListener("mousemove", this._onMouseMove, !0),
                     window.removeEventListener("keydown", this._onKeyDown, !1),
@@ -8445,7 +8445,7 @@ function(Bt) {
                     this.renderer.view.parentNode && this.renderer.view.parentNode.appendChild(this.div))
                 }
                 ,
-                Qt.prototype.deactivate = function() {
+                Zt.prototype.deactivate = function() {
                     this.isActive && !this.isMobileAccessabillity && (this.isActive = !1,
                     window.document.removeEventListener("mousemove", this._onMouseMove),
                     window.addEventListener("keydown", this._onKeyDown, !1),
@@ -8453,7 +8453,7 @@ function(Bt) {
                     this.div.parentNode && this.div.parentNode.removeChild(this.div))
                 }
                 ,
-                Qt.prototype.updateAccessibleObjects = function(Jt) {
+                Zt.prototype.updateAccessibleObjects = function(Jt) {
                     if (Jt.visible) {
                         Jt.accessible && Jt.interactive && (Jt._accessibleActive || this.addChild(Jt),
                         Jt.renderId = this.renderId);
@@ -8462,7 +8462,7 @@ function(Bt) {
                     }
                 }
                 ,
-                Qt.prototype.update = function() {
+                Zt.prototype.update = function() {
                     if (this.renderer.renderingToScreen) {
                         this.updateAccessibleObjects(this.renderer._lastObjectRendered);
                         var Jt = this.renderer.view.getBoundingClientRect()
@@ -8501,7 +8501,7 @@ function(Bt) {
                     }
                 }
                 ,
-                Qt.prototype.capHitArea = function(Jt) {
+                Zt.prototype.capHitArea = function(Jt) {
                     0 > Jt.x && (Jt.width += Jt.x,
                     Jt.x = 0),
                     0 > Jt.y && (Jt.height += Jt.y,
@@ -8510,7 +8510,7 @@ function(Bt) {
                     Jt.y + Jt.height > this.renderer.height && (Jt.height = this.renderer.height - Jt.y)
                 }
                 ,
-                Qt.prototype.addChild = function(Jt) {
+                Zt.prototype.addChild = function(Jt) {
                     var $t = this.pool.pop();
                     $t || (($t = document.createElement("button")).style.width = zt + "px",
                     $t.style.height = zt + "px",
@@ -8531,30 +8531,30 @@ function(Bt) {
                     Jt._accessibleDiv.tabIndex = Jt.tabIndex
                 }
                 ,
-                Qt.prototype._onClick = function(Jt) {
+                Zt.prototype._onClick = function(Jt) {
                     var $t = this.renderer.plugins.interaction;
                     $t.dispatchEvent(Jt.target.displayObject, "click", $t.eventData)
                 }
                 ,
-                Qt.prototype._onFocus = function(Jt) {
+                Zt.prototype._onFocus = function(Jt) {
                     var $t = this.renderer.plugins.interaction;
                     $t.dispatchEvent(Jt.target.displayObject, "mouseover", $t.eventData)
                 }
                 ,
-                Qt.prototype._onFocusOut = function(Jt) {
+                Zt.prototype._onFocusOut = function(Jt) {
                     var $t = this.renderer.plugins.interaction;
                     $t.dispatchEvent(Jt.target.displayObject, "mouseout", $t.eventData)
                 }
                 ,
-                Qt.prototype._onKeyDown = function(Jt) {
+                Zt.prototype._onKeyDown = function(Jt) {
                     9 === Jt.keyCode && this.activate()
                 }
                 ,
-                Qt.prototype._onMouseMove = function() {
+                Zt.prototype._onMouseMove = function() {
                     this.deactivate()
                 }
                 ,
-                Qt.prototype.destroy = function() {
+                Zt.prototype.destroy = function() {
                     this.div = null;
                     for (var Jt = 0; Jt < this.children.length; Jt++)
                         this.children[Jt].div = null;
@@ -8565,11 +8565,11 @@ function(Bt) {
                     this.renderer = null
                 }
                 ,
-                Qt
+                Zt
             }();
-            Ht.default = Zt,
-            Yt.WebGLRenderer.registerPlugin("accessibility", Zt),
-            Yt.CanvasRenderer.registerPlugin("accessibility", Zt)
+            Ht.default = Qt,
+            Yt.WebGLRenderer.registerPlugin("accessibility", Qt),
+            Yt.CanvasRenderer.registerPlugin("accessibility", Qt)
         }
         , {
             "../core": 65,
@@ -8615,25 +8615,25 @@ function(Bt) {
             "./accessibleTarget": 41
         }],
         43: [function(Bt, Xt, Ht) {
-            function Gt(Zt) {
-                return Zt && Zt.__esModule ? Zt : {
-                    default: Zt
+            function Gt(Qt) {
+                return Qt && Qt.__esModule ? Qt : {
+                    default: Qt
                 }
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function Zt(Qt, Jt) {
+                function Qt(Zt, Jt) {
                     for (var $t = 0, en; $t < Jt.length; $t++)
                         en = Jt[$t],
                         en.enumerable = en.enumerable || !1,
                         en.configurable = !0,
                         "value"in en && (en.writable = !0),
-                        Object.defineProperty(Qt, en.key, en)
+                        Object.defineProperty(Zt, en.key, en)
                 }
-                return function(Qt, Jt, $t) {
-                    return Jt && Zt(Qt.prototype, Jt),
-                    $t && Zt(Qt, $t),
-                    Qt
+                return function(Zt, Jt, $t) {
+                    return Jt && Qt(Zt.prototype, Jt),
+                    $t && Qt(Zt, $t),
+                    Zt
                 }
             }()
               , Wt = Bt("./autoDetectRenderer")
@@ -8642,59 +8642,59 @@ function(Bt) {
               , Vt = Gt(Bt("./settings"))
               , qt = Bt("./const")
               , Kt = function() {
-                function Zt(Qt, Jt, $t, en, tn) {
+                function Qt(Zt, Jt, $t, en, tn) {
                     !function(nn, rn) {
                         if (!(nn instanceof rn))
                             throw new TypeError("Cannot call a class as a function")
-                    }(this, Zt),
-                    "number" == typeof Qt && (Qt = Object.assign({
-                        width: Qt,
+                    }(this, Qt),
+                    "number" == typeof Zt && (Zt = Object.assign({
+                        width: Zt,
                         height: Jt || Vt.default.RENDER_OPTIONS.height,
                         forceCanvas: !!en,
                         sharedTicker: !!tn
                     }, $t)),
-                    this._options = Qt = Object.assign({
+                    this._options = Zt = Object.assign({
                         autoStart: !0,
                         sharedTicker: !1,
                         forceCanvas: !1,
                         sharedLoader: !1
-                    }, Qt),
+                    }, Zt),
                     this.renderer = (0,
-                    Wt.autoDetectRenderer)(Qt),
+                    Wt.autoDetectRenderer)(Zt),
                     this.stage = new jt.default,
                     this._ticker = null,
-                    this.ticker = Qt.sharedTicker ? zt.shared : new zt.Ticker,
-                    Qt.autoStart && this.start()
+                    this.ticker = Zt.sharedTicker ? zt.shared : new zt.Ticker,
+                    Zt.autoStart && this.start()
                 }
-                return Zt.prototype.render = function() {
+                return Qt.prototype.render = function() {
                     this.renderer.render(this.stage)
                 }
                 ,
-                Zt.prototype.stop = function() {
+                Qt.prototype.stop = function() {
                     this._ticker.stop()
                 }
                 ,
-                Zt.prototype.start = function() {
+                Qt.prototype.start = function() {
                     this._ticker.start()
                 }
                 ,
-                Zt.prototype.destroy = function(Qt) {
+                Qt.prototype.destroy = function(Zt) {
                     var Jt = this._ticker;
                     this.ticker = null,
                     Jt.destroy(),
                     this.stage.destroy(),
                     this.stage = null,
-                    this.renderer.destroy(Qt),
+                    this.renderer.destroy(Zt),
                     this.renderer = null,
                     this._options = null
                 }
                 ,
-                Yt(Zt, [{
+                Yt(Qt, [{
                     key: "ticker",
-                    set: function(Qt) {
+                    set: function(Zt) {
                         this._ticker && this._ticker.remove(this.render, this),
-                        this._ticker = Qt,
-                        Qt && Qt.add(this.render, this, qt.UPDATE_PRIORITY.LOW)
+                        this._ticker = Zt,
+                        Zt && Zt.add(this.render, this, qt.UPDATE_PRIORITY.LOW)
                     },
                     get: function() {
                         return this._ticker
@@ -8710,7 +8710,7 @@ function(Bt) {
                         return this.renderer.screen
                     }
                 }]),
-                Zt
+                Qt
             }();
             Ht.default = Kt
         }
@@ -8741,16 +8741,16 @@ function(Bt) {
                 }
             }(Bt("./settings"))
               , jt = function(zt) {
-                function Vt(qt, Kt, Zt) {
-                    return function(Qt, Jt) {
-                        if (!(Qt instanceof Jt))
+                function Vt(qt, Kt, Qt) {
+                    return function(Zt, Jt) {
+                        if (!(Zt instanceof Jt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Vt),
-                    function(Qt, Jt) {
-                        if (!Qt)
+                    function(Zt, Jt) {
+                        if (!Zt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Jt && ("object" == typeof Jt || "function" == typeof Jt) ? Jt : Qt
-                    }(this, zt.call(this, qt, Gt(Kt, Wt.default.PRECISION_VERTEX), Gt(Zt, Wt.default.PRECISION_FRAGMENT)))
+                        return Jt && ("object" == typeof Jt || "function" == typeof Jt) ? Jt : Zt
+                    }(this, zt.call(this, qt, Gt(Kt, Wt.default.PRECISION_VERTEX), Gt(Qt, Wt.default.PRECISION_FRAGMENT)))
                 }
                 return function(qt, Kt) {
                     if ("function" != typeof Kt && null !== Kt)
@@ -8781,9 +8781,9 @@ function(Bt) {
             }
             Ht.__esModule = !0,
             Ht.autoDetectRenderer = function(zt, Vt, qt, Kt) {
-                var Zt = zt && zt.forceCanvas;
-                return void 0 !== Kt && (Zt = Kt),
-                !Zt && Yt.isWebGLSupported() ? new jt.default(zt,Vt,qt) : new Wt.default(zt,Vt,qt)
+                var Qt = zt && zt.forceCanvas;
+                return void 0 !== Kt && (Qt = Kt),
+                !Qt && Yt.isWebGLSupported() ? new jt.default(zt,Vt,qt) : new Wt.default(zt,Vt,qt)
             }
             ;
             var Yt = function(zt) {
@@ -8939,30 +8939,30 @@ function(Bt) {
                       , Vt = this.minY
                       , qt = this.maxX
                       , Kt = this.maxY
-                      , Zt = jt[0]
-                      , Qt = jt[1];
-                    zt = Zt < zt ? Zt : zt,
-                    Vt = Qt < Vt ? Qt : Vt,
-                    qt = Zt > qt ? Zt : qt,
-                    Kt = Qt > Kt ? Qt : Kt,
-                    Zt = jt[2],
-                    Qt = jt[3],
-                    zt = Zt < zt ? Zt : zt,
-                    Vt = Qt < Vt ? Qt : Vt,
-                    qt = Zt > qt ? Zt : qt,
-                    Kt = Qt > Kt ? Qt : Kt,
-                    Zt = jt[4],
-                    Qt = jt[5],
-                    zt = Zt < zt ? Zt : zt,
-                    Vt = Qt < Vt ? Qt : Vt,
-                    qt = Zt > qt ? Zt : qt,
-                    Kt = Qt > Kt ? Qt : Kt,
-                    Zt = jt[6],
-                    Qt = jt[7],
-                    zt = Zt < zt ? Zt : zt,
-                    Vt = Qt < Vt ? Qt : Vt,
-                    qt = Zt > qt ? Zt : qt,
-                    Kt = Qt > Kt ? Qt : Kt,
+                      , Qt = jt[0]
+                      , Zt = jt[1];
+                    zt = Qt < zt ? Qt : zt,
+                    Vt = Zt < Vt ? Zt : Vt,
+                    qt = Qt > qt ? Qt : qt,
+                    Kt = Zt > Kt ? Zt : Kt,
+                    Qt = jt[2],
+                    Zt = jt[3],
+                    zt = Qt < zt ? Qt : zt,
+                    Vt = Zt < Vt ? Zt : Vt,
+                    qt = Qt > qt ? Qt : qt,
+                    Kt = Zt > Kt ? Zt : Kt,
+                    Qt = jt[4],
+                    Zt = jt[5],
+                    zt = Qt < zt ? Qt : zt,
+                    Vt = Zt < Vt ? Zt : Vt,
+                    qt = Qt > qt ? Qt : qt,
+                    Kt = Zt > Kt ? Zt : Kt,
+                    Qt = jt[6],
+                    Zt = jt[7],
+                    zt = Qt < zt ? Qt : zt,
+                    Vt = Zt < Vt ? Zt : Vt,
+                    qt = Qt > qt ? Qt : qt,
+                    Kt = Zt > Kt ? Zt : Kt,
                     this.minX = zt,
                     this.minY = Vt,
                     this.maxX = qt,
@@ -8970,35 +8970,35 @@ function(Bt) {
                 }
                 ,
                 Wt.prototype.addFrame = function(jt, zt, Vt, qt, Kt) {
-                    var Zt = jt.worldTransform
-                      , Qt = Zt.a
-                      , Jt = Zt.b
-                      , $t = Zt.c
-                      , en = Zt.d
-                      , tn = Zt.tx
-                      , nn = Zt.ty
+                    var Qt = jt.worldTransform
+                      , Zt = Qt.a
+                      , Jt = Qt.b
+                      , $t = Qt.c
+                      , en = Qt.d
+                      , tn = Qt.tx
+                      , nn = Qt.ty
                       , rn = this.minX
                       , an = this.minY
                       , on = this.maxX
                       , sn = this.maxY
-                      , dn = Qt * zt + $t * Vt + tn
+                      , dn = Zt * zt + $t * Vt + tn
                       , ln = Jt * zt + en * Vt + nn;
                     rn = dn < rn ? dn : rn,
                     an = ln < an ? ln : an,
                     on = dn > on ? dn : on,
                     sn = ln > sn ? ln : sn,
                     ln = Jt * qt + en * Vt + nn,
-                    rn = (dn = Qt * qt + $t * Vt + tn) < rn ? dn : rn,
+                    rn = (dn = Zt * qt + $t * Vt + tn) < rn ? dn : rn,
                     an = ln < an ? ln : an,
                     on = dn > on ? dn : on,
                     sn = ln > sn ? ln : sn,
                     ln = Jt * zt + en * Kt + nn,
-                    rn = (dn = Qt * zt + $t * Kt + tn) < rn ? dn : rn,
+                    rn = (dn = Zt * zt + $t * Kt + tn) < rn ? dn : rn,
                     an = ln < an ? ln : an,
                     on = dn > on ? dn : on,
                     sn = ln > sn ? ln : sn,
                     ln = Jt * qt + en * Kt + nn,
-                    rn = (dn = Qt * qt + $t * Kt + tn) < rn ? dn : rn,
+                    rn = (dn = Zt * qt + $t * Kt + tn) < rn ? dn : rn,
                     an = ln < an ? ln : an,
                     on = dn > on ? dn : on,
                     sn = ln > sn ? ln : sn,
@@ -9009,11 +9009,11 @@ function(Bt) {
                 }
                 ,
                 Wt.prototype.addVertices = function(jt, zt, Vt, qt) {
-                    for (var Kt = jt.worldTransform, Zt = Kt.a, Qt = Kt.b, Jt = Kt.c, $t = Kt.d, en = Kt.tx, tn = Kt.ty, nn = this.minX, rn = this.minY, an = this.maxX, on = this.maxY, sn = Vt; sn < qt; sn += 2) {
+                    for (var Kt = jt.worldTransform, Qt = Kt.a, Zt = Kt.b, Jt = Kt.c, $t = Kt.d, en = Kt.tx, tn = Kt.ty, nn = this.minX, rn = this.minY, an = this.maxX, on = this.maxY, sn = Vt; sn < qt; sn += 2) {
                         var dn = zt[sn]
                           , ln = zt[sn + 1]
-                          , un = Zt * dn + Jt * ln + en
-                          , pn = $t * ln + Qt * dn + tn;
+                          , un = Qt * dn + Jt * ln + en
+                          , pn = $t * ln + Zt * dn + tn;
                         nn = un < nn ? un : nn,
                         rn = pn < rn ? pn : rn,
                         an = un > an ? un : an,
@@ -9040,16 +9040,16 @@ function(Bt) {
                     var Vt = jt.minX > zt.minX ? jt.minX : zt.minX
                       , qt = jt.minY > zt.minY ? jt.minY : zt.minY
                       , Kt = jt.maxX < zt.maxX ? jt.maxX : zt.maxX
-                      , Zt = jt.maxY < zt.maxY ? jt.maxY : zt.maxY;
-                    if (Vt <= Kt && qt <= Zt) {
-                        var Qt = this.minX
+                      , Qt = jt.maxY < zt.maxY ? jt.maxY : zt.maxY;
+                    if (Vt <= Kt && qt <= Qt) {
+                        var Zt = this.minX
                           , Jt = this.minY
                           , $t = this.maxX
                           , en = this.maxY;
-                        this.minX = Vt < Qt ? Vt : Qt,
+                        this.minX = Vt < Zt ? Vt : Zt,
                         this.minY = qt < Jt ? qt : Jt,
                         this.maxX = Kt > $t ? Kt : $t,
-                        this.maxY = Zt > en ? Zt : en
+                        this.maxY = Qt > en ? Qt : en
                     }
                 }
                 ,
@@ -9057,16 +9057,16 @@ function(Bt) {
                     var Vt = jt.minX > zt.x ? jt.minX : zt.x
                       , qt = jt.minY > zt.y ? jt.minY : zt.y
                       , Kt = jt.maxX < zt.x + zt.width ? jt.maxX : zt.x + zt.width
-                      , Zt = jt.maxY < zt.y + zt.height ? jt.maxY : zt.y + zt.height;
-                    if (Vt <= Kt && qt <= Zt) {
-                        var Qt = this.minX
+                      , Qt = jt.maxY < zt.y + zt.height ? jt.maxY : zt.y + zt.height;
+                    if (Vt <= Kt && qt <= Qt) {
+                        var Zt = this.minX
                           , Jt = this.minY
                           , $t = this.maxX
                           , en = this.maxY;
-                        this.minX = Vt < Qt ? Vt : Qt,
+                        this.minX = Vt < Zt ? Vt : Zt,
                         this.minY = qt < Jt ? qt : Jt,
                         this.maxX = Kt > $t ? Kt : $t,
-                        this.maxY = Zt > en ? Zt : en
+                        this.maxY = Qt > en ? Qt : en
                     }
                 }
                 ,
@@ -9156,10 +9156,10 @@ function(Bt) {
                 zt.prototype.swapChildren = function(Vt, qt) {
                     if (Vt !== qt) {
                         var Kt = this.getChildIndex(Vt)
-                          , Zt = this.getChildIndex(qt);
+                          , Qt = this.getChildIndex(qt);
                         this.children[Kt] = qt,
-                        this.children[Zt] = Vt,
-                        this.onChildrenChange(Kt < Zt ? Kt : Zt)
+                        this.children[Qt] = Vt,
+                        this.onChildrenChange(Kt < Qt ? Kt : Qt)
                     }
                 }
                 ,
@@ -9192,15 +9192,15 @@ function(Bt) {
                         for (var Kt = 0; Kt < qt; Kt++)
                             this.removeChild(arguments[Kt]);
                     else {
-                        var Zt = this.children.indexOf(Vt);
-                        if (-1 === Zt)
+                        var Qt = this.children.indexOf(Vt);
+                        if (-1 === Qt)
                             return null;
                         Vt.parent = null,
                         Vt.transform._parentID = -1,
                         (0,
-                        Yt.removeItems)(this.children, Zt, 1),
+                        Yt.removeItems)(this.children, Qt, 1),
                         this._boundsID++,
-                        this.onChildrenChange(Zt),
+                        this.onChildrenChange(Qt),
                         Vt.emit("removed", this)
                     }
                     return Vt
@@ -9219,9 +9219,9 @@ function(Bt) {
                 }
                 ,
                 zt.prototype.removeChildren = function() {
-                    var Vt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : 0, qt = arguments[1], Kt = Vt, Zt = "number" == typeof qt ? qt : this.children.length, Qt = Zt - Kt, Jt;
-                    if (0 < Qt && Qt <= Zt) {
-                        Jt = this.children.splice(Kt, Qt);
+                    var Vt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : 0, qt = arguments[1], Kt = Vt, Qt = "number" == typeof qt ? qt : this.children.length, Zt = Qt - Kt, Jt;
+                    if (0 < Zt && Zt <= Qt) {
+                        Jt = this.children.splice(Kt, Zt);
                         for (var $t = 0; $t < Jt.length; ++$t)
                             Jt[$t].parent = null,
                             Jt[$t].transform && (Jt[$t].transform._parentID = -1);
@@ -9231,7 +9231,7 @@ function(Bt) {
                             Jt[en].emit("removed", this);
                         return Jt
                     }
-                    if (0 == Qt && 0 === this.children.length)
+                    if (0 == Zt && 0 === this.children.length)
                         return [];
                     throw new RangeError("removeChildren: numeric values are outside the acceptable range.")
                 }
@@ -9276,14 +9276,14 @@ function(Bt) {
                     if (qt) {
                         this._enabledFilters || (this._enabledFilters = []),
                         this._enabledFilters.length = 0;
-                        for (var Zt = 0; Zt < qt.length; Zt++)
-                            qt[Zt].enabled && this._enabledFilters.push(qt[Zt]);
+                        for (var Qt = 0; Qt < qt.length; Qt++)
+                            qt[Qt].enabled && this._enabledFilters.push(qt[Qt]);
                         this._enabledFilters.length && Vt.filterManager.pushFilter(this, this._enabledFilters)
                     }
                     Kt && Vt.maskManager.pushMask(this, this._mask),
                     this._renderWebGL(Vt);
-                    for (var Qt = 0, Jt = this.children.length; Qt < Jt; Qt++)
-                        this.children[Qt].renderWebGL(Vt);
+                    for (var Zt = 0, Jt = this.children.length; Zt < Jt; Zt++)
+                        this.children[Zt].renderWebGL(Vt);
                     Vt.flush(),
                     Kt && Vt.maskManager.popMask(this, this._mask),
                     qt && this._enabledFilters && this._enabledFilters.length && Vt.filterManager.popFilter()
@@ -9308,8 +9308,8 @@ function(Bt) {
                     var qt = "boolean" == typeof Vt ? Vt : Vt && Vt.children
                       , Kt = this.removeChildren(0, this.children.length);
                     if (qt)
-                        for (var Zt = 0; Zt < Kt.length; ++Zt)
-                            Kt[Zt].destroy(Vt)
+                        for (var Qt = 0; Qt < Kt.length; ++Qt)
+                            Kt[Qt].destroy(Vt)
                 }
                 ,
                 Gt(zt, [{
@@ -9374,8 +9374,8 @@ function(Bt) {
               , Vt = Gt(Bt("./TransformStatic"))
               , qt = Gt(Bt("./Transform"))
               , Kt = Gt(Bt("./Bounds"))
-              , Zt = Bt("../math")
-              , Qt = function(Jt) {
+              , Qt = Bt("../math")
+              , Zt = function(Jt) {
                 function $t() {
                     !function(nn, rn) {
                         if (!(nn instanceof rn))
@@ -9436,7 +9436,7 @@ function(Bt) {
                     this.updateTransform(),
                     this.parent = null)),
                     this._boundsID !== this._lastBoundsID && this.calculateBounds(),
-                    tn || (this._boundsRect || (this._boundsRect = new Zt.Rectangle),
+                    tn || (this._boundsRect || (this._boundsRect = new Qt.Rectangle),
                     tn = this._boundsRect),
                     this._bounds.getRectangle(tn)
                 }
@@ -9446,7 +9446,7 @@ function(Bt) {
                       , nn = this.parent;
                     this.parent = null,
                     this.transform = this._tempDisplayObjectParent.transform,
-                    en || (this._localBoundsRect || (this._localBoundsRect = new Zt.Rectangle),
+                    en || (this._localBoundsRect || (this._localBoundsRect = new Qt.Rectangle),
                     en = this._localBoundsRect);
                     var rn = this.getBounds(!1, en);
                     return this.parent = nn,
@@ -9621,8 +9621,8 @@ function(Bt) {
                 }]),
                 $t
             }(Wt.default);
-            Ht.default = Qt,
-            Qt.prototype.displayObjectUpdateTransform = Qt.prototype.updateTransform
+            Ht.default = Zt,
+            Zt.prototype.displayObjectUpdateTransform = Zt.prototype.updateTransform
         }
         , {
             "../const": 46,
@@ -9712,13 +9712,13 @@ function(Bt) {
                     qt.tx = this.position.x - (this.pivot.x * qt.a + this.pivot.y * qt.c),
                     qt.ty = this.position.y - (this.pivot.x * qt.b + this.pivot.y * qt.d);
                     var Kt = Vt.worldTransform
-                      , Zt = this.worldTransform;
-                    Zt.a = qt.a * Kt.a + qt.b * Kt.c,
-                    Zt.b = qt.a * Kt.b + qt.b * Kt.d,
-                    Zt.c = qt.c * Kt.a + qt.d * Kt.c,
-                    Zt.d = qt.c * Kt.b + qt.d * Kt.d,
-                    Zt.tx = qt.tx * Kt.a + qt.ty * Kt.c + Kt.tx,
-                    Zt.ty = qt.tx * Kt.b + qt.ty * Kt.d + Kt.ty,
+                      , Qt = this.worldTransform;
+                    Qt.a = qt.a * Kt.a + qt.b * Kt.c,
+                    Qt.b = qt.a * Kt.b + qt.b * Kt.d,
+                    Qt.c = qt.c * Kt.a + qt.d * Kt.c,
+                    Qt.d = qt.c * Kt.b + qt.d * Kt.d,
+                    Qt.tx = qt.tx * Kt.a + qt.ty * Kt.c + Kt.tx,
+                    Qt.ty = qt.tx * Kt.b + qt.ty * Kt.d + Kt.ty,
                     this._worldID++
                 }
                 ,
@@ -9877,13 +9877,13 @@ function(Bt) {
                     this._parentID = -1),
                     this._parentID !== Vt._worldID) {
                         var Kt = Vt.worldTransform
-                          , Zt = this.worldTransform;
-                        Zt.a = qt.a * Kt.a + qt.b * Kt.c,
-                        Zt.b = qt.a * Kt.b + qt.b * Kt.d,
-                        Zt.c = qt.c * Kt.a + qt.d * Kt.c,
-                        Zt.d = qt.c * Kt.b + qt.d * Kt.d,
-                        Zt.tx = qt.tx * Kt.a + qt.ty * Kt.c + Kt.tx,
-                        Zt.ty = qt.tx * Kt.b + qt.ty * Kt.d + Kt.ty,
+                          , Qt = this.worldTransform;
+                        Qt.a = qt.a * Kt.a + qt.b * Kt.c,
+                        Qt.b = qt.a * Kt.b + qt.b * Kt.d,
+                        Qt.c = qt.c * Kt.a + qt.d * Kt.c,
+                        Qt.d = qt.c * Kt.b + qt.d * Kt.d,
+                        Qt.tx = qt.tx * Kt.a + qt.ty * Kt.c + Kt.tx,
+                        Qt.ty = qt.tx * Kt.b + qt.ty * Kt.d + Kt.ty,
                         this._parentID = Vt._worldID,
                         this._worldID++
                     }
@@ -9923,7 +9923,7 @@ function(Bt) {
                 }
             }
             Ht.__esModule = !0;
-            var Yt = Gt(Bt("../display/Container")), Wt = Gt(Bt("../textures/RenderTexture")), jt = Gt(Bt("../textures/Texture")), zt = Gt(Bt("./GraphicsData")), Vt = Gt(Bt("../sprites/Sprite")), qt = Bt("../math"), Kt = Bt("../utils"), Zt = Bt("../const"), Qt = Gt(Bt("../display/Bounds")), Jt = Gt(Bt("./utils/bezierCurveTo")), $t = Gt(Bt("../renderers/canvas/CanvasRenderer")), en, tn = new qt.Matrix, nn = new qt.Point, rn = new Float32Array(4), an = new Float32Array(4), on = function(sn) {
+            var Yt = Gt(Bt("../display/Container")), Wt = Gt(Bt("../textures/RenderTexture")), jt = Gt(Bt("../textures/Texture")), zt = Gt(Bt("./GraphicsData")), Vt = Gt(Bt("../sprites/Sprite")), qt = Bt("../math"), Kt = Bt("../utils"), Qt = Bt("../const"), Zt = Gt(Bt("../display/Bounds")), Jt = Gt(Bt("./utils/bezierCurveTo")), $t = Gt(Bt("../renderers/canvas/CanvasRenderer")), en, tn = new qt.Matrix, nn = new qt.Point, rn = new Float32Array(4), an = new Float32Array(4), on = function(sn) {
                 function dn() {
                     var ln = 0 < arguments.length && void 0 !== arguments[0] && arguments[0];
                     !function(pn, cn) {
@@ -9942,12 +9942,12 @@ function(Bt) {
                     un.graphicsData = [],
                     un.tint = 16777215,
                     un._prevTint = 16777215,
-                    un.blendMode = Zt.BLEND_MODES.NORMAL,
+                    un.blendMode = Qt.BLEND_MODES.NORMAL,
                     un.currentPath = null,
                     un._webGL = {},
                     un.isMask = !1,
                     un.boundsPadding = 0,
-                    un._localBounds = new Qt.default,
+                    un._localBounds = new Zt.default,
                     un.dirty = 0,
                     un.fastRectDirty = -1,
                     un.clearDirty = 0,
@@ -10169,7 +10169,7 @@ function(Bt) {
                 }
                 ,
                 dn.prototype.isFastRect = function() {
-                    return 1 === this.graphicsData.length && this.graphicsData[0].shape.type === Zt.SHAPES.RECT && !this.graphicsData[0].lineWidth
+                    return 1 === this.graphicsData.length && this.graphicsData[0].shape.type === Qt.SHAPES.RECT && !this.graphicsData[0].lineWidth
                 }
                 ,
                 dn.prototype._renderWebGL = function(ln) {
@@ -10246,7 +10246,7 @@ function(Bt) {
                               , xn = bn.type
                               , vn = bn.lineWidth;
                             if (fn = bn.shape,
-                            xn === Zt.SHAPES.RECT || xn === Zt.SHAPES.RREC)
+                            xn === Qt.SHAPES.RECT || xn === Qt.SHAPES.RREC)
                                 hn = fn.x - vn / 2,
                                 gn = fn.y - vn / 2,
                                 mn = fn.width + vn,
@@ -10255,7 +10255,7 @@ function(Bt) {
                                 un = hn + mn > un ? hn + mn : un,
                                 pn = gn < pn ? gn : pn,
                                 cn = gn + yn > cn ? gn + yn : cn;
-                            else if (xn === Zt.SHAPES.CIRC)
+                            else if (xn === Qt.SHAPES.CIRC)
                                 hn = fn.x,
                                 gn = fn.y,
                                 mn = fn.radius + vn / 2,
@@ -10264,7 +10264,7 @@ function(Bt) {
                                 un = hn + mn > un ? hn + mn : un,
                                 pn = gn - yn < pn ? gn - yn : pn,
                                 cn = gn + yn > cn ? gn + yn : cn;
-                            else if (xn === Zt.SHAPES.ELIP)
+                            else if (xn === Qt.SHAPES.ELIP)
                                 hn = fn.x,
                                 gn = fn.y,
                                 mn = fn.width + vn / 2,
@@ -10274,31 +10274,31 @@ function(Bt) {
                                 pn = gn - yn < pn ? gn - yn : pn,
                                 cn = gn + yn > cn ? gn + yn : cn;
                             else
-                                for (var Tn = fn.points, En = 0, Sn = 0, wn = 0, Pn = 0, Cn = 0, An = 0, Rn = 0, Mn = 0, In = 0; In + 2 < Tn.length; In += 2)
-                                    hn = Tn[In],
-                                    gn = Tn[In + 1],
-                                    En = Tn[In + 2],
-                                    Sn = Tn[In + 3],
+                                for (var Tn = fn.points, En = 0, Sn = 0, wn = 0, Pn = 0, Cn = 0, An = 0, Rn = 0, Dn = 0, Mn = 0; Mn + 2 < Tn.length; Mn += 2)
+                                    hn = Tn[Mn],
+                                    gn = Tn[Mn + 1],
+                                    En = Tn[Mn + 2],
+                                    Sn = Tn[Mn + 3],
                                     wn = Math.abs(En - hn),
                                     Pn = Math.abs(Sn - gn),
                                     yn = vn,
                                     1e-9 > (mn = Math.sqrt(wn * wn + Pn * Pn)) || (An = (yn / mn * wn + Pn) / 2,
-                                    Mn = (Sn + gn) / 2,
+                                    Dn = (Sn + gn) / 2,
                                     ln = (Rn = (En + hn) / 2) - (Cn = (yn / mn * Pn + wn) / 2) < ln ? Rn - Cn : ln,
                                     un = Rn + Cn > un ? Rn + Cn : un,
-                                    pn = Mn - An < pn ? Mn - An : pn,
-                                    cn = Mn + An > cn ? Mn + An : cn)
+                                    pn = Dn - An < pn ? Dn - An : pn,
+                                    cn = Dn + An > cn ? Dn + An : cn)
                         }
                     else
                         ln = 0,
                         un = 0,
                         pn = 0,
                         cn = 0;
-                    var Dn = this.boundsPadding;
-                    this._localBounds.minX = ln - Dn,
-                    this._localBounds.maxX = un + Dn,
-                    this._localBounds.minY = pn - Dn,
-                    this._localBounds.maxY = cn + Dn
+                    var In = this.boundsPadding;
+                    this._localBounds.minX = ln - In,
+                    this._localBounds.maxX = un + In,
+                    this._localBounds.minY = pn - In,
+                    this._localBounds.maxY = cn + In
                 }
                 ,
                 dn.prototype.drawShape = function(ln) {
@@ -10306,7 +10306,7 @@ function(Bt) {
                     this.currentPath = null;
                     var un = new zt.default(this.lineWidth,this.lineColor,this.lineAlpha,this.fillColor,this.fillAlpha,this.filling,this.nativeLines,ln);
                     return this.graphicsData.push(un),
-                    un.type === Zt.SHAPES.POLY && (un.shape.closed = un.shape.closed || this.filling,
+                    un.type === Qt.SHAPES.POLY && (un.shape.closed = un.shape.closed || this.filling,
                     this.currentPath = un),
                     this.dirty++,
                     un
@@ -10378,13 +10378,13 @@ function(Bt) {
         54: [function(Bt, Xt, Ht) {
             Ht.__esModule = !0;
             var Gt = function() {
-                function Yt(Wt, jt, zt, Vt, qt, Kt, Zt, Qt) {
+                function Yt(Wt, jt, zt, Vt, qt, Kt, Qt, Zt) {
                     !function(Jt, $t) {
                         if (!(Jt instanceof $t))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Yt),
                     this.lineWidth = Wt,
-                    this.nativeLines = Zt,
+                    this.nativeLines = Qt,
                     this.lineColor = jt,
                     this.lineAlpha = zt,
                     this._lineTint = jt,
@@ -10393,8 +10393,8 @@ function(Bt) {
                     this._fillTint = Vt,
                     this.fill = Kt,
                     this.holes = [],
-                    this.shape = Qt,
-                    this.type = Qt.type
+                    this.shape = Zt,
+                    this.type = Zt.type
                 }
                 return Yt.prototype.clone = function() {
                     return new Yt(this.lineWidth,this.lineColor,this.lineAlpha,this.fillColor,this.fillAlpha,this.fill,this.nativeLines,this.shape)
@@ -10434,10 +10434,10 @@ function(Bt) {
                     var Vt = this.renderer
                       , qt = Vt.context
                       , Kt = zt.worldAlpha
-                      , Zt = zt.transform.worldTransform
-                      , Qt = Vt.resolution;
+                      , Qt = zt.transform.worldTransform
+                      , Zt = Vt.resolution;
                     this._prevTint !== this.tint && (this.dirty = !0),
-                    qt.setTransform(Zt.a * Qt, Zt.b * Qt, Zt.c * Qt, Zt.d * Qt, Zt.tx * Qt, Zt.ty * Qt),
+                    qt.setTransform(Qt.a * Zt, Qt.b * Zt, Qt.c * Zt, Qt.d * Zt, Qt.tx * Zt, Qt.ty * Zt),
                     zt.dirty && (this.updateGraphicsTint(zt),
                     zt.dirty = !1),
                     Vt.setBlendMode(zt.blendMode);
@@ -10530,12 +10530,12 @@ function(Bt) {
                 ,
                 jt.prototype.updateGraphicsTint = function(zt) {
                     zt._prevTint = zt.tint;
-                    for (var Vt = (255 & zt.tint >> 16) / 255, qt = (255 & zt.tint >> 8) / 255, Kt = (255 & zt.tint) / 255, Zt = 0; Zt < zt.graphicsData.length; ++Zt) {
-                        var Qt = zt.graphicsData[Zt]
-                          , Jt = 0 | Qt.fillColor
-                          , $t = 0 | Qt.lineColor;
-                        Qt._fillTint = (255 * ((255 & Jt >> 16) / 255 * Vt) << 16) + (255 * ((255 & Jt >> 8) / 255 * qt) << 8) + 255 * ((255 & Jt) / 255 * Kt),
-                        Qt._lineTint = (255 * ((255 & $t >> 16) / 255 * Vt) << 16) + (255 * ((255 & $t >> 8) / 255 * qt) << 8) + 255 * ((255 & $t) / 255 * Kt)
+                    for (var Vt = (255 & zt.tint >> 16) / 255, qt = (255 & zt.tint >> 8) / 255, Kt = (255 & zt.tint) / 255, Qt = 0; Qt < zt.graphicsData.length; ++Qt) {
+                        var Zt = zt.graphicsData[Qt]
+                          , Jt = 0 | Zt.fillColor
+                          , $t = 0 | Zt.lineColor;
+                        Zt._fillTint = (255 * ((255 & Jt >> 16) / 255 * Vt) << 16) + (255 * ((255 & Jt >> 8) / 255 * qt) << 8) + 255 * ((255 & Jt) / 255 * Kt),
+                        Zt._lineTint = (255 * ((255 & $t >> 16) / 255 * Vt) << 16) + (255 * ((255 & $t >> 8) / 255 * qt) << 8) + 255 * ((255 & $t) / 255 * Kt)
                     }
                 }
                 ,
@@ -10562,18 +10562,18 @@ function(Bt) {
         56: [function(Bt, Xt, Ht) {
             Ht.__esModule = !0,
             Ht.default = function(Gt, Yt, Wt, jt, zt, Vt, qt, Kt) {
-                var Zt = 8 < arguments.length && void 0 !== arguments[8] ? arguments[8] : []
-                  , Qt = 0
+                var Qt = 8 < arguments.length && void 0 !== arguments[8] ? arguments[8] : []
+                  , Zt = 0
                   , Jt = 0
                   , $t = 0
                   , en = 0
                   , tn = 0;
-                Zt.push(Gt, Yt);
+                Qt.push(Gt, Yt);
                 for (var nn = 1, rn = 0; 20 >= nn; ++nn)
-                    $t = (Jt = (Qt = 1 - (rn = nn / 20)) * Qt) * Qt,
+                    $t = (Jt = (Zt = 1 - (rn = nn / 20)) * Zt) * Zt,
                     tn = (en = rn * rn) * rn,
-                    Zt.push($t * Gt + 3 * Jt * rn * Wt + 3 * Qt * en * zt + tn * qt, $t * Yt + 3 * Jt * rn * jt + 3 * Qt * en * Vt + tn * Kt);
-                return Zt
+                    Qt.push($t * Gt + 3 * Jt * rn * Wt + 3 * Zt * en * zt + tn * qt, $t * Yt + 3 * Jt * rn * jt + 3 * Zt * en * Vt + tn * Kt);
+                return Qt
             }
         }
         , {}],
@@ -10591,8 +10591,8 @@ function(Bt) {
               , Vt = Gt(Bt("./WebGLGraphicsData"))
               , qt = Gt(Bt("./shaders/PrimitiveShader"))
               , Kt = Gt(Bt("./utils/buildPoly"))
-              , Zt = Gt(Bt("./utils/buildRectangle"))
-              , Qt = Gt(Bt("./utils/buildRoundedRectangle"))
+              , Qt = Gt(Bt("./utils/buildRectangle"))
+              , Zt = Gt(Bt("./utils/buildRoundedRectangle"))
               , Jt = Gt(Bt("./utils/buildCircle"))
               , $t = function(en) {
                 function tn(nn) {
@@ -10681,9 +10681,9 @@ function(Bt) {
                         un.type === Wt.SHAPES.POLY && (0,
                         Kt.default)(un, sn, dn),
                         un.type === Wt.SHAPES.RECT ? (0,
-                        Zt.default)(un, sn, dn) : un.type === Wt.SHAPES.CIRC || un.type === Wt.SHAPES.ELIP ? (0,
+                        Qt.default)(un, sn, dn) : un.type === Wt.SHAPES.CIRC || un.type === Wt.SHAPES.ELIP ? (0,
                         Jt.default)(un, sn, dn) : un.type === Wt.SHAPES.RREC && (0,
-                        Qt.default)(un, sn, dn),
+                        Zt.default)(un, sn, dn),
                         an.lastIndex++;
                     this.renderer.bindVao(null);
                     for (var pn = 0; pn < an.data.length; pn++)
@@ -10817,11 +10817,11 @@ function(Bt) {
         60: [function(Bt, Xt, Ht) {
             Ht.__esModule = !0,
             Ht.default = function(jt, zt, Vt) {
-                var qt = jt.shape, Kt = qt.x, Zt = qt.y, Qt, Jt;
-                if (jt.type === Yt.SHAPES.CIRC ? (Qt = qt.radius,
-                Jt = qt.radius) : (Qt = qt.width,
+                var qt = jt.shape, Kt = qt.x, Qt = qt.y, Zt, Jt;
+                if (jt.type === Yt.SHAPES.CIRC ? (Zt = qt.radius,
+                Jt = qt.radius) : (Zt = qt.width,
                 Jt = qt.height),
-                0 !== Qt && 0 !== Jt) {
+                0 !== Zt && 0 !== Jt) {
                     var $t = Math.floor(30 * Math.sqrt(qt.radius)) || Math.floor(15 * Math.sqrt(qt.width + qt.height))
                       , en = 2 * Math.PI / $t;
                     if (jt.fill) {
@@ -10836,8 +10836,8 @@ function(Bt) {
                           , ln = sn.length / 6;
                         dn.push(ln);
                         for (var un = 0; un < $t + 1; un++)
-                            sn.push(Kt, Zt, rn, an, on, nn),
-                            sn.push(Kt + Math.sin(en * un) * Qt, Zt + Math.cos(en * un) * Jt, rn, an, on, nn),
+                            sn.push(Kt, Qt, rn, an, on, nn),
+                            sn.push(Kt + Math.sin(en * un) * Zt, Qt + Math.cos(en * un) * Jt, rn, an, on, nn),
                             dn.push(ln++, ln++);
                         dn.push(ln - 1)
                     }
@@ -10845,7 +10845,7 @@ function(Bt) {
                         var pn = jt.points;
                         jt.points = [];
                         for (var cn = 0; cn < $t + 1; cn++)
-                            jt.points.push(Kt + Math.sin(en * cn) * Qt, Zt + Math.cos(en * cn) * Jt);
+                            jt.points.push(Kt + Math.sin(en * cn) * Zt, Qt + Math.cos(en * cn) * Jt);
                         (0,
                         Gt.default)(jt, zt, Vt),
                         jt.points = pn
@@ -10871,10 +10871,10 @@ function(Bt) {
             Ht.default = function(Wt, jt, zt) {
                 Wt.nativeLines ? function(Vt, qt) {
                     var Kt = 0
-                      , Zt = Vt.points;
-                    if (0 !== Zt.length) {
-                        var Qt = qt.points
-                          , Jt = Zt.length / 2
+                      , Qt = Vt.points;
+                    if (0 !== Qt.length) {
+                        var Zt = qt.points
+                          , Jt = Qt.length / 2
                           , $t = (0,
                         Yt.hex2rgb)(Vt.lineColor)
                           , en = Vt.lineAlpha
@@ -10882,26 +10882,26 @@ function(Bt) {
                           , nn = $t[1] * en
                           , rn = $t[2] * en;
                         for (Kt = 1; Kt < Jt; Kt++) {
-                            var an = Zt[2 * (Kt - 1)]
-                              , on = Zt[2 * (Kt - 1) + 1]
-                              , sn = Zt[2 * Kt]
-                              , dn = Zt[2 * Kt + 1];
-                            Qt.push(an, on),
-                            Qt.push(tn, nn, rn, en),
-                            Qt.push(sn, dn),
-                            Qt.push(tn, nn, rn, en)
+                            var an = Qt[2 * (Kt - 1)]
+                              , on = Qt[2 * (Kt - 1) + 1]
+                              , sn = Qt[2 * Kt]
+                              , dn = Qt[2 * Kt + 1];
+                            Zt.push(an, on),
+                            Zt.push(tn, nn, rn, en),
+                            Zt.push(sn, dn),
+                            Zt.push(tn, nn, rn, en)
                         }
                     }
                 }(Wt, zt) : function(Vt, qt) {
                     var Kt = Vt.points;
                     if (0 !== Kt.length) {
-                        var Zt = new Gt.Point(Kt[0],Kt[1])
-                          , Qt = new Gt.Point(Kt[Kt.length - 2],Kt[Kt.length - 1]);
-                        if (Zt.x === Qt.x && Zt.y === Qt.y) {
+                        var Qt = new Gt.Point(Kt[0],Kt[1])
+                          , Zt = new Gt.Point(Kt[Kt.length - 2],Kt[Kt.length - 1]);
+                        if (Qt.x === Zt.x && Qt.y === Zt.y) {
                             (Kt = Kt.slice()).pop(),
                             Kt.pop();
-                            var Jt = (Qt = new Gt.Point(Kt[Kt.length - 2],Kt[Kt.length - 1])).x + .5 * (Zt.x - Qt.x)
-                              , $t = Qt.y + .5 * (Zt.y - Qt.y);
+                            var Jt = (Zt = new Gt.Point(Kt[Kt.length - 2],Kt[Kt.length - 1])).x + .5 * (Qt.x - Zt.x)
+                              , $t = Zt.y + .5 * (Qt.y - Zt.y);
                             Kt.unshift(Jt, $t),
                             Kt.push(Jt, $t)
                         }
@@ -10957,16 +10957,16 @@ function(Bt) {
                               , Cn = -_n + hn - (-_n + cn)
                               , An = (-_n + cn) * (-bn + gn) - (-_n + hn) * (-bn + fn)
                               , Rn = -(vn *= on) + yn - (-vn + gn)
-                              , Mn = -(xn *= on) + hn - (-xn + mn)
-                              , In = (-xn + mn) * (-vn + gn) - (-xn + hn) * (-vn + yn)
-                              , Dn = Pn * Mn - Rn * Cn;
-                            if (.1 > Math.abs(Dn))
-                                Dn += 10.1,
+                              , Dn = -(xn *= on) + hn - (-xn + mn)
+                              , Mn = (-xn + mn) * (-vn + gn) - (-xn + hn) * (-vn + yn)
+                              , In = Pn * Dn - Rn * Cn;
+                            if (.1 > Math.abs(In))
+                                In += 10.1,
                                 en.push(hn - _n, gn - bn, ln, un, pn, dn),
                                 en.push(hn + _n, gn + bn, ln, un, pn, dn);
                             else {
-                                var On = (Cn * In - Mn * An) / Dn
-                                  , Ln = (Rn * An - Pn * In) / Dn;
+                                var On = (Cn * Mn - Dn * An) / In
+                                  , Ln = (Rn * An - Pn * Mn) / In;
                                 (On - hn) * (On - hn) + (Ln - gn) * (Ln - gn) > 196 * on * on ? (Tn = _n - xn,
                                 En = bn - vn,
                                 Tn /= Sn = Math.sqrt(Tn * Tn + En * En),
@@ -11024,9 +11024,9 @@ function(Bt) {
                 zt.points = zt.shape.points.slice();
                 var Kt = zt.points;
                 if (zt.fill && 6 <= Kt.length) {
-                    for (var Zt = [], Qt = zt.holes, Jt = 0, $t; Jt < Qt.length; Jt++)
-                        $t = Qt[Jt],
-                        Zt.push(Kt.length / 2),
+                    for (var Qt = [], Zt = zt.holes, Jt = 0, $t; Jt < Zt.length; Jt++)
+                        $t = Zt[Jt],
+                        Qt.push(Kt.length / 2),
                         Kt = Kt.concat($t.points);
                     var en = Vt.points
                       , tn = Vt.indices
@@ -11038,7 +11038,7 @@ function(Bt) {
                       , sn = rn[1] * an
                       , dn = rn[2] * an
                       , ln = (0,
-                    jt.default)(Kt, Zt, 2);
+                    jt.default)(Kt, Qt, 2);
                     if (!ln)
                         return;
                     for (var un = en.length / 6, pn = 0; pn < ln.length; pn += 3)
@@ -11069,8 +11069,8 @@ function(Bt) {
                 var Vt = Wt.shape
                   , qt = Vt.x
                   , Kt = Vt.y
-                  , Zt = Vt.width
-                  , Qt = Vt.height;
+                  , Qt = Vt.width
+                  , Zt = Vt.height;
                 if (Wt.fill) {
                     var Jt = (0,
                     Yt.hex2rgb)(Wt.fillColor)
@@ -11083,17 +11083,17 @@ function(Bt) {
                       , on = rn.length / 6;
                     rn.push(qt, Kt),
                     rn.push(en, tn, nn, $t),
-                    rn.push(qt + Zt, Kt),
+                    rn.push(qt + Qt, Kt),
                     rn.push(en, tn, nn, $t),
-                    rn.push(qt, Kt + Qt),
+                    rn.push(qt, Kt + Zt),
                     rn.push(en, tn, nn, $t),
-                    rn.push(qt + Zt, Kt + Qt),
+                    rn.push(qt + Qt, Kt + Zt),
                     rn.push(en, tn, nn, $t),
                     an.push(on, on, on + 1, on + 2, on + 3, on + 3)
                 }
                 if (Wt.lineWidth) {
                     var sn = Wt.points;
-                    Wt.points = [qt, Kt, qt + Zt, Kt, qt + Zt, Kt + Qt, qt, Kt + Qt, qt, Kt],
+                    Wt.points = [qt, Kt, qt + Qt, Kt, qt + Qt, Kt + Zt, qt, Kt + Zt, qt, Kt],
                     (0,
                     Gt.default)(Wt, jt, zt),
                     Wt.points = sn
@@ -11117,28 +11117,28 @@ function(Bt) {
                     default: qt
                 }
             }
-            function Yt(qt, Kt, Zt) {
-                return qt + (Kt - qt) * Zt
+            function Yt(qt, Kt, Qt) {
+                return qt + (Kt - qt) * Qt
             }
-            function Wt(qt, Kt, Zt, Qt, Jt, $t) {
+            function Wt(qt, Kt, Qt, Zt, Jt, $t) {
                 for (var en = 6 < arguments.length && void 0 !== arguments[6] ? arguments[6] : [], tn = 0, nn = 0, rn = 0, an = 0, on = 0, sn = 0, dn = 0, ln = 0; 20 >= dn; ++dn)
-                    tn = Yt(qt, Zt, ln = dn / 20),
-                    nn = Yt(Kt, Qt, ln),
-                    rn = Yt(Zt, Jt, ln),
-                    an = Yt(Qt, $t, ln),
+                    tn = Yt(qt, Qt, ln = dn / 20),
+                    nn = Yt(Kt, Zt, ln),
+                    rn = Yt(Qt, Jt, ln),
+                    an = Yt(Zt, $t, ln),
                     on = Yt(tn, rn, ln),
                     sn = Yt(nn, an, ln),
                     en.push(on, sn);
                 return en
             }
             Ht.__esModule = !0,
-            Ht.default = function(qt, Kt, Zt) {
-                var Qt = qt.shape
-                  , Jt = Qt.x
-                  , $t = Qt.y
-                  , en = Qt.width
-                  , tn = Qt.height
-                  , nn = Qt.radius
+            Ht.default = function(qt, Kt, Qt) {
+                var Zt = qt.shape
+                  , Jt = Zt.x
+                  , $t = Zt.y
+                  , en = Zt.width
+                  , tn = Zt.height
+                  , nn = Zt.radius
                   , rn = [];
                 if (rn.push(Jt, $t + nn),
                 Wt(Jt, $t + tn - nn, Jt, $t + tn, Jt + nn, $t + tn, rn),
@@ -11161,7 +11161,7 @@ function(Bt) {
                     var _n = qt.points;
                     qt.points = rn,
                     (0,
-                    zt.default)(qt, Kt, Zt),
+                    zt.default)(qt, Kt, Qt),
                     qt.points = _n
                 }
             }
@@ -11239,18 +11239,18 @@ function(Bt) {
                     return Yt(Kt).default
                 }
             });
-            var Zt = Bt("./display/Transform");
+            var Qt = Bt("./display/Transform");
             Object.defineProperty(Ht, "Transform", {
                 enumerable: !0,
                 get: function() {
-                    return Yt(Zt).default
+                    return Yt(Qt).default
                 }
             });
-            var Qt = Bt("./display/TransformStatic");
+            var Zt = Bt("./display/TransformStatic");
             Object.defineProperty(Ht, "TransformStatic", {
                 enumerable: !0,
                 get: function() {
-                    return Yt(Qt).default
+                    return Yt(Zt).default
                 }
             });
             var Jt = Bt("./display/TransformBase");
@@ -11458,14 +11458,14 @@ function(Bt) {
             });
             var An = Gt(Bt("./utils"))
               , Rn = Gt(Bt("./ticker"))
-              , Mn = Yt(Bt("./settings"))
-              , In = Yt(Bt("./renderers/canvas/CanvasRenderer"))
-              , Dn = Yt(Bt("./renderers/webgl/WebGLRenderer"));
-            Ht.settings = Mn.default,
+              , Dn = Yt(Bt("./settings"))
+              , Mn = Yt(Bt("./renderers/canvas/CanvasRenderer"))
+              , In = Yt(Bt("./renderers/webgl/WebGLRenderer"));
+            Ht.settings = Dn.default,
             Ht.utils = An,
             Ht.ticker = Rn,
-            Ht.CanvasRenderer = In.default,
-            Ht.WebGLRenderer = Dn.default
+            Ht.CanvasRenderer = Mn.default,
+            Ht.WebGLRenderer = In.default
         }
         , {
             "./Application": 43,
@@ -11512,13 +11512,13 @@ function(Bt) {
             "pixi-gl-core": 12
         }],
         66: [function(Bt, Xt, Ht) {
-            function Gt(Qt) {
-                return 0 > Qt ? -1 : 0 < Qt ? 1 : 0
+            function Gt(Zt) {
+                return 0 > Zt ? -1 : 0 < Zt ? 1 : 0
             }
             Ht.__esModule = !0;
-            var Yt = function(Qt) {
-                return Qt && Qt.__esModule ? Qt : {
-                    default: Qt
+            var Yt = function(Zt) {
+                return Zt && Zt.__esModule ? Zt : {
+                    default: Zt
                 }
             }(Bt("./Matrix"))
               , Wt = [1, 1, 0, -1, -1, -1, 0, 1, 1, 1, 0, -1, -1, -1, 0, 1]
@@ -11528,11 +11528,11 @@ function(Bt) {
               , qt = []
               , Kt = [];
             !function() {
-                for (var Qt = 0, Jt; 16 > Qt; Qt++) {
+                for (var Zt = 0, Jt; 16 > Zt; Zt++) {
                     Jt = [],
                     Kt.push(Jt);
                     for (var $t = 0; 16 > $t; $t++)
-                        for (var en = Gt(Wt[Qt] * Wt[$t] + zt[Qt] * jt[$t]), tn = Gt(jt[Qt] * Wt[$t] + Vt[Qt] * jt[$t]), nn = Gt(Wt[Qt] * zt[$t] + zt[Qt] * Vt[$t]), rn = Gt(jt[Qt] * zt[$t] + Vt[Qt] * Vt[$t]), an = 0; 16 > an; an++)
+                        for (var en = Gt(Wt[Zt] * Wt[$t] + zt[Zt] * jt[$t]), tn = Gt(jt[Zt] * Wt[$t] + Vt[Zt] * jt[$t]), nn = Gt(Wt[Zt] * zt[$t] + zt[Zt] * Vt[$t]), rn = Gt(jt[Zt] * zt[$t] + Vt[Zt] * Vt[$t]), an = 0; 16 > an; an++)
                             if (Wt[an] === en && jt[an] === tn && zt[an] === nn && Vt[an] === rn) {
                                 Jt.push(an);
                                 break
@@ -11543,7 +11543,7 @@ function(Bt) {
                     sn.set(Wt[on], jt[on], zt[on], Vt[on], 0, 0),
                     qt.push(sn)
             }();
-            var Zt = {
+            var Qt = {
                 E: 0,
                 SE: 1,
                 S: 2,
@@ -11554,46 +11554,46 @@ function(Bt) {
                 NE: 7,
                 MIRROR_VERTICAL: 8,
                 MIRROR_HORIZONTAL: 12,
-                uX: function(Qt) {
-                    return Wt[Qt]
+                uX: function(Zt) {
+                    return Wt[Zt]
                 },
-                uY: function(Qt) {
-                    return jt[Qt]
+                uY: function(Zt) {
+                    return jt[Zt]
                 },
-                vX: function(Qt) {
-                    return zt[Qt]
+                vX: function(Zt) {
+                    return zt[Zt]
                 },
-                vY: function(Qt) {
-                    return Vt[Qt]
+                vY: function(Zt) {
+                    return Vt[Zt]
                 },
-                inv: function(Qt) {
-                    return 8 & Qt ? 15 & Qt : 7 & -Qt
+                inv: function(Zt) {
+                    return 8 & Zt ? 15 & Zt : 7 & -Zt
                 },
-                add: function(Qt, Jt) {
-                    return Kt[Qt][Jt]
+                add: function(Zt, Jt) {
+                    return Kt[Zt][Jt]
                 },
-                sub: function(Qt, Jt) {
-                    return Kt[Qt][Zt.inv(Jt)]
+                sub: function(Zt, Jt) {
+                    return Kt[Zt][Qt.inv(Jt)]
                 },
-                rotate180: function(Qt) {
-                    return 4 ^ Qt
+                rotate180: function(Zt) {
+                    return 4 ^ Zt
                 },
-                isSwapWidthHeight: function(Qt) {
-                    return 2 == (3 & Qt)
+                isSwapWidthHeight: function(Zt) {
+                    return 2 == (3 & Zt)
                 },
-                byDirection: function(Qt, Jt) {
-                    return 2 * Math.abs(Qt) <= Math.abs(Jt) ? 0 <= Jt ? Zt.S : Zt.N : 2 * Math.abs(Jt) <= Math.abs(Qt) ? 0 < Qt ? Zt.E : Zt.W : 0 < Jt ? 0 < Qt ? Zt.SE : Zt.SW : 0 < Qt ? Zt.NE : Zt.NW
+                byDirection: function(Zt, Jt) {
+                    return 2 * Math.abs(Zt) <= Math.abs(Jt) ? 0 <= Jt ? Qt.S : Qt.N : 2 * Math.abs(Jt) <= Math.abs(Zt) ? 0 < Zt ? Qt.E : Qt.W : 0 < Jt ? 0 < Zt ? Qt.SE : Qt.SW : 0 < Zt ? Qt.NE : Qt.NW
                 },
-                matrixAppendRotationInv: function(Qt, Jt) {
+                matrixAppendRotationInv: function(Zt, Jt) {
                     var $t = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 0
                       , en = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : 0
-                      , tn = qt[Zt.inv(Jt)];
+                      , tn = qt[Qt.inv(Jt)];
                     tn.tx = $t,
                     tn.ty = en,
-                    Qt.append(tn)
+                    Zt.append(tn)
                 }
             };
-            Ht.default = Zt
+            Ht.default = Qt
         }
         , {
             "./Matrix": 67
@@ -11626,8 +11626,8 @@ function(Bt) {
                       , Vt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : 0
                       , qt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 0
                       , Kt = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : 1
-                      , Zt = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 0
-                      , Qt = 5 < arguments.length && void 0 !== arguments[5] ? arguments[5] : 0;
+                      , Qt = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 0
+                      , Zt = 5 < arguments.length && void 0 !== arguments[5] ? arguments[5] : 0;
                     !function(Jt, $t) {
                         if (!(Jt instanceof $t))
                             throw new TypeError("Cannot call a class as a function")
@@ -11636,8 +11636,8 @@ function(Bt) {
                     this.b = Vt,
                     this.c = qt,
                     this.d = Kt,
-                    this.tx = Zt,
-                    this.ty = Qt,
+                    this.tx = Qt,
+                    this.ty = Zt,
                     this.array = null
                 }
                 return jt.prototype.fromArray = function(zt) {
@@ -11649,13 +11649,13 @@ function(Bt) {
                     this.ty = zt[5]
                 }
                 ,
-                jt.prototype.set = function(zt, Vt, qt, Kt, Zt, Qt) {
+                jt.prototype.set = function(zt, Vt, qt, Kt, Qt, Zt) {
                     return this.a = zt,
                     this.b = Vt,
                     this.c = qt,
                     this.d = Kt,
-                    this.tx = Zt,
-                    this.ty = Qt,
+                    this.tx = Qt,
+                    this.ty = Zt,
                     this
                 }
                 ,
@@ -11695,9 +11695,9 @@ function(Bt) {
                     Vt = Vt || new Yt.default;
                     var qt = 1 / (this.a * this.d + this.c * -this.b)
                       , Kt = zt.x
-                      , Zt = zt.y;
-                    return Vt.x = this.d * qt * Kt + -this.c * qt * Zt + (this.ty * this.c - this.tx * this.d) * qt,
-                    Vt.y = this.a * qt * Zt + -this.b * qt * Kt + (-this.ty * this.a + this.tx * this.b) * qt,
+                      , Qt = zt.y;
+                    return Vt.x = this.d * qt * Kt + -this.c * qt * Qt + (this.ty * this.c - this.tx * this.d) * qt,
+                    Vt.y = this.a * qt * Qt + -this.b * qt * Kt + (-this.ty * this.a + this.tx * this.b) * qt,
                     Vt
                 }
                 ,
@@ -11721,14 +11721,14 @@ function(Bt) {
                     var Vt = Math.cos(zt)
                       , qt = Math.sin(zt)
                       , Kt = this.a
-                      , Zt = this.c
-                      , Qt = this.tx;
+                      , Qt = this.c
+                      , Zt = this.tx;
                     return this.a = Kt * Vt - this.b * qt,
                     this.b = Kt * qt + this.b * Vt,
-                    this.c = Zt * Vt - this.d * qt,
-                    this.d = Zt * qt + this.d * Vt,
-                    this.tx = Qt * Vt - this.ty * qt,
-                    this.ty = Qt * qt + this.ty * Vt,
+                    this.c = Qt * Vt - this.d * qt,
+                    this.d = Qt * qt + this.d * Vt,
+                    this.tx = Zt * Vt - this.ty * qt,
+                    this.ty = Zt * qt + this.ty * Vt,
                     this
                 }
                 ,
@@ -11736,27 +11736,27 @@ function(Bt) {
                     var Vt = this.a
                       , qt = this.b
                       , Kt = this.c
-                      , Zt = this.d;
+                      , Qt = this.d;
                     return this.a = zt.a * Vt + zt.b * Kt,
-                    this.b = zt.a * qt + zt.b * Zt,
+                    this.b = zt.a * qt + zt.b * Qt,
                     this.c = zt.c * Vt + zt.d * Kt,
-                    this.d = zt.c * qt + zt.d * Zt,
+                    this.d = zt.c * qt + zt.d * Qt,
                     this.tx = zt.tx * Vt + zt.ty * Kt + this.tx,
-                    this.ty = zt.tx * qt + zt.ty * Zt + this.ty,
+                    this.ty = zt.tx * qt + zt.ty * Qt + this.ty,
                     this
                 }
                 ,
-                jt.prototype.setTransform = function(zt, Vt, qt, Kt, Zt, Qt, Jt, $t, en) {
+                jt.prototype.setTransform = function(zt, Vt, qt, Kt, Qt, Zt, Jt, $t, en) {
                     var tn = Math.sin(Jt)
                       , nn = Math.cos(Jt)
                       , rn = Math.cos(en)
                       , an = Math.sin(en)
                       , on = -Math.sin($t)
                       , sn = Math.cos($t)
-                      , dn = nn * Zt
-                      , ln = tn * Zt
-                      , un = -tn * Qt
-                      , pn = nn * Qt;
+                      , dn = nn * Qt
+                      , ln = tn * Qt
+                      , un = -tn * Zt
+                      , pn = nn * Zt;
                     return this.a = rn * dn + an * un,
                     this.b = rn * ln + an * pn,
                     this.c = on * dn + sn * un,
@@ -11785,15 +11785,15 @@ function(Bt) {
                     var Vt = this.a
                       , qt = this.b
                       , Kt = this.c
-                      , Zt = this.d
-                      , Qt = -Math.atan2(-Kt, Zt)
+                      , Qt = this.d
+                      , Zt = -Math.atan2(-Kt, Qt)
                       , Jt = Math.atan2(qt, Vt);
-                    return 1e-5 > Math.abs(Qt + Jt) ? (zt.rotation = Jt,
-                    0 > Vt && 0 <= Zt && (zt.rotation += 0 >= zt.rotation ? Math.PI : -Math.PI),
-                    zt.skew.x = zt.skew.y = 0) : (zt.skew.x = Qt,
+                    return 1e-5 > Math.abs(Zt + Jt) ? (zt.rotation = Jt,
+                    0 > Vt && 0 <= Qt && (zt.rotation += 0 >= zt.rotation ? Math.PI : -Math.PI),
+                    zt.skew.x = zt.skew.y = 0) : (zt.skew.x = Zt,
                     zt.skew.y = Jt),
                     zt.scale.x = Math.sqrt(Vt * Vt + qt * qt),
-                    zt.scale.y = Math.sqrt(Kt * Kt + Zt * Zt),
+                    zt.scale.y = Math.sqrt(Kt * Kt + Qt * Qt),
                     zt.position.x = this.tx,
                     zt.position.y = this.ty,
                     zt
@@ -11804,14 +11804,14 @@ function(Bt) {
                       , Vt = this.b
                       , qt = this.c
                       , Kt = this.d
-                      , Zt = this.tx
-                      , Qt = zt * Kt - Vt * qt;
-                    return this.a = Kt / Qt,
-                    this.b = -Vt / Qt,
-                    this.c = -qt / Qt,
-                    this.d = zt / Qt,
-                    this.tx = (qt * this.ty - Kt * Zt) / Qt,
-                    this.ty = -(zt * this.ty - Vt * Zt) / Qt,
+                      , Qt = this.tx
+                      , Zt = zt * Kt - Vt * qt;
+                    return this.a = Kt / Zt,
+                    this.b = -Vt / Zt,
+                    this.c = -qt / Zt,
+                    this.d = zt / Zt,
+                    this.tx = (qt * this.ty - Kt * Qt) / Zt,
+                    this.ty = -(zt * this.ty - Vt * Qt) / Zt,
                     this
                 }
                 ,
@@ -11885,8 +11885,8 @@ function(Bt) {
                 function Wt(jt, zt) {
                     var Vt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 0
                       , qt = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : 0;
-                    !function(Kt, Zt) {
-                        if (!(Kt instanceof Zt))
+                    !function(Kt, Qt) {
+                        if (!(Kt instanceof Qt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Wt),
                     this._x = Vt,
@@ -12023,18 +12023,18 @@ function(Bt) {
                     return Gt(Kt).default
                 }
             });
-            var Zt = Bt("./shapes/Rectangle");
+            var Qt = Bt("./shapes/Rectangle");
             Object.defineProperty(Ht, "Rectangle", {
                 enumerable: !0,
                 get: function() {
-                    return Gt(Zt).default
+                    return Gt(Qt).default
                 }
             });
-            var Qt = Bt("./shapes/RoundedRectangle");
+            var Zt = Bt("./shapes/RoundedRectangle");
             Object.defineProperty(Ht, "RoundedRectangle", {
                 enumerable: !0,
                 get: function() {
-                    return Gt(Qt).default
+                    return Gt(Zt).default
                 }
             })
         }
@@ -12062,8 +12062,8 @@ function(Bt) {
                     var zt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : 0
                       , Vt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : 0
                       , qt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 0;
-                    !function(Kt, Zt) {
-                        if (!(Kt instanceof Zt))
+                    !function(Kt, Qt) {
+                        if (!(Kt instanceof Qt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, jt),
                     this.x = zt,
@@ -12080,10 +12080,10 @@ function(Bt) {
                         return !1;
                     var qt = this.radius * this.radius
                       , Kt = this.x - zt
-                      , Zt = this.y - Vt;
+                      , Qt = this.y - Vt;
                     return Kt *= Kt,
-                    Zt *= Zt,
-                    Kt + Zt <= qt
+                    Qt *= Qt,
+                    Kt + Qt <= qt
                 }
                 ,
                 jt.prototype.getBounds = function() {
@@ -12112,8 +12112,8 @@ function(Bt) {
                       , Vt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : 0
                       , qt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 0
                       , Kt = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : 0;
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, jt),
                     this.x = zt,
@@ -12166,8 +12166,8 @@ function(Bt) {
                     }(this, jt),
                     Array.isArray(Vt[0]) && (Vt = Vt[0]),
                     Vt[0]instanceof Gt.default) {
-                        for (var Kt = [], Zt = 0, Qt = Vt.length; Zt < Qt; Zt++)
-                            Kt.push(Vt[Zt].x, Vt[Zt].y);
+                        for (var Kt = [], Qt = 0, Zt = Vt.length; Qt < Zt; Qt++)
+                            Kt.push(Vt[Qt].x, Vt[Qt].y);
                         Vt = Kt
                     }
                     this.closed = !0,
@@ -12184,11 +12184,11 @@ function(Bt) {
                 }
                 ,
                 jt.prototype.contains = function(zt, Vt) {
-                    for (var qt = !1, Kt = this.points.length / 2, Zt = 0, Qt = Kt - 1; Zt < Kt; Qt = Zt++) {
-                        var Jt = this.points[2 * Zt]
-                          , $t = this.points[2 * Zt + 1]
-                          , en = this.points[2 * Qt]
-                          , tn = this.points[2 * Qt + 1];
+                    for (var qt = !1, Kt = this.points.length / 2, Qt = 0, Zt = Kt - 1; Qt < Kt; Zt = Qt++) {
+                        var Jt = this.points[2 * Qt]
+                          , $t = this.points[2 * Qt + 1]
+                          , en = this.points[2 * Zt]
+                          , tn = this.points[2 * Zt + 1];
                         $t > Vt != tn > Vt && zt < (Vt - $t) / (tn - $t) * (en - Jt) + Jt && (qt = !qt)
                     }
                     return qt
@@ -12226,8 +12226,8 @@ function(Bt) {
                       , Vt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : 0
                       , qt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 0
                       , Kt = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : 0;
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, jt),
                     this.x = +zt,
@@ -12278,11 +12278,11 @@ function(Bt) {
                     var Vt = Math.min(this.x, zt.x)
                       , qt = Math.max(this.x + this.width, zt.x + zt.width)
                       , Kt = Math.min(this.y, zt.y)
-                      , Zt = Math.max(this.y + this.height, zt.y + zt.height);
+                      , Qt = Math.max(this.y + this.height, zt.y + zt.height);
                     this.x = Vt,
                     this.width = qt - Vt,
                     this.y = Kt,
-                    this.height = Zt - Kt
+                    this.height = Qt - Kt
                 }
                 ,
                 Gt(jt, [{
@@ -12328,8 +12328,8 @@ function(Bt) {
                       , Vt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 0
                       , qt = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : 0
                       , Kt = 4 < arguments.length && void 0 !== arguments[4] ? arguments[4] : 20;
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Wt),
                     this.x = jt,
@@ -12400,8 +12400,8 @@ function(Bt) {
               , Vt = Gt(Bt("../settings"))
               , qt = Gt(Bt("../display/Container"))
               , Kt = Gt(Bt("../textures/RenderTexture"))
-              , Zt = Gt(Bt("eventemitter3"))
-              , Qt = new jt.Matrix
+              , Qt = Gt(Bt("eventemitter3"))
+              , Zt = new jt.Matrix
               , Jt = function($t) {
                 function en(tn, nn, rn, an) {
                     !function(sn, dn) {
@@ -12464,9 +12464,9 @@ function(Bt) {
                 en.prototype.generateTexture = function(tn, nn, rn) {
                     var an = tn.getLocalBounds()
                       , on = Kt.default.create(0 | an.width, 0 | an.height, nn, rn);
-                    return Qt.tx = -an.x,
-                    Qt.ty = -an.y,
-                    this.render(tn, on, !1, Qt, !0),
+                    return Zt.tx = -an.x,
+                    Zt.ty = -an.y,
+                    this.render(tn, on, !1, Zt, !0),
                     on
                 }
                 ,
@@ -12514,7 +12514,7 @@ function(Bt) {
                     }
                 }]),
                 en
-            }(Zt.default);
+            }(Qt.default);
             Ht.default = Jt
         }
         , {
@@ -12527,9 +12527,9 @@ function(Bt) {
             eventemitter3: 3
         }],
         77: [function(Bt, Xt, Ht) {
-            function Gt(Qt) {
-                return Qt && Qt.__esModule ? Qt : {
-                    default: Qt
+            function Gt(Zt) {
+                return Zt && Zt.__esModule ? Zt : {
+                    default: Zt
                 }
             }
             Ht.__esModule = !0;
@@ -12540,7 +12540,7 @@ function(Bt) {
               , Vt = Bt("../../utils")
               , qt = Bt("../../const")
               , Kt = Gt(Bt("../../settings"))
-              , Zt = function(Qt) {
+              , Qt = function(Zt) {
                 function Jt($t, en, tn) {
                     !function(rn, an) {
                         if (!(rn instanceof an))
@@ -12550,7 +12550,7 @@ function(Bt) {
                         if (!rn)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return an && ("object" == typeof an || "function" == typeof an) ? an : rn
-                    }(this, Qt.call(this, "Canvas", $t, en, tn));
+                    }(this, Zt.call(this, "Canvas", $t, en, tn));
                     return nn.type = qt.RENDERER_TYPE.CANVAS,
                     nn.rootContext = nn.view.getContext("2d", {
                         alpha: nn.transparent
@@ -12580,7 +12580,7 @@ function(Bt) {
                         }
                     }),
                     en && (Object.setPrototypeOf ? Object.setPrototypeOf($t, en) : $t.__proto__ = en)
-                }(Jt, Qt),
+                }(Jt, Zt),
                 Jt.prototype.render = function($t, en, tn, nn, rn) {
                     if (this.view) {
                         this.renderingToScreen = !en,
@@ -12633,7 +12633,7 @@ function(Bt) {
                 ,
                 Jt.prototype.destroy = function($t) {
                     this.destroyPlugins(),
-                    Qt.prototype.destroy.call(this, $t),
+                    Zt.prototype.destroy.call(this, $t),
                     this.context = null,
                     this.refresh = !0,
                     this.maskManager.destroy(),
@@ -12642,7 +12642,7 @@ function(Bt) {
                 }
                 ,
                 Jt.prototype.resize = function($t, en) {
-                    Qt.prototype.resize.call(this, $t, en),
+                    Zt.prototype.resize.call(this, $t, en),
                     this.smoothProperty && (this.rootContext[this.smoothProperty] = Kt.default.SCALE_MODE === qt.SCALE_MODES.LINEAR)
                 }
                 ,
@@ -12652,8 +12652,8 @@ function(Bt) {
                 ,
                 Jt
             }(Yt.default);
-            Ht.default = Zt,
-            Vt.pluginTarget.mixin(Zt)
+            Ht.default = Qt,
+            Vt.pluginTarget.mixin(Qt)
         }
         , {
             "../../const": 46,
@@ -12694,24 +12694,24 @@ function(Bt) {
                         zt.beginPath();
                         for (var qt = 0; qt < Vt; qt++) {
                             var Kt = jt.graphicsData[qt]
-                              , Zt = Kt.shape;
+                              , Qt = Kt.shape;
                             if (Kt.type === Gt.SHAPES.POLY) {
-                                var Qt = Zt.points;
-                                zt.moveTo(Qt[0], Qt[1]);
-                                for (var Jt = 1; Jt < Qt.length / 2; Jt++)
-                                    zt.lineTo(Qt[2 * Jt], Qt[2 * Jt + 1]);
-                                Qt[0] === Qt[Qt.length - 2] && Qt[1] === Qt[Qt.length - 1] && zt.closePath()
+                                var Zt = Qt.points;
+                                zt.moveTo(Zt[0], Zt[1]);
+                                for (var Jt = 1; Jt < Zt.length / 2; Jt++)
+                                    zt.lineTo(Zt[2 * Jt], Zt[2 * Jt + 1]);
+                                Zt[0] === Zt[Zt.length - 2] && Zt[1] === Zt[Zt.length - 1] && zt.closePath()
                             } else if (Kt.type === Gt.SHAPES.RECT)
-                                zt.rect(Zt.x, Zt.y, Zt.width, Zt.height),
+                                zt.rect(Qt.x, Qt.y, Qt.width, Qt.height),
                                 zt.closePath();
                             else if (Kt.type === Gt.SHAPES.CIRC)
-                                zt.arc(Zt.x, Zt.y, Zt.radius, 0, 2 * Math.PI),
+                                zt.arc(Qt.x, Qt.y, Qt.radius, 0, 2 * Math.PI),
                                 zt.closePath();
                             else if (Kt.type === Gt.SHAPES.ELIP) {
-                                var $t = 2 * Zt.width
-                                  , en = 2 * Zt.height
-                                  , tn = Zt.x - $t / 2
-                                  , nn = Zt.y - en / 2
+                                var $t = 2 * Qt.width
+                                  , en = 2 * Qt.height
+                                  , tn = Qt.x - $t / 2
+                                  , nn = Qt.y - en / 2
                                   , rn = .5522848 * ($t / 2)
                                   , an = .5522848 * (en / 2)
                                   , on = tn + $t
@@ -12725,11 +12725,11 @@ function(Bt) {
                                 zt.bezierCurveTo(dn - rn, sn, tn, ln + an, tn, ln),
                                 zt.closePath()
                             } else if (Kt.type === Gt.SHAPES.RREC) {
-                                var un = Zt.x
-                                  , pn = Zt.y
-                                  , cn = Zt.width
-                                  , fn = Zt.height
-                                  , hn = Zt.radius
+                                var un = Qt.x
+                                  , pn = Qt.y
+                                  , cn = Qt.width
+                                  , fn = Qt.height
+                                  , hn = Qt.radius
                                   , gn = 0 | Math.min(cn, fn) / 2;
                                 hn = hn > gn ? gn : hn,
                                 zt.moveTo(un, pn + hn),
@@ -12785,8 +12785,8 @@ function(Bt) {
             }(Bt("../../../settings"))
               , Wt = function() {
                 function jt(zt, Vt, qt) {
-                    !function(Kt, Zt) {
-                        if (!(Kt instanceof Zt))
+                    !function(Kt, Qt) {
+                        if (!(Kt instanceof Qt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, jt),
                     this.canvas = document.createElement("canvas"),
@@ -12948,15 +12948,15 @@ function(Bt) {
                 }
                 ,
                 jt.prototype.run = function() {
-                    for (var zt = this.renderer.textureManager, Vt = zt._managedTextures, qt = !1, Kt = 0, Zt; Kt < Vt.length; Kt++)
-                        Zt = Vt[Kt],
-                        !Zt._glRenderTargets && this.count - Zt.touched > this.maxIdle && (zt.destroyTexture(Zt, !0),
+                    for (var zt = this.renderer.textureManager, Vt = zt._managedTextures, qt = !1, Kt = 0, Qt; Kt < Vt.length; Kt++)
+                        Qt = Vt[Kt],
+                        !Qt._glRenderTargets && this.count - Qt.touched > this.maxIdle && (zt.destroyTexture(Qt, !0),
                         Vt[Kt] = null,
                         qt = !0);
                     if (qt) {
-                        for (var Qt = 0, Jt = 0; Jt < Vt.length; Jt++)
-                            null !== Vt[Jt] && (Vt[Qt++] = Vt[Jt]);
-                        Vt.length = Qt
+                        for (var Zt = 0, Jt = 0; Jt < Vt.length; Jt++)
+                            null !== Vt[Jt] && (Vt[Zt++] = Vt[Jt]);
+                        Vt.length = Zt
                     }
                 }
                 ,
@@ -12987,8 +12987,8 @@ function(Bt) {
               , jt = Bt("../../utils")
               , zt = function() {
                 function Vt(qt) {
-                    !function(Kt, Zt) {
-                        if (!(Kt instanceof Zt))
+                    !function(Kt, Qt) {
+                        if (!(Kt instanceof Qt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Vt),
                     this.renderer = qt,
@@ -13000,8 +13000,8 @@ function(Bt) {
                 Vt.prototype.getTexture = function() {}
                 ,
                 Vt.prototype.updateTexture = function(qt, Kt) {
-                    var Zt = this.gl
-                      , Qt = !!qt._glRenderTargets;
+                    var Qt = this.gl
+                      , Zt = !!qt._glRenderTargets;
                     if (!qt.hasLoaded)
                         return null;
                     var Jt = this.renderer.boundTextures;
@@ -13014,12 +13014,12 @@ function(Bt) {
                             }
                     }
                     Jt[Kt] = qt,
-                    Zt.activeTexture(Zt.TEXTURE0 + Kt);
+                    Qt.activeTexture(Qt.TEXTURE0 + Kt);
                     var en = qt._glTextures[this.renderer.CONTEXT_UID];
                     if (en)
-                        Qt ? qt._glRenderTargets[this.renderer.CONTEXT_UID].resize(qt.width, qt.height) : en.upload(qt.source);
+                        Zt ? qt._glRenderTargets[this.renderer.CONTEXT_UID].resize(qt.width, qt.height) : en.upload(qt.source);
                     else {
-                        if (Qt) {
+                        if (Zt) {
                             var tn = new Wt.default(this.gl,qt.width,qt.height,qt.scaleMode,qt.resolution);
                             tn.resize(qt.width, qt.height),
                             qt._glRenderTargets[this.renderer.CONTEXT_UID] = tn,
@@ -13041,21 +13041,21 @@ function(Bt) {
                 ,
                 Vt.prototype.destroyTexture = function(qt, Kt) {
                     if ((qt = qt.baseTexture || qt).hasLoaded) {
-                        var Zt = this.renderer.CONTEXT_UID
-                          , Qt = qt._glTextures
+                        var Qt = this.renderer.CONTEXT_UID
+                          , Zt = qt._glTextures
                           , Jt = qt._glRenderTargets;
-                        if (Qt[Zt] && (this.renderer.unbindTexture(qt),
-                        Qt[Zt].destroy(),
+                        if (Zt[Qt] && (this.renderer.unbindTexture(qt),
+                        Zt[Qt].destroy(),
                         qt.off("update", this.updateTexture, this),
                         qt.off("dispose", this.destroyTexture, this),
-                        delete Qt[Zt],
+                        delete Zt[Qt],
                         !Kt)) {
                             var $t = this._managedTextures.indexOf(qt);
                             -1 !== $t && (0,
                             jt.removeItems)(this._managedTextures, $t, 1)
                         }
-                        Jt && Jt[Zt] && (Jt[Zt].destroy(),
-                        delete Jt[Zt])
+                        Jt && Jt[Qt] && (Jt[Qt].destroy(),
+                        delete Jt[Qt])
                     }
                 }
                 ,
@@ -13098,8 +13098,8 @@ function(Bt) {
               , Vt = Gt(Bt("./utils/RenderTarget"))
               , qt = Gt(Bt("./utils/ObjectRenderer"))
               , Kt = Gt(Bt("./TextureManager"))
-              , Zt = Gt(Bt("../../textures/BaseTexture"))
-              , Qt = Gt(Bt("./TextureGarbageCollector"))
+              , Qt = Gt(Bt("../../textures/BaseTexture"))
+              , Zt = Gt(Bt("./TextureGarbageCollector"))
               , Jt = Gt(Bt("./WebGLState"))
               , $t = Gt(Bt("./utils/mapWebGLDrawModesToPixi"))
               , en = Gt(Bt("./utils/validateContext"))
@@ -13181,7 +13181,7 @@ function(Bt) {
                     this.emptyTextures = Array(un),
                     this.textureManager = new Kt.default(this),
                     this.filterManager = new zt.default(this),
-                    this.textureGC = new Qt.default(this),
+                    this.textureGC = new Zt.default(this),
                     this.state.resetToDefault(),
                     this.rootRenderTarget = new Vt.default(ln,this.width,this.height,null,this.resolution,!0),
                     this.rootRenderTarget.clearColor = this._backgroundColorRgba,
@@ -13192,7 +13192,7 @@ function(Bt) {
                     };
                     cn._glTextures[this.CONTEXT_UID] = {};
                     for (var fn = 0, hn; fn < un; fn++)
-                        hn = new Zt.default,
+                        hn = new Qt.default,
                         hn._glTextures[this.CONTEXT_UID] = pn,
                         this.boundTextures[fn] = cn,
                         this.emptyTextures[fn] = hn,
@@ -13499,25 +13499,25 @@ function(Bt) {
             "./utils/mapWebGLBlendModesToPixi": 98
         }],
         86: [function(Bt, Xt, Ht) {
-            function Gt(Zt) {
-                return Zt && Zt.__esModule ? Zt : {
-                    default: Zt
+            function Gt(Qt) {
+                return Qt && Qt.__esModule ? Qt : {
+                    default: Qt
                 }
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function Zt(Qt, Jt) {
+                function Qt(Zt, Jt) {
                     for (var $t = 0, en; $t < Jt.length; $t++)
                         en = Jt[$t],
                         en.enumerable = en.enumerable || !1,
                         en.configurable = !0,
                         "value"in en && (en.writable = !0),
-                        Object.defineProperty(Qt, en.key, en)
+                        Object.defineProperty(Zt, en.key, en)
                 }
-                return function(Qt, Jt, $t) {
-                    return Jt && Zt(Qt.prototype, Jt),
-                    $t && Zt(Qt, $t),
-                    Qt
+                return function(Zt, Jt, $t) {
+                    return Jt && Qt(Zt.prototype, Jt),
+                    $t && Qt(Zt, $t),
+                    Zt
                 }
             }()
               , Wt = Gt(Bt("./extractUniformsFromSrc"))
@@ -13526,13 +13526,13 @@ function(Bt) {
               , Vt = Gt(Bt("../../../settings"))
               , qt = {}
               , Kt = function() {
-                function Zt(Qt, Jt, $t) {
+                function Qt(Zt, Jt, $t) {
                     for (var en in !function(tn, nn) {
                         if (!(tn instanceof nn))
                             throw new TypeError("Cannot call a class as a function")
-                    }(this, Zt),
-                    this.vertexSrc = Qt || Zt.defaultVertexSrc,
-                    this.fragmentSrc = Jt || Zt.defaultFragmentSrc,
+                    }(this, Qt),
+                    this.vertexSrc = Zt || Qt.defaultVertexSrc,
+                    this.fragmentSrc = Jt || Qt.defaultFragmentSrc,
                     this._blendMode = zt.BLEND_MODES.NORMAL,
                     this.uniformData = $t || (0,
                     Wt.default)(this.vertexSrc, this.fragmentSrc, "projectionMatrix|uSampler"),
@@ -13549,17 +13549,17 @@ function(Bt) {
                     this.enabled = !0,
                     this.autoFit = !0
                 }
-                return Zt.prototype.apply = function(Qt, Jt, $t, en) {
-                    Qt.applyFilter(this, Jt, $t, en)
+                return Qt.prototype.apply = function(Zt, Jt, $t, en) {
+                    Zt.applyFilter(this, Jt, $t, en)
                 }
                 ,
-                Yt(Zt, [{
+                Yt(Qt, [{
                     key: "blendMode",
                     get: function() {
                         return this._blendMode
                     },
-                    set: function(Qt) {
-                        this._blendMode = Qt
+                    set: function(Zt) {
+                        this._blendMode = Zt
                     }
                 }], [{
                     key: "defaultVertexSrc",
@@ -13572,7 +13572,7 @@ function(Bt) {
                         return ["varying vec2 vTextureCoord;", "varying vec2 vFilterCoord;", "uniform sampler2D uSampler;", "uniform sampler2D filterSampler;", "void main(void){", "   vec4 masky = texture2D(filterSampler, vFilterCoord);", "   vec4 sample = texture2D(uSampler, vTextureCoord);", "   vec4 color;", "   if(mod(vFilterCoord.x, 1.0) > 0.5)", "   {", "     color = vec4(1.0, 0.0, 0.0, 1.0);", "   }", "   else", "   {", "     color = vec4(0.0, 1.0, 0.0, 1.0);", "   }", "   gl_FragColor = mix(sample, masky, 0.5);", "   gl_FragColor *= sample.a;", "}"].join("\n")
                     }
                 }]),
-                Zt
+                Qt
             }();
             Ht.default = Kt
         }
@@ -13584,12 +13584,12 @@ function(Bt) {
         }],
         87: [function(Bt, Xt, Ht) {
             function Gt(Wt) {
-                for (var jt = /^(projectionMatrix|uSampler|filterArea|filterClamp)$/, zt = {}, Vt = void 0, qt = Wt.replace(/\s+/g, " ").split(/\s*;\s*/), Kt = 0, Zt; Kt < qt.length; Kt++)
-                    if (Zt = qt[Kt].trim(),
-                    -1 < Zt.indexOf("uniform")) {
-                        var Qt = Zt.split(" ")
-                          , Jt = Qt[1]
-                          , $t = Qt[2]
+                for (var jt = /^(projectionMatrix|uSampler|filterArea|filterClamp)$/, zt = {}, Vt = void 0, qt = Wt.replace(/\s+/g, " ").split(/\s*;\s*/), Kt = 0, Qt; Kt < qt.length; Kt++)
+                    if (Qt = qt[Kt].trim(),
+                    -1 < Qt.indexOf("uniform")) {
+                        var Zt = Qt.split(" ")
+                          , Jt = Zt[1]
+                          , $t = Zt[2]
                           , en = 1;
                         -1 < $t.indexOf("[") && ($t = (Vt = $t.split(/\[|]/))[0],
                         en *= +Vt[1]),
@@ -13662,15 +13662,15 @@ function(Bt) {
               , Wt = (Bt("path"),
             function(jt) {
                 function zt(Vt) {
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, zt);
                     var qt = new Yt.Matrix
-                      , Kt = function(Zt, Qt) {
-                        if (!Zt)
+                      , Kt = function(Qt, Zt) {
+                        if (!Qt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Qt && ("object" == typeof Qt || "function" == typeof Qt) ? Qt : Zt
+                        return Zt && ("object" == typeof Zt || "function" == typeof Zt) ? Zt : Qt
                     }(this, jt.call(this, "attribute vec2 aVertexPosition;\nattribute vec2 aTextureCoord;\n\nuniform mat3 projectionMatrix;\nuniform mat3 otherMatrix;\n\nvarying vec2 vMaskCoord;\nvarying vec2 vTextureCoord;\n\nvoid main(void)\n{\n    gl_Position = vec4((projectionMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);\n\n    vTextureCoord = aTextureCoord;\n    vMaskCoord = ( otherMatrix * vec3( aTextureCoord, 1.0)  ).xy;\n}\n", "varying vec2 vMaskCoord;\nvarying vec2 vTextureCoord;\n\nuniform sampler2D uSampler;\nuniform float alpha;\nuniform sampler2D mask;\n\nvoid main(void)\n{\n    // check clip! this will stop the mask bleeding out from the edges\n    vec2 text = abs( vMaskCoord - 0.5 );\n    text = step(0.5, text);\n\n    float clip = 1.0 - max(text.y, text.x);\n    vec4 original = texture2D(uSampler, vTextureCoord);\n    vec4 masky = texture2D(mask, vMaskCoord);\n\n    original *= (masky.r * masky.a * alpha * clip);\n\n    gl_FragColor = original;\n}\n"));
                     return Vt.renderable = !1,
                     Kt.maskSprite = Vt,
@@ -13691,10 +13691,10 @@ function(Bt) {
                     qt && (Object.setPrototypeOf ? Object.setPrototypeOf(Vt, qt) : Vt.__proto__ = qt)
                 }(zt, jt),
                 zt.prototype.apply = function(Vt, qt, Kt) {
-                    var Zt = this.maskSprite;
-                    this.uniforms.mask = Zt._texture,
-                    this.uniforms.otherMatrix = Vt.calculateSpriteMatrix(this.maskMatrix, Zt),
-                    this.uniforms.alpha = Zt.worldAlpha,
+                    var Qt = this.maskSprite;
+                    this.uniforms.mask = Qt._texture,
+                    this.uniforms.otherMatrix = Vt.calculateSpriteMatrix(this.maskMatrix, Qt),
+                    this.uniforms.alpha = Qt.worldAlpha,
                     Vt.applyFilter(this, qt, Kt)
                 }
                 ,
@@ -13733,8 +13733,8 @@ function(Bt) {
                 return en.default = $t,
                 en
             }(Bt("../filters/filterTransforms"))
-              , Zt = Gt(Bt("bit-twiddle"))
-              , Qt = function $t() {
+              , Qt = Gt(Bt("bit-twiddle"))
+              , Zt = function $t() {
                 Yt(this, $t),
                 this.renderTarget = null,
                 this.sourceFrame = new Vt.Rectangle,
@@ -13777,7 +13777,7 @@ function(Bt) {
                       , an = this.filterData;
                     if (!an) {
                         an = this.renderer._activeRenderTarget.filterStack;
-                        var on = new Qt;
+                        var on = new Zt;
                         on.sourceFrame = on.destinationFrame = this.renderer._activeRenderTarget.size,
                         on.renderTarget = rn._activeRenderTarget,
                         this.renderer._activeRenderTarget.filterData = an = {
@@ -13787,7 +13787,7 @@ function(Bt) {
                         this.filterData = an
                     }
                     var sn = an.stack[++an.index];
-                    sn || (sn = an.stack[an.index] = new Qt);
+                    sn || (sn = an.stack[an.index] = new Zt);
                     var dn = nn[0].resolution
                       , ln = 0 | nn[0].padding
                       , un = tn.filterArea || tn.getBounds(!0)
@@ -13948,7 +13948,7 @@ function(Bt) {
                 }
                 ,
                 en.prototype.getPotRenderTarget = function(tn, nn, rn, an) {
-                    var on = (65535 & (nn = Zt.default.nextPow2(nn * an))) << 16 | 65535 & (rn = Zt.default.nextPow2(rn * an));
+                    var on = (65535 & (nn = Qt.default.nextPow2(nn * an))) << 16 | 65535 & (rn = Qt.default.nextPow2(rn * an));
                     this.pool[on] || (this.pool[on] = []);
                     var sn = this.pool[on].pop();
                     if (!sn) {
@@ -14002,14 +14002,14 @@ function(Bt) {
               , Wt = Gt(Bt("../filters/spriteMask/SpriteMaskFilter"))
               , jt = function(zt) {
                 function Vt(qt) {
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Vt);
-                    var Kt = function(Zt, Qt) {
-                        if (!Zt)
+                    var Kt = function(Qt, Zt) {
+                        if (!Qt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Qt && ("object" == typeof Qt || "function" == typeof Qt) ? Qt : Zt
+                        return Zt && ("object" == typeof Zt || "function" == typeof Zt) ? Zt : Qt
                     }(this, zt.call(this, qt));
                     return Kt.scissor = !1,
                     Kt.scissorData = null,
@@ -14036,9 +14036,9 @@ function(Bt) {
                     if (Kt.texture)
                         this.pushSpriteMask(qt, Kt);
                     else if (this.enableScissor && !this.scissor && this.renderer._activeRenderTarget.root && !this.renderer.stencilManager.stencilMaskStack.length && Kt.isFastRect()) {
-                        var Zt = Kt.worldTransform
-                          , Qt = Math.atan2(Zt.b, Zt.a);
-                        (Qt = Math.round(Qt * (180 / Math.PI))) % 90 ? this.pushStencilMask(Kt) : this.pushScissorMask(qt, Kt)
+                        var Qt = Kt.worldTransform
+                          , Zt = Math.atan2(Qt.b, Qt.a);
+                        (Zt = Math.round(Zt * (180 / Math.PI))) % 90 ? this.pushStencilMask(Kt) : this.pushScissorMask(qt, Kt)
                     } else
                         this.pushStencilMask(Kt)
                 }
@@ -14048,12 +14048,12 @@ function(Bt) {
                 }
                 ,
                 Vt.prototype.pushSpriteMask = function(qt, Kt) {
-                    var Zt = this.alphaMaskPool[this.alphaMaskIndex];
-                    Zt || (Zt = this.alphaMaskPool[this.alphaMaskIndex] = [new Wt.default(Kt)]),
-                    Zt[0].resolution = this.renderer.resolution,
-                    Zt[0].maskSprite = Kt,
+                    var Qt = this.alphaMaskPool[this.alphaMaskIndex];
+                    Qt || (Qt = this.alphaMaskPool[this.alphaMaskIndex] = [new Wt.default(Kt)]),
+                    Qt[0].resolution = this.renderer.resolution,
+                    Qt[0].maskSprite = Kt,
                     qt.filterArea = Kt.getBounds(!0),
-                    this.renderer.filterManager.pushFilter(qt, Zt),
+                    this.renderer.filterManager.pushFilter(qt, Qt),
                     this.alphaMaskIndex++
                 }
                 ,
@@ -14074,14 +14074,14 @@ function(Bt) {
                 ,
                 Vt.prototype.pushScissorMask = function(qt, Kt) {
                     Kt.renderable = !0;
-                    var Zt = this.renderer._activeRenderTarget
-                      , Qt = Kt.getBounds();
-                    Qt.fit(Zt.size),
+                    var Qt = this.renderer._activeRenderTarget
+                      , Zt = Kt.getBounds();
+                    Zt.fit(Qt.size),
                     Kt.renderable = !1,
                     this.renderer.gl.enable(this.renderer.gl.SCISSOR_TEST);
                     var Jt = this.renderer.resolution;
-                    this.renderer.gl.scissor(Qt.x * Jt, (Zt.root ? Zt.size.height - Qt.y - Qt.height : Qt.y) * Jt, Qt.width * Jt, Qt.height * Jt),
-                    this.scissorRenderTarget = Zt,
+                    this.renderer.gl.scissor(Zt.x * Jt, (Qt.root ? Qt.size.height - Zt.y - Zt.height : Zt.y) * Jt, Zt.width * Jt, Zt.height * Jt),
+                    this.scissorRenderTarget = Qt,
                     this.scissorData = Kt,
                     this.scissor = !0
                 }
@@ -14273,8 +14273,8 @@ function(Bt) {
               , Wt = Gt(Bt("../../../utils/createIndicesForQuads"))
               , jt = function() {
                 function zt(Vt, qt) {
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, zt),
                     this.gl = Vt,
@@ -14298,25 +14298,25 @@ function(Bt) {
                 ,
                 zt.prototype.map = function(Vt, qt) {
                     var Kt = 0
-                      , Zt = 0;
+                      , Qt = 0;
                     return this.uvs[0] = Kt,
-                    this.uvs[1] = Zt,
+                    this.uvs[1] = Qt,
                     this.uvs[2] = Kt + qt.width / Vt.width,
-                    this.uvs[3] = Zt,
+                    this.uvs[3] = Qt,
                     this.uvs[4] = Kt + qt.width / Vt.width,
-                    this.uvs[5] = Zt + qt.height / Vt.height,
+                    this.uvs[5] = Qt + qt.height / Vt.height,
                     this.uvs[6] = Kt,
-                    this.uvs[7] = Zt + qt.height / Vt.height,
+                    this.uvs[7] = Qt + qt.height / Vt.height,
                     Kt = qt.x,
-                    Zt = qt.y,
+                    Qt = qt.y,
                     this.vertices[0] = Kt,
-                    this.vertices[1] = Zt,
+                    this.vertices[1] = Qt,
                     this.vertices[2] = Kt + qt.width,
-                    this.vertices[3] = Zt,
+                    this.vertices[3] = Qt,
                     this.vertices[4] = Kt + qt.width,
-                    this.vertices[5] = Zt + qt.height,
+                    this.vertices[5] = Qt + qt.height,
                     this.vertices[6] = Kt,
-                    this.vertices[7] = Zt + qt.height,
+                    this.vertices[7] = Qt + qt.height,
                     this
                 }
                 ,
@@ -14355,7 +14355,7 @@ function(Bt) {
             }(Bt("../../../settings"))
               , jt = Bt("pixi-gl-core")
               , zt = function() {
-                function Vt(qt, Kt, Zt, Qt, Jt, $t) {
+                function Vt(qt, Kt, Qt, Zt, Jt, $t) {
                     !function(en, tn) {
                         if (!(en instanceof tn))
                             throw new TypeError("Cannot call a class as a function")
@@ -14375,14 +14375,14 @@ function(Bt) {
                     this.stencilBuffer = null,
                     this.stencilMaskStack = [],
                     this.filterData = null,
-                    this.scaleMode = void 0 === Qt ? Wt.default.SCALE_MODE : Qt,
+                    this.scaleMode = void 0 === Zt ? Wt.default.SCALE_MODE : Zt,
                     this.root = $t,
                     this.root ? (this.frameBuffer = new jt.GLFramebuffer(qt,100,100),
                     this.frameBuffer.framebuffer = null) : (this.frameBuffer = jt.GLFramebuffer.createRGBA(qt, 100, 100),
                     this.scaleMode === Yt.SCALE_MODES.NEAREST ? this.frameBuffer.texture.enableNearestScaling() : this.frameBuffer.texture.enableLinearScaling(),
                     this.texture = this.frameBuffer.texture),
                     this.setFrame(),
-                    this.resize(Kt, Zt)
+                    this.resize(Kt, Qt)
                 }
                 return Vt.prototype.clear = function(qt) {
                     var Kt = qt || this.clearColor;
@@ -14409,16 +14409,16 @@ function(Bt) {
                 }
                 ,
                 Vt.prototype.calculateProjection = function(qt, Kt) {
-                    var Zt = this.projectionMatrix;
+                    var Qt = this.projectionMatrix;
                     Kt = Kt || qt,
-                    Zt.identity(),
-                    this.root ? (Zt.a = 2 * (1 / qt.width),
-                    Zt.d = 2 * (-1 / qt.height),
-                    Zt.tx = -1 - Kt.x * Zt.a,
-                    Zt.ty = 1 - Kt.y * Zt.d) : (Zt.a = 2 * (1 / qt.width),
-                    Zt.d = 2 * (1 / qt.height),
-                    Zt.tx = -1 - Kt.x * Zt.a,
-                    Zt.ty = -1 - Kt.y * Zt.d)
+                    Qt.identity(),
+                    this.root ? (Qt.a = 2 * (1 / qt.width),
+                    Qt.d = 2 * (-1 / qt.height),
+                    Qt.tx = -1 - Kt.x * Qt.a,
+                    Qt.ty = 1 - Kt.y * Qt.d) : (Qt.a = 2 * (1 / qt.width),
+                    Qt.d = 2 * (1 / qt.height),
+                    Qt.tx = -1 - Kt.x * Qt.a,
+                    Qt.ty = -1 - Kt.y * Qt.d)
                 }
                 ,
                 Vt.prototype.resize = function(qt, Kt) {
@@ -14430,8 +14430,8 @@ function(Bt) {
                         this.defaultFrame.width = qt,
                         this.defaultFrame.height = Kt,
                         this.frameBuffer.resize(qt * this.resolution, Kt * this.resolution);
-                        var Zt = this.frame || this.size;
-                        this.calculateProjection(Zt)
+                        var Qt = this.frame || this.size;
+                        this.calculateProjection(Qt)
                     }
                 }
                 ,
@@ -14464,11 +14464,11 @@ function(Bt) {
                     jt = Gt.default.createContext(Vt)
                 }
                 for (var qt = jt.createShader(jt.FRAGMENT_SHADER), Kt; ; ) {
-                    if (Kt = Yt.replace(/%forloop%/gi, function(Zt) {
-                        for (var Qt = "", Jt = 0; Jt < Zt; ++Jt)
-                            0 < Jt && (Qt += "\nelse "),
-                            Jt < Zt - 1 && (Qt += "if(test == " + Jt + ".0){}");
-                        return Qt
+                    if (Kt = Yt.replace(/%forloop%/gi, function(Qt) {
+                        for (var Zt = "", Jt = 0; Jt < Qt; ++Jt)
+                            0 < Jt && (Zt += "\nelse "),
+                            Jt < Qt - 1 && (Zt += "if(test == " + Jt + ".0){}");
+                        return Zt
                     }(Wt)),
                     jt.shaderSource(qt, Kt),
                     jt.compileShader(qt),
@@ -14597,14 +14597,14 @@ function(Bt) {
             "./utils/maxRecommendedTextures": 126
         }],
         102: [function(Bt, Xt, Ht) {
-            function Gt(Qt) {
-                return Qt && Qt.__esModule ? Qt : {
-                    default: Qt
+            function Gt(Zt) {
+                return Zt && Zt.__esModule ? Zt : {
+                    default: Zt
                 }
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function Qt(Jt, $t) {
+                function Zt(Jt, $t) {
                     for (var en = 0, tn; en < $t.length; en++)
                         tn = $t[en],
                         tn.enumerable = tn.enumerable || !1,
@@ -14613,8 +14613,8 @@ function(Bt) {
                         Object.defineProperty(Jt, tn.key, tn)
                 }
                 return function(Jt, $t, en) {
-                    return $t && Qt(Jt.prototype, $t),
-                    en && Qt(Jt, en),
+                    return $t && Zt(Jt.prototype, $t),
+                    en && Zt(Jt, en),
                     Jt
                 }
             }()
@@ -14624,7 +14624,7 @@ function(Bt) {
               , Vt = Gt(Bt("../textures/Texture"))
               , qt = Gt(Bt("../display/Container"))
               , Kt = new Wt.Point
-              , Zt = function(Qt) {
+              , Qt = function(Zt) {
                 function Jt($t) {
                     !function(tn, nn) {
                         if (!(tn instanceof nn))
@@ -14634,7 +14634,7 @@ function(Bt) {
                         if (!tn)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return nn && ("object" == typeof nn || "function" == typeof nn) ? nn : tn
-                    }(this, Qt.call(this));
+                    }(this, Zt.call(this));
                     return en._anchor = new Wt.ObservablePoint(en._onAnchorUpdate,en),
                     en._texture = null,
                     en._width = 0,
@@ -14667,7 +14667,7 @@ function(Bt) {
                         }
                     }),
                     en && (Object.setPrototypeOf ? Object.setPrototypeOf($t, en) : $t.__proto__ = en)
-                }(Jt, Qt),
+                }(Jt, Zt),
                 Jt.prototype._onTextureUpdate = function() {
                     this._textureID = -1,
                     this._textureTrimmedID = -1,
@@ -14774,7 +14774,7 @@ function(Bt) {
                     this._bounds.maxY = this._texture.orig.height * (1 - this._anchor._y),
                     $t || (this._localBoundsRect || (this._localBoundsRect = new Wt.Rectangle),
                     $t = this._localBoundsRect),
-                    this._bounds.getRectangle($t)) : Qt.prototype.getLocalBounds.call(this, $t)
+                    this._bounds.getRectangle($t)) : Zt.prototype.getLocalBounds.call(this, $t)
                 }
                 ,
                 Jt.prototype.containsPoint = function($t) {
@@ -14788,7 +14788,7 @@ function(Bt) {
                 }
                 ,
                 Jt.prototype.destroy = function($t) {
-                    if (Qt.prototype.destroy.call(this, $t),
+                    if (Zt.prototype.destroy.call(this, $t),
                     this._anchor = null,
                     "boolean" == typeof $t ? $t : $t && $t.texture) {
                         var en = "boolean" == typeof $t ? $t : $t && $t.baseTexture;
@@ -14867,7 +14867,7 @@ function(Bt) {
                 }]),
                 Jt
             }(qt.default);
-            Ht.default = Zt
+            Ht.default = Qt
         }
         , {
             "../const": 46,
@@ -14889,32 +14889,32 @@ function(Bt) {
               , zt = Gt(Bt("./CanvasTinter"))
               , Vt = new jt.Matrix
               , qt = function() {
-                function Kt(Zt) {
-                    !function(Qt, Jt) {
-                        if (!(Qt instanceof Jt))
+                function Kt(Qt) {
+                    !function(Zt, Jt) {
+                        if (!(Zt instanceof Jt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Kt),
-                    this.renderer = Zt
+                    this.renderer = Qt
                 }
-                return Kt.prototype.render = function(Zt) {
-                    var Qt = Zt._texture
+                return Kt.prototype.render = function(Qt) {
+                    var Zt = Qt._texture
                       , Jt = this.renderer
-                      , $t = Qt._frame.width
-                      , en = Qt._frame.height
-                      , tn = Zt.transform.worldTransform
+                      , $t = Zt._frame.width
+                      , en = Zt._frame.height
+                      , tn = Qt.transform.worldTransform
                       , nn = 0
                       , rn = 0;
-                    if (!(0 >= Qt.orig.width || 0 >= Qt.orig.height) && Qt.baseTexture.source && (Jt.setBlendMode(Zt.blendMode),
-                    Qt.valid)) {
-                        Jt.context.globalAlpha = Zt.worldAlpha;
-                        var an = Qt.baseTexture.scaleMode === Wt.SCALE_MODES.LINEAR;
+                    if (!(0 >= Zt.orig.width || 0 >= Zt.orig.height) && Zt.baseTexture.source && (Jt.setBlendMode(Qt.blendMode),
+                    Zt.valid)) {
+                        Jt.context.globalAlpha = Qt.worldAlpha;
+                        var an = Zt.baseTexture.scaleMode === Wt.SCALE_MODES.LINEAR;
                         Jt.smoothProperty && Jt.context[Jt.smoothProperty] !== an && (Jt.context[Jt.smoothProperty] = an),
-                        Qt.trim ? (nn = Qt.trim.width / 2 + Qt.trim.x - Zt.anchor.x * Qt.orig.width,
-                        rn = Qt.trim.height / 2 + Qt.trim.y - Zt.anchor.y * Qt.orig.height) : (nn = (.5 - Zt.anchor.x) * Qt.orig.width,
-                        rn = (.5 - Zt.anchor.y) * Qt.orig.height),
-                        Qt.rotate && (tn.copy(Vt),
+                        Zt.trim ? (nn = Zt.trim.width / 2 + Zt.trim.x - Qt.anchor.x * Zt.orig.width,
+                        rn = Zt.trim.height / 2 + Zt.trim.y - Qt.anchor.y * Zt.orig.height) : (nn = (.5 - Qt.anchor.x) * Zt.orig.width,
+                        rn = (.5 - Qt.anchor.y) * Zt.orig.height),
+                        Zt.rotate && (tn.copy(Vt),
                         tn = Vt,
-                        jt.GroupD8.matrixAppendRotationInv(tn, Qt.rotate, nn, rn),
+                        jt.GroupD8.matrixAppendRotationInv(tn, Zt.rotate, nn, rn),
                         nn = 0,
                         rn = 0),
                         nn -= $t / 2,
@@ -14922,10 +14922,10 @@ function(Bt) {
                         Jt.roundPixels ? (Jt.context.setTransform(tn.a, tn.b, tn.c, tn.d, 0 | tn.tx * Jt.resolution, 0 | tn.ty * Jt.resolution),
                         nn |= 0,
                         rn |= 0) : Jt.context.setTransform(tn.a, tn.b, tn.c, tn.d, tn.tx * Jt.resolution, tn.ty * Jt.resolution);
-                        var on = Qt.baseTexture.resolution;
-                        16777215 === Zt.tint ? Jt.context.drawImage(Qt.baseTexture.source, Qt._frame.x * on, Qt._frame.y * on, $t * on, en * on, nn * Jt.resolution, rn * Jt.resolution, $t * Jt.resolution, en * Jt.resolution) : (Zt.cachedTint === Zt.tint && Zt.tintedTexture.tintId === Zt._texture._updateID || (Zt.cachedTint = Zt.tint,
-                        Zt.tintedTexture = zt.default.getTintedTexture(Zt, Zt.tint)),
-                        Jt.context.drawImage(Zt.tintedTexture, 0, 0, $t * on, en * on, nn * Jt.resolution, rn * Jt.resolution, $t * Jt.resolution, en * Jt.resolution))
+                        var on = Zt.baseTexture.resolution;
+                        16777215 === Qt.tint ? Jt.context.drawImage(Zt.baseTexture.source, Zt._frame.x * on, Zt._frame.y * on, $t * on, en * on, nn * Jt.resolution, rn * Jt.resolution, $t * Jt.resolution, en * Jt.resolution) : (Qt.cachedTint === Qt.tint && Qt.tintedTexture.tintId === Qt._texture._updateID || (Qt.cachedTint = Qt.tint,
+                        Qt.tintedTexture = zt.default.getTintedTexture(Qt, Qt.tint)),
+                        Jt.context.drawImage(Qt.tintedTexture, 0, 0, $t * on, en * on, nn * Jt.resolution, rn * Jt.resolution, $t * Jt.resolution, en * Jt.resolution))
                     }
                 }
                 ,
@@ -14962,9 +14962,9 @@ function(Bt) {
                     if (Yt.tintMethod(zt, jt, Kt),
                     Kt.tintId = zt._updateID,
                     Yt.convertTintToImage) {
-                        var Zt = new Image;
-                        Zt.src = Kt.toDataURL(),
-                        zt.tintCache[Vt] = Zt
+                        var Qt = new Image;
+                        Qt.src = Kt.toDataURL(),
+                        zt.tintCache[Vt] = Qt
                     } else
                         zt.tintCache[Vt] = Kt,
                         Yt.canvas = null;
@@ -15021,9 +15021,9 @@ function(Bt) {
                     Vt.globalCompositeOperation = "copy",
                     Vt.drawImage(Wt.baseTexture.source, qt.x, qt.y, qt.width, qt.height, 0, 0, qt.width, qt.height),
                     Vt.restore();
-                    for (var Zt = (0,
-                    Gt.hex2rgb)(jt), Qt = Zt[0], Jt = Zt[1], $t = Zt[2], en = Vt.getImageData(0, 0, qt.width, qt.height), tn = en.data, nn = 0; nn < tn.length; nn += 4)
-                        tn[nn + 0] *= Qt,
+                    for (var Qt = (0,
+                    Gt.hex2rgb)(jt), Zt = Qt[0], Jt = Qt[1], $t = Qt[2], en = Vt.getImageData(0, 0, qt.width, qt.height), tn = en.data, nn = 0; nn < tn.length; nn += 4)
+                        tn[nn + 0] *= Zt,
                         tn[nn + 1] *= Jt,
                         tn[nn + 2] *= $t;
                     Vt.putImageData(en, 0, 0)
@@ -15093,8 +15093,8 @@ function(Bt) {
               , Vt = Gt(Bt("../../renderers/webgl/utils/checkMaxIfStatmentsInShader"))
               , qt = Gt(Bt("./BatchBuffer"))
               , Kt = Gt(Bt("../../settings"))
-              , Zt = Bt("../../utils")
-              , Qt = Gt(Bt("pixi-gl-core"))
+              , Qt = Bt("../../utils")
+              , Zt = Gt(Bt("pixi-gl-core"))
               , Jt = Gt(Bt("bit-twiddle"))
               , $t = 0
               , en = 0
@@ -15157,10 +15157,10 @@ function(Bt) {
                     Vt.default)(this.MAX_TEXTURES, an)),
                     this.shader = (0,
                     zt.default)(an, this.MAX_TEXTURES),
-                    this.indexBuffer = Qt.default.GLBuffer.createIndexBuffer(an, this.indices, an.STATIC_DRAW),
+                    this.indexBuffer = Zt.default.GLBuffer.createIndexBuffer(an, this.indices, an.STATIC_DRAW),
                     this.renderer.bindVao(null);
                     for (var on = this.shader.attributes, sn = 0; sn < this.vaoMax; sn++) {
-                        var dn = this.vertexBuffers[sn] = Qt.default.GLBuffer.createVertexBuffer(an, null, an.STREAM_DRAW)
+                        var dn = this.vertexBuffers[sn] = Zt.default.GLBuffer.createVertexBuffer(an, null, an.STREAM_DRAW)
                           , ln = this.renderer.createVao().addIndex(this.indexBuffer).addAttribute(dn, on.aVertexPosition, an.FLOAT, !1, this.vertByteSize, 0).addAttribute(dn, on.aTextureCoord, an.UNSIGNED_SHORT, !0, this.vertByteSize, 8).addAttribute(dn, on.aColor, an.UNSIGNED_BYTE, !0, this.vertByteSize, 12);
                         on.aTextureId && ln.addAttribute(dn, on.aTextureId, an.FLOAT, !1, this.vertByteSize, 16),
                         this.vaos[sn] = ln
@@ -15181,7 +15181,7 @@ function(Bt) {
                 ,
                 rn.prototype.flush = function() {
                     if (0 !== this.currentIndex) {
-                        var an = this.renderer.gl, on = this.MAX_TEXTURES, sn = Jt.default.nextPow2(this.currentIndex), dn = Jt.default.log2(sn), ln = this.buffers[dn], un = this.sprites, pn = this.groups, cn = ln.float32View, fn = ln.uint32View, hn = this.boundTextures, gn = this.renderer.boundTextures, mn = this.renderer.textureGC.count, yn = 0, _n, bn, xn = 1, vn = 0, Tn = pn[0], En, Sn, wn = Zt.premultiplyBlendMode[un[0]._texture.baseTexture.premultipliedAlpha ? 1 : 0][un[0].blendMode];
+                        var an = this.renderer.gl, on = this.MAX_TEXTURES, sn = Jt.default.nextPow2(this.currentIndex), dn = Jt.default.log2(sn), ln = this.buffers[dn], un = this.sprites, pn = this.groups, cn = ln.float32View, fn = ln.uint32View, hn = this.boundTextures, gn = this.renderer.boundTextures, mn = this.renderer.textureGC.count, yn = 0, _n, bn, xn = 1, vn = 0, Tn = pn[0], En, Sn, wn = Qt.premultiplyBlendMode[un[0]._texture.baseTexture.premultipliedAlpha ? 1 : 0][un[0].blendMode];
                         Tn.textureCount = 0,
                         Tn.start = 0,
                         Tn.blend = wn,
@@ -15193,7 +15193,7 @@ function(Bt) {
                         for (Pn = 0; Pn < this.currentIndex; ++Pn) {
                             var Cn = un[Pn];
                             _n = Cn._texture.baseTexture;
-                            var An = Zt.premultiplyBlendMode[+_n.premultipliedAlpha][Cn.blendMode];
+                            var An = Qt.premultiplyBlendMode[+_n.premultipliedAlpha][Cn.blendMode];
                             if (wn !== An && (wn = An,
                             bn = null,
                             vn = on,
@@ -15209,13 +15209,13 @@ function(Bt) {
                                 _n.touched = mn,
                                 -1 === _n._virtalBoundId)
                                     for (var Rn = 0; Rn < on; ++Rn) {
-                                        var Mn = (Rn + en) % on
-                                          , In = hn[Mn];
-                                        if (In._enabled !== $t) {
+                                        var Dn = (Rn + en) % on
+                                          , Mn = hn[Dn];
+                                        if (Mn._enabled !== $t) {
                                             en++,
-                                            In._virtalBoundId = -1,
-                                            _n._virtalBoundId = Mn,
-                                            hn[Mn] = _n;
+                                            Mn._virtalBoundId = -1,
+                                            _n._virtalBoundId = Dn,
+                                            hn[Dn] = _n;
                                             break
                                         }
                                     }
@@ -15227,15 +15227,15 @@ function(Bt) {
                             if (En = Cn.vertexData,
                             Sn = Cn._texture._uvs.uvsUint32,
                             this.renderer.roundPixels) {
-                                var Dn = this.renderer.resolution;
-                                cn[yn] = (0 | En[0] * Dn) / Dn,
-                                cn[yn + 1] = (0 | En[1] * Dn) / Dn,
-                                cn[yn + 5] = (0 | En[2] * Dn) / Dn,
-                                cn[yn + 6] = (0 | En[3] * Dn) / Dn,
-                                cn[yn + 10] = (0 | En[4] * Dn) / Dn,
-                                cn[yn + 11] = (0 | En[5] * Dn) / Dn,
-                                cn[yn + 15] = (0 | En[6] * Dn) / Dn,
-                                cn[yn + 16] = (0 | En[7] * Dn) / Dn
+                                var In = this.renderer.resolution;
+                                cn[yn] = (0 | En[0] * In) / In,
+                                cn[yn + 1] = (0 | En[1] * In) / In,
+                                cn[yn + 5] = (0 | En[2] * In) / In,
+                                cn[yn + 6] = (0 | En[3] * In) / In,
+                                cn[yn + 10] = (0 | En[4] * In) / In,
+                                cn[yn + 11] = (0 | En[5] * In) / In,
+                                cn[yn + 15] = (0 | En[6] * In) / In,
+                                cn[yn + 16] = (0 | En[7] * In) / In
                             } else
                                 cn[yn] = En[0],
                                 cn[yn + 1] = En[1],
@@ -15251,7 +15251,7 @@ function(Bt) {
                             fn[yn + 17] = Sn[3];
                             var On = Math.min(Cn.worldAlpha, 1)
                               , Ln = 1 > On && _n.premultipliedAlpha ? (0,
-                            Zt.premultiplyTint)(Cn._tintRGB, On) : Cn._tintRGB + (255 * On << 24);
+                            Qt.premultiplyTint)(Cn._tintRGB, On) : Cn._tintRGB + (255 * On << 24);
                             fn[yn + 3] = fn[yn + 8] = fn[yn + 13] = fn[yn + 18] = Ln,
                             cn[yn + 4] = cn[yn + 9] = cn[yn + 14] = cn[yn + 19] = _n._virtalBoundId,
                             yn += 20
@@ -15263,7 +15263,7 @@ function(Bt) {
                             if (this.vaoMax <= this.vertexCount) {
                                 this.vaoMax++;
                                 var kn = this.shader.attributes
-                                  , Nn = this.vertexBuffers[this.vertexCount] = Qt.default.GLBuffer.createVertexBuffer(an, null, an.STREAM_DRAW)
+                                  , Nn = this.vertexBuffers[this.vertexCount] = Zt.default.GLBuffer.createVertexBuffer(an, null, an.STREAM_DRAW)
                                   , Fn = this.renderer.createVao().addIndex(this.indexBuffer).addAttribute(Nn, kn.aVertexPosition, an.FLOAT, !1, this.vertByteSize, 0).addAttribute(Nn, kn.aTextureCoord, an.UNSIGNED_SHORT, !0, this.vertByteSize, 8).addAttribute(Nn, kn.aColor, an.UNSIGNED_BYTE, !0, this.vertByteSize, 12);
                                 kn.aTextureId && Fn.addAttribute(Nn, kn.aTextureId, an.FLOAT, !1, this.vertByteSize, 16),
                                 this.vaos[this.vertexCount] = Fn
@@ -15335,18 +15335,18 @@ function(Bt) {
             Ht.__esModule = !0,
             Ht.default = function(Wt, jt) {
                 var zt = Yt;
-                zt = (zt = zt.replace(/%count%/gi, jt)).replace(/%forloop%/gi, function(Zt) {
-                    var Qt = "";
-                    Qt += "\n",
-                    Qt += "\n";
-                    for (var Jt = 0; Jt < Zt; Jt++)
-                        0 < Jt && (Qt += "\nelse "),
-                        Jt < Zt - 1 && (Qt += "if(textureId == " + Jt + ".0)"),
-                        Qt += "\n{",
-                        Qt += "\n\tcolor = texture2D(uSamplers[" + Jt + "], vTextureCoord, -1.0);",
-                        Qt += "\n}";
-                    return Qt += "\n",
-                    Qt += "\n"
+                zt = (zt = zt.replace(/%count%/gi, jt)).replace(/%forloop%/gi, function(Qt) {
+                    var Zt = "";
+                    Zt += "\n",
+                    Zt += "\n";
+                    for (var Jt = 0; Jt < Qt; Jt++)
+                        0 < Jt && (Zt += "\nelse "),
+                        Jt < Qt - 1 && (Zt += "if(textureId == " + Jt + ".0)"),
+                        Zt += "\n{",
+                        Zt += "\n\tcolor = texture2D(uSamplers[" + Jt + "], vTextureCoord, -1.0);",
+                        Zt += "\n}";
+                    return Zt += "\n",
+                    Zt += "\n"
                 }(jt));
                 for (var Vt = new Gt.default(Wt,"precision highp float;\nattribute vec2 aVertexPosition;\nattribute vec2 aTextureCoord;\nattribute vec4 aColor;\nattribute float aTextureId;\n\nuniform mat3 projectionMatrix;\n\nvarying vec2 vTextureCoord;\nvarying vec4 vColor;\nvarying float vTextureId;\n\nvoid main(void){\n    gl_Position = vec4((projectionMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);\n\n    vTextureCoord = aTextureCoord;\n    vTextureId = aTextureId;\n    vColor = aColor;\n}\n",zt), qt = [], Kt = 0; Kt < jt; Kt++)
                     qt[Kt] = Kt;
@@ -15395,8 +15395,8 @@ function(Bt) {
               , Vt = Bt("../utils")
               , qt = Bt("../const")
               , Kt = Gt(Bt("../settings"))
-              , Zt = Gt(Bt("./TextStyle"))
-              , Qt = Gt(Bt("./TextMetrics"))
+              , Qt = Gt(Bt("./TextStyle"))
+              , Zt = Gt(Bt("./TextMetrics"))
               , Jt = Gt(Bt("../utils/trimCanvas"))
               , $t = {
                 texture: !0,
@@ -15452,7 +15452,7 @@ function(Bt) {
                     this.dirty || !rn) {
                         this._font = this._style.toFontString();
                         var on = this.context
-                          , sn = Qt.default.measureText(this._text, this._style, this._style.wordWrap, this.canvas)
+                          , sn = Zt.default.measureText(this._text, this._style, this._style.wordWrap, this.canvas)
                           , dn = sn.width
                           , ln = sn.height
                           , un = sn.lines
@@ -15648,7 +15648,7 @@ function(Bt) {
                         return this._style
                     },
                     set: function(rn) {
-                        this._style = (rn = rn || {})instanceof Zt.default ? rn : new Zt.default(rn),
+                        this._style = (rn = rn || {})instanceof Qt.default ? rn : new Qt.default(rn),
                         this.localStyleID = -1,
                         this.dirty = !0
                     }
@@ -15681,7 +15681,7 @@ function(Bt) {
         109: [function(Bt, Xt, Ht) {
             Ht.__esModule = !0;
             var Gt = function() {
-                function Wt(jt, zt, Vt, qt, Kt, Zt, Qt, Jt, $t) {
+                function Wt(jt, zt, Vt, qt, Kt, Qt, Zt, Jt, $t) {
                     !function(en, tn) {
                         if (!(en instanceof tn))
                             throw new TypeError("Cannot call a class as a function")
@@ -15691,8 +15691,8 @@ function(Bt) {
                     this.width = Vt,
                     this.height = qt,
                     this.lines = Kt,
-                    this.lineWidths = Zt,
-                    this.lineHeight = Qt,
+                    this.lineWidths = Qt,
+                    this.lineHeight = Zt,
                     this.maxLineWidth = Jt,
                     this.fontProperties = $t
                 }
@@ -15700,33 +15700,33 @@ function(Bt) {
                     var qt = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : Wt._canvas;
                     Vt = Vt || zt.wordWrap;
                     var Kt = zt.toFontString()
-                      , Zt = Wt.measureFont(Kt)
-                      , Qt = qt.getContext("2d");
-                    Qt.font = Kt;
+                      , Qt = Wt.measureFont(Kt)
+                      , Zt = qt.getContext("2d");
+                    Zt.font = Kt;
                     for (var Jt = (Vt ? Wt.wordWrap(jt, zt, qt) : jt).split(/(?:\r\n|\r|\n)/), $t = Array(Jt.length), en = 0, tn = 0, nn; tn < Jt.length; tn++)
-                        nn = Qt.measureText(Jt[tn]).width + (Jt[tn].length - 1) * zt.letterSpacing,
+                        nn = Zt.measureText(Jt[tn]).width + (Jt[tn].length - 1) * zt.letterSpacing,
                         $t[tn] = nn,
                         en = Math.max(en, nn);
                     var rn = en + zt.strokeThickness;
                     zt.dropShadow && (rn += zt.dropShadowDistance);
-                    var an = zt.lineHeight || Zt.fontSize + zt.strokeThickness
-                      , on = Math.max(an, Zt.fontSize + zt.strokeThickness) + (Jt.length - 1) * (an + zt.leading);
+                    var an = zt.lineHeight || Qt.fontSize + zt.strokeThickness
+                      , on = Math.max(an, Qt.fontSize + zt.strokeThickness) + (Jt.length - 1) * (an + zt.leading);
                     return zt.dropShadow && (on += zt.dropShadowDistance),
-                    new Wt(jt,zt,rn,on,Jt,$t,an + zt.leading,en,Zt)
+                    new Wt(jt,zt,rn,on,Jt,$t,an + zt.leading,en,Qt)
                 }
                 ,
                 Wt.wordWrap = function(jt, zt) {
-                    for (var Vt = (2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : Wt._canvas).getContext("2d"), qt = "", Kt = jt.split("\n"), Zt = zt.wordWrapWidth, Qt = {}, Jt = 0; Jt < Kt.length; Jt++) {
-                        for (var $t = Zt, en = Kt[Jt].split(" "), tn = 0, nn; tn < en.length; tn++)
+                    for (var Vt = (2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : Wt._canvas).getContext("2d"), qt = "", Kt = jt.split("\n"), Qt = zt.wordWrapWidth, Zt = {}, Jt = 0; Jt < Kt.length; Jt++) {
+                        for (var $t = Qt, en = Kt[Jt].split(" "), tn = 0, nn; tn < en.length; tn++)
                             if (nn = Vt.measureText(en[tn]).width,
-                            zt.breakWords && nn > Zt)
+                            zt.breakWords && nn > Qt)
                                 for (var rn = en[tn].split(""), an = 0; an < rn.length; an++) {
                                     var on = rn[an]
-                                      , sn = Qt[on];
+                                      , sn = Zt[on];
                                     void 0 === sn && (sn = Vt.measureText(on).width,
-                                    Qt[on] = sn),
+                                    Zt[on] = sn),
                                     sn > $t ? (qt += "\n" + on,
-                                    $t = Zt - sn) : (0 === an && (qt += " "),
+                                    $t = Qt - sn) : (0 === an && (qt += " "),
                                     qt += on,
                                     $t -= sn)
                                 }
@@ -15734,7 +15734,7 @@ function(Bt) {
                                 var dn = nn + Vt.measureText(" ").width;
                                 0 === tn || dn > $t ? (0 < tn && (qt += "\n"),
                                 qt += en[tn],
-                                $t = Zt - nn) : ($t -= dn,
+                                $t = Qt - nn) : ($t -= dn,
                                 qt += " " + en[tn])
                             }
                         Jt < Kt.length - 1 && (qt += "\n")
@@ -15750,24 +15750,24 @@ function(Bt) {
                       , qt = Wt._context;
                     qt.font = jt;
                     var Kt = Math.ceil(qt.measureText("|M\xC9q").width)
-                      , Zt = Math.ceil(qt.measureText("M").width)
-                      , Qt = 2 * Zt;
-                    Zt = 0 | 1.4 * Zt,
+                      , Qt = Math.ceil(qt.measureText("M").width)
+                      , Zt = 2 * Qt;
+                    Qt = 0 | 1.4 * Qt,
                     Vt.width = Kt,
-                    Vt.height = Qt,
+                    Vt.height = Zt,
                     qt.fillStyle = "#f00",
-                    qt.fillRect(0, 0, Kt, Qt),
+                    qt.fillRect(0, 0, Kt, Zt),
                     qt.font = jt,
                     qt.textBaseline = "alphabetic",
                     qt.fillStyle = "#000",
-                    qt.fillText("|M\xC9q", 0, Zt);
-                    var Jt = qt.getImageData(0, 0, Kt, Qt).data
+                    qt.fillText("|M\xC9q", 0, Qt);
+                    var Jt = qt.getImageData(0, 0, Kt, Zt).data
                       , $t = Jt.length
                       , en = 4 * Kt
                       , tn = 0
                       , nn = 0
                       , rn = !1;
-                    for (tn = 0; tn < Zt; ++tn) {
+                    for (tn = 0; tn < Qt; ++tn) {
                         for (var an = 0; an < en; an += 4)
                             if (255 !== Jt[nn + an]) {
                                 rn = !0;
@@ -15777,10 +15777,10 @@ function(Bt) {
                             break;
                         nn += en
                     }
-                    for (zt.ascent = Zt - tn,
+                    for (zt.ascent = Qt - tn,
                     nn = $t - en,
                     rn = !1,
-                    tn = Qt; tn > Zt; --tn) {
+                    tn = Zt; tn > Qt; --tn) {
                         for (var on = 0; on < en; on += 4)
                             if (255 !== Jt[nn + on]) {
                                 rn = !0;
@@ -15790,7 +15790,7 @@ function(Bt) {
                             break;
                         nn -= en
                     }
-                    return zt.descent = tn - Zt,
+                    return zt.descent = tn - Qt,
                     zt.fontSize = zt.ascent + zt.descent,
                     Wt._fonts[jt] = zt,
                     zt
@@ -15814,26 +15814,26 @@ function(Bt) {
             }
             function Yt(Kt) {
                 if (Array.isArray(Kt)) {
-                    for (var Zt = 0; Zt < Kt.length; ++Zt)
-                        Kt[Zt] = Gt(Kt[Zt]);
+                    for (var Qt = 0; Qt < Kt.length; ++Qt)
+                        Kt[Qt] = Gt(Kt[Qt]);
                     return Kt
                 }
                 return Gt(Kt)
             }
             Ht.__esModule = !0;
             var Wt = function() {
-                function Kt(Zt, Qt) {
-                    for (var Jt = 0, $t; Jt < Qt.length; Jt++)
-                        $t = Qt[Jt],
+                function Kt(Qt, Zt) {
+                    for (var Jt = 0, $t; Jt < Zt.length; Jt++)
+                        $t = Zt[Jt],
                         $t.enumerable = $t.enumerable || !1,
                         $t.configurable = !0,
                         "value"in $t && ($t.writable = !0),
-                        Object.defineProperty(Zt, $t.key, $t)
+                        Object.defineProperty(Qt, $t.key, $t)
                 }
-                return function(Zt, Qt, Jt) {
-                    return Qt && Kt(Zt.prototype, Qt),
-                    Jt && Kt(Zt, Jt),
-                    Zt
+                return function(Qt, Zt, Jt) {
+                    return Zt && Kt(Qt.prototype, Zt),
+                    Jt && Kt(Qt, Jt),
+                    Qt
                 }
             }()
               , jt = Bt("../const")
@@ -15869,19 +15869,19 @@ function(Bt) {
                 leading: 0
             }
               , qt = function() {
-                function Kt(Zt) {
-                    !function(Qt, Jt) {
-                        if (!(Qt instanceof Jt))
+                function Kt(Qt) {
+                    !function(Zt, Jt) {
+                        if (!(Zt instanceof Jt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Kt),
                     this.styleID = 0,
-                    Object.assign(this, Vt, Zt)
+                    Object.assign(this, Vt, Qt)
                 }
                 return Kt.prototype.clone = function() {
-                    var Zt = {};
-                    for (var Qt in Vt)
-                        Zt[Qt] = this[Qt];
-                    return new Kt(Zt)
+                    var Qt = {};
+                    for (var Zt in Vt)
+                        Qt[Zt] = this[Zt];
+                    return new Kt(Qt)
                 }
                 ,
                 Kt.prototype.reset = function() {
@@ -15889,14 +15889,14 @@ function(Bt) {
                 }
                 ,
                 Kt.prototype.toFontString = function() {
-                    var Zt = "number" == typeof this.fontSize ? this.fontSize + "px" : this.fontSize
-                      , Qt = this.fontFamily;
-                    Array.isArray(this.fontFamily) || (Qt = this.fontFamily.split(","));
-                    for (var Jt = Qt.length - 1, $t; 0 <= Jt; Jt--)
-                        $t = Qt[Jt].trim(),
+                    var Qt = "number" == typeof this.fontSize ? this.fontSize + "px" : this.fontSize
+                      , Zt = this.fontFamily;
+                    Array.isArray(this.fontFamily) || (Zt = this.fontFamily.split(","));
+                    for (var Jt = Zt.length - 1, $t; 0 <= Jt; Jt--)
+                        $t = Zt[Jt].trim(),
                         /([\"\'])[^\'\"]+\1/.test($t) || ($t = "\"" + $t + "\""),
-                        Qt[Jt] = $t;
-                    return this.fontStyle + " " + this.fontVariant + " " + this.fontWeight + " " + Zt + " " + Qt.join(",")
+                        Zt[Jt] = $t;
+                    return this.fontStyle + " " + this.fontVariant + " " + this.fontWeight + " " + Qt + " " + Zt.join(",")
                 }
                 ,
                 Wt(Kt, [{
@@ -15904,8 +15904,8 @@ function(Bt) {
                     get: function() {
                         return this._align
                     },
-                    set: function(Zt) {
-                        this._align !== Zt && (this._align = Zt,
+                    set: function(Qt) {
+                        this._align !== Qt && (this._align = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -15913,8 +15913,8 @@ function(Bt) {
                     get: function() {
                         return this._breakWords
                     },
-                    set: function(Zt) {
-                        this._breakWords !== Zt && (this._breakWords = Zt,
+                    set: function(Qt) {
+                        this._breakWords !== Qt && (this._breakWords = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -15922,8 +15922,8 @@ function(Bt) {
                     get: function() {
                         return this._dropShadow
                     },
-                    set: function(Zt) {
-                        this._dropShadow !== Zt && (this._dropShadow = Zt,
+                    set: function(Qt) {
+                        this._dropShadow !== Qt && (this._dropShadow = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -15931,8 +15931,8 @@ function(Bt) {
                     get: function() {
                         return this._dropShadowAlpha
                     },
-                    set: function(Zt) {
-                        this._dropShadowAlpha !== Zt && (this._dropShadowAlpha = Zt,
+                    set: function(Qt) {
+                        this._dropShadowAlpha !== Qt && (this._dropShadowAlpha = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -15940,8 +15940,8 @@ function(Bt) {
                     get: function() {
                         return this._dropShadowAngle
                     },
-                    set: function(Zt) {
-                        this._dropShadowAngle !== Zt && (this._dropShadowAngle = Zt,
+                    set: function(Qt) {
+                        this._dropShadowAngle !== Qt && (this._dropShadowAngle = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -15949,8 +15949,8 @@ function(Bt) {
                     get: function() {
                         return this._dropShadowBlur
                     },
-                    set: function(Zt) {
-                        this._dropShadowBlur !== Zt && (this._dropShadowBlur = Zt,
+                    set: function(Qt) {
+                        this._dropShadowBlur !== Qt && (this._dropShadowBlur = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -15958,9 +15958,9 @@ function(Bt) {
                     get: function() {
                         return this._dropShadowColor
                     },
-                    set: function(Zt) {
-                        var Qt = Yt(Zt);
-                        this._dropShadowColor !== Qt && (this._dropShadowColor = Qt,
+                    set: function(Qt) {
+                        var Zt = Yt(Qt);
+                        this._dropShadowColor !== Zt && (this._dropShadowColor = Zt,
                         this.styleID++)
                     }
                 }, {
@@ -15968,8 +15968,8 @@ function(Bt) {
                     get: function() {
                         return this._dropShadowDistance
                     },
-                    set: function(Zt) {
-                        this._dropShadowDistance !== Zt && (this._dropShadowDistance = Zt,
+                    set: function(Qt) {
+                        this._dropShadowDistance !== Qt && (this._dropShadowDistance = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -15977,9 +15977,9 @@ function(Bt) {
                     get: function() {
                         return this._fill
                     },
-                    set: function(Zt) {
-                        var Qt = Yt(Zt);
-                        this._fill !== Qt && (this._fill = Qt,
+                    set: function(Qt) {
+                        var Zt = Yt(Qt);
+                        this._fill !== Zt && (this._fill = Zt,
                         this.styleID++)
                     }
                 }, {
@@ -15987,8 +15987,8 @@ function(Bt) {
                     get: function() {
                         return this._fillGradientType
                     },
-                    set: function(Zt) {
-                        this._fillGradientType !== Zt && (this._fillGradientType = Zt,
+                    set: function(Qt) {
+                        this._fillGradientType !== Qt && (this._fillGradientType = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -15996,18 +15996,18 @@ function(Bt) {
                     get: function() {
                         return this._fillGradientStops
                     },
-                    set: function(Zt) {
-                        (function(Qt, Jt) {
-                            if (!Array.isArray(Qt) || !Array.isArray(Jt))
+                    set: function(Qt) {
+                        (function(Zt, Jt) {
+                            if (!Array.isArray(Zt) || !Array.isArray(Jt))
                                 return !1;
-                            if (Qt.length !== Jt.length)
+                            if (Zt.length !== Jt.length)
                                 return !1;
-                            for (var $t = 0; $t < Qt.length; ++$t)
-                                if (Qt[$t] !== Jt[$t])
+                            for (var $t = 0; $t < Zt.length; ++$t)
+                                if (Zt[$t] !== Jt[$t])
                                     return !1;
                             return !0
                         }
-                        )(this._fillGradientStops, Zt) || (this._fillGradientStops = Zt,
+                        )(this._fillGradientStops, Qt) || (this._fillGradientStops = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16015,8 +16015,8 @@ function(Bt) {
                     get: function() {
                         return this._fontFamily
                     },
-                    set: function(Zt) {
-                        this.fontFamily !== Zt && (this._fontFamily = Zt,
+                    set: function(Qt) {
+                        this.fontFamily !== Qt && (this._fontFamily = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16024,8 +16024,8 @@ function(Bt) {
                     get: function() {
                         return this._fontSize
                     },
-                    set: function(Zt) {
-                        this._fontSize !== Zt && (this._fontSize = Zt,
+                    set: function(Qt) {
+                        this._fontSize !== Qt && (this._fontSize = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16033,8 +16033,8 @@ function(Bt) {
                     get: function() {
                         return this._fontStyle
                     },
-                    set: function(Zt) {
-                        this._fontStyle !== Zt && (this._fontStyle = Zt,
+                    set: function(Qt) {
+                        this._fontStyle !== Qt && (this._fontStyle = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16042,8 +16042,8 @@ function(Bt) {
                     get: function() {
                         return this._fontVariant
                     },
-                    set: function(Zt) {
-                        this._fontVariant !== Zt && (this._fontVariant = Zt,
+                    set: function(Qt) {
+                        this._fontVariant !== Qt && (this._fontVariant = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16051,8 +16051,8 @@ function(Bt) {
                     get: function() {
                         return this._fontWeight
                     },
-                    set: function(Zt) {
-                        this._fontWeight !== Zt && (this._fontWeight = Zt,
+                    set: function(Qt) {
+                        this._fontWeight !== Qt && (this._fontWeight = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16060,8 +16060,8 @@ function(Bt) {
                     get: function() {
                         return this._letterSpacing
                     },
-                    set: function(Zt) {
-                        this._letterSpacing !== Zt && (this._letterSpacing = Zt,
+                    set: function(Qt) {
+                        this._letterSpacing !== Qt && (this._letterSpacing = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16069,8 +16069,8 @@ function(Bt) {
                     get: function() {
                         return this._lineHeight
                     },
-                    set: function(Zt) {
-                        this._lineHeight !== Zt && (this._lineHeight = Zt,
+                    set: function(Qt) {
+                        this._lineHeight !== Qt && (this._lineHeight = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16078,8 +16078,8 @@ function(Bt) {
                     get: function() {
                         return this._leading
                     },
-                    set: function(Zt) {
-                        this._leading !== Zt && (this._leading = Zt,
+                    set: function(Qt) {
+                        this._leading !== Qt && (this._leading = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16087,8 +16087,8 @@ function(Bt) {
                     get: function() {
                         return this._lineJoin
                     },
-                    set: function(Zt) {
-                        this._lineJoin !== Zt && (this._lineJoin = Zt,
+                    set: function(Qt) {
+                        this._lineJoin !== Qt && (this._lineJoin = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16096,8 +16096,8 @@ function(Bt) {
                     get: function() {
                         return this._miterLimit
                     },
-                    set: function(Zt) {
-                        this._miterLimit !== Zt && (this._miterLimit = Zt,
+                    set: function(Qt) {
+                        this._miterLimit !== Qt && (this._miterLimit = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16105,8 +16105,8 @@ function(Bt) {
                     get: function() {
                         return this._padding
                     },
-                    set: function(Zt) {
-                        this._padding !== Zt && (this._padding = Zt,
+                    set: function(Qt) {
+                        this._padding !== Qt && (this._padding = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16114,9 +16114,9 @@ function(Bt) {
                     get: function() {
                         return this._stroke
                     },
-                    set: function(Zt) {
-                        var Qt = Yt(Zt);
-                        this._stroke !== Qt && (this._stroke = Qt,
+                    set: function(Qt) {
+                        var Zt = Yt(Qt);
+                        this._stroke !== Zt && (this._stroke = Zt,
                         this.styleID++)
                     }
                 }, {
@@ -16124,8 +16124,8 @@ function(Bt) {
                     get: function() {
                         return this._strokeThickness
                     },
-                    set: function(Zt) {
-                        this._strokeThickness !== Zt && (this._strokeThickness = Zt,
+                    set: function(Qt) {
+                        this._strokeThickness !== Qt && (this._strokeThickness = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16133,8 +16133,8 @@ function(Bt) {
                     get: function() {
                         return this._textBaseline
                     },
-                    set: function(Zt) {
-                        this._textBaseline !== Zt && (this._textBaseline = Zt,
+                    set: function(Qt) {
+                        this._textBaseline !== Qt && (this._textBaseline = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16142,8 +16142,8 @@ function(Bt) {
                     get: function() {
                         return this._trim
                     },
-                    set: function(Zt) {
-                        this._trim !== Zt && (this._trim = Zt,
+                    set: function(Qt) {
+                        this._trim !== Qt && (this._trim = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16151,8 +16151,8 @@ function(Bt) {
                     get: function() {
                         return this._wordWrap
                     },
-                    set: function(Zt) {
-                        this._wordWrap !== Zt && (this._wordWrap = Zt,
+                    set: function(Qt) {
+                        this._wordWrap !== Qt && (this._wordWrap = Qt,
                         this.styleID++)
                     }
                 }, {
@@ -16160,8 +16160,8 @@ function(Bt) {
                     get: function() {
                         return this._wordWrapWidth
                     },
-                    set: function(Zt) {
-                        this._wordWrapWidth !== Zt && (this._wordWrapWidth = Zt,
+                    set: function(Qt) {
+                        this._wordWrapWidth !== Qt && (this._wordWrapWidth = Qt,
                         this.styleID++)
                     }
                 }]),
@@ -16186,8 +16186,8 @@ function(Bt) {
                 function Vt() {
                     var qt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : 100
                       , Kt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : 100
-                      , Zt = arguments[2]
-                      , Qt = arguments[3];
+                      , Qt = arguments[2]
+                      , Zt = arguments[3];
                     !function($t, en) {
                         if (!($t instanceof en))
                             throw new TypeError("Cannot call a class as a function")
@@ -16196,13 +16196,13 @@ function(Bt) {
                         if (!$t)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return en && ("object" == typeof en || "function" == typeof en) ? en : $t
-                    }(this, zt.call(this, null, Zt));
-                    return Jt.resolution = Qt || Wt.default.RESOLUTION,
+                    }(this, zt.call(this, null, Qt));
+                    return Jt.resolution = Zt || Wt.default.RESOLUTION,
                     Jt.width = qt,
                     Jt.height = Kt,
                     Jt.realWidth = Jt.width * Jt.resolution,
                     Jt.realHeight = Jt.height * Jt.resolution,
-                    Jt.scaleMode = void 0 === Zt ? Wt.default.SCALE_MODE : Zt,
+                    Jt.scaleMode = void 0 === Qt ? Wt.default.SCALE_MODE : Qt,
                     Jt.hasLoaded = !0,
                     Jt._glRenderTargets = {},
                     Jt._canvasRenderTarget = null,
@@ -16257,11 +16257,11 @@ function(Bt) {
               , zt = Gt(Bt("../utils/determineCrossOrigin"))
               , Vt = Gt(Bt("bit-twiddle"))
               , qt = function(Kt) {
-                function Zt(Qt, Jt, $t) {
+                function Qt(Zt, Jt, $t) {
                     !function(tn, nn) {
                         if (!(tn instanceof nn))
                             throw new TypeError("Cannot call a class as a function")
-                    }(this, Zt);
+                    }(this, Qt);
                     var en = function(tn, nn) {
                         if (!tn)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -16292,86 +16292,86 @@ function(Bt) {
                     en._virtalBoundId = -1,
                     en._destroyed = !1,
                     en.textureCacheIds = [],
-                    Qt && en.loadSource(Qt),
+                    Zt && en.loadSource(Zt),
                     en
                 }
-                return function(Qt, Jt) {
+                return function(Zt, Jt) {
                     if ("function" != typeof Jt && null !== Jt)
                         throw new TypeError("Super expression must either be null or a function, not " + typeof Jt);
-                    Qt.prototype = Object.create(Jt && Jt.prototype, {
+                    Zt.prototype = Object.create(Jt && Jt.prototype, {
                         constructor: {
-                            value: Qt,
+                            value: Zt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Jt) : Qt.__proto__ = Jt)
-                }(Zt, Kt),
-                Zt.prototype.update = function(Qt) {
+                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Jt) : Zt.__proto__ = Jt)
+                }(Qt, Kt),
+                Qt.prototype.update = function(Zt) {
                     "svg" !== this.imageType && (this.realWidth = this.source.naturalWidth || this.source.videoWidth || this.source.width,
                     this.realHeight = this.source.naturalHeight || this.source.videoHeight || this.source.height,
                     this._updateDimensions()),
-                    Qt || this.emit("update", this)
+                    Zt || this.emit("update", this)
                 }
                 ,
-                Zt.prototype._updateDimensions = function() {
+                Qt.prototype._updateDimensions = function() {
                     this.width = this.realWidth / this.resolution,
                     this.height = this.realHeight / this.resolution,
                     this.isPowerOfTwo = Vt.default.isPow2(this.realWidth) && Vt.default.isPow2(this.realHeight)
                 }
                 ,
-                Zt.prototype.loadSource = function(Qt) {
+                Qt.prototype.loadSource = function(Zt) {
                     var Jt = this.isLoading;
                     this.hasLoaded = !1,
                     this.isLoading = !1,
                     Jt && this.source && (this.source.onload = null,
                     this.source.onerror = null);
                     var $t = !this.source;
-                    if (this.source = Qt,
-                    (Qt.src && Qt.complete || Qt.getContext) && Qt.width && Qt.height) {
+                    if (this.source = Zt,
+                    (Zt.src && Zt.complete || Zt.getContext) && Zt.width && Zt.height) {
                         this._updateImageType(),
                         "svg" === this.imageType && this._loadSvgSource();
                         var en = this;
-                        $t && (window.createImageBitmap && !Qt.getContext ? (en.hasLoaded = !0,
+                        $t && (window.createImageBitmap && !Zt.getContext ? (en.hasLoaded = !0,
                         en.update(!0),
-                        window.createImageBitmap(Qt).then(function(tn) {
+                        window.createImageBitmap(Zt).then(function(tn) {
                             en.source = tn,
                             en.emit("loaded", en)
                         })) : (this._sourceLoaded(),
                         en.emit("loaded", en)))
-                    } else if (!Qt.getContext && (this.isLoading = !0,
+                    } else if (!Zt.getContext && (this.isLoading = !0,
                     en = this,
-                    (Qt.onload = function() {
+                    (Zt.onload = function() {
                         en._updateImageType(),
-                        Qt.onload = null,
-                        Qt.onerror = null,
+                        Zt.onload = null,
+                        Zt.onerror = null,
                         en.isLoading && (en.isLoading = !1,
                         "svg" === en.imageType ? en._loadSvgSource() : window.createImageBitmap ? (en.hasLoaded = !0,
                         en.update(!0),
-                        window.createImageBitmap(Qt).then(function(tn) {
+                        window.createImageBitmap(Zt).then(function(tn) {
                             en.source = tn,
                             en.emit("loaded", en)
                         })) : (en._sourceLoaded(),
                         en.emit("loaded", en)))
                     }
                     ,
-                    Qt.onerror = function() {
-                        Qt.onload = null,
-                        Qt.onerror = null,
+                    Zt.onerror = function() {
+                        Zt.onload = null,
+                        Zt.onerror = null,
                         en.isLoading && (en.isLoading = !1,
                         en.emit("error", en))
                     }
                     ,
-                    Qt.complete && Qt.src))) {
-                        if (Qt.onload = null,
-                        Qt.onerror = null,
+                    Zt.complete && Zt.src))) {
+                        if (Zt.onload = null,
+                        Zt.onerror = null,
                         "svg" === en.imageType)
                             return void en._loadSvgSource();
                         this.isLoading = !1,
-                        Qt.width && Qt.height ? Jt && (window.createImageBitmap ? (en.hasLoaded = !0,
+                        Zt.width && Zt.height ? Jt && (window.createImageBitmap ? (en.hasLoaded = !0,
                         en.update(!0),
-                        window.createImageBitmap(Qt).then(function(tn) {
+                        window.createImageBitmap(Zt).then(function(tn) {
                             en.source = tn,
                             en.emit("loaded", en)
                         })) : (this._sourceLoaded(),
@@ -16379,12 +16379,12 @@ function(Bt) {
                     }
                 }
                 ,
-                Zt.prototype._updateImageType = function() {
+                Qt.prototype._updateImageType = function() {
                     if (this.imageUrl) {
-                        var Qt = (0,
+                        var Zt = (0,
                         Yt.decomposeDataUri)(this.imageUrl), Jt;
-                        if (Qt && "image" === Qt.mediaType) {
-                            var $t = Qt.subType.split("+")[0];
+                        if (Zt && "image" === Zt.mediaType) {
+                            var $t = Zt.subType.split("+")[0];
                             if (!(Jt = (0,
                             Yt.getUrlFileExtension)("." + $t)))
                                 throw new Error("Invalid image type in data URI.")
@@ -16395,45 +16395,45 @@ function(Bt) {
                     }
                 }
                 ,
-                Zt.prototype._loadSvgSource = function() {
+                Qt.prototype._loadSvgSource = function() {
                     if ("svg" === this.imageType) {
-                        var Qt = (0,
+                        var Zt = (0,
                         Yt.decomposeDataUri)(this.imageUrl);
-                        Qt ? this._loadSvgSourceUsingDataUri(Qt) : this._loadSvgSourceUsingXhr()
+                        Zt ? this._loadSvgSourceUsingDataUri(Zt) : this._loadSvgSourceUsingXhr()
                     }
                 }
                 ,
-                Zt.prototype._loadSvgSourceUsingDataUri = function(Qt) {
+                Qt.prototype._loadSvgSourceUsingDataUri = function(Zt) {
                     var Jt;
-                    if ("base64" === Qt.encoding) {
+                    if ("base64" === Zt.encoding) {
                         if (!atob)
                             throw new Error("Your browser doesn't support base64 conversions.");
-                        Jt = atob(Qt.data)
+                        Jt = atob(Zt.data)
                     } else
-                        Jt = Qt.data;
+                        Jt = Zt.data;
                     this._loadSvgSourceUsingString(Jt)
                 }
                 ,
-                Zt.prototype._loadSvgSourceUsingXhr = function() {
-                    var Qt = this
+                Qt.prototype._loadSvgSourceUsingXhr = function() {
+                    var Zt = this
                       , Jt = new XMLHttpRequest;
                     Jt.onload = function() {
                         if (Jt.readyState !== Jt.DONE || 200 !== Jt.status)
                             throw new Error("Failed to load SVG using XHR.");
-                        Qt._loadSvgSourceUsingString(Jt.response)
+                        Zt._loadSvgSourceUsingString(Jt.response)
                     }
                     ,
                     Jt.onerror = function() {
-                        return Qt.emit("error", Qt)
+                        return Zt.emit("error", Zt)
                     }
                     ,
                     Jt.open("GET", this.imageUrl, !0),
                     Jt.send()
                 }
                 ,
-                Zt.prototype._loadSvgSourceUsingString = function(Qt) {
+                Qt.prototype._loadSvgSourceUsingString = function(Zt) {
                     var Jt = (0,
-                    Yt.getSvgSize)(Qt)
+                    Yt.getSvgSize)(Zt)
                       , $t = Jt.width
                       , en = Jt.height;
                     if (!$t || !en)
@@ -16449,104 +16449,104 @@ function(Bt) {
                     tn.getContext("2d").drawImage(this.source, 0, 0, $t, en, 0, 0, this.realWidth, this.realHeight),
                     this.origSource = this.source,
                     this.source = tn,
-                    Zt.addToCache(this, tn._pixiId),
+                    Qt.addToCache(this, tn._pixiId),
                     this.isLoading = !1,
                     this._sourceLoaded(),
                     this.emit("loaded", this)
                 }
                 ,
-                Zt.prototype._sourceLoaded = function() {
+                Qt.prototype._sourceLoaded = function() {
                     this.hasLoaded = !0,
                     this.update()
                 }
                 ,
-                Zt.prototype.destroy = function() {
+                Qt.prototype.destroy = function() {
                     this.imageUrl && (delete Yt.TextureCache[this.imageUrl],
                     this.imageUrl = null,
                     navigator.isCocoonJS || (this.source.src = "")),
                     this.source = null,
                     this.dispose(),
-                    Zt.removeFromCache(this),
+                    Qt.removeFromCache(this),
                     this.textureCacheIds = null,
                     this._destroyed = !0
                 }
                 ,
-                Zt.prototype.dispose = function() {
+                Qt.prototype.dispose = function() {
                     this.emit("dispose", this)
                 }
                 ,
-                Zt.prototype.updateSourceImage = function(Qt) {
-                    this.source.src = Qt,
+                Qt.prototype.updateSourceImage = function(Zt) {
+                    this.source.src = Zt,
                     this.loadSource(this.source)
                 }
                 ,
-                Zt.fromImage = function(Qt, Jt, $t, en) {
-                    var tn = Yt.BaseTextureCache[Qt];
+                Qt.fromImage = function(Zt, Jt, $t, en) {
+                    var tn = Yt.BaseTextureCache[Zt];
                     if (!tn) {
                         var nn = new Image;
-                        void 0 === Jt && 0 !== Qt.indexOf("data:") ? nn.crossOrigin = (0,
-                        zt.default)(Qt) : Jt && (nn.crossOrigin = "string" == typeof Jt ? Jt : "anonymous"),
-                        (tn = new Zt(nn,$t)).imageUrl = Qt,
+                        void 0 === Jt && 0 !== Zt.indexOf("data:") ? nn.crossOrigin = (0,
+                        zt.default)(Zt) : Jt && (nn.crossOrigin = "string" == typeof Jt ? Jt : "anonymous"),
+                        (tn = new Qt(nn,$t)).imageUrl = Zt,
                         en && (tn.sourceScale = en),
                         tn.resolution = (0,
-                        Yt.getResolutionOfUrl)(Qt),
-                        nn.src = Qt,
-                        Zt.addToCache(tn, Qt)
+                        Yt.getResolutionOfUrl)(Zt),
+                        nn.src = Zt,
+                        Qt.addToCache(tn, Zt)
                     }
                     return tn
                 }
                 ,
-                Zt.fromCanvas = function(Qt, Jt) {
+                Qt.fromCanvas = function(Zt, Jt) {
                     var $t = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "canvas";
-                    Qt._pixiId || (Qt._pixiId = $t + "_" + (0,
+                    Zt._pixiId || (Zt._pixiId = $t + "_" + (0,
                     Yt.uid)());
-                    var en = Yt.BaseTextureCache[Qt._pixiId];
-                    return en || (en = new Zt(Qt,Jt),
-                    Zt.addToCache(en, Qt._pixiId)),
+                    var en = Yt.BaseTextureCache[Zt._pixiId];
+                    return en || (en = new Qt(Zt,Jt),
+                    Qt.addToCache(en, Zt._pixiId)),
                     en
                 }
                 ,
-                Zt.from = function(Qt, Jt, $t) {
-                    if ("string" == typeof Qt)
-                        return Zt.fromImage(Qt, void 0, Jt, $t);
-                    if (Qt instanceof HTMLImageElement) {
-                        var en = Qt.src
+                Qt.from = function(Zt, Jt, $t) {
+                    if ("string" == typeof Zt)
+                        return Qt.fromImage(Zt, void 0, Jt, $t);
+                    if (Zt instanceof HTMLImageElement) {
+                        var en = Zt.src
                           , tn = Yt.BaseTextureCache[en];
-                        return tn || ((tn = new Zt(Qt,Jt)).imageUrl = en,
+                        return tn || ((tn = new Qt(Zt,Jt)).imageUrl = en,
                         $t && (tn.sourceScale = $t),
                         tn.resolution = (0,
                         Yt.getResolutionOfUrl)(en),
-                        Zt.addToCache(tn, en)),
+                        Qt.addToCache(tn, en)),
                         tn
                     }
-                    return Qt instanceof HTMLCanvasElement ? Zt.fromCanvas(Qt, Jt) : Qt
+                    return Zt instanceof HTMLCanvasElement ? Qt.fromCanvas(Zt, Jt) : Zt
                 }
                 ,
-                Zt.addToCache = function(Qt, Jt) {
-                    Jt && (-1 === Qt.textureCacheIds.indexOf(Jt) && Qt.textureCacheIds.push(Jt),
+                Qt.addToCache = function(Zt, Jt) {
+                    Jt && (-1 === Zt.textureCacheIds.indexOf(Jt) && Zt.textureCacheIds.push(Jt),
                     Yt.BaseTextureCache[Jt] && console.warn("BaseTexture added to the cache with an id [" + Jt + "] that already had an entry"),
-                    Yt.BaseTextureCache[Jt] = Qt)
+                    Yt.BaseTextureCache[Jt] = Zt)
                 }
                 ,
-                Zt.removeFromCache = function(Qt) {
-                    if ("string" == typeof Qt) {
-                        var Jt = Yt.BaseTextureCache[Qt];
+                Qt.removeFromCache = function(Zt) {
+                    if ("string" == typeof Zt) {
+                        var Jt = Yt.BaseTextureCache[Zt];
                         if (Jt) {
-                            var $t = Jt.textureCacheIds.indexOf(Qt);
+                            var $t = Jt.textureCacheIds.indexOf(Zt);
                             return -1 < $t && Jt.textureCacheIds.splice($t, 1),
-                            delete Yt.BaseTextureCache[Qt],
+                            delete Yt.BaseTextureCache[Zt],
                             Jt
                         }
-                    } else if (Qt && Qt.textureCacheIds) {
-                        for (var en = 0; en < Qt.textureCacheIds.length; ++en)
-                            delete Yt.BaseTextureCache[Qt.textureCacheIds[en]];
-                        return Qt.textureCacheIds.length = 0,
-                        Qt
+                    } else if (Zt && Zt.textureCacheIds) {
+                        for (var en = 0; en < Zt.textureCacheIds.length; ++en)
+                            delete Yt.BaseTextureCache[Zt.textureCacheIds[en]];
+                        return Zt.textureCacheIds.length = 0,
+                        Zt
                     }
                     return null
                 }
                 ,
-                Zt
+                Qt
             }(jt.default);
             Ht.default = qt
         }
@@ -16573,14 +16573,14 @@ function(Bt) {
                     }(this, zt);
                     var Kt = null;
                     if (!(Vt instanceof Yt.default)) {
-                        var Zt = arguments[1]
-                          , Qt = arguments[2]
+                        var Qt = arguments[1]
+                          , Zt = arguments[2]
                           , Jt = arguments[3]
                           , $t = arguments[4];
-                        console.warn("Please use RenderTexture.create(" + Zt + ", " + Qt + ") instead of the ctor directly."),
+                        console.warn("Please use RenderTexture.create(" + Qt + ", " + Zt + ") instead of the ctor directly."),
                         Kt = arguments[0],
                         qt = null,
-                        Vt = new Yt.default(Zt,Qt,Jt,$t)
+                        Vt = new Yt.default(Qt,Zt,Jt,$t)
                     }
                     var en = function(tn, nn) {
                         if (!tn)
@@ -16613,8 +16613,8 @@ function(Bt) {
                     this._updateUvs()
                 }
                 ,
-                zt.create = function(Vt, qt, Kt, Zt) {
-                    return new zt(new Yt.default(Vt,qt,Kt,Zt))
+                zt.create = function(Vt, qt, Kt, Qt) {
+                    return new zt(new Yt.default(Vt,qt,Kt,Qt))
                 }
                 ,
                 zt
@@ -16629,12 +16629,12 @@ function(Bt) {
             Ht.__esModule = !0;
             var Gt = function() {
                 function zt(Vt, qt) {
-                    for (var Kt = 0, Zt; Kt < qt.length; Kt++)
-                        Zt = qt[Kt],
-                        Zt.enumerable = Zt.enumerable || !1,
-                        Zt.configurable = !0,
-                        "value"in Zt && (Zt.writable = !0),
-                        Object.defineProperty(Vt, Zt.key, Zt)
+                    for (var Kt = 0, Qt; Kt < qt.length; Kt++)
+                        Qt = qt[Kt],
+                        Qt.enumerable = Qt.enumerable || !1,
+                        Qt.configurable = !0,
+                        "value"in Qt && (Qt.writable = !0),
+                        Object.defineProperty(Vt, Qt.key, Qt)
                 }
                 return function(Vt, qt, Kt) {
                     return qt && zt(Vt.prototype, qt),
@@ -16647,8 +16647,8 @@ function(Bt) {
               , jt = function() {
                 function zt(Vt, qt) {
                     var Kt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, zt),
                     this.baseTexture = Vt,
@@ -16684,17 +16684,17 @@ function(Bt) {
                 }
                 ,
                 zt.prototype._processFrames = function(Vt) {
-                    for (var qt = Vt, Kt = zt.BATCH_SIZE, Zt = this.baseTexture.sourceScale; qt - Vt < Kt && qt < this._frameKeys.length; ) {
-                        var Qt = this._frameKeys[qt]
-                          , Jt = this._frames[Qt].frame;
+                    for (var qt = Vt, Kt = zt.BATCH_SIZE, Qt = this.baseTexture.sourceScale; qt - Vt < Kt && qt < this._frameKeys.length; ) {
+                        var Zt = this._frameKeys[qt]
+                          , Jt = this._frames[Zt].frame;
                         if (Jt) {
                             var $t = null
                               , en = null
-                              , tn = new Yt.Rectangle(0,0,Math.floor(this._frames[Qt].sourceSize.w * Zt) / this.resolution,Math.floor(this._frames[Qt].sourceSize.h * Zt) / this.resolution);
-                            $t = this._frames[Qt].rotated ? new Yt.Rectangle(Math.floor(Jt.x * Zt) / this.resolution,Math.floor(Jt.y * Zt) / this.resolution,Math.floor(Jt.h * Zt) / this.resolution,Math.floor(Jt.w * Zt) / this.resolution) : new Yt.Rectangle(Math.floor(Jt.x * Zt) / this.resolution,Math.floor(Jt.y * Zt) / this.resolution,Math.floor(Jt.w * Zt) / this.resolution,Math.floor(Jt.h * Zt) / this.resolution),
-                            this._frames[Qt].trimmed && (en = new Yt.Rectangle(Math.floor(this._frames[Qt].spriteSourceSize.x * Zt) / this.resolution,Math.floor(this._frames[Qt].spriteSourceSize.y * Zt) / this.resolution,Math.floor(Jt.w * Zt) / this.resolution,Math.floor(Jt.h * Zt) / this.resolution)),
-                            this.textures[Qt] = new Yt.Texture(this.baseTexture,$t,tn,en,this._frames[Qt].rotated ? 2 : 0),
-                            Yt.Texture.addToCache(this.textures[Qt], Qt)
+                              , tn = new Yt.Rectangle(0,0,Math.floor(this._frames[Zt].sourceSize.w * Qt) / this.resolution,Math.floor(this._frames[Zt].sourceSize.h * Qt) / this.resolution);
+                            $t = this._frames[Zt].rotated ? new Yt.Rectangle(Math.floor(Jt.x * Qt) / this.resolution,Math.floor(Jt.y * Qt) / this.resolution,Math.floor(Jt.h * Qt) / this.resolution,Math.floor(Jt.w * Qt) / this.resolution) : new Yt.Rectangle(Math.floor(Jt.x * Qt) / this.resolution,Math.floor(Jt.y * Qt) / this.resolution,Math.floor(Jt.w * Qt) / this.resolution,Math.floor(Jt.h * Qt) / this.resolution),
+                            this._frames[Zt].trimmed && (en = new Yt.Rectangle(Math.floor(this._frames[Zt].spriteSourceSize.x * Qt) / this.resolution,Math.floor(this._frames[Zt].spriteSourceSize.y * Qt) / this.resolution,Math.floor(Jt.w * Qt) / this.resolution,Math.floor(Jt.h * Qt) / this.resolution)),
+                            this.textures[Zt] = new Yt.Texture(this.baseTexture,$t,tn,en,this._frames[Zt].rotated ? 2 : 0),
+                            Yt.Texture.addToCache(this.textures[Zt], Zt)
                         }
                         qt++
                     }
@@ -16772,8 +16772,8 @@ function(Bt) {
               , Vt = Gt(Bt("./TextureUvs"))
               , qt = Gt(Bt("eventemitter3"))
               , Kt = Bt("../math")
-              , Zt = Bt("../utils")
-              , Qt = Gt(Bt("../settings"))
+              , Qt = Bt("../utils")
+              , Zt = Gt(Bt("../settings"))
               , Jt = function($t) {
                 function en(tn, nn, rn, an, on) {
                     !function(dn, ln) {
@@ -16841,7 +16841,7 @@ function(Bt) {
                 }
                 ,
                 en.prototype.destroy = function(tn) {
-                    this.baseTexture && (tn && (Zt.TextureCache[this.baseTexture.imageUrl] && en.removeFromCache(this.baseTexture.imageUrl),
+                    this.baseTexture && (tn && (Qt.TextureCache[this.baseTexture.imageUrl] && en.removeFromCache(this.baseTexture.imageUrl),
                     this.baseTexture.destroy()),
                     this.baseTexture.off("update", this.onBaseTextureUpdated, this),
                     this.baseTexture.off("loaded", this.onBaseTextureLoaded, this),
@@ -16866,14 +16866,14 @@ function(Bt) {
                 }
                 ,
                 en.fromImage = function(tn, nn, rn, an) {
-                    var on = Zt.TextureCache[tn];
+                    var on = Qt.TextureCache[tn];
                     return on || (on = new en(jt.default.fromImage(tn, nn, rn, an)),
                     en.addToCache(on, tn)),
                     on
                 }
                 ,
                 en.fromFrame = function(tn) {
-                    var nn = Zt.TextureCache[tn];
+                    var nn = Qt.TextureCache[tn];
                     if (!nn)
                         throw new Error("The frameId \"" + tn + "\" does not exist in the texture cache");
                     return nn
@@ -16894,15 +16894,15 @@ function(Bt) {
                 ,
                 en.from = function(tn) {
                     if ("string" == typeof tn) {
-                        var nn = Zt.TextureCache[tn];
+                        var nn = Qt.TextureCache[tn];
                         return nn ? nn : null === tn.match(/\.(mp4|webm|ogg|h264|avi|mov)$/) ? en.fromImage(tn) : en.fromVideoUrl(tn)
                     }
-                    return tn instanceof HTMLImageElement ? new en(jt.default.from(tn)) : tn instanceof HTMLCanvasElement ? en.fromCanvas(tn, Qt.default.SCALE_MODE, "HTMLCanvasElement") : tn instanceof HTMLVideoElement ? en.fromVideo(tn) : tn instanceof jt.default ? new en(tn) : tn
+                    return tn instanceof HTMLImageElement ? new en(jt.default.from(tn)) : tn instanceof HTMLCanvasElement ? en.fromCanvas(tn, Zt.default.SCALE_MODE, "HTMLCanvasElement") : tn instanceof HTMLVideoElement ? en.fromVideo(tn) : tn instanceof jt.default ? new en(tn) : tn
                 }
                 ,
                 en.fromLoader = function(tn, nn, rn) {
                     var an = new jt.default(tn,void 0,(0,
-                    Zt.getResolutionOfUrl)(nn))
+                    Qt.getResolutionOfUrl)(nn))
                       , on = new en(an);
                     return an.imageUrl = nn,
                     rn || (rn = nn),
@@ -16915,22 +16915,22 @@ function(Bt) {
                 ,
                 en.addToCache = function(tn, nn) {
                     nn && (-1 === tn.textureCacheIds.indexOf(nn) && tn.textureCacheIds.push(nn),
-                    Zt.TextureCache[nn] && console.warn("Texture added to the cache with an id [" + nn + "] that already had an entry"),
-                    Zt.TextureCache[nn] = tn)
+                    Qt.TextureCache[nn] && console.warn("Texture added to the cache with an id [" + nn + "] that already had an entry"),
+                    Qt.TextureCache[nn] = tn)
                 }
                 ,
                 en.removeFromCache = function(tn) {
                     if ("string" == typeof tn) {
-                        var nn = Zt.TextureCache[tn];
+                        var nn = Qt.TextureCache[tn];
                         if (nn) {
                             var rn = nn.textureCacheIds.indexOf(tn);
                             return -1 < rn && nn.textureCacheIds.splice(rn, 1),
-                            delete Zt.TextureCache[tn],
+                            delete Qt.TextureCache[tn],
                             nn
                         }
                     } else if (tn && tn.textureCacheIds) {
                         for (var an = 0; an < tn.textureCacheIds.length; ++an)
-                            Zt.TextureCache[tn.textureCacheIds[an]] === tn && delete Zt.TextureCache[tn.textureCacheIds[an]];
+                            Qt.TextureCache[tn.textureCacheIds[an]] === tn && delete Qt.TextureCache[tn.textureCacheIds[an]];
                         return tn.textureCacheIds.length = 0,
                         tn
                     }
@@ -17035,22 +17035,22 @@ function(Bt) {
                     var qt = zt.width
                       , Kt = zt.height;
                     if (Vt) {
-                        var Zt = jt.width / 2 / qt
-                          , Qt = jt.height / 2 / Kt
-                          , Jt = jt.x / qt + Zt
-                          , $t = jt.y / Kt + Qt;
+                        var Qt = jt.width / 2 / qt
+                          , Zt = jt.height / 2 / Kt
+                          , Jt = jt.x / qt + Qt
+                          , $t = jt.y / Kt + Zt;
                         Vt = Gt.default.add(Vt, Gt.default.NW),
-                        this.x0 = Jt + Zt * Gt.default.uX(Vt),
-                        this.y0 = $t + Qt * Gt.default.uY(Vt),
+                        this.x0 = Jt + Qt * Gt.default.uX(Vt),
+                        this.y0 = $t + Zt * Gt.default.uY(Vt),
                         Vt = Gt.default.add(Vt, 2),
-                        this.x1 = Jt + Zt * Gt.default.uX(Vt),
-                        this.y1 = $t + Qt * Gt.default.uY(Vt),
+                        this.x1 = Jt + Qt * Gt.default.uX(Vt),
+                        this.y1 = $t + Zt * Gt.default.uY(Vt),
                         Vt = Gt.default.add(Vt, 2),
-                        this.x2 = Jt + Zt * Gt.default.uX(Vt),
-                        this.y2 = $t + Qt * Gt.default.uY(Vt),
+                        this.x2 = Jt + Qt * Gt.default.uX(Vt),
+                        this.y2 = $t + Zt * Gt.default.uY(Vt),
                         Vt = Gt.default.add(Vt, 2),
-                        this.x3 = Jt + Zt * Gt.default.uX(Vt),
-                        this.y3 = $t + Qt * Gt.default.uY(Vt)
+                        this.x3 = Jt + Qt * Gt.default.uX(Vt),
+                        this.y3 = $t + Zt * Gt.default.uY(Vt)
                     } else
                         this.x0 = jt.x / qt,
                         this.y0 = jt.y / Kt,
@@ -17074,27 +17074,27 @@ function(Bt) {
             "../math/GroupD8": 66
         }],
         117: [function(Bt, Xt, Ht) {
-            function Gt(Kt, Zt) {
-                Zt || (Zt = "video/" + Kt.substr(Kt.lastIndexOf(".") + 1));
-                var Qt = document.createElement("source");
-                return Qt.src = Kt,
-                Qt.type = Zt,
-                Qt
+            function Gt(Kt, Qt) {
+                Qt || (Qt = "video/" + Kt.substr(Kt.lastIndexOf(".") + 1));
+                var Zt = document.createElement("source");
+                return Zt.src = Kt,
+                Zt.type = Qt,
+                Zt
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function Kt(Zt, Qt) {
-                    for (var Jt = 0, $t; Jt < Qt.length; Jt++)
-                        $t = Qt[Jt],
+                function Kt(Qt, Zt) {
+                    for (var Jt = 0, $t; Jt < Zt.length; Jt++)
+                        $t = Zt[Jt],
                         $t.enumerable = $t.enumerable || !1,
                         $t.configurable = !0,
                         "value"in $t && ($t.writable = !0),
-                        Object.defineProperty(Zt, $t.key, $t)
+                        Object.defineProperty(Qt, $t.key, $t)
                 }
-                return function(Zt, Qt, Jt) {
-                    return Qt && Kt(Zt.prototype, Qt),
-                    Jt && Kt(Zt, Jt),
-                    Zt
+                return function(Qt, Zt, Jt) {
+                    return Zt && Kt(Qt.prototype, Zt),
+                    Jt && Kt(Qt, Jt),
+                    Qt
                 }
             }()
               , Wt = function(Kt) {
@@ -17106,68 +17106,68 @@ function(Bt) {
               , zt = Bt("../ticker")
               , Vt = Bt("../const")
               , qt = function(Kt) {
-                function Zt(Qt, Jt) {
+                function Qt(Zt, Jt) {
                     if (function(en, tn) {
                         if (!(en instanceof tn))
                             throw new TypeError("Cannot call a class as a function")
-                    }(this, Zt),
-                    !Qt)
+                    }(this, Qt),
+                    !Zt)
                         throw new Error("No video source element specified.");
-                    (Qt.readyState === Qt.HAVE_ENOUGH_DATA || Qt.readyState === Qt.HAVE_FUTURE_DATA) && Qt.width && Qt.height && (Qt.complete = !0);
+                    (Zt.readyState === Zt.HAVE_ENOUGH_DATA || Zt.readyState === Zt.HAVE_FUTURE_DATA) && Zt.width && Zt.height && (Zt.complete = !0);
                     var $t = function(en, tn) {
                         if (!en)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return tn && ("object" == typeof tn || "function" == typeof tn) ? tn : en
-                    }(this, Kt.call(this, Qt, Jt));
-                    return $t.width = Qt.videoWidth,
-                    $t.height = Qt.videoHeight,
+                    }(this, Kt.call(this, Zt, Jt));
+                    return $t.width = Zt.videoWidth,
+                    $t.height = Zt.videoHeight,
                     $t._autoUpdate = !0,
                     $t._isAutoUpdating = !1,
                     $t.autoPlay = !0,
                     $t.update = $t.update.bind($t),
                     $t._onCanPlay = $t._onCanPlay.bind($t),
-                    Qt.addEventListener("play", $t._onPlayStart.bind($t)),
-                    Qt.addEventListener("pause", $t._onPlayStop.bind($t)),
+                    Zt.addEventListener("play", $t._onPlayStart.bind($t)),
+                    Zt.addEventListener("pause", $t._onPlayStop.bind($t)),
                     $t.hasLoaded = !1,
                     $t.__loaded = !1,
-                    $t._isSourceReady() ? $t._onCanPlay() : (Qt.addEventListener("canplay", $t._onCanPlay),
-                    Qt.addEventListener("canplaythrough", $t._onCanPlay)),
+                    $t._isSourceReady() ? $t._onCanPlay() : (Zt.addEventListener("canplay", $t._onCanPlay),
+                    Zt.addEventListener("canplaythrough", $t._onCanPlay)),
                     $t
                 }
-                return function(Qt, Jt) {
+                return function(Zt, Jt) {
                     if ("function" != typeof Jt && null !== Jt)
                         throw new TypeError("Super expression must either be null or a function, not " + typeof Jt);
-                    Qt.prototype = Object.create(Jt && Jt.prototype, {
+                    Zt.prototype = Object.create(Jt && Jt.prototype, {
                         constructor: {
-                            value: Qt,
+                            value: Zt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Jt) : Qt.__proto__ = Jt)
-                }(Zt, Kt),
-                Zt.prototype._isSourcePlaying = function() {
-                    var Qt = this.source;
-                    return 0 < Qt.currentTime && !1 === Qt.paused && !1 === Qt.ended && 2 < Qt.readyState
+                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Jt) : Zt.__proto__ = Jt)
+                }(Qt, Kt),
+                Qt.prototype._isSourcePlaying = function() {
+                    var Zt = this.source;
+                    return 0 < Zt.currentTime && !1 === Zt.paused && !1 === Zt.ended && 2 < Zt.readyState
                 }
                 ,
-                Zt.prototype._isSourceReady = function() {
+                Qt.prototype._isSourceReady = function() {
                     return 3 === this.source.readyState || 4 === this.source.readyState
                 }
                 ,
-                Zt.prototype._onPlayStart = function() {
+                Qt.prototype._onPlayStart = function() {
                     this.hasLoaded || this._onCanPlay(),
                     !this._isAutoUpdating && this.autoUpdate && (zt.shared.add(this.update, this, Vt.UPDATE_PRIORITY.HIGH),
                     this._isAutoUpdating = !0)
                 }
                 ,
-                Zt.prototype._onPlayStop = function() {
+                Qt.prototype._onPlayStop = function() {
                     this._isAutoUpdating && (zt.shared.remove(this.update, this),
                     this._isAutoUpdating = !1)
                 }
                 ,
-                Zt.prototype._onCanPlay = function() {
+                Qt.prototype._onCanPlay = function() {
                     this.hasLoaded = !0,
                     this.source && (this.source.removeEventListener("canplay", this._onCanPlay),
                     this.source.removeEventListener("canplaythrough", this._onCanPlay),
@@ -17178,48 +17178,48 @@ function(Bt) {
                     this._isSourcePlaying() ? this._onPlayStart() : this.autoPlay && this.source.play())
                 }
                 ,
-                Zt.prototype.destroy = function() {
+                Qt.prototype.destroy = function() {
                     this._isAutoUpdating && zt.shared.remove(this.update, this),
                     this.source && this.source._pixiId && (Wt.default.removeFromCache(this.source._pixiId),
                     delete this.source._pixiId),
                     Kt.prototype.destroy.call(this)
                 }
                 ,
-                Zt.fromVideo = function(Qt, Jt) {
-                    Qt._pixiId || (Qt._pixiId = "video_" + (0,
+                Qt.fromVideo = function(Zt, Jt) {
+                    Zt._pixiId || (Zt._pixiId = "video_" + (0,
                     jt.uid)());
-                    var $t = jt.BaseTextureCache[Qt._pixiId];
-                    return $t || ($t = new Zt(Qt,Jt),
-                    Wt.default.addToCache($t, Qt._pixiId)),
+                    var $t = jt.BaseTextureCache[Zt._pixiId];
+                    return $t || ($t = new Qt(Zt,Jt),
+                    Wt.default.addToCache($t, Zt._pixiId)),
                     $t
                 }
                 ,
-                Zt.fromUrl = function(Qt, Jt) {
+                Qt.fromUrl = function(Zt, Jt) {
                     var $t = document.createElement("video");
                     if ($t.setAttribute("webkit-playsinline", ""),
                     $t.setAttribute("playsinline", ""),
-                    Array.isArray(Qt))
-                        for (var en = 0; en < Qt.length; ++en)
-                            $t.appendChild(Gt(Qt[en].src || Qt[en], Qt[en].mime));
+                    Array.isArray(Zt))
+                        for (var en = 0; en < Zt.length; ++en)
+                            $t.appendChild(Gt(Zt[en].src || Zt[en], Zt[en].mime));
                     else
-                        $t.appendChild(Gt(Qt.src || Qt, Qt.mime));
+                        $t.appendChild(Gt(Zt.src || Zt, Zt.mime));
                     return $t.load(),
-                    Zt.fromVideo($t, Jt)
+                    Qt.fromVideo($t, Jt)
                 }
                 ,
-                Yt(Zt, [{
+                Yt(Qt, [{
                     key: "autoUpdate",
                     get: function() {
                         return this._autoUpdate
                     },
-                    set: function(Qt) {
-                        Qt !== this._autoUpdate && (this._autoUpdate = Qt,
+                    set: function(Zt) {
+                        Zt !== this._autoUpdate && (this._autoUpdate = Zt,
                         !this._autoUpdate && this._isAutoUpdating ? (zt.shared.remove(this.update, this),
                         this._isAutoUpdating = !1) : this._autoUpdate && !this._isAutoUpdating && (zt.shared.add(this.update, this, Vt.UPDATE_PRIORITY.HIGH),
                         this._isAutoUpdating = !0))
                     }
                 }]),
-                Zt
+                Qt
             }(Wt.default);
             Ht.default = qt,
             qt.fromUrls = qt.fromUrl
@@ -17238,17 +17238,17 @@ function(Bt) {
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function qt(Kt, Zt) {
-                    for (var Qt = 0, Jt; Qt < Zt.length; Qt++)
-                        Jt = Zt[Qt],
+                function qt(Kt, Qt) {
+                    for (var Zt = 0, Jt; Zt < Qt.length; Zt++)
+                        Jt = Qt[Zt],
                         Jt.enumerable = Jt.enumerable || !1,
                         Jt.configurable = !0,
                         "value"in Jt && (Jt.writable = !0),
                         Object.defineProperty(Kt, Jt.key, Jt)
                 }
-                return function(Kt, Zt, Qt) {
-                    return Zt && qt(Kt.prototype, Zt),
-                    Qt && qt(Kt, Qt),
+                return function(Kt, Qt, Zt) {
+                    return Qt && qt(Kt.prototype, Qt),
+                    Zt && qt(Kt, Zt),
                     Kt
                 }
             }()
@@ -17258,8 +17258,8 @@ function(Bt) {
               , Vt = function() {
                 function qt() {
                     var Kt = this;
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, qt),
                     this._head = new zt.default(null,null,1 / 0),
@@ -17271,9 +17271,9 @@ function(Bt) {
                     this.lastTime = -1,
                     this.speed = 1,
                     this.started = !1,
-                    this._tick = function(Zt) {
+                    this._tick = function(Qt) {
                         Kt._requestId = null,
-                        Kt.started && (Kt.update(Zt),
+                        Kt.started && (Kt.update(Qt),
                         Kt.started && null === Kt._requestId && Kt._head.next && (Kt._requestId = requestAnimationFrame(Kt._tick)))
                     }
                 }
@@ -17291,38 +17291,38 @@ function(Bt) {
                     this.started ? this._requestIfNeeded() : this.autoStart && this.start()
                 }
                 ,
-                qt.prototype.add = function(Kt, Zt) {
-                    var Qt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : jt.UPDATE_PRIORITY.NORMAL;
-                    return this._addListener(new zt.default(Kt,Zt,Qt))
+                qt.prototype.add = function(Kt, Qt) {
+                    var Zt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : jt.UPDATE_PRIORITY.NORMAL;
+                    return this._addListener(new zt.default(Kt,Qt,Zt))
                 }
                 ,
-                qt.prototype.addOnce = function(Kt, Zt) {
-                    var Qt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : jt.UPDATE_PRIORITY.NORMAL;
-                    return this._addListener(new zt.default(Kt,Zt,Qt,!0))
+                qt.prototype.addOnce = function(Kt, Qt) {
+                    var Zt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : jt.UPDATE_PRIORITY.NORMAL;
+                    return this._addListener(new zt.default(Kt,Qt,Zt,!0))
                 }
                 ,
                 qt.prototype._addListener = function(Kt) {
-                    var Zt = this._head.next
-                      , Qt = this._head;
-                    if (Zt) {
-                        for (; Zt; ) {
-                            if (Kt.priority > Zt.priority) {
-                                Kt.connect(Qt);
+                    var Qt = this._head.next
+                      , Zt = this._head;
+                    if (Qt) {
+                        for (; Qt; ) {
+                            if (Kt.priority > Qt.priority) {
+                                Kt.connect(Zt);
                                 break
                             }
-                            Qt = Zt,
-                            Zt = Zt.next
+                            Zt = Qt,
+                            Qt = Qt.next
                         }
-                        Kt.previous || Kt.connect(Qt)
+                        Kt.previous || Kt.connect(Zt)
                     } else
-                        Kt.connect(Qt);
+                        Kt.connect(Zt);
                     return this._startIfPossible(),
                     this
                 }
                 ,
-                qt.prototype.remove = function(Kt, Zt) {
-                    for (var Qt = this._head.next; Qt; )
-                        Qt = Qt.match(Kt, Zt) ? Qt.destroy() : Qt.next;
+                qt.prototype.remove = function(Kt, Qt) {
+                    for (var Zt = this._head.next; Zt; )
+                        Zt = Zt.match(Kt, Qt) ? Zt.destroy() : Zt.next;
                     return this._head.next || this._cancelIfNeeded(),
                     this
                 }
@@ -17346,13 +17346,13 @@ function(Bt) {
                 }
                 ,
                 qt.prototype.update = function() {
-                    var Kt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : performance.now(), Zt;
+                    var Kt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : performance.now(), Qt;
                     if (Kt > this.lastTime) {
-                        (Zt = this.elapsedMS = Kt - this.lastTime) > this._maxElapsedMS && (Zt = this._maxElapsedMS),
-                        this.deltaTime = Zt * Wt.default.TARGET_FPMS * this.speed;
-                        for (var Qt = this._head, Jt = Qt.next; Jt; )
+                        (Qt = this.elapsedMS = Kt - this.lastTime) > this._maxElapsedMS && (Qt = this._maxElapsedMS),
+                        this.deltaTime = Qt * Wt.default.TARGET_FPMS * this.speed;
+                        for (var Zt = this._head, Jt = Zt.next; Jt; )
                             Jt = Jt.emit(this.deltaTime);
-                        Qt.next || this._cancelIfNeeded()
+                        Zt.next || this._cancelIfNeeded()
                     } else
                         this.deltaTime = this.elapsedMS = 0;
                     this.lastTime = Kt
@@ -17369,8 +17369,8 @@ function(Bt) {
                         return 1e3 / this._maxElapsedMS
                     },
                     set: function(Kt) {
-                        var Zt = Math.min(Math.max(0, Kt) / 1e3, Wt.default.TARGET_FPMS);
-                        this._maxElapsedMS = 1 / Zt
+                        var Qt = Math.min(Math.max(0, Kt) / 1e3, Wt.default.TARGET_FPMS);
+                        this._maxElapsedMS = 1 / Qt
                     }
                 }]),
                 qt
@@ -17673,19 +17673,19 @@ function(Bt) {
               , Vt = Yt(Bt("./pluginTarget"))
               , qt = Gt(Bt("./mixin"))
               , Kt = Gt(Bt("ismobilejs"))
-              , Zt = Yt(Bt("remove-array-items"))
-              , Qt = Yt(Bt("./mapPremultipliedBlendModes"))
+              , Qt = Yt(Bt("remove-array-items"))
+              , Zt = Yt(Bt("./mapPremultipliedBlendModes"))
               , Jt = 0
               , $t = !1;
             Ht.isMobile = Kt,
-            Ht.removeItems = Zt.default,
+            Ht.removeItems = Qt.default,
             Ht.EventEmitter = zt.default,
             Ht.pluginTarget = Vt.default,
             Ht.mixins = qt;
             var en = Ht.TextureCache = Object.create(null)
               , tn = Ht.BaseTextureCache = Object.create(null)
               , nn = Ht.premultiplyBlendMode = (0,
-            Qt.default)()
+            Zt.default)()
         }
         , {
             "../const": 46,
@@ -17792,14 +17792,14 @@ function(Bt) {
                     left: null,
                     right: null,
                     bottom: null
-                }, Kt, Zt, Qt;
+                }, Kt, Qt, Zt;
                 for (Kt = 0; Kt < Vt; Kt += 4)
-                    0 !== zt[Kt + 3] && (Zt = Kt / 4 % Yt,
-                    Qt = ~~(Kt / 4 / Yt),
-                    null === qt.top && (qt.top = Qt),
-                    null === qt.left ? qt.left = Zt : Zt < qt.left && (qt.left = Zt),
-                    null === qt.right ? qt.right = Zt + 1 : qt.right < Zt && (qt.right = Zt + 1),
-                    null === qt.bottom ? qt.bottom = Qt : qt.bottom < Qt && (qt.bottom = Qt));
+                    0 !== zt[Kt + 3] && (Qt = Kt / 4 % Yt,
+                    Zt = ~~(Kt / 4 / Yt),
+                    null === qt.top && (qt.top = Zt),
+                    null === qt.left ? qt.left = Qt : Qt < qt.left && (qt.left = Qt),
+                    null === qt.right ? qt.right = Qt + 1 : qt.right < Qt && (qt.right = Qt + 1),
+                    null === qt.bottom ? qt.bottom = Zt : qt.bottom < Zt && (qt.bottom = Zt));
                 return Yt = qt.right - qt.left,
                 {
                     height: Wt = qt.bottom - qt.top + 1,
@@ -17826,7 +17826,7 @@ function(Bt) {
                   , Vt = Yt.filters
                   , qt = Yt.prepare
                   , Kt = Yt.loaders
-                  , Zt = Yt.interaction;
+                  , Qt = Yt.interaction;
                 Object.defineProperties(Yt, {
                     SpriteBatch: {
                         get: function() {
@@ -18005,7 +18005,7 @@ function(Bt) {
                         }
                     }
                 });
-                for (var Qt = [{
+                for (var Zt = [{
                     parent: "TRANSFORM_MODE",
                     target: "TRANSFORM_MODE"
                 }, {
@@ -18021,7 +18021,7 @@ function(Bt) {
                     parent: "PRECISION",
                     target: "PRECISION_FRAGMENT"
                 }], Jt = function(rn) {
-                    var an = Qt[rn];
+                    var an = Zt[rn];
                     Object.defineProperty(Yt[an.parent], "DEFAULT", {
                         get: function() {
                             return Gt("PIXI." + an.parent + ".DEFAULT has been deprecated, please use PIXI.settings." + an.target),
@@ -18032,7 +18032,7 @@ function(Bt) {
                             Yt.settings[an.target] = on
                         }
                     })
-                }, $t = 0; $t < Qt.length; $t++)
+                }, $t = 0; $t < Zt.length; $t++)
                     Jt($t);
                 Object.defineProperties(Yt.settings, {
                     PRECISION: {
@@ -18308,7 +18308,7 @@ function(Bt) {
                         }
                     })
                 }
-                Zt.interactiveTarget && Object.defineProperty(Zt.interactiveTarget, "defaultCursor", {
+                Qt.interactiveTarget && Object.defineProperty(Qt.interactiveTarget, "defaultCursor", {
                     set: function(rn) {
                         Gt("Property defaultCursor has been replaced with 'cursor'. "),
                         this.cursor = rn
@@ -18318,7 +18318,7 @@ function(Bt) {
                         this.cursor
                     }
                 }),
-                Zt.InteractionManager && (Object.defineProperty(Zt.InteractionManager, "defaultCursorStyle", {
+                Qt.InteractionManager && (Object.defineProperty(Qt.InteractionManager, "defaultCursorStyle", {
                     set: function(rn) {
                         Gt("Property defaultCursorStyle has been replaced with 'cursorStyles.default'. "),
                         this.cursorStyles.default = rn
@@ -18328,7 +18328,7 @@ function(Bt) {
                         this.cursorStyles.default
                     }
                 }),
-                Object.defineProperty(Zt.InteractionManager, "currentCursorStyle", {
+                Object.defineProperty(Qt.InteractionManager, "currentCursorStyle", {
                     set: function(rn) {
                         Gt("Property currentCursorStyle has been removed.See the currentCursorMode property, which works differently."),
                         this.currentCursorMode = rn
@@ -18374,30 +18374,30 @@ function(Bt) {
                 }
                 ,
                 jt.prototype.canvas = function(zt) {
-                    var Vt = this.renderer, qt, Kt, Zt, Qt;
-                    zt && (Qt = zt instanceof Gt.RenderTexture ? zt : Vt.generateTexture(zt)),
-                    Qt ? (qt = Qt.baseTexture._canvasRenderTarget.context,
-                    Kt = Qt.baseTexture._canvasRenderTarget.resolution,
-                    Zt = Qt.frame) : (qt = Vt.rootContext,
-                    (Zt = Yt).width = this.renderer.width,
-                    Zt.height = this.renderer.height);
-                    var Jt = Zt.width * Kt
-                      , $t = Zt.height * Kt
+                    var Vt = this.renderer, qt, Kt, Qt, Zt;
+                    zt && (Zt = zt instanceof Gt.RenderTexture ? zt : Vt.generateTexture(zt)),
+                    Zt ? (qt = Zt.baseTexture._canvasRenderTarget.context,
+                    Kt = Zt.baseTexture._canvasRenderTarget.resolution,
+                    Qt = Zt.frame) : (qt = Vt.rootContext,
+                    (Qt = Yt).width = this.renderer.width,
+                    Qt.height = this.renderer.height);
+                    var Jt = Qt.width * Kt
+                      , $t = Qt.height * Kt
                       , en = new Gt.CanvasRenderTarget(Jt,$t)
-                      , tn = qt.getImageData(Zt.x * Kt, Zt.y * Kt, Jt, $t);
+                      , tn = qt.getImageData(Qt.x * Kt, Qt.y * Kt, Jt, $t);
                     return en.context.putImageData(tn, 0, 0),
                     en.canvas
                 }
                 ,
                 jt.prototype.pixels = function(zt) {
-                    var Vt = this.renderer, qt, Kt, Zt, Qt;
-                    return zt && (Qt = zt instanceof Gt.RenderTexture ? zt : Vt.generateTexture(zt)),
-                    Qt ? (qt = Qt.baseTexture._canvasRenderTarget.context,
-                    Kt = Qt.baseTexture._canvasRenderTarget.resolution,
-                    Zt = Qt.frame) : (qt = Vt.rootContext,
-                    (Zt = Yt).width = Vt.width,
-                    Zt.height = Vt.height),
-                    qt.getImageData(0, 0, Zt.width * Kt, Zt.height * Kt).data
+                    var Vt = this.renderer, qt, Kt, Qt, Zt;
+                    return zt && (Zt = zt instanceof Gt.RenderTexture ? zt : Vt.generateTexture(zt)),
+                    Zt ? (qt = Zt.baseTexture._canvasRenderTarget.context,
+                    Kt = Zt.baseTexture._canvasRenderTarget.resolution,
+                    Qt = Zt.frame) : (qt = Vt.rootContext,
+                    (Qt = Yt).width = Vt.width,
+                    Qt.height = Vt.height),
+                    qt.getImageData(0, 0, Qt.width * Kt, Qt.height * Kt).data
                 }
                 ,
                 jt.prototype.destroy = function() {
@@ -18472,45 +18472,45 @@ function(Bt) {
                 }
                 ,
                 jt.prototype.canvas = function(zt) {
-                    var Vt = this.renderer, qt, Kt, Zt, Qt = !1, Jt;
+                    var Vt = this.renderer, qt, Kt, Qt, Zt = !1, Jt;
                     zt && (Jt = zt instanceof Gt.RenderTexture ? zt : this.renderer.generateTexture(zt)),
                     Jt ? (Kt = (qt = Jt.baseTexture._glRenderTargets[this.renderer.CONTEXT_UID]).resolution,
-                    Zt = Jt.frame,
-                    Qt = !1) : (Kt = (qt = this.renderer.rootRenderTarget).resolution,
-                    Qt = !0,
-                    (Zt = Yt).width = qt.size.width,
-                    Zt.height = qt.size.height);
-                    var $t = Zt.width * Kt
-                      , en = Zt.height * Kt
+                    Qt = Jt.frame,
+                    Zt = !1) : (Kt = (qt = this.renderer.rootRenderTarget).resolution,
+                    Zt = !0,
+                    (Qt = Yt).width = qt.size.width,
+                    Qt.height = qt.size.height);
+                    var $t = Qt.width * Kt
+                      , en = Qt.height * Kt
                       , tn = new Gt.CanvasRenderTarget($t,en);
                     if (qt) {
                         Vt.bindRenderTarget(qt);
                         var nn = new Uint8Array(4 * $t * en)
                           , rn = Vt.gl;
-                        rn.readPixels(Zt.x * Kt, Zt.y * Kt, $t, en, rn.RGBA, rn.UNSIGNED_BYTE, nn);
+                        rn.readPixels(Qt.x * Kt, Qt.y * Kt, $t, en, rn.RGBA, rn.UNSIGNED_BYTE, nn);
                         var an = tn.context.getImageData(0, 0, $t, en);
                         an.data.set(nn),
                         tn.context.putImageData(an, 0, 0),
-                        Qt && (tn.context.scale(1, -1),
+                        Zt && (tn.context.scale(1, -1),
                         tn.context.drawImage(tn.canvas, 0, -en))
                     }
                     return tn.canvas
                 }
                 ,
                 jt.prototype.pixels = function(zt) {
-                    var Vt = this.renderer, qt, Kt, Zt, Qt;
-                    zt && (Qt = zt instanceof Gt.RenderTexture ? zt : this.renderer.generateTexture(zt)),
-                    Qt ? (Kt = (qt = Qt.baseTexture._glRenderTargets[this.renderer.CONTEXT_UID]).resolution,
-                    Zt = Qt.frame) : (Kt = (qt = this.renderer.rootRenderTarget).resolution,
-                    (Zt = Yt).width = qt.size.width,
-                    Zt.height = qt.size.height);
-                    var Jt = Zt.width * Kt
-                      , $t = Zt.height * Kt
+                    var Vt = this.renderer, qt, Kt, Qt, Zt;
+                    zt && (Zt = zt instanceof Gt.RenderTexture ? zt : this.renderer.generateTexture(zt)),
+                    Zt ? (Kt = (qt = Zt.baseTexture._glRenderTargets[this.renderer.CONTEXT_UID]).resolution,
+                    Qt = Zt.frame) : (Kt = (qt = this.renderer.rootRenderTarget).resolution,
+                    (Qt = Yt).width = qt.size.width,
+                    Qt.height = qt.size.height);
+                    var Jt = Qt.width * Kt
+                      , $t = Qt.height * Kt
                       , en = new Uint8Array(4 * Jt * $t);
                     if (qt) {
                         Vt.bindRenderTarget(qt);
                         var tn = Vt.gl;
-                        tn.readPixels(Zt.x * Kt, Zt.y * Kt, Jt, $t, tn.RGBA, tn.UNSIGNED_BYTE, en)
+                        tn.readPixels(Qt.x * Kt, Qt.y * Kt, Jt, $t, tn.RGBA, tn.UNSIGNED_BYTE, en)
                     }
                     return en
                 }
@@ -18557,14 +18557,14 @@ function(Bt) {
             }(Bt("../core"))
               , Wt = function(jt) {
                 function zt(Vt, qt) {
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, zt);
-                    var Kt = function(Zt, Qt) {
-                        if (!Zt)
+                    var Kt = function(Qt, Zt) {
+                        if (!Qt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Qt && ("object" == typeof Qt || "function" == typeof Qt) ? Qt : Zt
+                        return Zt && ("object" == typeof Zt || "function" == typeof Zt) ? Zt : Qt
                     }(this, jt.call(this, Vt[0]instanceof Yt.Texture ? Vt[0] : Vt[0].texture));
                     return Kt._textures = null,
                     Kt._durations = null,
@@ -18620,15 +18620,15 @@ function(Bt) {
                     var qt = this.animationSpeed * Vt
                       , Kt = this.currentFrame;
                     if (null !== this._durations) {
-                        var Zt = this._currentTime % 1 * this._durations[this.currentFrame];
-                        for (Zt += 1e3 * (qt / 60); 0 > Zt; )
+                        var Qt = this._currentTime % 1 * this._durations[this.currentFrame];
+                        for (Qt += 1e3 * (qt / 60); 0 > Qt; )
                             this._currentTime--,
-                            Zt += this._durations[this.currentFrame];
-                        var Qt = Math.sign(this.animationSpeed * Vt);
-                        for (this._currentTime = Math.floor(this._currentTime); Zt >= this._durations[this.currentFrame]; )
-                            Zt -= this._durations[this.currentFrame] * Qt,
-                            this._currentTime += Qt;
-                        this._currentTime += Zt / this._durations[this.currentFrame]
+                            Qt += this._durations[this.currentFrame];
+                        var Zt = Math.sign(this.animationSpeed * Vt);
+                        for (this._currentTime = Math.floor(this._currentTime); Qt >= this._durations[this.currentFrame]; )
+                            Qt -= this._durations[this.currentFrame] * Zt,
+                            this._currentTime += Zt;
+                        this._currentTime += Qt / this._durations[this.currentFrame]
                     } else
                         this._currentTime += qt;
                     0 > this._currentTime && !this.loop ? (this.gotoAndStop(0),
@@ -18708,17 +18708,17 @@ function(Bt) {
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function qt(Kt, Zt) {
-                    for (var Qt = 0, Jt; Qt < Zt.length; Qt++)
-                        Jt = Zt[Qt],
+                function qt(Kt, Qt) {
+                    for (var Zt = 0, Jt; Zt < Qt.length; Zt++)
+                        Jt = Qt[Zt],
                         Jt.enumerable = Jt.enumerable || !1,
                         Jt.configurable = !0,
                         "value"in Jt && (Jt.writable = !0),
                         Object.defineProperty(Kt, Jt.key, Jt)
                 }
-                return function(Kt, Zt, Qt) {
-                    return Zt && qt(Kt.prototype, Zt),
-                    Qt && qt(Kt, Qt),
+                return function(Kt, Qt, Zt) {
+                    return Qt && qt(Kt.prototype, Qt),
+                    Zt && qt(Kt, Zt),
                     Kt
                 }
             }()
@@ -18727,16 +18727,16 @@ function(Bt) {
                     return qt;
                 var Kt = {};
                 if (null != qt)
-                    for (var Zt in qt)
-                        Object.prototype.hasOwnProperty.call(qt, Zt) && (Kt[Zt] = qt[Zt]);
+                    for (var Qt in qt)
+                        Object.prototype.hasOwnProperty.call(qt, Qt) && (Kt[Qt] = qt[Qt]);
                 return Kt.default = qt,
                 Kt
             }(Bt("../core"))
               , jt = Gt(Bt("../core/math/ObservablePoint"))
               , zt = Gt(Bt("../core/settings"))
               , Vt = function(qt) {
-                function Kt(Zt) {
-                    var Qt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {};
+                function Kt(Qt) {
+                    var Zt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {};
                     !function($t, en) {
                         if (!($t instanceof en))
                             throw new TypeError("Cannot call a class as a function")
@@ -18750,13 +18750,13 @@ function(Bt) {
                     Jt._textHeight = 0,
                     Jt._glyphs = [],
                     Jt._font = {
-                        tint: void 0 === Qt.tint ? 16777215 : Qt.tint,
-                        align: Qt.align || "left",
+                        tint: void 0 === Zt.tint ? 16777215 : Zt.tint,
+                        align: Zt.align || "left",
                         name: null,
                         size: 0
                     },
-                    Jt.font = Qt.font,
-                    Jt._text = Zt,
+                    Jt.font = Zt.font,
+                    Jt._text = Qt,
                     Jt._maxWidth = 0,
                     Jt._maxLineHeight = 0,
                     Jt._anchor = new jt.default(function() {
@@ -18767,21 +18767,21 @@ function(Bt) {
                     Jt.updateText(),
                     Jt
                 }
-                return function(Zt, Qt) {
-                    if ("function" != typeof Qt && null !== Qt)
-                        throw new TypeError("Super expression must either be null or a function, not " + typeof Qt);
-                    Zt.prototype = Object.create(Qt && Qt.prototype, {
+                return function(Qt, Zt) {
+                    if ("function" != typeof Zt && null !== Zt)
+                        throw new TypeError("Super expression must either be null or a function, not " + typeof Zt);
+                    Qt.prototype = Object.create(Zt && Zt.prototype, {
                         constructor: {
-                            value: Zt,
+                            value: Qt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Qt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Qt) : Zt.__proto__ = Qt)
+                    Zt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Zt) : Qt.__proto__ = Zt)
                 }(Kt, qt),
                 Kt.prototype.updateText = function() {
-                    for (var Zt = Kt.fonts[this._font.name], Qt = this._font.size / Zt.size, Jt = new Wt.Point, $t = [], en = [], tn = null, nn = 0, rn = 0, an = 0, on = -1, sn = 0, dn = 0, ln = 0, un = 0, pn; un < this.text.length; un++)
+                    for (var Qt = Kt.fonts[this._font.name], Zt = this._font.size / Qt.size, Jt = new Wt.Point, $t = [], en = [], tn = null, nn = 0, rn = 0, an = 0, on = -1, sn = 0, dn = 0, ln = 0, un = 0, pn; un < this.text.length; un++)
                         if (pn = this.text.charCodeAt(un),
                         /(\s)/.test(this.text.charAt(un)) && (on = un,
                         sn = nn),
@@ -18790,9 +18790,9 @@ function(Bt) {
                             rn = Math.max(rn, nn),
                             an++,
                             Jt.x = 0,
-                            Jt.y += Zt.lineHeight,
+                            Jt.y += Qt.lineHeight,
                             tn = null;
-                        else if (-1 !== on && 0 < this._maxWidth && Jt.x * Qt > this._maxWidth)
+                        else if (-1 !== on && 0 < this._maxWidth && Jt.x * Zt > this._maxWidth)
                             Wt.utils.removeItems($t, on - dn, un - on),
                             un = on,
                             on = -1,
@@ -18801,10 +18801,10 @@ function(Bt) {
                             rn = Math.max(rn, sn),
                             an++,
                             Jt.x = 0,
-                            Jt.y += Zt.lineHeight,
+                            Jt.y += Qt.lineHeight,
                             tn = null;
                         else {
-                            var cn = Zt.chars[pn];
+                            var cn = Qt.chars[pn];
                             cn && (tn && cn.kerning[tn] && (Jt.x += cn.kerning[tn]),
                             $t.push({
                                 texture: cn.texture,
@@ -18827,20 +18827,20 @@ function(Bt) {
                         bn = this._glyphs[_n],
                         bn ? bn.texture = $t[_n].texture : (bn = new Wt.Sprite($t[_n].texture),
                         this._glyphs.push(bn)),
-                        bn.position.x = ($t[_n].position.x + fn[$t[_n].line]) * Qt,
-                        bn.position.y = $t[_n].position.y * Qt,
-                        bn.scale.x = bn.scale.y = Qt,
+                        bn.position.x = ($t[_n].position.x + fn[$t[_n].line]) * Zt,
+                        bn.position.y = $t[_n].position.y * Zt,
+                        bn.scale.x = bn.scale.y = Zt,
                         bn.tint = yn,
                         bn.parent || this.addChild(bn);
                     for (var xn = mn; xn < this._glyphs.length; ++xn)
                         this.removeChild(this._glyphs[xn]);
-                    if (this._textWidth = rn * Qt,
-                    this._textHeight = (Jt.y + Zt.lineHeight) * Qt,
+                    if (this._textWidth = rn * Zt,
+                    this._textHeight = (Jt.y + Qt.lineHeight) * Zt,
                     0 !== this.anchor.x || 0 !== this.anchor.y)
                         for (var vn = 0; vn < mn; vn++)
                             this._glyphs[vn].x -= this._textWidth * this.anchor.x,
                             this._glyphs[vn].y -= this._textHeight * this.anchor.y;
-                    this._maxLineHeight = ln * Qt
+                    this._maxLineHeight = ln * Zt
                 }
                 ,
                 Kt.prototype.updateTransform = function() {
@@ -18858,28 +18858,28 @@ function(Bt) {
                     this.dirty = !1)
                 }
                 ,
-                Kt.registerFont = function(Zt, Qt) {
+                Kt.registerFont = function(Qt, Zt) {
                     var Jt = {}
-                      , $t = Zt.getElementsByTagName("info")[0]
-                      , en = Zt.getElementsByTagName("common")[0]
-                      , tn = Qt.baseTexture.resolution || zt.default.RESOLUTION;
+                      , $t = Qt.getElementsByTagName("info")[0]
+                      , en = Qt.getElementsByTagName("common")[0]
+                      , tn = Zt.baseTexture.resolution || zt.default.RESOLUTION;
                     Jt.font = $t.getAttribute("face"),
                     Jt.size = parseInt($t.getAttribute("size"), 10),
                     Jt.lineHeight = parseInt(en.getAttribute("lineHeight"), 10) / tn,
                     Jt.chars = {};
-                    for (var nn = Zt.getElementsByTagName("char"), rn = 0; rn < nn.length; rn++) {
+                    for (var nn = Qt.getElementsByTagName("char"), rn = 0; rn < nn.length; rn++) {
                         var an = nn[rn]
                           , on = parseInt(an.getAttribute("id"), 10)
-                          , sn = new Wt.Rectangle(parseInt(an.getAttribute("x"), 10) / tn + Qt.frame.x / tn,parseInt(an.getAttribute("y"), 10) / tn + Qt.frame.y / tn,parseInt(an.getAttribute("width"), 10) / tn,parseInt(an.getAttribute("height"), 10) / tn);
+                          , sn = new Wt.Rectangle(parseInt(an.getAttribute("x"), 10) / tn + Zt.frame.x / tn,parseInt(an.getAttribute("y"), 10) / tn + Zt.frame.y / tn,parseInt(an.getAttribute("width"), 10) / tn,parseInt(an.getAttribute("height"), 10) / tn);
                         Jt.chars[on] = {
                             xOffset: parseInt(an.getAttribute("xoffset"), 10) / tn,
                             yOffset: parseInt(an.getAttribute("yoffset"), 10) / tn,
                             xAdvance: parseInt(an.getAttribute("xadvance"), 10) / tn,
                             kerning: {},
-                            texture: new Wt.Texture(Qt.baseTexture,sn)
+                            texture: new Wt.Texture(Zt.baseTexture,sn)
                         }
                     }
-                    for (var dn = Zt.getElementsByTagName("kerning"), ln = 0; ln < dn.length; ln++) {
+                    for (var dn = Qt.getElementsByTagName("kerning"), ln = 0; ln < dn.length; ln++) {
                         var un = dn[ln]
                           , pn = parseInt(un.getAttribute("first"), 10) / tn
                           , cn = parseInt(un.getAttribute("second"), 10) / tn
@@ -18895,8 +18895,8 @@ function(Bt) {
                     get: function() {
                         return this._font.tint
                     },
-                    set: function(Zt) {
-                        this._font.tint = "number" == typeof Zt && 0 <= Zt ? Zt : 16777215,
+                    set: function(Qt) {
+                        this._font.tint = "number" == typeof Qt && 0 <= Qt ? Qt : 16777215,
                         this.dirty = !0
                     }
                 }, {
@@ -18904,8 +18904,8 @@ function(Bt) {
                     get: function() {
                         return this._font.align
                     },
-                    set: function(Zt) {
-                        this._font.align = Zt || "left",
+                    set: function(Qt) {
+                        this._font.align = Qt || "left",
                         this.dirty = !0
                     }
                 }, {
@@ -18913,19 +18913,19 @@ function(Bt) {
                     get: function() {
                         return this._anchor
                     },
-                    set: function(Zt) {
-                        "number" == typeof Zt ? this._anchor.set(Zt) : this._anchor.copy(Zt)
+                    set: function(Qt) {
+                        "number" == typeof Qt ? this._anchor.set(Qt) : this._anchor.copy(Qt)
                     }
                 }, {
                     key: "font",
                     get: function() {
                         return this._font
                     },
-                    set: function(Zt) {
-                        Zt && ("string" == typeof Zt ? (Zt = Zt.split(" "),
-                        this._font.name = 1 === Zt.length ? Zt[0] : Zt.slice(1).join(" "),
-                        this._font.size = 2 <= Zt.length ? parseInt(Zt[0], 10) : Kt.fonts[this._font.name].size) : (this._font.name = Zt.name,
-                        this._font.size = "number" == typeof Zt.size ? Zt.size : parseInt(Zt.size, 10)),
+                    set: function(Qt) {
+                        Qt && ("string" == typeof Qt ? (Qt = Qt.split(" "),
+                        this._font.name = 1 === Qt.length ? Qt[0] : Qt.slice(1).join(" "),
+                        this._font.size = 2 <= Qt.length ? parseInt(Qt[0], 10) : Kt.fonts[this._font.name].size) : (this._font.name = Qt.name,
+                        this._font.size = "number" == typeof Qt.size ? Qt.size : parseInt(Qt.size, 10)),
                         this.dirty = !0)
                     }
                 }, {
@@ -18933,9 +18933,9 @@ function(Bt) {
                     get: function() {
                         return this._text
                     },
-                    set: function(Zt) {
-                        Zt = Zt.toString() || " ",
-                        this._text !== Zt && (this._text = Zt,
+                    set: function(Qt) {
+                        Qt = Qt.toString() || " ",
+                        this._text !== Qt && (this._text = Qt,
                         this.dirty = !0)
                     }
                 }, {
@@ -18943,8 +18943,8 @@ function(Bt) {
                     get: function() {
                         return this._maxWidth
                     },
-                    set: function(Zt) {
-                        this._maxWidth !== Zt && (this._maxWidth = Zt,
+                    set: function(Qt) {
+                        this._maxWidth !== Qt && (this._maxWidth = Qt,
                         this.dirty = !0)
                     }
                 }, {
@@ -18980,12 +18980,12 @@ function(Bt) {
             Ht.__esModule = !0;
             var Gt = function() {
                 function zt(Vt, qt) {
-                    for (var Kt = 0, Zt; Kt < qt.length; Kt++)
-                        Zt = qt[Kt],
-                        Zt.enumerable = Zt.enumerable || !1,
-                        Zt.configurable = !0,
-                        "value"in Zt && (Zt.writable = !0),
-                        Object.defineProperty(Vt, Zt.key, Zt)
+                    for (var Kt = 0, Qt; Kt < qt.length; Kt++)
+                        Qt = qt[Kt],
+                        Qt.enumerable = Qt.enumerable || !1,
+                        Qt.configurable = !0,
+                        "value"in Qt && (Qt.writable = !0),
+                        Object.defineProperty(Vt, Qt.key, Qt)
                 }
                 return function(Vt, qt, Kt) {
                     return qt && zt(Vt.prototype, qt),
@@ -19001,8 +19001,8 @@ function(Bt) {
               , Wt = new Yt.default
               , jt = function() {
                 function zt(Vt, qt) {
-                    !function(Kt, Zt) {
-                        if (!(Kt instanceof Zt))
+                    !function(Kt, Qt) {
+                        if (!(Kt instanceof Qt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, zt),
                     this._texture = Vt,
@@ -19015,11 +19015,11 @@ function(Bt) {
                 }
                 return zt.prototype.multiplyUvs = function(Vt, qt) {
                     void 0 === qt && (qt = Vt);
-                    for (var Kt = this.mapCoord, Zt = 0; Zt < Vt.length; Zt += 2) {
-                        var Qt = Vt[Zt]
-                          , Jt = Vt[Zt + 1];
-                        qt[Zt] = Qt * Kt.a + Jt * Kt.c + Kt.tx,
-                        qt[Zt + 1] = Qt * Kt.b + Jt * Kt.d + Kt.ty
+                    for (var Kt = this.mapCoord, Qt = 0; Qt < Vt.length; Qt += 2) {
+                        var Zt = Vt[Qt]
+                          , Jt = Vt[Qt + 1];
+                        qt[Qt] = Zt * Kt.a + Jt * Kt.c + Kt.tx,
+                        qt[Qt + 1] = Zt * Kt.b + Jt * Kt.d + Kt.ty
                     }
                     return qt
                 }
@@ -19033,9 +19033,9 @@ function(Bt) {
                     this._lastTextureID = qt._updateID;
                     var Kt = qt._uvs;
                     this.mapCoord.set(Kt.x1 - Kt.x0, Kt.y1 - Kt.y0, Kt.x3 - Kt.x0, Kt.y3 - Kt.y0, Kt.x0, Kt.y0);
-                    var Zt = qt.orig
-                      , Qt = qt.trim;
-                    Qt && (Wt.set(Zt.width / Qt.width, 0, 0, Zt.height / Qt.height, -Qt.x / Qt.width, -Qt.y / Qt.height),
+                    var Qt = qt.orig
+                      , Zt = qt.trim;
+                    Zt && (Wt.set(Qt.width / Zt.width, 0, 0, Qt.height / Zt.height, -Zt.x / Zt.width, -Zt.y / Zt.height),
                     this.mapCoord.append(Wt));
                     var Jt = qt.baseTexture
                       , $t = this.uClampFrame
@@ -19075,87 +19075,87 @@ function(Bt) {
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function Kt(Zt, Qt) {
-                    for (var Jt = 0, $t; Jt < Qt.length; Jt++)
-                        $t = Qt[Jt],
+                function Kt(Qt, Zt) {
+                    for (var Jt = 0, $t; Jt < Zt.length; Jt++)
+                        $t = Zt[Jt],
                         $t.enumerable = $t.enumerable || !1,
                         $t.configurable = !0,
                         "value"in $t && ($t.writable = !0),
-                        Object.defineProperty(Zt, $t.key, $t)
+                        Object.defineProperty(Qt, $t.key, $t)
                 }
-                return function(Zt, Qt, Jt) {
-                    return Qt && Kt(Zt.prototype, Qt),
-                    Jt && Kt(Zt, Jt),
-                    Zt
+                return function(Qt, Zt, Jt) {
+                    return Zt && Kt(Qt.prototype, Zt),
+                    Jt && Kt(Qt, Jt),
+                    Qt
                 }
             }()
               , Wt = function(Kt) {
                 if (Kt && Kt.__esModule)
                     return Kt;
-                var Zt = {};
+                var Qt = {};
                 if (null != Kt)
-                    for (var Qt in Kt)
-                        Object.prototype.hasOwnProperty.call(Kt, Qt) && (Zt[Qt] = Kt[Qt]);
-                return Zt.default = Kt,
-                Zt
+                    for (var Zt in Kt)
+                        Object.prototype.hasOwnProperty.call(Kt, Zt) && (Qt[Zt] = Kt[Zt]);
+                return Qt.default = Kt,
+                Qt
             }(Bt("../core"))
               , jt = Gt(Bt("../core/sprites/canvas/CanvasTinter"))
               , zt = Gt(Bt("./TextureTransform"))
               , Vt = new Wt.Point
               , qt = function(Kt) {
-                function Zt(Qt) {
+                function Qt(Zt) {
                     var Jt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : 100
                       , $t = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 100;
                     !function(tn, nn) {
                         if (!(tn instanceof nn))
                             throw new TypeError("Cannot call a class as a function")
-                    }(this, Zt);
+                    }(this, Qt);
                     var en = function(tn, nn) {
                         if (!tn)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return nn && ("object" == typeof nn || "function" == typeof nn) ? nn : tn
-                    }(this, Kt.call(this, Qt));
+                    }(this, Kt.call(this, Zt));
                     return en.tileTransform = new Wt.TransformStatic,
                     en._width = Jt,
                     en._height = $t,
                     en._canvasPattern = null,
-                    en.uvTransform = Qt.transform || new zt.default(Qt),
+                    en.uvTransform = Zt.transform || new zt.default(Zt),
                     en.pluginName = "tilingSprite",
                     en.uvRespectAnchor = !1,
                     en
                 }
-                return function(Qt, Jt) {
+                return function(Zt, Jt) {
                     if ("function" != typeof Jt && null !== Jt)
                         throw new TypeError("Super expression must either be null or a function, not " + typeof Jt);
-                    Qt.prototype = Object.create(Jt && Jt.prototype, {
+                    Zt.prototype = Object.create(Jt && Jt.prototype, {
                         constructor: {
-                            value: Qt,
+                            value: Zt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Jt) : Qt.__proto__ = Jt)
-                }(Zt, Kt),
-                Zt.prototype._onTextureUpdate = function() {
+                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Jt) : Zt.__proto__ = Jt)
+                }(Qt, Kt),
+                Qt.prototype._onTextureUpdate = function() {
                     this.uvTransform && (this.uvTransform.texture = this._texture),
                     this.cachedTint = 16777215
                 }
                 ,
-                Zt.prototype._renderWebGL = function(Qt) {
+                Qt.prototype._renderWebGL = function(Zt) {
                     var Jt = this._texture;
                     Jt && Jt.valid && (this.tileTransform.updateLocalTransform(),
                     this.uvTransform.update(),
-                    Qt.setObjectRenderer(Qt.plugins[this.pluginName]),
-                    Qt.plugins[this.pluginName].render(this))
+                    Zt.setObjectRenderer(Zt.plugins[this.pluginName]),
+                    Zt.plugins[this.pluginName].render(this))
                 }
                 ,
-                Zt.prototype._renderCanvas = function(Qt) {
+                Qt.prototype._renderCanvas = function(Zt) {
                     var Jt = this._texture;
                     if (Jt.baseTexture.hasLoaded) {
-                        var $t = Qt.context
+                        var $t = Zt.context
                           , en = this.worldTransform
-                          , tn = Qt.resolution
+                          , tn = Zt.resolution
                           , nn = Jt.baseTexture
                           , rn = nn.resolution
                           , an = this.tilePosition.x / this.tileScale.x % Jt._frame.width * rn
@@ -19170,7 +19170,7 @@ function(Bt) {
                         }
                         $t.globalAlpha = this.worldAlpha,
                         $t.setTransform(en.a * tn, en.b * tn, en.c * tn, en.d * tn, en.tx * tn, en.ty * tn),
-                        Qt.setBlendMode(this.blendMode),
+                        Zt.setBlendMode(this.blendMode),
                         $t.fillStyle = this._canvasPattern,
                         $t.scale(this.tileScale.x / rn, this.tileScale.y / rn);
                         var dn = this.anchor.x * -this._width
@@ -19181,26 +19181,26 @@ function(Bt) {
                     }
                 }
                 ,
-                Zt.prototype._calculateBounds = function() {
-                    var Qt = this._width * -this._anchor._x
+                Qt.prototype._calculateBounds = function() {
+                    var Zt = this._width * -this._anchor._x
                       , Jt = this._height * -this._anchor._y
                       , $t = this._width * (1 - this._anchor._x)
                       , en = this._height * (1 - this._anchor._y);
-                    this._bounds.addFrame(this.transform, Qt, Jt, $t, en)
+                    this._bounds.addFrame(this.transform, Zt, Jt, $t, en)
                 }
                 ,
-                Zt.prototype.getLocalBounds = function(Qt) {
+                Qt.prototype.getLocalBounds = function(Zt) {
                     return 0 === this.children.length ? (this._bounds.minX = this._width * -this._anchor._x,
                     this._bounds.minY = this._height * -this._anchor._y,
                     this._bounds.maxX = this._width * (1 - this._anchor._x),
                     this._bounds.maxY = this._height * (1 - this._anchor._x),
-                    Qt || (this._localBoundsRect || (this._localBoundsRect = new Wt.Rectangle),
-                    Qt = this._localBoundsRect),
-                    this._bounds.getRectangle(Qt)) : Kt.prototype.getLocalBounds.call(this, Qt)
+                    Zt || (this._localBoundsRect || (this._localBoundsRect = new Wt.Rectangle),
+                    Zt = this._localBoundsRect),
+                    this._bounds.getRectangle(Zt)) : Kt.prototype.getLocalBounds.call(this, Zt)
                 }
                 ,
-                Zt.prototype.containsPoint = function(Qt) {
-                    this.worldTransform.applyInverse(Qt, Vt);
+                Qt.prototype.containsPoint = function(Zt) {
+                    this.worldTransform.applyInverse(Zt, Vt);
                     var Jt = this._width
                       , $t = this._height
                       , en = -Jt * this.anchor._x;
@@ -19212,34 +19212,34 @@ function(Bt) {
                     return !1
                 }
                 ,
-                Zt.prototype.destroy = function(Qt) {
-                    Kt.prototype.destroy.call(this, Qt),
+                Qt.prototype.destroy = function(Zt) {
+                    Kt.prototype.destroy.call(this, Zt),
                     this.tileTransform = null,
                     this.uvTransform = null
                 }
                 ,
-                Zt.from = function(Qt, Jt, $t) {
-                    return new Zt(Wt.Texture.from(Qt),Jt,$t)
+                Qt.from = function(Zt, Jt, $t) {
+                    return new Qt(Wt.Texture.from(Zt),Jt,$t)
                 }
                 ,
-                Zt.fromFrame = function(Qt, Jt, $t) {
-                    var en = Wt.utils.TextureCache[Qt];
+                Qt.fromFrame = function(Zt, Jt, $t) {
+                    var en = Wt.utils.TextureCache[Zt];
                     if (!en)
-                        throw new Error("The frameId \"" + Qt + "\" does not exist in the texture cache " + this);
-                    return new Zt(en,Jt,$t)
+                        throw new Error("The frameId \"" + Zt + "\" does not exist in the texture cache " + this);
+                    return new Qt(en,Jt,$t)
                 }
                 ,
-                Zt.fromImage = function(Qt, Jt, $t, en, tn) {
-                    return new Zt(Wt.Texture.fromImage(Qt, en, tn),Jt,$t)
+                Qt.fromImage = function(Zt, Jt, $t, en, tn) {
+                    return new Qt(Wt.Texture.fromImage(Zt, en, tn),Jt,$t)
                 }
                 ,
-                Yt(Zt, [{
+                Yt(Qt, [{
                     key: "clampMargin",
                     get: function() {
                         return this.uvTransform.clampMargin
                     },
-                    set: function(Qt) {
-                        this.uvTransform.clampMargin = Qt,
+                    set: function(Zt) {
+                        this.uvTransform.clampMargin = Zt,
                         this.uvTransform.update(!0)
                     }
                 }, {
@@ -19247,35 +19247,35 @@ function(Bt) {
                     get: function() {
                         return this.tileTransform.scale
                     },
-                    set: function(Qt) {
-                        this.tileTransform.scale.copy(Qt)
+                    set: function(Zt) {
+                        this.tileTransform.scale.copy(Zt)
                     }
                 }, {
                     key: "tilePosition",
                     get: function() {
                         return this.tileTransform.position
                     },
-                    set: function(Qt) {
-                        this.tileTransform.position.copy(Qt)
+                    set: function(Zt) {
+                        this.tileTransform.position.copy(Zt)
                     }
                 }, {
                     key: "width",
                     get: function() {
                         return this._width
                     },
-                    set: function(Qt) {
-                        this._width = Qt
+                    set: function(Zt) {
+                        this._width = Zt
                     }
                 }, {
                     key: "height",
                     get: function() {
                         return this._height
                     },
-                    set: function(Qt) {
-                        this._height = Qt
+                    set: function(Zt) {
+                        this._height = Zt
                     }
                 }]),
-                Zt
+                Qt
             }(Wt.Sprite);
             Ht.default = qt
         }
@@ -19285,20 +19285,20 @@ function(Bt) {
             "./TextureTransform": 136
         }],
         138: [function(Bt) {
-            function Gt(Zt) {
-                return Zt && Zt.__esModule ? Zt : {
-                    default: Zt
+            function Gt(Qt) {
+                return Qt && Qt.__esModule ? Qt : {
+                    default: Qt
                 }
             }
-            var Yt = function(Zt) {
-                if (Zt && Zt.__esModule)
-                    return Zt;
-                var Qt = {};
-                if (null != Zt)
-                    for (var Jt in Zt)
-                        Object.prototype.hasOwnProperty.call(Zt, Jt) && (Qt[Jt] = Zt[Jt]);
-                return Qt.default = Zt,
-                Qt
+            var Yt = function(Qt) {
+                if (Qt && Qt.__esModule)
+                    return Qt;
+                var Zt = {};
+                if (null != Qt)
+                    for (var Jt in Qt)
+                        Object.prototype.hasOwnProperty.call(Qt, Jt) && (Zt[Jt] = Qt[Jt]);
+                return Zt.default = Qt,
+                Zt
             }(Bt("../core"))
               , Wt = Gt(Bt("../core/textures/Texture"))
               , jt = Gt(Bt("../core/textures/BaseTexture"))
@@ -19307,11 +19307,11 @@ function(Bt) {
               , qt = new Yt.Matrix;
             Vt.prototype._cacheAsBitmap = !1,
             Vt.prototype._cacheData = !1;
-            var Kt = function Zt() {
-                !function(Qt, Jt) {
-                    if (!(Qt instanceof Jt))
+            var Kt = function Qt() {
+                !function(Zt, Jt) {
+                    if (!(Zt instanceof Jt))
                         throw new TypeError("Cannot call a class as a function")
-                }(this, Zt),
+                }(this, Qt),
                 this.textureCacheId = null,
                 this.originalRenderWebGL = null,
                 this.originalRenderCanvas = null,
@@ -19329,55 +19329,55 @@ function(Bt) {
                     get: function() {
                         return this._cacheAsBitmap
                     },
-                    set: function(Zt) {
-                        if (this._cacheAsBitmap !== Zt) {
-                            this._cacheAsBitmap = Zt;
-                            var Qt;
-                            Zt ? (this._cacheData || (this._cacheData = new Kt),
-                            (Qt = this._cacheData).originalRenderWebGL = this.renderWebGL,
-                            Qt.originalRenderCanvas = this.renderCanvas,
-                            Qt.originalUpdateTransform = this.updateTransform,
-                            Qt.originalCalculateBounds = this._calculateBounds,
-                            Qt.originalGetLocalBounds = this.getLocalBounds,
-                            Qt.originalDestroy = this.destroy,
-                            Qt.originalContainsPoint = this.containsPoint,
-                            Qt.originalMask = this._mask,
-                            Qt.originalFilterArea = this.filterArea,
+                    set: function(Qt) {
+                        if (this._cacheAsBitmap !== Qt) {
+                            this._cacheAsBitmap = Qt;
+                            var Zt;
+                            Qt ? (this._cacheData || (this._cacheData = new Kt),
+                            (Zt = this._cacheData).originalRenderWebGL = this.renderWebGL,
+                            Zt.originalRenderCanvas = this.renderCanvas,
+                            Zt.originalUpdateTransform = this.updateTransform,
+                            Zt.originalCalculateBounds = this._calculateBounds,
+                            Zt.originalGetLocalBounds = this.getLocalBounds,
+                            Zt.originalDestroy = this.destroy,
+                            Zt.originalContainsPoint = this.containsPoint,
+                            Zt.originalMask = this._mask,
+                            Zt.originalFilterArea = this.filterArea,
                             this.renderWebGL = this._renderCachedWebGL,
                             this.renderCanvas = this._renderCachedCanvas,
-                            this.destroy = this._cacheAsBitmapDestroy) : ((Qt = this._cacheData).sprite && this._destroyCachedDisplayObject(),
-                            this.renderWebGL = Qt.originalRenderWebGL,
-                            this.renderCanvas = Qt.originalRenderCanvas,
-                            this._calculateBounds = Qt.originalCalculateBounds,
-                            this.getLocalBounds = Qt.originalGetLocalBounds,
-                            this.destroy = Qt.originalDestroy,
-                            this.updateTransform = Qt.originalUpdateTransform,
-                            this.containsPoint = Qt.originalContainsPoint,
-                            this._mask = Qt.originalMask,
-                            this.filterArea = Qt.originalFilterArea)
+                            this.destroy = this._cacheAsBitmapDestroy) : ((Zt = this._cacheData).sprite && this._destroyCachedDisplayObject(),
+                            this.renderWebGL = Zt.originalRenderWebGL,
+                            this.renderCanvas = Zt.originalRenderCanvas,
+                            this._calculateBounds = Zt.originalCalculateBounds,
+                            this.getLocalBounds = Zt.originalGetLocalBounds,
+                            this.destroy = Zt.originalDestroy,
+                            this.updateTransform = Zt.originalUpdateTransform,
+                            this.containsPoint = Zt.originalContainsPoint,
+                            this._mask = Zt.originalMask,
+                            this.filterArea = Zt.originalFilterArea)
                         }
                     }
                 }
             }),
-            Vt.prototype._renderCachedWebGL = function(Zt) {
-                this.visible && !(0 >= this.worldAlpha) && this.renderable && (this._initCachedDisplayObject(Zt),
+            Vt.prototype._renderCachedWebGL = function(Qt) {
+                this.visible && !(0 >= this.worldAlpha) && this.renderable && (this._initCachedDisplayObject(Qt),
                 this._cacheData.sprite._transformID = -1,
                 this._cacheData.sprite.worldAlpha = this.worldAlpha,
-                this._cacheData.sprite._renderWebGL(Zt))
+                this._cacheData.sprite._renderWebGL(Qt))
             }
             ,
-            Vt.prototype._initCachedDisplayObject = function(Zt) {
+            Vt.prototype._initCachedDisplayObject = function(Qt) {
                 if (!this._cacheData || !this._cacheData.sprite) {
-                    var Qt = this.alpha;
+                    var Zt = this.alpha;
                     this.alpha = 1,
-                    Zt.currentRenderer.flush();
+                    Qt.currentRenderer.flush();
                     var Jt = this.getLocalBounds().clone();
                     if (this._filters) {
                         var $t = this._filters[0].padding;
                         Jt.pad($t)
                     }
-                    var en = Zt._activeRenderTarget
-                      , tn = Zt.filterManager.filterStack
+                    var en = Qt._activeRenderTarget
+                      , tn = Qt.filterManager.filterStack
                       , nn = Yt.RenderTexture.create(0 | Jt.width, 0 | Jt.height)
                       , rn = "cacheAsBitmap_" + (0,
                     zt.uid)();
@@ -19389,9 +19389,9 @@ function(Bt) {
                     an.ty = -Jt.y,
                     this.transform.worldTransform.identity(),
                     this.renderWebGL = this._cacheData.originalRenderWebGL,
-                    Zt.render(this, nn, !0, an, !0),
-                    Zt.bindRenderTarget(en),
-                    Zt.filterManager.filterStack = tn,
+                    Qt.render(this, nn, !0, an, !0),
+                    Qt.bindRenderTarget(en),
+                    Qt.filterManager.filterStack = tn,
                     this.renderWebGL = this._renderCachedWebGL,
                     this.updateTransform = this.displayObjectUpdateTransform,
                     this._mask = null,
@@ -19400,32 +19400,32 @@ function(Bt) {
                     on.transform.worldTransform = this.transform.worldTransform,
                     on.anchor.x = -Jt.x / Jt.width,
                     on.anchor.y = -Jt.y / Jt.height,
-                    on.alpha = Qt,
+                    on.alpha = Zt,
                     on._bounds = this._bounds,
                     this._calculateBounds = this._calculateCachedBounds,
                     this.getLocalBounds = this._getCachedLocalBounds,
                     this._cacheData.sprite = on,
                     this.transform._parentID = -1,
-                    this.parent ? this.updateTransform() : (this.parent = Zt._tempDisplayObjectParent,
+                    this.parent ? this.updateTransform() : (this.parent = Qt._tempDisplayObjectParent,
                     this.updateTransform(),
                     this.parent = null),
                     this.containsPoint = on.containsPoint.bind(on)
                 }
             }
             ,
-            Vt.prototype._renderCachedCanvas = function(Zt) {
-                this.visible && !(0 >= this.worldAlpha) && this.renderable && (this._initCachedDisplayObjectCanvas(Zt),
+            Vt.prototype._renderCachedCanvas = function(Qt) {
+                this.visible && !(0 >= this.worldAlpha) && this.renderable && (this._initCachedDisplayObjectCanvas(Qt),
                 this._cacheData.sprite.worldAlpha = this.worldAlpha,
-                this._cacheData.sprite.renderCanvas(Zt))
+                this._cacheData.sprite.renderCanvas(Qt))
             }
             ,
-            Vt.prototype._initCachedDisplayObjectCanvas = function(Zt) {
+            Vt.prototype._initCachedDisplayObjectCanvas = function(Qt) {
                 if (!this._cacheData || !this._cacheData.sprite) {
-                    var Qt = this.getLocalBounds()
+                    var Zt = this.getLocalBounds()
                       , Jt = this.alpha;
                     this.alpha = 1;
-                    var $t = Zt.context
-                      , en = Yt.RenderTexture.create(0 | Qt.width, 0 | Qt.height)
+                    var $t = Qt.context
+                      , en = Yt.RenderTexture.create(0 | Zt.width, 0 | Zt.height)
                       , tn = "cacheAsBitmap_" + (0,
                     zt.uid)();
                     this._cacheData.textureCacheId = tn,
@@ -19434,22 +19434,22 @@ function(Bt) {
                     var nn = qt;
                     this.transform.localTransform.copy(nn),
                     nn.invert(),
-                    nn.tx -= Qt.x,
-                    nn.ty -= Qt.y,
+                    nn.tx -= Zt.x,
+                    nn.ty -= Zt.y,
                     this.renderCanvas = this._cacheData.originalRenderCanvas,
-                    Zt.render(this, en, !0, nn, !1),
-                    Zt.context = $t,
+                    Qt.render(this, en, !0, nn, !1),
+                    Qt.context = $t,
                     this.renderCanvas = this._renderCachedCanvas,
                     this._calculateBounds = this._calculateCachedBounds,
                     this._mask = null,
                     this.filterArea = null;
                     var rn = new Yt.Sprite(en);
                     rn.transform.worldTransform = this.transform.worldTransform,
-                    rn.anchor.x = -Qt.x / Qt.width,
-                    rn.anchor.y = -Qt.y / Qt.height,
+                    rn.anchor.x = -Zt.x / Zt.width,
+                    rn.anchor.y = -Zt.y / Zt.height,
                     rn._bounds = this._bounds,
                     rn.alpha = Jt,
-                    this.parent ? this.updateTransform() : (this.parent = Zt._tempDisplayObjectParent,
+                    this.parent ? this.updateTransform() : (this.parent = Qt._tempDisplayObjectParent,
                     this.updateTransform(),
                     this.parent = null),
                     this.updateTransform = this.displayObjectUpdateTransform,
@@ -19474,9 +19474,9 @@ function(Bt) {
                 this._cacheData.textureCacheId = null
             }
             ,
-            Vt.prototype._cacheAsBitmapDestroy = function(Zt) {
+            Vt.prototype._cacheAsBitmapDestroy = function(Qt) {
                 this.cacheAsBitmap = !1,
-                this.destroy(Zt)
+                this.destroy(Qt)
             }
         }
         , {
@@ -19603,14 +19603,14 @@ function(Bt) {
             new Gt.Matrix)
               , jt = function(zt) {
                 function Vt(qt) {
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Vt);
-                    var Kt = function(Zt, Qt) {
-                        if (!Zt)
+                    var Kt = function(Qt, Zt) {
+                        if (!Qt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Qt && ("object" == typeof Qt || "function" == typeof Qt) ? Qt : Zt
+                        return Zt && ("object" == typeof Zt || "function" == typeof Zt) ? Zt : Qt
                     }(this, zt.call(this, qt));
                     return Kt.shader = null,
                     Kt.simpleShader = null,
@@ -19641,18 +19641,18 @@ function(Bt) {
                 ,
                 Vt.prototype.render = function(qt) {
                     var Kt = this.renderer
-                      , Zt = this.quad;
-                    Kt.bindVao(Zt.vao);
-                    var Qt = Zt.vertices;
-                    Qt[0] = Qt[6] = qt._width * -qt.anchor.x,
-                    Qt[1] = Qt[3] = qt._height * -qt.anchor.y,
-                    Qt[2] = Qt[4] = qt._width * (1 - qt.anchor.x),
-                    Qt[5] = Qt[7] = qt._height * (1 - qt.anchor.y),
-                    qt.uvRespectAnchor && ((Qt = Zt.uvs)[0] = Qt[6] = -qt.anchor.x,
-                    Qt[1] = Qt[3] = -qt.anchor.y,
-                    Qt[2] = Qt[4] = 1 - qt.anchor.x,
-                    Qt[5] = Qt[7] = 1 - qt.anchor.y),
-                    Zt.upload();
+                      , Qt = this.quad;
+                    Kt.bindVao(Qt.vao);
+                    var Zt = Qt.vertices;
+                    Zt[0] = Zt[6] = qt._width * -qt.anchor.x,
+                    Zt[1] = Zt[3] = qt._height * -qt.anchor.y,
+                    Zt[2] = Zt[4] = qt._width * (1 - qt.anchor.x),
+                    Zt[5] = Zt[7] = qt._height * (1 - qt.anchor.y),
+                    qt.uvRespectAnchor && ((Zt = Qt.uvs)[0] = Zt[6] = -qt.anchor.x,
+                    Zt[1] = Zt[3] = -qt.anchor.y,
+                    Zt[2] = Zt[4] = 1 - qt.anchor.x,
+                    Zt[5] = Zt[7] = 1 - qt.anchor.y),
+                    Qt.upload();
                     var Jt = qt._texture
                       , $t = Jt.baseTexture
                       , en = qt.tileTransform.localTransform
@@ -19675,7 +19675,7 @@ function(Bt) {
                     rn.uniforms.translationMatrix = qt.transform.worldTransform.toArray(!0),
                     rn.uniforms.uSampler = Kt.bindTexture(Jt),
                     Kt.setBlendMode(Gt.utils.correctBlendMode(qt.blendMode, $t.premultipliedAlpha)),
-                    Zt.vao.draw(this.renderer.gl.TRIANGLES, 6, 0)
+                    Qt.vao.draw(this.renderer.gl.TRIANGLES, 6, 0)
                 }
                 ,
                 Vt
@@ -19696,17 +19696,17 @@ function(Bt) {
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function qt(Kt, Zt) {
-                    for (var Qt = 0, Jt; Qt < Zt.length; Qt++)
-                        Jt = Zt[Qt],
+                function qt(Kt, Qt) {
+                    for (var Zt = 0, Jt; Zt < Qt.length; Zt++)
+                        Jt = Qt[Zt],
                         Jt.enumerable = Jt.enumerable || !1,
                         Jt.configurable = !0,
                         "value"in Jt && (Jt.writable = !0),
                         Object.defineProperty(Kt, Jt.key, Jt)
                 }
-                return function(Kt, Zt, Qt) {
-                    return Zt && qt(Kt.prototype, Zt),
-                    Qt && qt(Kt, Qt),
+                return function(Kt, Qt, Zt) {
+                    return Qt && qt(Kt.prototype, Qt),
+                    Zt && qt(Kt, Zt),
                     Kt
                 }
             }()
@@ -19715,15 +19715,15 @@ function(Bt) {
                     return qt;
                 var Kt = {};
                 if (null != qt)
-                    for (var Zt in qt)
-                        Object.prototype.hasOwnProperty.call(qt, Zt) && (Kt[Zt] = qt[Zt]);
+                    for (var Qt in qt)
+                        Object.prototype.hasOwnProperty.call(qt, Qt) && (Kt[Qt] = qt[Qt]);
                 return Kt.default = qt,
                 Kt
             }(Bt("../../core"))
               , jt = Gt(Bt("./BlurXFilter"))
               , zt = Gt(Bt("./BlurYFilter"))
               , Vt = function(qt) {
-                function Kt(Zt, Qt, Jt, $t) {
+                function Kt(Qt, Zt, Jt, $t) {
                     !function(tn, nn) {
                         if (!(tn instanceof nn))
                             throw new TypeError("Cannot call a class as a function")
@@ -19733,32 +19733,32 @@ function(Bt) {
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return nn && ("object" == typeof nn || "function" == typeof nn) ? nn : tn
                     }(this, qt.call(this));
-                    return en.blurXFilter = new jt.default(Zt,Qt,Jt,$t),
-                    en.blurYFilter = new zt.default(Zt,Qt,Jt,$t),
+                    return en.blurXFilter = new jt.default(Qt,Zt,Jt,$t),
+                    en.blurYFilter = new zt.default(Qt,Zt,Jt,$t),
                     en.padding = 0,
                     en.resolution = Jt || Wt.settings.RESOLUTION,
-                    en.quality = Qt || 4,
-                    en.blur = Zt || 8,
+                    en.quality = Zt || 4,
+                    en.blur = Qt || 8,
                     en
                 }
-                return function(Zt, Qt) {
-                    if ("function" != typeof Qt && null !== Qt)
-                        throw new TypeError("Super expression must either be null or a function, not " + typeof Qt);
-                    Zt.prototype = Object.create(Qt && Qt.prototype, {
+                return function(Qt, Zt) {
+                    if ("function" != typeof Zt && null !== Zt)
+                        throw new TypeError("Super expression must either be null or a function, not " + typeof Zt);
+                    Qt.prototype = Object.create(Zt && Zt.prototype, {
                         constructor: {
-                            value: Zt,
+                            value: Qt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Qt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Qt) : Zt.__proto__ = Qt)
+                    Zt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Zt) : Qt.__proto__ = Zt)
                 }(Kt, qt),
-                Kt.prototype.apply = function(Zt, Qt, Jt) {
-                    var $t = Zt.getRenderTarget(!0);
-                    this.blurXFilter.apply(Zt, Qt, $t, !0),
-                    this.blurYFilter.apply(Zt, $t, Jt, !1),
-                    Zt.returnRenderTarget($t)
+                Kt.prototype.apply = function(Qt, Zt, Jt) {
+                    var $t = Qt.getRenderTarget(!0);
+                    this.blurXFilter.apply(Qt, Zt, $t, !0),
+                    this.blurYFilter.apply(Qt, $t, Jt, !1),
+                    Qt.returnRenderTarget($t)
                 }
                 ,
                 Yt(Kt, [{
@@ -19766,8 +19766,8 @@ function(Bt) {
                     get: function() {
                         return this.blurXFilter.blur
                     },
-                    set: function(Zt) {
-                        this.blurXFilter.blur = this.blurYFilter.blur = Zt,
+                    set: function(Qt) {
+                        this.blurXFilter.blur = this.blurYFilter.blur = Qt,
                         this.padding = 2 * Math.max(Math.abs(this.blurXFilter.strength), Math.abs(this.blurYFilter.strength))
                     }
                 }, {
@@ -19775,16 +19775,16 @@ function(Bt) {
                     get: function() {
                         return this.blurXFilter.quality
                     },
-                    set: function(Zt) {
-                        this.blurXFilter.quality = this.blurYFilter.quality = Zt
+                    set: function(Qt) {
+                        this.blurXFilter.quality = this.blurYFilter.quality = Qt
                     }
                 }, {
                     key: "blurX",
                     get: function() {
                         return this.blurXFilter.blur
                     },
-                    set: function(Zt) {
-                        this.blurXFilter.blur = Zt,
+                    set: function(Qt) {
+                        this.blurXFilter.blur = Qt,
                         this.padding = 2 * Math.max(Math.abs(this.blurXFilter.strength), Math.abs(this.blurYFilter.strength))
                     }
                 }, {
@@ -19792,8 +19792,8 @@ function(Bt) {
                     get: function() {
                         return this.blurYFilter.blur
                     },
-                    set: function(Zt) {
-                        this.blurYFilter.blur = Zt,
+                    set: function(Qt) {
+                        this.blurYFilter.blur = Qt,
                         this.padding = 2 * Math.max(Math.abs(this.blurXFilter.strength), Math.abs(this.blurYFilter.strength))
                     }
                 }, {
@@ -19801,8 +19801,8 @@ function(Bt) {
                     get: function() {
                         return this.blurYFilter._blendMode
                     },
-                    set: function(Zt) {
-                        this.blurYFilter._blendMode = Zt
+                    set: function(Qt) {
+                        this.blurYFilter._blendMode = Qt
                     }
                 }]),
                 Kt
@@ -19822,39 +19822,39 @@ function(Bt) {
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function Kt(Zt, Qt) {
-                    for (var Jt = 0, $t; Jt < Qt.length; Jt++)
-                        $t = Qt[Jt],
+                function Kt(Qt, Zt) {
+                    for (var Jt = 0, $t; Jt < Zt.length; Jt++)
+                        $t = Zt[Jt],
                         $t.enumerable = $t.enumerable || !1,
                         $t.configurable = !0,
                         "value"in $t && ($t.writable = !0),
-                        Object.defineProperty(Zt, $t.key, $t)
+                        Object.defineProperty(Qt, $t.key, $t)
                 }
-                return function(Zt, Qt, Jt) {
-                    return Qt && Kt(Zt.prototype, Qt),
-                    Jt && Kt(Zt, Jt),
-                    Zt
+                return function(Qt, Zt, Jt) {
+                    return Zt && Kt(Qt.prototype, Zt),
+                    Jt && Kt(Qt, Jt),
+                    Qt
                 }
             }()
               , Wt = function(Kt) {
                 if (Kt && Kt.__esModule)
                     return Kt;
-                var Zt = {};
+                var Qt = {};
                 if (null != Kt)
-                    for (var Qt in Kt)
-                        Object.prototype.hasOwnProperty.call(Kt, Qt) && (Zt[Qt] = Kt[Qt]);
-                return Zt.default = Kt,
-                Zt
+                    for (var Zt in Kt)
+                        Object.prototype.hasOwnProperty.call(Kt, Zt) && (Qt[Zt] = Kt[Zt]);
+                return Qt.default = Kt,
+                Qt
             }(Bt("../../core"))
               , jt = Gt(Bt("./generateBlurVertSource"))
               , zt = Gt(Bt("./generateBlurFragSource"))
               , Vt = Gt(Bt("./getMaxBlurKernelSize"))
               , qt = function(Kt) {
-                function Zt(Qt, Jt, $t, en) {
+                function Qt(Zt, Jt, $t, en) {
                     !function(an, on) {
                         if (!(an instanceof on))
                             throw new TypeError("Cannot call a class as a function")
-                    }(this, Zt),
+                    }(this, Qt),
                     en = en || 5;
                     var tn = (0,
                     jt.default)(en, !0)
@@ -19868,26 +19868,26 @@ function(Bt) {
                     return rn.resolution = $t || Wt.settings.RESOLUTION,
                     rn._quality = 0,
                     rn.quality = Jt || 4,
-                    rn.strength = Qt || 8,
+                    rn.strength = Zt || 8,
                     rn.firstRun = !0,
                     rn
                 }
-                return function(Qt, Jt) {
+                return function(Zt, Jt) {
                     if ("function" != typeof Jt && null !== Jt)
                         throw new TypeError("Super expression must either be null or a function, not " + typeof Jt);
-                    Qt.prototype = Object.create(Jt && Jt.prototype, {
+                    Zt.prototype = Object.create(Jt && Jt.prototype, {
                         constructor: {
-                            value: Qt,
+                            value: Zt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Jt) : Qt.__proto__ = Jt)
-                }(Zt, Kt),
-                Zt.prototype.apply = function(Qt, Jt, $t, en) {
+                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Jt) : Zt.__proto__ = Jt)
+                }(Qt, Kt),
+                Qt.prototype.apply = function(Zt, Jt, $t, en) {
                     if (this.firstRun) {
-                        var tn = Qt.renderer.gl
+                        var tn = Zt.renderer.gl
                           , nn = (0,
                         Vt.default)(tn);
                         this.vertexSrc = (0,
@@ -19900,39 +19900,39 @@ function(Bt) {
                     this.uniforms.strength *= this.strength,
                     this.uniforms.strength /= this.passes,
                     1 === this.passes)
-                        Qt.applyFilter(this, Jt, $t, en);
+                        Zt.applyFilter(this, Jt, $t, en);
                     else {
-                        for (var rn = Qt.getRenderTarget(!0), an = Jt, on = rn, sn = 0; sn < this.passes - 1; sn++) {
-                            Qt.applyFilter(this, an, on, !0);
+                        for (var rn = Zt.getRenderTarget(!0), an = Jt, on = rn, sn = 0; sn < this.passes - 1; sn++) {
+                            Zt.applyFilter(this, an, on, !0);
                             var dn = on;
                             on = an,
                             an = dn
                         }
-                        Qt.applyFilter(this, an, $t, en),
-                        Qt.returnRenderTarget(rn)
+                        Zt.applyFilter(this, an, $t, en),
+                        Zt.returnRenderTarget(rn)
                     }
                 }
                 ,
-                Yt(Zt, [{
+                Yt(Qt, [{
                     key: "blur",
                     get: function() {
                         return this.strength
                     },
-                    set: function(Qt) {
-                        this.padding = 2 * Math.abs(Qt),
-                        this.strength = Qt
+                    set: function(Zt) {
+                        this.padding = 2 * Math.abs(Zt),
+                        this.strength = Zt
                     }
                 }, {
                     key: "quality",
                     get: function() {
                         return this._quality
                     },
-                    set: function(Qt) {
-                        this._quality = Qt,
-                        this.passes = Qt
+                    set: function(Zt) {
+                        this._quality = Zt,
+                        this.passes = Zt
                     }
                 }]),
-                Zt
+                Qt
             }(Wt.Filter);
             Ht.default = qt
         }
@@ -19950,39 +19950,39 @@ function(Bt) {
             }
             Ht.__esModule = !0;
             var Yt = function() {
-                function Kt(Zt, Qt) {
-                    for (var Jt = 0, $t; Jt < Qt.length; Jt++)
-                        $t = Qt[Jt],
+                function Kt(Qt, Zt) {
+                    for (var Jt = 0, $t; Jt < Zt.length; Jt++)
+                        $t = Zt[Jt],
                         $t.enumerable = $t.enumerable || !1,
                         $t.configurable = !0,
                         "value"in $t && ($t.writable = !0),
-                        Object.defineProperty(Zt, $t.key, $t)
+                        Object.defineProperty(Qt, $t.key, $t)
                 }
-                return function(Zt, Qt, Jt) {
-                    return Qt && Kt(Zt.prototype, Qt),
-                    Jt && Kt(Zt, Jt),
-                    Zt
+                return function(Qt, Zt, Jt) {
+                    return Zt && Kt(Qt.prototype, Zt),
+                    Jt && Kt(Qt, Jt),
+                    Qt
                 }
             }()
               , Wt = function(Kt) {
                 if (Kt && Kt.__esModule)
                     return Kt;
-                var Zt = {};
+                var Qt = {};
                 if (null != Kt)
-                    for (var Qt in Kt)
-                        Object.prototype.hasOwnProperty.call(Kt, Qt) && (Zt[Qt] = Kt[Qt]);
-                return Zt.default = Kt,
-                Zt
+                    for (var Zt in Kt)
+                        Object.prototype.hasOwnProperty.call(Kt, Zt) && (Qt[Zt] = Kt[Zt]);
+                return Qt.default = Kt,
+                Qt
             }(Bt("../../core"))
               , jt = Gt(Bt("./generateBlurVertSource"))
               , zt = Gt(Bt("./generateBlurFragSource"))
               , Vt = Gt(Bt("./getMaxBlurKernelSize"))
               , qt = function(Kt) {
-                function Zt(Qt, Jt, $t, en) {
+                function Qt(Zt, Jt, $t, en) {
                     !function(an, on) {
                         if (!(an instanceof on))
                             throw new TypeError("Cannot call a class as a function")
-                    }(this, Zt),
+                    }(this, Qt),
                     en = en || 5;
                     var tn = (0,
                     jt.default)(en, !1)
@@ -19996,26 +19996,26 @@ function(Bt) {
                     return rn.resolution = $t || Wt.settings.RESOLUTION,
                     rn._quality = 0,
                     rn.quality = Jt || 4,
-                    rn.strength = Qt || 8,
+                    rn.strength = Zt || 8,
                     rn.firstRun = !0,
                     rn
                 }
-                return function(Qt, Jt) {
+                return function(Zt, Jt) {
                     if ("function" != typeof Jt && null !== Jt)
                         throw new TypeError("Super expression must either be null or a function, not " + typeof Jt);
-                    Qt.prototype = Object.create(Jt && Jt.prototype, {
+                    Zt.prototype = Object.create(Jt && Jt.prototype, {
                         constructor: {
-                            value: Qt,
+                            value: Zt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Jt) : Qt.__proto__ = Jt)
-                }(Zt, Kt),
-                Zt.prototype.apply = function(Qt, Jt, $t, en) {
+                    Jt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Jt) : Zt.__proto__ = Jt)
+                }(Qt, Kt),
+                Qt.prototype.apply = function(Zt, Jt, $t, en) {
                     if (this.firstRun) {
-                        var tn = Qt.renderer.gl
+                        var tn = Zt.renderer.gl
                           , nn = (0,
                         Vt.default)(tn);
                         this.vertexSrc = (0,
@@ -20028,39 +20028,39 @@ function(Bt) {
                     this.uniforms.strength *= this.strength,
                     this.uniforms.strength /= this.passes,
                     1 === this.passes)
-                        Qt.applyFilter(this, Jt, $t, en);
+                        Zt.applyFilter(this, Jt, $t, en);
                     else {
-                        for (var rn = Qt.getRenderTarget(!0), an = Jt, on = rn, sn = 0; sn < this.passes - 1; sn++) {
-                            Qt.applyFilter(this, an, on, !0);
+                        for (var rn = Zt.getRenderTarget(!0), an = Jt, on = rn, sn = 0; sn < this.passes - 1; sn++) {
+                            Zt.applyFilter(this, an, on, !0);
                             var dn = on;
                             on = an,
                             an = dn
                         }
-                        Qt.applyFilter(this, an, $t, en),
-                        Qt.returnRenderTarget(rn)
+                        Zt.applyFilter(this, an, $t, en),
+                        Zt.returnRenderTarget(rn)
                     }
                 }
                 ,
-                Yt(Zt, [{
+                Yt(Qt, [{
                     key: "blur",
                     get: function() {
                         return this.strength
                     },
-                    set: function(Qt) {
-                        this.padding = 2 * Math.abs(Qt),
-                        this.strength = Qt
+                    set: function(Zt) {
+                        this.padding = 2 * Math.abs(Zt),
+                        this.strength = Zt
                     }
                 }, {
                     key: "quality",
                     get: function() {
                         return this._quality
                     },
-                    set: function(Qt) {
-                        this._quality = Qt,
-                        this.passes = Qt
+                    set: function(Zt) {
+                        this._quality = Zt,
+                        this.passes = Zt
                     }
                 }]),
-                Zt
+                Qt
             }(Wt.Filter);
             Ht.default = qt
         }
@@ -20073,11 +20073,11 @@ function(Bt) {
         146: [function(Bt, Xt, Ht) {
             Ht.__esModule = !0,
             Ht.default = function(Wt) {
-                for (var jt = Gt[Wt], zt = jt.length, Vt = Yt, qt = "", Kt = void 0, Zt = 0, Qt; Zt < Wt; Zt++)
-                    Qt = "gl_FragColor += texture2D(uSampler, vBlurTexCoords[%index%]) * %value%;".replace("%index%", Zt),
-                    Kt = Zt,
-                    Zt >= zt && (Kt = Wt - Zt - 1),
-                    qt += Qt = Qt.replace("%value%", jt[Kt]),
+                for (var jt = Gt[Wt], zt = jt.length, Vt = Yt, qt = "", Kt = void 0, Qt = 0, Zt; Qt < Wt; Qt++)
+                    Zt = "gl_FragColor += texture2D(uSampler, vBlurTexCoords[%index%]) * %value%;".replace("%index%", Qt),
+                    Kt = Qt,
+                    Qt >= zt && (Kt = Wt - Qt - 1),
+                    qt += Zt = Zt.replace("%value%", jt[Kt]),
                     qt += "\n";
                 return Vt = Vt.replace("%blur%", qt),
                 Vt = Vt.replace("%size%", Wt)
@@ -20099,9 +20099,9 @@ function(Bt) {
             Ht.default = function(Yt, Wt) {
                 var jt = Math.ceil(Yt / 2), zt = Gt, Vt = "", qt;
                 qt = Wt ? "vBlurTexCoords[%index%] = aTextureCoord + vec2(%sampleIndex% * strength, 0.0);" : "vBlurTexCoords[%index%] = aTextureCoord + vec2(0.0, %sampleIndex% * strength);";
-                for (var Kt = 0, Zt; Kt < Yt; Kt++)
-                    Zt = qt.replace("%index%", Kt),
-                    Vt += Zt = Zt.replace("%sampleIndex%", Kt - (jt - 1) + ".0"),
+                for (var Kt = 0, Qt; Kt < Yt; Kt++)
+                    Qt = qt.replace("%index%", Kt),
+                    Vt += Qt = Qt.replace("%sampleIndex%", Kt - (jt - 1) + ".0"),
                     Vt += "\n";
                 return zt = zt.replace("%blur%", Vt),
                 zt = zt.replace("%size%", Yt)
@@ -20230,24 +20230,24 @@ function(Bt) {
                 zt.prototype.hue = function(Vt, qt) {
                     Vt = (Vt || 0) / 180 * Math.PI;
                     var Kt = Math.cos(Vt)
-                      , Zt = Math.sin(Vt)
-                      , Qt = (0,
+                      , Qt = Math.sin(Vt)
+                      , Zt = (0,
                     Math.sqrt)(1 / 3);
-                    this._loadMatrix([Kt + 1 / 3 * (1 - Kt), 1 / 3 * (1 - Kt) - Qt * Zt, 1 / 3 * (1 - Kt) + Qt * Zt, 0, 0, 1 / 3 * (1 - Kt) + Qt * Zt, Kt + 1 / 3 * (1 - Kt), 1 / 3 * (1 - Kt) - Qt * Zt, 0, 0, 1 / 3 * (1 - Kt) - Qt * Zt, 1 / 3 * (1 - Kt) + Qt * Zt, Kt + 1 / 3 * (1 - Kt), 0, 0, 0, 0, 0, 1, 0], qt)
+                    this._loadMatrix([Kt + 1 / 3 * (1 - Kt), 1 / 3 * (1 - Kt) - Zt * Qt, 1 / 3 * (1 - Kt) + Zt * Qt, 0, 0, 1 / 3 * (1 - Kt) + Zt * Qt, Kt + 1 / 3 * (1 - Kt), 1 / 3 * (1 - Kt) - Zt * Qt, 0, 0, 1 / 3 * (1 - Kt) - Zt * Qt, 1 / 3 * (1 - Kt) + Zt * Qt, Kt + 1 / 3 * (1 - Kt), 0, 0, 0, 0, 0, 1, 0], qt)
                 }
                 ,
                 zt.prototype.contrast = function(Vt, qt) {
                     var Kt = (Vt || 0) + 1
-                      , Zt = -.5 * (Kt - 1);
-                    this._loadMatrix([Kt, 0, 0, 0, Zt, 0, Kt, 0, 0, Zt, 0, 0, Kt, 0, Zt, 0, 0, 0, 1, 0], qt)
+                      , Qt = -.5 * (Kt - 1);
+                    this._loadMatrix([Kt, 0, 0, 0, Qt, 0, Kt, 0, 0, Qt, 0, 0, Kt, 0, Qt, 0, 0, 0, 1, 0], qt)
                 }
                 ,
                 zt.prototype.saturate = function() {
                     var Vt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : 0
                       , qt = arguments[1]
                       , Kt = 2 * Vt / 3 + 1
-                      , Zt = -.5 * (Kt - 1);
-                    this._loadMatrix([Kt, Zt, Zt, 0, 0, Zt, Kt, Zt, 0, 0, Zt, Zt, Kt, 0, 0, 0, 0, 0, 1, 0], qt)
+                      , Qt = -.5 * (Kt - 1);
+                    this._loadMatrix([Kt, Qt, Qt, 0, 0, Qt, Kt, Qt, 0, 0, Qt, Qt, Kt, 0, 0, 0, 0, 0, 1, 0], qt)
                 }
                 ,
                 zt.prototype.desaturate = function() {
@@ -20286,17 +20286,17 @@ function(Bt) {
                     this._loadMatrix([0.6279345635605994, 0.3202183420819367, -0.03965408211312453, 0, 9.651285835294123, 0.02578397704808868, 0.6441188644374771, 0.03259127616149294, 0, 7.462829176470591, 0.0466055556782719, -0.0851232987247891, 0.5241648018700465, 0, 5.159190588235296, 0, 0, 0, 1, 0], Vt)
                 }
                 ,
-                zt.prototype.colorTone = function(Vt, qt, Kt, Zt, Qt) {
+                zt.prototype.colorTone = function(Vt, qt, Kt, Qt, Zt) {
                     Vt = Vt || .2,
                     qt = qt || .15;
                     var Jt = (255 & (Kt = Kt || 16770432) >> 16) / 255
                       , $t = (255 & Kt >> 8) / 255
                       , en = (255 & Kt) / 255
-                      , tn = (255 & (Zt = Zt || 3375104) >> 16) / 255
-                      , nn = (255 & Zt >> 8) / 255
-                      , rn = (255 & Zt) / 255
+                      , tn = (255 & (Qt = Qt || 3375104) >> 16) / 255
+                      , nn = (255 & Qt >> 8) / 255
+                      , rn = (255 & Qt) / 255
                       , an = [.3, .59, .11, 0, 0, Jt, $t, en, Vt, 0, tn, nn, rn, qt, 0, Jt - tn, $t - nn, en - rn, 0, 0];
-                    this._loadMatrix(an, Qt)
+                    this._loadMatrix(an, Zt)
                 }
                 ,
                 zt.prototype.night = function(Vt, qt) {
@@ -20372,28 +20372,28 @@ function(Bt) {
               , Wt = (Bt("path"),
             function(jt) {
                 function zt(Vt, qt) {
-                    !function(Qt, Jt) {
-                        if (!(Qt instanceof Jt))
+                    !function(Zt, Jt) {
+                        if (!(Zt instanceof Jt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, zt);
                     var Kt = new Yt.Matrix;
                     Vt.renderable = !1;
-                    var Zt = function(Qt, Jt) {
-                        if (!Qt)
+                    var Qt = function(Zt, Jt) {
+                        if (!Zt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Jt && ("object" == typeof Jt || "function" == typeof Jt) ? Jt : Qt
+                        return Jt && ("object" == typeof Jt || "function" == typeof Jt) ? Jt : Zt
                     }(this, jt.call(this, "attribute vec2 aVertexPosition;\nattribute vec2 aTextureCoord;\n\nuniform mat3 projectionMatrix;\nuniform mat3 filterMatrix;\n\nvarying vec2 vTextureCoord;\nvarying vec2 vFilterCoord;\n\nvoid main(void)\n{\n   gl_Position = vec4((projectionMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);\n   vFilterCoord = ( filterMatrix * vec3( aTextureCoord, 1.0)  ).xy;\n   vTextureCoord = aTextureCoord;\n}", "varying vec2 vFilterCoord;\nvarying vec2 vTextureCoord;\n\nuniform vec2 scale;\n\nuniform sampler2D uSampler;\nuniform sampler2D mapSampler;\n\nuniform vec4 filterClamp;\n\nvoid main(void)\n{\n   vec4 map =  texture2D(mapSampler, vFilterCoord);\n\n   map -= 0.5;\n   map.xy *= scale;\n\n   gl_FragColor = texture2D(uSampler, clamp(vec2(vTextureCoord.x + map.x, vTextureCoord.y + map.y), filterClamp.xy, filterClamp.zw));\n}\n"));
-                    return Zt.maskSprite = Vt,
-                    Zt.maskMatrix = Kt,
-                    Zt.uniforms.mapSampler = Vt._texture,
-                    Zt.uniforms.filterMatrix = Kt,
-                    Zt.uniforms.scale = {
+                    return Qt.maskSprite = Vt,
+                    Qt.maskMatrix = Kt,
+                    Qt.uniforms.mapSampler = Vt._texture,
+                    Qt.uniforms.filterMatrix = Kt,
+                    Qt.uniforms.scale = {
                         x: 1,
                         y: 1
                     },
                     null !== qt && void 0 !== qt || (qt = 20),
-                    Zt.scale = new Yt.Point(qt,qt),
-                    Zt
+                    Qt.scale = new Yt.Point(qt,qt),
+                    Qt
                 }
                 return function(Vt, qt) {
                     if ("function" != typeof qt && null !== qt)
@@ -20409,10 +20409,10 @@ function(Bt) {
                     qt && (Object.setPrototypeOf ? Object.setPrototypeOf(Vt, qt) : Vt.__proto__ = qt)
                 }(zt, jt),
                 zt.prototype.apply = function(Vt, qt, Kt) {
-                    var Zt = 1 / Kt.destinationFrame.width * (Kt.size.width / qt.size.width);
+                    var Qt = 1 / Kt.destinationFrame.width * (Kt.size.width / qt.size.width);
                     this.uniforms.filterMatrix = Vt.calculateSpriteMatrix(this.maskMatrix, this.maskSprite),
-                    this.uniforms.scale.x = this.scale.x * Zt,
-                    this.uniforms.scale.y = this.scale.y * Zt,
+                    this.uniforms.scale.x = this.scale.x * Qt,
+                    this.uniforms.scale.y = this.scale.y * Qt,
                     Vt.applyFilter(this, qt, Kt)
                 }
                 ,
@@ -20480,9 +20480,9 @@ function(Bt) {
             path: 23
         }],
         152: [function(Bt, Xt, Ht) {
-            function Gt(Qt) {
-                return Qt && Qt.__esModule ? Qt : {
-                    default: Qt
+            function Gt(Zt) {
+                return Zt && Zt.__esModule ? Zt : {
+                    default: Zt
                 }
             }
             Ht.__esModule = !0;
@@ -20535,11 +20535,11 @@ function(Bt) {
                     return Gt(Kt).default
                 }
             });
-            var Zt = Bt("./void/VoidFilter");
+            var Qt = Bt("./void/VoidFilter");
             Object.defineProperty(Ht, "VoidFilter", {
                 enumerable: !0,
                 get: function() {
-                    return Gt(Zt).default
+                    return Gt(Qt).default
                 }
             })
         }
@@ -20585,14 +20585,14 @@ function(Bt) {
                 function zt() {
                     var Vt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : .5
                       , qt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : Math.random();
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, zt);
-                    var Kt = function(Zt, Qt) {
-                        if (!Zt)
+                    var Kt = function(Qt, Zt) {
+                        if (!Qt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Qt && ("object" == typeof Qt || "function" == typeof Qt) ? Qt : Zt
+                        return Zt && ("object" == typeof Zt || "function" == typeof Zt) ? Zt : Qt
                     }(this, jt.call(this, "attribute vec2 aVertexPosition;\nattribute vec2 aTextureCoord;\n\nuniform mat3 projectionMatrix;\n\nvarying vec2 vTextureCoord;\n\nvoid main(void)\n{\n    gl_Position = vec4((projectionMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);\n    vTextureCoord = aTextureCoord;\n}", "precision highp float;\n\nvarying vec2 vTextureCoord;\nvarying vec4 vColor;\n\nuniform float uNoise;\nuniform float uSeed;\nuniform sampler2D uSampler;\n\nfloat rand(vec2 co)\n{\n    return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);\n}\n\nvoid main()\n{\n    vec4 color = texture2D(uSampler, vTextureCoord);\n    float randomValue = rand(gl_FragCoord.xy * uSeed);\n    float diff = (randomValue - 0.5) * uNoise;\n\n    // Un-premultiply alpha before applying the color matrix. See issue #3539.\n    if (color.a > 0.0) {\n        color.rgb /= color.a;\n    }\n\n    color.r += diff;\n    color.g += diff;\n    color.b += diff;\n\n    // Premultiply alpha again.\n    color.rgb *= color.a;\n\n    gl_FragColor = color;\n}\n"));
                     return Kt.noise = Vt,
                     Kt.seed = qt,
@@ -20828,8 +20828,8 @@ function(Bt) {
               , qt = Gt(Bt("eventemitter3"))
               , Kt = Gt(Bt("./interactiveTarget"));
             Wt.utils.mixins.delayMixin(Wt.DisplayObject.prototype, Kt.default);
-            var Zt = "MOUSE"
-              , Qt = {
+            var Qt = "MOUSE"
+              , Zt = {
                 target: null,
                 data: {
                     global: null
@@ -20851,10 +20851,10 @@ function(Bt) {
                     rn.autoPreventDefault = void 0 === nn.autoPreventDefault || nn.autoPreventDefault,
                     rn.interactionFrequency = nn.interactionFrequency || 10,
                     rn.mouse = new jt.default,
-                    rn.mouse.identifier = Zt,
+                    rn.mouse.identifier = Qt,
                     rn.mouse.global.set(-999999),
                     rn.activeInteractionData = {},
-                    rn.activeInteractionData[Zt] = rn.mouse,
+                    rn.activeInteractionData[Qt] = rn.mouse,
                     rn.interactionDataPool = [],
                     rn.eventData = new zt.default,
                     rn.interactionDOMElement = null,
@@ -20899,11 +20899,11 @@ function(Bt) {
                     nn && (Object.setPrototypeOf ? Object.setPrototypeOf(tn, nn) : tn.__proto__ = nn)
                 }(en, $t),
                 en.prototype.hitTest = function(tn, nn) {
-                    return Qt.target = null,
-                    Qt.data.global = tn,
+                    return Zt.target = null,
+                    Zt.data.global = tn,
                     nn || (nn = this.renderer._lastObjectRendered),
-                    this.processInteractive(Qt, nn, null, !0),
-                    Qt.target
+                    this.processInteractive(Zt, nn, null, !0),
+                    Zt.target
                 }
                 ,
                 en.prototype.setTargetElement = function(tn) {
@@ -21206,7 +21206,7 @@ function(Bt) {
                 ,
                 en.prototype.getInteractionDataForPointerId = function(tn) {
                     var nn = tn.pointerId, rn;
-                    return nn === Zt || "mouse" === tn.pointerType ? rn = this.mouse : this.activeInteractionData[nn] ? rn = this.activeInteractionData[nn] : ((rn = this.interactionDataPool.pop() || new jt.default).identifier = nn,
+                    return nn === Qt || "mouse" === tn.pointerType ? rn = this.mouse : this.activeInteractionData[nn] ? rn = this.activeInteractionData[nn] : ((rn = this.interactionDataPool.pop() || new jt.default).identifier = nn,
                     this.activeInteractionData[nn] = rn),
                     rn._copyEvent(tn),
                     rn
@@ -21259,7 +21259,7 @@ function(Bt) {
                         void 0 === tn.tiltX && (tn.tiltX = 0),
                         void 0 === tn.tiltY && (tn.tiltY = 0),
                         void 0 === tn.pointerType && (tn.pointerType = "mouse"),
-                        void 0 === tn.pointerId && (tn.pointerId = Zt),
+                        void 0 === tn.pointerId && (tn.pointerId = Qt),
                         void 0 === tn.pressure && (tn.pressure = .5),
                         tn.twist = 0,
                         tn.tangentialPressure = 0,
@@ -21473,18 +21473,18 @@ function(Bt) {
                         Vt.isDataUrl && ("." === Kt && (Kt = ""),
                         this.baseUrl && Kt && "/" === this.baseUrl.charAt(this.baseUrl.length - 1) && (Kt += "/")),
                         (Kt = Kt.replace(this.baseUrl, "")) && "/" !== Kt.charAt(Kt.length - 1) && (Kt += "/");
-                        var Zt = Kt + Vt.data.getElementsByTagName("page")[0].getAttribute("file");
-                        if (Wt.utils.TextureCache[Zt])
-                            Gt(Vt, Wt.utils.TextureCache[Zt]),
+                        var Qt = Kt + Vt.data.getElementsByTagName("page")[0].getAttribute("file");
+                        if (Wt.utils.TextureCache[Qt])
+                            Gt(Vt, Wt.utils.TextureCache[Qt]),
                             qt();
                         else {
-                            var Qt = {
+                            var Zt = {
                                 crossOrigin: Vt.crossOrigin,
                                 loadType: jt.Resource.LOAD_TYPE.IMAGE,
                                 metadata: Vt.metadata.imageMetadata,
                                 parentResource: Vt
                             };
-                            this.add(Vt.name + "_image", Zt, Qt, function(Jt) {
+                            this.add(Vt.name + "_image", Qt, Zt, function(Jt) {
                                 Gt(Vt, Jt.texture),
                                 qt()
                             })
@@ -21515,9 +21515,9 @@ function(Bt) {
             "resource-loader": 36
         }],
         162: [function(Bt, Xt, Ht) {
-            function Gt(Qt) {
-                return Qt && Qt.__esModule ? Qt : {
-                    default: Qt
+            function Gt(Zt) {
+                return Zt && Zt.__esModule ? Zt : {
+                    default: Zt
                 }
             }
             Ht.__esModule = !0,
@@ -21569,22 +21569,22 @@ function(Bt) {
             Kt.destroy = function() {}
             ,
             Ht.shared = Kt;
-            var Zt = Vt.default.prototype;
-            Zt._loader = null,
-            Object.defineProperty(Zt, "loader", {
+            var Qt = Vt.default.prototype;
+            Qt._loader = null,
+            Object.defineProperty(Qt, "loader", {
                 get: function() {
                     if (!this._loader) {
-                        var Qt = this._options.sharedLoader;
-                        this._loader = Qt ? Kt : new qt.default
+                        var Zt = this._options.sharedLoader;
+                        this._loader = Zt ? Kt : new qt.default
                     }
                     return this._loader
                 }
             }),
-            Zt._parentDestroy = Zt.destroy,
-            Zt.destroy = function(Qt) {
+            Qt._parentDestroy = Qt.destroy,
+            Qt.destroy = function(Zt) {
                 this._loader && (this._loader.destroy(),
                 this._loader = null),
-                this._parentDestroy(Qt)
+                this._parentDestroy(Zt)
             }
         }
         , {
@@ -21663,12 +21663,12 @@ function(Bt) {
                 ,
                 $t
             }(Yt.default);
-            for (var Zt in Ht.default = Kt,
+            for (var Qt in Ht.default = Kt,
             jt.default.prototype)
-                Kt.prototype[Zt] = jt.default.prototype[Zt];
+                Kt.prototype[Qt] = jt.default.prototype[Qt];
             Kt._pixiMiddleware = [Wt.blobMiddlewareFactory, zt.default, Vt.default, qt.default];
-            var Qt = Yt.default.Resource;
-            Qt.setExtensionXhrType("fnt", Qt.XHR_RESPONSE_TYPE.DOCUMENT)
+            var Zt = Yt.default.Resource;
+            Zt.setExtensionXhrType("fnt", Zt.XHR_RESPONSE_TYPE.DOCUMENT)
         }
         , {
             "./bitmapFontParser": 161,
@@ -21693,9 +21693,9 @@ function(Bt) {
                             metadata: zt.metadata.imageMetadata,
                             parentResource: zt
                         }
-                          , Zt = Gt(zt, this.baseUrl);
-                        this.add(qt, Zt, Kt, function(Qt) {
-                            var Jt = new jt.Spritesheet(Qt.texture.baseTexture,zt.data,zt.url);
+                          , Qt = Gt(zt, this.baseUrl);
+                        this.add(qt, Qt, Kt, function(Zt) {
+                            var Jt = new jt.Spritesheet(Zt.texture.baseTexture,zt.data,zt.url);
                             Jt.parse(function() {
                                 zt.spritesheet = Jt,
                                 zt.textures = Jt.textures,
@@ -21744,17 +21744,17 @@ function(Bt) {
         166: [function(Bt, Xt, Ht) {
             Ht.__esModule = !0;
             var Gt = function() {
-                function qt(Kt, Zt) {
-                    for (var Qt = 0, Jt; Qt < Zt.length; Qt++)
-                        Jt = Zt[Qt],
+                function qt(Kt, Qt) {
+                    for (var Zt = 0, Jt; Zt < Qt.length; Zt++)
+                        Jt = Qt[Zt],
                         Jt.enumerable = Jt.enumerable || !1,
                         Jt.configurable = !0,
                         "value"in Jt && (Jt.writable = !0),
                         Object.defineProperty(Kt, Jt.key, Jt)
                 }
-                return function(Kt, Zt, Qt) {
-                    return Zt && qt(Kt.prototype, Zt),
-                    Qt && qt(Kt, Qt),
+                return function(Kt, Qt, Zt) {
+                    return Qt && qt(Kt.prototype, Qt),
+                    Zt && qt(Kt, Zt),
                     Kt
                 }
             }()
@@ -21763,8 +21763,8 @@ function(Bt) {
                     return qt;
                 var Kt = {};
                 if (null != qt)
-                    for (var Zt in qt)
-                        Object.prototype.hasOwnProperty.call(qt, Zt) && (Kt[Zt] = qt[Zt]);
+                    for (var Qt in qt)
+                        Object.prototype.hasOwnProperty.call(qt, Qt) && (Kt[Qt] = qt[Qt]);
                 return Kt.default = qt,
                 Kt
             }(Bt("../core"))
@@ -21776,7 +21776,7 @@ function(Bt) {
               , jt = new Yt.Point
               , zt = new Yt.Polygon
               , Vt = function(qt) {
-                function Kt(Zt, Qt, Jt, $t, en) {
+                function Kt(Qt, Zt, Jt, $t, en) {
                     !function(nn, rn) {
                         if (!(nn instanceof rn))
                             throw new TypeError("Cannot call a class as a function")
@@ -21786,9 +21786,9 @@ function(Bt) {
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return rn && ("object" == typeof rn || "function" == typeof rn) ? rn : nn
                     }(this, qt.call(this));
-                    return tn._texture = Zt,
+                    return tn._texture = Qt,
                     tn.uvs = Jt || new Float32Array([0, 0, 1, 0, 1, 1, 0, 1]),
-                    tn.vertices = Qt || new Float32Array([0, 0, 100, 0, 100, 100, 0, 100]),
+                    tn.vertices = Zt || new Float32Array([0, 0, 100, 0, 100, 100, 0, 100]),
                     tn.indices = $t || new Uint16Array([0, 1, 3, 2]),
                     tn.dirty = 0,
                     tn.indexDirty = 0,
@@ -21798,33 +21798,33 @@ function(Bt) {
                     tn.shader = null,
                     tn.tintRgb = new Float32Array([1, 1, 1]),
                     tn._glDatas = {},
-                    tn._uvTransform = new Wt.default(Zt),
+                    tn._uvTransform = new Wt.default(Qt),
                     tn.uploadUvTransform = !1,
                     tn.pluginName = "mesh",
                     tn
                 }
-                return function(Zt, Qt) {
-                    if ("function" != typeof Qt && null !== Qt)
-                        throw new TypeError("Super expression must either be null or a function, not " + typeof Qt);
-                    Zt.prototype = Object.create(Qt && Qt.prototype, {
+                return function(Qt, Zt) {
+                    if ("function" != typeof Zt && null !== Zt)
+                        throw new TypeError("Super expression must either be null or a function, not " + typeof Zt);
+                    Qt.prototype = Object.create(Zt && Zt.prototype, {
                         constructor: {
-                            value: Zt,
+                            value: Qt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Qt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Qt) : Zt.__proto__ = Qt)
+                    Zt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Zt) : Qt.__proto__ = Zt)
                 }(Kt, qt),
-                Kt.prototype._renderWebGL = function(Zt) {
+                Kt.prototype._renderWebGL = function(Qt) {
                     this.refresh(),
-                    Zt.setObjectRenderer(Zt.plugins[this.pluginName]),
-                    Zt.plugins[this.pluginName].render(this)
+                    Qt.setObjectRenderer(Qt.plugins[this.pluginName]),
+                    Qt.plugins[this.pluginName].render(this)
                 }
                 ,
-                Kt.prototype._renderCanvas = function(Zt) {
+                Kt.prototype._renderCanvas = function(Qt) {
                     this.refresh(),
-                    Zt.plugins[this.pluginName].render(this)
+                    Qt.plugins[this.pluginName].render(this)
                 }
                 ,
                 Kt.prototype._onTextureUpdate = function() {
@@ -21836,8 +21836,8 @@ function(Bt) {
                     this.uploadUvTransform || this._uvTransform.multiplyUvs(this.uvs)
                 }
                 ,
-                Kt.prototype.refresh = function(Zt) {
-                    this._uvTransform.update(Zt) && this._refresh()
+                Kt.prototype.refresh = function(Qt) {
+                    this._uvTransform.update(Qt) && this._refresh()
                 }
                 ,
                 Kt.prototype._refresh = function() {}
@@ -21846,20 +21846,20 @@ function(Bt) {
                     this._bounds.addVertices(this.transform, this.vertices, 0, this.vertices.length)
                 }
                 ,
-                Kt.prototype.containsPoint = function(Zt) {
-                    if (!this.getBounds().contains(Zt.x, Zt.y))
+                Kt.prototype.containsPoint = function(Qt) {
+                    if (!this.getBounds().contains(Qt.x, Qt.y))
                         return !1;
-                    this.worldTransform.applyInverse(Zt, jt);
-                    for (var Qt = this.vertices, Jt = zt.points, $t = this.indices, en = this.indices.length, tn = this.drawMode === Kt.DRAW_MODES.TRIANGLES ? 3 : 1, nn = 0; nn + 2 < en; nn += tn) {
+                    this.worldTransform.applyInverse(Qt, jt);
+                    for (var Zt = this.vertices, Jt = zt.points, $t = this.indices, en = this.indices.length, tn = this.drawMode === Kt.DRAW_MODES.TRIANGLES ? 3 : 1, nn = 0; nn + 2 < en; nn += tn) {
                         var rn = 2 * $t[nn]
                           , an = 2 * $t[nn + 1]
                           , on = 2 * $t[nn + 2];
-                        if (Jt[0] = Qt[rn],
-                        Jt[1] = Qt[rn + 1],
-                        Jt[2] = Qt[an],
-                        Jt[3] = Qt[an + 1],
-                        Jt[4] = Qt[on],
-                        Jt[5] = Qt[on + 1],
+                        if (Jt[0] = Zt[rn],
+                        Jt[1] = Zt[rn + 1],
+                        Jt[2] = Zt[an],
+                        Jt[3] = Zt[an + 1],
+                        Jt[4] = Zt[on],
+                        Jt[5] = Zt[on + 1],
                         zt.contains(jt.x, jt.y))
                             return !0
                     }
@@ -21871,17 +21871,17 @@ function(Bt) {
                     get: function() {
                         return this._texture
                     },
-                    set: function(Zt) {
-                        this._texture !== Zt && (this._texture = Zt,
-                        Zt && (Zt.baseTexture.hasLoaded ? this._onTextureUpdate() : Zt.once("update", this._onTextureUpdate, this)))
+                    set: function(Qt) {
+                        this._texture !== Qt && (this._texture = Qt,
+                        Qt && (Qt.baseTexture.hasLoaded ? this._onTextureUpdate() : Qt.once("update", this._onTextureUpdate, this)))
                     }
                 }, {
                     key: "tint",
                     get: function() {
                         return Yt.utils.rgb2hex(this.tintRgb)
                     },
-                    set: function(Zt) {
-                        this.tintRgb = Yt.utils.hex2rgb(Zt, this.tintRgb)
+                    set: function(Qt) {
+                        this.tintRgb = Yt.utils.hex2rgb(Qt, this.tintRgb)
                     }
                 }]),
                 Kt
@@ -21915,7 +21915,7 @@ function(Bt) {
             }()
               , Yt = 10
               , Wt = function(jt) {
-                function zt(Vt, qt, Kt, Zt, Qt) {
+                function zt(Vt, qt, Kt, Qt, Zt) {
                     !function($t, en) {
                         if (!($t instanceof en))
                             throw new TypeError("Cannot call a class as a function")
@@ -21930,9 +21930,9 @@ function(Bt) {
                     Jt._width = Jt._origWidth,
                     Jt._height = Jt._origHeight,
                     Jt.leftWidth = void 0 === qt ? Yt : qt,
-                    Jt.rightWidth = void 0 === Zt ? Yt : Zt,
+                    Jt.rightWidth = void 0 === Qt ? Yt : Qt,
                     Jt.topHeight = void 0 === Kt ? Yt : Kt,
-                    Jt.bottomHeight = void 0 === Qt ? Yt : Qt,
+                    Jt.bottomHeight = void 0 === Zt ? Yt : Zt,
                     Jt.refresh(!0),
                     Jt
                 }
@@ -21967,12 +21967,12 @@ function(Bt) {
                     var qt = Vt.context;
                     qt.globalAlpha = this.worldAlpha;
                     var Kt = this.worldTransform
-                      , Zt = Vt.resolution;
-                    Vt.roundPixels ? qt.setTransform(Kt.a * Zt, Kt.b * Zt, Kt.c * Zt, Kt.d * Zt, 0 | Kt.tx * Zt, 0 | Kt.ty * Zt) : qt.setTransform(Kt.a * Zt, Kt.b * Zt, Kt.c * Zt, Kt.d * Zt, Kt.tx * Zt, Kt.ty * Zt);
-                    var Qt = this._texture.baseTexture
-                      , Jt = Qt.source
-                      , $t = Qt.width
-                      , en = Qt.height;
+                      , Qt = Vt.resolution;
+                    Vt.roundPixels ? qt.setTransform(Kt.a * Qt, Kt.b * Qt, Kt.c * Qt, Kt.d * Qt, 0 | Kt.tx * Qt, 0 | Kt.ty * Qt) : qt.setTransform(Kt.a * Qt, Kt.b * Qt, Kt.c * Qt, Kt.d * Qt, Kt.tx * Qt, Kt.ty * Qt);
+                    var Zt = this._texture.baseTexture
+                      , Jt = Zt.source
+                      , $t = Zt.width
+                      , en = Zt.height;
                     this.drawSegment(qt, Jt, $t, en, 0, 1, 10, 11),
                     this.drawSegment(qt, Jt, $t, en, 2, 3, 12, 13),
                     this.drawSegment(qt, Jt, $t, en, 4, 5, 14, 15),
@@ -21984,18 +21984,18 @@ function(Bt) {
                     this.drawSegment(qt, Jt, $t, en, 20, 21, 30, 31)
                 }
                 ,
-                zt.prototype.drawSegment = function(Vt, qt, Kt, Zt, Qt, Jt, $t, en) {
+                zt.prototype.drawSegment = function(Vt, qt, Kt, Qt, Zt, Jt, $t, en) {
                     var tn = this.uvs
                       , nn = this.vertices
-                      , rn = (tn[$t] - tn[Qt]) * Kt
-                      , an = (tn[en] - tn[Jt]) * Zt
-                      , on = nn[$t] - nn[Qt]
+                      , rn = (tn[$t] - tn[Zt]) * Kt
+                      , an = (tn[en] - tn[Jt]) * Qt
+                      , on = nn[$t] - nn[Zt]
                       , sn = nn[en] - nn[Jt];
                     1 > rn && (rn = 1),
                     1 > an && (an = 1),
                     1 > on && (on = 1),
                     1 > sn && (sn = 1),
-                    Vt.drawImage(qt, tn[Qt] * Kt, tn[Jt] * Zt, rn, an, nn[Qt], nn[Jt], on, sn)
+                    Vt.drawImage(qt, tn[Zt] * Kt, tn[Jt] * Qt, rn, an, nn[Zt], nn[Jt], on, sn)
                 }
                 ,
                 zt.prototype._refresh = function() {
@@ -22005,15 +22005,15 @@ function(Bt) {
                     this._origWidth = qt.orig.width,
                     this._origHeight = qt.orig.height;
                     var Kt = 1 / this._origWidth
-                      , Zt = 1 / this._origHeight;
+                      , Qt = 1 / this._origHeight;
                     Vt[0] = Vt[8] = Vt[16] = Vt[24] = 0,
                     Vt[1] = Vt[3] = Vt[5] = Vt[7] = 0,
                     Vt[6] = Vt[14] = Vt[22] = Vt[30] = 1,
                     Vt[25] = Vt[27] = Vt[29] = Vt[31] = 1,
                     Vt[2] = Vt[10] = Vt[18] = Vt[26] = Kt * this._leftWidth,
                     Vt[4] = Vt[12] = Vt[20] = Vt[28] = 1 - Kt * this._rightWidth,
-                    Vt[9] = Vt[11] = Vt[13] = Vt[15] = Zt * this._topHeight,
-                    Vt[17] = Vt[19] = Vt[21] = Vt[23] = 1 - Zt * this._bottomHeight,
+                    Vt[9] = Vt[11] = Vt[13] = Vt[15] = Qt * this._topHeight,
+                    Vt[17] = Vt[19] = Vt[21] = Vt[23] = 1 - Qt * this._bottomHeight,
                     this.updateHorizontalVertices(),
                     this.updateVerticalVertices(),
                     this.dirty++,
@@ -22095,14 +22095,14 @@ function(Bt) {
             }(Bt("./Mesh"))
               , Yt = function(Wt) {
                 function jt(zt, Vt, qt) {
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, jt);
-                    var Kt = function(Zt, Qt) {
-                        if (!Zt)
+                    var Kt = function(Qt, Zt) {
+                        if (!Qt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Qt && ("object" == typeof Qt || "function" == typeof Qt) ? Qt : Zt
+                        return Zt && ("object" == typeof Zt || "function" == typeof Zt) ? Zt : Qt
                     }(this, Wt.call(this, zt));
                     return Kt._ready = !0,
                     Kt.verticesX = Vt || 10,
@@ -22125,26 +22125,26 @@ function(Bt) {
                     Vt && (Object.setPrototypeOf ? Object.setPrototypeOf(zt, Vt) : zt.__proto__ = Vt)
                 }(jt, Wt),
                 jt.prototype._refresh = function() {
-                    for (var zt = this._texture, Vt = this.verticesX * this.verticesY, qt = [], Kt = [], Zt = [], Qt = this.verticesX - 1, Jt = this.verticesY - 1, $t = zt.width / Qt, en = zt.height / Jt, tn = 0; tn < Vt; tn++) {
+                    for (var zt = this._texture, Vt = this.verticesX * this.verticesY, qt = [], Kt = [], Qt = [], Zt = this.verticesX - 1, Jt = this.verticesY - 1, $t = zt.width / Zt, en = zt.height / Jt, tn = 0; tn < Vt; tn++) {
                         var nn = tn % this.verticesX
                           , rn = 0 | tn / this.verticesX;
                         qt.push(nn * $t, rn * en),
-                        Kt.push(nn / Qt, rn / Jt)
+                        Kt.push(nn / Zt, rn / Jt)
                     }
-                    for (var on = 0; on < Qt * Jt; on++) {
-                        var sn = on % Qt
-                          , dn = 0 | on / Qt
+                    for (var on = 0; on < Zt * Jt; on++) {
+                        var sn = on % Zt
+                          , dn = 0 | on / Zt
                           , ln = dn * this.verticesX + sn
                           , un = dn * this.verticesX + sn + 1
                           , pn = (dn + 1) * this.verticesX + sn
                           , cn = (dn + 1) * this.verticesX + sn + 1;
-                        Zt.push(ln, un, pn),
-                        Zt.push(un, cn, pn)
+                        Qt.push(ln, un, pn),
+                        Qt.push(un, cn, pn)
                     }
                     this.vertices = new Float32Array(qt),
                     this.uvs = new Float32Array(Kt),
                     this.colors = new Float32Array([]),
-                    this.indices = new Uint16Array(Zt),
+                    this.indices = new Uint16Array(Qt),
                     this.indexDirty++,
                     this.multiplyUvs()
                 }
@@ -22214,17 +22214,17 @@ function(Bt) {
                         qt[1] = 1,
                         Vt[0] = 0,
                         Vt[1] = 1;
-                        for (var Kt = jt.length, Zt = 1; Zt < Kt; Zt++) {
-                            var Qt = 4 * Zt
-                              , Jt = Zt / (Kt - 1);
-                            zt[Qt] = Jt,
-                            zt[Qt + 1] = 0,
-                            zt[Qt + 2] = Jt,
-                            zt[Qt + 3] = 1,
-                            qt[Qt = 2 * Zt] = 1,
-                            qt[Qt + 1] = 1,
-                            Vt[Qt = 2 * Zt] = Qt,
-                            Vt[Qt + 1] = Qt + 1
+                        for (var Kt = jt.length, Qt = 1; Qt < Kt; Qt++) {
+                            var Zt = 4 * Qt
+                              , Jt = Qt / (Kt - 1);
+                            zt[Zt] = Jt,
+                            zt[Zt + 1] = 0,
+                            zt[Zt + 2] = Jt,
+                            zt[Zt + 3] = 1,
+                            qt[Zt = 2 * Qt] = 1,
+                            qt[Zt + 1] = 1,
+                            Vt[Zt = 2 * Qt] = Zt,
+                            Vt[Zt + 1] = Zt + 1
                         }
                         this.dirty++,
                         this.indexDirty++,
@@ -22236,12 +22236,12 @@ function(Bt) {
                 Wt.prototype.refreshVertices = function() {
                     var jt = this.points;
                     if (!(1 > jt.length))
-                        for (var zt = jt[0], Vt = void 0, qt = 0, Kt = 0, Zt = this.vertices, Qt = jt.length, Jt = 0; Jt < Qt; Jt++) {
+                        for (var zt = jt[0], Vt = void 0, qt = 0, Kt = 0, Qt = this.vertices, Zt = jt.length, Jt = 0; Jt < Zt; Jt++) {
                             var $t = jt[Jt]
                               , en = 4 * Jt;
                             Kt = -((Vt = Jt < jt.length - 1 ? jt[Jt + 1] : $t).x - zt.x),
                             qt = Vt.y - zt.y;
-                            var tn = 10 * (1 - Jt / (Qt - 1));
+                            var tn = 10 * (1 - Jt / (Zt - 1));
                             1 < tn && (tn = 1);
                             var nn = Math.sqrt(qt * qt + Kt * Kt)
                               , rn = this._texture.height / 2;
@@ -22249,10 +22249,10 @@ function(Bt) {
                             Kt /= nn,
                             qt *= rn,
                             Kt *= rn,
-                            Zt[en] = $t.x + qt,
-                            Zt[en + 1] = $t.y + Kt,
-                            Zt[en + 2] = $t.x - qt,
-                            Zt[en + 3] = $t.y - Kt,
+                            Qt[en] = $t.x + qt,
+                            Qt[en + 1] = $t.y + Kt,
+                            Qt[en + 2] = $t.x - qt,
+                            Qt[en + 3] = $t.y - Kt,
                             zt = $t
                         }
                 }
@@ -22302,8 +22302,8 @@ function(Bt) {
                     var Vt = this.renderer
                       , qt = Vt.context
                       , Kt = zt.worldTransform
-                      , Zt = Vt.resolution;
-                    Vt.roundPixels ? qt.setTransform(Kt.a * Zt, Kt.b * Zt, Kt.c * Zt, Kt.d * Zt, 0 | Kt.tx * Zt, 0 | Kt.ty * Zt) : qt.setTransform(Kt.a * Zt, Kt.b * Zt, Kt.c * Zt, Kt.d * Zt, Kt.tx * Zt, Kt.ty * Zt),
+                      , Qt = Vt.resolution;
+                    Vt.roundPixels ? qt.setTransform(Kt.a * Qt, Kt.b * Qt, Kt.c * Qt, Kt.d * Qt, 0 | Kt.tx * Qt, 0 | Kt.ty * Qt) : qt.setTransform(Kt.a * Qt, Kt.b * Qt, Kt.c * Qt, Kt.d * Qt, Kt.tx * Qt, Kt.ty * Qt),
                     Vt.setBlendMode(zt.blendMode),
                     zt.drawMode === Yt.default.DRAW_MODES.TRIANGLE_MESH ? this._renderTriangleMesh(zt) : this._renderTriangles(zt)
                 }
@@ -22316,35 +22316,35 @@ function(Bt) {
                 ,
                 jt.prototype._renderTriangles = function(zt) {
                     for (var Vt = zt.indices, qt = Vt.length, Kt = 0; Kt < qt; Kt += 3) {
-                        var Zt = 2 * Vt[Kt]
-                          , Qt = 2 * Vt[Kt + 1]
+                        var Qt = 2 * Vt[Kt]
+                          , Zt = 2 * Vt[Kt + 1]
                           , Jt = 2 * Vt[Kt + 2];
-                        this._renderDrawTriangle(zt, Zt, Qt, Jt)
+                        this._renderDrawTriangle(zt, Qt, Zt, Jt)
                     }
                 }
                 ,
                 jt.prototype._renderDrawTriangle = function(zt, Vt, qt, Kt) {
-                    var Zt = this.renderer.context
-                      , Qt = zt.uvs
+                    var Qt = this.renderer.context
+                      , Zt = zt.uvs
                       , Jt = zt.vertices
                       , $t = zt._texture;
                     if ($t.valid) {
                         var en = $t.baseTexture, tn = en.source, nn = en.width, rn = en.height, an, on, sn, dn, ln, un;
                         if (zt.uploadUvTransform) {
                             var pn = zt._uvTransform.mapCoord;
-                            an = (Qt[Vt] * pn.a + Qt[Vt + 1] * pn.c + pn.tx) * en.width,
-                            on = (Qt[qt] * pn.a + Qt[qt + 1] * pn.c + pn.tx) * en.width,
-                            sn = (Qt[Kt] * pn.a + Qt[Kt + 1] * pn.c + pn.tx) * en.width,
-                            dn = (Qt[Vt] * pn.b + Qt[Vt + 1] * pn.d + pn.ty) * en.height,
-                            ln = (Qt[qt] * pn.b + Qt[qt + 1] * pn.d + pn.ty) * en.height,
-                            un = (Qt[Kt] * pn.b + Qt[Kt + 1] * pn.d + pn.ty) * en.height
+                            an = (Zt[Vt] * pn.a + Zt[Vt + 1] * pn.c + pn.tx) * en.width,
+                            on = (Zt[qt] * pn.a + Zt[qt + 1] * pn.c + pn.tx) * en.width,
+                            sn = (Zt[Kt] * pn.a + Zt[Kt + 1] * pn.c + pn.tx) * en.width,
+                            dn = (Zt[Vt] * pn.b + Zt[Vt + 1] * pn.d + pn.ty) * en.height,
+                            ln = (Zt[qt] * pn.b + Zt[qt + 1] * pn.d + pn.ty) * en.height,
+                            un = (Zt[Kt] * pn.b + Zt[Kt + 1] * pn.d + pn.ty) * en.height
                         } else
-                            an = Qt[Vt] * en.width,
-                            on = Qt[qt] * en.width,
-                            sn = Qt[Kt] * en.width,
-                            dn = Qt[Vt + 1] * en.height,
-                            ln = Qt[qt + 1] * en.height,
-                            un = Qt[Kt + 1] * en.height;
+                            an = Zt[Vt] * en.width,
+                            on = Zt[qt] * en.width,
+                            sn = Zt[Kt] * en.width,
+                            dn = Zt[Vt + 1] * en.height,
+                            ln = Zt[qt + 1] * en.height,
+                            un = Zt[Kt + 1] * en.height;
                         var cn = Jt[Vt]
                           , fn = Jt[qt]
                           , hn = Jt[Kt]
@@ -22368,23 +22368,23 @@ function(Bt) {
                             hn = xn + (Tn = hn - xn) / (Sn = Math.sqrt(Tn * Tn + En * En)) * (Sn + _n),
                             yn = vn + En / Sn * (Sn + bn)
                         }
-                        Zt.save(),
-                        Zt.beginPath(),
-                        Zt.moveTo(cn, gn),
-                        Zt.lineTo(fn, mn),
-                        Zt.lineTo(hn, yn),
-                        Zt.closePath(),
-                        Zt.clip();
+                        Qt.save(),
+                        Qt.beginPath(),
+                        Qt.moveTo(cn, gn),
+                        Qt.lineTo(fn, mn),
+                        Qt.lineTo(hn, yn),
+                        Qt.closePath(),
+                        Qt.clip();
                         var wn = an * ln + dn * sn + on * un - ln * sn - dn * on - an * un
                           , Pn = cn * ln + dn * hn + fn * un - ln * hn - dn * fn - cn * un
                           , Cn = an * fn + cn * sn + on * hn - fn * sn - cn * on - an * hn
                           , An = an * ln * hn + dn * fn * sn + cn * on * un - cn * ln * sn - dn * on * hn - an * fn * un
                           , Rn = gn * ln + dn * yn + mn * un - ln * yn - dn * mn - gn * un
-                          , Mn = an * mn + gn * sn + on * yn - mn * sn - gn * on - an * yn
-                          , In = an * ln * yn + dn * mn * sn + gn * on * un - gn * ln * sn - dn * on * yn - an * mn * un;
-                        Zt.transform(Pn / wn, Rn / wn, Cn / wn, Mn / wn, An / wn, In / wn),
-                        Zt.drawImage(tn, 0, 0, nn * en.resolution, rn * en.resolution, 0, 0, nn, rn),
-                        Zt.restore(),
+                          , Dn = an * mn + gn * sn + on * yn - mn * sn - gn * on - an * yn
+                          , Mn = an * ln * yn + dn * mn * sn + gn * on * un - gn * ln * sn - dn * on * yn - an * mn * un;
+                        Qt.transform(Pn / wn, Rn / wn, Cn / wn, Dn / wn, An / wn, Mn / wn),
+                        Qt.drawImage(tn, 0, 0, nn * en.resolution, rn * en.resolution, 0, 0, nn, rn),
+                        Qt.restore(),
                         this.renderer.invalidateBlendMode()
                     }
                 }
@@ -22394,14 +22394,14 @@ function(Bt) {
                       , qt = zt.vertices
                       , Kt = qt.length / 2;
                     Vt.beginPath();
-                    for (var Zt = 1; Zt < Kt - 2; ++Zt) {
-                        var Qt = 2 * Zt
-                          , Jt = qt[Qt]
-                          , $t = qt[Qt + 1]
-                          , en = qt[Qt + 2]
-                          , tn = qt[Qt + 3]
-                          , nn = qt[Qt + 4]
-                          , rn = qt[Qt + 5];
+                    for (var Qt = 1; Qt < Kt - 2; ++Qt) {
+                        var Zt = 2 * Qt
+                          , Jt = qt[Zt]
+                          , $t = qt[Zt + 1]
+                          , en = qt[Zt + 2]
+                          , tn = qt[Zt + 3]
+                          , nn = qt[Zt + 4]
+                          , rn = qt[Zt + 5];
                         Vt.moveTo(Jt, $t),
                         Vt.lineTo(en, tn),
                         Vt.lineTo(nn, rn)
@@ -22494,8 +22494,8 @@ function(Bt) {
                     return qt;
                 var Kt = {};
                 if (null != qt)
-                    for (var Zt in qt)
-                        Object.prototype.hasOwnProperty.call(qt, Zt) && (Kt[Zt] = qt[Zt]);
+                    for (var Qt in qt)
+                        Object.prototype.hasOwnProperty.call(qt, Qt) && (Kt[Qt] = qt[Qt]);
                 return Kt.default = qt,
                 Kt
             }(Bt("../../core"))
@@ -22504,68 +22504,68 @@ function(Bt) {
               , zt = (Bt("path"),
             Yt.Matrix.IDENTITY)
               , Vt = function(qt) {
-                function Kt(Zt) {
+                function Kt(Qt) {
                     !function(Jt, $t) {
                         if (!(Jt instanceof $t))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Kt);
-                    var Qt = function(Jt, $t) {
+                    var Zt = function(Jt, $t) {
                         if (!Jt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return $t && ("object" == typeof $t || "function" == typeof $t) ? $t : Jt
-                    }(this, qt.call(this, Zt));
-                    return Qt.shader = null,
-                    Qt
+                    }(this, qt.call(this, Qt));
+                    return Zt.shader = null,
+                    Zt
                 }
-                return function(Zt, Qt) {
-                    if ("function" != typeof Qt && null !== Qt)
-                        throw new TypeError("Super expression must either be null or a function, not " + typeof Qt);
-                    Zt.prototype = Object.create(Qt && Qt.prototype, {
+                return function(Qt, Zt) {
+                    if ("function" != typeof Zt && null !== Zt)
+                        throw new TypeError("Super expression must either be null or a function, not " + typeof Zt);
+                    Qt.prototype = Object.create(Zt && Zt.prototype, {
                         constructor: {
-                            value: Zt,
+                            value: Qt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Qt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Qt) : Zt.__proto__ = Qt)
+                    Zt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Zt) : Qt.__proto__ = Zt)
                 }(Kt, qt),
                 Kt.prototype.onContextChange = function() {
-                    var Zt = this.renderer.gl;
-                    this.shader = new Yt.Shader(Zt,"attribute vec2 aVertexPosition;\nattribute vec2 aTextureCoord;\n\nuniform mat3 projectionMatrix;\nuniform mat3 translationMatrix;\nuniform mat3 uTransform;\n\nvarying vec2 vTextureCoord;\n\nvoid main(void)\n{\n    gl_Position = vec4((projectionMatrix * translationMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);\n\n    vTextureCoord = (uTransform * vec3(aTextureCoord, 1.0)).xy;\n}\n","varying vec2 vTextureCoord;\nuniform vec4 uColor;\n\nuniform sampler2D uSampler;\n\nvoid main(void)\n{\n    gl_FragColor = texture2D(uSampler, vTextureCoord) * uColor;\n}\n")
+                    var Qt = this.renderer.gl;
+                    this.shader = new Yt.Shader(Qt,"attribute vec2 aVertexPosition;\nattribute vec2 aTextureCoord;\n\nuniform mat3 projectionMatrix;\nuniform mat3 translationMatrix;\nuniform mat3 uTransform;\n\nvarying vec2 vTextureCoord;\n\nvoid main(void)\n{\n    gl_Position = vec4((projectionMatrix * translationMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);\n\n    vTextureCoord = (uTransform * vec3(aTextureCoord, 1.0)).xy;\n}\n","varying vec2 vTextureCoord;\nuniform vec4 uColor;\n\nuniform sampler2D uSampler;\n\nvoid main(void)\n{\n    gl_FragColor = texture2D(uSampler, vTextureCoord) * uColor;\n}\n")
                 }
                 ,
-                Kt.prototype.render = function(Zt) {
-                    var Qt = this.renderer
-                      , Jt = Qt.gl
-                      , $t = Zt._texture;
+                Kt.prototype.render = function(Qt) {
+                    var Zt = this.renderer
+                      , Jt = Zt.gl
+                      , $t = Qt._texture;
                     if ($t.valid) {
-                        var en = Zt._glDatas[Qt.CONTEXT_UID];
-                        en || (Qt.bindVao(null),
+                        var en = Qt._glDatas[Zt.CONTEXT_UID];
+                        en || (Zt.bindVao(null),
                         (en = {
                             shader: this.shader,
-                            vertexBuffer: Wt.default.GLBuffer.createVertexBuffer(Jt, Zt.vertices, Jt.STREAM_DRAW),
-                            uvBuffer: Wt.default.GLBuffer.createVertexBuffer(Jt, Zt.uvs, Jt.STREAM_DRAW),
-                            indexBuffer: Wt.default.GLBuffer.createIndexBuffer(Jt, Zt.indices, Jt.STATIC_DRAW),
+                            vertexBuffer: Wt.default.GLBuffer.createVertexBuffer(Jt, Qt.vertices, Jt.STREAM_DRAW),
+                            uvBuffer: Wt.default.GLBuffer.createVertexBuffer(Jt, Qt.uvs, Jt.STREAM_DRAW),
+                            indexBuffer: Wt.default.GLBuffer.createIndexBuffer(Jt, Qt.indices, Jt.STATIC_DRAW),
                             vao: null,
-                            dirty: Zt.dirty,
-                            indexDirty: Zt.indexDirty
+                            dirty: Qt.dirty,
+                            indexDirty: Qt.indexDirty
                         }).vao = new Wt.default.VertexArrayObject(Jt).addIndex(en.indexBuffer).addAttribute(en.vertexBuffer, en.shader.attributes.aVertexPosition, Jt.FLOAT, !1, 8, 0).addAttribute(en.uvBuffer, en.shader.attributes.aTextureCoord, Jt.FLOAT, !1, 8, 0),
-                        Zt._glDatas[Qt.CONTEXT_UID] = en),
-                        Qt.bindVao(en.vao),
-                        Zt.dirty !== en.dirty && (en.dirty = Zt.dirty,
-                        en.uvBuffer.upload(Zt.uvs)),
-                        Zt.indexDirty !== en.indexDirty && (en.indexDirty = Zt.indexDirty,
-                        en.indexBuffer.upload(Zt.indices)),
-                        en.vertexBuffer.upload(Zt.vertices),
-                        Qt.bindShader(en.shader),
-                        en.shader.uniforms.uSampler = Qt.bindTexture($t),
-                        Qt.state.setBlendMode(Yt.utils.correctBlendMode(Zt.blendMode, $t.baseTexture.premultipliedAlpha)),
-                        en.shader.uniforms.uTransform && (Zt.uploadUvTransform ? en.shader.uniforms.uTransform = Zt._uvTransform.mapCoord.toArray(!0) : en.shader.uniforms.uTransform = zt.toArray(!0)),
-                        en.shader.uniforms.translationMatrix = Zt.worldTransform.toArray(!0),
-                        en.shader.uniforms.uColor = Yt.utils.premultiplyRgba(Zt.tintRgb, Zt.worldAlpha, en.shader.uniforms.uColor, $t.baseTexture.premultipliedAlpha);
-                        var tn = Zt.drawMode === jt.default.DRAW_MODES.TRIANGLE_MESH ? Jt.TRIANGLE_STRIP : Jt.TRIANGLES;
-                        en.vao.draw(tn, Zt.indices.length, 0)
+                        Qt._glDatas[Zt.CONTEXT_UID] = en),
+                        Zt.bindVao(en.vao),
+                        Qt.dirty !== en.dirty && (en.dirty = Qt.dirty,
+                        en.uvBuffer.upload(Qt.uvs)),
+                        Qt.indexDirty !== en.indexDirty && (en.indexDirty = Qt.indexDirty,
+                        en.indexBuffer.upload(Qt.indices)),
+                        en.vertexBuffer.upload(Qt.vertices),
+                        Zt.bindShader(en.shader),
+                        en.shader.uniforms.uSampler = Zt.bindTexture($t),
+                        Zt.state.setBlendMode(Yt.utils.correctBlendMode(Qt.blendMode, $t.baseTexture.premultipliedAlpha)),
+                        en.shader.uniforms.uTransform && (Qt.uploadUvTransform ? en.shader.uniforms.uTransform = Qt._uvTransform.mapCoord.toArray(!0) : en.shader.uniforms.uTransform = zt.toArray(!0)),
+                        en.shader.uniforms.translationMatrix = Qt.worldTransform.toArray(!0),
+                        en.shader.uniforms.uColor = Yt.utils.premultiplyRgba(Qt.tintRgb, Qt.worldAlpha, en.shader.uniforms.uColor, $t.baseTexture.premultipliedAlpha);
+                        var tn = Qt.drawMode === jt.default.DRAW_MODES.TRIANGLE_MESH ? Jt.TRIANGLE_STRIP : Jt.TRIANGLES;
+                        en.vao.draw(tn, Qt.indices.length, 0)
                     }
                 }
                 ,
@@ -22584,12 +22584,12 @@ function(Bt) {
             Ht.__esModule = !0;
             var Gt = function() {
                 function zt(Vt, qt) {
-                    for (var Kt = 0, Zt; Kt < qt.length; Kt++)
-                        Zt = qt[Kt],
-                        Zt.enumerable = Zt.enumerable || !1,
-                        Zt.configurable = !0,
-                        "value"in Zt && (Zt.writable = !0),
-                        Object.defineProperty(Vt, Zt.key, Zt)
+                    for (var Kt = 0, Qt; Kt < qt.length; Kt++)
+                        Qt = qt[Kt],
+                        Qt.enumerable = Qt.enumerable || !1,
+                        Qt.configurable = !0,
+                        "value"in Qt && (Qt.writable = !0),
+                        Object.defineProperty(Vt, Qt.key, Qt)
                 }
                 return function(Vt, qt, Kt) {
                     return qt && zt(Vt.prototype, qt),
@@ -22612,8 +22612,8 @@ function(Bt) {
                 function Vt() {
                     var qt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : 1500
                       , Kt = arguments[1]
-                      , Zt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 16384
-                      , Qt = 3 < arguments.length && void 0 !== arguments[3] && arguments[3];
+                      , Qt = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : 16384
+                      , Zt = 3 < arguments.length && void 0 !== arguments[3] && arguments[3];
                     !function($t, en) {
                         if (!($t instanceof en))
                             throw new TypeError("Cannot call a class as a function")
@@ -22623,16 +22623,16 @@ function(Bt) {
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return en && ("object" == typeof en || "function" == typeof en) ? en : $t
                     }(this, zt.call(this));
-                    return 16384 < Zt && (Zt = 16384),
-                    Zt > qt && (Zt = qt),
+                    return 16384 < Qt && (Qt = 16384),
+                    Qt > qt && (Qt = qt),
                     Jt._properties = [!1, !0, !1, !1, !1],
                     Jt._maxSize = qt,
-                    Jt._batchSize = Zt,
+                    Jt._batchSize = Qt,
                     Jt._glBuffers = {},
                     Jt._bufferToUpdate = 0,
                     Jt.interactiveChildren = !1,
                     Jt.blendMode = Yt.BLEND_MODES.NORMAL,
-                    Jt.autoResize = Qt,
+                    Jt.autoResize = Zt,
                     Jt.roundPixels = !0,
                     Jt.baseTexture = null,
                     Jt.setProperties(Kt),
@@ -22684,8 +22684,8 @@ function(Bt) {
                 Vt.prototype.renderCanvas = function(qt) {
                     if (this.visible && !(0 >= this.worldAlpha) && this.children.length && this.renderable) {
                         var Kt = qt.context
-                          , Zt = this.worldTransform
-                          , Qt = !0
+                          , Qt = this.worldTransform
+                          , Zt = !0
                           , Jt = 0
                           , $t = 0
                           , en = 0
@@ -22699,14 +22699,14 @@ function(Bt) {
                                 var an = rn._texture.frame;
                                 if (Kt.globalAlpha = this.worldAlpha * rn.alpha,
                                 0 == rn.rotation % (2 * Math.PI))
-                                    Qt && (Kt.setTransform(Zt.a, Zt.b, Zt.c, Zt.d, Zt.tx * qt.resolution, Zt.ty * qt.resolution),
-                                    Qt = !1),
+                                    Zt && (Kt.setTransform(Qt.a, Qt.b, Qt.c, Qt.d, Qt.tx * qt.resolution, Qt.ty * qt.resolution),
+                                    Zt = !1),
                                     Jt = rn.anchor.x * (-an.width * rn.scale.x) + rn.position.x + .5,
                                     $t = rn.anchor.y * (-an.height * rn.scale.y) + rn.position.y + .5,
                                     en = an.width * rn.scale.x,
                                     tn = an.height * rn.scale.y;
                                 else {
-                                    Qt || (Qt = !0),
+                                    Zt || (Zt = !0),
                                     rn.displayObjectUpdateTransform();
                                     var on = rn.worldTransform;
                                     qt.roundPixels ? Kt.setTransform(on.a, on.b, on.c, on.d, 0 | on.tx * qt.resolution, 0 | on.ty * qt.resolution) : Kt.setTransform(on.a, on.b, on.c, on.d, on.tx * qt.resolution, on.ty * qt.resolution),
@@ -22785,17 +22785,17 @@ function(Bt) {
             var Yt = Gt(Bt("pixi-gl-core"))
               , Wt = Gt(Bt("../../core/utils/createIndicesForQuads"))
               , jt = function() {
-                function zt(Vt, qt, Kt, Zt) {
+                function zt(Vt, qt, Kt, Qt) {
                     !function($t, en) {
                         if (!($t instanceof en))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, zt),
                     this.gl = Vt,
-                    this.size = Zt,
+                    this.size = Qt,
                     this.dynamicProperties = [],
                     this.staticProperties = [];
-                    for (var Qt = 0, Jt; Qt < qt.length; ++Qt)
-                        Jt = qt[Qt],
+                    for (var Zt = 0, Jt; Zt < qt.length; ++Zt)
+                        Jt = qt[Zt],
                         Jt = {
                             attribute: Jt.attribute,
                             size: Jt.size,
@@ -22803,7 +22803,7 @@ function(Bt) {
                             unsignedByte: Jt.unsignedByte,
                             offset: Jt.offset
                         },
-                        Kt[Qt] ? this.dynamicProperties.push(Jt) : this.staticProperties.push(Jt);
+                        Kt[Zt] ? this.dynamicProperties.push(Jt) : this.staticProperties.push(Jt);
                     this.staticStride = 0,
                     this.staticBuffer = null,
                     this.staticData = null,
@@ -22821,15 +22821,15 @@ function(Bt) {
                     Wt.default)(this.size),
                     this.indexBuffer = Yt.default.GLBuffer.createIndexBuffer(Vt, this.indices, Vt.STATIC_DRAW),
                     this.dynamicStride = 0;
-                    for (var Kt = 0, Zt; Kt < this.dynamicProperties.length; ++Kt)
-                        Zt = this.dynamicProperties[Kt],
-                        Zt.offset = qt,
-                        qt += Zt.size,
-                        this.dynamicStride += Zt.size;
-                    var Qt = new ArrayBuffer(4 * (4 * (this.size * this.dynamicStride)));
-                    this.dynamicData = new Float32Array(Qt),
-                    this.dynamicDataUint32 = new Uint32Array(Qt),
-                    this.dynamicBuffer = Yt.default.GLBuffer.createVertexBuffer(Vt, Qt, Vt.STREAM_DRAW);
+                    for (var Kt = 0, Qt; Kt < this.dynamicProperties.length; ++Kt)
+                        Qt = this.dynamicProperties[Kt],
+                        Qt.offset = qt,
+                        qt += Qt.size,
+                        this.dynamicStride += Qt.size;
+                    var Zt = new ArrayBuffer(4 * (4 * (this.size * this.dynamicStride)));
+                    this.dynamicData = new Float32Array(Zt),
+                    this.dynamicDataUint32 = new Uint32Array(Zt),
+                    this.dynamicBuffer = Yt.default.GLBuffer.createVertexBuffer(Vt, Zt, Vt.STREAM_DRAW);
                     var Jt = 0;
                     this.staticStride = 0;
                     for (var $t = 0, en; $t < this.staticProperties.length; ++$t)
@@ -22851,16 +22851,16 @@ function(Bt) {
                 }
                 ,
                 zt.prototype.uploadDynamic = function(Vt, qt, Kt) {
-                    for (var Zt = 0, Qt; Zt < this.dynamicProperties.length; Zt++)
-                        Qt = this.dynamicProperties[Zt],
-                        Qt.uploadFunction(Vt, qt, Kt, Qt.unsignedByte ? this.dynamicDataUint32 : this.dynamicData, this.dynamicStride, Qt.offset);
+                    for (var Qt = 0, Zt; Qt < this.dynamicProperties.length; Qt++)
+                        Zt = this.dynamicProperties[Qt],
+                        Zt.uploadFunction(Vt, qt, Kt, Zt.unsignedByte ? this.dynamicDataUint32 : this.dynamicData, this.dynamicStride, Zt.offset);
                     this.dynamicBuffer.upload()
                 }
                 ,
                 zt.prototype.uploadStatic = function(Vt, qt, Kt) {
-                    for (var Zt = 0, Qt; Zt < this.staticProperties.length; Zt++)
-                        Qt = this.staticProperties[Zt],
-                        Qt.uploadFunction(Vt, qt, Kt, Qt.unsignedByte ? this.staticDataUint32 : this.staticData, this.staticStride, Qt.offset);
+                    for (var Qt = 0, Zt; Qt < this.staticProperties.length; Qt++)
+                        Zt = this.staticProperties[Qt],
+                        Zt.uploadFunction(Vt, qt, Kt, Zt.unsignedByte ? this.staticDataUint32 : this.staticData, this.staticStride, Zt.offset);
                     this.staticBuffer.upload()
                 }
                 ,
@@ -22893,8 +22893,8 @@ function(Bt) {
                     return qt;
                 var Kt = {};
                 if (null != qt)
-                    for (var Zt in qt)
-                        Object.prototype.hasOwnProperty.call(qt, Zt) && (Kt[Zt] = qt[Zt]);
+                    for (var Qt in qt)
+                        Object.prototype.hasOwnProperty.call(qt, Qt) && (Kt[Qt] = qt[Qt]);
                 return Kt.default = qt,
                 Kt
             }(Bt("../../core"))
@@ -22902,40 +22902,40 @@ function(Bt) {
               , jt = Gt(Bt("./ParticleBuffer"))
               , zt = Bt("../../core/utils")
               , Vt = function(qt) {
-                function Kt(Zt) {
+                function Kt(Qt) {
                     !function(Jt, $t) {
                         if (!(Jt instanceof $t))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Kt);
-                    var Qt = function(Jt, $t) {
+                    var Zt = function(Jt, $t) {
                         if (!Jt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                         return $t && ("object" == typeof $t || "function" == typeof $t) ? $t : Jt
-                    }(this, qt.call(this, Zt));
-                    return Qt.shader = null,
-                    Qt.indexBuffer = null,
-                    Qt.properties = null,
-                    Qt.tempMatrix = new Yt.Matrix,
-                    Qt.CONTEXT_UID = 0,
-                    Qt
+                    }(this, qt.call(this, Qt));
+                    return Zt.shader = null,
+                    Zt.indexBuffer = null,
+                    Zt.properties = null,
+                    Zt.tempMatrix = new Yt.Matrix,
+                    Zt.CONTEXT_UID = 0,
+                    Zt
                 }
-                return function(Zt, Qt) {
-                    if ("function" != typeof Qt && null !== Qt)
-                        throw new TypeError("Super expression must either be null or a function, not " + typeof Qt);
-                    Zt.prototype = Object.create(Qt && Qt.prototype, {
+                return function(Qt, Zt) {
+                    if ("function" != typeof Zt && null !== Zt)
+                        throw new TypeError("Super expression must either be null or a function, not " + typeof Zt);
+                    Qt.prototype = Object.create(Zt && Zt.prototype, {
                         constructor: {
-                            value: Zt,
+                            value: Qt,
                             enumerable: !1,
                             writable: !0,
                             configurable: !0
                         }
                     }),
-                    Qt && (Object.setPrototypeOf ? Object.setPrototypeOf(Zt, Qt) : Zt.__proto__ = Qt)
+                    Zt && (Object.setPrototypeOf ? Object.setPrototypeOf(Qt, Zt) : Qt.__proto__ = Zt)
                 }(Kt, qt),
                 Kt.prototype.onContextChange = function() {
-                    var Zt = this.renderer.gl;
+                    var Qt = this.renderer.gl;
                     this.CONTEXT_UID = this.renderer.CONTEXT_UID,
-                    this.shader = new Wt.default(Zt),
+                    this.shader = new Wt.default(Qt),
                     this.properties = [{
                         attribute: this.shader.attributes.aVertexPosition,
                         size: 2,
@@ -22969,59 +22969,59 @@ function(Bt) {
                     this.renderer.bindShader(this.shader)
                 }
                 ,
-                Kt.prototype.render = function(Zt) {
-                    var Qt = Zt.children
-                      , Jt = Zt._maxSize
-                      , $t = Zt._batchSize
+                Kt.prototype.render = function(Qt) {
+                    var Zt = Qt.children
+                      , Jt = Qt._maxSize
+                      , $t = Qt._batchSize
                       , en = this.renderer
-                      , tn = Qt.length;
+                      , tn = Zt.length;
                     if (0 !== tn) {
                         tn > Jt && (tn = Jt);
-                        var nn = Zt._glBuffers[en.CONTEXT_UID];
-                        nn || (nn = Zt._glBuffers[en.CONTEXT_UID] = this.generateBuffers(Zt));
-                        var rn = Qt[0]._texture.baseTexture;
-                        this.renderer.setBlendMode(Yt.utils.correctBlendMode(Zt.blendMode, rn.premultipliedAlpha));
+                        var nn = Qt._glBuffers[en.CONTEXT_UID];
+                        nn || (nn = Qt._glBuffers[en.CONTEXT_UID] = this.generateBuffers(Qt));
+                        var rn = Zt[0]._texture.baseTexture;
+                        this.renderer.setBlendMode(Yt.utils.correctBlendMode(Qt.blendMode, rn.premultipliedAlpha));
                         var an = en.gl
-                          , on = Zt.worldTransform.copy(this.tempMatrix);
+                          , on = Qt.worldTransform.copy(this.tempMatrix);
                         on.prepend(en._activeRenderTarget.projectionMatrix),
                         this.shader.uniforms.projectionMatrix = on.toArray(!0),
-                        this.shader.uniforms.uColor = Yt.utils.premultiplyRgba(Zt.tintRgb, Zt.worldAlpha, this.shader.uniforms.uColor, rn.premultipliedAlpha),
+                        this.shader.uniforms.uColor = Yt.utils.premultiplyRgba(Qt.tintRgb, Qt.worldAlpha, this.shader.uniforms.uColor, rn.premultipliedAlpha),
                         this.shader.uniforms.uSampler = en.bindTexture(rn);
                         for (var sn = 0, dn = 0, ln; sn < tn; sn += $t,
                         dn += 1) {
                             if (ln = tn - sn,
                             ln > $t && (ln = $t),
                             dn >= nn.length) {
-                                if (!Zt.autoResize)
+                                if (!Qt.autoResize)
                                     break;
-                                nn.push(this._generateOneMoreBuffer(Zt))
+                                nn.push(this._generateOneMoreBuffer(Qt))
                             }
                             var un = nn[dn];
-                            un.uploadDynamic(Qt, sn, ln),
-                            Zt._bufferToUpdate === dn && (un.uploadStatic(Qt, sn, ln),
-                            Zt._bufferToUpdate = dn + 1),
+                            un.uploadDynamic(Zt, sn, ln),
+                            Qt._bufferToUpdate === dn && (un.uploadStatic(Zt, sn, ln),
+                            Qt._bufferToUpdate = dn + 1),
                             en.bindVao(un.vao),
                             un.vao.draw(an.TRIANGLES, 6 * ln)
                         }
                     }
                 }
                 ,
-                Kt.prototype.generateBuffers = function(Zt) {
-                    for (var Qt = this.renderer.gl, Jt = [], $t = Zt._maxSize, en = Zt._batchSize, tn = Zt._properties, nn = 0; nn < $t; nn += en)
-                        Jt.push(new jt.default(Qt,this.properties,tn,en));
+                Kt.prototype.generateBuffers = function(Qt) {
+                    for (var Zt = this.renderer.gl, Jt = [], $t = Qt._maxSize, en = Qt._batchSize, tn = Qt._properties, nn = 0; nn < $t; nn += en)
+                        Jt.push(new jt.default(Zt,this.properties,tn,en));
                     return Jt
                 }
                 ,
-                Kt.prototype._generateOneMoreBuffer = function(Zt) {
-                    var Qt = this.renderer.gl
-                      , Jt = Zt._batchSize
-                      , $t = Zt._properties;
-                    return new jt.default(Qt,this.properties,$t,Jt)
+                Kt.prototype._generateOneMoreBuffer = function(Qt) {
+                    var Zt = this.renderer.gl
+                      , Jt = Qt._batchSize
+                      , $t = Qt._properties;
+                    return new jt.default(Zt,this.properties,$t,Jt)
                 }
                 ,
-                Kt.prototype.uploadVertices = function(Zt, Qt, Jt, $t, en, tn) {
+                Kt.prototype.uploadVertices = function(Qt, Zt, Jt, $t, en, tn) {
                     for (var nn = 0, rn = 0, an = 0, on = 0, sn = 0; sn < Jt; ++sn) {
-                        var dn = Zt[Qt + sn]
+                        var dn = Qt[Zt + sn]
                           , ln = dn._texture
                           , un = dn.scale.x
                           , pn = dn.scale.y
@@ -23044,9 +23044,9 @@ function(Bt) {
                     }
                 }
                 ,
-                Kt.prototype.uploadPosition = function(Zt, Qt, Jt, $t, en, tn) {
+                Kt.prototype.uploadPosition = function(Qt, Zt, Jt, $t, en, tn) {
                     for (var nn = 0, rn; nn < Jt; nn++)
-                        rn = Zt[Qt + nn].position,
+                        rn = Qt[Zt + nn].position,
                         $t[tn] = rn.x,
                         $t[tn + 1] = rn.y,
                         $t[tn + en] = rn.x,
@@ -23058,9 +23058,9 @@ function(Bt) {
                         tn += 4 * en
                 }
                 ,
-                Kt.prototype.uploadRotation = function(Zt, Qt, Jt, $t, en, tn) {
+                Kt.prototype.uploadRotation = function(Qt, Zt, Jt, $t, en, tn) {
                     for (var nn = 0, rn; nn < Jt; nn++)
-                        rn = Zt[Qt + nn].rotation,
+                        rn = Qt[Zt + nn].rotation,
                         $t[tn] = rn,
                         $t[tn + en] = rn,
                         $t[tn + 2 * en] = rn,
@@ -23068,9 +23068,9 @@ function(Bt) {
                         tn += 4 * en
                 }
                 ,
-                Kt.prototype.uploadUvs = function(Zt, Qt, Jt, $t, en, tn) {
+                Kt.prototype.uploadUvs = function(Qt, Zt, Jt, $t, en, tn) {
                     for (var nn = 0, rn; nn < Jt; ++nn)
-                        rn = Zt[Qt + nn]._texture._uvs,
+                        rn = Qt[Zt + nn]._texture._uvs,
                         rn ? ($t[tn] = rn.x0,
                         $t[tn + 1] = rn.y0,
                         $t[tn + en] = rn.x1,
@@ -23090,9 +23090,9 @@ function(Bt) {
                         tn += 4 * en)
                 }
                 ,
-                Kt.prototype.uploadTint = function(Zt, Qt, Jt, $t, en, tn) {
+                Kt.prototype.uploadTint = function(Qt, Zt, Jt, $t, en, tn) {
                     for (var nn = 0; nn < Jt; ++nn) {
-                        var rn = Zt[Qt + nn]
+                        var rn = Qt[Zt + nn]
                           , an = rn._texture.baseTexture.premultipliedAlpha
                           , on = rn.alpha
                           , sn = 1 > on && an ? (0,
@@ -23215,13 +23215,13 @@ function(Bt) {
                     if ("function" != typeof qt)
                         throw new TypeError(qt + "is not a function");
                     var Kt = Date.now()
-                      , Zt = 16 + Wt - Kt;
-                    return 0 > Zt && (Zt = 0),
+                      , Qt = 16 + Wt - Kt;
+                    return 0 > Qt && (Qt = 0),
                     Wt = Kt,
                     setTimeout(function() {
                         Wt = Date.now(),
                         qt(performance.now())
-                    }, Zt)
+                    }, Qt)
                 }
                 ),
                 Gt.cancelAnimationFrame || (Gt.cancelAnimationFrame = function(qt) {
@@ -23293,12 +23293,12 @@ function(Bt) {
                 return en.default = $t,
                 en
             }(Bt("../core"))
-              , Zt = function($t) {
+              , Qt = function($t) {
                 return $t && $t.__esModule ? $t : {
                     default: $t
                 }
             }(Bt("./limiters/CountLimiter"))
-              , Qt = Kt.ticker.shared;
+              , Zt = Kt.ticker.shared;
             Kt.settings.UPLOADS_PER_FRAME = 4;
             var Jt = function() {
                 function $t(en) {
@@ -23307,7 +23307,7 @@ function(Bt) {
                         if (!(nn instanceof rn))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, $t),
-                    this.limiter = new Zt.default(Kt.settings.UPLOADS_PER_FRAME),
+                    this.limiter = new Qt.default(Kt.settings.UPLOADS_PER_FRAME),
                     this.renderer = en,
                     this.uploadHookHelper = null,
                     this.queue = [],
@@ -23333,7 +23333,7 @@ function(Bt) {
                     en && this.add(en),
                     this.queue.length ? (tn && this.completes.push(tn),
                     this.ticking || (this.ticking = !0,
-                    Qt.addOnce(this.tick, this, Kt.UPDATE_PRIORITY.UTILITY))) : tn && tn()
+                    Zt.addOnce(this.tick, this, Kt.UPDATE_PRIORITY.UTILITY))) : tn && tn()
                 }
                 ,
                 $t.prototype.tick = function() {
@@ -23354,7 +23354,7 @@ function(Bt) {
                         tn || this.queue.shift()
                     }
                     if (this.queue.length)
-                        Qt.addOnce(this.tick, this, Kt.UPDATE_PRIORITY.UTILITY);
+                        Zt.addOnce(this.tick, this, Kt.UPDATE_PRIORITY.UTILITY);
                     else {
                         this.ticking = !1;
                         var an = this.completes.slice(0);
@@ -23384,7 +23384,7 @@ function(Bt) {
                 }
                 ,
                 $t.prototype.destroy = function() {
-                    this.ticking && Qt.remove(this.tick, this),
+                    this.ticking && Zt.remove(this.tick, this),
                     this.ticking = !1,
                     this.addHooks = null,
                     this.uploadHooks = null,
@@ -23408,8 +23408,8 @@ function(Bt) {
                 if (Vt instanceof Yt.BaseTexture) {
                     var qt = Vt.source
                       , Kt = 0 === qt.width ? zt.canvas.width : Math.min(zt.canvas.width, qt.width)
-                      , Zt = 0 === qt.height ? zt.canvas.height : Math.min(zt.canvas.height, qt.height);
-                    return zt.ctx.drawImage(qt, 0, 0, Kt, Zt, 0, 0, zt.canvas.width, zt.canvas.height),
+                      , Qt = 0 === qt.height ? zt.canvas.height : Math.min(zt.canvas.height, qt.height);
+                    return zt.ctx.drawImage(qt, 0, 0, Kt, Qt, 0, 0, zt.canvas.width, zt.canvas.height),
                     !0
                 }
                 return !1
@@ -23428,14 +23428,14 @@ function(Bt) {
               , Wt = 16
               , jt = function(zt) {
                 function Vt(qt) {
-                    !function(Zt, Qt) {
-                        if (!(Zt instanceof Qt))
+                    !function(Qt, Zt) {
+                        if (!(Qt instanceof Zt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, Vt);
-                    var Kt = function(Zt, Qt) {
-                        if (!Zt)
+                    var Kt = function(Qt, Zt) {
+                        if (!Qt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Qt && ("object" == typeof Qt || "function" == typeof Qt) ? Qt : Zt
+                        return Zt && ("object" == typeof Zt || "function" == typeof Zt) ? Zt : Qt
                     }(this, zt.call(this, qt));
                     return Kt.uploadHookHelper = Kt,
                     Kt.canvas = document.createElement("canvas"),
@@ -23601,25 +23601,25 @@ function(Bt) {
             }(Bt("../../core"))
               , zt = function(Vt) {
                 function qt(Kt) {
-                    !function(Qt, Jt) {
-                        if (!(Qt instanceof Jt))
+                    !function(Zt, Jt) {
+                        if (!(Zt instanceof Jt))
                             throw new TypeError("Cannot call a class as a function")
                     }(this, qt);
-                    var Zt = function(Qt, Jt) {
-                        if (!Qt)
+                    var Qt = function(Zt, Jt) {
+                        if (!Zt)
                             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                        return Jt && ("object" == typeof Jt || "function" == typeof Jt) ? Jt : Qt
+                        return Jt && ("object" == typeof Jt || "function" == typeof Jt) ? Jt : Zt
                     }(this, Vt.call(this, Kt));
-                    return Zt.uploadHookHelper = Zt.renderer,
-                    Zt.registerFindHook(Wt),
-                    Zt.registerUploadHook(Gt),
-                    Zt.registerUploadHook(Yt),
-                    Zt
+                    return Qt.uploadHookHelper = Qt.renderer,
+                    Qt.registerFindHook(Wt),
+                    Qt.registerUploadHook(Gt),
+                    Qt.registerUploadHook(Yt),
+                    Qt
                 }
-                return function(Kt, Zt) {
-                    if ("function" != typeof Zt && null !== Zt)
-                        throw new TypeError("Super expression must either be null or a function, not " + typeof Zt);
-                    Kt.prototype = Object.create(Zt && Zt.prototype, {
+                return function(Kt, Qt) {
+                    if ("function" != typeof Qt && null !== Qt)
+                        throw new TypeError("Super expression must either be null or a function, not " + typeof Qt);
+                    Kt.prototype = Object.create(Qt && Qt.prototype, {
                         constructor: {
                             value: Kt,
                             enumerable: !1,
@@ -23627,7 +23627,7 @@ function(Bt) {
                             configurable: !0
                         }
                     }),
-                    Zt && (Object.setPrototypeOf ? Object.setPrototypeOf(Kt, Zt) : Kt.__proto__ = Zt)
+                    Qt && (Object.setPrototypeOf ? Object.setPrototypeOf(Kt, Qt) : Kt.__proto__ = Qt)
                 }(qt, Vt),
                 qt
             }(function(Vt) {
@@ -23682,8 +23682,8 @@ function(Bt) {
                   , Vt = Yt(Bt("./accessibility"))
                   , qt = Yt(Bt("./extract"))
                   , Kt = Yt(Bt("./extras"))
-                  , Zt = Yt(Bt("./filters"))
-                  , Qt = Yt(Bt("./interaction"))
+                  , Qt = Yt(Bt("./filters"))
+                  , Zt = Yt(Bt("./interaction"))
                   , Jt = Yt(Bt("./loaders"))
                   , $t = Yt(Bt("./mesh"))
                   , en = Yt(Bt("./particles"))
@@ -23693,8 +23693,8 @@ function(Bt) {
                 Ht.accessibility = Vt,
                 Ht.extract = qt,
                 Ht.extras = Kt,
-                Ht.filters = Zt,
-                Ht.interaction = Qt,
+                Ht.filters = Qt,
+                Ht.interaction = Zt,
                 Ht.loaders = Jt,
                 Ht.mesh = $t,
                 Ht.particles = en,
@@ -23746,38 +23746,38 @@ function() {
             Kt
         },
         volume: function(Kt) {
-            var Zt = this || Xt;
+            var Qt = this || Xt;
             if (Kt = parseFloat(Kt),
-            Zt.ctx || qt(),
+            Qt.ctx || qt(),
             void 0 !== Kt && 0 <= Kt && 1 >= Kt) {
-                if (Zt._volume = Kt,
-                Zt._muted)
-                    return Zt;
-                Zt.usingWebAudio && (Zt.masterGain.gain.value = Kt);
-                for (var Qt = 0; Qt < Zt._howls.length; Qt++)
-                    if (!Zt._howls[Qt]._webAudio)
-                        for (var Jt = Zt._howls[Qt]._getSoundIds(), $t = 0, en; $t < Jt.length; $t++)
-                            en = Zt._howls[Qt]._soundById(Jt[$t]),
+                if (Qt._volume = Kt,
+                Qt._muted)
+                    return Qt;
+                Qt.usingWebAudio && (Qt.masterGain.gain.value = Kt);
+                for (var Zt = 0; Zt < Qt._howls.length; Zt++)
+                    if (!Qt._howls[Zt]._webAudio)
+                        for (var Jt = Qt._howls[Zt]._getSoundIds(), $t = 0, en; $t < Jt.length; $t++)
+                            en = Qt._howls[Zt]._soundById(Jt[$t]),
                             en && en._node && (en._node.volume = en._volume * Kt);
-                return Zt
+                return Qt
             }
-            return Zt._volume
+            return Qt._volume
         },
         mute: function(Kt) {
-            var Zt = this || Xt;
-            Zt.ctx || qt(),
-            Zt._muted = Kt,
-            Zt.usingWebAudio && (Zt.masterGain.gain.value = Kt ? 0 : Zt._volume);
-            for (var Qt = 0; Qt < Zt._howls.length; Qt++)
-                if (!Zt._howls[Qt]._webAudio)
-                    for (var Jt = Zt._howls[Qt]._getSoundIds(), $t = 0, en; $t < Jt.length; $t++)
-                        en = Zt._howls[Qt]._soundById(Jt[$t]),
+            var Qt = this || Xt;
+            Qt.ctx || qt(),
+            Qt._muted = Kt,
+            Qt.usingWebAudio && (Qt.masterGain.gain.value = Kt ? 0 : Qt._volume);
+            for (var Zt = 0; Zt < Qt._howls.length; Zt++)
+                if (!Qt._howls[Zt]._webAudio)
+                    for (var Jt = Qt._howls[Zt]._getSoundIds(), $t = 0, en; $t < Jt.length; $t++)
+                        en = Qt._howls[Zt]._soundById(Jt[$t]),
                         en && en._node && (en._node.muted = !!Kt || en._muted);
-            return Zt
+            return Qt
         },
         unload: function() {
-            for (var Kt = this || Xt, Zt = Kt._howls.length - 1; 0 <= Zt; Zt--)
-                Kt._howls[Zt].unload();
+            for (var Kt = this || Xt, Qt = Kt._howls.length - 1; 0 <= Qt; Qt--)
+                Kt._howls[Qt].unload();
             return Kt.usingWebAudio && Kt.ctx && void 0 !== Kt.ctx.close && (Kt.ctx.close(),
             Kt.ctx = null,
             qt()),
@@ -23794,53 +23794,53 @@ function() {
                 if ("undefined" != typeof Audio)
                     try {
                         void 0 === new Audio().oncanplaythrough && (Kt._canPlayEvent = "canplay")
-                    } catch (Zt) {
+                    } catch (Qt) {
                         Kt.noAudio = !0
                     }
                 else
                     Kt.noAudio = !0;
             try {
                 new Audio().muted && (Kt.noAudio = !0)
-            } catch (Zt) {}
+            } catch (Qt) {}
             return Kt.noAudio || Kt._setupCodecs(),
             Kt
         },
         _setupCodecs: function() {
             var Kt = this || Xt
-              , Zt = null;
+              , Qt = null;
             try {
-                Zt = "undefined" == typeof Audio ? null : new Audio
+                Qt = "undefined" == typeof Audio ? null : new Audio
             } catch (en) {
                 return Kt
             }
-            if (!Zt || "function" != typeof Zt.canPlayType)
+            if (!Qt || "function" != typeof Qt.canPlayType)
                 return Kt;
-            var Qt = Zt.canPlayType("audio/mpeg;").replace(/^no$/, "")
+            var Zt = Qt.canPlayType("audio/mpeg;").replace(/^no$/, "")
               , Jt = Kt._navigator && Kt._navigator.userAgent.match(/OPR\/([0-6].)/g)
               , $t = Jt && 33 > parseInt(Jt[0].split("/")[1], 10);
             return Kt._codecs = {
-                mp3: !$t && (Qt || Zt.canPlayType("audio/mp3;").replace(/^no$/, "")),
-                mpeg: !!Qt,
-                opus: !!Zt.canPlayType("audio/ogg; codecs=\"opus\"").replace(/^no$/, ""),
-                ogg: !!Zt.canPlayType("audio/ogg; codecs=\"vorbis\"").replace(/^no$/, ""),
-                oga: !!Zt.canPlayType("audio/ogg; codecs=\"vorbis\"").replace(/^no$/, ""),
-                wav: !!Zt.canPlayType("audio/wav; codecs=\"1\"").replace(/^no$/, ""),
-                aac: !!Zt.canPlayType("audio/aac;").replace(/^no$/, ""),
-                caf: !!Zt.canPlayType("audio/x-caf;").replace(/^no$/, ""),
-                m4a: !!(Zt.canPlayType("audio/x-m4a;") || Zt.canPlayType("audio/m4a;") || Zt.canPlayType("audio/aac;")).replace(/^no$/, ""),
-                mp4: !!(Zt.canPlayType("audio/x-mp4;") || Zt.canPlayType("audio/mp4;") || Zt.canPlayType("audio/aac;")).replace(/^no$/, ""),
-                weba: !!Zt.canPlayType("audio/webm; codecs=\"vorbis\"").replace(/^no$/, ""),
-                webm: !!Zt.canPlayType("audio/webm; codecs=\"vorbis\"").replace(/^no$/, ""),
-                dolby: !!Zt.canPlayType("audio/mp4; codecs=\"ec-3\"").replace(/^no$/, ""),
-                flac: !!(Zt.canPlayType("audio/x-flac;") || Zt.canPlayType("audio/flac;")).replace(/^no$/, "")
+                mp3: !$t && (Zt || Qt.canPlayType("audio/mp3;").replace(/^no$/, "")),
+                mpeg: !!Zt,
+                opus: !!Qt.canPlayType("audio/ogg; codecs=\"opus\"").replace(/^no$/, ""),
+                ogg: !!Qt.canPlayType("audio/ogg; codecs=\"vorbis\"").replace(/^no$/, ""),
+                oga: !!Qt.canPlayType("audio/ogg; codecs=\"vorbis\"").replace(/^no$/, ""),
+                wav: !!Qt.canPlayType("audio/wav; codecs=\"1\"").replace(/^no$/, ""),
+                aac: !!Qt.canPlayType("audio/aac;").replace(/^no$/, ""),
+                caf: !!Qt.canPlayType("audio/x-caf;").replace(/^no$/, ""),
+                m4a: !!(Qt.canPlayType("audio/x-m4a;") || Qt.canPlayType("audio/m4a;") || Qt.canPlayType("audio/aac;")).replace(/^no$/, ""),
+                mp4: !!(Qt.canPlayType("audio/x-mp4;") || Qt.canPlayType("audio/mp4;") || Qt.canPlayType("audio/aac;")).replace(/^no$/, ""),
+                weba: !!Qt.canPlayType("audio/webm; codecs=\"vorbis\"").replace(/^no$/, ""),
+                webm: !!Qt.canPlayType("audio/webm; codecs=\"vorbis\"").replace(/^no$/, ""),
+                dolby: !!Qt.canPlayType("audio/mp4; codecs=\"ec-3\"").replace(/^no$/, ""),
+                flac: !!(Qt.canPlayType("audio/x-flac;") || Qt.canPlayType("audio/flac;")).replace(/^no$/, "")
             },
             Kt
         },
         _enableMobileAudio: function() {
             var Kt = this || Xt
-              , Zt = /iPhone|iPad|iPod|Android|BlackBerry|BB10|Silk|Mobi/i.test(Kt._navigator && Kt._navigator.userAgent)
-              , Qt = !!("ontouchend"in window || Kt._navigator && 0 < Kt._navigator.maxTouchPoints || Kt._navigator && 0 < Kt._navigator.msMaxTouchPoints);
-            if (!Kt._mobileEnabled && Kt.ctx && (Zt || Qt)) {
+              , Qt = /iPhone|iPad|iPod|Android|BlackBerry|BB10|Silk|Mobi/i.test(Kt._navigator && Kt._navigator.userAgent)
+              , Zt = !!("ontouchend"in window || Kt._navigator && 0 < Kt._navigator.maxTouchPoints || Kt._navigator && 0 < Kt._navigator.msMaxTouchPoints);
+            if (!Kt._mobileEnabled && Kt.ctx && (Qt || Zt)) {
                 Kt._mobileEnabled = !1,
                 Kt._mobileUnloaded || 44100 === Kt.ctx.sampleRate || (Kt._mobileUnloaded = !0,
                 Kt.unload()),
@@ -23868,10 +23868,10 @@ function() {
         _autoSuspend: function() {
             var Kt = this;
             if (Kt.autoSuspend && Kt.ctx && void 0 !== Kt.ctx.suspend && Xt.usingWebAudio) {
-                for (var Zt = 0; Zt < Kt._howls.length; Zt++)
-                    if (Kt._howls[Zt]._webAudio)
-                        for (var Qt = 0; Qt < Kt._howls[Zt]._sounds.length; Qt++)
-                            if (!Kt._howls[Zt]._sounds[Qt]._paused)
+                for (var Qt = 0; Qt < Kt._howls.length; Qt++)
+                    if (Kt._howls[Qt]._webAudio)
+                        for (var Zt = 0; Zt < Kt._howls[Qt]._sounds.length; Zt++)
+                            if (!Kt._howls[Qt]._sounds[Zt]._paused)
                                 return Kt;
                 return Kt._suspendTimer && clearTimeout(Kt._suspendTimer),
                 Kt._suspendTimer = setTimeout(function() {
@@ -23892,8 +23892,8 @@ function() {
                 return "running" === Kt.state && Kt._suspendTimer ? (clearTimeout(Kt._suspendTimer),
                 Kt._suspendTimer = null) : "suspended" === Kt.state ? (Kt.ctx.resume().then(function() {
                     Kt.state = "running";
-                    for (var Zt = 0; Zt < Kt._howls.length; Zt++)
-                        Kt._howls[Zt]._emit("resume")
+                    for (var Qt = 0; Qt < Kt._howls.length; Qt++)
+                        Kt._howls[Qt]._emit("resume")
                 }),
                 Kt._suspendTimer && (clearTimeout(Kt._suspendTimer),
                 Kt._suspendTimer = null)) : "suspending" === Kt.state && (Kt._resumeAfterSuspend = !0),
@@ -23906,73 +23906,73 @@ function() {
     };
     Ht.prototype = {
         init: function(Kt) {
-            var Zt = this;
+            var Qt = this;
             return Xt.ctx || qt(),
-            Zt._autoplay = Kt.autoplay || !1,
-            Zt._format = "string" == typeof Kt.format ? [Kt.format] : Kt.format,
-            Zt._html5 = Kt.html5 || !1,
-            Zt._muted = Kt.mute || !1,
-            Zt._loop = Kt.loop || !1,
-            Zt._pool = Kt.pool || 5,
-            Zt._preload = "boolean" != typeof Kt.preload || Kt.preload,
-            Zt._rate = Kt.rate || 1,
-            Zt._sprite = Kt.sprite || {},
-            Zt._src = "string" == typeof Kt.src ? [Kt.src] : Kt.src,
-            Zt._volume = void 0 === Kt.volume ? 1 : Kt.volume,
-            Zt._xhrWithCredentials = Kt.xhrWithCredentials || !1,
-            Zt._duration = 0,
-            Zt._state = "unloaded",
-            Zt._sounds = [],
-            Zt._endTimers = {},
-            Zt._queue = [],
-            Zt._onend = Kt.onend ? [{
+            Qt._autoplay = Kt.autoplay || !1,
+            Qt._format = "string" == typeof Kt.format ? [Kt.format] : Kt.format,
+            Qt._html5 = Kt.html5 || !1,
+            Qt._muted = Kt.mute || !1,
+            Qt._loop = Kt.loop || !1,
+            Qt._pool = Kt.pool || 5,
+            Qt._preload = "boolean" != typeof Kt.preload || Kt.preload,
+            Qt._rate = Kt.rate || 1,
+            Qt._sprite = Kt.sprite || {},
+            Qt._src = "string" == typeof Kt.src ? [Kt.src] : Kt.src,
+            Qt._volume = void 0 === Kt.volume ? 1 : Kt.volume,
+            Qt._xhrWithCredentials = Kt.xhrWithCredentials || !1,
+            Qt._duration = 0,
+            Qt._state = "unloaded",
+            Qt._sounds = [],
+            Qt._endTimers = {},
+            Qt._queue = [],
+            Qt._onend = Kt.onend ? [{
                 fn: Kt.onend
             }] : [],
-            Zt._onfade = Kt.onfade ? [{
+            Qt._onfade = Kt.onfade ? [{
                 fn: Kt.onfade
             }] : [],
-            Zt._onload = Kt.onload ? [{
+            Qt._onload = Kt.onload ? [{
                 fn: Kt.onload
             }] : [],
-            Zt._onloaderror = Kt.onloaderror ? [{
+            Qt._onloaderror = Kt.onloaderror ? [{
                 fn: Kt.onloaderror
             }] : [],
-            Zt._onplayerror = Kt.onplayerror ? [{
+            Qt._onplayerror = Kt.onplayerror ? [{
                 fn: Kt.onplayerror
             }] : [],
-            Zt._onpause = Kt.onpause ? [{
+            Qt._onpause = Kt.onpause ? [{
                 fn: Kt.onpause
             }] : [],
-            Zt._onplay = Kt.onplay ? [{
+            Qt._onplay = Kt.onplay ? [{
                 fn: Kt.onplay
             }] : [],
-            Zt._onstop = Kt.onstop ? [{
+            Qt._onstop = Kt.onstop ? [{
                 fn: Kt.onstop
             }] : [],
-            Zt._onmute = Kt.onmute ? [{
+            Qt._onmute = Kt.onmute ? [{
                 fn: Kt.onmute
             }] : [],
-            Zt._onvolume = Kt.onvolume ? [{
+            Qt._onvolume = Kt.onvolume ? [{
                 fn: Kt.onvolume
             }] : [],
-            Zt._onrate = Kt.onrate ? [{
+            Qt._onrate = Kt.onrate ? [{
                 fn: Kt.onrate
             }] : [],
-            Zt._onseek = Kt.onseek ? [{
+            Qt._onseek = Kt.onseek ? [{
                 fn: Kt.onseek
             }] : [],
-            Zt._onresume = [],
-            Zt._webAudio = Xt.usingWebAudio && !Zt._html5,
+            Qt._onresume = [],
+            Qt._webAudio = Xt.usingWebAudio && !Qt._html5,
             void 0 !== Xt.ctx && Xt.ctx && Xt.mobileAutoEnable && Xt._enableMobileAudio(),
-            Xt._howls.push(Zt),
-            Zt._autoplay && Zt._queue.push({
+            Xt._howls.push(Qt),
+            Qt._autoplay && Qt._queue.push({
                 event: "play",
                 action: function() {
-                    Zt.play()
+                    Qt.play()
                 }
             }),
-            Zt._preload && Zt.load(),
-            Zt
+            Qt._preload && Qt.load(),
+            Qt
         },
         load: function() {
             var Kt = null;
@@ -23980,21 +23980,21 @@ function() {
                 this._emit("loaderror", null, "No audio support.");
             else {
                 "string" == typeof this._src && (this._src = [this._src]);
-                for (var Zt = 0; Zt < this._src.length; Zt++) {
-                    var Qt, Jt;
-                    if (this._format && this._format[Zt])
-                        Qt = this._format[Zt];
+                for (var Qt = 0; Qt < this._src.length; Qt++) {
+                    var Zt, Jt;
+                    if (this._format && this._format[Qt])
+                        Zt = this._format[Qt];
                     else {
-                        if ("string" != typeof (Jt = this._src[Zt])) {
+                        if ("string" != typeof (Jt = this._src[Qt])) {
                             this._emit("loaderror", null, "Non-string found in selected audio sources - ignoring.");
                             continue
                         }
-                        (Qt = /^data:audio\/([^;,]+);/i.exec(Jt)) || (Qt = /\.([^.]+)$/.exec(Jt.split("?", 1)[0])),
-                        Qt && (Qt = Qt[1].toLowerCase())
+                        (Zt = /^data:audio\/([^;,]+);/i.exec(Jt)) || (Zt = /\.([^.]+)$/.exec(Jt.split("?", 1)[0])),
+                        Zt && (Zt = Zt[1].toLowerCase())
                     }
-                    if (Qt || console.warn("No file extension was found. Consider using the \"format\" property or specify an extension."),
-                    Qt && Xt.codecs(Qt)) {
-                        Kt = this._src[Zt];
+                    if (Zt || console.warn("No file extension was found. Consider using the \"format\" property or specify an extension."),
+                    Zt && Xt.codecs(Zt)) {
+                        Kt = this._src[Qt];
                         break
                     }
                 }
@@ -24009,84 +24009,84 @@ function() {
                 this._emit("loaderror", null, "No codec support for selected audio sources.")
             }
         },
-        play: function(Kt, Zt) {
-            var Qt = this
+        play: function(Kt, Qt) {
+            var Zt = this
               , Jt = null;
             if ("number" == typeof Kt)
                 Jt = Kt,
                 Kt = null;
             else {
-                if ("string" == typeof Kt && "loaded" === Qt._state && !Qt._sprite[Kt])
+                if ("string" == typeof Kt && "loaded" === Zt._state && !Zt._sprite[Kt])
                     return null;
                 if (void 0 === Kt) {
                     Kt = "__default";
-                    for (var $t = 0, en = 0; en < Qt._sounds.length; en++)
-                        Qt._sounds[en]._paused && !Qt._sounds[en]._ended && ($t++,
-                        Jt = Qt._sounds[en]._id);
+                    for (var $t = 0, en = 0; en < Zt._sounds.length; en++)
+                        Zt._sounds[en]._paused && !Zt._sounds[en]._ended && ($t++,
+                        Jt = Zt._sounds[en]._id);
                     1 === $t ? Kt = null : Jt = null
                 }
             }
-            var tn = Jt ? Qt._soundById(Jt) : Qt._inactiveSound();
+            var tn = Jt ? Zt._soundById(Jt) : Zt._inactiveSound();
             if (!tn)
                 return null;
             if (Jt && !Kt && (Kt = tn._sprite || "__default"),
-            "loaded" !== Qt._state) {
+            "loaded" !== Zt._state) {
                 tn._sprite = Kt,
                 tn._ended = !1;
                 var nn = tn._id;
-                return Qt._queue.push({
+                return Zt._queue.push({
                     event: "play",
                     action: function() {
-                        Qt.play(nn)
+                        Zt.play(nn)
                     }
                 }),
                 nn
             }
             if (Jt && !tn._paused)
-                return Zt || setTimeout(function() {
-                    Qt._emit("play", tn._id)
+                return Qt || setTimeout(function() {
+                    Zt._emit("play", tn._id)
                 }, 0),
                 tn._id;
-            Qt._webAudio && Xt._autoResume();
-            var rn = Math.max(0, 0 < tn._seek ? tn._seek : Qt._sprite[Kt][0] / 1e3)
-              , an = Math.max(0, (Qt._sprite[Kt][0] + Qt._sprite[Kt][1]) / 1e3 - rn)
+            Zt._webAudio && Xt._autoResume();
+            var rn = Math.max(0, 0 < tn._seek ? tn._seek : Zt._sprite[Kt][0] / 1e3)
+              , an = Math.max(0, (Zt._sprite[Kt][0] + Zt._sprite[Kt][1]) / 1e3 - rn)
               , on = 1e3 * an / Math.abs(tn._rate);
             tn._paused = !1,
             tn._ended = !1,
             tn._sprite = Kt,
             tn._seek = rn,
-            tn._start = Qt._sprite[Kt][0] / 1e3,
-            tn._stop = (Qt._sprite[Kt][0] + Qt._sprite[Kt][1]) / 1e3,
-            tn._loop = tn._loop || Qt._sprite[Kt][2];
+            tn._start = Zt._sprite[Kt][0] / 1e3,
+            tn._stop = (Zt._sprite[Kt][0] + Zt._sprite[Kt][1]) / 1e3,
+            tn._loop = tn._loop || Zt._sprite[Kt][2];
             var sn = tn._node;
-            if (Qt._webAudio) {
+            if (Zt._webAudio) {
                 var dn = function() {
-                    Qt._refreshBuffer(tn);
-                    var cn = tn._muted || Qt._muted ? 0 : tn._volume;
+                    Zt._refreshBuffer(tn);
+                    var cn = tn._muted || Zt._muted ? 0 : tn._volume;
                     sn.gain.setValueAtTime(cn, Xt.ctx.currentTime),
                     tn._playStart = Xt.ctx.currentTime,
                     void 0 === sn.bufferSource.start ? tn._loop ? sn.bufferSource.noteGrainOn(0, rn, 86400) : sn.bufferSource.noteGrainOn(0, rn, an) : tn._loop ? sn.bufferSource.start(0, rn, 86400) : sn.bufferSource.start(0, rn, an),
-                    on != 1 / 0 && (Qt._endTimers[tn._id] = setTimeout(Qt._ended.bind(Qt, tn), on)),
-                    Zt || setTimeout(function() {
-                        Qt._emit("play", tn._id)
+                    on != 1 / 0 && (Zt._endTimers[tn._id] = setTimeout(Zt._ended.bind(Zt, tn), on)),
+                    Qt || setTimeout(function() {
+                        Zt._emit("play", tn._id)
                     }, 0)
                 };
-                "running" === Xt.state ? dn() : (Qt.once("resume", dn),
-                Qt._clearTimer(tn._id))
+                "running" === Xt.state ? dn() : (Zt.once("resume", dn),
+                Zt._clearTimer(tn._id))
             } else {
                 var ln = function() {
                     sn.currentTime = rn,
-                    sn.muted = tn._muted || Qt._muted || Xt._muted || sn.muted,
+                    sn.muted = tn._muted || Zt._muted || Xt._muted || sn.muted,
                     sn.volume = tn._volume * Xt.volume(),
                     sn.playbackRate = tn._rate;
                     try {
                         if (sn.play(),
                         sn.paused)
-                            return void Qt._emit("playerror", tn._id, "Playback was unable to start. This is most commonly an issue on mobile devices where playback was not within a user interaction.");
-                        on != 1 / 0 && (Qt._endTimers[tn._id] = setTimeout(Qt._ended.bind(Qt, tn), on)),
-                        Zt || Qt._emit("play", tn._id)
+                            return void Zt._emit("playerror", tn._id, "Playback was unable to start. This is most commonly an issue on mobile devices where playback was not within a user interaction.");
+                        on != 1 / 0 && (Zt._endTimers[tn._id] = setTimeout(Zt._ended.bind(Zt, tn), on)),
+                        Qt || Zt._emit("play", tn._id)
                     } catch (cn) {
-                        Qt._emit("playerror", tn._id, cn)
+                        Zt._emit("playerror", tn._id, cn)
                     }
                 }
                   , un = window && window.ejecta || !sn.readyState && Xt._navigator.isCocoonJS;
@@ -24098,122 +24098,122 @@ function() {
                         sn.removeEventListener(Xt._canPlayEvent, pn, !1)
                     };
                     sn.addEventListener(Xt._canPlayEvent, pn, !1),
-                    Qt._clearTimer(tn._id)
+                    Zt._clearTimer(tn._id)
                 }
             }
             return tn._id
         },
         pause: function(Kt) {
-            var Zt = this;
-            if ("loaded" !== Zt._state)
-                return Zt._queue.push({
-                    event: "pause",
-                    action: function() {
-                        Zt.pause(Kt)
-                    }
-                }),
-                Zt;
-            for (var Qt = Zt._getSoundIds(Kt), Jt = 0; Jt < Qt.length; Jt++) {
-                Zt._clearTimer(Qt[Jt]);
-                var $t = Zt._soundById(Qt[Jt]);
-                if ($t && !$t._paused && ($t._seek = Zt.seek(Qt[Jt]),
-                $t._rateSeek = 0,
-                $t._paused = !0,
-                Zt._stopFade(Qt[Jt]),
-                $t._node))
-                    if (Zt._webAudio) {
-                        if (!$t._node.bufferSource)
-                            continue;
-                        void 0 === $t._node.bufferSource.stop ? $t._node.bufferSource.noteOff(0) : $t._node.bufferSource.stop(0),
-                        Zt._cleanBuffer($t._node)
-                    } else
-                        isNaN($t._node.duration) && $t._node.duration !== 1 / 0 || $t._node.pause();
-                arguments[1] || Zt._emit("pause", $t ? $t._id : null)
-            }
-            return Zt
-        },
-        stop: function(Kt, Zt) {
             var Qt = this;
             if ("loaded" !== Qt._state)
                 return Qt._queue.push({
-                    event: "stop",
+                    event: "pause",
                     action: function() {
-                        Qt.stop(Kt)
+                        Qt.pause(Kt)
                     }
                 }),
                 Qt;
-            for (var Jt = Qt._getSoundIds(Kt), $t = 0; $t < Jt.length; $t++) {
-                Qt._clearTimer(Jt[$t]);
-                var en = Qt._soundById(Jt[$t]);
+            for (var Zt = Qt._getSoundIds(Kt), Jt = 0; Jt < Zt.length; Jt++) {
+                Qt._clearTimer(Zt[Jt]);
+                var $t = Qt._soundById(Zt[Jt]);
+                if ($t && !$t._paused && ($t._seek = Qt.seek(Zt[Jt]),
+                $t._rateSeek = 0,
+                $t._paused = !0,
+                Qt._stopFade(Zt[Jt]),
+                $t._node))
+                    if (Qt._webAudio) {
+                        if (!$t._node.bufferSource)
+                            continue;
+                        void 0 === $t._node.bufferSource.stop ? $t._node.bufferSource.noteOff(0) : $t._node.bufferSource.stop(0),
+                        Qt._cleanBuffer($t._node)
+                    } else
+                        isNaN($t._node.duration) && $t._node.duration !== 1 / 0 || $t._node.pause();
+                arguments[1] || Qt._emit("pause", $t ? $t._id : null)
+            }
+            return Qt
+        },
+        stop: function(Kt, Qt) {
+            var Zt = this;
+            if ("loaded" !== Zt._state)
+                return Zt._queue.push({
+                    event: "stop",
+                    action: function() {
+                        Zt.stop(Kt)
+                    }
+                }),
+                Zt;
+            for (var Jt = Zt._getSoundIds(Kt), $t = 0; $t < Jt.length; $t++) {
+                Zt._clearTimer(Jt[$t]);
+                var en = Zt._soundById(Jt[$t]);
                 en && (en._seek = en._start || 0,
                 en._rateSeek = 0,
                 en._paused = !0,
                 en._ended = !0,
-                Qt._stopFade(Jt[$t]),
-                en._node && (Qt._webAudio ? en._node.bufferSource && (void 0 === en._node.bufferSource.stop ? en._node.bufferSource.noteOff(0) : en._node.bufferSource.stop(0),
+                Zt._stopFade(Jt[$t]),
+                en._node && (Zt._webAudio ? en._node.bufferSource && (void 0 === en._node.bufferSource.stop ? en._node.bufferSource.noteOff(0) : en._node.bufferSource.stop(0),
                 en._panner && (en._panner.disconnect(),
                 en._panner = null),
-                Qt._cleanBuffer(en._node)) : isNaN(en._node.duration) && en._node.duration !== 1 / 0 || (en._node.currentTime = en._start || 0,
+                Zt._cleanBuffer(en._node)) : isNaN(en._node.duration) && en._node.duration !== 1 / 0 || (en._node.currentTime = en._start || 0,
                 en._node.pause())),
-                Zt || Qt._emit("stop", en._id))
+                Qt || Zt._emit("stop", en._id))
             }
-            return Qt
+            return Zt
         },
-        mute: function(Kt, Zt) {
-            var Qt = this;
-            if ("loaded" !== Qt._state)
-                return Qt._queue.push({
+        mute: function(Kt, Qt) {
+            var Zt = this;
+            if ("loaded" !== Zt._state)
+                return Zt._queue.push({
                     event: "mute",
                     action: function() {
-                        Qt.mute(Kt, Zt)
+                        Zt.mute(Kt, Qt)
                     }
                 }),
-                Qt;
-            if (void 0 === Zt) {
+                Zt;
+            if (void 0 === Qt) {
                 if ("boolean" != typeof Kt)
-                    return Qt._muted;
-                Qt._muted = Kt
+                    return Zt._muted;
+                Zt._muted = Kt
             }
-            for (var Jt = Qt._getSoundIds(Zt), $t = 0, en; $t < Jt.length; $t++)
-                en = Qt._soundById(Jt[$t]),
+            for (var Jt = Zt._getSoundIds(Qt), $t = 0, en; $t < Jt.length; $t++)
+                en = Zt._soundById(Jt[$t]),
                 en && (en._muted = Kt,
-                Qt._webAudio && en._node ? en._node.gain.setValueAtTime(Kt ? 0 : en._volume, Xt.ctx.currentTime) : en._node && (en._node.muted = !!Xt._muted || Kt),
-                Qt._emit("mute", en._id));
-            return Qt
+                Zt._webAudio && en._node ? en._node.gain.setValueAtTime(Kt ? 0 : en._volume, Xt.ctx.currentTime) : en._node && (en._node.muted = !!Xt._muted || Kt),
+                Zt._emit("mute", en._id));
+            return Zt
         },
         volume: function() {
-            var Qt = this, Jt = arguments, Kt, Zt;
+            var Zt = this, Jt = arguments, Kt, Qt;
             if (0 === Jt.length)
-                return Qt._volume;
-            1 === Jt.length || 2 === Jt.length && void 0 === Jt[1] ? 0 <= Qt._getSoundIds().indexOf(Jt[0]) ? Zt = parseInt(Jt[0], 10) : Kt = parseFloat(Jt[0]) : 2 <= Jt.length && (Kt = parseFloat(Jt[0]),
-            Zt = parseInt(Jt[1], 10));
+                return Zt._volume;
+            1 === Jt.length || 2 === Jt.length && void 0 === Jt[1] ? 0 <= Zt._getSoundIds().indexOf(Jt[0]) ? Qt = parseInt(Jt[0], 10) : Kt = parseFloat(Jt[0]) : 2 <= Jt.length && (Kt = parseFloat(Jt[0]),
+            Qt = parseInt(Jt[1], 10));
             var $t;
             if (!(void 0 !== Kt && 0 <= Kt && 1 >= Kt))
-                return ($t = Zt ? Qt._soundById(Zt) : Qt._sounds[0]) ? $t._volume : 0;
-            if ("loaded" !== Qt._state)
-                return Qt._queue.push({
+                return ($t = Qt ? Zt._soundById(Qt) : Zt._sounds[0]) ? $t._volume : 0;
+            if ("loaded" !== Zt._state)
+                return Zt._queue.push({
                     event: "volume",
                     action: function() {
-                        Qt.volume.apply(Qt, Jt)
+                        Zt.volume.apply(Zt, Jt)
                     }
                 }),
-                Qt;
-            void 0 === Zt && (Qt._volume = Kt),
-            Zt = Qt._getSoundIds(Zt);
-            for (var en = 0; en < Zt.length; en++)
-                ($t = Qt._soundById(Zt[en])) && ($t._volume = Kt,
-                Jt[2] || Qt._stopFade(Zt[en]),
-                Qt._webAudio && $t._node && !$t._muted ? $t._node.gain.setValueAtTime(Kt, Xt.ctx.currentTime) : $t._node && !$t._muted && ($t._node.volume = Kt * Xt.volume()),
-                Qt._emit("volume", $t._id));
-            return Qt
+                Zt;
+            void 0 === Qt && (Zt._volume = Kt),
+            Qt = Zt._getSoundIds(Qt);
+            for (var en = 0; en < Qt.length; en++)
+                ($t = Zt._soundById(Qt[en])) && ($t._volume = Kt,
+                Jt[2] || Zt._stopFade(Qt[en]),
+                Zt._webAudio && $t._node && !$t._muted ? $t._node.gain.setValueAtTime(Kt, Xt.ctx.currentTime) : $t._node && !$t._muted && ($t._node.volume = Kt * Xt.volume()),
+                Zt._emit("volume", $t._id));
+            return Zt
         },
-        fade: function(Kt, Zt, Qt, Jt, $t) {
+        fade: function(Kt, Qt, Zt, Jt, $t) {
             var en = this;
             if ("loaded" !== en._state)
                 return en._queue.push({
                     event: "fade",
                     action: function() {
-                        en.fade(Kt, Zt, Qt, Jt)
+                        en.fade(Kt, Qt, Zt, Jt)
                     }
                 }),
                 en;
@@ -24225,15 +24225,15 @@ function() {
                     var an = Xt.ctx.currentTime;
                     rn._volume = Kt,
                     null == $t && rn._node.gain.setValueAtTime(Kt, an),
-                    rn._node.gain.linearRampToValueAtTime(Zt, an + Qt / 1e3)
+                    rn._node.gain.linearRampToValueAtTime(Qt, an + Zt / 1e3)
                 }
             return en
         },
-        _startFadeInterval: function(Kt, Zt, Qt, Jt, $t) {
+        _startFadeInterval: function(Kt, Qt, Zt, Jt, $t) {
             var en = this
-              , tn = Zt
-              , nn = Zt > Qt ? "out" : "in"
-              , rn = Math.abs(Zt - Qt) / .01
+              , tn = Qt
+              , nn = Qt > Zt ? "out" : "in"
+              , rn = Math.abs(Qt - Zt) / .01
               , an = 0 < rn ? Jt / rn : Jt;
             4 > an && (rn = Math.ceil(rn / (4 / an)),
             an = 4),
@@ -24244,139 +24244,139 @@ function() {
                 tn = Math.round(100 * tn) / 100,
                 en._webAudio ? (void 0 === $t && (en._volume = tn),
                 Kt._volume = tn) : en.volume(tn, Kt._id, !0),
-                (Qt < Zt && tn <= Qt || Qt > Zt && tn >= Qt) && (clearInterval(Kt._interval),
+                (Zt < Qt && tn <= Zt || Zt > Qt && tn >= Zt) && (clearInterval(Kt._interval),
                 Kt._interval = null,
-                en.volume(Qt, Kt._id),
+                en.volume(Zt, Kt._id),
                 en._emit("fade", Kt._id))
             }, an)
         },
         _stopFade: function(Kt) {
-            var Zt = this._soundById(Kt);
-            return Zt && Zt._interval && (this._webAudio && Zt._node.gain.cancelScheduledValues(Xt.ctx.currentTime),
-            clearInterval(Zt._interval),
-            Zt._interval = null,
+            var Qt = this._soundById(Kt);
+            return Qt && Qt._interval && (this._webAudio && Qt._node.gain.cancelScheduledValues(Xt.ctx.currentTime),
+            clearInterval(Qt._interval),
+            Qt._interval = null,
             this._emit("fade", Kt)),
             this
         },
         loop: function() {
-            var Jt = arguments, Kt, Zt, Qt;
+            var Jt = arguments, Kt, Qt, Zt;
             if (0 === Jt.length)
                 return this._loop;
             if (1 === Jt.length) {
                 if ("boolean" != typeof Jt[0])
-                    return !!(Qt = this._soundById(parseInt(Jt[0], 10))) && Qt._loop;
+                    return !!(Zt = this._soundById(parseInt(Jt[0], 10))) && Zt._loop;
                 Kt = Jt[0],
                 this._loop = Kt
             } else
                 2 === Jt.length && (Kt = Jt[0],
-                Zt = parseInt(Jt[1], 10));
-            for (var $t = this._getSoundIds(Zt), en = 0; en < $t.length; en++)
-                (Qt = this._soundById($t[en])) && (Qt._loop = Kt,
-                this._webAudio && Qt._node && Qt._node.bufferSource && (Qt._node.bufferSource.loop = Kt,
-                Kt && (Qt._node.bufferSource.loopStart = Qt._start || 0,
-                Qt._node.bufferSource.loopEnd = Qt._stop)));
+                Qt = parseInt(Jt[1], 10));
+            for (var $t = this._getSoundIds(Qt), en = 0; en < $t.length; en++)
+                (Zt = this._soundById($t[en])) && (Zt._loop = Kt,
+                this._webAudio && Zt._node && Zt._node.bufferSource && (Zt._node.bufferSource.loop = Kt,
+                Kt && (Zt._node.bufferSource.loopStart = Zt._start || 0,
+                Zt._node.bufferSource.loopEnd = Zt._stop)));
             return this
         },
         rate: function() {
-            var Qt = this, Jt = arguments, Kt, Zt;
-            0 === Jt.length ? Zt = Qt._sounds[0]._id : 1 === Jt.length ? 0 <= Qt._getSoundIds().indexOf(Jt[0]) ? Zt = parseInt(Jt[0], 10) : Kt = parseFloat(Jt[0]) : 2 === Jt.length && (Kt = parseFloat(Jt[0]),
-            Zt = parseInt(Jt[1], 10));
+            var Zt = this, Jt = arguments, Kt, Qt;
+            0 === Jt.length ? Qt = Zt._sounds[0]._id : 1 === Jt.length ? 0 <= Zt._getSoundIds().indexOf(Jt[0]) ? Qt = parseInt(Jt[0], 10) : Kt = parseFloat(Jt[0]) : 2 === Jt.length && (Kt = parseFloat(Jt[0]),
+            Qt = parseInt(Jt[1], 10));
             var $t;
             if ("number" != typeof Kt)
-                return ($t = Qt._soundById(Zt)) ? $t._rate : Qt._rate;
-            if ("loaded" !== Qt._state)
-                return Qt._queue.push({
+                return ($t = Zt._soundById(Qt)) ? $t._rate : Zt._rate;
+            if ("loaded" !== Zt._state)
+                return Zt._queue.push({
                     event: "rate",
                     action: function() {
-                        Qt.rate.apply(Qt, Jt)
+                        Zt.rate.apply(Zt, Jt)
                     }
                 }),
-                Qt;
-            void 0 === Zt && (Qt._rate = Kt),
-            Zt = Qt._getSoundIds(Zt);
-            for (var en = 0; en < Zt.length; en++)
-                if ($t = Qt._soundById(Zt[en])) {
-                    $t._rateSeek = Qt.seek(Zt[en]),
-                    $t._playStart = Qt._webAudio ? Xt.ctx.currentTime : $t._playStart,
+                Zt;
+            void 0 === Qt && (Zt._rate = Kt),
+            Qt = Zt._getSoundIds(Qt);
+            for (var en = 0; en < Qt.length; en++)
+                if ($t = Zt._soundById(Qt[en])) {
+                    $t._rateSeek = Zt.seek(Qt[en]),
+                    $t._playStart = Zt._webAudio ? Xt.ctx.currentTime : $t._playStart,
                     $t._rate = Kt,
-                    Qt._webAudio && $t._node && $t._node.bufferSource ? $t._node.bufferSource.playbackRate.value = Kt : $t._node && ($t._node.playbackRate = Kt);
-                    var tn = Qt.seek(Zt[en])
-                      , nn = 1e3 * ((Qt._sprite[$t._sprite][0] + Qt._sprite[$t._sprite][1]) / 1e3 - tn) / Math.abs($t._rate);
-                    !Qt._endTimers[Zt[en]] && $t._paused || (Qt._clearTimer(Zt[en]),
-                    Qt._endTimers[Zt[en]] = setTimeout(Qt._ended.bind(Qt, $t), nn)),
-                    Qt._emit("rate", $t._id)
+                    Zt._webAudio && $t._node && $t._node.bufferSource ? $t._node.bufferSource.playbackRate.value = Kt : $t._node && ($t._node.playbackRate = Kt);
+                    var tn = Zt.seek(Qt[en])
+                      , nn = 1e3 * ((Zt._sprite[$t._sprite][0] + Zt._sprite[$t._sprite][1]) / 1e3 - tn) / Math.abs($t._rate);
+                    !Zt._endTimers[Qt[en]] && $t._paused || (Zt._clearTimer(Qt[en]),
+                    Zt._endTimers[Qt[en]] = setTimeout(Zt._ended.bind(Zt, $t), nn)),
+                    Zt._emit("rate", $t._id)
                 }
-            return Qt
+            return Zt
         },
         seek: function() {
-            var Qt = this, Jt = arguments, Kt, Zt;
-            if (0 === Jt.length ? Zt = Qt._sounds[0]._id : 1 === Jt.length ? 0 <= Qt._getSoundIds().indexOf(Jt[0]) ? Zt = parseInt(Jt[0], 10) : Qt._sounds.length && (Zt = Qt._sounds[0]._id,
+            var Zt = this, Jt = arguments, Kt, Qt;
+            if (0 === Jt.length ? Qt = Zt._sounds[0]._id : 1 === Jt.length ? 0 <= Zt._getSoundIds().indexOf(Jt[0]) ? Qt = parseInt(Jt[0], 10) : Zt._sounds.length && (Qt = Zt._sounds[0]._id,
             Kt = parseFloat(Jt[0])) : 2 === Jt.length && (Kt = parseFloat(Jt[0]),
-            Zt = parseInt(Jt[1], 10)),
-            void 0 === Zt)
-                return Qt;
-            if ("loaded" !== Qt._state)
-                return Qt._queue.push({
+            Qt = parseInt(Jt[1], 10)),
+            void 0 === Qt)
+                return Zt;
+            if ("loaded" !== Zt._state)
+                return Zt._queue.push({
                     event: "seek",
                     action: function() {
-                        Qt.seek.apply(Qt, Jt)
+                        Zt.seek.apply(Zt, Jt)
                     }
                 }),
-                Qt;
-            var $t = Qt._soundById(Zt);
+                Zt;
+            var $t = Zt._soundById(Qt);
             if ($t) {
                 if (!("number" == typeof Kt && 0 <= Kt)) {
-                    if (Qt._webAudio) {
-                        var en = Qt.playing(Zt) ? Xt.ctx.currentTime - $t._playStart : 0
+                    if (Zt._webAudio) {
+                        var en = Zt.playing(Qt) ? Xt.ctx.currentTime - $t._playStart : 0
                           , tn = $t._rateSeek ? $t._rateSeek - $t._seek : 0;
                         return $t._seek + (tn + en * Math.abs($t._rate))
                     }
                     return $t._node.currentTime
                 }
-                var nn = Qt.playing(Zt);
-                nn && Qt.pause(Zt, !0),
+                var nn = Zt.playing(Qt);
+                nn && Zt.pause(Qt, !0),
                 $t._seek = Kt,
                 $t._ended = !1,
-                Qt._clearTimer(Zt),
-                nn && Qt.play(Zt, !0),
-                !Qt._webAudio && $t._node && ($t._node.currentTime = Kt),
-                Qt._emit("seek", Zt)
+                Zt._clearTimer(Qt),
+                nn && Zt.play(Qt, !0),
+                !Zt._webAudio && $t._node && ($t._node.currentTime = Kt),
+                Zt._emit("seek", Qt)
             }
-            return Qt
+            return Zt
         },
         playing: function(Kt) {
             if ("number" == typeof Kt) {
-                var Zt = this._soundById(Kt);
-                return !!Zt && !Zt._paused
+                var Qt = this._soundById(Kt);
+                return !!Qt && !Qt._paused
             }
-            for (var Qt = 0; Qt < this._sounds.length; Qt++)
-                if (!this._sounds[Qt]._paused)
+            for (var Zt = 0; Zt < this._sounds.length; Zt++)
+                if (!this._sounds[Zt]._paused)
                     return !0;
             return !1
         },
         duration: function(Kt) {
-            var Zt = this._duration
-              , Qt = this._soundById(Kt);
-            return Qt && (Zt = this._sprite[Qt._sprite][1] / 1e3),
-            Zt
+            var Qt = this._duration
+              , Zt = this._soundById(Kt);
+            return Zt && (Qt = this._sprite[Zt._sprite][1] / 1e3),
+            Qt
         },
         state: function() {
             return this._state
         },
         unload: function() {
-            for (var Kt = this, Zt = Kt._sounds, Qt = 0; Qt < Zt.length; Qt++) {
-                (Zt[Qt]._paused || Kt.stop(Zt[Qt]._id),
-                !Kt._webAudio) && (/MSIE |Trident\//.test(Xt._navigator && Xt._navigator.userAgent) || (Zt[Qt]._node.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA"),
-                Zt[Qt]._node.removeEventListener("error", Zt[Qt]._errorFn, !1),
-                Zt[Qt]._node.removeEventListener(Xt._canPlayEvent, Zt[Qt]._loadFn, !1)),
-                delete Zt[Qt]._node,
-                Kt._clearTimer(Zt[Qt]._id);
+            for (var Kt = this, Qt = Kt._sounds, Zt = 0; Zt < Qt.length; Zt++) {
+                (Qt[Zt]._paused || Kt.stop(Qt[Zt]._id),
+                !Kt._webAudio) && (/MSIE |Trident\//.test(Xt._navigator && Xt._navigator.userAgent) || (Qt[Zt]._node.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA"),
+                Qt[Zt]._node.removeEventListener("error", Qt[Zt]._errorFn, !1),
+                Qt[Zt]._node.removeEventListener(Xt._canPlayEvent, Qt[Zt]._loadFn, !1)),
+                delete Qt[Zt]._node,
+                Kt._clearTimer(Qt[Zt]._id);
                 var Jt = Xt._howls.indexOf(Kt);
                 0 <= Jt && Xt._howls.splice(Jt, 1)
             }
             var $t = !0;
-            for (Qt = 0; Qt < Xt._howls.length; Qt++)
-                if (Xt._howls[Qt]._src === Kt._src) {
+            for (Zt = 0; Zt < Xt._howls.length; Zt++)
+                if (Xt._howls[Zt]._src === Kt._src) {
                     $t = !1;
                     break
                 }
@@ -24387,27 +24387,27 @@ function() {
             Kt = null,
             null
         },
-        on: function(Kt, Zt, Qt, Jt) {
+        on: function(Kt, Qt, Zt, Jt) {
             var $t = this["_on" + Kt];
-            return "function" == typeof Zt && $t.push(Jt ? {
-                id: Qt,
-                fn: Zt,
+            return "function" == typeof Qt && $t.push(Jt ? {
+                id: Zt,
+                fn: Qt,
                 once: Jt
             } : {
-                id: Qt,
-                fn: Zt
+                id: Zt,
+                fn: Qt
             }),
             this
         },
-        off: function(Kt, Zt, Qt) {
+        off: function(Kt, Qt, Zt) {
             var Jt = this["_on" + Kt]
               , $t = 0;
-            if ("number" == typeof Zt && (Qt = Zt,
-            Zt = null),
-            Zt || Qt)
+            if ("number" == typeof Qt && (Zt = Qt,
+            Qt = null),
+            Qt || Zt)
                 for ($t = 0; $t < Jt.length; $t++) {
-                    var en = Qt === Jt[$t].id;
-                    if (Zt === Jt[$t].fn && en || !Zt && en) {
+                    var en = Zt === Jt[$t].id;
+                    if (Qt === Jt[$t].fn && en || !Qt && en) {
                         Jt.splice($t, 1);
                         break
                     }
@@ -24421,14 +24421,14 @@ function() {
             }
             return this
         },
-        once: function(Kt, Zt, Qt) {
-            return this.on(Kt, Zt, Qt, 1),
+        once: function(Kt, Qt, Zt) {
+            return this.on(Kt, Qt, Zt, 1),
             this
         },
-        _emit: function(Kt, Zt, Qt) {
+        _emit: function(Kt, Qt, Zt) {
             for (var Jt = this["_on" + Kt], $t = Jt.length - 1; 0 <= $t; $t--)
-                Jt[$t].id && Jt[$t].id !== Zt && "load" !== Kt || (setTimeout(function(en) {
-                    en.call(this, Zt, Qt)
+                Jt[$t].id && Jt[$t].id !== Qt && "load" !== Kt || (setTimeout(function(en) {
+                    en.call(this, Qt, Zt)
                 }
                 .bind(this, Jt[$t].fn), 0),
                 Jt[$t].once && this.off(Kt, Jt[$t].fn, Jt[$t].id));
@@ -24437,24 +24437,24 @@ function() {
         _loadQueue: function() {
             var Kt = this;
             if (0 < Kt._queue.length) {
-                var Zt = Kt._queue[0];
-                Kt.once(Zt.event, function() {
+                var Qt = Kt._queue[0];
+                Kt.once(Qt.event, function() {
                     Kt._queue.shift(),
                     Kt._loadQueue()
                 }),
-                Zt.action()
+                Qt.action()
             }
             return Kt
         },
         _ended: function(Kt) {
-            var Zt = Kt._sprite;
+            var Qt = Kt._sprite;
             if (!this._webAudio && Kt._node && !Kt._node.paused)
                 return setTimeout(this._ended.bind(this, Kt), 100),
                 this;
-            var Qt = Kt._loop || this._sprite[Zt][2];
+            var Zt = Kt._loop || this._sprite[Qt][2];
             if (this._emit("end", Kt._id),
-            !this._webAudio && Qt && this.stop(Kt._id, !0).play(Kt._id),
-            this._webAudio && Qt) {
+            !this._webAudio && Zt && this.stop(Kt._id, !0).play(Kt._id),
+            this._webAudio && Zt) {
                 this._emit("play", Kt._id),
                 Kt._seek = Kt._start || 0,
                 Kt._rateSeek = 0,
@@ -24462,14 +24462,14 @@ function() {
                 var Jt = 1e3 * (Kt._stop - Kt._start) / Math.abs(Kt._rate);
                 this._endTimers[Kt._id] = setTimeout(this._ended.bind(this, Kt), Jt)
             }
-            return this._webAudio && !Qt && (Kt._paused = !0,
+            return this._webAudio && !Zt && (Kt._paused = !0,
             Kt._ended = !0,
             Kt._seek = Kt._start || 0,
             Kt._rateSeek = 0,
             this._clearTimer(Kt._id),
             this._cleanBuffer(Kt._node),
             Xt._autoSuspend()),
-            this._webAudio || Qt || this.stop(Kt._id),
+            this._webAudio || Zt || this.stop(Kt._id),
             this
         },
         _clearTimer: function(Kt) {
@@ -24478,9 +24478,9 @@ function() {
             this
         },
         _soundById: function(Kt) {
-            for (var Zt = 0; Zt < this._sounds.length; Zt++)
-                if (Kt === this._sounds[Zt]._id)
-                    return this._sounds[Zt];
+            for (var Qt = 0; Qt < this._sounds.length; Qt++)
+                if (Kt === this._sounds[Qt]._id)
+                    return this._sounds[Qt];
             return null
         },
         _inactiveSound: function() {
@@ -24492,25 +24492,25 @@ function() {
         },
         _drain: function() {
             var Kt = this._pool
-              , Zt = 0
-              , Qt = 0;
+              , Qt = 0
+              , Zt = 0;
             if (!(this._sounds.length < Kt)) {
-                for (Qt = 0; Qt < this._sounds.length; Qt++)
-                    this._sounds[Qt]._ended && Zt++;
-                for (Qt = this._sounds.length - 1; 0 <= Qt; Qt--) {
-                    if (Zt <= Kt)
+                for (Zt = 0; Zt < this._sounds.length; Zt++)
+                    this._sounds[Zt]._ended && Qt++;
+                for (Zt = this._sounds.length - 1; 0 <= Zt; Zt--) {
+                    if (Qt <= Kt)
                         return;
-                    this._sounds[Qt]._ended && (this._webAudio && this._sounds[Qt]._node && this._sounds[Qt]._node.disconnect(0),
-                    this._sounds.splice(Qt, 1),
-                    Zt--)
+                    this._sounds[Zt]._ended && (this._webAudio && this._sounds[Zt]._node && this._sounds[Zt]._node.disconnect(0),
+                    this._sounds.splice(Zt, 1),
+                    Qt--)
                 }
             }
         },
         _getSoundIds: function(Kt) {
             if (void 0 === Kt) {
-                for (var Zt = [], Qt = 0; Qt < this._sounds.length; Qt++)
-                    Zt.push(this._sounds[Qt]._id);
-                return Zt
+                for (var Qt = [], Zt = 0; Zt < this._sounds.length; Zt++)
+                    Qt.push(this._sounds[Zt]._id);
+                return Qt
             }
             return [Kt]
         },
@@ -24530,7 +24530,7 @@ function() {
                 Kt.bufferSource.disconnect(0);
                 try {
                     Kt.bufferSource.buffer = this._scratchBuffer
-                } catch (Zt) {}
+                } catch (Qt) {}
             }
             return Kt.bufferSource = null,
             this
@@ -24558,9 +24558,9 @@ function() {
         },
         create: function() {
             var Kt = this._parent
-              , Zt = Xt._muted || this._muted || this._parent._muted ? 0 : this._volume;
+              , Qt = Xt._muted || this._muted || this._parent._muted ? 0 : this._volume;
             return Kt._webAudio ? (this._node = void 0 === Xt.ctx.createGain ? Xt.ctx.createGainNode() : Xt.ctx.createGain(),
-            this._node.gain.setValueAtTime(Zt, Xt.ctx.currentTime),
+            this._node.gain.setValueAtTime(Qt, Xt.ctx.currentTime),
             this._node.paused = !0,
             this._node.connect(Xt.masterGain)) : (this._node = new Audio,
             this._errorFn = this._errorListener.bind(this),
@@ -24569,7 +24569,7 @@ function() {
             this._node.addEventListener(Xt._canPlayEvent, this._loadFn, !1),
             this._node.src = Kt._src,
             this._node.preload = "auto",
-            this._node.volume = Zt * Xt.volume(),
+            this._node.volume = Qt * Xt.volume(),
             this._node.load()),
             this
         },
@@ -24605,17 +24605,17 @@ function() {
     };
     var Yt = {}
       , Wt = function(Kt) {
-        var Zt = Kt._src;
-        if (Yt[Zt])
-            return Kt._duration = Yt[Zt].duration,
+        var Qt = Kt._src;
+        if (Yt[Qt])
+            return Kt._duration = Yt[Qt].duration,
             void Vt(Kt);
-        if (/^data:[^;]+;base64,/.test(Zt)) {
-            for (var Qt = atob(Zt.split(",")[1]), Jt = new Uint8Array(Qt.length), $t = 0; $t < Qt.length; ++$t)
-                Jt[$t] = Qt.charCodeAt($t);
+        if (/^data:[^;]+;base64,/.test(Qt)) {
+            for (var Zt = atob(Qt.split(",")[1]), Jt = new Uint8Array(Zt.length), $t = 0; $t < Zt.length; ++$t)
+                Jt[$t] = Zt.charCodeAt($t);
             zt(Jt.buffer, Kt)
         } else {
             var en = new XMLHttpRequest;
-            en.open("GET", Zt, !0),
+            en.open("GET", Qt, !0),
             en.withCredentials = Kt._xhrWithCredentials,
             en.responseType = "arraybuffer",
             en.onload = function() {
@@ -24627,7 +24627,7 @@ function() {
                 Kt._webAudio && (Kt._html5 = !0,
                 Kt._webAudio = !1,
                 Kt._sounds = [],
-                delete Yt[Zt],
+                delete Yt[Qt],
                 Kt.load())
             }
             ,
@@ -24637,20 +24637,20 @@ function() {
       , jt = function(Kt) {
         try {
             Kt.send()
-        } catch (Zt) {
+        } catch (Qt) {
             Kt.onerror()
         }
     }
-      , zt = function(Kt, Zt) {
-        Xt.ctx.decodeAudioData(Kt, function(Qt) {
-            Qt && 0 < Zt._sounds.length && (Yt[Zt._src] = Qt,
-            Vt(Zt, Qt))
+      , zt = function(Kt, Qt) {
+        Xt.ctx.decodeAudioData(Kt, function(Zt) {
+            Zt && 0 < Qt._sounds.length && (Yt[Qt._src] = Zt,
+            Vt(Qt, Zt))
         }, function() {
-            Zt._emit("loaderror", null, "Decoding audio data failed.")
+            Qt._emit("loaderror", null, "Decoding audio data failed.")
         })
     }
-      , Vt = function(Kt, Zt) {
-        Zt && !Kt._duration && (Kt._duration = Zt.duration),
+      , Vt = function(Kt, Qt) {
+        Qt && !Kt._duration && (Kt._duration = Qt.duration),
         0 === Object.keys(Kt._sprite).length && (Kt._sprite = {
             __default: [0, 1e3 * Kt._duration]
         }),
@@ -24665,9 +24665,9 @@ function() {
             Xt.usingWebAudio = !1
         }
         var Kt = /iP(hone|od|ad)/.test(Xt._navigator && Xt._navigator.platform)
-          , Zt = Xt._navigator && Xt._navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)
-          , Qt = Zt ? parseInt(Zt[1], 10) : null;
-        if (Kt && Qt && 9 > Qt) {
+          , Qt = Xt._navigator && Xt._navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)
+          , Zt = Qt ? parseInt(Qt[1], 10) : null;
+        if (Kt && Zt && 9 > Zt) {
             var Jt = /safari/.test(Xt._navigator && Xt._navigator.userAgent.toLowerCase());
             (Xt._navigator && Xt._navigator.standalone && !Jt || Xt._navigator && !Xt._navigator.standalone && !Jt) && (Xt.usingWebAudio = !1)
         }
@@ -24951,11 +24951,11 @@ function(Bt) {
     "object" == typeof exports && "undefined" != typeof module ? module.exports = Bt() : "function" == typeof define && define.amd ? define([], Bt) : ("undefined" == typeof window ? "undefined" == typeof global ? "undefined" == typeof self ? this : self : global : window).nipplejs = Bt()
 }(function() {
     function Bt() {}
-    function Xt(Qt, Jt) {
+    function Xt(Zt, Jt) {
         return this.identifier = Jt.identifier,
         this.position = Jt.position,
         this.frontPosition = Jt.frontPosition,
-        this.collection = Qt,
+        this.collection = Zt,
         this.defaults = {
             size: 100,
             threshold: .1,
@@ -24992,13 +24992,13 @@ function(Bt) {
         },
         this.instance
     }
-    function Ht(Qt, Jt) {
+    function Ht(Zt, Jt) {
         return this.nipples = [],
         this.idles = [],
         this.actives = [],
         this.ids = [],
         this.pressureIntervals = {},
-        this.manager = Qt,
+        this.manager = Zt,
         this.id = Ht.id,
         Ht.id += 1,
         this.defaults = {
@@ -25027,12 +25027,12 @@ function(Bt) {
         this.begin(),
         this.nipples
     }
-    function Gt(Qt) {
+    function Gt(Zt) {
         var Jt = this;
         Jt.ids = {},
         Jt.index = 0,
         Jt.collections = [],
-        Jt.config(Qt),
+        Jt.config(Zt),
         Jt.prepareCollections();
         var $t;
         return Kt.bindEvt(window, "resize", function() {
@@ -25072,53 +25072,53 @@ function(Bt) {
     },
     qt = Vt) : Yt = Vt;
     var Kt = {};
-    Kt.distance = function(Qt, Jt) {
-        var $t = Jt.x - Qt.x
-          , en = Jt.y - Qt.y;
+    Kt.distance = function(Zt, Jt) {
+        var $t = Jt.x - Zt.x
+          , en = Jt.y - Zt.y;
         return Math.sqrt($t * $t + en * en)
     }
     ,
-    Kt.angle = function(Qt, Jt) {
-        var $t = Jt.x - Qt.x
-          , en = Jt.y - Qt.y;
+    Kt.angle = function(Zt, Jt) {
+        var $t = Jt.x - Zt.x
+          , en = Jt.y - Zt.y;
         return Kt.degrees(Math.atan2(en, $t))
     }
     ,
-    Kt.findCoord = function(Qt, Jt, $t) {
+    Kt.findCoord = function(Zt, Jt, $t) {
         var en = {
             x: 0,
             y: 0
         };
         return $t = Kt.radians($t),
-        en.x = Qt.x - Jt * Math.cos($t),
-        en.y = Qt.y - Jt * Math.sin($t),
+        en.x = Zt.x - Jt * Math.cos($t),
+        en.y = Zt.y - Jt * Math.sin($t),
         en
     }
     ,
-    Kt.radians = function(Qt) {
-        return Qt * (Math.PI / 180)
+    Kt.radians = function(Zt) {
+        return Zt * (Math.PI / 180)
     }
     ,
-    Kt.degrees = function(Qt) {
-        return Qt * (180 / Math.PI)
+    Kt.degrees = function(Zt) {
+        return Zt * (180 / Math.PI)
     }
     ,
-    Kt.bindEvt = function(Qt, Jt, $t) {
-        Qt.addEventListener ? Qt.addEventListener(Jt, $t, !1) : Qt.attachEvent && Qt.attachEvent(Jt, $t)
+    Kt.bindEvt = function(Zt, Jt, $t) {
+        Zt.addEventListener ? Zt.addEventListener(Jt, $t, !1) : Zt.attachEvent && Zt.attachEvent(Jt, $t)
     }
     ,
-    Kt.unbindEvt = function(Qt, Jt, $t) {
-        Qt.removeEventListener ? Qt.removeEventListener(Jt, $t) : Qt.detachEvent && Qt.detachEvent(Jt, $t)
+    Kt.unbindEvt = function(Zt, Jt, $t) {
+        Zt.removeEventListener ? Zt.removeEventListener(Jt, $t) : Zt.detachEvent && Zt.detachEvent(Jt, $t)
     }
     ,
-    Kt.trigger = function(Qt, Jt, $t) {
+    Kt.trigger = function(Zt, Jt, $t) {
         var en = new CustomEvent(Jt,$t);
-        Qt.dispatchEvent(en)
+        Zt.dispatchEvent(en)
     }
     ,
-    Kt.prepareEvent = function(Qt) {
-        return "front" != Qt.target.className && "back" != Qt.target.className || Qt.preventDefault(),
-        Qt.type.match(/^touch/) ? Qt.changedTouches : Qt
+    Kt.prepareEvent = function(Zt) {
+        return "front" != Zt.target.className && "back" != Zt.target.className || Zt.preventDefault(),
+        Zt.type.match(/^touch/) ? Zt.changedTouches : Zt
     }
     ,
     Kt.getScroll = function() {
@@ -25128,16 +25128,16 @@ function(Bt) {
         }
     }
     ,
-    Kt.applyPosition = function(Qt, Jt) {
-        Jt.x && Jt.y ? (Qt.style.left = Jt.x + "px",
-        Qt.style.top = Jt.y + "px") : (Jt.top || Jt.right || Jt.bottom || Jt.left) && (Qt.style.top = Jt.top,
-        Qt.style.right = Jt.right,
-        Qt.style.bottom = Jt.bottom,
-        Qt.style.left = Jt.left)
+    Kt.applyPosition = function(Zt, Jt) {
+        Jt.x && Jt.y ? (Zt.style.left = Jt.x + "px",
+        Zt.style.top = Jt.y + "px") : (Jt.top || Jt.right || Jt.bottom || Jt.left) && (Zt.style.top = Jt.top,
+        Zt.style.right = Jt.right,
+        Zt.style.bottom = Jt.bottom,
+        Zt.style.left = Jt.left)
     }
     ,
-    Kt.getTransitionStyle = function(Qt, Jt, $t) {
-        var en = Kt.configStylePropertyObject(Qt);
+    Kt.getTransitionStyle = function(Zt, Jt, $t) {
+        var en = Kt.configStylePropertyObject(Zt);
         for (var tn in en)
             if (en.hasOwnProperty(tn))
                 if ("string" == typeof Jt)
@@ -25150,45 +25150,45 @@ function(Bt) {
         return en
     }
     ,
-    Kt.getVendorStyle = function(Qt, Jt) {
-        var $t = Kt.configStylePropertyObject(Qt);
+    Kt.getVendorStyle = function(Zt, Jt) {
+        var $t = Kt.configStylePropertyObject(Zt);
         for (var en in $t)
             $t.hasOwnProperty(en) && ($t[en] = Jt);
         return $t
     }
     ,
-    Kt.configStylePropertyObject = function(Qt) {
+    Kt.configStylePropertyObject = function(Zt) {
         var Jt = {};
-        return Jt[Qt] = "",
+        return Jt[Zt] = "",
         ["webkit", "Moz", "o"].forEach(function($t) {
-            Jt[$t + Qt.charAt(0).toUpperCase() + Qt.slice(1)] = ""
+            Jt[$t + Zt.charAt(0).toUpperCase() + Zt.slice(1)] = ""
         }),
         Jt
     }
     ,
-    Kt.extend = function(Qt, Jt) {
+    Kt.extend = function(Zt, Jt) {
         for (var $t in Jt)
-            Jt.hasOwnProperty($t) && (Qt[$t] = Jt[$t]);
-        return Qt
+            Jt.hasOwnProperty($t) && (Zt[$t] = Jt[$t]);
+        return Zt
     }
     ,
-    Kt.safeExtend = function(Qt, Jt) {
+    Kt.safeExtend = function(Zt, Jt) {
         var $t = {};
-        for (var en in Qt)
-            Qt.hasOwnProperty(en) && Jt.hasOwnProperty(en) ? $t[en] = Jt[en] : Qt.hasOwnProperty(en) && ($t[en] = Qt[en]);
+        for (var en in Zt)
+            Zt.hasOwnProperty(en) && Jt.hasOwnProperty(en) ? $t[en] = Jt[en] : Zt.hasOwnProperty(en) && ($t[en] = Zt[en]);
         return $t
     }
     ,
-    Kt.map = function(Qt, Jt) {
-        if (Qt.length)
-            for (var $t = 0, en = Qt.length; $t < en; $t += 1)
-                Jt(Qt[$t]);
+    Kt.map = function(Zt, Jt) {
+        if (Zt.length)
+            for (var $t = 0, en = Zt.length; $t < en; $t += 1)
+                Jt(Zt[$t]);
         else
-            Jt(Qt)
+            Jt(Zt)
     }
     ,
-    Bt.prototype.on = function(Qt, Jt) {
-        var en = Qt.split(/[ ,]+/g), $t;
+    Bt.prototype.on = function(Zt, Jt) {
+        var en = Zt.split(/[ ,]+/g), $t;
         this._handlers_ = this._handlers_ || {};
         for (var tn = 0; tn < en.length; tn += 1)
             $t = en[tn],
@@ -25197,14 +25197,14 @@ function(Bt) {
         return this
     }
     ,
-    Bt.prototype.off = function(Qt, Jt) {
+    Bt.prototype.off = function(Zt, Jt) {
         return this._handlers_ = this._handlers_ || {},
-        void 0 === Qt ? this._handlers_ = {} : void 0 === Jt ? this._handlers_[Qt] = null : this._handlers_[Qt] && 0 <= this._handlers_[Qt].indexOf(Jt) && this._handlers_[Qt].splice(this._handlers_[Qt].indexOf(Jt), 1),
+        void 0 === Zt ? this._handlers_ = {} : void 0 === Jt ? this._handlers_[Zt] = null : this._handlers_[Zt] && 0 <= this._handlers_[Zt].indexOf(Jt) && this._handlers_[Zt].splice(this._handlers_[Zt].indexOf(Jt), 1),
         this
     }
     ,
-    Bt.prototype.trigger = function(Qt, Jt) {
-        var en = this, tn = Qt.split(/[ ,]+/g), $t;
+    Bt.prototype.trigger = function(Zt, Jt) {
+        var en = this, tn = Zt.split(/[ ,]+/g), $t;
         en._handlers_ = en._handlers_ || {};
         for (var nn = 0; nn < tn.length; nn += 1)
             $t = tn[nn],
@@ -25216,27 +25216,27 @@ function(Bt) {
             })
     }
     ,
-    Bt.prototype.config = function(Qt) {
+    Bt.prototype.config = function(Zt) {
         this.options = this.defaults || {},
-        Qt && (this.options = Kt.safeExtend(this.options, Qt))
+        Zt && (this.options = Kt.safeExtend(this.options, Zt))
     }
     ,
-    Bt.prototype.bindEvt = function(Qt, Jt) {
+    Bt.prototype.bindEvt = function(Zt, Jt) {
         var $t = this;
         return $t._domHandlers_ = $t._domHandlers_ || {},
         $t._domHandlers_[Jt] = function() {
             "function" == typeof $t["on" + Jt] ? $t["on" + Jt].apply($t, arguments) : console.warn("[WARNING] : Missing \"on" + Jt + "\" handler.")
         }
         ,
-        Kt.bindEvt(Qt, Yt[Jt], $t._domHandlers_[Jt]),
-        qt[Jt] && Kt.bindEvt(Qt, qt[Jt], $t._domHandlers_[Jt]),
+        Kt.bindEvt(Zt, Yt[Jt], $t._domHandlers_[Jt]),
+        qt[Jt] && Kt.bindEvt(Zt, qt[Jt], $t._domHandlers_[Jt]),
         $t
     }
     ,
-    Bt.prototype.unbindEvt = function(Qt, Jt) {
+    Bt.prototype.unbindEvt = function(Zt, Jt) {
         return this._domHandlers_ = this._domHandlers_ || {},
-        Kt.unbindEvt(Qt, Yt[Jt], this._domHandlers_[Jt]),
-        qt[Jt] && Kt.unbindEvt(Qt, qt[Jt], this._domHandlers_[Jt]),
+        Kt.unbindEvt(Zt, Yt[Jt], this._domHandlers_[Jt]),
+        qt[Jt] && Kt.unbindEvt(Zt, qt[Jt], this._domHandlers_[Jt]),
         delete this._domHandlers_[Jt],
         this
     }
@@ -25261,9 +25261,9 @@ function(Bt) {
     Xt.prototype.stylize = function() {
         if (this.options.dataOnly)
             return this;
-        var Qt = this.options.fadeTime + "ms"
+        var Zt = this.options.fadeTime + "ms"
           , Jt = Kt.getVendorStyle("borderRadius", "50%")
-          , $t = Kt.getTransitionStyle("transition", "opacity", Qt)
+          , $t = Kt.getTransitionStyle("transition", "opacity", Zt)
           , en = {};
         return en.el = {
             position: "absolute",
@@ -25298,11 +25298,11 @@ function(Bt) {
         this
     }
     ,
-    Xt.prototype.applyStyles = function(Qt) {
+    Xt.prototype.applyStyles = function(Zt) {
         for (var Jt in this.ui)
             if (this.ui.hasOwnProperty(Jt))
-                for (var $t in Qt[Jt])
-                    this.ui[Jt].style[$t] = Qt[Jt][$t];
+                for (var $t in Zt[Jt])
+                    this.ui[Jt].style[$t] = Zt[Jt][$t];
         return this
     }
     ,
@@ -25325,7 +25325,7 @@ function(Bt) {
         this.off()
     }
     ,
-    Xt.prototype.show = function(Qt) {
+    Xt.prototype.show = function(Zt) {
         var Jt = this;
         return Jt.options.dataOnly ? Jt : (clearTimeout(Jt.removeTimeout),
         clearTimeout(Jt.showTimeout),
@@ -25337,12 +25337,12 @@ function(Bt) {
         }, 0),
         Jt.showTimeout = setTimeout(function() {
             Jt.trigger("shown", Jt.instance),
-            "function" == typeof Qt && Qt.call(this)
+            "function" == typeof Zt && Zt.call(this)
         }, Jt.options.fadeTime),
         Jt)
     }
     ,
-    Xt.prototype.hide = function(Qt) {
+    Xt.prototype.hide = function(Zt) {
         var Jt = this;
         return Jt.options.dataOnly ? Jt : (Jt.ui.el.style.opacity = Jt.options.restOpacity,
         clearTimeout(Jt.removeTimeout),
@@ -25351,14 +25351,14 @@ function(Bt) {
         Jt.removeTimeout = setTimeout(function() {
             var $t = "dynamic" === Jt.options.mode ? "none" : "block";
             Jt.ui.el.style.display = $t,
-            "function" == typeof Qt && Qt.call(Jt),
+            "function" == typeof Zt && Zt.call(Jt),
             Jt.trigger("hidden", Jt.instance)
         }, Jt.options.fadeTime),
         Jt.restPosition(),
         Jt)
     }
     ,
-    Xt.prototype.restPosition = function(Qt) {
+    Xt.prototype.restPosition = function(Zt) {
         var Jt = this;
         Jt.frontPosition = {
             x: 0,
@@ -25377,15 +25377,15 @@ function(Bt) {
         Jt.applyStyles(en),
         Jt.applyStyles(tn),
         Jt.restTimeout = setTimeout(function() {
-            "function" == typeof Qt && Qt.call(Jt),
+            "function" == typeof Zt && Zt.call(Jt),
             Jt.restCallback()
         }, Jt.options.fadeTime)
     }
     ,
     Xt.prototype.restCallback = function() {
-        var Qt = {};
-        Qt.front = Kt.getTransitionStyle("transition", "none", ""),
-        this.applyStyles(Qt),
+        var Zt = {};
+        Zt.front = Kt.getTransitionStyle("transition", "none", ""),
+        this.applyStyles(Zt),
         this.trigger("rested", this.instance)
     }
     ,
@@ -25397,12 +25397,12 @@ function(Bt) {
         }
     }
     ,
-    Xt.prototype.computeDirection = function(Qt) {
-        var tn = Qt.angle.radian, nn = Math.PI / 4, rn = Math.PI / 2, Jt, $t, en;
+    Xt.prototype.computeDirection = function(Zt) {
+        var tn = Zt.angle.radian, nn = Math.PI / 4, rn = Math.PI / 2, Jt, $t, en;
         if (Jt = tn > nn && tn < 3 * nn ? "up" : tn > -nn && tn <= nn ? "left" : tn > 3 * -nn && tn <= -nn ? "down" : "right",
         $t = tn > -rn && tn < rn ? "left" : "right",
         en = 0 < tn ? "up" : "down",
-        Qt.force > this.options.threshold) {
+        Zt.force > this.options.threshold) {
             var an = {};
             for (var on in this.direction)
                 this.direction.hasOwnProperty(on) && (an[on] = this.direction[on]);
@@ -25412,38 +25412,38 @@ function(Bt) {
                 y: en,
                 angle: Jt
             },
-            Qt.direction = this.direction,
+            Zt.direction = this.direction,
             an)
                 an[on] === this.direction[on] && (sn[on] = !0);
             if (sn.x && sn.y && sn.angle)
-                return Qt;
-            sn.x && sn.y || this.trigger("plain", Qt),
-            sn.x || this.trigger("plain:" + $t, Qt),
-            sn.y || this.trigger("plain:" + en, Qt),
-            sn.angle || this.trigger("dir dir:" + Jt, Qt)
+                return Zt;
+            sn.x && sn.y || this.trigger("plain", Zt),
+            sn.x || this.trigger("plain:" + $t, Zt),
+            sn.y || this.trigger("plain:" + en, Zt),
+            sn.angle || this.trigger("dir dir:" + Jt, Zt)
         }
-        return Qt
+        return Zt
     }
     ,
     Ht.prototype = new Bt,
     Ht.constructor = Ht,
     Ht.id = 0,
     Ht.prototype.prepareNipples = function() {
-        var Qt = this.nipples;
-        Qt.on = this.on.bind(this),
-        Qt.off = this.off.bind(this),
-        Qt.options = this.options,
-        Qt.destroy = this.destroy.bind(this),
-        Qt.ids = this.ids,
-        Qt.id = this.id,
-        Qt.processOnMove = this.processOnMove.bind(this),
-        Qt.processOnEnd = this.processOnEnd.bind(this),
-        Qt.get = function(Jt) {
+        var Zt = this.nipples;
+        Zt.on = this.on.bind(this),
+        Zt.off = this.off.bind(this),
+        Zt.options = this.options,
+        Zt.destroy = this.destroy.bind(this),
+        Zt.ids = this.ids,
+        Zt.id = this.id,
+        Zt.processOnMove = this.processOnMove.bind(this),
+        Zt.processOnEnd = this.processOnEnd.bind(this),
+        Zt.get = function(Jt) {
             if (void 0 === Jt)
-                return Qt[0];
-            for (var $t = 0, en = Qt.length; $t < en; $t += 1)
-                if (Qt[$t].identifier === Jt)
-                    return Qt[$t];
+                return Zt[0];
+            for (var $t = 0, en = Zt.length; $t < en; $t += 1)
+                if (Zt[$t].identifier === Jt)
+                    return Zt[$t];
             return !1
         }
     }
@@ -25455,36 +25455,36 @@ function(Bt) {
     }
     ,
     Ht.prototype.begin = function() {
-        var Qt = this.options;
-        if ("static" === Qt.mode) {
-            var Jt = this.createNipple(Qt.position, this.manager.getIdentifier());
+        var Zt = this.options;
+        if ("static" === Zt.mode) {
+            var Jt = this.createNipple(Zt.position, this.manager.getIdentifier());
             Jt.add(),
             this.idles.push(Jt)
         }
     }
     ,
-    Ht.prototype.createNipple = function(Qt, Jt) {
+    Ht.prototype.createNipple = function(Zt, Jt) {
         var $t = Kt.getScroll()
           , en = {}
           , tn = this.options;
-        if (Qt.x && Qt.y)
+        if (Zt.x && Zt.y)
             en = {
-                x: Qt.x - ($t.x + this.box.left),
-                y: Qt.y - ($t.y + this.box.top)
+                x: Zt.x - ($t.x + this.box.left),
+                y: Zt.y - ($t.y + this.box.top)
             };
-        else if (Qt.top || Qt.right || Qt.bottom || Qt.left) {
+        else if (Zt.top || Zt.right || Zt.bottom || Zt.left) {
             var nn = document.createElement("DIV");
             nn.style.display = "hidden",
-            nn.style.top = Qt.top,
-            nn.style.right = Qt.right,
-            nn.style.bottom = Qt.bottom,
-            nn.style.left = Qt.left,
+            nn.style.top = Zt.top,
+            nn.style.right = Zt.right,
+            nn.style.bottom = Zt.bottom,
+            nn.style.left = Zt.left,
             nn.style.position = "absolute",
             tn.zone.appendChild(nn);
             var rn = nn.getBoundingClientRect();
             tn.zone.removeChild(nn),
-            en = Qt,
-            Qt = {
+            en = Zt,
+            Zt = {
                 x: rn.left + $t.x,
                 y: rn.top + $t.y
             }
@@ -25498,7 +25498,7 @@ function(Bt) {
             restOpacity: tn.restOpacity,
             mode: tn.mode,
             identifier: Jt,
-            position: Qt,
+            position: Zt,
             zone: tn.zone,
             frontPosition: {
                 x: 0,
@@ -25518,23 +25518,23 @@ function(Bt) {
         this.box = this.options.zone.getBoundingClientRect()
     }
     ,
-    Ht.prototype.bindNipple = function(Qt) {
+    Ht.prototype.bindNipple = function(Zt) {
         var $t = this, en = function(tn, nn) {
             Jt = tn.type + " " + nn.id + ":" + tn.type,
             $t.trigger(Jt, nn)
         }, Jt;
-        Qt.on("destroyed", $t.onDestroyed.bind($t)),
-        Qt.on("shown hidden rested dir plain", en),
-        Qt.on("dir:up dir:right dir:down dir:left", en),
-        Qt.on("plain:up plain:right plain:down plain:left", en)
+        Zt.on("destroyed", $t.onDestroyed.bind($t)),
+        Zt.on("shown hidden rested dir plain", en),
+        Zt.on("dir:up dir:right dir:down dir:left", en),
+        Zt.on("plain:up plain:right plain:down plain:left", en)
     }
     ,
-    Ht.prototype.pressureFn = function(Qt, Jt, $t) {
+    Ht.prototype.pressureFn = function(Zt, Jt, $t) {
         var en = this
           , tn = 0;
         clearInterval(en.pressureIntervals[$t]),
         en.pressureIntervals[$t] = setInterval(function() {
-            var nn = Qt.force || Qt.pressure || Qt.webkitForce || 0;
+            var nn = Zt.force || Zt.pressure || Zt.webkitForce || 0;
             nn !== tn && (Jt.trigger("pressure", nn),
             en.trigger("pressure " + Jt.identifier + ":pressure", nn),
             tn = nn)
@@ -25542,30 +25542,30 @@ function(Bt) {
         .bind(en), 100)
     }
     ,
-    Ht.prototype.onstart = function(Qt) {
+    Ht.prototype.onstart = function(Zt) {
         var Jt = this
           , $t = Jt.options;
-        return Qt = Kt.prepareEvent(Qt),
+        return Zt = Kt.prepareEvent(Zt),
         Jt.updateBox(),
-        (Kt.map(Qt, function(en) {
+        (Kt.map(Zt, function(en) {
             Jt.actives.length < $t.maxNumberOfNipples && Jt.processOnStart(en)
         }),
         Jt.manager.bindDocument(),
         !1)
     }
     ,
-    Ht.prototype.processOnStart = function(Qt) {
-        var $t = this, en = $t.options, tn = $t.manager.getIdentifier(Qt), nn = Qt.force || Qt.pressure || Qt.webkitForce || 0, rn = {
-            x: Qt.pageX,
-            y: Qt.pageY
+    Ht.prototype.processOnStart = function(Zt) {
+        var $t = this, en = $t.options, tn = $t.manager.getIdentifier(Zt), nn = Zt.force || Zt.pressure || Zt.webkitForce || 0, rn = {
+            x: Zt.pageX,
+            y: Zt.pageY
         }, an = $t.getOrCreate(tn, rn), Jt;
         an.identifier = tn;
         var on = function(sn) {
             sn.trigger("start", sn),
             $t.trigger("start " + sn.id + ":start", sn),
             sn.show(),
-            0 < nn && $t.pressureFn(Qt, sn, sn.identifier),
-            $t.processOnMove(Qt)
+            0 < nn && $t.pressureFn(Zt, sn, sn.identifier),
+            $t.processOnMove(Zt)
         };
         if (0 <= (Jt = $t.idles.indexOf(an)) && $t.idles.splice(Jt, 1),
         $t.actives.push(an),
@@ -25575,22 +25575,22 @@ function(Bt) {
         else {
             if (!(Kt.distance(rn, an.position) <= en.catchDistance))
                 return an.destroy(),
-                void $t.processOnStart(Qt);
+                void $t.processOnStart(Zt);
             on(an)
         }
         return an
     }
     ,
-    Ht.prototype.getOrCreate = function(Qt, Jt) {
+    Ht.prototype.getOrCreate = function(Zt, Jt) {
         var en = this.options, $t;
         return /(semi|static)/.test(en.mode) ? ($t = this.idles[0]) ? (this.idles.splice(0, 1),
-        $t) : "semi" === en.mode ? this.createNipple(Jt, Qt) : (console.warn("Coudln't find the needed nipple."),
-        !1) : $t = this.createNipple(Jt, Qt)
+        $t) : "semi" === en.mode ? this.createNipple(Jt, Zt) : (console.warn("Coudln't find the needed nipple."),
+        !1) : $t = this.createNipple(Jt, Zt)
     }
     ,
-    Ht.prototype.processOnMove = function(Qt) {
+    Ht.prototype.processOnMove = function(Zt) {
         var Jt = this.options
-          , $t = this.manager.getIdentifier(Qt)
+          , $t = this.manager.getIdentifier(Zt)
           , en = this.nipples.get($t);
         if (!en)
             return console.error("Found zombie joystick with ID " + $t),
@@ -25598,8 +25598,8 @@ function(Bt) {
         en.identifier = $t;
         var tn = en.options.size / 2
           , nn = {
-            x: Qt.pageX,
-            y: Qt.pageY
+            x: Zt.pageX,
+            y: Zt.pageY
         }
           , rn = Kt.distance(nn, en.position)
           , an = Kt.angle(nn, en.position)
@@ -25616,7 +25616,7 @@ function(Bt) {
             identifier: en.identifier,
             position: nn,
             force: sn,
-            pressure: Qt.force || Qt.pressure || Qt.webkitForce || 0,
+            pressure: Zt.force || Zt.pressure || Zt.webkitForce || 0,
             distance: rn,
             angle: {
                 radian: on,
@@ -25632,10 +25632,10 @@ function(Bt) {
         this.trigger("move " + en.id + ":move", dn)
     }
     ,
-    Ht.prototype.processOnEnd = function(Qt) {
+    Ht.prototype.processOnEnd = function(Zt) {
         var Jt = this
           , $t = Jt.options
-          , en = Jt.manager.getIdentifier(Qt)
+          , en = Jt.manager.getIdentifier(Zt)
           , tn = Jt.nipples.get(en)
           , nn = Jt.manager.removeIdentifier(tn.identifier);
         tn && ($t.dataOnly || tn.hide(function() {
@@ -25655,7 +25655,7 @@ function(Bt) {
         /(semi|static)/.test($t.mode) && (Jt.manager.ids[nn.id] = nn.identifier))
     }
     ,
-    Ht.prototype.onDestroyed = function(Qt, Jt) {
+    Ht.prototype.onDestroyed = function(Zt, Jt) {
         0 <= this.nipples.indexOf(Jt) && this.nipples.splice(this.nipples.indexOf(Jt), 1),
         0 <= this.actives.indexOf(Jt) && this.actives.splice(this.actives.indexOf(Jt), 1),
         0 <= this.idles.indexOf(Jt) && this.idles.splice(this.idles.indexOf(Jt), 1),
@@ -25665,12 +25665,12 @@ function(Bt) {
     }
     ,
     Ht.prototype.destroy = function() {
-        for (var Qt in this.unbindEvt(this.options.zone, "start"),
+        for (var Zt in this.unbindEvt(this.options.zone, "start"),
         this.nipples.forEach(function(Jt) {
             Jt.destroy()
         }),
         this.pressureIntervals)
-            this.pressureIntervals.hasOwnProperty(Qt) && clearInterval(this.pressureIntervals[Qt]);
+            this.pressureIntervals.hasOwnProperty(Zt) && clearInterval(this.pressureIntervals[Zt]);
         this.trigger("destroyed", this.nipples),
         this.manager.unbindDocument(),
         this.off()
@@ -25679,40 +25679,40 @@ function(Bt) {
     Gt.prototype = new Bt,
     Gt.constructor = Gt,
     Gt.prototype.prepareCollections = function() {
-        var Qt = this;
-        Qt.collections.create = Qt.create.bind(Qt),
-        Qt.collections.on = Qt.on.bind(Qt),
-        Qt.collections.off = Qt.off.bind(Qt),
-        Qt.collections.destroy = Qt.destroy.bind(Qt),
-        Qt.collections.get = function(Jt) {
+        var Zt = this;
+        Zt.collections.create = Zt.create.bind(Zt),
+        Zt.collections.on = Zt.on.bind(Zt),
+        Zt.collections.off = Zt.off.bind(Zt),
+        Zt.collections.destroy = Zt.destroy.bind(Zt),
+        Zt.collections.get = function(Jt) {
             var $t;
-            return Qt.collections.every(function(en) {
+            return Zt.collections.every(function(en) {
                 return !($t = en.get(Jt))
             }),
             $t
         }
     }
     ,
-    Gt.prototype.create = function(Qt) {
-        return this.createCollection(Qt)
+    Gt.prototype.create = function(Zt) {
+        return this.createCollection(Zt)
     }
     ,
-    Gt.prototype.createCollection = function(Qt) {
-        var Jt = new Ht(this,Qt);
+    Gt.prototype.createCollection = function(Zt) {
+        var Jt = new Ht(this,Zt);
         return this.bindCollection(Jt),
         this.collections.push(Jt),
         Jt
     }
     ,
-    Gt.prototype.bindCollection = function(Qt) {
+    Gt.prototype.bindCollection = function(Zt) {
         var $t = this, en = function(tn, nn) {
             Jt = tn.type + " " + nn.id + ":" + tn.type,
             $t.trigger(Jt, nn)
         }, Jt;
-        Qt.on("destroyed", $t.onDestroyed.bind($t)),
-        Qt.on("shown hidden rested dir plain", en),
-        Qt.on("dir:up dir:right dir:down dir:left", en),
-        Qt.on("plain:up plain:right plain:down plain:left", en)
+        Zt.on("destroyed", $t.onDestroyed.bind($t)),
+        Zt.on("shown hidden rested dir plain", en),
+        Zt.on("dir:up dir:right dir:down dir:left", en),
+        Zt.on("plain:up plain:right plain:down plain:left", en)
     }
     ,
     Gt.prototype.bindDocument = function() {
@@ -25720,24 +25720,24 @@ function(Bt) {
         this.binded = !0)
     }
     ,
-    Gt.prototype.unbindDocument = function(Qt) {
-        Object.keys(this.ids).length && !0 !== Qt || (this.unbindEvt(document, "move").unbindEvt(document, "end"),
+    Gt.prototype.unbindDocument = function(Zt) {
+        Object.keys(this.ids).length && !0 !== Zt || (this.unbindEvt(document, "move").unbindEvt(document, "end"),
         this.binded = !1)
     }
     ,
-    Gt.prototype.getIdentifier = function(Qt) {
+    Gt.prototype.getIdentifier = function(Zt) {
         var Jt;
-        return Qt ? void 0 === (Jt = void 0 === Qt.identifier ? Qt.pointerId : Qt.identifier) && (Jt = this.latest || 0) : Jt = this.index,
+        return Zt ? void 0 === (Jt = void 0 === Zt.identifier ? Zt.pointerId : Zt.identifier) && (Jt = this.latest || 0) : Jt = this.index,
         void 0 === this.ids[Jt] && (this.ids[Jt] = this.index,
         this.index += 1),
         this.latest = Jt,
         this.ids[Jt]
     }
     ,
-    Gt.prototype.removeIdentifier = function(Qt) {
+    Gt.prototype.removeIdentifier = function(Zt) {
         var Jt = {};
         for (var $t in this.ids)
-            if (this.ids[$t] === Qt) {
+            if (this.ids[$t] === Zt) {
                 Jt.id = $t,
                 Jt.identifier = this.ids[$t],
                 delete this.ids[$t];
@@ -25746,18 +25746,18 @@ function(Bt) {
         return Jt
     }
     ,
-    Gt.prototype.onmove = function(Qt) {
-        return this.onAny("move", Qt),
+    Gt.prototype.onmove = function(Zt) {
+        return this.onAny("move", Zt),
         !1
     }
     ,
-    Gt.prototype.onend = function(Qt) {
-        return this.onAny("end", Qt),
+    Gt.prototype.onend = function(Zt) {
+        return this.onAny("end", Zt),
         !1
     }
     ,
-    Gt.prototype.onAny = function(Qt, Jt) {
-        var en = this, tn = "processOn" + Qt.charAt(0).toUpperCase() + Qt.slice(1), $t;
+    Gt.prototype.onAny = function(Zt, Jt) {
+        var en = this, tn = "processOn" + Zt.charAt(0).toUpperCase() + Zt.slice(1), $t;
         return Jt = Kt.prepareEvent(Jt),
         Kt.map(Jt, function(nn) {
             $t = en.getIdentifier(nn),
@@ -25775,22 +25775,22 @@ function(Bt) {
         this.unbindDocument(!0),
         this.ids = {},
         this.index = 0,
-        this.collections.forEach(function(Qt) {
-            Qt.destroy()
+        this.collections.forEach(function(Zt) {
+            Zt.destroy()
         }),
         this.off()
     }
     ,
-    Gt.prototype.onDestroyed = function(Qt, Jt) {
+    Gt.prototype.onDestroyed = function(Zt, Jt) {
         return !(0 > this.collections.indexOf(Jt)) && void this.collections.splice(this.collections.indexOf(Jt), 1)
     }
     ;
-    var Zt = new Gt;
+    var Qt = new Gt;
     return {
-        create: function(Qt) {
-            return Zt.create(Qt)
+        create: function(Zt) {
+            return Qt.create(Zt)
         },
-        factory: Zt
+        factory: Qt
     }
 }),
 function() {
@@ -26078,7 +26078,7 @@ class Vector {
         if (!Ht.started) {
             window.mainMenuTeam = Tools.randInt(1, 2),
             Ht.pos = Vector.zero();
-            for (var Zt = Tools.rand(0, 1), Jt = [3, 1, 2, 4, 5], $t = [-270, -150, 0, 150, 270], en = 0, Qt; en < Jt.length; en++)
+            for (var Qt = Tools.rand(0, 1), Jt = [3, 1, 2, 4, 5], $t = [-270, -150, 0, 150, 270], en = 0, Zt; en < Jt.length; en++)
                 Players.add({
                     id: en + 1,
                     team: window.mainMenuTeam,
@@ -26091,8 +26091,8 @@ class Vector {
                     rot: 0,
                     flag: 1
                 }),
-                (Qt = Players.get(en + 1)).keystate.UP = !0,
-                Qt._offset = $t[en]
+                (Zt = Players.get(en + 1)).keystate.UP = !0,
+                Zt._offset = $t[en]
         }
         Ht.started = !0,
         2e3 < Ht.dist ? Ht.direction = -1 : 100 > Ht.dist && (Ht.direction = 1),
@@ -26146,29 +26146,29 @@ class Vector {
         "#nomobile" == window.location.hash && (config.mobile = !1)
     };
     Tools.loadSettings = function() {
-        var Zt = jt();
-        config.storage = Zt,
-        DEVELOPMENT && console.log(Zt),
-        null != Zt.id && (config.settings.id = Zt.id),
-        null != Zt.session && (config.settings.session = Zt.session),
-        null != Zt.name && (config.settings.name = Zt.name),
-        null != Zt.region && (config.settings.region = Zt.region),
-        null != Zt.helpshown && (config.settings.helpshown = Zt.helpshown),
-        null != Zt.mobileshown && (config.settings.mobileshown = Zt.mobileshown),
-        null != Zt.flag && (config.settings.flag = Zt.flag),
-        null != Zt.hidpi && (config.settings.hidpi = Zt.hidpi),
-        null != Zt.sound && (config.settings.sound = Zt.sound),
-        null != Zt.keybinds && (config.settings.keybinds = Zt.keybinds),
-        null != Zt.mousemode && (config.settings.mousemode = Zt.mousemode),
+        var Qt = jt();
+        config.storage = Qt,
+        DEVELOPMENT && console.log(Qt),
+        null != Qt.id && (config.settings.id = Qt.id),
+        null != Qt.session && (config.settings.session = Qt.session),
+        null != Qt.name && (config.settings.name = Qt.name),
+        null != Qt.region && (config.settings.region = Qt.region),
+        null != Qt.helpshown && (config.settings.helpshown = Qt.helpshown),
+        null != Qt.mobileshown && (config.settings.mobileshown = Qt.mobileshown),
+        null != Qt.flag && (config.settings.flag = Qt.flag),
+        null != Qt.hidpi && (config.settings.hidpi = Qt.hidpi),
+        null != Qt.sound && (config.settings.sound = Qt.sound),
+        null != Qt.keybinds && (config.settings.keybinds = Qt.keybinds),
+        null != Qt.mousemode && (config.settings.mousemode = Qt.mousemode),
         Yt()
     }
     ;
     var Yt = function() {
         if (null == config.settings.id) {
-            var Zt = Tools.randomID(16);
-            config.settings.id = Zt,
+            var Qt = Tools.randomID(16);
+            config.settings.id = Qt,
             Tools.setSettings({
-                id: Zt
+                id: Qt
             })
         }
         null != config.settings.name && $("#playername").val(config.settings.name),
@@ -26179,33 +26179,33 @@ class Vector {
         UI.updateSound(),
         config.settings.oldhidpi = config.settings.hidpi
     };
-    Tools.randomID = function(Zt) {
-        var Qt = new Uint8Array(Zt);
-        return window.crypto.getRandomValues(Qt),
-        Wt(Qt).substr(0, Zt)
+    Tools.randomID = function(Qt) {
+        var Zt = new Uint8Array(Qt);
+        return window.crypto.getRandomValues(Zt),
+        Wt(Zt).substr(0, Qt)
     }
     ;
-    var Wt = function(Zt) {
-        for (var Jt = "", $t = 0, Qt; $t < Zt.length; $t++)
-            Jt += Qt = 1 === (Qt = (255 & Zt[$t]).toString(16)).length ? "0" + Qt : Qt;
+    var Wt = function(Qt) {
+        for (var Jt = "", $t = 0, Zt; $t < Qt.length; $t++)
+            Jt += Zt = 1 === (Zt = (255 & Qt[$t]).toString(16)).length ? "0" + Zt : Zt;
         return Jt
     };
-    Tools.setSettings = function(Zt) {
+    Tools.setSettings = function(Qt) {
         if (null != window.localStorage) {
-            for (var Qt in Zt)
-                config.storage[Qt] = Zt[Qt];
+            for (var Zt in Qt)
+                config.storage[Zt] = Qt[Zt];
             try {
                 localStorage.setItem("settings", JSON.stringify(config.storage))
             } catch (Jt) {}
         }
     }
     ,
-    Tools.removeSetting = function(Zt) {
+    Tools.removeSetting = function(Qt) {
         if (null != window.localStorage) {
-            null != config.storage[Zt] && delete config.storage[Zt];
+            null != config.storage[Qt] && delete config.storage[Qt];
             try {
                 localStorage.setItem("settings", JSON.stringify(config.storage))
-            } catch (Qt) {}
+            } catch (Zt) {}
         }
     }
     ,
@@ -26215,29 +26215,29 @@ class Vector {
             config.settings = {};
             try {
                 localStorage.setItem("settings", JSON.stringify(config.storage))
-            } catch (Zt) {}
+            } catch (Qt) {}
         }
     }
     ;
     var jt = function() {
         if (null == window.localStorage)
             return {};
-        var Zt = null
-          , Qt = {};
+        var Qt = null
+          , Zt = {};
         try {
-            Zt = localStorage.getItem("settings")
+            Qt = localStorage.getItem("settings")
         } catch (Jt) {}
-        if (null != Zt)
+        if (null != Qt)
             try {
-                Qt = JSON.parse(Zt)
+                Zt = JSON.parse(Qt)
             } catch (Jt) {}
-        return Qt
+        return Zt
     };
-    Tools.ajaxPost = function(Zt, Qt, Jt) {
+    Tools.ajaxPost = function(Qt, Zt, Jt) {
         $.ajax({
-            url: Zt,
+            url: Qt,
             method: "POST",
-            data: Qt,
+            data: Zt,
             dataType: "json",
             timeout: 1e4,
             success: function($t) {
@@ -26249,65 +26249,65 @@ class Vector {
         })
     }
     ,
-    Tools.length = function(Zt, Qt) {
-        return Math.sqrt(Zt * Zt + Qt * Qt)
+    Tools.length = function(Qt, Zt) {
+        return Math.sqrt(Qt * Qt + Zt * Zt)
     }
     ,
-    Tools.oscillator = function(Zt, Qt, Jt) {
-        return 1 + Math.sin((game.time + (Jt || 0)) / Qt) * Zt
+    Tools.oscillator = function(Qt, Zt, Jt) {
+        return 1 + Math.sin((game.time + (Jt || 0)) / Zt) * Qt
     }
     ,
-    Tools.converge = function(Zt, Qt, Jt) {
-        return .01 > Math.abs(Zt - Qt) ? Qt : Zt + Jt * (Qt - Zt)
+    Tools.converge = function(Qt, Zt, Jt) {
+        return .01 > Math.abs(Qt - Zt) ? Zt : Qt + Jt * (Zt - Qt)
     }
     ,
-    Tools.rand = function(Zt, Qt) {
-        return Math.random() * (Qt - Zt) + Zt
+    Tools.rand = function(Qt, Zt) {
+        return Math.random() * (Zt - Qt) + Qt
     }
     ,
     Tools.randCircle = function() {
         return Tools.rand(0, 6.28318530718)
     }
     ,
-    Tools.randInt = function(Zt, Qt) {
-        var Jt = Math.floor(Math.random() * (Qt + 1 - Zt) + Zt);
-        return Jt >= Qt && (Jt = Qt),
+    Tools.randInt = function(Qt, Zt) {
+        var Jt = Math.floor(Math.random() * (Zt + 1 - Qt) + Qt);
+        return Jt >= Zt && (Jt = Zt),
         Jt
     }
     ,
-    Tools.clamp = function(Zt, Qt, Jt) {
-        return Zt <= Qt ? Qt : Zt >= Jt ? Jt : Zt
+    Tools.clamp = function(Qt, Zt, Jt) {
+        return Qt <= Zt ? Zt : Qt >= Jt ? Jt : Qt
     }
     ,
-    Tools.lerp = function(Zt, Qt, Jt) {
-        return Jt * (Qt - Zt) + Zt
+    Tools.lerp = function(Qt, Zt, Jt) {
+        return Jt * (Zt - Qt) + Qt
     }
     ,
-    Tools.colorLerp = function(Zt, Qt, Jt) {
+    Tools.colorLerp = function(Qt, Zt, Jt) {
         0 >= Jt && (Jt = .001),
         1 <= Jt && (Jt = .999);
-        var $t = Zt >> 16
-          , en = 255 & Zt >> 8
-          , tn = 255 & Zt;
-        return 0 | 16777216 + ($t + Jt * ((Qt >> 16) - $t) << 16) + (en + Jt * ((255 & Qt >> 8) - en) << 8) + (tn + Jt * ((255 & Qt) - tn))
+        var $t = Qt >> 16
+          , en = 255 & Qt >> 8
+          , tn = 255 & Qt;
+        return 0 | 16777216 + ($t + Jt * ((Zt >> 16) - $t) << 16) + (en + Jt * ((255 & Zt >> 8) - en) << 8) + (tn + Jt * ((255 & Zt) - tn))
     }
     ,
-    Tools.distance = function(Zt, Qt, Jt, $t) {
-        var en = Zt - Jt
-          , tn = Qt - $t;
+    Tools.distance = function(Qt, Zt, Jt, $t) {
+        var en = Qt - Jt
+          , tn = Zt - $t;
         return Math.sqrt(en * en + tn * tn)
     }
     ,
-    Tools.distFastCheck = function(Zt, Qt, Jt, $t) {
-        return Math.abs(Zt.x - Qt.x) <= Jt && Math.abs(Zt.y - Qt.y) <= $t
+    Tools.distFastCheck = function(Qt, Zt, Jt, $t) {
+        return Math.abs(Qt.x - Zt.x) <= Jt && Math.abs(Qt.y - Zt.y) <= $t
     }
     ,
-    Tools.distFastCheckFloat = function(Zt, Qt, Jt, $t, en) {
-        return Math.abs(Zt - Jt) <= en && Math.abs(Qt - $t) <= en
+    Tools.distFastCheckFloat = function(Qt, Zt, Jt, $t, en) {
+        return Math.abs(Qt - Jt) <= en && Math.abs(Zt - $t) <= en
     }
     ,
-    Tools.updateTime = function(Zt) {
-        game.timeFactor = 60 > Zt ? Zt : 60,
+    Tools.updateTime = function(Qt) {
+        game.timeFactor = 60 > Qt ? Qt : 60,
         game.timeFactorUncapped = game.timeFactor,
         10 < game.timeFactor && (game.timeFactor = 10),
         game.time = performance.now(),
@@ -26315,9 +26315,9 @@ class Vector {
     }
     ,
     Tools.reducedFactor = function() {
-        var Zt = (performance.now() - game.time) / 16.666;
-        return .1 < Math.abs(game.jitter) && (Zt += game.jitter / 16.666),
-        Zt
+        var Qt = (performance.now() - game.time) / 16.666;
+        return .1 < Math.abs(game.jitter) && (Qt += game.jitter / 16.666),
+        Qt
     }
     ;
     var zt = {
@@ -26325,20 +26325,20 @@ class Vector {
         explosionSmoke: [0, 0, 0.02, 0.06, 0.13, 0.26, 0.45, 0.71, 0.91, 0.99, 0.99, 0.97, 0.94, 0.92, 0.89, 0.86, 0.83, 0.8, 0.77, 0.74, 0.71, 0.68, 0.65, 0.63, 0.6, 0.57, 0.54, 0.51, 0.48, 0.45, 0.42, 0.4, 0.37, 0.34, 0.31, 0.29, 0.26, 0.24, 0.21, 0.19, 0.16, 0.14, 0.12, 0.1, 0.08, 0.06, 0.04, 0.02, 0.01, 0, 0]
     };
     Tools.easing = {
-        outElastic: function(Zt, Qt) {
-            var Jt = 1 - (Qt || .7)
-              , $t = 2 * Zt;
-            if (0 === Zt || 1 === Zt)
-                return Zt;
+        outElastic: function(Qt, Zt) {
+            var Jt = 1 - (Zt || .7)
+              , $t = 2 * Qt;
+            if (0 === Qt || 1 === Qt)
+                return Qt;
             var en = Jt / (2 * Math.PI) * Math.asin(1);
             return Math.pow(2, -10 * $t) * Math.sin(($t - en) * (2 * Math.PI) / Jt) + 1
         },
-        custom: function(Zt, Qt) {
-            var Jt = zt[Qt]
+        custom: function(Qt, Zt) {
+            var Jt = zt[Zt]
               , $t = Jt.length
-              , en = Math.floor(Zt * ($t - 1))
+              , en = Math.floor(Qt * ($t - 1))
               , tn = Jt[en];
-            return en === $t - 1 ? tn : Tools.lerp(tn, Jt[en + 1], Zt * ($t - 1) % 1)
+            return en === $t - 1 ? tn : Tools.lerp(tn, Jt[en + 1], Qt * ($t - 1) % 1)
         }
     },
     Tools.setupDebug = function() {
@@ -26351,22 +26351,22 @@ class Vector {
         setInterval(Tools.updateDebug, 2123))
     }
     ,
-    Tools.debugLine = function(Zt, Qt) {
-        return "<div class=\"line\"><span class=\"attr\">" + UI.escapeHTML(Zt) + "</span><span class=\"val\">" + UI.escapeHTML(Qt) + "</span></div>"
+    Tools.debugLine = function(Qt, Zt) {
+        return "<div class=\"line\"><span class=\"attr\">" + UI.escapeHTML(Qt) + "</span><span class=\"val\">" + UI.escapeHTML(Zt) + "</span></div>"
     }
     ,
     Tools.updateDebug = function() {
-        var Zt = performance.now()
-          , Qt = 1e3 * (game.frames - game.debug.frames) / (Zt - game.debug.last)
+        var Qt = performance.now()
+          , Zt = 1e3 * (game.frames - game.debug.frames) / (Qt - game.debug.last)
           , Jt = Players.count()
           , $t = Mobs.count()
           , en = Mobs.countDoodads()
           , tn = ""
           , nn = Players.getMe();
         null != nn && (tn = Tools.debugLine("Coords", Math.round(nn.pos.x) + ", " + Math.round(nn.pos.y)));
-        var rn = Tools.debugLine("FPS", Math.round(Qt)) + Tools.debugLine("Ticks", (100 * (game.debug.ticks / (Zt - game.debug.last))).toFixed(2) + "%") + Tools.debugLine("Ping", game.ping.toFixed(2) + " ms") + Tools.debugLine("Res", game.screenX + " x " + game.screenY) + "<div class=\"spacer\"></div>" + Tools.debugLine("Players", Jt[0] + " / " + Jt[1]) + Tools.debugLine("Mobs", $t[0] + " / " + $t[1]) + Tools.debugLine("Particles", Particles.count()) + Tools.debugLine("Doodads", en[0] + " / " + en[1]) + "<div class=\"spacer\"></div>" + tn + Tools.debugLine("Scale", game.scale.toFixed(2)) + Tools.debugLine("Jitter", game.jitter.toFixed(3)) + "<div class=\"close\" onclick=\"Tools.hideDebug()\">x</div>";
+        var rn = Tools.debugLine("FPS", Math.round(Zt)) + Tools.debugLine("Ticks", (100 * (game.debug.ticks / (Qt - game.debug.last))).toFixed(2) + "%") + Tools.debugLine("Ping", game.ping.toFixed(2) + " ms") + Tools.debugLine("Res", game.screenX + " x " + game.screenY) + "<div class=\"spacer\"></div>" + Tools.debugLine("Players", Jt[0] + " / " + Jt[1]) + Tools.debugLine("Mobs", $t[0] + " / " + $t[1]) + Tools.debugLine("Particles", Particles.count()) + Tools.debugLine("Doodads", en[0] + " / " + en[1]) + "<div class=\"spacer\"></div>" + tn + Tools.debugLine("Scale", game.scale.toFixed(2)) + Tools.debugLine("Jitter", game.jitter.toFixed(3)) + "<div class=\"close\" onclick=\"Tools.hideDebug()\">x</div>";
         $("#debug").html(rn),
-        game.debug.last = Zt,
+        game.debug.last = Qt,
         game.debug.ticks = 0,
         game.debug.frames = game.frames
     }
@@ -26383,72 +26383,72 @@ class Vector {
         DEVELOPMENT && config.debug.show && null != game.debug.startedFrame && (game.debug.ticks += performance.now() - game.debug.startedFrame)
     }
     ,
-    Tools.earningsToRank = function(Zt) {
-        return Math.floor(.0111 * Math.pow(Zt, .5)) + 1
+    Tools.earningsToRank = function(Qt) {
+        return Math.floor(.0111 * Math.pow(Qt, .5)) + 1
     }
     ,
-    Tools.rankToEarnings = function(Zt) {
-        return Math.pow((Zt - 1) / .0111, 2)
+    Tools.rankToEarnings = function(Qt) {
+        return Math.pow((Qt - 1) / .0111, 2)
     }
     ,
-    Tools.decodeKeystate = function(Zt, Qt) {
-        Zt.keystate.UP = 0 != (1 & Qt),
-        Zt.keystate.DOWN = 0 != (2 & Qt),
-        Zt.keystate.LEFT = 0 != (4 & Qt),
-        Zt.keystate.RIGHT = 0 != (8 & Qt),
-        Zt.boost = 0 != (16 & Qt),
-        Zt.strafe = 0 != (32 & Qt),
-        Zt.stealthed = 0 != (64 & Qt),
-        Zt.flagspeed = 0 != (128 & Qt)
+    Tools.decodeKeystate = function(Qt, Zt) {
+        Qt.keystate.UP = 0 != (1 & Zt),
+        Qt.keystate.DOWN = 0 != (2 & Zt),
+        Qt.keystate.LEFT = 0 != (4 & Zt),
+        Qt.keystate.RIGHT = 0 != (8 & Zt),
+        Qt.boost = 0 != (16 & Zt),
+        Qt.strafe = 0 != (32 & Zt),
+        Qt.stealthed = 0 != (64 & Zt),
+        Qt.flagspeed = 0 != (128 & Zt)
     }
     ,
-    Tools.decodeUpgrades = function(Zt, Qt) {
-        Zt.speedupgrade = (0 == (1 & Qt) ? 0 : 1) + (0 == (2 & Qt) ? 0 : 2) + (0 == (4 & Qt) ? 0 : 4),
-        Zt.powerups.shield = 0 != (8 & Qt),
-        Zt.powerups.rampage = 0 != (16 & Qt)
+    Tools.decodeUpgrades = function(Qt, Zt) {
+        Qt.speedupgrade = (0 == (1 & Zt) ? 0 : 1) + (0 == (2 & Zt) ? 0 : 2) + (0 == (4 & Zt) ? 0 : 4),
+        Qt.powerups.shield = 0 != (8 & Zt),
+        Qt.powerups.rampage = 0 != (16 & Zt)
     }
     ,
-    Tools.decodeMinimapCoords = function(Zt, Qt) {
-        return new Vector(128 * Zt - 16384 + 64,Tools.clamp(128 * Qt - 16384, -8192, 8192) + 64)
+    Tools.decodeMinimapCoords = function(Qt, Zt) {
+        return new Vector(128 * Qt - 16384 + 64,Tools.clamp(128 * Zt - 16384, -8192, 8192) + 64)
     }
     ,
-    Tools.decodeSpeed = function(Zt) {
-        return (Zt - 32768) / 1638.4
+    Tools.decodeSpeed = function(Qt) {
+        return (Qt - 32768) / 1638.4
     }
     ,
-    Tools.decodeCoordX = function(Zt) {
-        return (Zt - 32768) / 2
+    Tools.decodeCoordX = function(Qt) {
+        return (Qt - 32768) / 2
     }
     ,
-    Tools.decodeCoordY = function(Zt) {
-        return (Zt - 32768) / 4
+    Tools.decodeCoordY = function(Qt) {
+        return (Qt - 32768) / 4
     }
     ,
-    Tools.decodeCoord24 = function(Zt) {
-        return (Zt - 8388608) / 512
+    Tools.decodeCoord24 = function(Qt) {
+        return (Qt - 8388608) / 512
     }
     ,
-    Tools.decodeAccel = function(Zt) {
-        return (Zt - 32768) / 32768
+    Tools.decodeAccel = function(Qt) {
+        return (Qt - 32768) / 32768
     }
     ,
-    Tools.decodeRotation = function(Zt) {
-        return Zt / 6553.6
+    Tools.decodeRotation = function(Qt) {
+        return Qt / 6553.6
     }
     ,
-    Tools.decodeHealthnergy = function(Zt) {
-        return Zt / 255
+    Tools.decodeHealthnergy = function(Qt) {
+        return Qt / 255
     }
     ,
-    Tools.decodeRegen = function(Zt) {
-        return (Zt - 32768) / 1e6
+    Tools.decodeRegen = function(Qt) {
+        return (Qt - 32768) / 1e6
     }
     ;
-    var Vt = function(Zt) {
-        return Tools.clamp(Math.floor(Zt / Bt.size) + Bt.bucketsHalfX, 0, Bt.bucketsMaxX)
+    var Vt = function(Qt) {
+        return Tools.clamp(Math.floor(Qt / Bt.size) + Bt.bucketsHalfX, 0, Bt.bucketsMaxX)
     }
-      , qt = function(Zt) {
-        return Tools.clamp(Math.floor(Zt / Bt.size) + Bt.bucketsHalfY, 0, Bt.bucketsMaxY)
+      , qt = function(Qt) {
+        return Tools.clamp(Math.floor(Qt / Bt.size) + Bt.bucketsHalfY, 0, Bt.bucketsMaxY)
     };
     Tools.initBuckets = function() {
         Bt = {
@@ -26459,102 +26459,102 @@ class Vector {
             bucketsHalfX: parseInt(config.mapWidth / config.bucketSize / 2),
             bucketsHalfY: parseInt(config.mapHeight / config.bucketSize / 2)
         };
-        for (var Zt = 0; Zt <= Bt.bucketsMaxX; Zt++) {
+        for (var Qt = 0; Qt <= Bt.bucketsMaxX; Qt++) {
             game.buckets.push([]);
-            for (var Qt = 0; Qt <= Bt.bucketsMaxY; Qt++)
-                game.buckets[Zt].push([[]])
+            for (var Zt = 0; Zt <= Bt.bucketsMaxY; Zt++)
+                game.buckets[Qt].push([[]])
         }
         for (var Jt = 0; Jt < config.doodads.length; Jt++)
-            Zt = Vt(config.doodads[Jt][0]),
-            Qt = qt(config.doodads[Jt][1]),
-            game.buckets[Zt][Qt][0].push(Jt)
+            Qt = Vt(config.doodads[Jt][0]),
+            Zt = qt(config.doodads[Jt][1]),
+            game.buckets[Qt][Zt][0].push(Jt)
     }
     ,
-    Tools.getBucketBounds = function(Zt, Qt, Jt) {
-        return [Tools.clamp(Math.floor((Zt.x - Qt) / Bt.size) + Bt.bucketsHalfX, 0, Bt.bucketsMaxX), Tools.clamp(Math.floor((Zt.x + Qt) / Bt.size) + Bt.bucketsHalfX, 0, Bt.bucketsMaxX), Tools.clamp(Math.floor((Zt.y - Jt) / Bt.size) + Bt.bucketsHalfY, 0, Bt.bucketsMaxY), Tools.clamp(Math.floor((Zt.y + Jt) / Bt.size) + Bt.bucketsHalfY, 0, Bt.bucketsMaxY)]
+    Tools.getBucketBounds = function(Qt, Zt, Jt) {
+        return [Tools.clamp(Math.floor((Qt.x - Zt) / Bt.size) + Bt.bucketsHalfX, 0, Bt.bucketsMaxX), Tools.clamp(Math.floor((Qt.x + Zt) / Bt.size) + Bt.bucketsHalfX, 0, Bt.bucketsMaxX), Tools.clamp(Math.floor((Qt.y - Jt) / Bt.size) + Bt.bucketsHalfY, 0, Bt.bucketsMaxY), Tools.clamp(Math.floor((Qt.y + Jt) / Bt.size) + Bt.bucketsHalfY, 0, Bt.bucketsMaxY)]
     }
     ,
-    Tools.deferUpdate = function(Zt) {
-        setTimeout(Zt, 1)
+    Tools.deferUpdate = function(Qt) {
+        setTimeout(Qt, 1)
     }
     ;
-    var Kt = function(Zt, Qt) {
-        if (Qt instanceof Error) {
+    var Kt = function(Qt, Zt) {
+        if (Zt instanceof Error) {
             var Jt = {};
-            return Object.getOwnPropertyNames(Qt).forEach(function($t) {
-                Jt[$t] = Qt[$t]
+            return Object.getOwnPropertyNames(Zt).forEach(function($t) {
+                Jt[$t] = Zt[$t]
             }),
             Jt
         }
-        return Qt
+        return Zt
     };
-    Tools.handleError = function(Zt) {
-        5 < ++Xt || (null != Zt.error && (Zt.error = JSON.stringify(Zt.error, Kt)),
+    Tools.handleError = function(Qt) {
+        5 < ++Xt || (null != Qt.error && (Qt.error = JSON.stringify(Qt.error, Kt)),
         Tools.ajaxPost("/clienterror", {
             type: "runtime",
-            error: JSON.stringify(Zt, null, "\t\t")
+            error: JSON.stringify(Qt, null, "\t\t")
         }))
     }
     ,
-    Tools.encodeUTF8 = function(Zt) {
-        for (var Qt = 0, Jt = new Uint8Array(4 * Zt.length), $t = 0, en; $t != Zt.length; $t++)
-            if (en = Zt.charCodeAt($t),
+    Tools.encodeUTF8 = function(Qt) {
+        for (var Zt = 0, Jt = new Uint8Array(4 * Qt.length), $t = 0, en; $t != Qt.length; $t++)
+            if (en = Qt.charCodeAt($t),
             128 > en)
-                Jt[Qt++] = en;
+                Jt[Zt++] = en;
             else {
                 if (2048 > en)
-                    Jt[Qt++] = 192 | en >> 6;
+                    Jt[Zt++] = 192 | en >> 6;
                 else {
                     if (55295 < en && 56320 > en) {
-                        if (++$t == Zt.length)
+                        if (++$t == Qt.length)
                             throw "UTF-8 encode: incomplete surrogate pair";
-                        var tn = Zt.charCodeAt($t);
+                        var tn = Qt.charCodeAt($t);
                         if (56320 > tn || 57343 < tn)
                             throw "UTF-8 encode: second char code 0x" + tn.toString(16) + " at index " + $t + " in surrogate pair out of range";
                         en = 65536 + ((1023 & en) << 10) + (1023 & tn),
-                        Jt[Qt++] = 240 | en >> 18,
-                        Jt[Qt++] = 128 | 63 & en >> 12
+                        Jt[Zt++] = 240 | en >> 18,
+                        Jt[Zt++] = 128 | 63 & en >> 12
                     } else
-                        Jt[Qt++] = 224 | en >> 12;
-                    Jt[Qt++] = 128 | 63 & en >> 6
+                        Jt[Zt++] = 224 | en >> 12;
+                    Jt[Zt++] = 128 | 63 & en >> 6
                 }
-                Jt[Qt++] = 128 | 63 & en
+                Jt[Zt++] = 128 | 63 & en
             }
-        return Jt.subarray(0, Qt)
+        return Jt.subarray(0, Zt)
     }
     ,
-    Tools.decodeUTF8 = function(Zt) {
-        for (var Qt = "", Jt = 0, $t; Jt < Zt.length; ) {
-            if ($t = Zt[Jt++],
+    Tools.decodeUTF8 = function(Qt) {
+        for (var Zt = "", Jt = 0, $t; Jt < Qt.length; ) {
+            if ($t = Qt[Jt++],
             127 < $t) {
                 if (191 < $t && 224 > $t) {
-                    if (Jt >= Zt.length)
+                    if (Jt >= Qt.length)
                         throw "UTF-8 decode: incomplete 2-byte sequence";
-                    $t = (31 & $t) << 6 | 63 & Zt[Jt]
+                    $t = (31 & $t) << 6 | 63 & Qt[Jt]
                 } else if (223 < $t && 240 > $t) {
-                    if (Jt + 1 >= Zt.length)
+                    if (Jt + 1 >= Qt.length)
                         throw "UTF-8 decode: incomplete 3-byte sequence";
-                    $t = (15 & $t) << 12 | (63 & Zt[Jt]) << 6 | 63 & Zt[++Jt]
+                    $t = (15 & $t) << 12 | (63 & Qt[Jt]) << 6 | 63 & Qt[++Jt]
                 } else {
                     if (!(239 < $t && 248 > $t))
                         throw "UTF-8 decode: unknown multibyte start 0x" + $t.toString(16) + " at index " + (Jt - 1);
-                    if (Jt + 2 >= Zt.length)
+                    if (Jt + 2 >= Qt.length)
                         throw "UTF-8 decode: incomplete 4-byte sequence";
-                    $t = (7 & $t) << 18 | (63 & Zt[Jt]) << 12 | (63 & Zt[++Jt]) << 6 | 63 & Zt[++Jt]
+                    $t = (7 & $t) << 18 | (63 & Qt[Jt]) << 12 | (63 & Qt[++Jt]) << 6 | 63 & Qt[++Jt]
                 }
                 ++Jt
             }
             if (65535 >= $t)
-                Qt += String.fromCharCode($t);
+                Zt += String.fromCharCode($t);
             else {
                 if (!(1114111 >= $t))
                     throw "UTF-8 decode: code point 0x" + $t.toString(16) + " exceeds UTF-16 reach";
                 $t -= 65536,
-                Qt += String.fromCharCode(55296 | $t >> 10),
-                Qt += String.fromCharCode(56320 | 1023 & $t)
+                Zt += String.fromCharCode(55296 | $t >> 10),
+                Zt += String.fromCharCode(56320 | 1023 & $t)
             }
         }
-        return Qt
+        return Zt
     }
 }(),
 function() {
@@ -27268,7 +27268,7 @@ function() {
         jt(),
         qt(),
         zt(),
-        Zt(),
+        Qt(),
         Mobs.setupDoodads(),
         UI.setupMinimap(),
         UI.setupHUD()
@@ -27353,7 +27353,7 @@ function() {
             Ht[on].height = an;
         UI.resizeMinimap(),
         UI.resizeHUD(),
-        Qt(),
+        Zt(),
         Jt(),
         Graphics.setCamera(Xt.center.x, Xt.center.y),
         game.state == Network.STATE.PLAYING && Network.resizeHorizon()
@@ -27397,7 +27397,7 @@ function() {
             config.minimapPaddingX = game.screenX / 2 - config.minimapSize / 2
         }
     }
-      , Zt = function() {
+      , Qt = function() {
         var tn = Bt.width + config.overdraw
           , nn = Bt.height + config.overdraw;
         Ht.sea = Textures.tile("map_sea", tn, nn),
@@ -27420,9 +27420,9 @@ function() {
             Yt.map.addChild(Ht[rn]);
         Yt.map.addChild(Yt.doodads),
         $t(),
-        Qt()
+        Zt()
     }
-      , Qt = function() {
+      , Zt = function() {
         var tn;
         for (tn of ["sea", "forest", "sand", "rock"])
             Ht[tn].tileScale.set(game.scale, game.scale);
@@ -27587,17 +27587,17 @@ function() {
       , Vt = 0
       , qt = {}
       , Kt = 0
-      , Zt = 0
       , Qt = 0
+      , Zt = 0
       , Jt = !1
       , $t = 2e3
       , en = 2e3;
     Network.sendKey = function(yn, _n) {
         if (game.state == Network.STATE.PLAYING) {
-            Zt++;
+            Qt++;
             var bn = {
                 c: fn.KEY,
-                seq: Zt,
+                seq: Qt,
                 key: pn[yn],
                 state: _n
             };
@@ -27678,7 +27678,7 @@ function() {
     }
     ,
     Network.detectConnectivity = function() {
-        game.lagging = 1300 < game.timeNetwork - Qt
+        game.lagging = 1300 < game.timeNetwork - Zt
     }
     ,
     Network.shutdown = function() {
@@ -27692,8 +27692,8 @@ function() {
         Vt = 0,
         qt = {},
         Kt = 0,
-        Zt = 0,
         Qt = 0,
+        Zt = 0,
         Jt = !1,
         $t = 2e3,
         en = 2e3
@@ -27734,7 +27734,7 @@ function() {
                 if (yn.c != gn.PING && on(yn))
                     return;
                 game.timeNetwork = performance.now(),
-                Qt = game.timeNetwork,
+                Zt = game.timeNetwork,
                 function(bn) {
                     if (game.jitter = 0,
                     -1 != jt) {
@@ -27747,7 +27747,7 @@ function() {
                 }(yn.clock / 100)
             } else
                 game.timeNetwork = performance.now(),
-                Qt = game.timeNetwork,
+                Zt = game.timeNetwork,
                 null != yn.clock && function(bn) {
                     -1 != jt && (nn(bn),
                     game.jitter = bn - jt - (game.timeNetwork - zt) - Vt)
@@ -28099,28 +28099,28 @@ function() {
                     Rn = bn.getUint16(vn, !0),
                     vn += 2;
                 xn[Sn] = [];
-                for (var Mn = Tn[En][2], In = 0; In < Rn; In++) {
-                    for (var Dn = {}, On = 0, Ln; On < Mn.length; On++)
-                        switch (Ln = Mn[On][0],
-                        Mn[On][1]) {
+                for (var Dn = Tn[En][2], Mn = 0; Mn < Rn; Mn++) {
+                    for (var In = {}, On = 0, Ln; On < Dn.length; On++)
+                        switch (Ln = Dn[On][0],
+                        Dn[On][1]) {
                         case cn.text:
                         case cn.textbig:
-                            for (Mn[On][1] == cn.text ? (wn = bn.getUint8(vn, !0),
+                            for (Dn[On][1] == cn.text ? (wn = bn.getUint8(vn, !0),
                             vn += 1) : (wn = bn.getUint16(vn, !0),
                             vn += 2),
                             Pn = new Uint8Array(wn),
                             Cn = 0; Cn < wn; Cn++)
                                 Pn[Cn] = bn.getUint8(vn + Cn, !0);
                             An = Tools.decodeUTF8(Pn),
-                            Dn[Ln] = An,
+                            In[Ln] = An,
                             vn += wn;
                             break;
                         case cn.uint8:
-                            Dn[Ln] = bn.getUint8(vn, !0),
+                            In[Ln] = bn.getUint8(vn, !0),
                             vn += 1;
                             break;
                         case cn.uint16:
-                            Dn[Ln] = bn.getUint16(vn, !0),
+                            In[Ln] = bn.getUint16(vn, !0),
                             vn += 2;
                             break;
                         case cn.uint24:
@@ -28130,35 +28130,35 @@ function() {
                             vn += 1;
                             break;
                         case cn.uint32:
-                            Dn[Ln] = bn.getUint32(vn, !0),
+                            In[Ln] = bn.getUint32(vn, !0),
                             vn += 4;
                             break;
                         case cn.float32:
-                            Dn[Ln] = bn.getFloat32(vn, !0),
+                            In[Ln] = bn.getFloat32(vn, !0),
                             vn += 4;
                             break;
                         case cn.float64:
-                            Dn[Ln] = bn.getFloat64(vn, !0),
+                            In[Ln] = bn.getFloat64(vn, !0),
                             vn += 8;
                             break;
                         case cn.boolean:
-                            Dn[Ln] = 0 != bn.getUint8(vn, !0),
+                            In[Ln] = 0 != bn.getUint8(vn, !0),
                             vn += 1;
                             break;
                         case cn.speed:
-                            Dn[Ln] = Tools.decodeSpeed(bn.getUint16(vn, !0)),
+                            In[Ln] = Tools.decodeSpeed(bn.getUint16(vn, !0)),
                             vn += 2;
                             break;
                         case cn.accel:
-                            Dn[Ln] = Tools.decodeAccel(bn.getUint16(vn, !0)),
+                            In[Ln] = Tools.decodeAccel(bn.getUint16(vn, !0)),
                             vn += 2;
                             break;
                         case cn.coordx:
-                            Dn[Ln] = Tools.decodeCoordX(bn.getUint16(vn, !0)),
+                            In[Ln] = Tools.decodeCoordX(bn.getUint16(vn, !0)),
                             vn += 2;
                             break;
                         case cn.coordy:
-                            Dn[Ln] = Tools.decodeCoordY(bn.getUint16(vn, !0)),
+                            In[Ln] = Tools.decodeCoordY(bn.getUint16(vn, !0)),
                             vn += 2;
                             break;
                         case cn.coord24:
@@ -28168,18 +28168,18 @@ function() {
                             vn += 1;
                             break;
                         case cn.rotation:
-                            Dn[Ln] = Tools.decodeRotation(bn.getUint16(vn, !0)),
+                            In[Ln] = Tools.decodeRotation(bn.getUint16(vn, !0)),
                             vn += 2;
                             break;
                         case cn.regen:
-                            Dn[Ln] = Tools.decodeRegen(bn.getUint16(vn, !0)),
+                            In[Ln] = Tools.decodeRegen(bn.getUint16(vn, !0)),
                             vn += 2;
                             break;
                         case cn.healthnergy:
-                            Dn[Ln] = Tools.decodeHealthnergy(bn.getUint8(vn, !0)),
+                            In[Ln] = Tools.decodeHealthnergy(bn.getUint8(vn, !0)),
                             vn += 1;
                         }
-                    xn[Sn].push(Dn)
+                    xn[Sn].push(In)
                 }
                 break;
             case cn.uint8:
@@ -28441,8 +28441,8 @@ function() {
       , Vt = {}
       , qt = !1
       , Kt = null
-      , Zt = 0
-      , Qt = {
+      , Qt = 0
+      , Zt = {
         LEFT: ["LEFT", "A"],
         RIGHT: ["RIGHT", "D"],
         UP: ["UP", "W"],
@@ -28596,7 +28596,7 @@ function() {
     Input.setup = function() {
         for (var bn in an)
             rn[an[bn]] = bn;
-        Jt = JSON.parse(JSON.stringify(Qt)),
+        Jt = JSON.parse(JSON.stringify(Zt)),
         cn(),
         hn(!0),
         $(window).on("keydown", dn),
@@ -28673,7 +28673,7 @@ function() {
     ,
     Input.bindKey = function(bn, xn, vn) {
         null == Kt && (Kt = xn,
-        Zt = vn,
+        Qt = vn,
         $(bn.target).html("press key"))
     }
     ,
@@ -28683,7 +28683,7 @@ function() {
     }
     ,
     Input.resetBinds = function() {
-        Qt = JSON.parse(JSON.stringify(Jt)),
+        Zt = JSON.parse(JSON.stringify(Jt)),
         Tools.removeSetting("keybinds"),
         Kt = null,
         hn()
@@ -28692,25 +28692,25 @@ function() {
     var cn = function() {
         if (null != config.settings.keybinds)
             for (var bn in config.settings.keybinds)
-                Qt[bn] = JSON.parse(JSON.stringify(config.settings.keybinds[bn]))
+                Zt[bn] = JSON.parse(JSON.stringify(config.settings.keybinds[bn]))
     }
       , fn = function(bn) {
         var xn = rn[bn];
         if (27 == bn && (xn = ""),
         null != xn) {
-            for (var vn in Qt)
-                Qt[vn][0] == xn && (Qt[vn][0] = ""),
-                1 < Qt[vn].length && Qt[vn][1] == xn && (Qt[vn][1] = "");
-            for (vn in Qt[Kt][Zt] = xn,
-            Qt)
-                1 < Qt[vn].length && "" == Qt[vn][0] && "" != Qt[vn][1] && (Qt[vn] = [Qt[vn][1]]),
-                2 == Qt[vn].length && "" === Qt[vn][1] && Qt[vn].splice(-1, 1);
+            for (var vn in Zt)
+                Zt[vn][0] == xn && (Zt[vn][0] = ""),
+                1 < Zt[vn].length && Zt[vn][1] == xn && (Zt[vn][1] = "");
+            for (vn in Zt[Kt][Qt] = xn,
+            Zt)
+                1 < Zt[vn].length && "" == Zt[vn][0] && "" != Zt[vn][1] && (Zt[vn] = [Zt[vn][1]]),
+                2 == Zt[vn].length && "" === Zt[vn][1] && Zt[vn].splice(-1, 1);
             return hn(),
             function() {
                 var Tn = {}
                   , En = "";
-                for (var Sn in Qt)
-                    null != Jt[Sn] && (En = JSON.stringify(Qt[Sn])) !== JSON.stringify(Jt[Sn]) && (Tn[Sn] = JSON.parse(En));
+                for (var Sn in Zt)
+                    null != Jt[Sn] && (En = JSON.stringify(Zt[Sn])) !== JSON.stringify(Jt[Sn]) && (Tn[Sn] = JSON.parse(En));
                 0 < Object.keys(Tn).length ? Tools.setSettings({
                     keybinds: Tn
                 }) : Tools.removeSetting("keybinds")
@@ -28727,7 +28727,7 @@ function() {
           , En = null;
         xn += "<div class=\"left-binds\">";
         for (var Sn = 0; Sn < nn.length; Sn++)
-            null != nn[Sn][0] && ("" == nn[Sn][0] ? xn += "<div class=\"item empty\"></div>" : (null == (En = Qt[nn[Sn][1]]) ? (vn = "&nbsp;",
+            null != nn[Sn][0] && ("" == nn[Sn][0] ? xn += "<div class=\"item empty\"></div>" : (null == (En = Zt[nn[Sn][1]]) ? (vn = "&nbsp;",
             Tn = "&nbsp;") : ("" == (vn = En[0]) && (vn = "&nbsp;"),
             "" == (Tn = 1 == En.length ? "" : En[1]) && (Tn = "&nbsp;")),
             xn += "<div class=\"item\"><div class=\"name\">" + nn[Sn][0] + "</div><div class=\"bind" + ("&nbsp;" == vn ? " blank" : "") + "\" onclick=\"Input.bindKey(event,'" + nn[Sn][1] + "',0)\">" + vn + "</div><div class=\"bind" + ("&nbsp;" == Tn ? " blank" : "") + "\" onclick=\"Input.bindKey(event,'" + nn[Sn][1] + "',1)\">" + Tn + "</div></div>",
@@ -28737,10 +28737,10 @@ function() {
         en = {},
         Sn = 0;
         var wn = 0;
-        for (var Pn in Qt) {
-            for (Sn = 0; Sn < Qt[Pn].length; Sn++)
-                null != (wn = an[Qt[Pn][Sn]]) && (en[wn] = Pn);
-            null != tn[Pn] && $("#keybind-" + Pn.toLowerCase()).html("" == Qt[Pn] ? "&nbsp;" : "(" + Qt[Pn] + ")")
+        for (var Pn in Zt) {
+            for (Sn = 0; Sn < Zt[Pn].length; Sn++)
+                null != (wn = an[Zt[Pn][Sn]]) && (en[wn] = Pn);
+            null != tn[Pn] && $("#keybind-" + Pn.toLowerCase()).html("" == Zt[Pn] ? "&nbsp;" : "(" + Zt[Pn] + ")")
         }
     };
     Input.openKeybinds = function() {
@@ -28783,9 +28783,9 @@ function() {
                     var Cn = new Vector(xn.axes[1],xn.axes[0])
                       , An = Cn.length()
                       , Rn = -Cn.angle() + Math.PI / 2
-                      , Mn = Rn = (Rn % Wt + Wt) % Wt;
+                      , Dn = Rn = (Rn % Wt + Wt) % Wt;
                     .2 < An ? (Vt.forward = !0,
-                    mn(Mn, An)) : (Vt.forward && !vn && gn("UP", !1),
+                    mn(Dn, An)) : (Vt.forward && !vn && gn("UP", !1),
                     Vt.forward = !1)
                 }
             } else
@@ -29053,12 +29053,17 @@ class Player {
         this.me() && (game.myType = Bt.type,
         UI.aircraftSelected(Bt.type))
     }
+    setGraphicsSet() {
+        var Bt = 0;
+        2 == game.gameType ? Bt = this.team - 1 : this.id == game.myID && -1 != game.chosenGraphicsSet ? (Bt = game.chosenGraphicsSet,
+        game.myGraphicsSet = Bt) : Bt = Tools.randInt(0, 1),
+        this.graphicsSet = Bt,
+        this.id == game.myID && (game.myGraphicsSet = Bt)
+    }
     setupGraphics(Bt) {
-        var Xt = "";
-        null != this.team && (Xt = 1 == this.team ? "" : 2 == this.team ? "_2" : 0 == Tools.randInt(0, 1) ? "" : "_2",
-        this.graphicsSet = "" == Xt ? 0 : 1,
-        game.myGraphicsSet = this.graphicsSet);
-        var Ht = null;
+        this.setGraphicsSet();
+        var Xt = 0 == this.graphicsSet ? "" : "_2"
+          , Ht = null;
         switch (this.me() && (Ht = {
             layer: "aircraftme"
         }),
@@ -29614,10 +29619,10 @@ class Player {
                     this.speed.y -= Math.cos(Yt) * config.ships[this.type].accelFactor * jt * Vt);
                     var qt = this.speed.length()
                       , Kt = config.ships[this.type].maxSpeed * Vt * config.upgrades.speed.factor[this.speedupgrade]
-                      , Zt = config.ships[this.type].minSpeed;
+                      , Qt = config.ships[this.type].minSpeed;
                     this.powerups.rampage && (Kt *= .75),
                     this.flagspeed && (Kt = 5),
-                    qt > Kt ? this.speed.multiply(Kt / qt) : this.speed.x > Zt || this.speed.x < -Zt || this.speed.y > Zt || this.speed.y < -Zt ? (this.speed.x *= 1 - config.ships[this.type].brakeFactor * jt,
+                    qt > Kt ? this.speed.multiply(Kt / qt) : this.speed.x > Qt || this.speed.x < -Qt || this.speed.y > Qt || this.speed.y < -Qt ? (this.speed.x *= 1 - config.ships[this.type].brakeFactor * jt,
                     this.speed.y *= 1 - config.ships[this.type].brakeFactor * jt) : (this.speed.x = 0,
                     this.speed.y = 0),
                     this.pos.x += jt * Ht + .5 * (this.speed.x - Ht) * jt * jt,
@@ -30318,7 +30323,7 @@ function() {
             this.shadow = jt,
             Gt.addChild(this.container)
         }
-        addParticle(Gt, Yt, Wt, jt, zt, Vt, qt, Kt, Zt, Qt, Jt, $t, en, tn) {
+        addParticle(Gt, Yt, Wt, jt, zt, Vt, qt, Kt, Qt, Zt, Jt, $t, en, tn) {
             if (!(20 < game.timeFactorUncapped || this.particles.length >= this.maxParticles)) {
                 var nn = Textures.sprite(Yt)
                   , rn = {
@@ -30332,17 +30337,17 @@ function() {
                     rotation: Kt,
                     lastRotation: 0,
                     time: game.time,
-                    tint: Zt,
+                    tint: Qt,
                     life: 0,
                     data: null == en ? 0 : en,
                     emitter: null == tn ? null : tn,
                     _prev: -1,
                     _next: -1
                 };
-                null != Zt && (nn.tint = Zt),
+                null != Qt && (nn.tint = Qt),
                 null != Jt && (nn.blendMode = Jt),
                 null != $t && (rn.life = $t),
-                null == Qt ? nn.anchor.set(.5, .5) : nn.anchor.set(Qt.x, Qt.y),
+                null == Zt ? nn.anchor.set(.5, .5) : nn.anchor.set(Zt.x, Zt.y),
                 this.container.addChild(nn);
                 var an = this.particles.length;
                 0 < an ? (this.particles[this.last]._next = an,
@@ -30539,48 +30544,48 @@ function() {
           , Vt = Tools.rand(.2, .8)
           , qt = Tools.rand(0, .3)
           , Kt = Vector.createOff(Gt.pos, jt, Tools.rand(0, 5 * Yt))
-          , Zt = Vector.create(jt, zt);
-        Xt.explosions.addParticle(Ht.PLANE_DAMAGE, "spark_" + Wt, new Vector(Zt.x + Gt.speed.x,Zt.y + Gt.speed.y), Kt, Vector.diag(Vt), 0, 0, Tools.randCircle(), 16739073, null, PIXI.BLEND_MODES.ADD, qt)
+          , Qt = Vector.create(jt, zt);
+        Xt.explosions.addParticle(Ht.PLANE_DAMAGE, "spark_" + Wt, new Vector(Qt.x + Gt.speed.x,Qt.y + Gt.speed.y), Kt, Vector.diag(Vt), 0, 0, Tools.randCircle(), 16739073, null, PIXI.BLEND_MODES.ADD, qt)
     }
     ,
     Particles.explosion = function(Gt, Yt, Wt) {
         for (var jt = 1 < Yt ? 1 + (Yt - 1) / 1.5 : Yt, zt = 0; 2 > zt; zt++)
             Xt.explosions.addParticle(Ht.EXPLOSION_FLASH, "flash_" + Tools.randInt(1, 4), Vector.zero(), Gt.clone(), Vector.diag(1.5 * Yt), 0, 0, Tools.randCircle(), 15987628, null, PIXI.BLEND_MODES.ADD);
-        var Vt, qt, Kt, Zt, Qt, Jt, $t, en, tn;
+        var Vt, qt, Kt, Qt, Zt, Jt, $t, en, tn;
         for (Vt = Math.round(Tools.rand(20, 30) * Yt),
         zt = 0; zt < Vt; zt++)
             qt = Tools.randInt(1, 4),
             Kt = Tools.randCircle(),
-            Qt = Tools.rand(3, 10) * jt,
+            Zt = Tools.rand(3, 10) * jt,
             Jt = Tools.rand(-.2, .2),
             $t = Tools.rand(.4, 1.5) * jt,
             tn = Tools.rand(0, .3),
-            Xt.explosions.addParticle(Ht.EXPLOSION_SPARK, "spark_" + qt, Vector.create(Kt, Qt), Gt.clone(), Vector.diag($t), 0, Jt, Tools.randCircle(), 16739073, null, PIXI.BLEND_MODES.ADD, tn);
+            Xt.explosions.addParticle(Ht.EXPLOSION_SPARK, "spark_" + qt, Vector.create(Kt, Zt), Gt.clone(), Vector.diag($t), 0, Jt, Tools.randCircle(), 16739073, null, PIXI.BLEND_MODES.ADD, tn);
         for (zt = 0; zt < Wt; zt++)
             Kt = Tools.randCircle(),
-            Qt = Tools.rand(3, 7) * jt,
-            Zt = Tools.rand(15, 30) * Yt,
-            Xt.explosions.addEmitter(Ht.EMITTER_EXPLOSION_FRAGMENT, Vector.create(Kt, Qt), Vector.createOff(Gt, Kt, Zt), Tools.rand(0, .5), Xt.shadows);
+            Zt = Tools.rand(3, 7) * jt,
+            Qt = Tools.rand(15, 30) * Yt,
+            Xt.explosions.addEmitter(Ht.EMITTER_EXPLOSION_FRAGMENT, Vector.create(Kt, Zt), Vector.createOff(Gt, Kt, Qt), Tools.rand(0, .5), Xt.shadows);
         for (Vt = Math.round(Tools.rand(20, 30) * Yt),
         zt = 0; zt < Vt; zt++)
             qt = Tools.randInt(1, 16),
             Kt = Tools.randCircle(),
-            Zt = Tools.rand(0, 10) * Yt,
-            Qt = Tools.rand(0, 3) * Yt,
+            Qt = Tools.rand(0, 10) * Yt,
+            Zt = Tools.rand(0, 3) * Yt,
             Jt = Tools.rand(-.1, .1),
             $t = Tools.rand(.5, .8) * Yt,
             en = Tools.randCircle(),
-            Xt.explosions.addParticle(Ht.EXPLOSION_SMOKE, "smoke_" + qt, Vector.create(Kt, Qt), Vector.createOff(Gt, Kt, Zt), Vector.diag($t), 0, Jt, en),
-            Xt.shadows.addParticle(Ht.EXPLOSION_SMOKE, "smokeshadow_" + qt, Vector.create(Kt, Qt), Vector.createOff(Gt, Kt, Zt), Vector.diag($t), 0, Jt, en);
+            Xt.explosions.addParticle(Ht.EXPLOSION_SMOKE, "smoke_" + qt, Vector.create(Kt, Zt), Vector.createOff(Gt, Kt, Qt), Vector.diag($t), 0, Jt, en),
+            Xt.shadows.addParticle(Ht.EXPLOSION_SMOKE, "smokeshadow_" + qt, Vector.create(Kt, Zt), Vector.createOff(Gt, Kt, Qt), Vector.diag($t), 0, Jt, en);
         for (Xt.explosions.addParticle(Ht.EXPLOSION_FLASH_BIG, "glowsmall", Vector.zero(), Gt.clone(), Vector.diag(6 * Yt), 0, 0, 0, null, null, PIXI.BLEND_MODES.ADD),
         Vt = Math.round(Tools.rand(5, 10) * Yt),
         zt = 0; zt < Vt; zt++)
             qt = Tools.randInt(1, 4),
             Kt = Tools.randCircle(),
-            Qt = Tools.rand(1, 3) * Yt,
+            Zt = Tools.rand(1, 3) * Yt,
             Jt = Tools.rand(-.1, .1),
             $t = Tools.rand(.1, .3) * Yt,
-            Xt.explosions.addParticle(Ht.EXPLOSION_HOT_SMOKE, "hotsmoke_" + qt, Vector.create(Kt, Qt), Gt.clone(), Vector.diag($t), 0, Jt, Tools.randCircle(), 16739073, null, PIXI.BLEND_MODES.ADD)
+            Xt.explosions.addParticle(Ht.EXPLOSION_HOT_SMOKE, "hotsmoke_" + qt, Vector.create(Kt, Zt), Gt.clone(), Vector.diag($t), 0, Jt, Tools.randCircle(), 16739073, null, PIXI.BLEND_MODES.ADD)
     }
     ,
     Particles.missileSmoke = function(Gt, Yt, Wt) {
@@ -30589,12 +30594,12 @@ function() {
           , Vt = Vector.createOff(Gt.pos, zt, Yt)
           , qt = .2 * (Wt = Wt || 1)
           , Kt = Tools.rand(-.1, .1)
-          , Zt = Vector.create(zt + Kt, 5 * Wt)
-          , Qt = Tools.randInt(1, 16)
+          , Qt = Vector.create(zt + Kt, 5 * Wt)
+          , Zt = Tools.randInt(1, 16)
           , Jt = Tools.rand(-.1, .1);
         Tools.randCircle(),
-        Xt.smoke.addParticle(jt, "smoke_" + Qt, Zt.clone(), Vt.clone(), new Vector(1.25 * qt,4 * qt), 1, Jt, zt, 16775590, null, null, null, Wt),
-        Xt.shadows.addParticle(jt, "smokeshadow_" + Qt, Zt.clone(), Vt.clone(), new Vector(1.25 * qt,4 * qt), 1, Jt, zt, null, null, null, null, Wt)
+        Xt.smoke.addParticle(jt, "smoke_" + Zt, Qt.clone(), Vt.clone(), new Vector(1.25 * qt,4 * qt), 1, Jt, zt, 16775590, null, null, null, Wt),
+        Xt.shadows.addParticle(jt, "smokeshadow_" + Zt, Qt.clone(), Vt.clone(), new Vector(1.25 * qt,4 * qt), 1, Jt, zt, null, null, null, null, Wt)
     }
     ,
     Particles.planeBoost = function(Gt, Yt) {
@@ -30604,10 +30609,10 @@ function() {
           , Vt = Yt ? 0 : Math.PI
           , qt = Vector.create(Wt + zt + Vt, 6)
           , Kt = Tools.randInt(1, 16)
-          , Zt = Tools.rand(-.1, .1);
+          , Qt = Tools.rand(-.1, .1);
         Tools.randCircle(),
-        Xt.smoke.addParticle(Ht.MISSILE, "smoke_" + Kt, qt.clone(), jt.clone(), new Vector(.3,1.2), 1, Zt, Wt, 16775590, null, null, null, 1.2),
-        Xt.shadows.addParticle(Ht.MISSILE, "smokeshadow_" + Kt, qt.clone(), jt.clone(), new Vector(.3,1.2), 1, Zt, Wt, null, null, null, null, 1.2)
+        Xt.smoke.addParticle(Ht.MISSILE, "smoke_" + Kt, qt.clone(), jt.clone(), new Vector(.3,1.2), 1, Qt, Wt, 16775590, null, null, null, 1.2),
+        Xt.shadows.addParticle(Ht.MISSILE, "smokeshadow_" + Kt, qt.clone(), jt.clone(), new Vector(.3,1.2), 1, Qt, Wt, null, null, null, null, 1.2)
     }
     ,
     Particles.spiritShockwave = function(Gt) {
@@ -30656,8 +30661,8 @@ function() {
       , Vt = !1
       , qt = 0
       , Kt = !1
-      , Zt = null
-      , Qt = !1
+      , Qt = null
+      , Zt = !1
       , Jt = null
       , $t = !1
       , en = !1
@@ -30711,81 +30716,81 @@ function() {
     }
       , bn = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage"]
       , xn = ["", "Shield", "Inferno"];
-    UI.show = function(In, Dn) {
-        $(In).css({
-            display: Dn ? "inline-block" : "block"
+    UI.show = function(Mn, In) {
+        $(Mn).css({
+            display: In ? "inline-block" : "block"
         })
     }
     ,
-    UI.hide = function(In) {
-        $(In).css({
+    UI.hide = function(Mn) {
+        $(Mn).css({
             display: "none"
         })
     }
     ,
-    UI.isEmote = function(In, Dn) {
+    UI.isEmote = function(Mn, In) {
         for (var On = 0; On < bn.length; On++)
-            if (Dn) {
-                if (In === ":" + bn[On] + ":")
+            if (In) {
+                if (Mn === ":" + bn[On] + ":")
                     return bn[On];
-            } else if (In === bn[On])
+            } else if (Mn === bn[On])
                 return bn[On];
         return !1
     }
     ,
-    UI.serverMessage = function(In) {
-        var Dn = "alert";
-        2 == In.type && (Dn = "information"),
-        UI.showMessage(Dn, In.text, In.duration)
+    UI.serverMessage = function(Mn) {
+        var In = "alert";
+        2 == Mn.type && (In = "information"),
+        UI.showMessage(In, Mn.text, Mn.duration)
     }
     ,
-    UI.showMessage = function(In, Dn, On) {
-        $("#msg-" + In).removeClass("hidemsg").removeClass("popmsg"),
-        $("#msg-" + In).html(Dn);
-        var Ln = $("#msg-" + In).height();
-        "default" != In && "destroyed" != In || $("#msg-" + In).css({
+    UI.showMessage = function(Mn, In, On) {
+        $("#msg-" + Mn).removeClass("hidemsg").removeClass("popmsg"),
+        $("#msg-" + Mn).html(In);
+        var Ln = $("#msg-" + Mn).height();
+        "default" != Mn && "destroyed" != Mn || $("#msg-" + Mn).css({
             "margin-top": "-" + Math.round(Ln / 2) + "px"
         }),
-        $("#msg-" + In).addClass("popmsg"),
-        cn[In] = !0,
-        clearTimeout(pn[In]),
-        pn[In] = setTimeout(UI.hideMessage, On || 2e3, In)
+        $("#msg-" + Mn).addClass("popmsg"),
+        cn[Mn] = !0,
+        clearTimeout(pn[Mn]),
+        pn[Mn] = setTimeout(UI.hideMessage, On || 2e3, Mn)
     }
     ,
-    UI.hideMessage = function(In) {
-        $("#msg-" + In).addClass("hidemsg"),
-        cn[In] = !1,
-        pn[In] = setTimeout(function(Dn) {
-            $("#msg-" + In).removeClass("popmsg").removeClass("hidemsg"),
-            $("#msg-" + Dn).html("")
-        }, 2500, In)
+    UI.hideMessage = function(Mn) {
+        $("#msg-" + Mn).addClass("hidemsg"),
+        cn[Mn] = !1,
+        pn[Mn] = setTimeout(function(In) {
+            $("#msg-" + Mn).removeClass("popmsg").removeClass("hidemsg"),
+            $("#msg-" + In).html("")
+        }, 2500, Mn)
     }
     ,
     UI.wipeAllMessages = function() {
-        for (var In in cn)
-            cn[In] && UI.showMessage(In, "", 100)
+        for (var Mn in cn)
+            cn[Mn] && UI.showMessage(Mn, "", 100)
     }
     ,
-    UI.updateMyLevel = function(In) {
-        game.myLevel = In,
-        $("#score-rank").html(In),
-        $("#lifetime-rank").html(In)
+    UI.updateMyLevel = function(Mn) {
+        game.myLevel = Mn,
+        $("#score-rank").html(Mn),
+        $("#lifetime-rank").html(Mn)
     }
     ,
-    UI.newScore = function(In) {
-        if (In.id != game.myID)
+    UI.newScore = function(Mn) {
+        if (Mn.id != game.myID)
             return !1;
-        var Dn = In.score - game.myScore
+        var In = Mn.score - game.myScore
           , On = "";
-        if (1 > Math.abs(Dn) && (Dn = !1),
-        game.myScore = In.score,
-        In.score != fn.score && (fn.score = In.score,
-        $("#score-score").html(In.score)),
-        In.upgrades != fn.upgrades) {
-            var Ln = In.upgrades - fn.upgrades
+        if (1 > Math.abs(In) && (In = !1),
+        game.myScore = Mn.score,
+        Mn.score != fn.score && (fn.score = Mn.score,
+        $("#score-score").html(Mn.score)),
+        Mn.upgrades != fn.upgrades) {
+            var Ln = Mn.upgrades - fn.upgrades
               , kn = -1 != fn.upgrades;
-            if (fn.upgrades = In.upgrades,
-            $("#score-upgrades").html(In.upgrades),
+            if (fn.upgrades = Mn.upgrades,
+            $("#score-upgrades").html(Mn.upgrades),
             An(),
             kn && 0 < Ln) {
                 if (Sound.powerup(4, null),
@@ -30796,52 +30801,52 @@ function() {
                 On += "<span id=\"alert-update\"><span class=\"upgrade\">+" + Ln + "<span class=\"bold\"> upgrade</span></span></span>"
             }
         }
-        if (In.earnings != fn.earnings && 0 != game.myLevel) {
-            fn.earnings = In.earnings,
-            $("#lifetime-totalbounty").html(In.earnings);
-            var Nn = Math.ceil(Tools.rankToEarnings(game.myLevel + 1) - In.earnings);
+        if (Mn.earnings != fn.earnings && 0 != game.myLevel) {
+            fn.earnings = Mn.earnings,
+            $("#lifetime-totalbounty").html(Mn.earnings);
+            var Nn = Math.ceil(Tools.rankToEarnings(game.myLevel + 1) - Mn.earnings);
             $("#lifetime-nextbounty").html("+" + Nn)
         }
-        if (In.totalkills != fn.kills || In.totaldeaths != fn.deaths) {
-            var Fn = 0 == In.totalkills || 0 == In.totaldeaths ? "-" : (In.totalkills / In.totaldeaths).toFixed(2);
+        if (Mn.totalkills != fn.kills || Mn.totaldeaths != fn.deaths) {
+            var Fn = 0 == Mn.totalkills || 0 == Mn.totaldeaths ? "-" : (Mn.totalkills / Mn.totaldeaths).toFixed(2);
             $("#lifetime-kdratio").html(Fn)
         }
-        In.totalkills != fn.kills && (fn.kills = In.totalkills,
-        $("#lifetime-kills").html(In.totalkills)),
-        In.totaldeaths != fn.deaths && (fn.deaths = In.totaldeaths,
-        $("#lifetime-deaths").html(In.totaldeaths)),
-        Dn && (hn && (hn.msg += "<br>"),
-        On += UI.getScoreString(Dn)),
+        Mn.totalkills != fn.kills && (fn.kills = Mn.totalkills,
+        $("#lifetime-kills").html(Mn.totalkills)),
+        Mn.totaldeaths != fn.deaths && (fn.deaths = Mn.totaldeaths,
+        $("#lifetime-deaths").html(Mn.totaldeaths)),
+        In && (hn && (hn.msg += "<br>"),
+        On += UI.getScoreString(In)),
         hn ? (UI.showMessage(hn.type, hn.msg + On, hn.duration),
         hn = !1) : "" != On && UI.showMessage("default", On, 3e3)
     }
     ,
-    UI.getScoreString = function(In, Dn) {
+    UI.getScoreString = function(Mn, In) {
         var Ln = "positive"
           , kn = "+";
-        return 0 > In && (Ln = "negative",
+        return 0 > Mn && (Ln = "negative",
         kn = "-"),
-        Dn && (Ln = Dn),
-        "<span id=\"alert-update\" class=\"" + Ln + "\">" + kn + Math.abs(In) + "</span>"
+        In && (Ln = In),
+        "<span id=\"alert-update\" class=\"" + Ln + "\">" + kn + Math.abs(Mn) + "</span>"
     }
     ;
-    var vn = function(In) {
-        In.sprite.position.set(game.screenX - config.minimapPaddingX - config.minimapSize * ((16384 - In.x) / 32768), game.screenY - config.minimapPaddingY - config.minimapSize / 2 * ((8192 - In.y) / 16384))
+    var vn = function(Mn) {
+        Mn.sprite.position.set(game.screenX - config.minimapPaddingX - config.minimapSize * ((16384 - Mn.x) / 32768), game.screenY - config.minimapPaddingY - config.minimapSize / 2 * ((8192 - Mn.y) / 16384))
     };
     UI.wipeAllMinimapMobs = function() {
-        for (var In in Bt)
-            game.graphics.layers.ui1.removeChild(Bt[In].sprite),
-            Bt[In].sprite.destroy(),
-            delete Bt[In]
+        for (var Mn in Bt)
+            game.graphics.layers.ui1.removeChild(Bt[Mn].sprite),
+            Bt[Mn].sprite.destroy(),
+            delete Bt[Mn]
     }
     ,
-    UI.showSpectator = function(In) {
+    UI.showSpectator = function(Mn) {
         if (!dn) {
-            var Dn = config.mobile ? " class=\"mobile\"" : "";
-            $("body").append("<div id=\"spectator\"" + Dn + "></div>"),
+            var In = config.mobile ? " class=\"mobile\"" : "";
+            $("body").append("<div id=\"spectator\"" + In + "></div>"),
             dn = !0
         }
-        $("#spectator").html(In),
+        $("#spectator").html(Mn),
         Input.addTouchRejection("#spectator")
     }
     ,
@@ -30850,66 +30855,66 @@ function() {
         dn = !1)
     }
     ,
-    UI.addPowerup = function(In, Dn) {
+    UI.addPowerup = function(Mn, In) {
         null != sn && clearTimeout(sn);
-        var On = "<div class=\"powerup\" id=\"powerup-" + In + "\"><div class=\"percent " + (1 == In ? "shield" : "rampage") + "\" id=\"powerup-" + In + "-percent\" style=\"transition: width " + Dn + "ms linear;\"></div><div class=\"name\">" + xn[In] + "</div></div>";
+        var On = "<div class=\"powerup\" id=\"powerup-" + Mn + "\"><div class=\"percent " + (1 == Mn ? "shield" : "rampage") + "\" id=\"powerup-" + Mn + "-percent\" style=\"transition: width " + In + "ms linear;\"></div><div class=\"name\">" + xn[Mn] + "</div></div>";
         $("#powerups").html(On),
-        $("#powerup-" + In + "-percent").width(),
-        $("#powerup-" + In + "-percent").css({
+        $("#powerup-" + Mn + "-percent").width(),
+        $("#powerup-" + Mn + "-percent").css({
             width: "7%"
         }),
         sn = setTimeout(function() {
-            $("#powerup-" + In).remove()
-        }, Dn)
+            $("#powerup-" + Mn).remove()
+        }, In)
     }
     ,
     UI.resetPowerups = function() {
         $("#powerups").html("")
     }
     ,
-    UI.changeMinimapTeam = function(In, Dn) {
-        if (null != Bt[In] && null != Bt[In].sprite) {
-            var On = 1 == Dn ? "minimapBlue" : "minimapMob";
-            Bt[In].sprite.texture = Textures.getNamed(On)
+    UI.changeMinimapTeam = function(Mn, In) {
+        if (null != Bt[Mn] && null != Bt[Mn].sprite) {
+            var On = 1 == In ? "minimapBlue" : "minimapMob";
+            Bt[Mn].sprite.texture = Textures.getNamed(On)
         }
     }
     ,
-    UI.scoreboardUpdate = function(In, Dn, On) {
+    UI.scoreboardUpdate = function(Mn, In, On) {
         for (var Ln in Bt)
             game.graphics.layers.ui1.removeChild(Bt[Ln].sprite),
             game.graphics.layers.ui2.removeChild(Bt[Ln].sprite),
             game.graphics.layers.ui3.removeChild(Bt[Ln].sprite),
             Bt[Ln].sprite.destroy(),
             delete Bt[Ln];
-        for (var Xn = 0, Hn = "", Gn = {}, Yn = !1, Wn = 0, jn = {}, zn = "", Vn = "", qn = "", Kn = 0, kn, Nn, Fn, Bn, Un; Kn < Dn.length; Kn++)
-            null != (kn = Players.get(Dn[Kn].id)) && (jn = Tools.decodeMinimapCoords(Dn[Kn].x, Dn[Kn].y),
+        for (var Xn = 0, Hn = "", Gn = {}, Yn = !1, Wn = 0, jn = {}, zn = "", Vn = "", qn = "", Kn = 0, kn, Nn, Fn, Bn, Un; Kn < In.length; Kn++)
+            null != (kn = Players.get(In[Kn].id)) && (jn = Tools.decodeMinimapCoords(In[Kn].x, In[Kn].y),
             kn.scorePlace = Kn + 1,
             kn.lowResPos.x = jn.x,
             kn.lowResPos.y = jn.y,
-            Dn[Kn].id == game.myID ? Wn = Kn + 1 : 0 == Dn[Kn].x && 0 == Dn[Kn].y || (Gn[kn.id] = !0,
-            null == Bt[Dn[Kn].id] ? (qn = "minimapMob",
+            In[Kn].id == game.myID ? Wn = Kn + 1 : 0 == In[Kn].x && 0 == In[Kn].y || (Gn[kn.id] = !0,
+            null == Bt[In[Kn].id] ? (qn = "minimapMob",
             2 == game.gameType && 1 == kn.team && (qn = "minimapBlue"),
-            0 < Dn.length && kn.id == Dn[0].id && (qn = "minimap1"),
-            1 < Dn.length && kn.id == Dn[1].id && (qn = "minimap2"),
-            2 < Dn.length && kn.id == Dn[2].id && (qn = "minimap3"),
-            Bt[Dn[Kn].id] = {
+            0 < In.length && kn.id == In[0].id && (qn = "minimap1"),
+            1 < In.length && kn.id == In[1].id && (qn = "minimap2"),
+            2 < In.length && kn.id == In[2].id && (qn = "minimap3"),
+            Bt[In[Kn].id] = {
                 sprite: Textures.init(qn),
                 x: jn.x,
                 y: jn.y
-            }) : (Bt[Dn[Kn].id].x = jn.x,
-            Bt[Dn[Kn].id].y = jn.y),
-            vn(Bt[Dn[Kn].id])));
-        for (var Zn in Bt)
-            null == Gn[Zn] && (game.graphics.layers.ui1.removeChild(Bt[Zn].sprite),
-            Bt[Zn].sprite.destroy(),
-            delete Bt[Zn]);
+            }) : (Bt[In[Kn].id].x = jn.x,
+            Bt[In[Kn].id].y = jn.y),
+            vn(Bt[In[Kn].id])));
+        for (var Qn in Bt)
+            null == Gn[Qn] && (game.graphics.layers.ui1.removeChild(Bt[Qn].sprite),
+            Bt[Qn].sprite.destroy(),
+            delete Bt[Qn]);
         if (0 != Wn) {
-            for (On = On ? Tools.clamp(On, 1, In.length) : In.length,
-            Kn = 0; Kn < On && (null == (kn = Players.get(In[Kn].id)) || (Xn++,
+            for (On = On ? Tools.clamp(On, 1, Mn.length) : Mn.length,
+            Kn = 0; Kn < On && (null == (kn = Players.get(Mn[Kn].id)) || (Xn++,
             Nn = 1 == Xn ? "<span class=\"badge scoreboard gold\"></span>" : 2 == Xn ? "<span class=\"badge scoreboard silver\"></span>" : 3 == Xn ? "<span class=\"badge scoreboard bronze\"></span>" : Xn + ".",
             Fn = kn.me() ? " sel" : "",
-            Bn = In[Kn].score,
-            Un = In[Kn].level,
+            Bn = Mn[Kn].score,
+            Un = Mn[Kn].level,
             Wn > On && Xn == On - 1 && (Hn += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
             !0,
             kn = Players.get(game.myID),
@@ -30926,27 +30931,27 @@ function() {
             !Yn)); Kn++)
                 ;
             $("#scoreboard").html(Hn),
-            $("#scoreboard div").click(function(Qn) {
-                var Jn = $(Qn.currentTarget).attr("player-id");
+            $("#scoreboard div").click(function(Zn) {
+                var Jn = $(Zn.currentTarget).attr("player-id");
                 parseInt(Jn) != Math.NaN && (window.target = parseInt(Jn))
             })
         }
     }
     ;
-    var Tn = function(In) {
-        var Dn = "";
-        In += "";
-        for (var On = 0; On < In.length; On++)
-            Dn += "<span>" + In[On] + "</span>";
-        return Dn
+    var Tn = function(Mn) {
+        var In = "";
+        Mn += "";
+        for (var On = 0; On < Mn.length; On++)
+            In += "<span>" + Mn[On] + "</span>";
+        return In
     };
-    UI.toggleChatBox = function(In) {
+    UI.toggleChatBox = function(Mn) {
         if (!config.mobile)
             if (Gt) {
                 if (Gt = !1,
-                In) {
-                    var Dn = $("#chatinput").val();
-                    "" !== Dn && "" !== Dn.trim() && (UI.parseCommand(Dn.trim()) || Network.sendChat(Dn)),
+                Mn) {
+                    var In = $("#chatinput").val();
+                    "" !== In && "" !== In.trim() && (UI.parseCommand(In.trim()) || Network.sendChat(In)),
                     En()
                 }
                 UI.hide("#chatinput"),
@@ -30960,8 +30965,8 @@ function() {
                 $("#chatinput").focus()
     }
     ,
-    UI.shortcutChat = function(In) {
-        Gt || ($("#chatinput").val(In),
+    UI.shortcutChat = function(Mn) {
+        Gt || ($("#chatinput").val(Mn),
         UI.toggleChatBox())
     }
     ;
@@ -30969,41 +30974,41 @@ function() {
         Wt || (Wt = !0,
         $("#chat-0").length && $("#chat-0").remove())
     };
-    UI.parseCommand = function(In) {
-        if ("/" !== In[0])
+    UI.parseCommand = function(Mn) {
+        if ("/" !== Mn[0])
             return !1;
-        var Dn = In.split(" ")
-          , On = Dn[0].substr(1).toLowerCase();
+        var In = Mn.split(" ")
+          , On = In[0].substr(1).toLowerCase();
         if (0 == On.length)
             return !1;
         if ("s" === On) {
-            var Ln = In.indexOf(" ")
-              , kn = In.substr(Ln + 1);
+            var Ln = Mn.indexOf(" ")
+              , kn = Mn.substr(Ln + 1);
             0 < kn.length && Network.sendSay(kn)
         } else if ("t" === On) {
-            Ln = In.indexOf(" ");
-            var Nn = In.substr(Ln + 1);
+            Ln = Mn.indexOf(" ");
+            var Nn = Mn.substr(Ln + 1);
             0 < Nn.length && Network.sendTeam(Nn)
         } else if ("ignore" === On)
-            null == (Fn = Players.getByName(Cn(Dn[1]))) ? UI.addChatMessage("Unknown player") : UI.chatIgnore(Fn.id);
+            null == (Fn = Players.getByName(Cn(In[1]))) ? UI.addChatMessage("Unknown player") : UI.chatIgnore(Fn.id);
         else if ("unignore" === On)
-            null == (Fn = Players.getByName(Cn(Dn[1]))) ? UI.addChatMessage("Unknown player") : UI.chatUnignore(Fn);
+            null == (Fn = Players.getByName(Cn(In[1]))) ? UI.addChatMessage("Unknown player") : UI.chatUnignore(Fn);
         else if ("votemute" === On)
-            null == (Fn = Players.getByName(Cn(Dn[1]))) ? UI.addChatMessage("Unknown player") : UI.chatVotemute(Fn);
+            null == (Fn = Players.getByName(Cn(In[1]))) ? UI.addChatMessage("Unknown player") : UI.chatVotemute(Fn);
         else if ("w" === On)
-            3 <= Dn.length ? UI.chatWhisper(Dn[1], In.substr(4 + Dn[1].length)) : UI.addChatMessage("Usage: /w player message");
+            3 <= In.length ? UI.chatWhisper(In[1], Mn.substr(4 + In[1].length)) : UI.addChatMessage("Usage: /w player message");
         else if ("spectate" === On) {
             var Fn;
-            null == (Fn = Players.getByName(Cn(Dn[1]))) ? UI.addChatMessage("Unknown player") : Network.sendCommand("spectate", Fn.id + "")
+            null == (Fn = Players.getByName(Cn(In[1]))) ? UI.addChatMessage("Unknown player") : Network.sendCommand("spectate", Fn.id + "")
         } else
-            "flag" === On || "flags" === On ? 2 == Dn.length ? Network.sendCommand("flag", In.substr(On.length + 2)) : UI.addChatMessage("Type /flag XX where XX is the 2-letter ISO code of a country", !0) : "emotes" === On ? UI.addChatMessage("Emotes available: /tf /pepe /clap /lol /bro /kappa /cry /rage", !0) : "help" === On ? UI.toggleHelp() : "debug" === On || (UI.isEmote(On) ? Network.sendSay(":" + On + ":") : Network.sendCommand(On, In.substr(On.length + 2)));
+            "flag" === On || "flags" === On ? 2 == In.length ? Network.sendCommand("flag", Mn.substr(On.length + 2)) : UI.addChatMessage("Type /flag XX where XX is the 2-letter ISO code of a country", !0) : "emotes" === On ? UI.addChatMessage("Emotes available: /tf /pepe /clap /lol /bro /kappa /cry /rage", !0) : "help" === On ? UI.toggleHelp() : "debug" === On || (UI.isEmote(On) ? Network.sendSay(":" + On + ":") : Network.sendCommand(On, Mn.substr(On.length + 2)));
         return !0
     }
     ,
-    UI.addChatKilledLine = function(In, Dn) {
+    UI.addChatKilledLine = function(Mn, In) {
         if (!0 == window.ShowKilled) {
-            if (!Xt[In.id]) {
-                var Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"playersel\" data-playerid=\"" + In.id + "\"><span class=\"flag small flag-" + In.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == In.team ? "#4d7fd5" : 2 == In.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(In.name) + "</span></span><span class=\"text\" style=\"margin-left: 10px; margin-right: 10px; opacity: 0.6;\"> killed </span><span class=\"playersel\" data-playerid=\"" + Dn.id + "\"><span class=\"flag small flag-" + Dn.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == Dn.team ? "#4d7fd5" : 2 == Dn.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(Dn.name) + "</span></span></div>"
+            if (!Xt[Mn.id]) {
+                var Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"playersel\" data-playerid=\"" + Mn.id + "\"><span class=\"flag small flag-" + Mn.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == Mn.team ? "#4d7fd5" : 2 == Mn.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(Mn.name) + "</span></span><span class=\"text\" style=\"margin-left: 10px; margin-right: 10px; opacity: 0.6;\"> killed </span><span class=\"playersel\" data-playerid=\"" + In.id + "\"><span class=\"flag small flag-" + In.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == In.team ? "#4d7fd5" : 2 == In.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(In.name) + "</span></span></div>"
                   , kn = $(Ln);
                 $("#WhoKilledWho").append(kn);
                 var Nn = $("#WhoKilledWho")[0];
@@ -31015,18 +31020,18 @@ function() {
         }
     }
     ,
-    UI.addChatLine = function(In, Dn, On) {
-        if (!Xt[In.id]) {
+    UI.addChatLine = function(Mn, In, On) {
+        if (!Xt[Mn.id]) {
             if (Yt++,
             0 == On)
-                var Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"playersel\" data-playerid=\"" + In.id + "\"><span class=\"flag small flag-" + In.flag + "\"></span><span class=\"nick\">" + UI.escapeHTML(In.name) + "</span></span><span class=\"text\">" + UI.escapeHTML(Dn) + "</span></div>";
+                var Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"playersel\" data-playerid=\"" + Mn.id + "\"><span class=\"flag small flag-" + Mn.flag + "\"></span><span class=\"nick\">" + UI.escapeHTML(Mn.name) + "</span></span><span class=\"text\">" + UI.escapeHTML(In) + "</span></div>";
             else if (1 == On || 2 == On) {
                 var kn = 1 == On ? "TO" : "FROM";
-                2 == On && (ln = Pn(In.name)),
-                Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"tag whisper\">" + kn + "</span><span class=\"playersel\" data-playerid=\"" + In.id + "\"><span class=\"nick green\">" + UI.escapeHTML(In.name) + "</span></span><span class=\"text green\">" + UI.escapeHTML(Dn) + "</span></div>",
+                2 == On && (ln = Pn(Mn.name)),
+                Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"tag whisper\">" + kn + "</span><span class=\"playersel\" data-playerid=\"" + Mn.id + "\"><span class=\"nick green\">" + UI.escapeHTML(Mn.name) + "</span></span><span class=\"text green\">" + UI.escapeHTML(In) + "</span></div>",
                 jt = -1
             } else
-                Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"tag team\">TEAM</span><span class=\"playersel\" data-playerid=\"" + In.id + "\"><span class=\"nick blue\">" + UI.escapeHTML(In.name) + "</span></span><span class=\"text blue\">" + UI.escapeHTML(Dn) + "</span></div>",
+                Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"tag team\">TEAM</span><span class=\"playersel\" data-playerid=\"" + Mn.id + "\"><span class=\"nick blue\">" + UI.escapeHTML(Mn.name) + "</span></span><span class=\"text blue\">" + UI.escapeHTML(In) + "</span></div>",
                 jt = -1;
             var Nn = "#chat-" + (Yt - config.maxChatLines);
             if ($(Nn).length && $(Nn).remove(),
@@ -31037,16 +31042,16 @@ function() {
                 1 == qt && UI.show("#chatunreadlines", !0);
             else {
                 var Fn = $("#chatbox");
-                1 != On && 2 != On && In.id != game.myID && Fn.is(":hover") || (Fn.perfectScrollbar("update"),
+                1 != On && 2 != On && Mn.id != game.myID && Fn.is(":hover") || (Fn.perfectScrollbar("update"),
                 Fn.scrollTop(Fn[0].scrollHeight))
             }
         }
     }
     ,
-    UI.addChatMessage = function(In, Dn) {
+    UI.addChatMessage = function(Mn, In) {
         zt = 0,
         jt = -1;
-        var On = "<div id=\"chat-" + ++Yt + "\" class=\"line\">" + (Dn ? "" : "<span class=\"nick\">\u26A0</span>") + "<span class=\"text\">" + In + "</span></div>"
+        var On = "<div id=\"chat-" + ++Yt + "\" class=\"line\">" + (In ? "" : "<span class=\"nick\">\u26A0</span>") + "<span class=\"text\">" + Mn + "</span></div>"
           , Ln = "#chat-" + (Yt - config.maxChatLines);
         $(Ln).length && $(Ln).remove(),
         $("#chatlines").append(On);
@@ -31055,46 +31060,46 @@ function() {
         kn.scrollTop(kn[0].scrollHeight)
     }
     ,
-    UI.showChatLevel = function(In) {
-        var Dn = null;
-        2 == In ? Dn = "Type /flag XX where XX is the 2-letter ISO code of a country" : 3 == In ? Dn = "Emotes available: /tf /pepe /clap /lol /bro /kappa /cry /rage" : 4 == In && (Dn = "Flag Pack #1: communist confederate imperial rainbow jolly"),
-        null != Dn && UI.addChatMessage(Dn, !0)
+    UI.showChatLevel = function(Mn) {
+        var In = null;
+        2 == Mn ? In = "Type /flag XX where XX is the 2-letter ISO code of a country" : 3 == Mn ? In = "Emotes available: /tf /pepe /clap /lol /bro /kappa /cry /rage" : 4 == Mn && (In = "Flag Pack #1: communist confederate imperial rainbow jolly"),
+        null != In && UI.addChatMessage(In, !0)
     }
     ,
-    UI.updateStats = function(In) {
-        var Dn = In.playerstotal
+    UI.updateStats = function(Mn) {
+        var In = Mn.playerstotal
           , On = "";
-        On += "<div class=\"item\"><span class=\"icon-container\"><div class=\"icon players\"></div></span><span class=\"greyed\">" + In.playersgame + "&nbsp;/&nbsp;</span>" + Dn + "<span class=\"icon-container padded\"><div class=\"icon ping\"></div></span>" + In.ping + "<span class=\"millis\">ms</span></div>",
+        On += "<div class=\"item\"><span class=\"icon-container\"><div class=\"icon players\"></div></span><span class=\"greyed\">" + Mn.playersgame + "&nbsp;/&nbsp;</span>" + In + "<span class=\"icon-container padded\"><div class=\"icon ping\"></div></span>" + Mn.ping + "<span class=\"millis\">ms</span></div>",
         $("#gameinfo").html(On),
-        game.ping = In.ping
+        game.ping = Mn.ping
     }
     ,
-    UI.sayLine = function(In) {
-        Players.say(In)
+    UI.sayLine = function(Mn) {
+        Players.say(Mn)
     }
     ,
-    UI.escapeHTML = function(In) {
-        return ("" + In).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;").replace(/\//g, "&#x2F;").replace(/`/g, "&#x60;")
+    UI.escapeHTML = function(Mn) {
+        return ("" + Mn).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;").replace(/\//g, "&#x2F;").replace(/`/g, "&#x60;")
     }
     ;
     var Sn = function() {
-        var In = window.innerWidth
-          , Dn = window.innerHeight;
-        In == game.screenX && Dn == game.screenY || (clearTimeout(Ht),
+        var Mn = window.innerWidth
+          , In = window.innerHeight;
+        Mn == game.screenX && In == game.screenY || (clearTimeout(Ht),
         Ht = setTimeout(function() {
-            Graphics.resizeRenderer(In, Dn)
+            Graphics.resizeRenderer(Mn, In)
         }, 250))
     };
-    UI.controlKey = function(In, Dn, On) {
+    UI.controlKey = function(Mn, In, On) {
         if (game.state != Network.STATE.PLAYING)
             return !0;
         if (On)
-            if (13 != In) {
-                if (27 == In)
+            if (13 != Mn) {
+                if (27 == Mn)
                     return Gt && UI.toggleChatBox(!1),
                     void UI.closeAllPanels();
-                191 == In ? UI.shortcutChat("/") : 75 == In ? Input.toggleKeybinds() : "SHOWSCORE" === Dn ? UI.toggleScore() : "MAINMENU" === Dn ? UI.toggleMainMenu() : "SHOWGAMES" === Dn ? Games.toggleGames() : "FULLSCREEN" === Dn ? (Graphics.toggleFullscreen(),
-                Input.clearKeys()) : "MINIMIZECHAT" === Dn ? UI.minimizeChat() : "MAXIMIZECHAT" === Dn ? UI.maximizeChat() : "SAY" === Dn ? UI.shortcutChat("/s ") : "TEAM" === Dn ? UI.shortcutChat("/t ") : "REPLY" === Dn ? null != ln && UI.shortcutChat("/w " + ln + " ") : "SPECTATE" === Dn ? Network.spectateForce() : "UPGRADE1" === Dn ? UI.selectUpgrade(1) : "UPGRADE2" === Dn ? UI.selectUpgrade(2) : "UPGRADE3" === Dn ? UI.selectUpgrade(3) : "UPGRADE4" === Dn ? UI.selectUpgrade(4) : "SOUND" === Dn ? Sound.toggle() : "HELP" === Dn ? UI.toggleHelp() : "INVITE" === Dn ? UI.toggleInvite() : "MOUSEMODE" === Dn ? Input.toggleMouse() : void 0
+                191 == Mn ? UI.shortcutChat("/") : 75 == Mn ? Input.toggleKeybinds() : "SHOWSCORE" === In ? UI.toggleScore() : "MAINMENU" === In ? UI.toggleMainMenu() : "SHOWGAMES" === In ? Games.toggleGames() : "FULLSCREEN" === In ? (Graphics.toggleFullscreen(),
+                Input.clearKeys()) : "MINIMIZECHAT" === In ? UI.minimizeChat() : "MAXIMIZECHAT" === In ? UI.maximizeChat() : "SAY" === In ? UI.shortcutChat("/s ") : "TEAM" === In ? UI.shortcutChat("/t ") : "REPLY" === In ? null != ln && UI.shortcutChat("/w " + ln + " ") : "SPECTATE" === In ? Network.spectateForce() : "UPGRADE1" === In ? UI.selectUpgrade(1) : "UPGRADE2" === In ? UI.selectUpgrade(2) : "UPGRADE3" === In ? UI.selectUpgrade(3) : "UPGRADE4" === In ? UI.selectUpgrade(4) : "SOUND" === In ? Sound.toggle() : "HELP" === In ? UI.toggleHelp() : "INVITE" === In ? UI.toggleInvite() : "MOUSEMODE" === In ? Input.toggleMouse() : void 0
             } else
                 UI.toggleChatBox(!0)
     }
@@ -31110,17 +31115,17 @@ function() {
         UI.visibilityMinimap(!1)
     }
     ,
-    UI.visibilityMinimap = function(In) {
-        game.graphics.gui.minimap.visible = In,
-        game.graphics.gui.minimap_box.visible = In
+    UI.visibilityMinimap = function(Mn) {
+        game.graphics.gui.minimap.visible = Mn,
+        game.graphics.gui.minimap_box.visible = Mn
     }
     ,
     UI.resizeMinimap = function() {
-        for (var In in game.graphics.gui.minimap.scale.set(config.minimapSize / 512),
+        for (var Mn in game.graphics.gui.minimap.scale.set(config.minimapSize / 512),
         game.graphics.gui.minimap.position.set(game.screenX - config.minimapPaddingX, game.screenY - config.minimapPaddingY),
         game.graphics.gui.minimap_box.scale.set(.03 + 2 * config.minimapSize * (game.screenX / game.scale / 32768) / 64, .03 + config.minimapSize * (game.screenY / game.scale / 16384) / 64),
         Bt)
-            vn(Bt[In]);
+            vn(Bt[Mn]);
         Games.update(!0)
     }
     ,
@@ -31142,44 +31147,45 @@ function() {
         UI.visibilityHUD(!1)
     }
     ,
-    UI.visibilityHUD = function(In) {
-        game.graphics.gui.hudHealth_shadow.visible = In,
-        game.graphics.gui.hudHealth.visible = In,
-        game.graphics.gui.hudEnergy_shadow.visible = In,
-        game.graphics.gui.hudEnergy.visible = In
+    UI.visibilityHUD = function(Mn) {
+        game.graphics.gui.hudHealth_shadow.visible = Mn,
+        game.graphics.gui.hudHealth.visible = Mn,
+        game.graphics.gui.hudEnergy_shadow.visible = Mn,
+        game.graphics.gui.hudEnergy.visible = Mn
     }
     ,
     UI.resizeHUD = function() {
-        var In = .5 * game.scale
-          , Dn = game.halfScreenX - 30 * game.scale
+        var Mn = .5 * game.scale
+          , In = game.halfScreenX - 30 * game.scale
           , On = game.halfScreenX + 30 * game.scale;
-        game.graphics.gui.hudHealth_shadow.scale.set(In),
-        game.graphics.gui.hudEnergy_shadow.scale.set(In),
-        game.graphics.gui.hudHealth_shadow.position.set(Dn, game.halfScreenY),
+        game.graphics.gui.hudHealth_shadow.scale.set(Mn),
+        game.graphics.gui.hudEnergy_shadow.scale.set(Mn),
+        game.graphics.gui.hudHealth_shadow.position.set(In, game.halfScreenY),
         game.graphics.gui.hudEnergy_shadow.position.set(On, game.halfScreenY),
-        game.graphics.gui.hudSpriteHealth.scale.set(In),
-        game.graphics.gui.hudSpriteHealth.position.set(Dn, game.halfScreenY),
-        game.graphics.gui.hudSpriteEnergy.scale.set(In),
+        game.graphics.gui.hudSpriteHealth.scale.set(Mn),
+        game.graphics.gui.hudSpriteHealth.position.set(In, game.halfScreenY),
+        game.graphics.gui.hudSpriteEnergy.scale.set(Mn),
         game.graphics.gui.hudSpriteEnergy.position.set(On, game.halfScreenY)
     }
     ,
-    UI.selectAircraft = function(In) {
-        Network.sendCommand("respawn", In + "")
+    UI.selectAircraft = function(Mn) {
+        Network.sendCommand("respawn", Mn + "")
     }
     ,
-    UI.aircraftSelected = function(In) {
-        for (var Dn = 0 == game.myGraphicsSet ? "teamImperial" : "teamRebel", On = 1; 5 >= On; On++)
-            $("#selectaircraft-" + On).removeClass("teamImperial").removeClass("teamRebel").addClass(Dn);
-        In = parseInt(In);
+    UI.aircraftSelected = function(Mn) {
+        console.log("UI.aircraftSelected    gs:" + game.myGraphicsSet);
+        for (var In = 0 == game.myGraphicsSet ? "teamImperial" : "teamRebel", On = 1; 5 >= On; On++)
+            $("#selectaircraft-" + On).removeClass("teamImperial").removeClass("teamRebel").addClass(In);
+        Mn = parseInt(Mn);
         for (var On = 1; 5 >= On; On++)
-            On == In ? $("#selectaircraft-" + On).addClass("sel") : $("#selectaircraft-" + On).removeClass("sel")
+            On == Mn ? $("#selectaircraft-" + On).addClass("sel") : $("#selectaircraft-" + On).removeClass("sel")
     }
     ,
-    UI.killed = function(In) {
-        var Dn = null == In.level ? "" : "<span class=\"level\">" + In.level + "</span>";
+    UI.killed = function(Mn) {
+        var In = null == Mn.level ? "" : "<span class=\"level\">" + Mn.level + "</span>";
         (1500 < game.time - yn || 6 <= mn.length) && (mn = []),
         yn = game.time,
-        mn.push([In.flag, In.name, Dn]);
+        mn.push([Mn.flag, Mn.name, In]);
         for (var On = "", Ln = "", kn = 0; kn < mn.length; kn++)
             Ln = mn[kn][1],
             1 != mn.length && 10 < Ln.length && (Ln = Ln.substr(0, 10) + "..."),
@@ -31191,31 +31197,31 @@ function() {
         }
     }
     ,
-    UI.killedBy = function(In) {
-        var Dn = null == In.level ? "" : "<span class=\"level\">" + In.level + "</span>";
+    UI.killedBy = function(Mn) {
+        var In = null == Mn.level ? "" : "<span class=\"level\">" + Mn.level + "</span>";
         hn = {
             type: "destroyed",
             duration: 3e3,
-            msg: "Destroyed by<span class=\"playerbig\"><span class=\"flag big flag-" + In.flag + "\"></span>" + UI.escapeHTML(In.name) + Dn + "</span>"
+            msg: "Destroyed by<span class=\"playerbig\"><span class=\"flag big flag-" + Mn.flag + "\"></span>" + UI.escapeHTML(Mn.name) + In + "</span>"
         }
     }
     ,
-    UI.errorHandler = function(In) {
-        switch (In.error) {
+    UI.errorHandler = function(Mn) {
+        switch (Mn.error) {
         case 1:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>Packet flooding detected", 2e4),
-            Network.receivedError(In.error);
+            Network.receivedError(Mn.error);
             break;
         case 2:
             UI.showMessage("alert", "<span class=\"info\">BANNED</span>Packet flooding detected", 2e4),
-            Network.receivedError(In.error);
+            Network.receivedError(Mn.error);
             break;
         case 3:
             UI.showMessage("alert", "<span class=\"info\">BANNED</span>You have been globally banned", 2e4),
-            Network.receivedError(In.error);
+            Network.receivedError(Mn.error);
             break;
         case 4:
-            Network.receivedError(In.error),
+            Network.receivedError(Mn.error),
             Games.redirRoot();
             break;
         case 5:
@@ -31223,27 +31229,27 @@ function() {
             break;
         case 6:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>AFK for more than 10 minutes<br><span class=\"button\" onclick=\"Network.reconnect()\">RECONNECT</span>", 72e5),
-            Network.receivedError(In.error);
+            Network.receivedError(Mn.error);
             break;
         case 7:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>You have been kicked out", 2e4),
-            Network.receivedError(In.error);
+            Network.receivedError(Mn.error);
             break;
         case 8:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>Invalid login data", 2e4),
-            Network.receivedError(In.error);
+            Network.receivedError(Mn.error);
             break;
         case 9:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>Incorrect protocol level<br>Please clear your browser cache and refresh", 2e4),
-            Network.receivedError(In.error);
+            Network.receivedError(Mn.error);
             break;
         case 10:
             UI.showMessage("alert", "<span class=\"info\">BANNED</span>Account banned", 2e4),
-            Network.receivedError(In.error);
+            Network.receivedError(Mn.error);
             break;
         case 11:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>Account already logged in<br><span class=\"button\" onclick=\"Network.reconnect()\">RECONNECT</span>", 2e4),
-            Network.receivedError(In.error);
+            Network.receivedError(Mn.error);
             break;
         case 12:
             UI.showMessage("alert", "<span class=\"info\">RESPAWN</span>Cannot respawn or change aircraft in a Battle Royale game", 3e3);
@@ -31265,35 +31271,35 @@ function() {
         }
     }
     ,
-    UI.showCommandReply = function(In) {
-        if (0 == In.type)
-            UI.addChatMessage(UI.escapeHTML(In.text));
+    UI.showCommandReply = function(Mn) {
+        if (0 == Mn.type)
+            UI.addChatMessage(UI.escapeHTML(Mn.text));
         else {
-            var Dn = JSON.stringify(JSON.parse(In.text), null, "    ")
-              , On = "<div class=\"close\" onclick=\"$(this).parent().remove()\"></div><div class=\"text\"><pre>" + UI.escapeHTML(Dn) + "</pre></div>";
+            var In = JSON.stringify(JSON.parse(Mn.text), null, "    ")
+              , On = "<div class=\"close\" onclick=\"$(this).parent().remove()\"></div><div class=\"text\"><pre>" + UI.escapeHTML(In) + "</pre></div>";
             $("body").append("<div id=\"debugpopup\" oncontextmenu=\"event.stopPropagation()\">" + On + "</div>")
         }
     }
     ,
-    UI.updateHUD = function(In, Dn, On) {
+    UI.updateHUD = function(Mn, In, On) {
+        Mn = Tools.clamp(Mn, 0, 1),
         In = Tools.clamp(In, 0, 1),
-        Dn = Tools.clamp(Dn, 0, 1),
-        game.graphics.gui.hudHealth.rotation = -1.1 * (1 - In),
-        game.graphics.gui.hudEnergy.rotation = Math.PI + 1.1 * (1 - Dn),
-        game.graphics.gui.hudHealth.tint = .5 < In ? Tools.colorLerp(13487404, 2591785, 2 * (In - .5)) : Tools.colorLerp(12201261, 13487404, 2 * In);
+        game.graphics.gui.hudHealth.rotation = -1.1 * (1 - Mn),
+        game.graphics.gui.hudEnergy.rotation = Math.PI + 1.1 * (1 - In),
+        game.graphics.gui.hudHealth.tint = .5 < Mn ? Tools.colorLerp(13487404, 2591785, 2 * (Mn - .5)) : Tools.colorLerp(12201261, 13487404, 2 * Mn);
         var Ln = 3374821;
-        On && (Ln = Dn < config.ships[On.type].energyLight ? 2841755 : 3374821),
+        On && (Ln = In < config.ships[On.type].energyLight ? 2841755 : 3374821),
         game.graphics.gui.hudEnergy.tint = Ln
     }
     ,
-    UI.minimizeChat = function(In) {
+    UI.minimizeChat = function(Mn) {
         Vt || (Gt && UI.toggleChatBox(),
         Vt = !0,
         qt = 0,
         UI.hide("#chatbox"),
         UI.hide("#chatunreadlines"),
         UI.show("#maximizechat"),
-        In && In.stopPropagation())
+        Mn && Mn.stopPropagation())
     }
     ,
     UI.maximizeChat = function() {
@@ -31302,15 +31308,15 @@ function() {
             UI.hide("#maximizechat"),
             UI.hide("#chatunreadlines"),
             UI.show("#chatbox");
-            var In = $("#chatbox");
-            In.scrollTop(In[0].scrollHeight)
+            var Mn = $("#chatbox");
+            Mn.scrollTop(Mn[0].scrollHeight)
         }
     }
     ,
     UI.closeScore = function() {
         Kt && (UI.hidePanel("#scoredetailed"),
         Kt = !1,
-        clearInterval(Zt))
+        clearInterval(Qt))
     }
     ,
     UI.openScore = function() {
@@ -31318,8 +31324,8 @@ function() {
         UI.showPanel("#scoredetailed"),
         Kt = !0,
         Network.getScores(),
-        clearInterval(Zt),
-        Zt = setInterval(Network.getScores, 5e3))
+        clearInterval(Qt),
+        Qt = setInterval(Network.getScores, 5e3))
     }
     ,
     UI.toggleScore = function() {
@@ -31337,38 +31343,38 @@ function() {
         on = !1)
     }
     ,
-    UI.showPanel = function(In) {
-        var Dn = .9
+    UI.showPanel = function(Mn) {
+        var In = .9
           , On = 1;
-        config.phone && (Dn *= .7,
+        config.phone && (In *= .7,
         On *= .7),
-        $(In).css({
+        $(Mn).css({
             display: "block",
             opacity: "0",
-            transform: "scale(" + Dn + ")",
+            transform: "scale(" + In + ")",
             "pointer-events": "auto"
         }),
-        $(In).width(),
-        $(In).css({
+        $(Mn).width(),
+        $(Mn).css({
             opacity: "1",
             transform: "scale(" + On + ")",
             transition: "all 0.75s cubic-bezier(0.23, 1, 0.32, 1)"
         }),
-        "#custom-msg" != In && Sound.UIClick()
+        "#custom-msg" != Mn && Sound.UIClick()
     }
     ,
-    UI.hidePanel = function(In, Dn, On) {
-        if ("#custom-msg" != In || $("#custom-msg").length) {
+    UI.hidePanel = function(Mn, In, On) {
+        if ("#custom-msg" != Mn || $("#custom-msg").length) {
             var Ln = .9;
             config.phone && (Ln *= .7),
-            $(In).css({
+            $(Mn).css({
                 opacity: "0",
                 transform: "scale(" + Ln + ")",
                 "pointer-events": "none"
             }),
             Sound.UIClick(),
             setTimeout(function(kn) {
-                if ("#mainmenu" === kn ? !en : "#scoredetailed" === kn ? !Kt : "#howtoplay" === kn ? !$t : "#invitefriends" === kn ? !an : "#loginselector" === kn ? !on : !Dn) {
+                if ("#mainmenu" === kn ? !en : "#scoredetailed" === kn ? !Kt : "#howtoplay" === kn ? !$t : "#invitefriends" === kn ? !an : "#loginselector" === kn ? !on : !In) {
                     if (On)
                         return void $(kn).remove();
                     $(kn).css({
@@ -31377,7 +31383,7 @@ function() {
                         transition: "none"
                     })
                 }
-            }, 800, In)
+            }, 800, Mn)
         }
     }
     ,
@@ -31419,61 +31425,61 @@ function() {
         en ? UI.closeMainMenu() : UI.openMainMenu()
     }
     ,
-    UI.closeAllPanels = function(In) {
-        "mainmenu" !== In && UI.closeMainMenu(),
-        "score" !== In && UI.closeScore(),
-        "help" !== In && UI.hideHelp(),
-        "games" !== In && Games.closeGames(),
-        "invite" !== In && UI.closeInvite(),
-        "login" !== In && UI.closeLogin(),
-        "keybinds" !== In && Input.closeKeybinds(),
+    UI.closeAllPanels = function(Mn) {
+        "mainmenu" !== Mn && UI.closeMainMenu(),
+        "score" !== Mn && UI.closeScore(),
+        "help" !== Mn && UI.hideHelp(),
+        "games" !== Mn && Games.closeGames(),
+        "invite" !== Mn && UI.closeInvite(),
+        "login" !== Mn && UI.closeLogin(),
+        "keybinds" !== Mn && Input.closeKeybinds(),
         $("#custom-msg").length && UI.hidePanel("#custom-msg", !1, !0)
     }
     ;
-    var wn = function(In) {
-        return 1e3 > (In = Math.round(In)) ? In : 1e5 > In ? (In / 1e3).toFixed(1) + " K" : 1e6 > In ? Math.round(In / 1e3) + " K" : (In / 1e6).toFixed(1) + " M"
+    var wn = function(Mn) {
+        return 1e3 > (Mn = Math.round(Mn)) ? Mn : 1e5 > Mn ? (Mn / 1e3).toFixed(1) + " K" : 1e6 > Mn ? Math.round(Mn / 1e3) + " K" : (Mn / 1e6).toFixed(1) + " M"
     };
-    UI.updateScore = function(In) {
+    UI.updateScore = function(Mn) {
         if (Kt) {
-            var Dn = In.scores
+            var In = Mn.scores
               , On = ["gold", "silver", "bronze"];
-            Dn.sort(function(Kn, Zn) {
-                return Zn.score - Kn.score
+            In.sort(function(Kn, Qn) {
+                return Qn.score - Kn.score
             });
             var Ln = [["name", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["damage", "Damage"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]];
-            In.c == Network.SERVERPACKET.SCORE_DETAILED_BTR ? Ln = [["name", "&nbsp;"], ["wins", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]] : In.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (Ln = [["name", "&nbsp;"], ["captures", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]]);
+            Mn.c == Network.SERVERPACKET.SCORE_DETAILED_BTR ? Ln = [["name", "&nbsp;"], ["wins", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]] : Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (Ln = [["name", "&nbsp;"], ["captures", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]]);
             for (var kn = "", Nn = 0; Nn < Ln.length; Nn++)
                 kn += "<div class=\"" + Ln[Nn][0] + "\">" + Ln[Nn][1] + "</div>";
-            for (var Xn = "", Hn = "", Gn = -1, Yn = -1, Wn = 0, Fn, Bn, Un; Wn < Dn.length; Wn++)
-                null != (Fn = Players.get(Dn[Wn].id)) && (Bn = 2 >= Wn ? "&nbsp;<div class=\"badge detail " + On[Wn] + "\"></div>" : Wn + 1 + ".",
+            for (var Xn = "", Hn = "", Gn = -1, Yn = -1, Wn = 0, Fn, Bn, Un; Wn < In.length; Wn++)
+                null != (Fn = Players.get(In[Wn].id)) && (Bn = 2 >= Wn ? "&nbsp;<div class=\"badge detail " + On[Wn] + "\"></div>" : Wn + 1 + ".",
                 Un = Fn.me() ? " sel" : "",
-                Xn = In.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " team-" + Fn.team : In.c != Network.SERVERPACKET.SCORE_DETAILED_BTR || Dn[Wn].alive ? "" : " inactive",
+                Xn = Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " team-" + Fn.team : Mn.c != Network.SERVERPACKET.SCORE_DETAILED_BTR || In[Wn].alive ? "" : " inactive",
                 Hn += "<div class=\"item" + Un + "\" player-id=\"" + Fn.id + "\"><div class=\"name\"><div class=\"position\">",
                 Hn += Bn + "</div><div class=\"flag small flag-" + Fn.flag + "\"></div>",
                 Hn += "<div class=\"player" + Xn + "\">" + UI.escapeHTML(Fn.name) + "</div></div>",
-                In.c == Network.SERVERPACKET.SCORE_DETAILED_BTR && (0 == Dn[Wn].wins ? Hn += "<div class=\"wins\">&nbsp;</div>" : Hn += "<div class=\"wins\">" + Dn[Wn].wins + "<div class=\"wins-container\">&nbsp;<div class=\"wins-icon\"></div></div></div>"),
-                In.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (0 == Dn[Wn].captures ? Hn += "<div class=\"captures\">&nbsp;</div>" : Hn += "<div class=\"captures\">" + Dn[Wn].captures + "<div class=\"captures-container\">&nbsp;<div class=\"captures-icon\"></div></div></div>"),
-                Hn += "<div class=\"kills\">" + Dn[Wn].kills + "</div>",
-                Hn += "<div class=\"deaths\">" + Dn[Wn].deaths + "</div>",
-                In.c == Network.SERVERPACKET.SCORE_DETAILED && (Hn += "<div class=\"damage\">" + wn(Dn[Wn].damage) + "</div>"),
-                Hn += "<div class=\"bounty\">" + Dn[Wn].score + "</div>",
-                Hn += "<div class=\"rank\">" + (0 == Dn[Wn].level ? "&nbsp;" : Dn[Wn].level) + "</div>",
-                Hn += "<div class=\"ping\">" + Dn[Wn].ping + "<span class=\"ms\">ms</span></div>",
+                Mn.c == Network.SERVERPACKET.SCORE_DETAILED_BTR && (0 == In[Wn].wins ? Hn += "<div class=\"wins\">&nbsp;</div>" : Hn += "<div class=\"wins\">" + In[Wn].wins + "<div class=\"wins-container\">&nbsp;<div class=\"wins-icon\"></div></div></div>"),
+                Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (0 == In[Wn].captures ? Hn += "<div class=\"captures\">&nbsp;</div>" : Hn += "<div class=\"captures\">" + In[Wn].captures + "<div class=\"captures-container\">&nbsp;<div class=\"captures-icon\"></div></div></div>"),
+                Hn += "<div class=\"kills\">" + In[Wn].kills + "</div>",
+                Hn += "<div class=\"deaths\">" + In[Wn].deaths + "</div>",
+                Mn.c == Network.SERVERPACKET.SCORE_DETAILED && (Hn += "<div class=\"damage\">" + wn(In[Wn].damage) + "</div>"),
+                Hn += "<div class=\"bounty\">" + In[Wn].score + "</div>",
+                Hn += "<div class=\"rank\">" + (0 == In[Wn].level ? "&nbsp;" : In[Wn].level) + "</div>",
+                Hn += "<div class=\"ping\">" + In[Wn].ping + "<span class=\"ms\">ms</span></div>",
                 Hn += "</div>",
-                In.c == Network.SERVERPACKET.SCORE_DETAILED ? Dn[Wn].damage > Gn && (Gn = Dn[Wn].damage,
-                Yn = Fn) : In.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? Dn[Wn].captures > Gn && (Gn = Dn[Wn].captures,
-                Yn = Fn) : Dn[Wn].kills > Gn && (Gn = Dn[Wn].kills,
+                Mn.c == Network.SERVERPACKET.SCORE_DETAILED ? In[Wn].damage > Gn && (Gn = In[Wn].damage,
+                Yn = Fn) : Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? In[Wn].captures > Gn && (Gn = In[Wn].captures,
+                Yn = Fn) : In[Wn].kills > Gn && (Gn = In[Wn].kills,
                 Yn = Fn));
             var jn = ""
               , zn = "";
-            if (1 < Dn.length && (jn = "&bull;&nbsp;&nbsp;" + Dn.length + " players",
+            if (1 < In.length && (jn = "&bull;&nbsp;&nbsp;" + In.length + " players",
             0 < Gn)) {
-                if (In.c == Network.SERVERPACKET.SCORE_DETAILED)
+                if (Mn.c == Network.SERVERPACKET.SCORE_DETAILED)
                     var Vn = wn(Gn)
                       , qn = " damage";
                 else
                     Vn = Gn + "",
-                    qn = In.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " capture" : " kill",
+                    qn = Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " capture" : " kill",
                     1 < Gn && (qn += "s");
                 zn = "<div class=\"mvpbadge\">MVP</div><div class=\"flag flag-" + Yn.flag + "\"></div><div class=\"name\">" + UI.escapeHTML(Yn.name) + "</div><div class=\"damage\">&nbsp;&nbsp;&bull;&nbsp;&nbsp;" + Vn + qn + "</div>"
             }
@@ -31482,73 +31488,73 @@ function() {
             $("#scorecontainer").html(Hn),
             $("#scoremvp").html(zn),
             $("#scorecontainer div").click(function(Kn) {
-                var Zn = $(Kn.currentTarget).attr("player-id");
-                parseInt(Zn) != Math.NaN && (window.target = parseInt(Zn))
+                var Qn = $(Kn.currentTarget).attr("player-id");
+                parseInt(Qn) != Math.NaN && (window.target = parseInt(Qn))
             })
         }
     }
     ,
-    UI.popMenu = function(In, Dn) {
+    UI.popMenu = function(Mn, In) {
         if (game.state == Network.STATE.LOGIN)
             return Games.closeDropdowns(),
             void UI.closeLogin();
-        Dn || game.state != Network.STATE.PLAYING || UI.closeAllPanels();
-        var On = $(In.target).parent().data("playerid");
-        if (null == On && (On = $(In.target).data("playerid")),
+        In || game.state != Network.STATE.PLAYING || UI.closeAllPanels();
+        var On = $(Mn.target).parent().data("playerid");
+        if (null == On && (On = $(Mn.target).data("playerid")),
         null != On && On != game.myID) {
             var Ln = Players.get(On);
             if (null == Ln)
                 return !0;
             var kn = {
                 left: "20px",
-                top: $(In.target).parent()[0].getBoundingClientRect().top - 166 + "px"
+                top: $(Mn.target).parent()[0].getBoundingClientRect().top - 166 + "px"
             };
-            Qt || (kn.display = "block",
-            Qt = !0);
+            Zt || (kn.display = "block",
+            Zt = !0);
             var Nn = null == Xt[Ln.id] ? "Ignore" : "Unignore"
               , Fn = "<div class=\"header\">" + UI.escapeHTML(Ln.name) + "</div><div class=\"item\" onclick=\"UI.contextWhisper()\">Whisper</div><div class=\"item\" onclick=\"UI.context" + Nn + "()\">" + Nn + "</div><div class=\"item\" onclick=\"UI.contextVotemute()\">Vote mute</div><div class=\"arrow\"></div>";
             return $("#contextmenu").html(Fn),
             $("#contextmenu").css(kn),
             Jt = Ln.id,
-            In.stopPropagation(),
+            Mn.stopPropagation(),
             !1
         }
         UI.closeMenu()
     }
     ;
-    var Pn = function(In) {
-        return (In + "").replace(/&/g, "&a;").replace(/ /g, "&s;")
+    var Pn = function(Mn) {
+        return (Mn + "").replace(/&/g, "&a;").replace(/ /g, "&s;")
     }
-      , Cn = function(In) {
-        return (In + "").replace(/&s;/g, " ").replace(/&a;/g, "&")
+      , Cn = function(Mn) {
+        return (Mn + "").replace(/&s;/g, " ").replace(/&a;/g, "&")
     };
-    UI.chatWhisper = function(In, Dn) {
-        In = Cn(In);
-        var On = Players.getByName(In);
-        null == On ? UI.addChatMessage("Unknown player") : Network.sendWhisper(On.id, Dn)
+    UI.chatWhisper = function(Mn, In) {
+        Mn = Cn(Mn);
+        var On = Players.getByName(Mn);
+        null == On ? UI.addChatMessage("Unknown player") : Network.sendWhisper(On.id, In)
     }
     ,
-    UI.chatIgnore = function(In) {
-        var Dn = Players.get(In);
-        null != Dn && In != game.myID && null == Xt[Dn.id] && (Xt[Dn.id] = !0,
-        UI.addChatMessage("Ignoring player " + UI.escapeHTML(Dn.name) + "&nbsp;&nbsp;&bull;&nbsp;&nbsp;To unignore type /unignore " + UI.escapeHTML(Pn(Dn.name)), !0))
+    UI.chatIgnore = function(Mn) {
+        var In = Players.get(Mn);
+        null != In && Mn != game.myID && null == Xt[In.id] && (Xt[In.id] = !0,
+        UI.addChatMessage("Ignoring player " + UI.escapeHTML(In.name) + "&nbsp;&nbsp;&bull;&nbsp;&nbsp;To unignore type /unignore " + UI.escapeHTML(Pn(In.name)), !0))
     }
     ,
-    UI.chatUnignore = function(In) {
-        Xt[In.id] && (delete Xt[In.id],
-        UI.addChatMessage("Removed player " + UI.escapeHTML(In.name) + " from ignore list", !0))
+    UI.chatUnignore = function(Mn) {
+        Xt[Mn.id] && (delete Xt[Mn.id],
+        UI.addChatMessage("Removed player " + UI.escapeHTML(Mn.name) + " from ignore list", !0))
     }
     ,
-    UI.chatVotemute = function(In) {
-        if (In.id != game.myID) {
-            Network.voteMute(In.id);
-            var Dn = Math.floor(Math.sqrt(Players.count()[1])) + 1;
-            UI.addChatMessage("Voted to mute " + UI.escapeHTML(In.name) + "&nbsp;&nbsp;&bull;&nbsp;&nbsp;" + Dn + " total votes are required", !0)
+    UI.chatVotemute = function(Mn) {
+        if (Mn.id != game.myID) {
+            Network.voteMute(Mn.id);
+            var In = Math.floor(Math.sqrt(Players.count()[1])) + 1;
+            UI.addChatMessage("Voted to mute " + UI.escapeHTML(Mn.name) + "&nbsp;&nbsp;&bull;&nbsp;&nbsp;" + In + " total votes are required", !0)
         }
     }
     ,
-    UI.chatVotemutePass = function(In) {
-        UI.addChatMessage("The vote to mute " + UI.escapeHTML(In.name) + " has passed", !0)
+    UI.chatVotemutePass = function(Mn) {
+        UI.addChatMessage("The vote to mute " + UI.escapeHTML(Mn.name) + " has passed", !0)
     }
     ,
     UI.chatMuted = function() {
@@ -31557,8 +31563,8 @@ function() {
     ,
     UI.contextWhisper = function() {
         if (null != Jt) {
-            var In = Players.get(Jt);
-            null != In && Jt != game.myID && UI.shortcutChat("/w " + Pn(In.name) + " ")
+            var Mn = Players.get(Jt);
+            null != Mn && Jt != game.myID && UI.shortcutChat("/w " + Pn(Mn.name) + " ")
         }
     }
     ,
@@ -31568,44 +31574,44 @@ function() {
     ,
     UI.contextUnignore = function() {
         if (null != Jt) {
-            var In = Players.get(Jt);
-            null != In && Jt != game.myID && UI.chatUnignore(In)
+            var Mn = Players.get(Jt);
+            null != Mn && Jt != game.myID && UI.chatUnignore(Mn)
         }
     }
     ,
     UI.contextVotemute = function() {
         if (null != Jt) {
-            var In = Players.get(Jt);
-            null != In && Jt != game.myID && UI.chatVotemute(In)
+            var Mn = Players.get(Jt);
+            null != Mn && Jt != game.myID && UI.chatVotemute(Mn)
         }
     }
     ,
     UI.closeMenu = function() {
-        Qt && (UI.hide("#contextmenu"),
-        Qt = !1)
+        Zt && (UI.hide("#contextmenu"),
+        Zt = !1)
     }
     ,
     UI.nameEntered = function() {
-        var In = $("#playername").val().trim();
-        0 < In.length ? (game.myOriginalName = In,
-        Games.start(In, !0)) : Games.highlightInput("#playername")
+        var Mn = $("#playername").val().trim();
+        0 < Mn.length ? (game.myOriginalName = Mn,
+        Games.start(Mn, !0)) : Games.highlightInput("#playername")
     }
     ,
-    UI.selectUpgrade = function(In) {
-        Network.sendCommand("upgrade", In + "")
+    UI.selectUpgrade = function(Mn) {
+        Network.sendCommand("upgrade", Mn + "")
     }
     ;
     var An = function() {
-        for (var In = ["", "speed", "defense", "energy", "missile"], Dn = 1; 5 > Dn; Dn++)
-            Dn - 1,
-            5 > gn[In[Dn]] && 0 < fn.upgrades ? $("#selectupgrade-" + Dn).addClass("lighted") : $("#selectupgrade-" + Dn).removeClass("lighted")
+        for (var Mn = ["", "speed", "defense", "energy", "missile"], In = 1; 5 > In; In++)
+            In - 1,
+            5 > gn[Mn[In]] && 0 < fn.upgrades ? $("#selectupgrade-" + In).addClass("lighted") : $("#selectupgrade-" + In).removeClass("lighted")
     };
-    UI.updateUpgrades = function(In, Dn, On) {
+    UI.updateUpgrades = function(Mn, In, On) {
         for (var kn = ["", "speed", "defense", "energy", "missile"], Nn = 1, Ln; 5 > Nn; Nn++)
             Ln = Nn - 1,
             "",
-            null != gn[kn[Nn]] && gn[kn[Nn]] == In[Ln] || (gn[kn[Nn]] = In[Ln],
-            $("#selectupgrade-" + Nn + "-level").html(In[Ln]),
+            null != gn[kn[Nn]] && gn[kn[Nn]] == Mn[Ln] || (gn[kn[Nn]] = Mn[Ln],
+            $("#selectupgrade-" + Nn + "-level").html(Mn[Ln]),
             tn && rn - 100 == Nn && UI.popTooltip(null, 100 + Nn));
         if (null != On) {
             if (0 != On) {
@@ -31613,8 +31619,8 @@ function() {
                 UI.showMessage("information", "<span class=\"info\">UPGRADE</span>" + Bn, 3e3),
                 Sound.playerUpgrade()
             }
-            fn.upgrades = Dn,
-            $("#score-upgrades").html(Dn)
+            fn.upgrades = In,
+            $("#score-upgrades").html(In)
         }
         An()
     }
@@ -31623,21 +31629,21 @@ function() {
         UI.updateUpgrades([0, 0, 0, 0])
     }
     ,
-    UI.popBigMsg = function(In) {
-        if (1 == In)
-            var Dn = "<div id=\"big-message\" onclick=\"UI.closeBigMsg()\"><div class=\"msg\">Mobile mode</div><div class=\"small\">Mobile mode has touch controls and requires latest phone/tablet hardware.</div><div class=\"small nopadtop\">For the full experience please play on a PC with a physical keyboard.</div><div class=\"greyed\">Tap anywhere to close</div></div>";
+    UI.popBigMsg = function(Mn) {
+        if (1 == Mn)
+            var In = "<div id=\"big-message\" onclick=\"UI.closeBigMsg()\"><div class=\"msg\">Mobile mode</div><div class=\"small\">Mobile mode has touch controls and requires latest phone/tablet hardware.</div><div class=\"small nopadtop\">For the full experience please play on a PC with a physical keyboard.</div><div class=\"greyed\">Tap anywhere to close</div></div>";
         else
-            Dn = "<div id=\"big-message\"><div class=\"msg\">WebGL required</div><div class=\"small\">This game requires a WebGL enabled browser in order to run.<br>Please allow WebGL for this domain to continue.</div>";
-        $("body").append(Dn)
+            In = "<div id=\"big-message\"><div class=\"msg\">WebGL required</div><div class=\"small\">This game requires a WebGL enabled browser in order to run.<br>Please allow WebGL for this domain to continue.</div>";
+        $("body").append(In)
     }
     ,
     UI.closeBigMsg = function() {
         $("#big-message").remove()
     }
     ,
-    UI.showHelp = function(In) {
+    UI.showHelp = function(Mn) {
         $t || (UI.closeAllPanels("help"),
-        !0 === In ? $("#howtoplay").addClass("hide") : $("#howtoplay").removeClass("hide"),
+        !0 === Mn ? $("#howtoplay").addClass("hide") : $("#howtoplay").removeClass("hide"),
         UI.showPanel("#howtoplay"),
         $t = !0)
     }
@@ -31651,7 +31657,7 @@ function() {
         $t ? UI.hideHelp() : UI.showHelp()
     }
     ,
-    UI.updateSound = function(In) {
+    UI.updateSound = function(Mn) {
         config.settings.sound ? ($("#settings-sound").addClass("soundon"),
         $("#settings-sound").removeClass("soundoff"),
         $("#mainmenu-sound-icon").addClass("soundon"),
@@ -31661,11 +31667,11 @@ function() {
         $("#mainmenu-sound-icon").addClass("soundoff"),
         $("#mainmenu-sound-icon").removeClass("soundon"),
         $("#mainmenu-sound-text").html("Enable Sound")),
-        In && UI.showMessage("alert", "<span class=\"info\">SOUND</span>" + (config.settings.sound ? "Enabled" : "Disabled"), 3e3)
+        Mn && UI.showMessage("alert", "<span class=\"info\">SOUND</span>" + (config.settings.sound ? "Enabled" : "Disabled"), 3e3)
     }
     ,
-    UI.gameStart = function(In, Dn) {
-        Dn && ($("#login-ui").remove(),
+    UI.gameStart = function(Mn, In) {
+        In && ($("#login-ui").remove(),
         UI.show("#logosmall"),
         UI.show("#menu", !0),
         config.mobile || UI.show("#chatbox"),
@@ -31688,16 +31694,16 @@ function() {
         UI.hideSpectator(),
         UI.resetPowerups(),
         $("#open-menu").html("Connecting..."),
-        game.myName = In,
+        game.myName = Mn,
         Network.setup()
     }
     ;
     var Rn = function() {
-        Mn(),
+        Dn(),
         Graphics.toggleFullscreen(),
         Input.setupTouch()
     }
-      , Mn = function() {
+      , Dn = function() {
         $("#howtoplay").addClass("mobile"),
         $("#howtoplay").html("<div class=\"header\">HOW TO PLAY</div><div class=\"mobile-graphic\"></div><div class=\"commands\">For the best game experience play on a PC</div>")
     };
@@ -31739,12 +31745,12 @@ function() {
         UI.updateHUD(1, 1)
     }
     ,
-    UI.popTooltip = function(In, Dn) {
-        if (null == Dn)
-            var On = In.data.t
-              , Ln = In.currentTarget.getBoundingClientRect();
+    UI.popTooltip = function(Mn, In) {
+        if (null == In)
+            var On = Mn.data.t
+              , Ln = Mn.currentTarget.getBoundingClientRect();
         else
-            On = Dn;
+            On = In;
         var kn = "";
         if (100 > On) {
             var Nn = _n[On]
@@ -31766,7 +31772,7 @@ function() {
             kn += "<div class=\"item smaller\"><div class=\"clickto\">Click to upgrade to " + (Gn = "+" + Math.round(100 * (config.upgrades[Un[Xn]].factor[gn[Un[Xn]] + 1] - 1)) + "%") + "</div></div>") : kn += "<div class=\"item smaller\"><div class=\"clickto\">Max upgrade reached</div></div>"
         }
         kn += "<div class=\"arrow\"></div>",
-        null == Dn && $("#tooltip").css({
+        null == In && $("#tooltip").css({
             left: Math.round(Ln.left + 60) + "px",
             top: Math.round(Ln.top - 10) + "px"
         }),
@@ -31787,9 +31793,9 @@ function() {
         }, 250))
     }
     ,
-    UI.startDragChat = function(In) {
-        un.x = In.originalEvent.pageX,
-        un.y = In.originalEvent.pageY,
+    UI.startDragChat = function(Mn) {
+        un.x = Mn.originalEvent.pageX,
+        un.y = Mn.originalEvent.pageY,
         un.width = $("#chatbox").width() + 16,
         un.height = $("#chatbox").height() + 16,
         $("#chatbox").addClass("hovered"),
@@ -31797,12 +31803,12 @@ function() {
         $(window).on("mouseup", UI.endDragChat)
     }
     ,
-    UI.dragChat = function(In) {
-        var Dn = In.originalEvent.pageX
-          , On = In.originalEvent.pageY;
-        if (0 != Dn && 0 != On) {
+    UI.dragChat = function(Mn) {
+        var In = Mn.originalEvent.pageX
+          , On = Mn.originalEvent.pageY;
+        if (0 != In && 0 != On) {
             100 > game.screenY - On && (On = game.screenY - 100);
-            var Ln = Dn - un.x
+            var Ln = In - un.x
               , kn = On - un.y;
             $("#chatbox").css({
                 width: un.width + Ln + "px",
@@ -31828,9 +31834,9 @@ function() {
     UI.setup = function() {
         $(window).resize(Sn),
         $(window).on("orientationchange", Sn),
-        $(window).on("contextmenu", function(Dn) {
-            return UI.popMenu(Dn, !0),
-            Dn.preventDefault(),
+        $(window).on("contextmenu", function(In) {
+            return UI.popMenu(In, !0),
+            In.preventDefault(),
             !1
         }),
         $(window).on("focus", Input.gameFocus),
@@ -31838,9 +31844,9 @@ function() {
         $(window).on("click", UI.popMenu),
         $("#minimizechat").on("click", UI.minimizeChat),
         $("#maximizechat").on("click", UI.maximizeChat),
-        $("#viewscore").on("click", function(Dn) {
+        $("#viewscore").on("click", function(In) {
             game.state == Network.STATE.PLAYING && (UI.openScore(),
-            Dn.stopPropagation())
+            In.stopPropagation())
         }),
         $("#selectaircraft-1").on("click", function() {
             UI.selectAircraft(1)
@@ -31868,28 +31874,28 @@ function() {
         $(".keybind").css({
             display: "none"
         })) : $("#mainmenu-keybinds").on("click", Input.openKeybinds),
-        $("#settings-mainmenu").on("click", function(Dn) {
+        $("#settings-mainmenu").on("click", function(In) {
             UI.toggleMainMenu(),
-            Dn.stopPropagation()
+            In.stopPropagation()
         }),
-        $("#settings-sound").on("click", function(Dn) {
+        $("#settings-sound").on("click", function(In) {
             Sound.toggle(),
-            Dn.stopPropagation()
+            In.stopPropagation()
         }),
-        $("#mainmenu").on("click", function(Dn) {
-            Dn.stopPropagation()
+        $("#mainmenu").on("click", function(In) {
+            In.stopPropagation()
         }),
-        $("#scoredetailed").on("click", function(Dn) {
-            Dn.stopPropagation()
+        $("#scoredetailed").on("click", function(In) {
+            In.stopPropagation()
         }),
-        $("#invitefriends").on("click", function(Dn) {
-            Dn.stopPropagation()
+        $("#invitefriends").on("click", function(In) {
+            In.stopPropagation()
         }),
-        $("#keybinds").on("click", function(Dn) {
-            Dn.stopPropagation()
+        $("#keybinds").on("click", function(In) {
+            In.stopPropagation()
         }),
-        $("#invite-link").on("contextmenu", function(Dn) {
-            Dn.stopPropagation()
+        $("#invite-link").on("contextmenu", function(In) {
+            In.stopPropagation()
         }),
         $("#resetbinds").on("click", Input.resetBinds),
         config.mobile || ($("#chatbox").perfectScrollbar({
@@ -31916,27 +31922,27 @@ function() {
         $("#selectupgrade-4").on("click", function() {
             UI.selectUpgrade(4)
         });
-        var In;
-        for (In = 1; 5 >= In; In++)
-            $("#selectaircraft-" + In).on("mouseenter", {
-                t: In
+        var Mn;
+        for (Mn = 1; 5 >= Mn; Mn++)
+            $("#selectaircraft-" + Mn).on("mouseenter", {
+                t: Mn
             }, UI.popTooltip),
-            $("#selectaircraft-" + In).on("mouseleave", UI.closeTooltip);
-        for (In = 1; 4 >= In; In++)
-            $("#selectupgrade-" + In).on("mouseenter", {
-                t: 100 + In
+            $("#selectaircraft-" + Mn).on("mouseleave", UI.closeTooltip);
+        for (Mn = 1; 4 >= Mn; Mn++)
+            $("#selectupgrade-" + Mn).on("mouseenter", {
+                t: 100 + Mn
             }, UI.popTooltip),
-            $("#selectupgrade-" + In).on("mouseleave", UI.closeTooltip);
+            $("#selectupgrade-" + Mn).on("mouseleave", UI.closeTooltip);
         $("#playbutton").on("click", function() {
             Sound.UIClick(),
             UI.nameEntered()
         }),
-        $("#playername").on("keypress", function(Dn) {
-            13 === Dn.which && UI.nameEntered()
+        $("#playername").on("keypress", function(In) {
+            13 === In.which && UI.nameEntered()
         }),
-        window.onerror = function(Dn, On, Ln, kn, Nn) {
+        window.onerror = function(In, On, Ln, kn, Nn) {
             game.state !== Network.STATE.PLAYING && game.state !== Network.STATE.CONNECTING || Tools.handleError({
-                msg: Dn,
+                msg: In,
                 url: On,
                 lineNo: Ln,
                 columnNo: kn,
@@ -31957,8 +31963,8 @@ function() {
       , Vt = null
       , qt = null
       , Kt = !1
-      , Zt = !1
-      , Qt = null
+      , Qt = !1
+      , Zt = null
       , Jt = []
       , $t = !1
       , en = {}
@@ -32016,7 +32022,7 @@ function() {
         $("#lifetime-signin").on("click", Games.redirRoot),
         null == config.settings.session ? Games.playerGuest() : Games.playerAuth(),
         dn(function() {
-            return (Zt = !0,
+            return (Qt = !0,
             ln(),
             DEVELOPMENT && "#tony" == window.location.hash) ? (game.playRegion = "eu",
             game.playRoom = "ffa1",
@@ -32199,7 +32205,7 @@ function() {
     Games.updateRegion = function(Tn, En) {
         var Sn = ""
           , wn = null;
-        if (Zt && !$t) {
+        if (Qt && !$t) {
             if (null != En && (En.stopPropagation(),
             Bt || Sound.UIClick()),
             Tn && UI.closeLogin(),
@@ -32213,9 +32219,9 @@ function() {
                 for (var Cn = 0; Cn < Jt.length; Cn++) {
                     for (var An = 0, Rn = 0; Rn < Jt[Cn].games.length; Rn++)
                         An += Jt[Cn].games[Rn].players;
-                    var Mn;
-                    Mn = null == Jt[Cn].ping ? "&nbsp;" : Math.round(Jt[Cn].ping) + "<span class=\"ms\">ms</span>",
-                    Sn += "<div class=\"item selectable" + (game.playRegion === Jt[Cn].id ? " sel" : "") + "\" onclick=\"Games.selectRegion(event, &quot;" + Jt[Cn].id + "&quot;)\"><div class=\"region chooser\">" + Jt[Cn].name + "</div><div class=\"players number\">" + An + "</div><div class=\"ping chooser nopadding\">" + Mn + "</div><div class=\"clear\"></div></div>"
+                    var Dn;
+                    Dn = null == Jt[Cn].ping ? "&nbsp;" : Math.round(Jt[Cn].ping) + "<span class=\"ms\">ms</span>",
+                    Sn += "<div class=\"item selectable" + (game.playRegion === Jt[Cn].id ? " sel" : "") + "\" onclick=\"Games.selectRegion(event, &quot;" + Jt[Cn].id + "&quot;)\"><div class=\"region chooser\">" + Jt[Cn].name + "</div><div class=\"players number\">" + An + "</div><div class=\"ping chooser nopadding\">" + Dn + "</div><div class=\"clear\"></div></div>"
                 }
                 Sn += "<div class=\"item\"></div>",
                 wn = {
@@ -32257,7 +32263,7 @@ function() {
     Games.updateType = function(Tn, En) {
         var Sn = ""
           , wn = null;
-        if (Zt && !$t) {
+        if (Qt && !$t) {
             if (null != En && (En.stopPropagation(),
             Xt || Sound.UIClick()),
             Tn && UI.closeLogin(),
@@ -32265,10 +32271,10 @@ function() {
             Tn) {
                 if (Bt && Games.updateRegion(!1),
                 Sn += "<div class=\"item\"><div class=\"gametype header\">GAME</div><div class=\"players header\">PLAYERS</div><div class=\"clear\"></div></div>",
-                null == (Mn = fn()))
+                null == (Dn = fn()))
                     return;
-                null == pn(Mn, game.playRoom) && (game.playRoom = Yt[1]);
-                var An = un(Mn).games, Rn = [[], [], [], [], [], [], [], [], []], Pn, Cn;
+                null == pn(Dn, game.playRoom) && (game.playRoom = Yt[1]);
+                var An = un(Dn).games, Rn = [[], [], [], [], [], [], [], [], []], Pn, Cn;
                 for (Pn = 0; Pn < An.length; Pn++)
                     Rn[An[Pn].type].push(An[Pn]);
                 for (Pn = 1; Pn < Rn.length; Pn++)
@@ -32286,12 +32292,12 @@ function() {
             } else {
                 Sn += "<div class=\"arrowdown\"></div>",
                 Sn += "<div class=\"playtop\">GAME</div>";
-                var Mn;
-                if (null == (Mn = fn()))
+                var Dn;
+                if (null == (Dn = fn()))
                     return;
-                var In = pn(Mn, game.playRoom);
-                null == In ? (name = Gt[1],
-                game.playRoom = Yt[1]) : name = In.name,
+                var Mn = pn(Dn, game.playRoom);
+                null == Mn ? (name = Gt[1],
+                game.playRoom = Yt[1]) : name = Mn.name,
                 Sn += "<div class=\"playbottom\">" + name + "</div>",
                 wn = {
                     width: "190px",
@@ -32466,8 +32472,8 @@ function() {
     ,
     Games.copyInviteLink = function() {
         bn(game.inviteLink) && (UI.show("#invite-copied"),
-        null != Qt && clearTimeout(Qt),
-        Qt = setTimeout(function() {
+        null != Zt && clearTimeout(Zt),
+        Zt = setTimeout(function() {
             UI.hide("#invite-copied")
         }, 2e3))
     }
@@ -32508,22 +32514,22 @@ function() {
                 var Pn = game.playRoom
                   , Cn = Yt.indexOf(Pn);
                 if (-1 != Cn) {
-                    for (var An = un(game.playRegion).games, Rn = [], Mn = 0; Mn < An.length; Mn++)
-                        An[Mn].type == Cn && Rn.push(An[Mn].id);
+                    for (var An = un(game.playRegion).games, Rn = [], Dn = 0; Dn < An.length; Dn++)
+                        An[Dn].type == Cn && Rn.push(An[Dn].id);
                     Pn = Rn[Tools.randInt(0, Rn.length - 1)]
                 }
-                var In = pn(game.playRegion, Pn);
-                game.playHost = In.host,
-                game.playPath = In.id,
+                var Mn = pn(game.playRegion, Pn);
+                game.playHost = Mn.host,
+                game.playPath = Mn.id,
                 game.regionName = un(game.playRegion).name,
                 game.playRoom = Pn,
                 game.state == Network.STATE.LOGIN && Tools.wipeReel(),
                 game.state = Network.STATE.CONNECTING;
-                var Dn = {
+                var In = {
                     name: Tn
                 };
-                game.playInvited || (Dn.region = Sn),
-                Tools.setSettings(Dn),
+                game.playInvited || (In.region = Sn),
+                Tools.setSettings(In),
                 UI.gameStart(Tn, En),
                 En && Tools.ajaxPost("/enter", {
                     id: config.settings.id,
@@ -32582,16 +32588,7 @@ function() {
         },
         Graphics.minimapMob(en.flagBlue.minimapBase, en.flagBlue.basePos.x, en.flagBlue.basePos.y),
         Graphics.minimapMob(en.flagRed.minimapBase, en.flagRed.basePos.x, en.flagRed.basePos.y)) : 3 == game.gameType && ($("#gamespecific").html(""),
-        UI.show("#gamespecific")),
-        $("body").append("<div id='WhoKilledWho' style='position: absolute; top: 40px; left: 60px; width: 400px; height: 80px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white;'></div>"),
-        window.PlayerInfoTimer = setInterval(function() {
-            var Tn = Players.getIDs()
-              , En = Players.getMe();
-            for (var Sn in Tn) {
-                var wn = Players.get(Sn);
-                "undefined" != typeof wn.scorePlace && (wn.sprites.name.text = wn.scorePlace + ". " + wn.name)
-            }
-        }, 500)
+        UI.show("#gamespecific"))
     }
     ,
     Games.wipe = function() {
@@ -32611,10 +32608,7 @@ function() {
         en.flagBlue.minimapSprite.destroy(),
         en.flagRed.minimapSprite.destroy(),
         en.flagBlue.minimapBase.destroy(),
-        en.flagRed.minimapBase.destroy()),
-        clearInterval(window.PlayerInfoTimer),
-        $("body").remove("#prowlerAlert"),
-        $("body").remove("#WhoKilledWho")
+        en.flagRed.minimapBase.destroy())
     }
     ,
     Games.networkFlag = function(Tn) {
@@ -32754,9 +32748,9 @@ function() {
           , Cn = 0
           , An = 0
           , Rn = ""
-          , Mn = {}
+          , Dn = {}
+          , Mn = 0
           , In = 0
-          , Dn = 0
           , On = new Vector(Sn.x - game.halfScreenX / game.scale - 64,Sn.y - game.halfScreenY / game.scale - 64)
           , Ln = new Vector(Sn.x + game.halfScreenX / game.scale + 64,Sn.y - game.halfScreenY / game.scale - 64)
           , kn = new Vector(Sn.x - game.halfScreenX / game.scale - 64,Sn.y + game.halfScreenY / game.scale + 64)
@@ -32766,30 +32760,30 @@ function() {
                 for (var Bn = -Pn; Bn <= Pn; Bn++)
                     if (Cn = 64 * (Math.floor(Sn.x / 64) + .5) + 64 * Fn,
                     An = 64 * (Math.floor(Sn.y / 64) + .5) + 64 * Bn,
-                    !((In = Tools.distance(Cn, An, Tn.x, Tn.y)) < En) && (Rn = Cn + "_" + An,
-                    Mn[Rn] = !0,
+                    !((Mn = Tools.distance(Cn, An, Tn.x, Tn.y)) < En) && (Rn = Cn + "_" + An,
+                    Dn[Rn] = !0,
                     null == tn[Rn])) {
                         var Un = Textures.sprite("hotsmoke_" + Tools.randInt(1, 4));
                         Un.scale.set(Tools.rand(1.5, 2.5)),
                         Un.anchor.set(.5, .5),
                         Un.position.set(Cn, An),
-                        Dn = 1,
+                        In = 1,
                         .5 < Tools.rand(0, 1) && (Un.blendMode = PIXI.BLEND_MODES.ADD,
-                        Dn = .5),
+                        In = .5),
                         game.graphics.layers.powerups.addChild(Un),
                         tn[Rn] = {
                             sprite: Un,
                             rotation: Tools.rand(0, 100),
                             rotationSpeed: Tools.rand(-.0025, .0025),
                             opacity: 0,
-                            maxOpacity: Dn,
-                            opacitySpeed: 64 <= In - En ? .02 : .0035,
+                            maxOpacity: In,
+                            opacitySpeed: 64 <= Mn - En ? .02 : .0035,
                             color: Tools.rand(0, 1),
                             colorDir: .5 > Tools.rand(0, 1) ? -1 : 1
                         }
                     }
         for (var Xn in tn)
-            null == Mn[Xn] ? (game.graphics.layers.powerups.removeChild(tn[Xn].sprite),
+            null == Dn[Xn] ? (game.graphics.layers.powerups.removeChild(tn[Xn].sprite),
             tn[Xn].sprite.destroy(),
             delete tn[Xn]) : (tn[Xn].rotation += tn[Xn].rotationSpeed * game.timeFactor,
             tn[Xn].opacity += tn[Xn].opacitySpeed * game.timeFactor,
@@ -32839,7 +32833,7 @@ function() {
       , jt = 0
       , zt = 0
       , Vt = {}
-      , Qt = .06
+      , Zt = .06
       , Jt = .08
       , nn = [0, 0.7, 1, 0.4, 0, 0.7, 0.4, 0.7]
       , rn = [0, 0.7, 1, 0.4, 0, 0.7, 1, 0.7]
@@ -33031,8 +33025,8 @@ function() {
             if (!(null != En && .01 > En)) {
                 var Rn = An.play(Cn ? void 0 : Tn);
                 if ("thruster" === Tn || "missile" === Tn || "chopper" === Tn) {
-                    var Mn = An.seek(null, Rn);
-                    An.seek(Mn + Tools.rand(0, 1), Rn)
+                    var Dn = An.seek(null, Rn);
+                    An.seek(Dn + Tools.rand(0, 1), Rn)
                 }
                 return _n(Rn, Tn, En, Sn, wn, Pn, Cn),
                 Rn
@@ -33114,20 +33108,20 @@ function() {
                     return;
                 var Cn = xn(En.pos);
                 if (0 == Tn)
-                    var An = Cn * dn[En.type] * Qt
+                    var An = Cn * dn[En.type] * Zt
                       , Rn = sn[En.type];
                 else
                     An = Cn * Jt,
                     Rn = ln[En.type];
                 if (.01 > An)
                     return;
-                var Mn = yn(wn, null, En.pos, Rn, [0, An, 200]);
+                var Dn = yn(wn, null, En.pos, Rn, [0, An, 200]);
                 Ht[Pn] = {
                     type: Tn,
                     started: game.time,
                     last: game.time,
                     sound: wn,
-                    soundId: Mn,
+                    soundId: Dn,
                     vol: An
                 },
                 0 == Tn ? Gt++ : Yt++
@@ -33135,7 +33129,7 @@ function() {
                 if (100 > game.time - Ht[Pn].last)
                     return;
                 if (Cn = xn(En.pos),
-                0 == Tn ? (An = Cn * dn[En.type] * Qt,
+                0 == Tn ? (An = Cn * dn[En.type] * Zt,
                 En.boost && (An *= 3)) : An = Cn * Jt,
                 .01 > An)
                     return void Sound.clearThruster(Pn);
@@ -33163,5 +33157,48 @@ function() {
         return Tools.clamp(.8 * Sn / wn, -1, 1)
     }
 }(),
-window.ShowKilled = !0,
-window.ShowEnterLeave = !1;
+$(function() {
+    var Xt = Games.prep
+      , Ht = Games.wipe
+      , Gt = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAC/VBMVEUAAAD////////////////////////+/v4LCwv///8ODg7//////////////////////////////v59fHz///////////////8VFRX5+fn//v7//v7///////8SEhL////////////++vr///8bGxsUFBQbGxsuLi7///////////8gICA0NDRcXFxAQED////////SCQkxMTEmJiZBQUFiYmKwsLDa2trOzs7q6uqlpaX////////9/f3////KCwsuLi47OjpUVFRQUFDhV1eBgYFsbGzupqa8vLzS0tLk5OTw8PDl5eX////////////79fXskpLxCgrbCQnOFxfZGRncFBT0GxsqKiraJyf1NzcgICBGRkbjQEDUPT3VVlZDQ0PYZWWHh4fqjo6hBQVHR0f09PTBCgryvb3R0dH43d31xcX+5uY5OTn////uAwPDERG6Cgq/FxfVDw/aIiJPT0/eTEzJHBw5OTncdHR0dHSCgoLULS3WPT1RUVGvAgJ0dHS+vr7ExMTyycn7h4fTLy/sJCT75+fOVFRra2vmenqgoKCampr55ub88fH///+Tk5PY2NioqKjpenrGxsbzwMDQQUH4+PjvWlr209Pr6+v86urs7OzEDAzlDQ3mICDOS0vXKirha2v2YWEzMzODg4PiRESTk5NcWlqhoaHBAgKmpqbreXnPFRXxsbGDg4OzDg5qamrsb2/ehYXuvLzLHh61tbX67e3oVFTmRkZUVFTgVVX2zMy8Gxv6mJjzt7ewsLBpaWn30ND8sLDyra323991dXXtoaHtQkLdYGD////0r6+Ghob////xp6d8fHz56OhVVVXuVFT0w8PafX30zs7toqLrOzvKysrvtbXrnZ3hd3fa2tr1qqq7u7vorKz2trbbaGjtwcHwwcH71dXdfHz12Njzk5P85eUHBwcJCQncAADfAQHIAADtAADqAADmAADRAADiAADWAQHZAADMAADFAADDAQHAAQHxAADKAADOAQG6AADkAADTAQHFcXUqAAAA6XRSTlMAAgUJDzASwP4e/VozIUgYOl4s3VNAPDb6wGRQQiT7Pg1NHBX49/XockpF8u/m11Um/PLy7eHQx8PBiYFubGf58+/o5uXc3NLKycXDt5CHencx/Pv49/f29PHu7Ovq6eXi4drX08zCsKqmpZeOjCn++fj39vTp6Ojk3dzb2tbU09LNzMnJw8O8vLKwo52amZaVlJCNioeHenFwbWVi+/r16OPg3Nzb2NfW09PSz87Nzc3My8jGxsTDwsLAvr29vLu3trOxsa+sqaalo6KhoJqak5GMiIeDgX54eHh2cG9ubGZlYltPTkJCOwDD0BUAAARNSURBVDjLZZRldBNBFIXTrCfZjbunSZqkCVBKgQrFpS20FHd3d3d3d3d3d3d3d99NGwhV2sJhdgsFDu/fzPnOvfe8N294f1VICASHEiQhhiF+CO+/CuGKD6EEIlGqEBIFFFd/I3w+BEF8Pkyo9Y/HP9CrSRic2JsiDCAWGEVhGLaJFPeH5a++W1xkg7krC/Qb40OwmCBTU20EYp0/PC8r2GK+HiFsqakgHcoas0IgiUz0esF7GUKV61Q+PSv441wchfT4+HCRSIaUCIVCWDOURJRP9y/4oDYs7TqxJYAGTOy61KD+tGjCnRdClREFUnwLIaKeDBz/1mB4M2ng4Or1siKqt218+JVS9e7SrshpQgkJ83mQGHEvHlZ+rt7gude7oFfLeln1q9TPrDvXYKa6ygVh8xQiMcSDSxh0R/OHL7aqVC8n9cnNKZ8XEZHR4NBziTqmhtaHjyjnMcI8sVp4o29wis6DIJRrb6+c9Lz8YN1ttSmkO16yaiXcMVUoEvOMVO0NGX0v6swlSLV0RuucbJC8ygydpLsGZxh7I1OxJUqShwivNsjo10knIUKNVMq+5dnpeRE7Yq3dffKSDNOsdEnHHLeMpyq3x5/Zr1O8xGYRq3VdWgCo8Zlyt33RmFzAVNJWxScrRDxPSvM0f/2TLqUNQmXC6azfgC435VptmTYavGJiDUExoYRnTV6Z5q/bNtZqhNEeiluDc7PTq3TrHF22akUBY6qGlQ1vKjXzFLVWfE3zV+kCQhEioJSbk31ZGjtKQ9MMw1TGaoY5pEpe8Vpfvqf5G1RPFqrUbtf5VQW5HWXW2q1oDiqlrTlIIDUA6PMXINX8WHK8Lm7m2D4FHW2I+3+oDqD8mc3HXp955WDLgo4IohTGVjP9Y6dPbviZNcxovKZ62xa9j+v0emlK5+gxci/+JzgV26Qna5iZEVGvfG67TbMXLpy9O1KOdWBbUCpxNNcCpWttzwBnGMxPb0ebvKc6e020JiqJbWZ/7VDmNGimWneiTiDwmTUMtmNAkhoJApBa4BtaOBYNO5Yeim5NvgUCrOFIwND2MtGNaFA4N+AKhQMmzHHj6nxjDUcyrJA3CWuG01xVkFdiNNxTQWWsFKC2V2QAJeiPYVECDokq3cHHFD46CyGJP9vwW2ACNrqyhmFwr3x9RaBkKlUaw4qeLx8tQbnGNdwSVQZLqlrKXmjk8A5JxBKH4OG/FiEECpXpU6aEMa0OaLHoNpHACrfLy2BYjcp002tCM7dSYKfEiLV4zDrGOapsknazTyOotFHboezOcDpsltDMLSe7nRabUaJ/dsTBOKO2JiRE2scklK4WTpvaP1KoAAOEOApCSREljGnvxBlnBQHeKJxmHMVmSd1qYyHzmyJkKuuymAvtw5xOuzOy2OSYZXozQqBFDKCAZSiJqCiFND7O5YqLlxZ3mxGjGP798RSJwWJSJpIoPRTlMahEMvKvT/En4U+imSkuVtwAAAAASUVORK5CYII=')"
+      , jt = [Gt, "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAACi1BMVEUAAAD///8LCwv///////8ODg4QEBD////7+/sWFhb///////////8NDQ3///82Njb///////////////////////8ZGRn///////////////////////////8UFBQUFBQmJiZhYWH///////////////////////8cHBwaGhouLi4xMTFHR0dpaWl7e3v///8fHx8fHx8uLi5ubm5+fn7BwcHS0tLv7+/4+Pj///////////////////////////8gICAgICBXV1dkZGSAgICCgoLb29vo6Ojx8fGmpqb///////////////////8YGBgoKCgzMzM/Pz8zMzMqKipLS0tTU1NRUVFbW1tDQ0N5eXkxMTGEhISKioq9vb3Y2NhOTk7l5eXl5eX09PT9/f3///////////////////////8SEhIVFRUrKysiIiI7OztDQ0MkJCRPT091dXVjY2NqamqpqalHR0e0tLS6urrMzMxISEjh4eG+vr7z8/P19fXOzs52dnadnZ2vr6////8aGhpdXV05OTkwMDAqKipOTk5cXFxFRUWSkpI6OjpVVVWfn5+lpaVwcHA/Pz+tra2qqqqvr6+BgYFZWVloaGhnZ2fs7OzOzs7S0tJVVVXt7e3a2tqwsLDR0dHPz89+fn7R0dGKioq6urqWlpba2tqurq6oqKj+/v7AwMD////k5OTe3t74+Pjc3Nz////4+Pj////r6+v19fXq6urw8PD///////8jIyM7Ozs7OztxcXF0dHRbW1tPT094eHjFxcWxsbG1tbW8vLzIyMhoaGhra2tra2ufn5+hoaGYmJicnJzMzMzS0tKSkpLDw8PIyMjKysrPz88HBwcKCgrXv00AAAAA13RSTlMAv/4DAf39IcD6Qgk9/grwPzstJBYS9F5aU0hGHQ/7+PXkV086MRgH+Pjz8uvi3Tf49Ojg3MzIw8BnXDQyLyoU8u3n49zbxsPCilVSUEoN+fTv7evr6ujo5ePd3dvZzcfGxbd+eXNiXyYOAvr19PDv7e3p393Z0dDPzsrKxcXCwL6skoNM8eXk5OPg3tvX1tXU09PT0dHQzs7Nx8PDwL+8uLitp6ajoJWUkpGQhYOBgX12b25ubW1lY18jH/Xh4Nva1tXQy8XEwsC2tbKkop6cmZeVi4l4dpOI3Z0AAAP8SURBVDjLdVRnVxNREN23cVt6JwkhhSRAAoTQkSBGIDE0QVREBRQ79t4Vxd5777333nvvdefnuG+DkuM5vi/75Z6Zu3MLEXs9JLIkPVNaopEmWiyJUk2wlElJkkl6EHFvQmo/PdNLYzEn9Lw5Zsz1nuPMFrnnnr5fKoZ1j7GWalbcXb5sYY7RXmccOHfZ8jsuudZqwMO6MEoDU5JoqhyxEvi6egXpCABpnNtZbMm611vZhZIoe+uyXNcOTeLt67cuWODw5hfMmZ0N9hG/qjXj9THUBJlB5zZXDoNJ294UsjvLbXTTFjZ6cHc2rDmTLB/fWyYRlqUmMe6qzrX8kJcdaH+Lg+Z5OtC8CLGv18H0Uya5zpDag5D0s2ZVncsB53BU2Nzg5cXnbfC3oUWPyemfTW6mXULI9FrXlUeQyaL8Ro7nwZc7U6UAsGXMQ8hPrflhLkmREe2Muuc+yCjMz1XhGeQMFjlpHgDSM+cXrYLNNxJ1SYS+V/XpbMhoxhD8VEvQIIUwEcMqyoD7mFySQtzX3N6j8KWBsIHCoLThfX0ggCgbCZA2md5wS80QpYkXQ4GdgwEcQ5003je/AH+oMn86QMaO9LrztVrC4zoBziKngsxEbGYdT/c/eqy/jeea9gu0oZENw7vqIJFVNQLmRAeR1NDIEtTyYPOXUaPP7nX42aJIC0dObWtVbEp2E3LTMNtiVMGBQjU0v+/xUWOra8aNPnl4QXgqDXQuOhDqU6wm1MV9pixF5RSAQGTWhbFSTy918aVtnPiDg9HIAfYEKSFNMA48gspIDOIHXK7xWK3aFVeH8CJoGjtyNfUfUO2/oPh15PrYOtOl2RP/rMsR1mHidpE4mT6zFROvcWHiL/wqUiQ+RSCOT0DOWYJPMDyKNjqefsUnqM9jOyLNHNnQ1krhE3hqTkA5Kx4T5XrFYw4QjuksRHkUzCgKw1tzEMuSHdhVBlCflzkR0+2SpSmMZZmXbseyMKLAAQDgaIgJPBkLreCwwD5RYMEqZmyVChUAYPVVUTaD5MXn8zcC9wFbpZ2RCqYbhE2HUdQMhJyiZyaXzxNM9wybLmbfh9i+rYM5ALJ/XniqMImetgsJ1HO+C/ZVikFIFoIwK4IKKxrSYos41cxFqO0JGfpk0jBJEiFSBsad3JkDQ14Vob4tDkrg7M2LILR4Hd8nFqkJceE0Pl8aZbc02ejGjWzHwd0hfu03HE6lBFcBjrkbxxyMs7YWFOCY75gd4icu/Nkd81hhBC2myoUrSQj4aLI+mwf79jMJtVk6XBh/q8dg1cpx9cwdaEzzGqdvf195x6XW3jco4wtKLDF5d4lV1co9upT2WInF91gKUxrsqkN5UBtfh78BLbSeZWMjzYgAAAAASUVORK5CYII=')", "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAADAFBMVEUAAAD////////////////////////////////////++/v////////////////////////////////////////////////////////////////////vAwP////////////////////////////////////////////////////zBATICgr////////////////////dBATFBATqAwPRCgrqDAzXDw/oHR36iIj64OD////95OT//////////////////f3////////jBQXXBgbBBQXNEhLFERHdFBT0GBjbGBjUFBTaJCT1JCTTPT32QEDhQEDqSkrbSUnYUlL0bW3wp6f4s7Pvubn//////Pz////yo6P////////////TAgLSBwfnBgbzCQntCQm6CAjxDQ3cCAjvGBjQHBzAHBy7EBDgKCjwODjuJSXtOjriVFTbWFjSV1f0T0/abm7zYmLjdnbfPT3mjo7nbW30sLDyycn66en75+f40NDpWVn8sLD31tb3xcX////4yMj////0oqL5x8f55eX88fH0wMD55ub+6+vwdHTzwMDfQkL////+8vLuq6v98vL209PvsbH88PDvwcHoh4f539/ohYXvoKDMGxvVKSnRLCzqJCT1MzPyNDTFJSXOQkLrFRXgTEzOS0voDg7oQEDlW1vXKirMEhLXYmLYZGTha2vqGxvTMzPUQkLsh4fuLy/UJyfulpbqoaHrqqrXODj6enrreXn2oKDwu7vehYXehYXVMzPuvLzLHh7oVFTmRkb519fQLCzpICDPWVn6mJjzt7f3goLNT0/4o6P0cnLkdHT32tr5wcH239/toaHtQkLtwcH0r6/jfn7uVFT80dH0w8PafX33np7NODj++/v0zs7hd3fvXl784ODuVlb99fX85ubbaGj71dXIAADLAADCAADpAAC6AADfAADQAADkAADaAADXAAC/AADFAADmAAC3AAC1AADcAADrAAC8AADwAADtAADhAADNAADUAADuAADSAADyAABVO9ozAAAA5nRSTlMAAhAIBB4xBjoSGgxkSTdDNVJPHGE8LywlCnJM/lhVRz4rIRaIXUAoIxT++pCNg3wi/v7++/r59sihlI9ubGpbUUYY/v39+fn49/f39PPt6+vp6ebX0a+ql3t3dWdZJv79/fz8/Pr69/b29u/u7uvm5ePi39/d3dfRzMnEvLu6sa6ppKGfnZybmZmWjYyHhICAfHdwaWJeSD4yMPby8fHv7uzr6ejo6Ofk4+Pi4eDf3dzZ2dbU09DQz8/OzcnIx8bGwsLBv769vLu7u7e3trW1r6mmpaKOjIqIh4aEg4N2dXNuaGdlT3CF9PkAAARHSURBVDjLZZRldNpQGIZDQkIIJLhDcVtXmUu9c3d3d3d3d3d3d3d3d/cChQLtWlrWdtsNbO3O2ffv3vOc93mTe+6F/hkGA4GNIgNqhBEmA/pvGKFhImxUilskUgMbUKH5F2GyEARhsWCUL1x0flEyZYDBCuwwizCAcGA2G+bAIkzw7kD+rpcRfBEc3iryMhGYQGNXryJQqWreQYejw/B5QgwlVq2ORQm2IkwxQBM99vXNCj2mTWwRmebwdGieQGLWFfM/YTKDXcGkGRZswCzvL85fSfGWzRo7EEBbx07/wuOv/HDtOY9vsyMMIOOgGNlm99XlPN7y25uGHa/uKNvsUJ/LSy2Sb4+3z1VRsTCLASGpUnLJkchnQh7vVe/0Gk16OuoMqO3tPpenI9vs3/I6mS/iMCC4PY87Pv/EEpVEsvR6L3/pSEfZjr6al9rgVMqy8a7DH1UyOwsiqKRpdTz3PqdgUq3yXA1nmiPfU/XUYlIq05mnlStzl6tDFZCcXDy8oPwjrq59LGWeuceZCZoPmMnFDbG4eVa/QL8XAj0MYUlPa/vqtuDiqF1OxlyIBFDHUQuEVjvBN0/vH+hyi0ulQpKEkaV8dSe1xQlOKsWdWB9AaycmgpWRL57UN6gerOShUEqrHaW8tW8qLSIFLNPM3gt8jSuZpWwFgSc8WB9U14tW2SBhdAV3Tvejb1VyGNYLZg8B0MAZ7aRs2EbGnC4XzOscJbBCgqhyP9zenZVAKRGWNGOI35nZpJKYj6KUuNJQVzCvREmNHooo2SnDnVOzmSlJQpHKh9tynZn177dWURJN9KgKNFRZIwNQmawMt7fhOFOiOL7y6N7pfmfkmZZKcdvocY2yQlA7GuriyvqR4204emrLyWMGZafn+p2Nx0xuOfVKoyoZrgCAgC7Z1CPgAsKqdfcdG7G5a/Z3QJWuP6LZsD6l3AAqLFEywgqRCzaqXbSwoGz1GtXSvwPK7yxdvU55n9edkRUorGUSyiGLcqg6SAt9P/PTnH6ayvXTZxOG1A1itAaIz73RrZAWen0eR5ozNz07G0QBqMCb8yPLpW4aLyEgqyBuQ15hICT0ODKdubQQRHl++mioR3MzZodQXXzFznmFf4WZQBiKyqehjDKDF5JyDsSWRcxp8CsvSH8hENK1QCvnn1IVmnMpAoEUIrzthHq/wrUKAEULgY8u5a7StBUph5kQC26vVVas9W+tcBTwlWoUp8GMCANcO6NMGHOyFhAW1wpHVW04RYyjHCZ9gRUEJmhVsZ4a1ApTQEhHlW08hWuxgRsVego4IkyonNCgW5mivwWiqq0ZGSfWydk0E6YIWQp3TsW+5TpVoWulla7WtdegFq01uI2NFD8rCqMcFyTE3Wnav0LN8uV7rmty9slCsRZDQ64iCoFFeolQHB9jioqKMkW3Tmyn5cuNnD9McRhbZOXrtEJBhCBZxcOlttTiR/E3AYEOqmgNZcgAAAAASUVORK5CYII=')"];
+    window.ShowKilled = !0,
+    window.ShowEnterLeave = !1,
+    -1 == game.chosenGraphicsSet;
+    var zt = $("<div class=\"\" style=\"position: relative; width: 44px; height: 44px; cursor: pointer; background-color: rgba(0, 0, 0, 0.3); background-repeat: no-repeat; background-position: center; display: none;\" id=\"graphicsSet\" cgs=\"-1\" title=\"Switch style between Imperial / Rebel / Random\"></div > ").css("background-image", Gt).click(function() {
+        if (2 != game.gameType) {
+            var qt = parseInt($(zt).attr("cgs"));
+            qt++,
+            2 == qt && (qt = -1),
+            $(zt).attr("cgs", qt),
+            game.chosenGraphicsSet = qt,
+            $(zt).css("background-image", jt[qt + 1]);
+            var Kt = Players.getMe();
+            null != Kt && (Kt.destroy(!1),
+            Kt.setupGraphics(!0),
+            Kt.visibilityUpdate(!0)),
+            UI.aircraftSelected(game.myType)
+        }
+    });
+    $("#sidebar").prepend(zt),
+    Games.prep = function() {
+        Xt.apply(Games),
+        (1 == game.gameType || 3 == game.gameType) && $("#graphicsSet").show(),
+        $("body").append("<div id='WhoKilledWho' style='position: absolute; top: 40px; left: 60px; width: 400px; height: 80px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white;'></div>"),
+        window.PlayerInfoTimer = setInterval(function() {
+            var Vt = Players.getIDs()
+              , qt = Players.getMe();
+            for (var Kt in Vt) {
+                var Qt = Players.get(Kt);
+                "undefined" != typeof Qt.scorePlace && (Qt.sprites.name.text = Qt.scorePlace + ". " + Qt.name)
+            }
+        }, 500)
+    }
+    ,
+    Games.wipe = function() {
+        Ht.apply(Games),
+        clearInterval(window.PlayerInfoTimer),
+        $("#graphicsSet").hide(),
+        $("body").remove("#WhoKilledWho")
+    }
+});
