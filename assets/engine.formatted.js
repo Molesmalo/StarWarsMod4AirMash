@@ -30891,6 +30891,7 @@ function() {
             kn.scorePlace = Kn + 1,
             kn.lowResPos.x = jn.x,
             kn.lowResPos.y = jn.y,
+            kn.removedFromMap = 0 == In[Kn].x && 0 == In[Kn].y,
             In[Kn].id == game.myID ? Wn = Kn + 1 : 0 == In[Kn].x && 0 == In[Kn].y || (Gn[kn.id] = !0,
             null == Bt[In[Kn].id] ? (qn = "minimapMob",
             2 == game.gameType && 1 == kn.team && (qn = "minimapBlue"),
@@ -30927,7 +30928,7 @@ function() {
             2 == game.gameType && (zn = " team-" + kn.team),
             Vn = "",
             4 == (Nn + "").length && (Vn = " bigger"),
-            Hn += "<div class=\"line" + Fn + "\" player-id=\"" + kn.id + "\"><span class=\"place" + Vn + "\">" + Nn + "</span><span class=\"flag small flag-" + kn.flag + "\"></span><span class=\"nick" + zn + "\">" + UI.escapeHTML(kn.name) + "</span>" + (0 == Un ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + Un + "</span></span>") + "<span class=\"score\">" + Tn(Bn) + "</span></div>",
+            Hn += "<div class=\"line" + Fn + "\" player-id=\"" + kn.id + "\"><span class=\"place" + Vn + "\">" + Nn + "</span><span class=\"flag small flag-" + kn.flag + "\"></span><span class=\"nick" + zn + "\">" + (kn.removedFromMap ? UI.escapeHTML(kn.name).strike().fontcolor("#888888") : UI.escapeHTML(kn.name)) + "</span>" + (0 == Un ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + Un + "</span></span>") + "<span class=\"score\">" + Tn(Bn) + "</span></div>",
             !Yn)); Kn++)
                 ;
             $("#scoreboard").html(Hn),
@@ -31456,7 +31457,7 @@ function() {
                 Xn = Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " team-" + Fn.team : Mn.c != Network.SERVERPACKET.SCORE_DETAILED_BTR || In[Wn].alive ? "" : " inactive",
                 Hn += "<div class=\"item" + Un + "\" player-id=\"" + Fn.id + "\"><div class=\"name\"><div class=\"position\">",
                 Hn += Bn + "</div><div class=\"flag small flag-" + Fn.flag + "\"></div>",
-                Hn += "<div class=\"player" + Xn + "\">" + UI.escapeHTML(Fn.name) + "</div></div>",
+                Hn += "<div class=\"player" + Xn + "\">" + (Fn.removedFromMap ? UI.escapeHTML(Fn.name).strike().fontcolor("#888888") : UI.escapeHTML(Fn.name)) + "</div></div>",
                 Mn.c == Network.SERVERPACKET.SCORE_DETAILED_BTR && (0 == In[Wn].wins ? Hn += "<div class=\"wins\">&nbsp;</div>" : Hn += "<div class=\"wins\">" + In[Wn].wins + "<div class=\"wins-container\">&nbsp;<div class=\"wins-icon\"></div></div></div>"),
                 Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (0 == In[Wn].captures ? Hn += "<div class=\"captures\">&nbsp;</div>" : Hn += "<div class=\"captures\">" + In[Wn].captures + "<div class=\"captures-container\">&nbsp;<div class=\"captures-icon\"></div></div></div>"),
                 Hn += "<div class=\"kills\">" + In[Wn].kills + "</div>",
@@ -33165,7 +33166,7 @@ $(function() {
     window.ShowKilled = !0,
     window.ShowEnterLeave = !1,
     -1 == game.chosenGraphicsSet;
-    var zt = $("<div class=\"\" style=\"position: relative; width: 44px; height: 44px; cursor: pointer; background-color: rgba(0, 0, 0, 0.3); background-repeat: no-repeat; background-position: center; display: none;\" id=\"graphicsSet\" cgs=\"-1\" title=\"Switch style between Imperial / Rebel / Random\"></div > ").css("background-image", Gt).click(function() {
+    var zt = $("<div class=\"\" style=\"position: relative; width: 44px; height: 44px; cursor: pointer; background-color: rgba(0, 0, 0, 0.3); background-repeat: no-repeat; background-position: center; display: none;\" id=\"graphicsSet\" cgs= \"-1\" title= \"Switch style between Imperial / Rebel / Random\" ></div > ").css("background-image", Gt).click(function() {
         if (2 != game.gameType) {
             var qt = parseInt($(zt).attr("cgs"));
             qt++,
