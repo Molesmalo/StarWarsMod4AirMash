@@ -30247,10 +30247,12 @@ class Mob {
     ,
     Mobs.network = function(Gt) {
         var Yt = Bt[Gt.id];
-        null == Yt ? Mobs.add(Gt, !0) : Yt.network(Gt);
-        var Wt = new PIXI.filters.ColorMatrixFilter;
-        0 == game.myGraphicsSet && -1 < $.inArray(this.type, [1, 2, 3, 5, 6, 7]) && Wt.hue(-110),
-        Bt[Gt.id].sprites.sprite.filters = [Wt]
+        if (null == Yt ? Mobs.add(Gt, !0) : Yt.network(Gt),
+        0 == game.myGraphicsSet && -1 < $.inArray(Gt.type, [1, 2, 3, 5, 6, 7])) {
+            var Wt = new PIXI.filters.ColorMatrixFilter;
+            Wt.hue(-110),
+            Bt[Gt.id].sprites.sprite.filters = [Wt]
+        }
     }
     ,
     Mobs.despawn = function(Gt) {
