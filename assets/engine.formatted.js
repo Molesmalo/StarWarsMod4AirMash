@@ -27764,7 +27764,7 @@ function() {
                 yn.c === gn.PLAYER_FIRE) {
                     for (var _n = 0; _n < yn.projectiles.length; _n++)
                         yn.projectiles[_n].c = gn.PLAYER_FIRE,
-                        Mobs.add(yn.projectiles[_n]);
+                        Mobs.addSW(yn.projectiles[_n], yn.id);
                     0 < yn.projectiles.length && Sound.missileLaunch(new Vector(yn.projectiles[0].posX,yn.projectiles[0].posY), yn.projectiles[0].type)
                 }
                 break;
@@ -29060,6 +29060,15 @@ class Player {
         this.graphicsSet = Bt,
         this.id == game.myID && (game.myGraphicsSet = Bt)
     }
+    setupThrusterColor() {
+        var Bt = new PIXI.filters.ColorMatrixFilter
+          , Xt = new PIXI.filters.ColorMatrixFilter;
+        0 == this.graphicsSet ? Bt.hue(-20) : (Xt.saturate(1, !0),
+        Bt.hue(165)),
+        this.sprites.thruster && (this.sprites.thruster.filters = [Xt, Bt]),
+        this.sprites.thruster1 && (this.sprites.thruster1.filters = [Xt, Bt]),
+        this.sprites.thruster2 && (this.sprites.thruster2.filters = [Xt, Bt])
+    }
     setupGraphics(Bt) {
         this.setGraphicsSet();
         var Xt = 0 == this.graphicsSet ? "" : "_2"
@@ -29141,7 +29150,8 @@ class Player {
             this.sprites.thruster1Shadow = Textures.init("thrusterShadow"),
             this.sprites.thruster2Shadow = Textures.init("thrusterShadow");
         }
-        if (this.reel || Bt || (this.setupNameplate(),
+        if (this.setupThrusterColor(),
+        this.reel || Bt || (this.setupNameplate(),
         this.setupChatBubbles(),
         null != this.level && this.setupLevelPlate()),
         config.debug.collisions) {
@@ -29731,7 +29741,8 @@ class Player {
             case 1:
                 Graphics.transform(this.sprites.thruster, this.pos.x + Math.sin(-Gt) * (20 * Xt), this.pos.y + Math.cos(-Gt) * (20 * Xt), Gt + (0 < this.state.thrustLevel ? this.state.thrustDir : 0), .3 * zt * Vt * this.scale, .5 * zt * Vt * this.scale, qt),
                 Graphics.transform(this.sprites.thrusterShadow, Yt.x + Math.sin(-Gt) * (20 * Xt) / config.shadowScaling, Yt.y + Math.cos(-Gt) * (20 * Xt) / config.shadowScaling, Gt + (0 < this.state.thrustLevel ? this.state.thrustDir : 0), .4 * zt * Vt * this.scale * (4 / config.shadowScaling), .5 * zt * Vt * this.scale * (4 / config.shadowScaling), qt / 2.5),
-                Graphics.transform(this.sprites.thrusterGlow, this.pos.x + Math.sin(-Gt - .5 * this.state.thrustDir) * (40 * Xt), this.pos.y + Math.cos(-Gt - .5 * this.state.thrustDir) * (40 * Xt), null, 1.5 * Ht * this.scale, 1 * Ht * this.scale, .3 * this.state.thrustLevel);
+                Graphics.transform(this.sprites.thrusterGlow, this.pos.x + Math.sin(-Gt - .5 * this.state.thrustDir) * (40 * Xt), this.pos.y + Math.cos(-Gt - .5 * this.state.thrustDir) * (40 * Xt), null, 1.5 * Ht * this.scale, 1 * Ht * this.scale, .3 * this.state.thrustLevel),
+                this.sprites.thruster.scale.x = this.sprites.thruster.scale.y = 0.25;
                 break;
             case 2:
                 0 > this.state.thrustLevel && (zt *= .7),
@@ -29750,7 +29761,9 @@ class Player {
                 Graphics.transform(this.sprites.thruster1Shadow, Yt.x + Math.sin(-Gt - .15) * (28 * Xt) / config.shadowScaling, Yt.y + Math.cos(-Gt - .15) * (28 * Xt) / config.shadowScaling, Gt + .5 * (0 < this.state.thrustLevel ? this.state.thrustDir : 0), .3 * zt * Vt * this.scale * (4 / config.shadowScaling), .5 * zt * Vt * this.scale * (4 / config.shadowScaling), qt / 2.5),
                 Graphics.transform(this.sprites.thruster2Shadow, Yt.x + Math.sin(.15 - Gt) * (28 * Xt) / config.shadowScaling, Yt.y + Math.cos(.15 - Gt) * (28 * Xt) / config.shadowScaling, Gt + .5 * (0 < this.state.thrustLevel ? this.state.thrustDir : 0), .3 * zt * Vt * this.scale * (4 / config.shadowScaling), .5 * zt * Vt * this.scale * (4 / config.shadowScaling), qt / 2.5),
                 Graphics.transform(this.sprites.thruster1Glow, this.pos.x + Math.sin(-Gt - .2) * (45 * Xt), this.pos.y + Math.cos(-Gt - .2) * (45 * Xt), null, 2.5 * this.scale, 1.5 * this.scale, .25 * this.state.thrustLevel),
-                Graphics.transform(this.sprites.thruster2Glow, this.pos.x + Math.sin(.2 - Gt) * (45 * Xt), this.pos.y + Math.cos(.2 - Gt) * (45 * Xt), null, 2.5 * this.scale, 1.5 * this.scale, .25 * this.state.thrustLevel);
+                Graphics.transform(this.sprites.thruster2Glow, this.pos.x + Math.sin(.2 - Gt) * (45 * Xt), this.pos.y + Math.cos(.2 - Gt) * (45 * Xt), null, 2.5 * this.scale, 1.5 * this.scale, .25 * this.state.thrustLevel),
+                this.sprites.thruster1.scale.x = this.sprites.thruster1.scale.y = 0.35,
+                this.sprites.thruster2.scale.x = this.sprites.thruster2.scale.y = 0.35;
                 break;
             case 5:
                 0 > this.state.thrustLevel && (zt *= .7),
@@ -30139,7 +30152,8 @@ class Mob {
                     8192 < this.pos.y && (this.pos.y -= 16384),
                     this.clientCalcs(Wt)
                 }
-            this.missile && !this.state.inactive && Sound.updateThruster(1, this, this.visibility)
+            this.missile && !this.state.inactive && Sound.updateThruster(1, this, this.visibility),
+            this.state.inactive && 0 < this.sprites.sprite.alpha && (this.sprites.sprite.alpha -= 0.2)
         }
     }
     clientCalcs(Bt) {
@@ -30156,19 +30170,15 @@ class Mob {
                 var Xt = 1;
                 if (this.state.inactive) {
                     if (this.state.despawnTicker += .01 * Bt,
-                    .75 < this.state.despawnTicker) {
-                        var Ht = 1 - 4 * (this.state.despawnTicker - .75);
-                        this.sprites.sprite.alpha = Ht,
-                        this.sprites.shadow.alpha = Ht
-                    }
-                    if (1 < this.state.despawnTicker)
+                    .75 < this.state.despawnTicker,
+                    1 < this.state.despawnTicker)
                         return void (this.forDeletion = !0);
                     Xt = Tools.clamp(1 - this.state.despawnTicker, .3, 1)
                 }
                 if (!this.culled && .3 < Xt) {
-                    var Gt = this.speed.angle() + Math.PI;
-                    Gt - this.spriteRot >= Math.PI ? this.spriteRot += 2 * Math.PI : this.spriteRot - Gt > Math.PI && (this.spriteRot -= 2 * Math.PI),
-                    this.spriteRot = Tools.converge(this.spriteRot, Gt, .1 * Bt),
+                    var Ht = this.speed.angle() + Math.PI;
+                    Ht - this.spriteRot >= Math.PI ? this.spriteRot += 2 * Math.PI : this.spriteRot - Ht > Math.PI && (this.spriteRot -= 2 * Math.PI),
+                    this.spriteRot = Tools.converge(this.spriteRot, Ht, .1 * Bt),
                     Particles.missileSmoke(this, this.exhaust, Xt)
                 }
                 break;
@@ -30218,6 +30228,16 @@ class Mob {
         Yt && Bt[Gt.id].network(Gt)
     }
     ,
+    Mobs.addSW = function(Gt, Yt) {
+        var Wt = new Mob(Gt);
+        Bt[Gt.id] = Wt,
+        Wt.playerId = Yt;
+        var jt = Players.get(Yt)
+          , zt = new PIXI.filters.ColorMatrixFilter;
+        0 == jt.graphicsSet || zt.hue(-110),
+        Wt.sprites.sprite.filters = [zt]
+    }
+    ,
     Mobs.update = function() {
         var Gt, Yt;
         for (Gt in Bt)
@@ -30227,7 +30247,10 @@ class Mob {
     ,
     Mobs.network = function(Gt) {
         var Yt = Bt[Gt.id];
-        null == Yt ? Mobs.add(Gt, !0) : Yt.network(Gt)
+        null == Yt ? Mobs.add(Gt, !0) : Yt.network(Gt);
+        var Wt = new PIXI.filters.ColorMatrixFilter;
+        0 == game.myGraphicsSet && -1 < $.inArray(this.type, [1, 2, 3, 5, 6, 7]) && Wt.hue(-110),
+        Bt[Gt.id].sprites.sprite.filters = [Wt]
     }
     ,
     Mobs.despawn = function(Gt) {
@@ -31174,7 +31197,6 @@ function() {
     }
     ,
     UI.aircraftSelected = function(Mn) {
-        console.log("UI.aircraftSelected    gs:" + game.myGraphicsSet);
         for (var In = 0 == game.myGraphicsSet ? "teamImperial" : "teamRebel", On = 1; 5 >= On; On++)
             $("#selectaircraft-" + On).removeClass("teamImperial").removeClass("teamRebel").addClass(In);
         Mn = parseInt(Mn);
@@ -33165,7 +33187,7 @@ $(function() {
       , jt = [Gt, "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAACi1BMVEUAAAD///8LCwv///////8ODg4QEBD////7+/sWFhb///////////8NDQ3///82Njb///////////////////////8ZGRn///////////////////////////8UFBQUFBQmJiZhYWH///////////////////////8cHBwaGhouLi4xMTFHR0dpaWl7e3v///8fHx8fHx8uLi5ubm5+fn7BwcHS0tLv7+/4+Pj///////////////////////////8gICAgICBXV1dkZGSAgICCgoLb29vo6Ojx8fGmpqb///////////////////8YGBgoKCgzMzM/Pz8zMzMqKipLS0tTU1NRUVFbW1tDQ0N5eXkxMTGEhISKioq9vb3Y2NhOTk7l5eXl5eX09PT9/f3///////////////////////8SEhIVFRUrKysiIiI7OztDQ0MkJCRPT091dXVjY2NqamqpqalHR0e0tLS6urrMzMxISEjh4eG+vr7z8/P19fXOzs52dnadnZ2vr6////8aGhpdXV05OTkwMDAqKipOTk5cXFxFRUWSkpI6OjpVVVWfn5+lpaVwcHA/Pz+tra2qqqqvr6+BgYFZWVloaGhnZ2fs7OzOzs7S0tJVVVXt7e3a2tqwsLDR0dHPz89+fn7R0dGKioq6urqWlpba2tqurq6oqKj+/v7AwMD////k5OTe3t74+Pjc3Nz////4+Pj////r6+v19fXq6urw8PD///////8jIyM7Ozs7OztxcXF0dHRbW1tPT094eHjFxcWxsbG1tbW8vLzIyMhoaGhra2tra2ufn5+hoaGYmJicnJzMzMzS0tKSkpLDw8PIyMjKysrPz88HBwcKCgrXv00AAAAA13RSTlMAv/4DAf39IcD6Qgk9/grwPzstJBYS9F5aU0hGHQ/7+PXkV086MRgH+Pjz8uvi3Tf49Ojg3MzIw8BnXDQyLyoU8u3n49zbxsPCilVSUEoN+fTv7evr6ujo5ePd3dvZzcfGxbd+eXNiXyYOAvr19PDv7e3p393Z0dDPzsrKxcXCwL6skoNM8eXk5OPg3tvX1tXU09PT0dHQzs7Nx8PDwL+8uLitp6ajoJWUkpGQhYOBgX12b25ubW1lY18jH/Xh4Nva1tXQy8XEwsC2tbKkop6cmZeVi4l4dpOI3Z0AAAP8SURBVDjLdVRnVxNREN23cVt6JwkhhSRAAoTQkSBGIDE0QVREBRQ79t4Vxd5777333nvvdefnuG+DkuM5vi/75Z6Zu3MLEXs9JLIkPVNaopEmWiyJUk2wlElJkkl6EHFvQmo/PdNLYzEn9Lw5Zsz1nuPMFrnnnr5fKoZ1j7GWalbcXb5sYY7RXmccOHfZ8jsuudZqwMO6MEoDU5JoqhyxEvi6egXpCABpnNtZbMm611vZhZIoe+uyXNcOTeLt67cuWODw5hfMmZ0N9hG/qjXj9THUBJlB5zZXDoNJ294UsjvLbXTTFjZ6cHc2rDmTLB/fWyYRlqUmMe6qzrX8kJcdaH+Lg+Z5OtC8CLGv18H0Uya5zpDag5D0s2ZVncsB53BU2Nzg5cXnbfC3oUWPyemfTW6mXULI9FrXlUeQyaL8Ro7nwZc7U6UAsGXMQ8hPrflhLkmREe2Muuc+yCjMz1XhGeQMFjlpHgDSM+cXrYLNNxJ1SYS+V/XpbMhoxhD8VEvQIIUwEcMqyoD7mFySQtzX3N6j8KWBsIHCoLThfX0ggCgbCZA2md5wS80QpYkXQ4GdgwEcQ5003je/AH+oMn86QMaO9LrztVrC4zoBziKngsxEbGYdT/c/eqy/jeea9gu0oZENw7vqIJFVNQLmRAeR1NDIEtTyYPOXUaPP7nX42aJIC0dObWtVbEp2E3LTMNtiVMGBQjU0v+/xUWOra8aNPnl4QXgqDXQuOhDqU6wm1MV9pixF5RSAQGTWhbFSTy918aVtnPiDg9HIAfYEKSFNMA48gspIDOIHXK7xWK3aFVeH8CJoGjtyNfUfUO2/oPh15PrYOtOl2RP/rMsR1mHidpE4mT6zFROvcWHiL/wqUiQ+RSCOT0DOWYJPMDyKNjqefsUnqM9jOyLNHNnQ1krhE3hqTkA5Kx4T5XrFYw4QjuksRHkUzCgKw1tzEMuSHdhVBlCflzkR0+2SpSmMZZmXbseyMKLAAQDgaIgJPBkLreCwwD5RYMEqZmyVChUAYPVVUTaD5MXn8zcC9wFbpZ2RCqYbhE2HUdQMhJyiZyaXzxNM9wybLmbfh9i+rYM5ALJ/XniqMImetgsJ1HO+C/ZVikFIFoIwK4IKKxrSYos41cxFqO0JGfpk0jBJEiFSBsad3JkDQ14Vob4tDkrg7M2LILR4Hd8nFqkJceE0Pl8aZbc02ejGjWzHwd0hfu03HE6lBFcBjrkbxxyMs7YWFOCY75gd4icu/Nkd81hhBC2myoUrSQj4aLI+mwf79jMJtVk6XBh/q8dg1cpx9cwdaEzzGqdvf195x6XW3jco4wtKLDF5d4lV1co9upT2WInF91gKUxrsqkN5UBtfh78BLbSeZWMjzYgAAAAASUVORK5CYII=')", "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAADAFBMVEUAAAD////////////////////////////////////++/v////////////////////////////////////////////////////////////////////vAwP////////////////////////////////////////////////////zBATICgr////////////////////dBATFBATqAwPRCgrqDAzXDw/oHR36iIj64OD////95OT//////////////////f3////////jBQXXBgbBBQXNEhLFERHdFBT0GBjbGBjUFBTaJCT1JCTTPT32QEDhQEDqSkrbSUnYUlL0bW3wp6f4s7Pvubn//////Pz////yo6P////////////TAgLSBwfnBgbzCQntCQm6CAjxDQ3cCAjvGBjQHBzAHBy7EBDgKCjwODjuJSXtOjriVFTbWFjSV1f0T0/abm7zYmLjdnbfPT3mjo7nbW30sLDyycn66en75+f40NDpWVn8sLD31tb3xcX////4yMj////0oqL5x8f55eX88fH0wMD55ub+6+vwdHTzwMDfQkL////+8vLuq6v98vL209PvsbH88PDvwcHoh4f539/ohYXvoKDMGxvVKSnRLCzqJCT1MzPyNDTFJSXOQkLrFRXgTEzOS0voDg7oQEDlW1vXKirMEhLXYmLYZGTha2vqGxvTMzPUQkLsh4fuLy/UJyfulpbqoaHrqqrXODj6enrreXn2oKDwu7vehYXehYXVMzPuvLzLHh7oVFTmRkb519fQLCzpICDPWVn6mJjzt7f3goLNT0/4o6P0cnLkdHT32tr5wcH239/toaHtQkLtwcH0r6/jfn7uVFT80dH0w8PafX33np7NODj++/v0zs7hd3fvXl784ODuVlb99fX85ubbaGj71dXIAADLAADCAADpAAC6AADfAADQAADkAADaAADXAAC/AADFAADmAAC3AAC1AADcAADrAAC8AADwAADtAADhAADNAADUAADuAADSAADyAABVO9ozAAAA5nRSTlMAAhAIBB4xBjoSGgxkSTdDNVJPHGE8LywlCnJM/lhVRz4rIRaIXUAoIxT++pCNg3wi/v7++/r59sihlI9ubGpbUUYY/v39+fn49/f39PPt6+vp6ebX0a+ql3t3dWdZJv79/fz8/Pr69/b29u/u7uvm5ePi39/d3dfRzMnEvLu6sa6ppKGfnZybmZmWjYyHhICAfHdwaWJeSD4yMPby8fHv7uzr6ejo6Ofk4+Pi4eDf3dzZ2dbU09DQz8/OzcnIx8bGwsLBv769vLu7u7e3trW1r6mmpaKOjIqIh4aEg4N2dXNuaGdlT3CF9PkAAARHSURBVDjLZZRldNpQGIZDQkIIJLhDcVtXmUu9c3d3d3d3d3d3d3d3d/cChQLtWlrWdtsNbO3O2ffv3vOc93mTe+6F/hkGA4GNIgNqhBEmA/pvGKFhImxUilskUgMbUKH5F2GyEARhsWCUL1x0flEyZYDBCuwwizCAcGA2G+bAIkzw7kD+rpcRfBEc3iryMhGYQGNXryJQqWreQYejw/B5QgwlVq2ORQm2IkwxQBM99vXNCj2mTWwRmebwdGieQGLWFfM/YTKDXcGkGRZswCzvL85fSfGWzRo7EEBbx07/wuOv/HDtOY9vsyMMIOOgGNlm99XlPN7y25uGHa/uKNvsUJ/LSy2Sb4+3z1VRsTCLASGpUnLJkchnQh7vVe/0Gk16OuoMqO3tPpenI9vs3/I6mS/iMCC4PY87Pv/EEpVEsvR6L3/pSEfZjr6al9rgVMqy8a7DH1UyOwsiqKRpdTz3PqdgUq3yXA1nmiPfU/XUYlIq05mnlStzl6tDFZCcXDy8oPwjrq59LGWeuceZCZoPmMnFDbG4eVa/QL8XAj0MYUlPa/vqtuDiqF1OxlyIBFDHUQuEVjvBN0/vH+hyi0ulQpKEkaV8dSe1xQlOKsWdWB9AaycmgpWRL57UN6gerOShUEqrHaW8tW8qLSIFLNPM3gt8jSuZpWwFgSc8WB9U14tW2SBhdAV3Tvejb1VyGNYLZg8B0MAZ7aRs2EbGnC4XzOscJbBCgqhyP9zenZVAKRGWNGOI35nZpJKYj6KUuNJQVzCvREmNHooo2SnDnVOzmSlJQpHKh9tynZn177dWURJN9KgKNFRZIwNQmawMt7fhOFOiOL7y6N7pfmfkmZZKcdvocY2yQlA7GuriyvqR4204emrLyWMGZafn+p2Nx0xuOfVKoyoZrgCAgC7Z1CPgAsKqdfcdG7G5a/Z3QJWuP6LZsD6l3AAqLFEywgqRCzaqXbSwoGz1GtXSvwPK7yxdvU55n9edkRUorGUSyiGLcqg6SAt9P/PTnH6ayvXTZxOG1A1itAaIz73RrZAWen0eR5ozNz07G0QBqMCb8yPLpW4aLyEgqyBuQ15hICT0ODKdubQQRHl++mioR3MzZodQXXzFznmFf4WZQBiKyqehjDKDF5JyDsSWRcxp8CsvSH8hENK1QCvnn1IVmnMpAoEUIrzthHq/wrUKAEULgY8u5a7StBUph5kQC26vVVas9W+tcBTwlWoUp8GMCANcO6NMGHOyFhAW1wpHVW04RYyjHCZ9gRUEJmhVsZ4a1ApTQEhHlW08hWuxgRsVego4IkyonNCgW5mivwWiqq0ZGSfWydk0E6YIWQp3TsW+5TpVoWulla7WtdegFq01uI2NFD8rCqMcFyTE3Wnav0LN8uV7rmty9slCsRZDQ64iCoFFeolQHB9jioqKMkW3Tmyn5cuNnD9McRhbZOXrtEJBhCBZxcOlttTiR/E3AYEOqmgNZcgAAAAASUVORK5CYII=')"];
     window.ShowKilled = !0,
     window.ShowEnterLeave = !1,
-    -1 == game.chosenGraphicsSet;
+    game.chosenGraphicsSet = -1;
     var zt = $("<div class=\"\" style=\"position: relative; width: 44px; height: 44px; cursor: pointer; background-color: rgba(0, 0, 0, 0.3); background-repeat: no-repeat; background-position: center; display: none;\" id=\"graphicsSet\" cgs= \"-1\" title= \"Switch style between Imperial / Rebel / Random\" ></div > ").css("background-image", Gt).click(function() {
         if (2 != game.gameType) {
             var qt = parseInt($(zt).attr("cgs"));
