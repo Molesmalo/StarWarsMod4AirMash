@@ -33258,9 +33258,9 @@ $(function Bt() {
         },
         channelNames: ["* Radio to All *", "* Radio to TEAM *", "* CLOSE RANGE signal *"],
         options: {
-            chat: ["Close Radio Menu", "gg", "Hi!", "Thanks!", "I'll be right back.", "Got to go, cya!", "Great work, team!", "Join me, and together we will rule the galaxy!", "Use the force!", "I've got a baaad feeling about this..."],
-            team: ["Close Radio Menu", "Affirmaive", "Negative", "** I'VE GOT THE FLAG! COVER ME! **", "** THE ENEMY HAS OUR FLAG! **", "Defending the base! Need assistance!", "Attacking their base!  Need assistance!", "Regroup team", "Hold this position", "Stick together, squadron!"],
-            say: ["Close Radio Menu", "Hey there!", "Stop!", "Go Go Go!", "Imperial scum!", "Rebel scum!", "%@*#$!!", "YEE-HAW!!!"]
+            chat: ["Close Menu  - Press Z", "gg", "Hi!", "Yes", "No", "Thanks!", "You are welcome!", "I'll be right back.", "Got to go, cya!", "Great work, team!"],
+            team: ["Close Menu  - Press X", "Affirmative", "Negative", "** I'VE GOT THE FLAG! COVER ME! **", "** THE ENEMY HAS OUR FLAG! **", "Defending the base! Need assistance!", "Attacking their base!  Need assistance!", "Regroup team", "Hold this position", "Stick together, squadron!"],
+            say: ["Close Menu  - Press C", "Hey there!", "Stop!", "Go Go Go!", "Imperial scum!", "Rebel scum!", "%@*#$!!", "YEE-HAW!!!", ""]
         }
     },
     Bt.keyup_handler = function(Vt) {
