@@ -33212,7 +33212,7 @@ $(function Bt() {
         (1 == game.gameType || 3 == game.gameType) && $("#graphicsSet").show(),
         $("body").append("<div id='WhoKilledWho' style='position: absolute; top: 40px; left: 60px; width: 400px; height: 80px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white;'></div>"),
         $("body").append("<div id='radioPanel' style='display: none; position: absolute; bottom: 180px; left: 60px; width: 300px; height: auto; max-width: 700px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white; text-shadow: 0 0 3px rgba(0, 0, 0, 0.8); background-color: rgba(0,0,0,0.5); border: 1px solid #555555; border-radius: 3px;' ><div id='radioChannel' style='color: yellow;'>Send TEAM RADIO</div><hr/><div id='radioOptions'></div></div>"),
-        $("body").append("<div id='WhoKilledWho' style='position: absolute; bottom: 180px; left: 60px; width: 300px; height: auto; max-width: 700px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white;'></div>"),
+        $("body").append("<div id='radioShortcutTip' style='position: absolute; bottom: 180px; left: 60px; width: 300px; height: auto; max-width: 700px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white;'></div>"),
         window.PlayerInfoTimer = setInterval(function() {
             var Vt = Players.getIDs();
             $("#prowlerAlert").hide();
