@@ -31846,6 +31846,9 @@ function() {
             $("#chatinput").css({
                 width: un.width + Ln - 12 + "px",
                 bottom: un.height - kn + 20 + "px"
+            }),
+            $("#radioPanel").css({
+                bottom: un.height - kn + 20 + "px"
             })
         }
     }
@@ -33239,7 +33242,7 @@ $(function Bt() {
         currentChannel: 0,
         channels: [Network.sendChat, Network.sendTeam, Network.sendSay],
         visible: function() {
-            return "none" !== $("#radioPanel")[0].style.display
+            return "none" !== $("#radioPanel").css("display")
         },
         show: function() {
             $("#radioPanel").show()
@@ -33261,7 +33264,7 @@ $(function Bt() {
         }
     },
     Bt.keyup_handler = function(Vt) {
-        if (!(game.state !== Network.STATE.PLAYING || $("#chatinput").is(":visible"))) {
+        if (game.state === Network.STATE.PLAYING && "none" === $("#chatinput").css("display")) {
             var qt = $.inArray(Vt.which, [90, 88, 67]);
             if (-1 < qt) {
                 if (Bt.radio.visible() && qt == Bt.radio.currentChannel)
@@ -33287,7 +33290,6 @@ $(function Bt() {
                 var Kt = [Bt.radio.options.chat, Bt.radio.options.team, Bt.radio.options.say]
                   , Jt = Bt.radio.currentChannel;
                 if (0 < qt && qt < Kt[Jt].length) {
-                    console.log("sending"),
                     Qt = Kt[Jt][qt];
                     var $t = Qt.split(/\s*\|\s*/);
                     qt = 0;
@@ -33297,7 +33299,6 @@ $(function Bt() {
                     };
                     en()
                 } else
-                    console.log("closing"),
                     Bt.radio.hide();
                 Vt.stopImmediatePropagation(),
                 Vt.stopPropagation(),
