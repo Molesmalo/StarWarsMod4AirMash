@@ -47,8 +47,8 @@
         var Ra;
         try {
             wa && Vn.isFunction(Ra = wa.promise) ? Ra.call(wa).done(Pa).fail(Ca) : wa && Vn.isFunction(Ra = wa.then) ? Ra.call(wa, Pa, Ca) : Pa.apply(void 0, [wa].slice(Aa))
-        } catch (Da) {
-            Ca.apply(void 0, [Da])
+        } catch (Ma) {
+            Ca.apply(void 0, [Ma])
         }
     }
     function Kt() {
@@ -75,7 +75,7 @@
         return Ca
     }
     function Jt(wa, Pa, Ca, Aa) {
-        var Da = 1, Ma = 20, Ia = Aa ? function() {
+        var Ma = 1, Da = 20, Ia = Aa ? function() {
             return Aa.cur()
         }
         : function() {
@@ -87,9 +87,9 @@
             Ca = Ca || [],
             ka = +Oa || 1;
             do
-                ka /= Da = Da || ".5",
+                ka /= Ma = Ma || ".5",
                 Vn.style(wa, Pa, ka + La);
-            while (Da != (Da = Ia() / Oa) && 1 != Da && --Ma)
+            while (Ma != (Ma = Ia() / Oa) && 1 != Ma && --Da)
         }
         return Ca && (ka = +ka || +Oa || 0,
         Ra = Ca[1] ? ka + (Ca[1] + 1) * Ca[2] : +Ca[2],
@@ -108,14 +108,14 @@
         Ra)
     }
     function en(wa, Pa) {
-        for (var Ra = [], Da = 0, Ma = wa.length, Ca, Aa; Da < Ma; Da++)
-            (Aa = wa[Da]).style && (Ca = Aa.style.display,
-            Pa ? ("none" === Ca && (Ra[Da] = fr.get(Aa, "display") || null,
-            Ra[Da] || (Aa.style.display = "")),
-            "" === Aa.style.display && xr(Aa) && (Ra[Da] = $t(Aa))) : "none" !== Ca && (Ra[Da] = "none",
+        for (var Ra = [], Ma = 0, Da = wa.length, Ca, Aa; Ma < Da; Ma++)
+            (Aa = wa[Ma]).style && (Ca = Aa.style.display,
+            Pa ? ("none" === Ca && (Ra[Ma] = fr.get(Aa, "display") || null,
+            Ra[Ma] || (Aa.style.display = "")),
+            "" === Aa.style.display && xr(Aa) && (Ra[Ma] = $t(Aa))) : "none" !== Ca && (Ra[Ma] = "none",
             fr.set(Aa, "display", Ca)));
-        for (Da = 0; Da < Ma; Da++)
-            null != Ra[Da] && (wa[Da].style.display = Ra[Da]);
+        for (Ma = 0; Ma < Da; Ma++)
+            null != Ra[Ma] && (wa[Ma].style.display = Ra[Ma]);
         return wa
     }
     function tn(wa, Pa) {
@@ -128,31 +128,31 @@
             fr.set(wa[Ca], "globalEval", !Pa || fr.get(Pa[Ca], "globalEval"))
     }
     function rn(wa, Pa, Ca, Aa, Ra) {
-        for (var Na = Pa.createDocumentFragment(), Fa = [], Ba = 0, Ua = wa.length, Da, Ma, Ia, Oa, La, ka; Ba < Ua; Ba++)
-            if ((Da = wa[Ba]) || 0 === Da)
-                if ("object" === Vn.type(Da))
-                    Vn.merge(Fa, Da.nodeType ? [Da] : Da);
-                else if (Cr.test(Da)) {
-                    for (Ma = Ma || Na.appendChild(Pa.createElement("div")),
-                    Ia = (Sr.exec(Da) || ["", ""])[1].toLowerCase(),
+        for (var Na = Pa.createDocumentFragment(), Fa = [], Ba = 0, Ua = wa.length, Ma, Da, Ia, Oa, La, ka; Ba < Ua; Ba++)
+            if ((Ma = wa[Ba]) || 0 === Ma)
+                if ("object" === Vn.type(Ma))
+                    Vn.merge(Fa, Ma.nodeType ? [Ma] : Ma);
+                else if (Cr.test(Ma)) {
+                    for (Da = Da || Na.appendChild(Pa.createElement("div")),
+                    Ia = (Sr.exec(Ma) || ["", ""])[1].toLowerCase(),
                     Oa = Pr[Ia] || Pr._default,
-                    Ma.innerHTML = Oa[1] + Vn.htmlPrefilter(Da) + Oa[2],
+                    Da.innerHTML = Oa[1] + Vn.htmlPrefilter(Ma) + Oa[2],
                     ka = Oa[0]; ka--; )
-                        Ma = Ma.lastChild;
-                    Vn.merge(Fa, Ma.childNodes),
-                    (Ma = Na.firstChild).textContent = ""
+                        Da = Da.lastChild;
+                    Vn.merge(Fa, Da.childNodes),
+                    (Da = Na.firstChild).textContent = ""
                 } else
-                    Fa.push(Pa.createTextNode(Da));
+                    Fa.push(Pa.createTextNode(Ma));
         for (Na.textContent = "",
-        Ba = 0; Da = Fa[Ba++]; )
-            if (Aa && -1 < Vn.inArray(Da, Aa))
-                Ra && Ra.push(Da);
-            else if (La = Vn.contains(Da.ownerDocument, Da),
-            Ma = tn(Na.appendChild(Da), "script"),
-            La && nn(Ma),
+        Ba = 0; Ma = Fa[Ba++]; )
+            if (Aa && -1 < Vn.inArray(Ma, Aa))
+                Ra && Ra.push(Ma);
+            else if (La = Vn.contains(Ma.ownerDocument, Ma),
+            Da = tn(Na.appendChild(Ma), "script"),
+            La && nn(Da),
             Ca)
-                for (ka = 0; Da = Ma[ka++]; )
-                    wr.test(Da.type || "") && Ca.push(Da);
+                for (ka = 0; Ma = Da[ka++]; )
+                    wr.test(Ma.type || "") && Ca.push(Ma);
         return Na
     }
     function an() {
@@ -166,13 +166,13 @@
             return kn.activeElement
         } catch (wa) {}
     }
-    function dn(wa, Pa, Ca, Aa, Ra, Da) {
-        var Ma, Ia;
+    function dn(wa, Pa, Ca, Aa, Ra, Ma) {
+        var Da, Ia;
         if ("object" == typeof Pa) {
             for (Ia in "string" != typeof Ca && (Aa = Aa || Ca,
             Ca = void 0),
             Pa)
-                dn(wa, Ia, Ca, Aa, Pa[Ia], Da);
+                dn(wa, Ia, Ca, Aa, Pa[Ia], Ma);
             return wa
         }
         if (null == Aa && null == Ra ? (Ra = Ca,
@@ -184,12 +184,12 @@
             Ra = on;
         else if (!Ra)
             return wa;
-        return 1 === Da && (Ma = Ra,
+        return 1 === Ma && (Da = Ra,
         (Ra = function(Oa) {
             return Vn().off(Oa),
-            Ma.apply(this, arguments)
+            Da.apply(this, arguments)
         }
-        ).guid = Ma.guid || (Ma.guid = Vn.guid++)),
+        ).guid = Da.guid || (Da.guid = Vn.guid++)),
         wa.each(function() {
             Vn.event.add(this, Pa, Ra, Aa, Ca)
         })
@@ -207,13 +207,13 @@
         wa
     }
     function cn(wa, Pa) {
-        var Ca, Aa, Ra, Da, Ma, Ia, Oa, La;
+        var Ca, Aa, Ra, Ma, Da, Ia, Oa, La;
         if (1 === Pa.nodeType) {
-            if (fr.hasData(wa) && (Da = fr.access(wa),
-            Ma = fr.set(Pa, Da),
-            La = Da.events))
-                for (Ra in delete Ma.handle,
-                Ma.events = {},
+            if (fr.hasData(wa) && (Ma = fr.access(wa),
+            Da = fr.set(Pa, Ma),
+            La = Ma.events))
+                for (Ra in delete Da.handle,
+                Da.events = {},
                 La)
                     for (Ca = 0,
                     Aa = La[Ra].length; Ca < Aa; Ca++)
@@ -229,7 +229,7 @@
     }
     function hn(wa, Pa, Ca, Aa) {
         Pa = Bn.apply([], Pa);
-        var ka = 0, Na = wa.length, Ba = Pa[0], Ua = Vn.isFunction(Ba), Ra, Da, Ma, Ia, Oa, La;
+        var ka = 0, Na = wa.length, Ba = Pa[0], Ua = Vn.isFunction(Ba), Ra, Ma, Da, Ia, Oa, La;
         if (Ua || 1 < Na && "string" == typeof Ba && !zn.checkClone && Lr.test(Ba))
             return wa.each(function(Ha) {
                 var Xa = wa.eq(Ha);
@@ -237,42 +237,42 @@
                 hn(Xa, Pa, Ca, Aa)
             });
         if (Na && (Ra = rn(Pa, wa[0].ownerDocument, !1, wa, Aa),
-        Da = Ra.firstChild,
-        1 === Ra.childNodes.length && (Ra = Da),
-        Da || Aa)) {
-            for (Ia = (Ma = Vn.map(tn(Ra, "script"), un)).length; ka < Na; ka++)
+        Ma = Ra.firstChild,
+        1 === Ra.childNodes.length && (Ra = Ma),
+        Ma || Aa)) {
+            for (Ia = (Da = Vn.map(tn(Ra, "script"), un)).length; ka < Na; ka++)
                 Oa = Ra,
                 ka != Na - 1 && (Oa = Vn.clone(Oa, !0, !0),
-                Ia && Vn.merge(Ma, tn(Oa, "script"))),
+                Ia && Vn.merge(Da, tn(Oa, "script"))),
                 Ca.call(wa[ka], Oa, ka);
             if (Ia)
-                for (La = Ma[Ma.length - 1].ownerDocument,
-                Vn.map(Ma, pn),
+                for (La = Da[Da.length - 1].ownerDocument,
+                Vn.map(Da, pn),
                 ka = 0; ka < Ia; ka++)
-                    Oa = Ma[ka],
+                    Oa = Da[ka],
                     wr.test(Oa.type || "") && !fr.access(Oa, "globalEval") && Vn.contains(La, Oa) && (Oa.src ? Vn._evalUrl && Vn._evalUrl(Oa.src) : Xt(Oa.textContent.replace(Nr, ""), La))
         }
         return wa
     }
     function gn(wa, Pa, Ca) {
-        for (var Ra = Pa ? Vn.filter(Pa, wa) : wa, Da = 0, Aa; null != (Aa = Ra[Da]); Da++)
+        for (var Ra = Pa ? Vn.filter(Pa, wa) : wa, Ma = 0, Aa; null != (Aa = Ra[Ma]); Ma++)
             Ca || 1 !== Aa.nodeType || Vn.cleanData(tn(Aa)),
             Aa.parentNode && (Ca && Vn.contains(Aa.ownerDocument, Aa) && nn(tn(Aa, "script")),
             Aa.parentNode.removeChild(Aa));
         return wa
     }
     function mn(wa, Pa, Ca) {
-        var Ia = wa.style, Aa, Ra, Da, Ma;
-        return (Ca = Ca || Ur(wa)) && ("" !== (Ma = Ca.getPropertyValue(Pa) || Ca[Pa]) || Vn.contains(wa.ownerDocument, wa) || (Ma = Vn.style(wa, Pa)),
-        !zn.pixelMarginRight() && Br.test(Ma) && Fr.test(Pa) && (Aa = Ia.width,
+        var Ia = wa.style, Aa, Ra, Ma, Da;
+        return (Ca = Ca || Ur(wa)) && ("" !== (Da = Ca.getPropertyValue(Pa) || Ca[Pa]) || Vn.contains(wa.ownerDocument, wa) || (Da = Vn.style(wa, Pa)),
+        !zn.pixelMarginRight() && Br.test(Da) && Fr.test(Pa) && (Aa = Ia.width,
         Ra = Ia.minWidth,
-        Da = Ia.maxWidth,
-        Ia.minWidth = Ia.maxWidth = Ia.width = Ma,
-        Ma = Ca.width,
+        Ma = Ia.maxWidth,
+        Ia.minWidth = Ia.maxWidth = Ia.width = Da,
+        Da = Ca.width,
         Ia.width = Aa,
         Ia.minWidth = Ra,
-        Ia.maxWidth = Da)),
-        void 0 === Ma ? Ma : Ma + ""
+        Ia.maxWidth = Ma)),
+        void 0 === Da ? Da : Da + ""
     }
     function yn(wa, Pa) {
         return {
@@ -297,19 +297,19 @@
         return Aa ? Math.max(0, Aa[2] - (Ca || 0)) + (Aa[3] || "px") : Pa
     }
     function xn(wa, Pa, Ca, Aa, Ra) {
-        var Ma = 0, Da;
-        for (Da = Ca === (Aa ? "border" : "content") ? 4 : "width" === Pa ? 1 : 0; 4 > Da; Da += 2)
-            "margin" === Ca && (Ma += Vn.css(wa, Ca + br[Da], !0, Ra)),
-            Aa ? ("content" === Ca && (Ma -= Vn.css(wa, "padding" + br[Da], !0, Ra)),
-            "margin" !== Ca && (Ma -= Vn.css(wa, "border" + br[Da] + "Width", !0, Ra))) : (Ma += Vn.css(wa, "padding" + br[Da], !0, Ra),
-            "padding" !== Ca && (Ma += Vn.css(wa, "border" + br[Da] + "Width", !0, Ra)));
-        return Ma
+        var Da = 0, Ma;
+        for (Ma = Ca === (Aa ? "border" : "content") ? 4 : "width" === Pa ? 1 : 0; 4 > Ma; Ma += 2)
+            "margin" === Ca && (Da += Vn.css(wa, Ca + br[Ma], !0, Ra)),
+            Aa ? ("content" === Ca && (Da -= Vn.css(wa, "padding" + br[Ma], !0, Ra)),
+            "margin" !== Ca && (Da -= Vn.css(wa, "border" + br[Ma] + "Width", !0, Ra))) : (Da += Vn.css(wa, "padding" + br[Ma], !0, Ra),
+            "padding" !== Ca && (Da += Vn.css(wa, "border" + br[Ma] + "Width", !0, Ra)));
+        return Da
     }
     function vn(wa, Pa, Ca) {
-        var Ra = Ur(wa), Da = mn(wa, Pa, Ra), Ma = "border-box" === Vn.css(wa, "boxSizing", !1, Ra), Aa;
-        return Br.test(Da) ? Da : (Aa = Ma && (zn.boxSizingReliable() || Da === wa.style[Pa]),
-        "auto" === Da && (Da = wa["offset" + Pa[0].toUpperCase() + Pa.slice(1)]),
-        (Da = parseFloat(Da) || 0) + xn(wa, Pa, Ca || (Ma ? "border" : "content"), Aa, Ra) + "px")
+        var Ra = Ur(wa), Ma = mn(wa, Pa, Ra), Da = "border-box" === Vn.css(wa, "boxSizing", !1, Ra), Aa;
+        return Br.test(Ma) ? Ma : (Aa = Da && (zn.boxSizingReliable() || Ma === wa.style[Pa]),
+        "auto" === Ma && (Ma = wa["offset" + Pa[0].toUpperCase() + Pa.slice(1)]),
+        (Ma = parseFloat(Ma) || 0) + xn(wa, Pa, Ca || (Da ? "border" : "content"), Aa, Ra) + "px")
     }
     function Tn(wa, Pa, Ca, Aa, Ra) {
         return new Tn.prototype.init(wa,Pa,Ca,Aa,Ra)
@@ -334,12 +334,12 @@
         Ra
     }
     function Pn(wa, Pa, Ca) {
-        for (var Ra = (Cn.tweeners[Pa] || []).concat(Cn.tweeners["*"]), Da = 0, Ma = Ra.length, Aa; Da < Ma; Da++)
-            if (Aa = Ra[Da].call(Ca, Pa, wa))
+        for (var Ra = (Cn.tweeners[Pa] || []).concat(Cn.tweeners["*"]), Ma = 0, Da = Ra.length, Aa; Ma < Da; Ma++)
+            if (Aa = Ra[Ma].call(Ca, Pa, wa))
                 return Aa
     }
     function Cn(wa, Pa, Ca) {
-        var Da = 0, Ma = Cn.prefilters.length, Ia = Vn.Deferred().always(function() {
+        var Ma = 0, Da = Cn.prefilters.length, Ia = Vn.Deferred().always(function() {
             delete Oa.elem
         }), Oa = function() {
             if (Ra)
@@ -397,8 +397,8 @@
                         Fa[Ba] = Ha);
                 else
                     Fa[Ua] = Ha
-        }(ka, La.opts.specialEasing); Da < Ma; Da++)
-            if (Aa = Cn.prefilters[Da].call(La, wa, ka, La.opts))
+        }(ka, La.opts.specialEasing); Ma < Da; Ma++)
+            if (Aa = Cn.prefilters[Ma].call(La, wa, ka, La.opts))
                 return Vn.isFunction(Aa.stop) && (Vn._queueHooks(La.elem, La.opts.queue).stop = Vn.proxy(Aa.stop, Aa)),
                 Aa;
         return Vn.map(ka, Pn, La),
@@ -417,24 +417,24 @@
     function Rn(wa) {
         return wa.getAttribute && wa.getAttribute("class") || ""
     }
-    function Dn(wa, Pa, Ca, Aa) {
+    function Mn(wa, Pa, Ca, Aa) {
         if (Array.isArray(Pa))
-            Vn.each(Pa, function(Da, Ma) {
-                Ca || oa.test(wa) ? Aa(wa, Ma) : Dn(wa + "[" + ("object" == typeof Ma && null != Ma ? Da : "") + "]", Ma, Ca, Aa)
+            Vn.each(Pa, function(Ma, Da) {
+                Ca || oa.test(wa) ? Aa(wa, Da) : Mn(wa + "[" + ("object" == typeof Da && null != Da ? Ma : "") + "]", Da, Ca, Aa)
             });
         else if (Ca || "object" !== Vn.type(Pa))
             Aa(wa, Pa);
         else
             for (var Ra in Pa)
-                Dn(wa + "[" + Ra + "]", Pa[Ra], Ca, Aa)
+                Mn(wa + "[" + Ra + "]", Pa[Ra], Ca, Aa)
     }
-    function Mn(wa) {
+    function Dn(wa) {
         return function(Pa, Ca) {
             "string" != typeof Pa && (Ca = Pa,
             Pa = "*");
-            var Ra = 0, Da = Pa.toLowerCase().match(dr) || [], Aa;
+            var Ra = 0, Ma = Pa.toLowerCase().match(dr) || [], Aa;
             if (Vn.isFunction(Ca))
-                for (; Aa = Da[Ra++]; )
+                for (; Aa = Ma[Ra++]; )
                     "+" === Aa[0] ? (Aa = Aa.slice(1) || "*",
                     (wa[Aa] = wa[Aa] || []).unshift(Ca)) : (wa[Aa] = wa[Aa] || []).push(Ca)
         }
@@ -442,18 +442,18 @@
     function In(wa, Pa, Ca, Aa) {
         function Ra(Ia) {
             var Oa;
-            return Da[Ia] = !0,
+            return Ma[Ia] = !0,
             Vn.each(wa[Ia] || [], function(La, ka) {
                 var Na = ka(Pa, Ca, Aa);
-                return "string" != typeof Na || Ma || Da[Na] ? Ma ? !(Oa = Na) : void 0 : (Pa.dataTypes.unshift(Na),
+                return "string" != typeof Na || Da || Ma[Na] ? Da ? !(Oa = Na) : void 0 : (Pa.dataTypes.unshift(Na),
                 Ra(Na),
                 !1)
             }),
             Oa
         }
-        var Da = {}
-          , Ma = wa === ma;
-        return Ra(Pa.dataTypes[0]) || !Da["*"] && Ra("*")
+        var Ma = {}
+          , Da = wa === ma;
+        return Ra(Pa.dataTypes[0]) || !Ma["*"] && Ra("*")
     }
     function On(wa, Pa) {
         var Ra = Vn.ajaxSettings.flatOptions || {}, Ca, Aa;
@@ -529,20 +529,20 @@
         splice: Ln.splice
     },
     Vn.extend = Vn.fn.extend = function() {
-        var Ma = arguments[0] || {}, Ia = 1, Oa = arguments.length, La = !1, wa, Pa, Ca, Aa, Ra, Da;
-        for ("boolean" == typeof Ma && (La = Ma,
-        Ma = arguments[Ia] || {},
+        var Da = arguments[0] || {}, Ia = 1, Oa = arguments.length, La = !1, wa, Pa, Ca, Aa, Ra, Ma;
+        for ("boolean" == typeof Da && (La = Da,
+        Da = arguments[Ia] || {},
         Ia++),
-        "object" == typeof Ma || Vn.isFunction(Ma) || (Ma = {}),
-        Ia === Oa && (Ma = this,
+        "object" == typeof Da || Vn.isFunction(Da) || (Da = {}),
+        Ia === Oa && (Da = this,
         Ia--); Ia < Oa; Ia++)
             if (null != (wa = arguments[Ia]))
                 for (Pa in wa)
-                    Ca = Ma[Pa],
-                    Ma !== (Aa = wa[Pa]) && (La && Aa && (Vn.isPlainObject(Aa) || (Ra = Array.isArray(Aa))) ? (Ra ? (Ra = !1,
-                    Da = Ca && Array.isArray(Ca) ? Ca : []) : Da = Ca && Vn.isPlainObject(Ca) ? Ca : {},
-                    Ma[Pa] = Vn.extend(La, Da, Aa)) : void 0 != Aa && (Ma[Pa] = Aa));
-        return Ma
+                    Ca = Da[Pa],
+                    Da !== (Aa = wa[Pa]) && (La && Aa && (Vn.isPlainObject(Aa) || (Ra = Array.isArray(Aa))) ? (Ra ? (Ra = !1,
+                    Ma = Ca && Array.isArray(Ca) ? Ca : []) : Ma = Ca && Vn.isPlainObject(Ca) ? Ca : {},
+                    Da[Pa] = Vn.extend(La, Ma, Aa)) : void 0 != Aa && (Da[Pa] = Aa));
+        return Da
     }
     ,
     Vn.extend({
@@ -609,19 +609,19 @@
             wa
         },
         grep: function(wa, Pa, Ca) {
-            for (var Aa = [], Ra = 0, Da = wa.length; Ra < Da; Ra++)
+            for (var Aa = [], Ra = 0, Ma = wa.length; Ra < Ma; Ra++)
                 !Pa(wa[Ra], Ra) !== !Ca && Aa.push(wa[Ra]);
             return Aa
         },
         map: function(wa, Pa, Ca) {
-            var Da = 0, Ma = [], Aa, Ra;
+            var Ma = 0, Da = [], Aa, Ra;
             if (Gt(wa))
-                for (Aa = wa.length; Da < Aa; Da++)
-                    null != (Ra = Pa(wa[Da], Da, Ca)) && Ma.push(Ra);
+                for (Aa = wa.length; Ma < Aa; Ma++)
+                    null != (Ra = Pa(wa[Ma], Ma, Ca)) && Da.push(Ra);
             else
-                for (Da in wa)
-                    null != (Ra = Pa(wa[Da], Da, Ca)) && Ma.push(Ra);
-            return Bn.apply([], Ma)
+                for (Ma in wa)
+                    null != (Ra = Pa(wa[Ma], Ma, Ca)) && Da.push(Ra);
+            return Bn.apply([], Da)
         },
         guid: 1,
         proxy: function(wa, Pa) {
@@ -691,7 +691,7 @@
                         }
                 }
             }
-            return Za(Ko.replace(Mo, "$1"), Qo, Zo, Jo)
+            return Za(Ko.replace(Do, "$1"), Qo, Zo, Jo)
         }
         function Ca() {
             function Ko(Zo, Jo) {
@@ -716,11 +716,11 @@
                 Qo = null
             }
         }
-        function Da(Ko, Qo) {
+        function Ma(Ko, Qo) {
             for (var Zo = Ko.split("|"), Jo = Zo.length; Jo--; )
                 za.attrHandle[Zo[Jo]] = Qo
         }
-        function Ma(Ko, Qo) {
+        function Da(Ko, Qo) {
             var Zo = Qo && Ko
               , Jo = Zo && 1 === Ko.nodeType && 1 === Qo.nodeType && Ko.sourceIndex - Qo.sourceIndex;
             if (Jo)
@@ -864,7 +864,7 @@
                             ;
                         return Ga(1 < ni && Ha(oi), 1 < ni && Ba(Ko.slice(0, ni - 1).concat({
                             value: " " === Ko[ni - 2].type ? "*" : ""
-                        })).replace(Mo, "$1"), Zo, ni < Jo && Ya(Ko.slice(ni, Jo)), Jo < $o && Ya(Ko = Ko.slice(Jo)), Jo < $o && Ba(Ko))
+                        })).replace(Do, "$1"), Zo, ni < Jo && Ya(Ko.slice(ni, Jo)), Jo < $o && Ya(Ko = Ko.slice(Jo)), Jo < $o && Ba(Ko))
                     }
                     oi.push(Zo)
                 }
@@ -878,7 +878,7 @@
                 if (Ko[Zo] === Qo)
                     return Zo;
             return -1
-        }, wo = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", Po = "[\\x20\\t\\r\\n\\f]", Co = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Do = /[\x20\t\r\n\f]+/g, Mo = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Io = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, Oo = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Lo = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, ko = /:((?:\\.|[\w-]|[^-\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^-\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^-\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, No = /^(?:\\.|[\w-]|[^-\xa0])+$/, Fo = {
+        }, wo = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", Po = "[\\x20\\t\\r\\n\\f]", Co = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Mo = /[\x20\t\r\n\f]+/g, Do = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Io = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, Oo = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Lo = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, ko = /:((?:\\.|[\w-]|[^-\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^-\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^-\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, No = /^(?:\\.|[\w-]|[^-\xa0])+$/, Fo = {
             ID: /^#((?:\\.|[\w-]|[^-\xa0])+)/,
             CLASS: /^\.((?:\\.|[\w-]|[^-\xa0])+)/,
             TAG: /^((?:\\.|[\w-]|[^-\xa0])+|[*])/,
@@ -1052,14 +1052,14 @@
                 if (!ri || !ai)
                     return $o === no ? -1 : ei === no ? 1 : ri ? -1 : ai ? 1 : $a ? So($a, $o) - So($a, ei) : 0;
                 if (ri === ai)
-                    return Ma($o, ei);
+                    return Da($o, ei);
                 for (ti = $o; ti = ti.parentNode; )
                     oi.unshift(ti);
                 for (ti = ei; ti = ti.parentNode; )
                     ii.unshift(ti);
                 for (; oi[ni] === ii[ni]; )
                     ni++;
-                return ni ? Ma(oi[ni], ii[ni]) : oi[ni] === po ? -1 : ii[ni] === po ? 1 : 0
+                return ni ? Da(oi[ni], ii[ni]) : oi[ni] === po ? -1 : ii[ni] === po ? 1 : 0
             }
             ,
             no) : no
@@ -1194,7 +1194,7 @@
                     return function(Jo) {
                         var $o = Pa.attr(Jo, Ko);
                         return null == $o ? "!=" === Qo : !Qo || ($o += "",
-                        "=" === Qo ? $o === Zo : "!=" === Qo ? $o !== Zo : "^=" === Qo ? Zo && 0 === $o.indexOf(Zo) : "*=" === Qo ? Zo && -1 < $o.indexOf(Zo) : "$=" === Qo ? Zo && $o.slice(-Zo.length) === Zo : "~=" === Qo ? -1 < (" " + $o.replace(Do, " ") + " ").indexOf(Zo) : "|=" == Qo && ($o === Zo || $o.slice(0, Zo.length + 1) === Zo + "-"))
+                        "=" === Qo ? $o === Zo : "!=" === Qo ? $o !== Zo : "^=" === Qo ? Zo && 0 === $o.indexOf(Zo) : "*=" === Qo ? Zo && -1 < $o.indexOf(Zo) : "$=" === Qo ? Zo && $o.slice(-Zo.length) === Zo : "~=" === Qo ? -1 < (" " + $o.replace(Mo, " ") + " ").indexOf(Zo) : "|=" == Qo && ($o === Zo || $o.slice(0, Zo.length + 1) === Zo + "-"))
                     }
                 },
                 CHILD: function(Ko, Qo, Zo, Jo, $o) {
@@ -1249,7 +1249,7 @@
                 not: Aa(function(Ko) {
                     var Qo = []
                       , Zo = []
-                      , Jo = Qa(Ko.replace(Mo, "$1"));
+                      , Jo = Qa(Ko.replace(Do, "$1"));
                     return Jo[uo] ? Aa(function($o, ei, ti, ni) {
                         for (var ai = Jo($o, null, ni, []), oi = $o.length, ri; oi--; )
                             (ri = ai[oi]) && ($o[oi] = !(ei[oi] = ri))
@@ -1384,7 +1384,7 @@
                 (Jo = Oo.exec(ti)) && (Zo = Jo.shift(),
                 $o.push({
                     value: Zo,
-                    type: Jo[0].replace(Mo, " ")
+                    type: Jo[0].replace(Do, " ")
                 }),
                 ti = ti.slice(Zo.length)),
                 za.filter)
@@ -1482,7 +1482,7 @@
         Ra(function(Ko) {
             return Ko.innerHTML = "<a href='#'></a>",
             "#" === Ko.firstChild.getAttribute("href")
-        }) || Da("type|href|height|width", function(Ko, Qo, Zo) {
+        }) || Ma("type|href|height|width", function(Ko, Qo, Zo) {
             if (!Zo)
                 return Ko.getAttribute(Qo, "type" === Qo.toLowerCase() ? 1 : 2)
         }),
@@ -1490,13 +1490,13 @@
             return Ko.innerHTML = "<input/>",
             Ko.firstChild.setAttribute("value", ""),
             "" === Ko.firstChild.getAttribute("value")
-        }) || Da("value", function(Ko, Qo, Zo) {
+        }) || Ma("value", function(Ko, Qo, Zo) {
             if (!Zo && "input" === Ko.nodeName.toLowerCase())
                 return Ko.defaultValue
         }),
         Ra(function(Ko) {
             return null == Ko.getAttribute("disabled")
-        }) || Da(wo, function(Ko, Qo, Zo) {
+        }) || Ma(wo, function(Ko, Qo, Zo) {
             var Jo;
             if (!Zo)
                 return !0 === Ko[Qo] ? Qo.toLowerCase() : (Jo = Ko.getAttributeNode(Qo)) && Jo.specified ? Jo.value : null
@@ -1605,15 +1605,15 @@
             })
         },
         closest: function(wa, Pa) {
-            var Aa = 0, Ra = this.length, Da = [], Ma = "string" != typeof wa && Vn(wa), Ca;
+            var Aa = 0, Ra = this.length, Ma = [], Da = "string" != typeof wa && Vn(wa), Ca;
             if (!tr.test(wa))
                 for (; Aa < Ra; Aa++)
                     for (Ca = this[Aa]; Ca && Ca !== Pa; Ca = Ca.parentNode)
-                        if (11 > Ca.nodeType && (Ma ? -1 < Ma.index(Ca) : 1 === Ca.nodeType && Vn.find.matchesSelector(Ca, wa))) {
-                            Da.push(Ca);
+                        if (11 > Ca.nodeType && (Da ? -1 < Da.index(Ca) : 1 === Ca.nodeType && Vn.find.matchesSelector(Ca, wa))) {
+                            Ma.push(Ca);
                             break
                         }
-            return this.pushStack(1 < Da.length ? Vn.uniqueSort(Da) : Da)
+            return this.pushStack(1 < Ma.length ? Vn.uniqueSort(Ma) : Ma)
         },
         index: function(wa) {
             return wa ? "string" == typeof wa ? Hn.call(Vn(wa), this[0]) : Hn.call(this, wa.jquery ? wa[0] : wa) : this[0] && this[0].parentNode ? this.first().prevAll().length : -1
@@ -1683,22 +1683,22 @@
             }),
             Na
         }(wa) : Vn.extend({}, wa);
-        var Da = [], Ma = [], Ia = -1, Oa = function() {
+        var Ma = [], Da = [], Ia = -1, Oa = function() {
             for (Ra = Ra || wa.once,
-            Aa = Pa = !0; Ma.length; Ia = -1)
-                for (Ca = Ma.shift(); ++Ia < Da.length; )
-                    !1 === Da[Ia].apply(Ca[0], Ca[1]) && wa.stopOnFalse && (Ia = Da.length,
+            Aa = Pa = !0; Da.length; Ia = -1)
+                for (Ca = Da.shift(); ++Ia < Ma.length; )
+                    !1 === Ma[Ia].apply(Ca[0], Ca[1]) && wa.stopOnFalse && (Ia = Ma.length,
                     Ca = !1);
             wa.memory || (Ca = !1),
             Pa = !1,
-            Ra && (Da = Ca ? [] : "")
+            Ra && (Ma = Ca ? [] : "")
         }, La = {
             add: function() {
-                return Da && (Ca && !Pa && (Ia = Da.length - 1,
-                Ma.push(Ca)),
+                return Ma && (Ca && !Pa && (Ia = Ma.length - 1,
+                Da.push(Ca)),
                 function ka(Na) {
                     Vn.each(Na, function(Fa, Ba) {
-                        Vn.isFunction(Ba) ? wa.unique && La.has(Ba) || Da.push(Ba) : Ba && Ba.length && "string" !== Vn.type(Ba) && ka(Ba)
+                        Vn.isFunction(Ba) ? wa.unique && La.has(Ba) || Ma.push(Ba) : Ba && Ba.length && "string" !== Vn.type(Ba) && ka(Ba)
                     })
                 }(arguments),
                 Ca && !Pa && Oa()),
@@ -1706,30 +1706,30 @@
             },
             remove: function() {
                 return Vn.each(arguments, function(ka, Na) {
-                    for (var Fa; -1 < (Fa = Vn.inArray(Na, Da, Fa)); )
-                        Da.splice(Fa, 1),
+                    for (var Fa; -1 < (Fa = Vn.inArray(Na, Ma, Fa)); )
+                        Ma.splice(Fa, 1),
                         Fa <= Ia && Ia--
                 }),
                 this
             },
             has: function(ka) {
-                return ka ? -1 < Vn.inArray(ka, Da) : 0 < Da.length
+                return ka ? -1 < Vn.inArray(ka, Ma) : 0 < Ma.length
             },
             empty: function() {
-                return Da && (Da = []),
+                return Ma && (Ma = []),
                 this
             },
             disable: function() {
-                return Ra = Ma = [],
-                Da = Ca = "",
+                return Ra = Da = [],
+                Ma = Ca = "",
                 this
             },
             disabled: function() {
-                return !Da
+                return !Ma
             },
             lock: function() {
-                return Ra = Ma = [],
-                Ca || Pa || (Da = Ca = ""),
+                return Ra = Da = [],
+                Ca || Pa || (Ma = Ca = ""),
                 this
             },
             locked: function() {
@@ -1737,7 +1737,7 @@
             },
             fireWith: function(ka, Na) {
                 return Ra || (Na = [ka, (Na = Na || []).slice ? Na.slice() : Na],
-                Ma.push(Na),
+                Da.push(Na),
                 Pa || Oa()),
                 this
             },
@@ -1764,23 +1764,23 @@
                     return Ra.done(arguments).fail(arguments),
                     this
                 },
-                catch: function(Da) {
-                    return Aa.then(null, Da)
+                catch: function(Ma) {
+                    return Aa.then(null, Ma)
                 },
                 pipe: function() {
-                    var Da = arguments;
-                    return Vn.Deferred(function(Ma) {
+                    var Ma = arguments;
+                    return Vn.Deferred(function(Da) {
                         Vn.each(Pa, function(Ia, Oa) {
-                            var La = Vn.isFunction(Da[Oa[4]]) && Da[Oa[4]];
+                            var La = Vn.isFunction(Ma[Oa[4]]) && Ma[Oa[4]];
                             Ra[Oa[1]](function() {
                                 var ka = La && La.apply(this, arguments);
-                                ka && Vn.isFunction(ka.promise) ? ka.promise().progress(Ma.notify).done(Ma.resolve).fail(Ma.reject) : Ma[Oa[0] + "With"](this, La ? [ka] : arguments)
+                                ka && Vn.isFunction(ka.promise) ? ka.promise().progress(Da.notify).done(Da.resolve).fail(Da.reject) : Da[Oa[0] + "With"](this, La ? [ka] : arguments)
                             })
                         }),
-                        Da = null
+                        Ma = null
                     }).promise()
                 },
-                then: function(Da, Ma, Ia) {
+                then: function(Ma, Da, Ia) {
                     function Oa(ka, Na, Fa, Ba) {
                         return function() {
                             var Ua = this
@@ -1815,29 +1815,29 @@
                     var La = 0;
                     return Vn.Deferred(function(ka) {
                         Pa[0][3].add(Oa(0, ka, Vn.isFunction(Ia) ? Ia : zt, ka.notifyWith)),
-                        Pa[1][3].add(Oa(0, ka, Vn.isFunction(Da) ? Da : zt)),
-                        Pa[2][3].add(Oa(0, ka, Vn.isFunction(Ma) ? Ma : Vt))
+                        Pa[1][3].add(Oa(0, ka, Vn.isFunction(Ma) ? Ma : zt)),
+                        Pa[2][3].add(Oa(0, ka, Vn.isFunction(Da) ? Da : Vt))
                     }).promise()
                 },
-                promise: function(Da) {
-                    return null == Da ? Aa : Vn.extend(Da, Aa)
+                promise: function(Ma) {
+                    return null == Ma ? Aa : Vn.extend(Ma, Aa)
                 }
             }
               , Ra = {};
-            return Vn.each(Pa, function(Da, Ma) {
-                var Ia = Ma[2]
-                  , Oa = Ma[5];
-                Aa[Ma[1]] = Ia.add,
+            return Vn.each(Pa, function(Ma, Da) {
+                var Ia = Da[2]
+                  , Oa = Da[5];
+                Aa[Da[1]] = Ia.add,
                 Oa && Ia.add(function() {
                     Ca = Oa
-                }, Pa[3 - Da][2].disable, Pa[0][2].lock),
-                Ia.add(Ma[3].fire),
-                Ra[Ma[0]] = function() {
-                    return Ra[Ma[0] + "With"](this === Ra ? void 0 : this, arguments),
+                }, Pa[3 - Ma][2].disable, Pa[0][2].lock),
+                Ia.add(Da[3].fire),
+                Ra[Da[0]] = function() {
+                    return Ra[Da[0] + "With"](this === Ra ? void 0 : this, arguments),
                     this
                 }
                 ,
-                Ra[Ma[0] + "With"] = Ia.fireWith
+                Ra[Da[0] + "With"] = Ia.fireWith
             }),
             Aa.promise(Ra),
             wa && wa.call(Ra, Ra),
@@ -1848,20 +1848,20 @@
               , Ca = Pa
               , Aa = Array(Ca)
               , Ra = Fn.call(arguments)
-              , Da = Vn.Deferred()
-              , Ma = function(Ia) {
+              , Ma = Vn.Deferred()
+              , Da = function(Ia) {
                 return function(Oa) {
                     Aa[Ia] = this,
                     Ra[Ia] = 1 < arguments.length ? Fn.call(arguments) : Oa,
-                    --Pa || Da.resolveWith(Aa, Ra)
+                    --Pa || Ma.resolveWith(Aa, Ra)
                 }
             };
-            if (1 >= Pa && (qt(wa, Da.done(Ma(Ca)).resolve, Da.reject, !Pa),
-            "pending" === Da.state() || Vn.isFunction(Ra[Ca] && Ra[Ca].then)))
-                return Da.then();
+            if (1 >= Pa && (qt(wa, Ma.done(Da(Ca)).resolve, Ma.reject, !Pa),
+            "pending" === Ma.state() || Vn.isFunction(Ra[Ca] && Ra[Ca].then)))
+                return Ma.then();
             for (; Ca--; )
-                qt(Ra[Ca], Ma(Ca), Da.reject);
-            return Da.promise()
+                qt(Ra[Ca], Da(Ca), Ma.reject);
+            return Ma.promise()
         }
     });
     var lr = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
@@ -1894,17 +1894,17 @@
     Vn.ready.then = ur.then,
     "complete" !== kn.readyState && ("loading" === kn.readyState || kn.documentElement.doScroll) ? (kn.addEventListener("DOMContentLoaded", Kt),
     Bt.addEventListener("load", Kt)) : Bt.setTimeout(Vn.ready);
-    var pr = function(wa, Pa, Ca, Aa, Ra, Da, Ma) {
+    var pr = function(wa, Pa, Ca, Aa, Ra, Ma, Da) {
         var Ia = 0
           , Oa = wa.length
           , La = null == Ca;
         if ("object" === Vn.type(Ca))
             for (Ia in Ra = !0,
             Ca)
-                pr(wa, Pa, Ia, Ca[Ia], !0, Da, Ma);
+                pr(wa, Pa, Ia, Ca[Ia], !0, Ma, Da);
         else if (void 0 !== Aa && (Ra = !0,
-        Vn.isFunction(Aa) || (Ma = !0),
-        La && (Ma ? (Pa.call(wa, Aa),
+        Vn.isFunction(Aa) || (Da = !0),
+        La && (Da ? (Pa.call(wa, Aa),
         Pa = null) : (La = Pa,
         Pa = function(ka, Na, Fa) {
             return La.call(Vn(ka), Fa)
@@ -1912,8 +1912,8 @@
         )),
         Pa))
             for (; Ia < Oa; Ia++)
-                Pa(wa[Ia], Ca, Ma ? Aa : Aa.call(wa[Ia], Ia, Pa(wa[Ia], Ca)));
-        return Ra ? wa : La ? Pa.call(wa) : Oa ? Pa(wa[0], Ca) : Da
+                Pa(wa[Ia], Ca, Da ? Aa : Aa.call(wa[Ia], Ia, Pa(wa[Ia], Ca)));
+        return Ra ? wa : La ? Pa.call(wa) : Oa ? Pa(wa[0], Ca) : Ma
     }
       , cr = function(wa) {
         return 1 === wa.nodeType || 9 === wa.nodeType || !+wa.nodeType
@@ -1982,14 +1982,14 @@
     }),
     Vn.fn.extend({
         data: function(wa, Pa) {
-            var Da = this[0], Ma = Da && Da.attributes, Ca, Aa, Ra;
+            var Ma = this[0], Da = Ma && Ma.attributes, Ca, Aa, Ra;
             if (void 0 === wa) {
-                if (this.length && (Ra = hr.get(Da),
-                1 === Da.nodeType && !fr.get(Da, "hasDataAttrs"))) {
-                    for (Ca = Ma.length; Ca--; )
-                        Ma[Ca] && 0 === (Aa = Ma[Ca].name).indexOf("data-") && (Aa = Vn.camelCase(Aa.slice(5)),
-                        Zt(Da, Aa, Ra[Aa]));
-                    fr.set(Da, "hasDataAttrs", !0)
+                if (this.length && (Ra = hr.get(Ma),
+                1 === Ma.nodeType && !fr.get(Ma, "hasDataAttrs"))) {
+                    for (Ca = Da.length; Ca--; )
+                        Da[Ca] && 0 === (Aa = Da[Ca].name).indexOf("data-") && (Aa = Vn.camelCase(Aa.slice(5)),
+                        Zt(Ma, Aa, Ra[Aa]));
+                    fr.set(Ma, "hasDataAttrs", !0)
                 }
                 return Ra
             }
@@ -1997,10 +1997,10 @@
                 hr.set(this, wa)
             }) : pr(this, function(Ia) {
                 var Oa;
-                if (Da && void 0 === Ia) {
-                    if (void 0 !== (Oa = hr.get(Da, wa)))
+                if (Ma && void 0 === Ia) {
+                    if (void 0 !== (Oa = hr.get(Ma, wa)))
                         return Oa;
-                    if (void 0 !== (Oa = Zt(Da, wa)))
+                    if (void 0 !== (Oa = Zt(Ma, wa)))
                         return Oa
                 } else
                     this.each(function() {
@@ -2028,15 +2028,15 @@
             var Ca = Vn.queue(wa, Pa)
               , Aa = Ca.length
               , Ra = Ca.shift()
-              , Da = Vn._queueHooks(wa, Pa);
+              , Ma = Vn._queueHooks(wa, Pa);
             "inprogress" === Ra && (Ra = Ca.shift(),
             Aa--),
             Ra && ("fx" === Pa && Ca.unshift("inprogress"),
-            delete Da.stop,
+            delete Ma.stop,
             Ra.call(wa, function() {
                 Vn.dequeue(wa, Pa)
-            }, Da)),
-            !Aa && Da && Da.empty.fire()
+            }, Ma)),
+            !Aa && Ma && Ma.empty.fire()
         },
         _queueHooks: function(wa, Pa) {
             var Ca = Pa + "queueHooks";
@@ -2068,13 +2068,13 @@
             return this.queue(wa || "fx", [])
         },
         promise: function(wa, Pa) {
-            var Aa = 1, Ra = Vn.Deferred(), Da = this, Ma = this.length, Ia = function() {
-                --Aa || Ra.resolveWith(Da, [Da])
+            var Aa = 1, Ra = Vn.Deferred(), Ma = this, Da = this.length, Ia = function() {
+                --Aa || Ra.resolveWith(Ma, [Ma])
             }, Ca;
             for ("string" != typeof wa && (Pa = wa,
             wa = void 0),
-            wa = wa || "fx"; Ma--; )
-                (Ca = fr.get(Da[Ma], wa + "queueHooks")) && Ca.empty && (Aa++,
+            wa = wa || "fx"; Da--; )
+                (Ca = fr.get(Ma[Da], wa + "queueHooks")) && Ca.empty && (Aa++,
                 Ca.empty.add(Ia));
             return Ia(),
             Ra.promise(Pa)
@@ -2087,13 +2087,13 @@
         return "none" === (wa = Pa || wa).style.display || "" === wa.style.display && Vn.contains(wa.ownerDocument, wa) && "none" === Vn.css(wa, "display")
     }
       , vr = function(wa, Pa, Ca, Aa) {
-        var Ma = {}, Ra, Da;
-        for (Da in Pa)
-            Ma[Da] = wa.style[Da],
-            wa.style[Da] = Pa[Da];
-        for (Da in Ra = Ca.apply(wa, Aa || []),
+        var Da = {}, Ra, Ma;
+        for (Ma in Pa)
+            Da[Ma] = wa.style[Ma],
+            wa.style[Ma] = Pa[Ma];
+        for (Ma in Ra = Ca.apply(wa, Aa || []),
         Pa)
-            wa.style[Da] = Ma[Da];
+            wa.style[Ma] = Da[Ma];
         return Ra
     }
       , Tr = {};
@@ -2138,24 +2138,24 @@
     }();
     var Ar = kn.documentElement
       , Rr = /^key/
-      , Dr = /^(?:mouse|pointer|contextmenu|drag|drop)|click/
-      , Mr = /^([^.]*)(?:\.(.+)|)/;
+      , Mr = /^(?:mouse|pointer|contextmenu|drag|drop)|click/
+      , Dr = /^([^.]*)(?:\.(.+)|)/;
     Vn.event = {
         global: {},
         add: function(wa, Pa, Ca, Aa, Ra) {
-            var Xa = fr.get(wa), Da, Ma, Ia, Oa, La, ka, Na, Fa, Ba, Ua, Ha;
+            var Xa = fr.get(wa), Ma, Da, Ia, Oa, La, ka, Na, Fa, Ba, Ua, Ha;
             if (Xa)
-                for (Ca.handler && (Ca = (Da = Ca).handler,
-                Ra = Da.selector),
+                for (Ca.handler && (Ca = (Ma = Ca).handler,
+                Ra = Ma.selector),
                 Ra && Vn.find.matchesSelector(Ar, Ra),
                 Ca.guid || (Ca.guid = Vn.guid++),
                 (Oa = Xa.events) || (Oa = Xa.events = {}),
-                (Ma = Xa.handle) || (Ma = Xa.handle = function(Ga) {
+                (Da = Xa.handle) || (Da = Xa.handle = function(Ga) {
                     return void 0 !== Vn && Vn.event.triggered !== Ga.type ? Vn.event.dispatch.apply(wa, arguments) : void 0
                 }
                 ),
                 La = (Pa = (Pa || "").match(dr) || [""]).length; La--; )
-                    Ba = Ha = (Ia = Mr.exec(Pa[La]) || [])[1],
+                    Ba = Ha = (Ia = Dr.exec(Pa[La]) || [])[1],
                     Ua = (Ia[2] || "").split(".").sort(),
                     Ba && (Na = Vn.event.special[Ba] || {},
                     Ba = (Ra ? Na.delegateType : Na.bindType) || Ba,
@@ -2169,31 +2169,31 @@
                         selector: Ra,
                         needsContext: Ra && Vn.expr.match.needsContext.test(Ra),
                         namespace: Ua.join(".")
-                    }, Da),
+                    }, Ma),
                     (Fa = Oa[Ba]) || ((Fa = Oa[Ba] = []).delegateCount = 0,
-                    Na.setup && !1 !== Na.setup.call(wa, Aa, Ua, Ma) || wa.addEventListener && wa.addEventListener(Ba, Ma)),
+                    Na.setup && !1 !== Na.setup.call(wa, Aa, Ua, Da) || wa.addEventListener && wa.addEventListener(Ba, Da)),
                     Na.add && (Na.add.call(wa, ka),
                     ka.handler.guid || (ka.handler.guid = Ca.guid)),
                     Ra ? Fa.splice(Fa.delegateCount++, 0, ka) : Fa.push(ka),
                     Vn.event.global[Ba] = !0)
         },
         remove: function(wa, Pa, Ca, Aa, Ra) {
-            var Xa = fr.hasData(wa) && fr.get(wa), Da, Ma, Ia, Oa, La, ka, Na, Fa, Ba, Ua, Ha;
+            var Xa = fr.hasData(wa) && fr.get(wa), Ma, Da, Ia, Oa, La, ka, Na, Fa, Ba, Ua, Ha;
             if (Xa && (Oa = Xa.events)) {
                 for (La = (Pa = (Pa || "").match(dr) || [""]).length; La--; )
-                    if (Ia = Mr.exec(Pa[La]) || [],
+                    if (Ia = Dr.exec(Pa[La]) || [],
                     Ba = Ha = Ia[1],
                     Ua = (Ia[2] || "").split(".").sort(),
                     Ba) {
                         for (Na = Vn.event.special[Ba] || {},
                         Fa = Oa[Ba = (Aa ? Na.delegateType : Na.bindType) || Ba] || [],
                         Ia = Ia[2] && new RegExp("(^|\\.)" + Ua.join("\\.(?:.*\\.|)") + "(\\.|$)"),
-                        Ma = Da = Fa.length; Da--; )
-                            ka = Fa[Da],
-                            !Ra && Ha !== ka.origType || Ca && Ca.guid !== ka.guid || Ia && !Ia.test(ka.namespace) || Aa && Aa !== ka.selector && ("**" !== Aa || !ka.selector) || (Fa.splice(Da, 1),
+                        Da = Ma = Fa.length; Ma--; )
+                            ka = Fa[Ma],
+                            !Ra && Ha !== ka.origType || Ca && Ca.guid !== ka.guid || Ia && !Ia.test(ka.namespace) || Aa && Aa !== ka.selector && ("**" !== Aa || !ka.selector) || (Fa.splice(Ma, 1),
                             ka.selector && Fa.delegateCount--,
                             Na.remove && Na.remove.call(wa, ka));
-                        Ma && !Fa.length && (Na.teardown && !1 !== Na.teardown.call(wa, Ua, Xa.handle) || Vn.removeEvent(wa, Ba, Xa.handle),
+                        Da && !Fa.length && (Na.teardown && !1 !== Na.teardown.call(wa, Ua, Xa.handle) || Vn.removeEvent(wa, Ba, Xa.handle),
                         delete Oa[Ba])
                     } else
                         for (Ba in Oa)
@@ -2202,37 +2202,37 @@
             }
         },
         dispatch: function(wa) {
-            var Ia = Vn.event.fix(wa), Oa = Array(arguments.length), La = (fr.get(this, "events") || {})[Ia.type] || [], ka = Vn.event.special[Ia.type] || {}, Pa, Ca, Aa, Ra, Da, Ma;
+            var Ia = Vn.event.fix(wa), Oa = Array(arguments.length), La = (fr.get(this, "events") || {})[Ia.type] || [], ka = Vn.event.special[Ia.type] || {}, Pa, Ca, Aa, Ra, Ma, Da;
             for (Oa[0] = Ia,
             Pa = 1; Pa < arguments.length; Pa++)
                 Oa[Pa] = arguments[Pa];
             if (Ia.delegateTarget = this,
             !ka.preDispatch || !1 !== ka.preDispatch.call(this, Ia)) {
-                for (Ma = Vn.event.handlers.call(this, Ia, La),
-                Pa = 0; (Ra = Ma[Pa++]) && !Ia.isPropagationStopped(); )
+                for (Da = Vn.event.handlers.call(this, Ia, La),
+                Pa = 0; (Ra = Da[Pa++]) && !Ia.isPropagationStopped(); )
                     for (Ia.currentTarget = Ra.elem,
-                    Ca = 0; (Da = Ra.handlers[Ca++]) && !Ia.isImmediatePropagationStopped(); )
-                        Ia.rnamespace && !Ia.rnamespace.test(Da.namespace) || (Ia.handleObj = Da,
-                        Ia.data = Da.data,
-                        void 0 !== (Aa = ((Vn.event.special[Da.origType] || {}).handle || Da.handler).apply(Ra.elem, Oa)) && !1 === (Ia.result = Aa) && (Ia.preventDefault(),
+                    Ca = 0; (Ma = Ra.handlers[Ca++]) && !Ia.isImmediatePropagationStopped(); )
+                        Ia.rnamespace && !Ia.rnamespace.test(Ma.namespace) || (Ia.handleObj = Ma,
+                        Ia.data = Ma.data,
+                        void 0 !== (Aa = ((Vn.event.special[Ma.origType] || {}).handle || Ma.handler).apply(Ra.elem, Oa)) && !1 === (Ia.result = Aa) && (Ia.preventDefault(),
                         Ia.stopPropagation()));
                 return ka.postDispatch && ka.postDispatch.call(this, Ia),
                 Ia.result
             }
         },
         handlers: function(wa, Pa) {
-            var Ia = [], Oa = Pa.delegateCount, La = wa.target, Ca, Aa, Ra, Da, Ma;
+            var Ia = [], Oa = Pa.delegateCount, La = wa.target, Ca, Aa, Ra, Ma, Da;
             if (Oa && La.nodeType && !("click" === wa.type && 1 <= wa.button))
                 for (; La !== this; La = La.parentNode || this)
                     if (1 === La.nodeType && ("click" !== wa.type || !0 !== La.disabled)) {
-                        for (Da = [],
-                        Ma = {},
+                        for (Ma = [],
+                        Da = {},
                         Ca = 0; Ca < Oa; Ca++)
-                            void 0 === Ma[Ra = (Aa = Pa[Ca]).selector + " "] && (Ma[Ra] = Aa.needsContext ? -1 < Vn(Ra, this).index(La) : Vn.find(Ra, this, null, [La]).length),
-                            Ma[Ra] && Da.push(Aa);
-                        Da.length && Ia.push({
+                            void 0 === Da[Ra = (Aa = Pa[Ca]).selector + " "] && (Da[Ra] = Aa.needsContext ? -1 < Vn(Ra, this).index(La) : Vn.find(Ra, this, null, [La]).length),
+                            Da[Ra] && Ma.push(Aa);
+                        Ma.length && Ia.push({
                             elem: La,
-                            handlers: Da
+                            handlers: Ma
                         })
                     }
             return La = this,
@@ -2376,7 +2376,7 @@
         touches: !0,
         which: function(wa) {
             var Pa = wa.button;
-            return null == wa.which && Rr.test(wa.type) ? null == wa.charCode ? wa.keyCode : wa.charCode : !wa.which && void 0 !== Pa && Dr.test(wa.type) ? 1 & Pa ? 1 : 2 & Pa ? 3 : 4 & Pa ? 2 : 0 : wa.which
+            return null == wa.which && Rr.test(wa.type) ? null == wa.charCode ? wa.keyCode : wa.charCode : !wa.which && void 0 !== Pa && Mr.test(wa.type) ? 1 & Pa ? 1 : 2 & Pa ? 3 : 4 & Pa ? 2 : 0 : wa.which
         }
     }, Vn.event.addProp),
     Vn.each({
@@ -2389,9 +2389,9 @@
             delegateType: Pa,
             bindType: Pa,
             handle: function(Ca) {
-                var Ra = Ca.relatedTarget, Da = Ca.handleObj, Aa;
-                return Ra && (Ra === this || Vn.contains(this, Ra)) || (Ca.type = Da.origType,
-                Aa = Da.handler.apply(this, arguments),
+                var Ra = Ca.relatedTarget, Ma = Ca.handleObj, Aa;
+                return Ra && (Ra === this || Vn.contains(this, Ra)) || (Ca.type = Ma.origType,
+                Aa = Ma.handler.apply(this, arguments),
                 Ca.type = Pa),
                 Aa
             }
@@ -2433,26 +2433,26 @@
             return wa.replace(Ir, "<$1></$2>")
         },
         clone: function(wa, Pa, Ca) {
-            var Ia = wa.cloneNode(!0), Oa = Vn.contains(wa.ownerDocument, wa), Aa, Ra, Da, Ma;
+            var Ia = wa.cloneNode(!0), Oa = Vn.contains(wa.ownerDocument, wa), Aa, Ra, Ma, Da;
             if (!(zn.noCloneChecked || 1 !== wa.nodeType && 11 !== wa.nodeType || Vn.isXMLDoc(wa)))
-                for (Ma = tn(Ia),
+                for (Da = tn(Ia),
                 Aa = 0,
-                Ra = (Da = tn(wa)).length; Aa < Ra; Aa++)
-                    fn(Da[Aa], Ma[Aa]);
+                Ra = (Ma = tn(wa)).length; Aa < Ra; Aa++)
+                    fn(Ma[Aa], Da[Aa]);
             if (Pa)
                 if (Ca)
-                    for (Da = Da || tn(wa),
-                    Ma = Ma || tn(Ia),
+                    for (Ma = Ma || tn(wa),
+                    Da = Da || tn(Ia),
                     Aa = 0,
-                    Ra = Da.length; Aa < Ra; Aa++)
-                        cn(Da[Aa], Ma[Aa]);
+                    Ra = Ma.length; Aa < Ra; Aa++)
+                        cn(Ma[Aa], Da[Aa]);
                 else
                     cn(wa, Ia);
-            return 0 < (Ma = tn(Ia, "script")).length && nn(Ma, !Oa && tn(wa, "script")),
+            return 0 < (Da = tn(Ia, "script")).length && nn(Da, !Oa && tn(wa, "script")),
             Ia
         },
         cleanData: function(wa) {
-            for (var Ra = Vn.event.special, Da = 0, Pa, Ca, Aa; void 0 !== (Ca = wa[Da]); Da++)
+            for (var Ra = Vn.event.special, Ma = 0, Pa, Ca, Aa; void 0 !== (Ca = wa[Ma]); Ma++)
                 if (cr(Ca)) {
                     if (Pa = Ca[fr.expando]) {
                         if (Pa.events)
@@ -2528,7 +2528,7 @@
                             1 === (Ca = this[Aa] || {}).nodeType && (Vn.cleanData(tn(Ca, !1)),
                             Ca.innerHTML = Pa);
                         Ca = 0
-                    } catch (Da) {}
+                    } catch (Ma) {}
                 }
                 Ca && this.empty().append(Pa)
             }, null, wa, arguments.length)
@@ -2550,9 +2550,9 @@
         replaceAll: "replaceWith"
     }, function(wa, Pa) {
         Vn.fn[wa] = function(Ca) {
-            for (var Ra = [], Da = Vn(Ca), Ma = Da.length - 1, Ia = 0, Aa; Ia <= Ma; Ia++)
-                Aa = Ia === Ma ? this : this.clone(!0),
-                Vn(Da[Ia])[Pa](Aa),
+            for (var Ra = [], Ma = Vn(Ca), Da = Ma.length - 1, Ia = 0, Aa; Ia <= Da; Ia++)
+                Aa = Ia === Da ? this : this.clone(!0),
+                Vn(Ma[Ia])[Pa](Aa),
                 Un.apply(Ra, Aa.get());
             return this.pushStack(Ra)
         }
@@ -2566,26 +2566,26 @@
     };
     !function() {
         function wa() {
-            if (Ma) {
-                Ma.style.cssText = "box-sizing:border-box;position:relative;display:block;margin:auto;border:1px;padding:1px;top:1%;width:50%",
-                Ma.innerHTML = "",
-                Ar.appendChild(Da);
-                var Ia = Bt.getComputedStyle(Ma);
+            if (Da) {
+                Da.style.cssText = "box-sizing:border-box;position:relative;display:block;margin:auto;border:1px;padding:1px;top:1%;width:50%",
+                Da.innerHTML = "",
+                Ar.appendChild(Ma);
+                var Ia = Bt.getComputedStyle(Da);
                 Pa = "1%" !== Ia.top,
                 Ra = "2px" === Ia.marginLeft,
                 Ca = "4px" === Ia.width,
-                Ma.style.marginRight = "50%",
+                Da.style.marginRight = "50%",
                 Aa = "4px" === Ia.marginRight,
-                Ar.removeChild(Da),
-                Ma = null
+                Ar.removeChild(Ma),
+                Da = null
             }
         }
-        var Da = kn.createElement("div"), Ma = kn.createElement("div"), Pa, Ca, Aa, Ra;
-        Ma.style && (Ma.style.backgroundClip = "content-box",
-        Ma.cloneNode(!0).style.backgroundClip = "",
-        zn.clearCloneStyle = "content-box" === Ma.style.backgroundClip,
-        Da.style.cssText = "border:0;width:8px;height:0;top:0;left:-9999px;padding:0;margin-top:1px;position:absolute",
-        Da.appendChild(Ma),
+        var Ma = kn.createElement("div"), Da = kn.createElement("div"), Pa, Ca, Aa, Ra;
+        Da.style && (Da.style.backgroundClip = "content-box",
+        Da.cloneNode(!0).style.backgroundClip = "",
+        zn.clearCloneStyle = "content-box" === Da.style.backgroundClip,
+        Ma.style.cssText = "border:0;width:8px;height:0;top:0;left:-9999px;padding:0;margin-top:1px;position:absolute",
+        Ma.appendChild(Da),
         Vn.extend(zn, {
             pixelPosition: function() {
                 return wa(),
@@ -2649,26 +2649,26 @@
         },
         style: function(wa, Pa, Ca, Aa) {
             if (wa && 3 !== wa.nodeType && 8 !== wa.nodeType && wa.style) {
-                var Ia = Vn.camelCase(Pa), Oa = Xr.test(Pa), La = wa.style, Ra, Da, Ma;
+                var Ia = Vn.camelCase(Pa), Oa = Xr.test(Pa), La = wa.style, Ra, Ma, Da;
                 if (Oa || (Pa = _n(Ia)),
-                Ma = Vn.cssHooks[Pa] || Vn.cssHooks[Ia],
+                Da = Vn.cssHooks[Pa] || Vn.cssHooks[Ia],
                 void 0 === Ca)
-                    return Ma && "get"in Ma && void 0 !== (Ra = Ma.get(wa, !1, Aa)) ? Ra : La[Pa];
-                "string" == (Da = typeof Ca) && (Ra = _r.exec(Ca)) && Ra[1] && (Ca = Jt(wa, Pa, Ra),
-                Da = "number"),
-                null != Ca && Ca == Ca && ("number" === Da && (Ca += Ra && Ra[3] || (Vn.cssNumber[Ia] ? "" : "px")),
+                    return Da && "get"in Da && void 0 !== (Ra = Da.get(wa, !1, Aa)) ? Ra : La[Pa];
+                "string" == (Ma = typeof Ca) && (Ra = _r.exec(Ca)) && Ra[1] && (Ca = Jt(wa, Pa, Ra),
+                Ma = "number"),
+                null != Ca && Ca == Ca && ("number" === Ma && (Ca += Ra && Ra[3] || (Vn.cssNumber[Ia] ? "" : "px")),
                 zn.clearCloneStyle || "" !== Ca || 0 !== Pa.indexOf("background") || (La[Pa] = "inherit"),
-                Ma && "set"in Ma && void 0 === (Ca = Ma.set(wa, Ca, Aa)) || (Oa ? La.setProperty(Pa, Ca) : La[Pa] = Ca))
+                Da && "set"in Da && void 0 === (Ca = Da.set(wa, Ca, Aa)) || (Oa ? La.setProperty(Pa, Ca) : La[Pa] = Ca))
             }
         },
         css: function(wa, Pa, Ca, Aa) {
-            var Ia = Vn.camelCase(Pa), Ra, Da, Ma;
+            var Ia = Vn.camelCase(Pa), Ra, Ma, Da;
             return Xr.test(Pa) || (Pa = _n(Ia)),
-            (Ma = Vn.cssHooks[Pa] || Vn.cssHooks[Ia]) && "get"in Ma && (Ra = Ma.get(wa, !0, Ca)),
+            (Da = Vn.cssHooks[Pa] || Vn.cssHooks[Ia]) && "get"in Da && (Ra = Da.get(wa, !0, Ca)),
             void 0 === Ra && (Ra = mn(wa, Pa, Aa)),
             "normal" === Ra && Pa in Yr && (Ra = Yr[Pa]),
-            "" === Ca || Ca ? (Da = parseFloat(Ra),
-            !0 === Ca || isFinite(Da) ? Da || 0 : Ra) : Ra
+            "" === Ca || Ca ? (Ma = parseFloat(Ra),
+            !0 === Ca || isFinite(Ma) ? Ma || 0 : Ra) : Ra
         }
     }),
     Vn.each(["height", "width"], function(wa, Pa) {
@@ -2680,8 +2680,8 @@
                     })
             },
             set: function(Ca, Aa, Ra) {
-                var Ma = Ra && Ur(Ca), Ia = Ra && xn(Ca, Pa, Ra, "border-box" === Vn.css(Ca, "boxSizing", !1, Ma), Ma), Da;
-                return Ia && (Da = _r.exec(Aa)) && "px" !== (Da[3] || "px") && (Ca.style[Pa] = Aa,
+                var Da = Ra && Ur(Ca), Ia = Ra && xn(Ca, Pa, Ra, "border-box" === Vn.css(Ca, "boxSizing", !1, Da), Da), Ma;
+                return Ia && (Ma = _r.exec(Aa)) && "px" !== (Ma[3] || "px") && (Ca.style[Pa] = Aa,
                 Aa = Vn.css(Ca, Pa)),
                 bn(0, Aa, Ia)
             }
@@ -2702,8 +2702,8 @@
     }, function(wa, Pa) {
         Vn.cssHooks[wa + Pa] = {
             expand: function(Ca) {
-                for (var Aa = 0, Ra = {}, Da = "string" == typeof Ca ? Ca.split(" ") : [Ca]; 4 > Aa; Aa++)
-                    Ra[wa + br[Aa] + Pa] = Da[Aa] || Da[Aa - 2] || Da[0];
+                for (var Aa = 0, Ra = {}, Ma = "string" == typeof Ca ? Ca.split(" ") : [Ca]; 4 > Aa; Aa++)
+                    Ra[wa + br[Aa] + Pa] = Ma[Aa] || Ma[Aa - 2] || Ma[0];
                 return Ra
             }
         },
@@ -2712,11 +2712,11 @@
     Vn.fn.extend({
         css: function(wa, Pa) {
             return pr(this, function(Ca, Aa, Ra) {
-                var Ia = {}, Oa = 0, Da, Ma;
+                var Ia = {}, Oa = 0, Ma, Da;
                 if (Array.isArray(Aa)) {
-                    for (Da = Ur(Ca),
-                    Ma = Aa.length; Oa < Ma; Oa++)
-                        Ia[Aa[Oa]] = Vn.css(Ca, Aa[Oa], !1, Da);
+                    for (Ma = Ur(Ca),
+                    Da = Aa.length; Oa < Da; Oa++)
+                        Ia[Aa[Oa]] = Vn.css(Ca, Aa[Oa], !1, Ma);
                     return Ia
                 }
                 return void 0 === Ra ? Vn.css(Ca, Aa) : Vn.style(Ca, Aa, Ra)
@@ -2726,14 +2726,14 @@
     Vn.Tween = Tn,
     (Tn.prototype = {
         constructor: Tn,
-        init: function(wa, Pa, Ca, Aa, Ra, Da) {
+        init: function(wa, Pa, Ca, Aa, Ra, Ma) {
             this.elem = wa,
             this.prop = Ca,
             this.easing = Ra || Vn.easing._default,
             this.options = Pa,
             this.start = this.now = this.cur(),
             this.end = Aa,
-            this.unit = Da || (Vn.cssNumber[Ca] ? "" : "px")
+            this.unit = Ma || (Vn.cssNumber[Ca] ? "" : "px")
         },
         cur: function() {
             var wa = Tn.propHooks[this.prop];
@@ -2793,25 +2793,25 @@
                 Cn.tweeners[Ca].unshift(Pa)
         },
         prefilters: [function(wa, Pa, Ca) {
-            var Fa = this, Ba = {}, Ua = wa.style, Ha = wa.nodeType && xr(wa), Xa = fr.get(wa, "fxshow"), Aa, Ra, Da, Ma, Ia, Oa, La, ka;
-            for (Aa in Ca.queue || (null == (Ma = Vn._queueHooks(wa, "fx")).unqueued && (Ma.unqueued = 0,
-            Ia = Ma.empty.fire,
-            Ma.empty.fire = function() {
-                Ma.unqueued || Ia()
+            var Fa = this, Ba = {}, Ua = wa.style, Ha = wa.nodeType && xr(wa), Xa = fr.get(wa, "fxshow"), Aa, Ra, Ma, Da, Ia, Oa, La, ka;
+            for (Aa in Ca.queue || (null == (Da = Vn._queueHooks(wa, "fx")).unqueued && (Da.unqueued = 0,
+            Ia = Da.empty.fire,
+            Da.empty.fire = function() {
+                Da.unqueued || Ia()
             }
             ),
-            Ma.unqueued++,
+            Da.unqueued++,
             Fa.always(function() {
                 Fa.always(function() {
-                    Ma.unqueued--,
-                    Vn.queue(wa, "fx").length || Ma.empty.fire()
+                    Da.unqueued--,
+                    Vn.queue(wa, "fx").length || Da.empty.fire()
                 })
             })),
             Pa)
                 if (Ra = Pa[Aa],
                 qr.test(Ra)) {
                     if (delete Pa[Aa],
-                    Da = Da || "toggle" === Ra,
+                    Ma = Ma || "toggle" === Ra,
                     Ra === (Ha ? "hide" : "show")) {
                         if ("show" !== Ra || !Xa || void 0 === Xa[Aa])
                             continue;
@@ -2843,7 +2843,7 @@
                     Oa || (Xa ? "hidden"in Xa && (Ha = Xa.hidden) : Xa = fr.access(wa, "fxshow", {
                         display: La
                     }),
-                    Da && (Xa.hidden = !Ha),
+                    Ma && (Xa.hidden = !Ha),
                     Ha && en([wa], !0),
                     Fa.done(function() {
                         for (Aa in Ha || en([wa]),
@@ -2886,19 +2886,19 @@
         },
         animate: function(wa, Pa, Ca, Aa) {
             var Ra = Vn.isEmptyObject(wa)
-              , Da = Vn.speed(Pa, Ca, Aa)
-              , Ma = function() {
-                var Ia = Cn(this, Vn.extend({}, wa), Da);
+              , Ma = Vn.speed(Pa, Ca, Aa)
+              , Da = function() {
+                var Ia = Cn(this, Vn.extend({}, wa), Ma);
                 (Ra || fr.get(this, "finish")) && Ia.stop(!0)
             };
-            return Ma.finish = Ma,
-            Ra || !1 === Da.queue ? this.each(Ma) : this.queue(Da.queue, Ma)
+            return Da.finish = Da,
+            Ra || !1 === Ma.queue ? this.each(Da) : this.queue(Ma.queue, Da)
         },
         stop: function(wa, Pa, Ca) {
             var Aa = function(Ra) {
-                var Da = Ra.stop;
+                var Ma = Ra.stop;
                 delete Ra.stop,
-                Da(Ca)
+                Ma(Ca)
             };
             return "string" != typeof wa && (Ca = Pa,
             Pa = wa,
@@ -2906,32 +2906,32 @@
             Pa && !1 !== wa && this.queue(wa || "fx", []),
             this.each(function() {
                 var Ra = !0
-                  , Da = null != wa && wa + "queueHooks"
-                  , Ma = Vn.timers
+                  , Ma = null != wa && wa + "queueHooks"
+                  , Da = Vn.timers
                   , Ia = fr.get(this);
-                if (Da)
-                    Ia[Da] && Ia[Da].stop && Aa(Ia[Da]);
+                if (Ma)
+                    Ia[Ma] && Ia[Ma].stop && Aa(Ia[Ma]);
                 else
-                    for (Da in Ia)
-                        Ia[Da] && Ia[Da].stop && Kr.test(Da) && Aa(Ia[Da]);
-                for (Da = Ma.length; Da--; )
-                    Ma[Da].elem !== this || null != wa && Ma[Da].queue !== wa || (Ma[Da].anim.stop(Ca),
+                    for (Ma in Ia)
+                        Ia[Ma] && Ia[Ma].stop && Kr.test(Ma) && Aa(Ia[Ma]);
+                for (Ma = Da.length; Ma--; )
+                    Da[Ma].elem !== this || null != wa && Da[Ma].queue !== wa || (Da[Ma].anim.stop(Ca),
                     Ra = !1,
-                    Ma.splice(Da, 1));
+                    Da.splice(Ma, 1));
                 !Ra && Ca || Vn.dequeue(this, wa)
             })
         },
         finish: function(wa) {
             return !1 !== wa && (wa = wa || "fx"),
             this.each(function() {
-                var Ca = fr.get(this), Aa = Ca[wa + "queue"], Ra = Ca[wa + "queueHooks"], Da = Vn.timers, Ma = Aa ? Aa.length : 0, Pa;
+                var Ca = fr.get(this), Aa = Ca[wa + "queue"], Ra = Ca[wa + "queueHooks"], Ma = Vn.timers, Da = Aa ? Aa.length : 0, Pa;
                 for (Ca.finish = !0,
                 Vn.queue(this, wa, []),
                 Ra && Ra.stop && Ra.stop.call(this, !0),
-                Pa = Da.length; Pa--; )
-                    Da[Pa].elem === this && Da[Pa].queue === wa && (Da[Pa].anim.stop(!0),
-                    Da.splice(Pa, 1));
-                for (Pa = 0; Pa < Ma; Pa++)
+                Pa = Ma.length; Pa--; )
+                    Ma[Pa].elem === this && Ma[Pa].queue === wa && (Ma[Pa].anim.stop(!0),
+                    Ma.splice(Pa, 1));
+                for (Pa = 0; Pa < Da; Pa++)
                     Aa[Pa] && Aa[Pa].finish && Aa[Pa].finish.call(this);
                 delete Ca.finish
             })
@@ -2939,8 +2939,8 @@
     }),
     Vn.each(["toggle", "show", "hide"], function(wa, Pa) {
         var Ca = Vn.fn[Pa];
-        Vn.fn[Pa] = function(Aa, Ra, Da) {
-            return null == Aa || "boolean" == typeof Aa ? Ca.apply(this, arguments) : this.animate(wn(Pa, !0), Aa, Ra, Da)
+        Vn.fn[Pa] = function(Aa, Ra, Ma) {
+            return null == Aa || "boolean" == typeof Aa ? Ca.apply(this, arguments) : this.animate(wn(Pa, !0), Aa, Ra, Ma)
         }
     }),
     Vn.each({
@@ -3024,9 +3024,9 @@
     }),
     Vn.extend({
         attr: function(wa, Pa, Ca) {
-            var Da = wa.nodeType, Aa, Ra;
-            if (3 !== Da && 8 !== Da && 2 !== Da)
-                return void 0 === wa.getAttribute ? Vn.prop(wa, Pa, Ca) : (1 === Da && Vn.isXMLDoc(wa) || (Ra = Vn.attrHooks[Pa.toLowerCase()] || (Vn.expr.match.bool.test(Pa) ? Qr : void 0)),
+            var Ma = wa.nodeType, Aa, Ra;
+            if (3 !== Ma && 8 !== Ma && 2 !== Ma)
+                return void 0 === wa.getAttribute ? Vn.prop(wa, Pa, Ca) : (1 === Ma && Vn.isXMLDoc(wa) || (Ra = Vn.attrHooks[Pa.toLowerCase()] || (Vn.expr.match.bool.test(Pa) ? Qr : void 0)),
                 void 0 === Ca ? Ra && "get"in Ra && null !== (Aa = Ra.get(wa, Pa)) ? Aa : null == (Aa = Vn.find.attr(wa, Pa)) ? void 0 : Aa : null === Ca ? void Vn.removeAttr(wa, Pa) : Ra && "set"in Ra && void 0 !== (Aa = Ra.set(wa, Ca, Pa)) ? Aa : (wa.setAttribute(Pa, Ca + ""),
                 Ca))
         },
@@ -3057,13 +3057,13 @@
     },
     Vn.each(Vn.expr.match.bool.source.match(/\w+/g), function(wa, Pa) {
         var Ca = Zr[Pa] || Vn.find.attr;
-        Zr[Pa] = function(Aa, Ra, Da) {
-            var Oa = Ra.toLowerCase(), Ma, Ia;
-            return Da || (Ia = Zr[Oa],
-            Zr[Oa] = Ma,
-            Ma = null == Ca(Aa, Ra, Da) ? null : Oa,
+        Zr[Pa] = function(Aa, Ra, Ma) {
+            var Oa = Ra.toLowerCase(), Da, Ia;
+            return Ma || (Ia = Zr[Oa],
+            Zr[Oa] = Da,
+            Da = null == Ca(Aa, Ra, Ma) ? null : Oa,
             Zr[Oa] = Ia),
-            Ma
+            Da
         }
     });
     var Jr = /^(?:input|select|textarea|button)$/i
@@ -3080,9 +3080,9 @@
     }),
     Vn.extend({
         prop: function(wa, Pa, Ca) {
-            var Da = wa.nodeType, Aa, Ra;
-            if (3 !== Da && 8 !== Da && 2 !== Da)
-                return 1 === Da && Vn.isXMLDoc(wa) || (Pa = Vn.propFix[Pa] || Pa,
+            var Ma = wa.nodeType, Aa, Ra;
+            if (3 !== Ma && 8 !== Ma && 2 !== Ma)
+                return 1 === Ma && Vn.isXMLDoc(wa) || (Pa = Vn.propFix[Pa] || Pa,
                 Ra = Vn.propHooks[Pa]),
                 void 0 === Ca ? Ra && "get"in Ra && null !== (Aa = Ra.get(wa, Pa)) ? Aa : wa[Pa] : Ra && "set"in Ra && void 0 !== (Aa = Ra.set(wa, Ca, Pa)) ? Aa : wa[Pa] = Ca
         },
@@ -3116,7 +3116,7 @@
     }),
     Vn.fn.extend({
         addClass: function(wa) {
-            var Oa = 0, Pa, Ca, Aa, Ra, Da, Ma, Ia;
+            var Oa = 0, Pa, Ca, Aa, Ra, Ma, Da, Ia;
             if (Vn.isFunction(wa))
                 return this.each(function(La) {
                     Vn(this).addClass(wa.call(this, La, Rn(this)))
@@ -3125,14 +3125,14 @@
                 for (Pa = wa.match(dr) || []; Ca = this[Oa++]; )
                     if (Ra = Rn(Ca),
                     Aa = 1 === Ca.nodeType && " " + An(Ra) + " ") {
-                        for (Ma = 0; Da = Pa[Ma++]; )
-                            0 > Aa.indexOf(" " + Da + " ") && (Aa += Da + " ");
+                        for (Da = 0; Ma = Pa[Da++]; )
+                            0 > Aa.indexOf(" " + Ma + " ") && (Aa += Ma + " ");
                         Ra !== (Ia = An(Aa)) && Ca.setAttribute("class", Ia)
                     }
             return this
         },
         removeClass: function(wa) {
-            var Oa = 0, Pa, Ca, Aa, Ra, Da, Ma, Ia;
+            var Oa = 0, Pa, Ca, Aa, Ra, Ma, Da, Ia;
             if (Vn.isFunction(wa))
                 return this.each(function(La) {
                     Vn(this).removeClass(wa.call(this, La, Rn(this)))
@@ -3143,9 +3143,9 @@
                 for (Pa = wa.match(dr) || []; Ca = this[Oa++]; )
                     if (Ra = Rn(Ca),
                     Aa = 1 === Ca.nodeType && " " + An(Ra) + " ") {
-                        for (Ma = 0; Da = Pa[Ma++]; )
-                            for (; -1 < Aa.indexOf(" " + Da + " "); )
-                                Aa = Aa.replace(" " + Da + " ", " ");
+                        for (Da = 0; Ma = Pa[Da++]; )
+                            for (; -1 < Aa.indexOf(" " + Ma + " "); )
+                                Aa = Aa.replace(" " + Ma + " ", " ");
                         Ra !== (Ia = An(Aa)) && Ca.setAttribute("class", Ia)
                     }
             return this
@@ -3155,12 +3155,12 @@
             return "boolean" == typeof Pa && "string" == Ca ? Pa ? this.addClass(wa) : this.removeClass(wa) : Vn.isFunction(wa) ? this.each(function(Aa) {
                 Vn(this).toggleClass(wa.call(this, Aa, Rn(this), Pa), Pa)
             }) : this.each(function() {
-                var Aa, Ra, Da, Ma;
+                var Aa, Ra, Ma, Da;
                 if ("string" == Ca)
                     for (Ra = 0,
-                    Da = Vn(this),
-                    Ma = wa.match(dr) || []; Aa = Ma[Ra++]; )
-                        Da.hasClass(Aa) ? Da.removeClass(Aa) : Da.addClass(Aa);
+                    Ma = Vn(this),
+                    Da = wa.match(dr) || []; Aa = Da[Ra++]; )
+                        Ma.hasClass(Aa) ? Ma.removeClass(Aa) : Ma.addClass(Aa);
                 else
                     void 0 !== wa && "boolean" != Ca || ((Aa = Rn(this)) && fr.set(this, "__className__", Aa),
                     this.setAttribute && this.setAttribute("class", Aa || !1 === wa ? "" : fr.get(this, "__className__") || ""))
@@ -3179,12 +3179,12 @@
         val: function(wa) {
             var Ra = this[0], Pa, Ca, Aa;
             return arguments.length ? (Aa = Vn.isFunction(wa),
-            this.each(function(Da) {
-                var Ma;
-                1 === this.nodeType && (null == (Ma = Aa ? wa.call(this, Da, Vn(this).val()) : wa) ? Ma = "" : "number" == typeof Ma ? Ma += "" : Array.isArray(Ma) && (Ma = Vn.map(Ma, function(Ia) {
+            this.each(function(Ma) {
+                var Da;
+                1 === this.nodeType && (null == (Da = Aa ? wa.call(this, Ma, Vn(this).val()) : wa) ? Da = "" : "number" == typeof Da ? Da += "" : Array.isArray(Da) && (Da = Vn.map(Da, function(Ia) {
                     return null == Ia ? "" : Ia + ""
                 })),
-                (Pa = Vn.valHooks[this.type] || Vn.valHooks[this.nodeName.toLowerCase()]) && "set"in Pa && void 0 !== Pa.set(this, Ma, "value") || (this.value = Ma))
+                (Pa = Vn.valHooks[this.type] || Vn.valHooks[this.nodeName.toLowerCase()]) && "set"in Pa && void 0 !== Pa.set(this, Da, "value") || (this.value = Da))
             })) : Ra ? (Pa = Vn.valHooks[Ra.type] || Vn.valHooks[Ra.nodeName.toLowerCase()]) && "get"in Pa && void 0 !== (Ca = Pa.get(Ra, "value")) ? Ca : "string" == typeof (Ca = Ra.value) ? Ca.replace(ea, "") : null == Ca ? "" : Ca : void 0
         }
     }),
@@ -3198,21 +3198,21 @@
             },
             select: {
                 get: function(wa) {
-                    var Ra = wa.options, Da = wa.selectedIndex, Ma = "select-one" === wa.type, Ia = Ma ? null : [], Oa = Ma ? Da + 1 : Ra.length, Pa, Ca, Aa;
-                    for (Aa = 0 > Da ? Oa : Ma ? Da : 0; Aa < Oa; Aa++)
-                        if (((Ca = Ra[Aa]).selected || Aa === Da) && !Ca.disabled && (!Ca.parentNode.disabled || !Yt(Ca.parentNode, "optgroup"))) {
+                    var Ra = wa.options, Ma = wa.selectedIndex, Da = "select-one" === wa.type, Ia = Da ? null : [], Oa = Da ? Ma + 1 : Ra.length, Pa, Ca, Aa;
+                    for (Aa = 0 > Ma ? Oa : Da ? Ma : 0; Aa < Oa; Aa++)
+                        if (((Ca = Ra[Aa]).selected || Aa === Ma) && !Ca.disabled && (!Ca.parentNode.disabled || !Yt(Ca.parentNode, "optgroup"))) {
                             if (Pa = Vn(Ca).val(),
-                            Ma)
+                            Da)
                                 return Pa;
                             Ia.push(Pa)
                         }
                     return Ia
                 },
                 set: function(wa, Pa) {
-                    for (var Ra = wa.options, Da = Vn.makeArray(Pa), Ma = Ra.length, Ca, Aa; Ma--; )
-                        ((Aa = Ra[Ma]).selected = -1 < Vn.inArray(Vn.valHooks.option.get(Aa), Da)) && (Ca = !0);
+                    for (var Ra = wa.options, Ma = Vn.makeArray(Pa), Da = Ra.length, Ca, Aa; Da--; )
+                        ((Aa = Ra[Da]).selected = -1 < Vn.inArray(Vn.valHooks.option.get(Aa), Ma)) && (Ca = !0);
                     return Ca || (wa.selectedIndex = -1),
-                    Da
+                    Ma
                 }
             }
         }
@@ -3232,8 +3232,8 @@
     var ta = /^(?:focusinfocus|focusoutblur)$/;
     Vn.extend(Vn.event, {
         trigger: function(wa, Pa, Ca, Aa) {
-            var Na = [Ca || kn], Fa = Yn.call(wa, "type") ? wa.type : wa, Ba = Yn.call(wa, "namespace") ? wa.namespace.split(".") : [], Ra, Da, Ma, Ia, Oa, La, ka;
-            if (Da = Ma = Ca = Ca || kn,
+            var Na = [Ca || kn], Fa = Yn.call(wa, "type") ? wa.type : wa, Ba = Yn.call(wa, "namespace") ? wa.namespace.split(".") : [], Ra, Ma, Da, Ia, Oa, La, ka;
+            if (Ma = Da = Ca = Ca || kn,
             3 !== Ca.nodeType && 8 !== Ca.nodeType && !ta.test(Fa + Vn.event.triggered) && (-1 < Fa.indexOf(".") && (Fa = (Ba = Fa.split(".")).shift(),
             Ba.sort()),
             Oa = 0 > Fa.indexOf(":") && "on" + Fa,
@@ -3248,22 +3248,22 @@
             Aa || !ka.trigger || !1 !== ka.trigger.apply(Ca, Pa))) {
                 if (!Aa && !ka.noBubble && !Vn.isWindow(Ca)) {
                     for (Ia = ka.delegateType || Fa,
-                    ta.test(Ia + Fa) || (Da = Da.parentNode); Da; Da = Da.parentNode)
-                        Na.push(Da),
-                        Ma = Da;
-                    Ma === (Ca.ownerDocument || kn) && Na.push(Ma.defaultView || Ma.parentWindow || Bt)
+                    ta.test(Ia + Fa) || (Ma = Ma.parentNode); Ma; Ma = Ma.parentNode)
+                        Na.push(Ma),
+                        Da = Ma;
+                    Da === (Ca.ownerDocument || kn) && Na.push(Da.defaultView || Da.parentWindow || Bt)
                 }
-                for (Ra = 0; (Da = Na[Ra++]) && !wa.isPropagationStopped(); )
+                for (Ra = 0; (Ma = Na[Ra++]) && !wa.isPropagationStopped(); )
                     wa.type = 1 < Ra ? Ia : ka.bindType || Fa,
-                    (La = (fr.get(Da, "events") || {})[wa.type] && fr.get(Da, "handle")) && La.apply(Da, Pa),
-                    (La = Oa && Da[Oa]) && La.apply && cr(Da) && (wa.result = La.apply(Da, Pa),
+                    (La = (fr.get(Ma, "events") || {})[wa.type] && fr.get(Ma, "handle")) && La.apply(Ma, Pa),
+                    (La = Oa && Ma[Oa]) && La.apply && cr(Ma) && (wa.result = La.apply(Ma, Pa),
                     !1 === wa.result && wa.preventDefault());
                 return wa.type = Fa,
-                Aa || wa.isDefaultPrevented() || ka._default && !1 !== ka._default.apply(Na.pop(), Pa) || !cr(Ca) || Oa && Vn.isFunction(Ca[Fa]) && !Vn.isWindow(Ca) && ((Ma = Ca[Oa]) && (Ca[Oa] = null),
+                Aa || wa.isDefaultPrevented() || ka._default && !1 !== ka._default.apply(Na.pop(), Pa) || !cr(Ca) || Oa && Vn.isFunction(Ca[Fa]) && !Vn.isWindow(Ca) && ((Da = Ca[Oa]) && (Ca[Oa] = null),
                 Vn.event.triggered = Fa,
                 Ca[Fa](),
                 Vn.event.triggered = void 0,
-                Ma && (Ca[Oa] = Ma)),
+                Da && (Ca[Oa] = Da)),
                 wa.result
             }
         },
@@ -3341,9 +3341,9 @@
       , sa = /^(?:submit|button|image|reset|file)$/i
       , da = /^(?:input|select|textarea|keygen)/i;
     Vn.param = function(wa, Pa) {
-        var Aa = [], Ra = function(Da, Ma) {
-            var Ia = Vn.isFunction(Ma) ? Ma() : Ma;
-            Aa[Aa.length] = encodeURIComponent(Da) + "=" + encodeURIComponent(null == Ia ? "" : Ia)
+        var Aa = [], Ra = function(Ma, Da) {
+            var Ia = Vn.isFunction(Da) ? Da() : Da;
+            Aa[Aa.length] = encodeURIComponent(Ma) + "=" + encodeURIComponent(null == Ia ? "" : Ia)
         }, Ca;
         if (Array.isArray(wa) || wa.jquery && !Vn.isPlainObject(wa))
             Vn.each(wa, function() {
@@ -3351,7 +3351,7 @@
             });
         else
             for (Ca in wa)
-                Dn(Ca, wa[Ca], Pa, Ra);
+                Mn(Ca, wa[Ca], Pa, Ra);
         return Aa.join("&")
     }
     ,
@@ -3434,15 +3434,15 @@
         ajaxSetup: function(wa, Pa) {
             return Pa ? On(On(wa, Vn.ajaxSettings), Pa) : On(Vn.ajaxSettings, wa)
         },
-        ajaxPrefilter: Mn(ga),
-        ajaxTransport: Mn(ma),
+        ajaxPrefilter: Dn(ga),
+        ajaxTransport: Dn(ma),
         ajax: function(wa, Pa) {
             function Ca(qa, Ka, Qa, Za) {
                 var ro = Ka, Ja, $a, eo, to, no;
                 La || (La = !0,
                 Ia && Bt.clearTimeout(Ia),
                 Aa = void 0,
-                Da = Za || "",
+                Ma = Za || "",
                 Va.readyState = 0 < qa ? 4 : 0,
                 Ja = 200 <= qa && 300 > qa || 304 === qa,
                 Qa && (to = function(ao, oo, io) {
@@ -3533,15 +3533,15 @@
                 getResponseHeader: function(qa) {
                     var Ka;
                     if (La) {
-                        if (!Ma)
-                            for (Ma = {}; Ka = ca.exec(Da); )
-                                Ma[Ka[1].toLowerCase()] = Ka[2];
-                        Ka = Ma[qa.toLowerCase()]
+                        if (!Da)
+                            for (Da = {}; Ka = ca.exec(Ma); )
+                                Da[Ka[1].toLowerCase()] = Ka[2];
+                        Ka = Da[qa.toLowerCase()]
                     }
                     return null == Ka ? null : Ka
                 },
                 getAllResponseHeaders: function() {
-                    return La ? Da : null
+                    return La ? Ma : null
                 },
                 setRequestHeader: function(qa, Ka) {
                     return null == La && (qa = ja[qa.toLowerCase()] = ja[qa.toLowerCase()] || qa,
@@ -3567,7 +3567,7 @@
                     Ca(0, Ka),
                     this
                 }
-            }, Aa, Ra, Da, Ma, Ia, Oa, La, ka, Na, Fa;
+            }, Aa, Ra, Ma, Da, Ia, Oa, La, ka, Na, Fa;
             if (Xa.promise(Va),
             Ba.url = ((wa || Ba.url || na.href) + "").replace(ha, na.protocol + "//"),
             Ba.type = Pa.method || Pa.type || Ba.method || Ba.type,
@@ -3636,14 +3636,14 @@
         }
     }),
     Vn.each(["get", "post"], function(wa, Pa) {
-        Vn[Pa] = function(Ca, Aa, Ra, Da) {
-            return Vn.isFunction(Aa) && (Da = Da || Ra,
+        Vn[Pa] = function(Ca, Aa, Ra, Ma) {
+            return Vn.isFunction(Aa) && (Ma = Ma || Ra,
             Ra = Aa,
             Aa = void 0),
             Vn.ajax(Vn.extend({
                 url: Ca,
                 type: Pa,
-                dataType: Da,
+                dataType: Ma,
                 data: Aa,
                 success: Ra
             }, Vn.isPlainObject(Ca) && Ca))
@@ -3722,37 +3722,37 @@
         if (zn.cors || xa && !wa.crossDomain)
             return {
                 send: function(Aa, Ra) {
-                    var Ma = wa.xhr(), Da;
-                    if (Ma.open(wa.type, wa.url, wa.async, wa.username, wa.password),
+                    var Da = wa.xhr(), Ma;
+                    if (Da.open(wa.type, wa.url, wa.async, wa.username, wa.password),
                     wa.xhrFields)
-                        for (Da in wa.xhrFields)
-                            Ma[Da] = wa.xhrFields[Da];
-                    for (Da in wa.mimeType && Ma.overrideMimeType && Ma.overrideMimeType(wa.mimeType),
+                        for (Ma in wa.xhrFields)
+                            Da[Ma] = wa.xhrFields[Ma];
+                    for (Ma in wa.mimeType && Da.overrideMimeType && Da.overrideMimeType(wa.mimeType),
                     wa.crossDomain || Aa["X-Requested-With"] || (Aa["X-Requested-With"] = "XMLHttpRequest"),
                     Aa)
-                        Ma.setRequestHeader(Da, Aa[Da]);
+                        Da.setRequestHeader(Ma, Aa[Ma]);
                     Pa = function(Ia) {
                         return function() {
-                            Pa && (Pa = Ca = Ma.onload = Ma.onerror = Ma.onabort = Ma.onreadystatechange = null,
-                            "abort" === Ia ? Ma.abort() : "error" === Ia ? "number" == typeof Ma.status ? Ra(Ma.status, Ma.statusText) : Ra(0, "error") : Ra(ba[Ma.status] || Ma.status, Ma.statusText, "text" !== (Ma.responseType || "text") || "string" != typeof Ma.responseText ? {
-                                binary: Ma.response
+                            Pa && (Pa = Ca = Da.onload = Da.onerror = Da.onabort = Da.onreadystatechange = null,
+                            "abort" === Ia ? Da.abort() : "error" === Ia ? "number" == typeof Da.status ? Ra(Da.status, Da.statusText) : Ra(0, "error") : Ra(ba[Da.status] || Da.status, Da.statusText, "text" !== (Da.responseType || "text") || "string" != typeof Da.responseText ? {
+                                binary: Da.response
                             } : {
-                                text: Ma.responseText
-                            }, Ma.getAllResponseHeaders()))
+                                text: Da.responseText
+                            }, Da.getAllResponseHeaders()))
                         }
                     }
                     ,
-                    Ma.onload = Pa(),
-                    Ca = Ma.onerror = Pa("error"),
-                    void 0 === Ma.onabort ? Ma.onreadystatechange = function() {
-                        4 === Ma.readyState && Bt.setTimeout(function() {
+                    Da.onload = Pa(),
+                    Ca = Da.onerror = Pa("error"),
+                    void 0 === Da.onabort ? Da.onreadystatechange = function() {
+                        4 === Da.readyState && Bt.setTimeout(function() {
                             Pa && Ca()
                         })
                     }
-                    : Ma.onabort = Ca,
+                    : Da.onabort = Ca,
                     Pa = Pa("abort");
                     try {
-                        Ma.send(wa.hasContent && wa.data || null)
+                        Da.send(wa.hasContent && wa.data || null)
                     } catch (Ia) {
                         if (Pa)
                             throw Ia
@@ -3792,10 +3792,10 @@
                     Pa = Vn("<script>").prop({
                         charset: wa.scriptCharset,
                         src: wa.url
-                    }).on("load error", Ca = function(Da) {
+                    }).on("load error", Ca = function(Ma) {
                         Pa.remove(),
                         Ca = null,
-                        Da && Ra("error" === Da.type ? 404 : 200, Da.type)
+                        Ma && Ra("error" === Ma.type ? 404 : 200, Ma.type)
                     }
                     ),
                     kn.head.appendChild(Pa[0])
@@ -3817,27 +3817,27 @@
         }
     }),
     Vn.ajaxPrefilter("json jsonp", function(wa, Pa, Ca) {
-        var Ma = !1 !== wa.jsonp && (Ta.test(wa.url) ? "url" : "string" == typeof wa.data && 0 === (wa.contentType || "").indexOf("application/x-www-form-urlencoded") && Ta.test(wa.data) && "data"), Aa, Ra, Da;
-        if (Ma || "jsonp" === wa.dataTypes[0])
+        var Da = !1 !== wa.jsonp && (Ta.test(wa.url) ? "url" : "string" == typeof wa.data && 0 === (wa.contentType || "").indexOf("application/x-www-form-urlencoded") && Ta.test(wa.data) && "data"), Aa, Ra, Ma;
+        if (Da || "jsonp" === wa.dataTypes[0])
             return Aa = wa.jsonpCallback = Vn.isFunction(wa.jsonpCallback) ? wa.jsonpCallback() : wa.jsonpCallback,
-            Ma ? wa[Ma] = wa[Ma].replace(Ta, "$1" + Aa) : !1 !== wa.jsonp && (wa.url += (aa.test(wa.url) ? "&" : "?") + wa.jsonp + "=" + Aa),
+            Da ? wa[Da] = wa[Da].replace(Ta, "$1" + Aa) : !1 !== wa.jsonp && (wa.url += (aa.test(wa.url) ? "&" : "?") + wa.jsonp + "=" + Aa),
             wa.converters["script json"] = function() {
-                return Da || Vn.error(Aa + " was not called"),
-                Da[0]
+                return Ma || Vn.error(Aa + " was not called"),
+                Ma[0]
             }
             ,
             wa.dataTypes[0] = "json",
             Ra = Bt[Aa],
             Bt[Aa] = function() {
-                Da = arguments
+                Ma = arguments
             }
             ,
             Ca.always(function() {
                 void 0 === Ra ? Vn(Bt).removeProp(Aa) : Bt[Aa] = Ra,
                 wa[Aa] && (wa.jsonpCallback = Pa.jsonpCallback,
                 va.push(Aa)),
-                Da && Vn.isFunction(Ra) && Ra(Da[0]),
-                Da = Ra = void 0
+                Ma && Vn.isFunction(Ra) && Ra(Ma[0]),
+                Ma = Ra = void 0
             }),
             "script"
     }),
@@ -3851,33 +3851,33 @@
             return [];
         "boolean" == typeof Pa && (Ca = Pa,
         Pa = !1);
-        var Aa, Ra, Da;
+        var Aa, Ra, Ma;
         return Pa || (zn.createHTMLDocument ? ((Aa = (Pa = kn.implementation.createHTMLDocument("")).createElement("base")).href = kn.location.href,
         Pa.head.appendChild(Aa)) : Pa = kn),
         Ra = nr.exec(wa),
-        Da = !Ca && [],
-        Ra ? [Pa.createElement(Ra[1])] : (Ra = rn([wa], Pa, Da),
-        Da && Da.length && Vn(Da).remove(),
+        Ma = !Ca && [],
+        Ra ? [Pa.createElement(Ra[1])] : (Ra = rn([wa], Pa, Ma),
+        Ma && Ma.length && Vn(Ma).remove(),
         Vn.merge([], Ra.childNodes))
     }
     ,
     Vn.fn.load = function(wa, Pa, Ca) {
-        var Ma = this, Ia = wa.indexOf(" "), Aa, Ra, Da;
+        var Da = this, Ia = wa.indexOf(" "), Aa, Ra, Ma;
         return -1 < Ia && (Aa = An(wa.slice(Ia)),
         wa = wa.slice(0, Ia)),
         Vn.isFunction(Pa) ? (Ca = Pa,
         Pa = void 0) : Pa && "object" == typeof Pa && (Ra = "POST"),
-        0 < Ma.length && Vn.ajax({
+        0 < Da.length && Vn.ajax({
             url: wa,
             type: Ra || "GET",
             dataType: "html",
             data: Pa
         }).done(function(Oa) {
-            Da = arguments,
-            Ma.html(Aa ? Vn("<div>").append(Vn.parseHTML(Oa)).find(Aa) : Oa)
+            Ma = arguments,
+            Da.html(Aa ? Vn("<div>").append(Vn.parseHTML(Oa)).find(Aa) : Oa)
         }).always(Ca && function(Oa, La) {
-            Ma.each(function() {
-                Ca.apply(this, Da || [Oa.responseText, La, Oa])
+            Da.each(function() {
+                Ca.apply(this, Ma || [Oa.responseText, La, Oa])
             })
         }
         ),
@@ -3897,16 +3897,16 @@
     ,
     Vn.offset = {
         setOffset: function(wa, Pa, Ca) {
-            var La = Vn.css(wa, "position"), ka = Vn(wa), Na = {}, Aa, Ra, Da, Ma, Ia, Oa;
+            var La = Vn.css(wa, "position"), ka = Vn(wa), Na = {}, Aa, Ra, Ma, Da, Ia, Oa;
             "static" === La && (wa.style.position = "relative"),
             Ia = ka.offset(),
-            Da = Vn.css(wa, "top"),
+            Ma = Vn.css(wa, "top"),
             Oa = Vn.css(wa, "left"),
-            ("absolute" === La || "fixed" === La) && -1 < (Da + Oa).indexOf("auto") ? (Ma = (Aa = ka.position()).top,
-            Ra = Aa.left) : (Ma = parseFloat(Da) || 0,
+            ("absolute" === La || "fixed" === La) && -1 < (Ma + Oa).indexOf("auto") ? (Da = (Aa = ka.position()).top,
+            Ra = Aa.left) : (Da = parseFloat(Ma) || 0,
             Ra = parseFloat(Oa) || 0),
             Vn.isFunction(Pa) && (Pa = Pa.call(wa, Ca, Vn.extend({}, Ia))),
-            null != Pa.top && (Na.top = Pa.top - Ia.top + Ma),
+            null != Pa.top && (Na.top = Pa.top - Ia.top + Da),
             null != Pa.left && (Na.left = Pa.left - Ia.left + Ra),
             "using"in Pa ? Pa.using.call(wa, Na) : ka.css(Na)
         }
@@ -3914,13 +3914,13 @@
     Vn.fn.extend({
         offset: function(wa) {
             if (arguments.length)
-                return void 0 === wa ? this : this.each(function(Ma) {
-                    Vn.offset.setOffset(this, wa, Ma)
+                return void 0 === wa ? this : this.each(function(Da) {
+                    Vn.offset.setOffset(this, wa, Da)
                 });
-            var Da = this[0], Pa, Ca, Aa, Ra;
-            if (Da)
-                return Da.getClientRects().length ? (Aa = Da.getBoundingClientRect(),
-                Pa = Da.ownerDocument,
+            var Ma = this[0], Pa, Ca, Aa, Ra;
+            if (Ma)
+                return Ma.getClientRects().length ? (Aa = Ma.getBoundingClientRect(),
+                Pa = Ma.ownerDocument,
                 Ca = Pa.documentElement,
                 Ra = Pa.defaultView,
                 {
@@ -3964,10 +3964,10 @@
     }, function(wa, Pa) {
         var Ca = "pageYOffset" === Pa;
         Vn.fn[wa] = function(Aa) {
-            return pr(this, function(Ra, Da, Ma) {
+            return pr(this, function(Ra, Ma, Da) {
                 var Ia;
                 return (Vn.isWindow(Ra) ? Ia = Ra : 9 === Ra.nodeType && (Ia = Ra.defaultView),
-                void 0 === Ma) ? Ia ? Ia[Pa] : Ra[Da] : void (Ia ? Ia.scrollTo(Ca ? Ia.pageXOffset : Ma, Ca ? Ma : Ia.pageYOffset) : Ra[Da] = Ma)
+                void 0 === Da) ? Ia ? Ia[Pa] : Ra[Ma] : void (Ia ? Ia.scrollTo(Ca ? Ia.pageXOffset : Da, Ca ? Da : Ia.pageYOffset) : Ra[Ma] = Da)
             }, wa, Aa, arguments.length)
         }
     }),
@@ -3987,14 +3987,14 @@
             content: Pa,
             "": "outer" + wa
         }, function(Ca, Aa) {
-            Vn.fn[Aa] = function(Ra, Da) {
-                var Ma = arguments.length && (Ca || "boolean" != typeof Ra)
-                  , Ia = Ca || (!0 === Ra || !0 === Da ? "margin" : "border");
+            Vn.fn[Aa] = function(Ra, Ma) {
+                var Da = arguments.length && (Ca || "boolean" != typeof Ra)
+                  , Ia = Ca || (!0 === Ra || !0 === Ma ? "margin" : "border");
                 return pr(this, function(Oa, La, ka) {
                     var Na;
                     return Vn.isWindow(Oa) ? 0 === Aa.indexOf("outer") ? Oa["inner" + wa] : Oa.document.documentElement["client" + wa] : 9 === Oa.nodeType ? (Na = Oa.documentElement,
                     Math.max(Oa.body["scroll" + wa], Na["scroll" + wa], Oa.body["offset" + wa], Na["offset" + wa], Na["client" + wa])) : void 0 === ka ? Vn.css(Oa, La, Ia) : Vn.style(Oa, La, ka, Ia)
-                }, Pa, Ma ? Ra : void 0, Ma)
+                }, Pa, Da ? Ra : void 0, Da)
             }
         })
     }),
@@ -5253,18 +5253,18 @@ function(Bt) {
                         Pn = vn[Sn] * En,
                         Cn = Sn < wn - 1 ? vn[Sn + 1] * En : xn.length,
                         (An = Yt(xn, Pn, Cn, En, !1)) === An.next && (An.steiner = !0),
-                        Rn.push(function(Dn) {
-                            var Mn = Dn
-                              , In = Dn;
+                        Rn.push(function(Mn) {
+                            var Dn = Mn
+                              , In = Mn;
                             do
-                                Mn.x < In.x && (In = Mn),
-                                Mn = Mn.next;
-                            while (Mn !== Dn);return In
+                                Dn.x < In.x && (In = Dn),
+                                Dn = Dn.next;
+                            while (Dn !== Mn);return In
                         }(An));
                     for (Rn.sort(zt),
                     Sn = 0; Sn < Rn.length; Sn++)
-                        !function(Dn, Mn) {
-                            if (Mn = function(On, Ln) {
+                        !function(Mn, Dn) {
+                            if (Dn = function(On, Ln) {
                                 var Nn = Ln, Fn = On.x, Bn = On.y, Un = -1 / 0, kn;
                                 do {
                                     if (Bn <= Nn.y && Bn >= Nn.next.y) {
@@ -5291,8 +5291,8 @@ function(Bt) {
                                     jn = Xn),
                                     Nn = Nn.next;
                                 return kn
-                            }(Dn, Mn)) {
-                                var In = $t(Mn, Dn);
+                            }(Mn, Dn)) {
+                                var In = $t(Dn, Mn);
                                 Wt(In, In.next)
                             }
                         }(Rn[Sn], Tn),
@@ -5455,10 +5455,10 @@ function(Bt) {
                                             }(Sn, wn) && Jt(Sn, wn) && Jt(wn, Sn) && function(Pn, Cn) {
                                                 var An = Pn
                                                   , Rn = !1
-                                                  , Dn = (Pn.x + Cn.x) / 2
-                                                  , Mn = (Pn.y + Cn.y) / 2;
+                                                  , Mn = (Pn.x + Cn.x) / 2
+                                                  , Dn = (Pn.y + Cn.y) / 2;
                                                 do
-                                                    An.y > Mn != An.next.y > Mn && Dn < (An.next.x - An.x) * (Mn - An.y) / (An.next.y - An.y) + An.x && (Rn = !Rn),
+                                                    An.y > Dn != An.next.y > Dn && Mn < (An.next.x - An.x) * (Dn - An.y) / (An.next.y - An.y) + An.x && (Rn = !Rn),
                                                     An = An.next;
                                                 while (An !== Pn);return Rn
                                             }(Sn, wn)
@@ -6827,7 +6827,7 @@ function(Bt) {
                         return xn(wn + (bn + 1) * Tn / (Tn + 38))
                     }
                     function Jt(Tn) {
-                        var On = [], Ln = Tn.length, kn = 0, Nn = fn, Fn = cn, En, Sn, wn, Pn, Cn, An, Rn, Dn, Mn, In;
+                        var On = [], Ln = Tn.length, kn = 0, Nn = fn, Fn = cn, En, Sn, wn, Pn, Cn, An, Rn, Mn, Dn, In;
                         for (0 > (Sn = Tn.lastIndexOf(hn)) && (Sn = 0),
                         wn = 0; wn < Sn; ++wn)
                             128 <= Tn.charCodeAt(wn) && Wt("not-basic"),
@@ -6836,11 +6836,11 @@ function(Bt) {
                             for (Cn = kn,
                             An = 1,
                             Rn = sn; Pn >= Ln && Wt("invalid-input"),
-                            ((Dn = Kt(Tn.charCodeAt(Pn++))) >= sn || Dn > xn((on - kn) / An)) && Wt("overflow"),
-                            kn += Dn * An,
-                            Mn = Rn <= Fn ? dn : Rn >= Fn + ln ? ln : Rn - Fn,
-                            !(Dn < Mn); Rn += sn)
-                                An > xn(on / (In = sn - Mn)) && Wt("overflow"),
+                            ((Mn = Kt(Tn.charCodeAt(Pn++))) >= sn || Mn > xn((on - kn) / An)) && Wt("overflow"),
+                            kn += Mn * An,
+                            Dn = Rn <= Fn ? dn : Rn >= Fn + ln ? ln : Rn - Fn,
+                            !(Mn < Dn); Rn += sn)
+                                An > xn(on / (In = sn - Dn)) && Wt("overflow"),
                                 An *= In;
                             Fn = Zt(kn - Cn, En = On.length + 1, 0 == Cn),
                             xn(kn / En) > on - Nn && Wt("overflow"),
@@ -6851,7 +6851,7 @@ function(Bt) {
                         return qt(On)
                     }
                     function $t(Tn) {
-                        var Bn = [], En, Sn, wn, Pn, Cn, An, Rn, Dn, Mn, In, On, Ln, kn, Nn, Fn;
+                        var Bn = [], En, Sn, wn, Pn, Cn, An, Rn, Mn, Dn, In, On, Ln, kn, Nn, Fn;
                         for (Ln = (Tn = Vt(Tn)).length,
                         En = fn,
                         Sn = 0,
@@ -6869,14 +6869,14 @@ function(Bt) {
                             An = 0; An < Ln; ++An)
                                 if ((On = Tn[An]) < En && ++Sn > on && Wt("overflow"),
                                 On == En) {
-                                    for (Dn = Sn,
-                                    Mn = sn; In = Mn <= Cn ? dn : Mn >= Cn + ln ? ln : Mn - Cn,
-                                    !(Dn < In); Mn += sn)
-                                        Fn = Dn - In,
+                                    for (Mn = Sn,
+                                    Dn = sn; In = Dn <= Cn ? dn : Dn >= Cn + ln ? ln : Dn - Cn,
+                                    !(Mn < In); Dn += sn)
+                                        Fn = Mn - In,
                                         Nn = sn - In,
                                         Bn.push(vn(Qt(In + Fn % Nn, 0))),
-                                        Dn = xn(Fn / Nn);
-                                    Bn.push(vn(Qt(Dn, 0))),
+                                        Mn = xn(Fn / Nn);
+                                    Bn.push(vn(Qt(Mn, 0))),
                                     Cn = Zt(Sn, kn, wn == Pn),
                                     Sn = 0,
                                     ++wn
@@ -7137,11 +7137,11 @@ function(Bt) {
                                     Pn += 127 < wn.charCodeAt(Cn) ? "x" : wn[Cn];
                                 if (!Pn.match($t)) {
                                     var Rn = En.slice(0, _n)
-                                      , Dn = En.slice(_n + 1)
-                                      , Mn = wn.match(en);
-                                    Mn && (Rn.push(Mn[1]),
-                                    Dn.unshift(Mn[2])),
-                                    Dn.length && (cn = "/" + Dn.join(".") + cn),
+                                      , Mn = En.slice(_n + 1)
+                                      , Dn = wn.match(en);
+                                    Dn && (Rn.push(Dn[1]),
+                                    Mn.unshift(Dn[2])),
+                                    Mn.length && (cn = "/" + Mn.join(".") + cn),
                                     this.hostname = Rn.join(".");
                                     break
                                 }
@@ -7312,23 +7312,23 @@ function(Bt) {
                     dn.path = dn.search ? "/" + dn.search : null,
                     dn.href = dn.format(),
                     dn;
-                for (var Cn = wn.slice(-1)[0], An = (dn.host || on.host || 1 < wn.length) && ("." === Cn || ".." === Cn) || "" === Cn, Rn = 0, Dn = wn.length; 0 <= Dn; Dn--)
-                    "." === (Cn = wn[Dn]) ? wn.splice(Dn, 1) : ".." === Cn ? (wn.splice(Dn, 1),
-                    Rn++) : Rn && (wn.splice(Dn, 1),
+                for (var Cn = wn.slice(-1)[0], An = (dn.host || on.host || 1 < wn.length) && ("." === Cn || ".." === Cn) || "" === Cn, Rn = 0, Mn = wn.length; 0 <= Mn; Mn--)
+                    "." === (Cn = wn[Mn]) ? wn.splice(Mn, 1) : ".." === Cn ? (wn.splice(Mn, 1),
+                    Rn++) : Rn && (wn.splice(Mn, 1),
                     Rn--);
                 if (!En && !Sn)
                     for (; Rn--; Rn)
                         wn.unshift("..");
                 !En || "" === wn[0] || wn[0] && "/" === wn[0].charAt(0) || wn.unshift(""),
                 An && "/" !== wn.join("/").substr(-1) && wn.push("");
-                var Mn = "" === wn[0] || wn[0] && "/" === wn[0].charAt(0);
+                var Dn = "" === wn[0] || wn[0] && "/" === wn[0].charAt(0);
                 if (Pn) {
-                    dn.hostname = dn.host = Mn ? "" : wn.length ? wn.shift() : "";
+                    dn.hostname = dn.host = Dn ? "" : wn.length ? wn.shift() : "";
                     var In;
                     (In = !!(dn.host && 0 < dn.host.indexOf("@")) && dn.host.split("@")) && (dn.auth = In.shift(),
                     dn.host = dn.hostname = In.shift())
                 }
-                return (En = En || dn.host && wn.length) && !Mn && wn.unshift(""),
+                return (En = En || dn.host && wn.length) && !Dn && wn.unshift(""),
                 wn.length ? dn.pathname = wn.join("/") : (dn.pathname = null,
                 dn.path = null),
                 jt.isNull(dn.pathname) && jt.isNull(dn.search) || (dn.path = (dn.pathname ? dn.pathname : "") + (dn.search ? dn.search : "")),
@@ -10274,20 +10274,20 @@ function(Bt) {
                                 pn = gn - yn < pn ? gn - yn : pn,
                                 cn = gn + yn > cn ? gn + yn : cn;
                             else
-                                for (var Tn = fn.points, En = 0, Sn = 0, wn = 0, Pn = 0, Cn = 0, An = 0, Rn = 0, Dn = 0, Mn = 0; Mn + 2 < Tn.length; Mn += 2)
-                                    hn = Tn[Mn],
-                                    gn = Tn[Mn + 1],
-                                    En = Tn[Mn + 2],
-                                    Sn = Tn[Mn + 3],
+                                for (var Tn = fn.points, En = 0, Sn = 0, wn = 0, Pn = 0, Cn = 0, An = 0, Rn = 0, Mn = 0, Dn = 0; Dn + 2 < Tn.length; Dn += 2)
+                                    hn = Tn[Dn],
+                                    gn = Tn[Dn + 1],
+                                    En = Tn[Dn + 2],
+                                    Sn = Tn[Dn + 3],
                                     wn = Math.abs(En - hn),
                                     Pn = Math.abs(Sn - gn),
                                     yn = vn,
                                     1e-9 > (mn = Math.sqrt(wn * wn + Pn * Pn)) || (An = (yn / mn * wn + Pn) / 2,
-                                    Dn = (Sn + gn) / 2,
+                                    Mn = (Sn + gn) / 2,
                                     ln = (Rn = (En + hn) / 2) - (Cn = (yn / mn * Pn + wn) / 2) < ln ? Rn - Cn : ln,
                                     un = Rn + Cn > un ? Rn + Cn : un,
-                                    pn = Dn - An < pn ? Dn - An : pn,
-                                    cn = Dn + An > cn ? Dn + An : cn)
+                                    pn = Mn - An < pn ? Mn - An : pn,
+                                    cn = Mn + An > cn ? Mn + An : cn)
                         }
                     else
                         ln = 0,
@@ -10957,16 +10957,16 @@ function(Bt) {
                               , Cn = -_n + hn - (-_n + cn)
                               , An = (-_n + cn) * (-bn + gn) - (-_n + hn) * (-bn + fn)
                               , Rn = -(vn *= on) + yn - (-vn + gn)
-                              , Dn = -(xn *= on) + hn - (-xn + mn)
-                              , Mn = (-xn + mn) * (-vn + gn) - (-xn + hn) * (-vn + yn)
-                              , In = Pn * Dn - Rn * Cn;
+                              , Mn = -(xn *= on) + hn - (-xn + mn)
+                              , Dn = (-xn + mn) * (-vn + gn) - (-xn + hn) * (-vn + yn)
+                              , In = Pn * Mn - Rn * Cn;
                             if (.1 > Math.abs(In))
                                 In += 10.1,
                                 en.push(hn - _n, gn - bn, ln, un, pn, dn),
                                 en.push(hn + _n, gn + bn, ln, un, pn, dn);
                             else {
-                                var On = (Cn * Mn - Dn * An) / In
-                                  , Ln = (Rn * An - Pn * Mn) / In;
+                                var On = (Cn * Dn - Mn * An) / In
+                                  , Ln = (Rn * An - Pn * Dn) / In;
                                 (On - hn) * (On - hn) + (Ln - gn) * (Ln - gn) > 196 * on * on ? (Tn = _n - xn,
                                 En = bn - vn,
                                 Tn /= Sn = Math.sqrt(Tn * Tn + En * En),
@@ -11458,13 +11458,13 @@ function(Bt) {
             });
             var An = Gt(Bt("./utils"))
               , Rn = Gt(Bt("./ticker"))
-              , Dn = Yt(Bt("./settings"))
-              , Mn = Yt(Bt("./renderers/canvas/CanvasRenderer"))
+              , Mn = Yt(Bt("./settings"))
+              , Dn = Yt(Bt("./renderers/canvas/CanvasRenderer"))
               , In = Yt(Bt("./renderers/webgl/WebGLRenderer"));
-            Xt.settings = Dn.default,
+            Xt.settings = Mn.default,
             Xt.utils = An,
             Xt.ticker = Rn,
-            Xt.CanvasRenderer = Mn.default,
+            Xt.CanvasRenderer = Dn.default,
             Xt.WebGLRenderer = In.default
         }
         , {
@@ -15209,13 +15209,13 @@ function(Bt) {
                                 _n.touched = mn,
                                 -1 === _n._virtalBoundId)
                                     for (var Rn = 0; Rn < on; ++Rn) {
-                                        var Dn = (Rn + en) % on
-                                          , Mn = hn[Dn];
-                                        if (Mn._enabled !== $t) {
+                                        var Mn = (Rn + en) % on
+                                          , Dn = hn[Mn];
+                                        if (Dn._enabled !== $t) {
                                             en++,
-                                            Mn._virtalBoundId = -1,
-                                            _n._virtalBoundId = Dn,
-                                            hn[Dn] = _n;
+                                            Dn._virtalBoundId = -1,
+                                            _n._virtalBoundId = Mn,
+                                            hn[Mn] = _n;
                                             break
                                         }
                                     }
@@ -22380,9 +22380,9 @@ function(Bt) {
                           , Cn = an * fn + cn * sn + on * hn - fn * sn - cn * on - an * hn
                           , An = an * ln * hn + dn * fn * sn + cn * on * un - cn * ln * sn - dn * on * hn - an * fn * un
                           , Rn = gn * ln + dn * yn + mn * un - ln * yn - dn * mn - gn * un
-                          , Dn = an * mn + gn * sn + on * yn - mn * sn - gn * on - an * yn
-                          , Mn = an * ln * yn + dn * mn * sn + gn * on * un - gn * ln * sn - dn * on * yn - an * mn * un;
-                        Qt.transform(Pn / wn, Rn / wn, Cn / wn, Dn / wn, An / wn, Mn / wn),
+                          , Mn = an * mn + gn * sn + on * yn - mn * sn - gn * on - an * yn
+                          , Dn = an * ln * yn + dn * mn * sn + gn * on * un - gn * ln * sn - dn * on * yn - an * mn * un;
+                        Qt.transform(Pn / wn, Rn / wn, Cn / wn, Mn / wn, An / wn, Dn / wn),
                         Qt.drawImage(tn, 0, 0, nn * en.resolution, rn * en.resolution, 0, 0, nn, rn),
                         Qt.restore(),
                         this.renderer.invalidateBlendMode()
@@ -28099,13 +28099,13 @@ function() {
                     Rn = bn.getUint16(vn, !0),
                     vn += 2;
                 xn[Sn] = [];
-                for (var Dn = Tn[En][2], Mn = 0; Mn < Rn; Mn++) {
-                    for (var In = {}, On = 0, Ln; On < Dn.length; On++)
-                        switch (Ln = Dn[On][0],
-                        Dn[On][1]) {
+                for (var Mn = Tn[En][2], Dn = 0; Dn < Rn; Dn++) {
+                    for (var In = {}, On = 0, Ln; On < Mn.length; On++)
+                        switch (Ln = Mn[On][0],
+                        Mn[On][1]) {
                         case cn.text:
                         case cn.textbig:
-                            for (Dn[On][1] == cn.text ? (wn = bn.getUint8(vn, !0),
+                            for (Mn[On][1] == cn.text ? (wn = bn.getUint8(vn, !0),
                             vn += 1) : (wn = bn.getUint16(vn, !0),
                             vn += 2),
                             Pn = new Uint8Array(wn),
@@ -28783,9 +28783,9 @@ function() {
                     var Cn = new Vector(xn.axes[1],xn.axes[0])
                       , An = Cn.length()
                       , Rn = -Cn.angle() + Math.PI / 2
-                      , Dn = Rn = (Rn % Wt + Wt) % Wt;
+                      , Mn = Rn = (Rn % Wt + Wt) % Wt;
                     .2 < An ? (Vt.forward = !0,
-                    mn(Dn, An)) : (Vt.forward && !vn && gn("UP", !1),
+                    mn(Mn, An)) : (Vt.forward && !vn && gn("UP", !1),
                     Vt.forward = !1)
                 }
             } else
@@ -30741,81 +30741,81 @@ function() {
     }
       , bn = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage"]
       , xn = ["", "Shield", "Inferno"];
-    UI.show = function(Mn, In) {
-        $(Mn).css({
+    UI.show = function(Dn, In) {
+        $(Dn).css({
             display: In ? "inline-block" : "block"
         })
     }
     ,
-    UI.hide = function(Mn) {
-        $(Mn).css({
+    UI.hide = function(Dn) {
+        $(Dn).css({
             display: "none"
         })
     }
     ,
-    UI.isEmote = function(Mn, In) {
+    UI.isEmote = function(Dn, In) {
         for (var On = 0; On < bn.length; On++)
             if (In) {
-                if (Mn === ":" + bn[On] + ":")
+                if (Dn === ":" + bn[On] + ":")
                     return bn[On];
-            } else if (Mn === bn[On])
+            } else if (Dn === bn[On])
                 return bn[On];
         return !1
     }
     ,
-    UI.serverMessage = function(Mn) {
+    UI.serverMessage = function(Dn) {
         var In = "alert";
-        2 == Mn.type && (In = "information"),
-        UI.showMessage(In, Mn.text, Mn.duration)
+        2 == Dn.type && (In = "information"),
+        UI.showMessage(In, Dn.text, Dn.duration)
     }
     ,
-    UI.showMessage = function(Mn, In, On) {
-        $("#msg-" + Mn).removeClass("hidemsg").removeClass("popmsg"),
-        $("#msg-" + Mn).html(In);
-        var Ln = $("#msg-" + Mn).height();
-        "default" != Mn && "destroyed" != Mn || $("#msg-" + Mn).css({
+    UI.showMessage = function(Dn, In, On) {
+        $("#msg-" + Dn).removeClass("hidemsg").removeClass("popmsg"),
+        $("#msg-" + Dn).html(In);
+        var Ln = $("#msg-" + Dn).height();
+        "default" != Dn && "destroyed" != Dn || $("#msg-" + Dn).css({
             "margin-top": "-" + Math.round(Ln / 2) + "px"
         }),
-        $("#msg-" + Mn).addClass("popmsg"),
-        cn[Mn] = !0,
-        clearTimeout(pn[Mn]),
-        pn[Mn] = setTimeout(UI.hideMessage, On || 2e3, Mn)
+        $("#msg-" + Dn).addClass("popmsg"),
+        cn[Dn] = !0,
+        clearTimeout(pn[Dn]),
+        pn[Dn] = setTimeout(UI.hideMessage, On || 2e3, Dn)
     }
     ,
-    UI.hideMessage = function(Mn) {
-        $("#msg-" + Mn).addClass("hidemsg"),
-        cn[Mn] = !1,
-        pn[Mn] = setTimeout(function(In) {
-            $("#msg-" + Mn).removeClass("popmsg").removeClass("hidemsg"),
+    UI.hideMessage = function(Dn) {
+        $("#msg-" + Dn).addClass("hidemsg"),
+        cn[Dn] = !1,
+        pn[Dn] = setTimeout(function(In) {
+            $("#msg-" + Dn).removeClass("popmsg").removeClass("hidemsg"),
             $("#msg-" + In).html("")
-        }, 2500, Mn)
+        }, 2500, Dn)
     }
     ,
     UI.wipeAllMessages = function() {
-        for (var Mn in cn)
-            cn[Mn] && UI.showMessage(Mn, "", 100)
+        for (var Dn in cn)
+            cn[Dn] && UI.showMessage(Dn, "", 100)
     }
     ,
-    UI.updateMyLevel = function(Mn) {
-        game.myLevel = Mn,
-        $("#score-rank").html(Mn),
-        $("#lifetime-rank").html(Mn)
+    UI.updateMyLevel = function(Dn) {
+        game.myLevel = Dn,
+        $("#score-rank").html(Dn),
+        $("#lifetime-rank").html(Dn)
     }
     ,
-    UI.newScore = function(Mn) {
-        if (Mn.id != game.myID)
+    UI.newScore = function(Dn) {
+        if (Dn.id != game.myID)
             return !1;
-        var In = Mn.score - game.myScore
+        var In = Dn.score - game.myScore
           , On = "";
         if (1 > Math.abs(In) && (In = !1),
-        game.myScore = Mn.score,
-        Mn.score != fn.score && (fn.score = Mn.score,
-        $("#score-score").html(Mn.score)),
-        Mn.upgrades != fn.upgrades) {
-            var Ln = Mn.upgrades - fn.upgrades
+        game.myScore = Dn.score,
+        Dn.score != fn.score && (fn.score = Dn.score,
+        $("#score-score").html(Dn.score)),
+        Dn.upgrades != fn.upgrades) {
+            var Ln = Dn.upgrades - fn.upgrades
               , kn = -1 != fn.upgrades;
-            if (fn.upgrades = Mn.upgrades,
-            $("#score-upgrades").html(Mn.upgrades),
+            if (fn.upgrades = Dn.upgrades,
+            $("#score-upgrades").html(Dn.upgrades),
             An(),
             kn && 0 < Ln) {
                 if (Sound.powerup(4, null),
@@ -30826,52 +30826,52 @@ function() {
                 On += "<span id=\"alert-update\"><span class=\"upgrade\">+" + Ln + "<span class=\"bold\"> upgrade</span></span></span>"
             }
         }
-        if (Mn.earnings != fn.earnings && 0 != game.myLevel) {
-            fn.earnings = Mn.earnings,
-            $("#lifetime-totalbounty").html(Mn.earnings);
-            var Nn = Math.ceil(Tools.rankToEarnings(game.myLevel + 1) - Mn.earnings);
+        if (Dn.earnings != fn.earnings && 0 != game.myLevel) {
+            fn.earnings = Dn.earnings,
+            $("#lifetime-totalbounty").html(Dn.earnings);
+            var Nn = Math.ceil(Tools.rankToEarnings(game.myLevel + 1) - Dn.earnings);
             $("#lifetime-nextbounty").html("+" + Nn)
         }
-        if (Mn.totalkills != fn.kills || Mn.totaldeaths != fn.deaths) {
-            var Fn = 0 == Mn.totalkills || 0 == Mn.totaldeaths ? "-" : (Mn.totalkills / Mn.totaldeaths).toFixed(2);
+        if (Dn.totalkills != fn.kills || Dn.totaldeaths != fn.deaths) {
+            var Fn = 0 == Dn.totalkills || 0 == Dn.totaldeaths ? "-" : (Dn.totalkills / Dn.totaldeaths).toFixed(2);
             $("#lifetime-kdratio").html(Fn)
         }
-        Mn.totalkills != fn.kills && (fn.kills = Mn.totalkills,
-        $("#lifetime-kills").html(Mn.totalkills)),
-        Mn.totaldeaths != fn.deaths && (fn.deaths = Mn.totaldeaths,
-        $("#lifetime-deaths").html(Mn.totaldeaths)),
+        Dn.totalkills != fn.kills && (fn.kills = Dn.totalkills,
+        $("#lifetime-kills").html(Dn.totalkills)),
+        Dn.totaldeaths != fn.deaths && (fn.deaths = Dn.totaldeaths,
+        $("#lifetime-deaths").html(Dn.totaldeaths)),
         In && (hn && (hn.msg += "<br>"),
         On += UI.getScoreString(In)),
         hn ? (UI.showMessage(hn.type, hn.msg + On, hn.duration),
         hn = !1) : "" != On && UI.showMessage("default", On, 3e3)
     }
     ,
-    UI.getScoreString = function(Mn, In) {
+    UI.getScoreString = function(Dn, In) {
         var Ln = "positive"
           , kn = "+";
-        return 0 > Mn && (Ln = "negative",
+        return 0 > Dn && (Ln = "negative",
         kn = "-"),
         In && (Ln = In),
-        "<span id=\"alert-update\" class=\"" + Ln + "\">" + kn + Math.abs(Mn) + "</span>"
+        "<span id=\"alert-update\" class=\"" + Ln + "\">" + kn + Math.abs(Dn) + "</span>"
     }
     ;
-    var vn = function(Mn) {
-        Mn.sprite.position.set(game.screenX - config.minimapPaddingX - config.minimapSize * ((16384 - Mn.x) / 32768), game.screenY - config.minimapPaddingY - config.minimapSize / 2 * ((8192 - Mn.y) / 16384))
+    var vn = function(Dn) {
+        Dn.sprite.position.set(game.screenX - config.minimapPaddingX - config.minimapSize * ((16384 - Dn.x) / 32768), game.screenY - config.minimapPaddingY - config.minimapSize / 2 * ((8192 - Dn.y) / 16384))
     };
     UI.wipeAllMinimapMobs = function() {
-        for (var Mn in Bt)
-            game.graphics.layers.ui1.removeChild(Bt[Mn].sprite),
-            Bt[Mn].sprite.destroy(),
-            delete Bt[Mn]
+        for (var Dn in Bt)
+            game.graphics.layers.ui1.removeChild(Bt[Dn].sprite),
+            Bt[Dn].sprite.destroy(),
+            delete Bt[Dn]
     }
     ,
-    UI.showSpectator = function(Mn) {
+    UI.showSpectator = function(Dn) {
         if (!dn) {
             var In = config.mobile ? " class=\"mobile\"" : "";
             $("body").append("<div id=\"spectator\"" + In + "></div>"),
             dn = !0
         }
-        $("#spectator").html(Mn),
+        $("#spectator").html(Dn),
         Input.addTouchRejection("#spectator")
     }
     ,
@@ -30880,16 +30880,16 @@ function() {
         dn = !1)
     }
     ,
-    UI.addPowerup = function(Mn, In) {
+    UI.addPowerup = function(Dn, In) {
         null != sn && clearTimeout(sn);
-        var On = "<div class=\"powerup\" id=\"powerup-" + Mn + "\"><div class=\"percent " + (1 == Mn ? "shield" : "rampage") + "\" id=\"powerup-" + Mn + "-percent\" style=\"transition: width " + In + "ms linear;\"></div><div class=\"name\">" + xn[Mn] + "</div></div>";
+        var On = "<div class=\"powerup\" id=\"powerup-" + Dn + "\"><div class=\"percent " + (1 == Dn ? "shield" : "rampage") + "\" id=\"powerup-" + Dn + "-percent\" style=\"transition: width " + In + "ms linear;\"></div><div class=\"name\">" + xn[Dn] + "</div></div>";
         $("#powerups").html(On),
-        $("#powerup-" + Mn + "-percent").width(),
-        $("#powerup-" + Mn + "-percent").css({
+        $("#powerup-" + Dn + "-percent").width(),
+        $("#powerup-" + Dn + "-percent").css({
             width: "7%"
         }),
         sn = setTimeout(function() {
-            $("#powerup-" + Mn).remove()
+            $("#powerup-" + Dn).remove()
         }, In)
     }
     ,
@@ -30897,14 +30897,14 @@ function() {
         $("#powerups").html("")
     }
     ,
-    UI.changeMinimapTeam = function(Mn, In) {
-        if (null != Bt[Mn] && null != Bt[Mn].sprite) {
+    UI.changeMinimapTeam = function(Dn, In) {
+        if (null != Bt[Dn] && null != Bt[Dn].sprite) {
             var On = 1 == In ? "minimapBlue" : "minimapMob";
-            Bt[Mn].sprite.texture = Textures.getNamed(On)
+            Bt[Dn].sprite.texture = Textures.getNamed(On)
         }
     }
     ,
-    UI.scoreboardUpdate = function(Mn, In, On) {
+    UI.scoreboardUpdate = function(Dn, In, On) {
         for (var Ln in Bt)
             game.graphics.layers.ui1.removeChild(Bt[Ln].sprite),
             game.graphics.layers.ui2.removeChild(Bt[Ln].sprite),
@@ -30935,12 +30935,12 @@ function() {
             Bt[Qn].sprite.destroy(),
             delete Bt[Qn]);
         if (0 != Wn) {
-            for (On = On ? Tools.clamp(On, 1, Mn.length) : Mn.length,
-            Kn = 0; Kn < On && (null == (kn = Players.get(Mn[Kn].id)) || (Hn++,
+            for (On = On ? Tools.clamp(On, 1, Dn.length) : Dn.length,
+            Kn = 0; Kn < On && (null == (kn = Players.get(Dn[Kn].id)) || (Hn++,
             Nn = 1 == Hn ? "<span class=\"badge scoreboard gold\"></span>" : 2 == Hn ? "<span class=\"badge scoreboard silver\"></span>" : 3 == Hn ? "<span class=\"badge scoreboard bronze\"></span>" : Hn + ".",
             Fn = kn.me() ? " sel" : "",
-            Bn = Mn[Kn].score,
-            Un = Mn[Kn].level,
+            Bn = Dn[Kn].score,
+            Un = Dn[Kn].level,
             Wn > On && Hn == On - 1 && (Xn += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
             !0,
             kn = Players.get(game.myID),
@@ -30964,18 +30964,18 @@ function() {
         }
     }
     ;
-    var Tn = function(Mn) {
+    var Tn = function(Dn) {
         var In = "";
-        Mn += "";
-        for (var On = 0; On < Mn.length; On++)
-            In += "<span>" + Mn[On] + "</span>";
+        Dn += "";
+        for (var On = 0; On < Dn.length; On++)
+            In += "<span>" + Dn[On] + "</span>";
         return In
     };
-    UI.toggleChatBox = function(Mn) {
+    UI.toggleChatBox = function(Dn) {
         if (!config.mobile)
             if (Gt) {
                 if (Gt = !1,
-                Mn) {
+                Dn) {
                     var In = $("#chatinput").val();
                     "" !== In && "" !== In.trim() && (UI.parseCommand(In.trim()) || Network.sendChat(In)),
                     En()
@@ -30991,8 +30991,8 @@ function() {
                 $("#chatinput").focus()
     }
     ,
-    UI.shortcutChat = function(Mn) {
-        Gt || ($("#chatinput").val(Mn),
+    UI.shortcutChat = function(Dn) {
+        Gt || ($("#chatinput").val(Dn),
         UI.toggleChatBox())
     }
     ;
@@ -31000,20 +31000,20 @@ function() {
         Wt || (Wt = !0,
         $("#chat-0").length && $("#chat-0").remove())
     };
-    UI.parseCommand = function(Mn) {
-        if ("/" !== Mn[0])
+    UI.parseCommand = function(Dn) {
+        if ("/" !== Dn[0])
             return !1;
-        var In = Mn.split(" ")
+        var In = Dn.split(" ")
           , On = In[0].substr(1).toLowerCase();
         if (0 == On.length)
             return !1;
         if ("s" === On) {
-            var Ln = Mn.indexOf(" ")
-              , kn = Mn.substr(Ln + 1);
+            var Ln = Dn.indexOf(" ")
+              , kn = Dn.substr(Ln + 1);
             0 < kn.length && Network.sendSay(kn)
         } else if ("t" === On) {
-            Ln = Mn.indexOf(" ");
-            var Nn = Mn.substr(Ln + 1);
+            Ln = Dn.indexOf(" ");
+            var Nn = Dn.substr(Ln + 1);
             0 < Nn.length && Network.sendTeam(Nn)
         } else if ("ignore" === On)
             null == (Fn = Players.getByName(Cn(In[1]))) ? UI.addChatMessage("Unknown player") : UI.chatIgnore(Fn.id);
@@ -31022,19 +31022,19 @@ function() {
         else if ("votemute" === On)
             null == (Fn = Players.getByName(Cn(In[1]))) ? UI.addChatMessage("Unknown player") : UI.chatVotemute(Fn);
         else if ("w" === On)
-            3 <= In.length ? UI.chatWhisper(In[1], Mn.substr(4 + In[1].length)) : UI.addChatMessage("Usage: /w player message");
+            3 <= In.length ? UI.chatWhisper(In[1], Dn.substr(4 + In[1].length)) : UI.addChatMessage("Usage: /w player message");
         else if ("spectate" === On) {
             var Fn;
             null == (Fn = Players.getByName(Cn(In[1]))) ? UI.addChatMessage("Unknown player") : Network.sendCommand("spectate", Fn.id + "")
         } else
-            "flag" === On || "flags" === On ? 2 == In.length ? Network.sendCommand("flag", Mn.substr(On.length + 2)) : UI.addChatMessage("Type /flag XX where XX is the 2-letter ISO code of a country", !0) : "emotes" === On ? UI.addChatMessage("Emotes available: /tf /pepe /clap /lol /bro /kappa /cry /rage", !0) : "help" === On ? UI.toggleHelp() : "debug" === On || (UI.isEmote(On) ? Network.sendSay(":" + On + ":") : Network.sendCommand(On, Mn.substr(On.length + 2)));
+            "flag" === On || "flags" === On ? 2 == In.length ? Network.sendCommand("flag", Dn.substr(On.length + 2)) : UI.addChatMessage("Type /flag XX where XX is the 2-letter ISO code of a country", !0) : "emotes" === On ? UI.addChatMessage("Emotes available: /tf /pepe /clap /lol /bro /kappa /cry /rage", !0) : "help" === On ? UI.toggleHelp() : "debug" === On || (UI.isEmote(On) ? Network.sendSay(":" + On + ":") : Network.sendCommand(On, Dn.substr(On.length + 2)));
         return !0
     }
     ,
-    UI.addChatKilledLine = function(Mn, In) {
+    UI.addChatKilledLine = function(Dn, In) {
         if (!0 == window.ShowKilled) {
-            if (!Ht[Mn.id]) {
-                var Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"playersel\" data-playerid=\"" + Mn.id + "\"><span class=\"flag small flag-" + Mn.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == Mn.team ? "#4d7fd5" : 2 == Mn.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(Mn.name) + "</span></span><span class=\"text\" style=\"margin-left: 10px; margin-right: 10px; opacity: 0.6;\"> killed </span><span class=\"playersel\" data-playerid=\"" + In.id + "\"><span class=\"flag small flag-" + In.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == In.team ? "#4d7fd5" : 2 == In.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(In.name) + "</span></span></div>"
+            if (!Ht[Dn.id]) {
+                var Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"playersel\" data-playerid=\"" + Dn.id + "\"><span class=\"flag small flag-" + Dn.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == Dn.team ? "#4d7fd5" : 2 == Dn.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(Dn.name) + "</span></span><span class=\"text\" style=\"margin-left: 10px; margin-right: 10px; opacity: 0.6;\"> killed </span><span class=\"playersel\" data-playerid=\"" + In.id + "\"><span class=\"flag small flag-" + In.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == In.team ? "#4d7fd5" : 2 == In.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(In.name) + "</span></span></div>"
                   , kn = $(Ln);
                 $("#WhoKilledWho").append(kn);
                 var Nn = $("#WhoKilledWho")[0];
@@ -31046,18 +31046,18 @@ function() {
         }
     }
     ,
-    UI.addChatLine = function(Mn, In, On) {
-        if (!Ht[Mn.id]) {
+    UI.addChatLine = function(Dn, In, On) {
+        if (!Ht[Dn.id]) {
             if (Yt++,
             0 == On)
-                var Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"playersel\" data-playerid=\"" + Mn.id + "\"><span class=\"flag small flag-" + Mn.flag + "\"></span><span class=\"nick\">" + UI.escapeHTML(Mn.name) + "</span></span><span class=\"text\">" + UI.escapeHTML(In) + "</span></div>";
+                var Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"playersel\" data-playerid=\"" + Dn.id + "\"><span class=\"flag small flag-" + Dn.flag + "\"></span><span class=\"nick\">" + UI.escapeHTML(Dn.name) + "</span></span><span class=\"text\">" + UI.escapeHTML(In) + "</span></div>";
             else if (1 == On || 2 == On) {
                 var kn = 1 == On ? "TO" : "FROM";
-                2 == On && (ln = Pn(Mn.name)),
-                Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"tag whisper\">" + kn + "</span><span class=\"playersel\" data-playerid=\"" + Mn.id + "\"><span class=\"nick green\">" + UI.escapeHTML(Mn.name) + "</span></span><span class=\"text green\">" + UI.escapeHTML(In) + "</span></div>",
+                2 == On && (ln = Pn(Dn.name)),
+                Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"tag whisper\">" + kn + "</span><span class=\"playersel\" data-playerid=\"" + Dn.id + "\"><span class=\"nick green\">" + UI.escapeHTML(Dn.name) + "</span></span><span class=\"text green\">" + UI.escapeHTML(In) + "</span></div>",
                 jt = -1
             } else
-                Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"tag team\">TEAM</span><span class=\"playersel\" data-playerid=\"" + Mn.id + "\"><span class=\"nick blue\">" + UI.escapeHTML(Mn.name) + "</span></span><span class=\"text blue\">" + UI.escapeHTML(In) + "</span></div>",
+                Ln = "<div id=\"chat-" + Yt + "\" class=\"line\"><span class=\"tag team\">TEAM</span><span class=\"playersel\" data-playerid=\"" + Dn.id + "\"><span class=\"nick blue\">" + UI.escapeHTML(Dn.name) + "</span></span><span class=\"text blue\">" + UI.escapeHTML(In) + "</span></div>",
                 jt = -1;
             var Nn = "#chat-" + (Yt - config.maxChatLines);
             if ($(Nn).length && $(Nn).remove(),
@@ -31068,16 +31068,16 @@ function() {
                 1 == qt && UI.show("#chatunreadlines", !0);
             else {
                 var Fn = $("#chatbox");
-                1 != On && 2 != On && Mn.id != game.myID && Fn.is(":hover") || (Fn.perfectScrollbar("update"),
+                1 != On && 2 != On && Dn.id != game.myID && Fn.is(":hover") || (Fn.perfectScrollbar("update"),
                 Fn.scrollTop(Fn[0].scrollHeight))
             }
         }
     }
     ,
-    UI.addChatMessage = function(Mn, In) {
+    UI.addChatMessage = function(Dn, In) {
         zt = 0,
         jt = -1;
-        var On = "<div id=\"chat-" + ++Yt + "\" class=\"line\">" + (In ? "" : "<span class=\"nick\">\u26A0</span>") + "<span class=\"text\">" + Mn + "</span></div>"
+        var On = "<div id=\"chat-" + ++Yt + "\" class=\"line\">" + (In ? "" : "<span class=\"nick\">\u26A0</span>") + "<span class=\"text\">" + Dn + "</span></div>"
           , Ln = "#chat-" + (Yt - config.maxChatLines);
         $(Ln).length && $(Ln).remove(),
         $("#chatlines").append(On);
@@ -31086,45 +31086,45 @@ function() {
         kn.scrollTop(kn[0].scrollHeight)
     }
     ,
-    UI.showChatLevel = function(Mn) {
+    UI.showChatLevel = function(Dn) {
         var In = null;
-        2 == Mn ? In = "Type /flag XX where XX is the 2-letter ISO code of a country" : 3 == Mn ? In = "Emotes available: /tf /pepe /clap /lol /bro /kappa /cry /rage" : 4 == Mn && (In = "Flag Pack #1: communist confederate imperial rainbow jolly"),
+        2 == Dn ? In = "Type /flag XX where XX is the 2-letter ISO code of a country" : 3 == Dn ? In = "Emotes available: /tf /pepe /clap /lol /bro /kappa /cry /rage" : 4 == Dn && (In = "Flag Pack #1: communist confederate imperial rainbow jolly"),
         null != In && UI.addChatMessage(In, !0)
     }
     ,
-    UI.updateStats = function(Mn) {
-        var In = Mn.playerstotal
+    UI.updateStats = function(Dn) {
+        var In = Dn.playerstotal
           , On = "";
-        On += "<div class=\"item\"><span class=\"icon-container\"><div class=\"icon players\"></div></span><span class=\"greyed\">" + Mn.playersgame + "&nbsp;/&nbsp;</span>" + In + "<span class=\"icon-container padded\"><div class=\"icon ping\"></div></span>" + Mn.ping + "<span class=\"millis\">ms</span></div>",
+        On += "<div class=\"item\"><span class=\"icon-container\"><div class=\"icon players\"></div></span><span class=\"greyed\">" + Dn.playersgame + "&nbsp;/&nbsp;</span>" + In + "<span class=\"icon-container padded\"><div class=\"icon ping\"></div></span>" + Dn.ping + "<span class=\"millis\">ms</span></div>",
         $("#gameinfo").html(On),
-        game.ping = Mn.ping
+        game.ping = Dn.ping
     }
     ,
-    UI.sayLine = function(Mn) {
-        Players.say(Mn)
+    UI.sayLine = function(Dn) {
+        Players.say(Dn)
     }
     ,
-    UI.escapeHTML = function(Mn) {
-        return ("" + Mn).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;").replace(/\//g, "&#x2F;").replace(/`/g, "&#x60;")
+    UI.escapeHTML = function(Dn) {
+        return ("" + Dn).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;").replace(/\//g, "&#x2F;").replace(/`/g, "&#x60;")
     }
     ;
     var Sn = function() {
-        var Mn = window.innerWidth
+        var Dn = window.innerWidth
           , In = window.innerHeight;
-        Mn == game.screenX && In == game.screenY || (clearTimeout(Xt),
+        Dn == game.screenX && In == game.screenY || (clearTimeout(Xt),
         Xt = setTimeout(function() {
-            Graphics.resizeRenderer(Mn, In)
+            Graphics.resizeRenderer(Dn, In)
         }, 250))
     };
-    UI.controlKey = function(Mn, In, On) {
+    UI.controlKey = function(Dn, In, On) {
         if (game.state != Network.STATE.PLAYING)
             return !0;
         if (On)
-            if (13 != Mn) {
-                if (27 == Mn)
+            if (13 != Dn) {
+                if (27 == Dn)
                     return Gt && UI.toggleChatBox(!1),
                     void UI.closeAllPanels();
-                191 == Mn ? UI.shortcutChat("/") : 75 == Mn ? Input.toggleKeybinds() : "SHOWSCORE" === In ? UI.toggleScore() : "MAINMENU" === In ? UI.toggleMainMenu() : "SHOWGAMES" === In ? Games.toggleGames() : "FULLSCREEN" === In ? (Graphics.toggleFullscreen(),
+                191 == Dn ? UI.shortcutChat("/") : 75 == Dn ? Input.toggleKeybinds() : "SHOWSCORE" === In ? UI.toggleScore() : "MAINMENU" === In ? UI.toggleMainMenu() : "SHOWGAMES" === In ? Games.toggleGames() : "FULLSCREEN" === In ? (Graphics.toggleFullscreen(),
                 Input.clearKeys()) : "MINIMIZECHAT" === In ? UI.minimizeChat() : "MAXIMIZECHAT" === In ? UI.maximizeChat() : "SAY" === In ? UI.shortcutChat("/s ") : "TEAM" === In ? UI.shortcutChat("/t ") : "REPLY" === In ? null != ln && UI.shortcutChat("/w " + ln + " ") : "SPECTATE" === In ? Network.spectateForce() : "UPGRADE1" === In ? SWAM.radio.visible() || UI.selectUpgrade(1) : "UPGRADE2" === In ? SWAM.radio.visible() || UI.selectUpgrade(2) : "UPGRADE3" === In ? SWAM.radio.visible() || UI.selectUpgrade(3) : "UPGRADE4" === In ? SWAM.radio.visible() || UI.selectUpgrade(4) : "SOUND" === In ? Sound.toggle() : "HELP" === In ? UI.toggleHelp() : "INVITE" === In ? UI.toggleInvite() : "MOUSEMODE" === In ? Input.toggleMouse() : void 0
             } else
                 UI.toggleChatBox(!0)
@@ -31141,17 +31141,17 @@ function() {
         UI.visibilityMinimap(!1)
     }
     ,
-    UI.visibilityMinimap = function(Mn) {
-        game.graphics.gui.minimap.visible = Mn,
-        game.graphics.gui.minimap_box.visible = Mn
+    UI.visibilityMinimap = function(Dn) {
+        game.graphics.gui.minimap.visible = Dn,
+        game.graphics.gui.minimap_box.visible = Dn
     }
     ,
     UI.resizeMinimap = function() {
-        for (var Mn in game.graphics.gui.minimap.scale.set(config.minimapSize / 512),
+        for (var Dn in game.graphics.gui.minimap.scale.set(config.minimapSize / 512),
         game.graphics.gui.minimap.position.set(game.screenX - config.minimapPaddingX, game.screenY - config.minimapPaddingY),
         game.graphics.gui.minimap_box.scale.set(.03 + 2 * config.minimapSize * (game.screenX / game.scale / 32768) / 64, .03 + config.minimapSize * (game.screenY / game.scale / 16384) / 64),
         Bt)
-            vn(Bt[Mn]);
+            vn(Bt[Dn]);
         Games.update(!0)
     }
     ,
@@ -31173,44 +31173,44 @@ function() {
         UI.visibilityHUD(!1)
     }
     ,
-    UI.visibilityHUD = function(Mn) {
-        game.graphics.gui.hudHealth_shadow.visible = Mn,
-        game.graphics.gui.hudHealth.visible = Mn,
-        game.graphics.gui.hudEnergy_shadow.visible = Mn,
-        game.graphics.gui.hudEnergy.visible = Mn
+    UI.visibilityHUD = function(Dn) {
+        game.graphics.gui.hudHealth_shadow.visible = Dn,
+        game.graphics.gui.hudHealth.visible = Dn,
+        game.graphics.gui.hudEnergy_shadow.visible = Dn,
+        game.graphics.gui.hudEnergy.visible = Dn
     }
     ,
     UI.resizeHUD = function() {
-        var Mn = .5 * game.scale
+        var Dn = .5 * game.scale
           , In = game.halfScreenX - 30 * game.scale
           , On = game.halfScreenX + 30 * game.scale;
-        game.graphics.gui.hudHealth_shadow.scale.set(Mn),
-        game.graphics.gui.hudEnergy_shadow.scale.set(Mn),
+        game.graphics.gui.hudHealth_shadow.scale.set(Dn),
+        game.graphics.gui.hudEnergy_shadow.scale.set(Dn),
         game.graphics.gui.hudHealth_shadow.position.set(In, game.halfScreenY),
         game.graphics.gui.hudEnergy_shadow.position.set(On, game.halfScreenY),
-        game.graphics.gui.hudSpriteHealth.scale.set(Mn),
+        game.graphics.gui.hudSpriteHealth.scale.set(Dn),
         game.graphics.gui.hudSpriteHealth.position.set(In, game.halfScreenY),
-        game.graphics.gui.hudSpriteEnergy.scale.set(Mn),
+        game.graphics.gui.hudSpriteEnergy.scale.set(Dn),
         game.graphics.gui.hudSpriteEnergy.position.set(On, game.halfScreenY)
     }
     ,
-    UI.selectAircraft = function(Mn) {
-        Network.sendCommand("respawn", Mn + "")
+    UI.selectAircraft = function(Dn) {
+        Network.sendCommand("respawn", Dn + "")
     }
     ,
-    UI.aircraftSelected = function(Mn) {
+    UI.aircraftSelected = function(Dn) {
         for (var In = 0 == game.myGraphicsSet ? "teamImperial" : "teamRebel", On = 1; 5 >= On; On++)
             $("#selectaircraft-" + On).removeClass("teamImperial").removeClass("teamRebel").addClass(In);
-        Mn = parseInt(Mn);
+        Dn = parseInt(Dn);
         for (var On = 1; 5 >= On; On++)
-            On == Mn ? $("#selectaircraft-" + On).addClass("sel") : $("#selectaircraft-" + On).removeClass("sel")
+            On == Dn ? $("#selectaircraft-" + On).addClass("sel") : $("#selectaircraft-" + On).removeClass("sel")
     }
     ,
-    UI.killed = function(Mn) {
-        var In = null == Mn.level ? "" : "<span class=\"level\">" + Mn.level + "</span>";
+    UI.killed = function(Dn) {
+        var In = null == Dn.level ? "" : "<span class=\"level\">" + Dn.level + "</span>";
         (1500 < game.time - yn || 6 <= mn.length) && (mn = []),
         yn = game.time,
-        mn.push([Mn.flag, Mn.name, In]);
+        mn.push([Dn.flag, Dn.name, In]);
         for (var On = "", Ln = "", kn = 0; kn < mn.length; kn++)
             Ln = mn[kn][1],
             1 != mn.length && 10 < Ln.length && (Ln = Ln.substr(0, 10) + "..."),
@@ -31222,31 +31222,31 @@ function() {
         }
     }
     ,
-    UI.killedBy = function(Mn) {
-        var In = null == Mn.level ? "" : "<span class=\"level\">" + Mn.level + "</span>";
+    UI.killedBy = function(Dn) {
+        var In = null == Dn.level ? "" : "<span class=\"level\">" + Dn.level + "</span>";
         hn = {
             type: "destroyed",
             duration: 3e3,
-            msg: "Destroyed by<span class=\"playerbig\"><span class=\"flag big flag-" + Mn.flag + "\"></span>" + UI.escapeHTML(Mn.name) + In + "</span>"
+            msg: "Destroyed by<span class=\"playerbig\"><span class=\"flag big flag-" + Dn.flag + "\"></span>" + UI.escapeHTML(Dn.name) + In + "</span>"
         }
     }
     ,
-    UI.errorHandler = function(Mn) {
-        switch (Mn.error) {
+    UI.errorHandler = function(Dn) {
+        switch (Dn.error) {
         case 1:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>Packet flooding detected", 2e4),
-            Network.receivedError(Mn.error);
+            Network.receivedError(Dn.error);
             break;
         case 2:
             UI.showMessage("alert", "<span class=\"info\">BANNED</span>Packet flooding detected", 2e4),
-            Network.receivedError(Mn.error);
+            Network.receivedError(Dn.error);
             break;
         case 3:
             UI.showMessage("alert", "<span class=\"info\">BANNED</span>You have been globally banned", 2e4),
-            Network.receivedError(Mn.error);
+            Network.receivedError(Dn.error);
             break;
         case 4:
-            Network.receivedError(Mn.error),
+            Network.receivedError(Dn.error),
             Games.redirRoot();
             break;
         case 5:
@@ -31254,27 +31254,27 @@ function() {
             break;
         case 6:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>AFK for more than 10 minutes<br><span class=\"button\" onclick=\"Network.reconnect()\">RECONNECT</span>", 72e5),
-            Network.receivedError(Mn.error);
+            Network.receivedError(Dn.error);
             break;
         case 7:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>You have been kicked out", 2e4),
-            Network.receivedError(Mn.error);
+            Network.receivedError(Dn.error);
             break;
         case 8:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>Invalid login data", 2e4),
-            Network.receivedError(Mn.error);
+            Network.receivedError(Dn.error);
             break;
         case 9:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>Incorrect protocol level<br>Please clear your browser cache and refresh", 2e4),
-            Network.receivedError(Mn.error);
+            Network.receivedError(Dn.error);
             break;
         case 10:
             UI.showMessage("alert", "<span class=\"info\">BANNED</span>Account banned", 2e4),
-            Network.receivedError(Mn.error);
+            Network.receivedError(Dn.error);
             break;
         case 11:
             UI.showMessage("alert", "<span class=\"info\">DISCONNECTED</span>Account already logged in<br><span class=\"button\" onclick=\"Network.reconnect()\">RECONNECT</span>", 2e4),
-            Network.receivedError(Mn.error);
+            Network.receivedError(Dn.error);
             break;
         case 12:
             UI.showMessage("alert", "<span class=\"info\">RESPAWN</span>Cannot respawn or change aircraft in a Battle Royale game", 3e3);
@@ -31296,35 +31296,35 @@ function() {
         }
     }
     ,
-    UI.showCommandReply = function(Mn) {
-        if (0 == Mn.type)
-            UI.addChatMessage(UI.escapeHTML(Mn.text));
+    UI.showCommandReply = function(Dn) {
+        if (0 == Dn.type)
+            UI.addChatMessage(UI.escapeHTML(Dn.text));
         else {
-            var In = JSON.stringify(JSON.parse(Mn.text), null, "    ")
+            var In = JSON.stringify(JSON.parse(Dn.text), null, "    ")
               , On = "<div class=\"close\" onclick=\"$(this).parent().remove()\"></div><div class=\"text\"><pre>" + UI.escapeHTML(In) + "</pre></div>";
             $("body").append("<div id=\"debugpopup\" oncontextmenu=\"event.stopPropagation()\">" + On + "</div>")
         }
     }
     ,
-    UI.updateHUD = function(Mn, In, On) {
-        Mn = Tools.clamp(Mn, 0, 1),
+    UI.updateHUD = function(Dn, In, On) {
+        Dn = Tools.clamp(Dn, 0, 1),
         In = Tools.clamp(In, 0, 1),
-        game.graphics.gui.hudHealth.rotation = -1.1 * (1 - Mn),
+        game.graphics.gui.hudHealth.rotation = -1.1 * (1 - Dn),
         game.graphics.gui.hudEnergy.rotation = Math.PI + 1.1 * (1 - In),
-        game.graphics.gui.hudHealth.tint = .5 < Mn ? Tools.colorLerp(13487404, 2591785, 2 * (Mn - .5)) : Tools.colorLerp(12201261, 13487404, 2 * Mn);
+        game.graphics.gui.hudHealth.tint = .5 < Dn ? Tools.colorLerp(13487404, 2591785, 2 * (Dn - .5)) : Tools.colorLerp(12201261, 13487404, 2 * Dn);
         var Ln = 3374821;
         On && (Ln = In < config.ships[On.type].energyLight ? 2841755 : 3374821),
         game.graphics.gui.hudEnergy.tint = Ln
     }
     ,
-    UI.minimizeChat = function(Mn) {
+    UI.minimizeChat = function(Dn) {
         Vt || (Gt && UI.toggleChatBox(),
         Vt = !0,
         qt = 0,
         UI.hide("#chatbox"),
         UI.hide("#chatunreadlines"),
         UI.show("#maximizechat"),
-        Mn && Mn.stopPropagation())
+        Dn && Dn.stopPropagation())
     }
     ,
     UI.maximizeChat = function() {
@@ -31333,8 +31333,8 @@ function() {
             UI.hide("#maximizechat"),
             UI.hide("#chatunreadlines"),
             UI.show("#chatbox");
-            var Mn = $("#chatbox");
-            Mn.scrollTop(Mn[0].scrollHeight)
+            var Dn = $("#chatbox");
+            Dn.scrollTop(Dn[0].scrollHeight)
         }
     }
     ,
@@ -31368,31 +31368,31 @@ function() {
         on = !1)
     }
     ,
-    UI.showPanel = function(Mn) {
+    UI.showPanel = function(Dn) {
         var In = .9
           , On = 1;
         config.phone && (In *= .7,
         On *= .7),
-        $(Mn).css({
+        $(Dn).css({
             display: "block",
             opacity: "0",
             transform: "scale(" + In + ")",
             "pointer-events": "auto"
         }),
-        $(Mn).width(),
-        $(Mn).css({
+        $(Dn).width(),
+        $(Dn).css({
             opacity: "1",
             transform: "scale(" + On + ")",
             transition: "all 0.75s cubic-bezier(0.23, 1, 0.32, 1)"
         }),
-        "#custom-msg" != Mn && Sound.UIClick()
+        "#custom-msg" != Dn && Sound.UIClick()
     }
     ,
-    UI.hidePanel = function(Mn, In, On) {
-        if ("#custom-msg" != Mn || $("#custom-msg").length) {
+    UI.hidePanel = function(Dn, In, On) {
+        if ("#custom-msg" != Dn || $("#custom-msg").length) {
             var Ln = .9;
             config.phone && (Ln *= .7),
-            $(Mn).css({
+            $(Dn).css({
                 opacity: "0",
                 transform: "scale(" + Ln + ")",
                 "pointer-events": "none"
@@ -31408,7 +31408,7 @@ function() {
                         transition: "none"
                     })
                 }
-            }, 800, Mn)
+            }, 800, Dn)
         }
     }
     ,
@@ -31450,61 +31450,61 @@ function() {
         en ? UI.closeMainMenu() : UI.openMainMenu()
     }
     ,
-    UI.closeAllPanels = function(Mn) {
-        "mainmenu" !== Mn && UI.closeMainMenu(),
-        "score" !== Mn && UI.closeScore(),
-        "help" !== Mn && UI.hideHelp(),
-        "games" !== Mn && Games.closeGames(),
-        "invite" !== Mn && UI.closeInvite(),
-        "login" !== Mn && UI.closeLogin(),
-        "keybinds" !== Mn && Input.closeKeybinds(),
+    UI.closeAllPanels = function(Dn) {
+        "mainmenu" !== Dn && UI.closeMainMenu(),
+        "score" !== Dn && UI.closeScore(),
+        "help" !== Dn && UI.hideHelp(),
+        "games" !== Dn && Games.closeGames(),
+        "invite" !== Dn && UI.closeInvite(),
+        "login" !== Dn && UI.closeLogin(),
+        "keybinds" !== Dn && Input.closeKeybinds(),
         $("#custom-msg").length && UI.hidePanel("#custom-msg", !1, !0)
     }
     ;
-    var wn = function(Mn) {
-        return 1e3 > (Mn = Math.round(Mn)) ? Mn : 1e5 > Mn ? (Mn / 1e3).toFixed(1) + " K" : 1e6 > Mn ? Math.round(Mn / 1e3) + " K" : (Mn / 1e6).toFixed(1) + " M"
+    var wn = function(Dn) {
+        return 1e3 > (Dn = Math.round(Dn)) ? Dn : 1e5 > Dn ? (Dn / 1e3).toFixed(1) + " K" : 1e6 > Dn ? Math.round(Dn / 1e3) + " K" : (Dn / 1e6).toFixed(1) + " M"
     };
-    UI.updateScore = function(Mn) {
+    UI.updateScore = function(Dn) {
         if (Kt) {
-            var In = Mn.scores
+            var In = Dn.scores
               , On = ["gold", "silver", "bronze"];
             In.sort(function(Kn, Qn) {
                 return Qn.score - Kn.score
             });
             var Ln = [["name", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["damage", "Damage"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]];
-            Mn.c == Network.SERVERPACKET.SCORE_DETAILED_BTR ? Ln = [["name", "&nbsp;"], ["wins", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]] : Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (Ln = [["name", "&nbsp;"], ["captures", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]]);
+            Dn.c == Network.SERVERPACKET.SCORE_DETAILED_BTR ? Ln = [["name", "&nbsp;"], ["wins", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]] : Dn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (Ln = [["name", "&nbsp;"], ["captures", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]]);
             for (var kn = "", Nn = 0; Nn < Ln.length; Nn++)
                 kn += "<div class=\"" + Ln[Nn][0] + "\">" + Ln[Nn][1] + "</div>";
             for (var Hn = "", Xn = "", Gn = -1, Yn = -1, Wn = 0, Fn, Bn, Un; Wn < In.length; Wn++)
                 null != (Fn = Players.get(In[Wn].id)) && (Bn = 2 >= Wn ? "&nbsp;<div class=\"badge detail " + On[Wn] + "\"></div>" : Wn + 1 + ".",
                 Un = Fn.me() ? " sel" : "",
-                Hn = Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " team-" + Fn.team : Mn.c != Network.SERVERPACKET.SCORE_DETAILED_BTR || In[Wn].alive ? "" : " inactive",
+                Hn = Dn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " team-" + Fn.team : Dn.c != Network.SERVERPACKET.SCORE_DETAILED_BTR || In[Wn].alive ? "" : " inactive",
                 Xn += "<div class=\"item" + Un + "\" player-id=\"" + Fn.id + "\"><div class=\"name\"><div class=\"position\">",
                 Xn += Bn + "</div><div class=\"flag small flag-" + Fn.flag + "\"></div>",
                 Xn += "<div class=\"player" + Hn + "\">" + (Fn.removedFromMap ? UI.escapeHTML(Fn.name).strike() : UI.escapeHTML(Fn.name)) + "</div></div>",
-                Mn.c == Network.SERVERPACKET.SCORE_DETAILED_BTR && (0 == In[Wn].wins ? Xn += "<div class=\"wins\">&nbsp;</div>" : Xn += "<div class=\"wins\">" + In[Wn].wins + "<div class=\"wins-container\">&nbsp;<div class=\"wins-icon\"></div></div></div>"),
-                Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (0 == In[Wn].captures ? Xn += "<div class=\"captures\">&nbsp;</div>" : Xn += "<div class=\"captures\">" + In[Wn].captures + "<div class=\"captures-container\">&nbsp;<div class=\"captures-icon\"></div></div></div>"),
+                Dn.c == Network.SERVERPACKET.SCORE_DETAILED_BTR && (0 == In[Wn].wins ? Xn += "<div class=\"wins\">&nbsp;</div>" : Xn += "<div class=\"wins\">" + In[Wn].wins + "<div class=\"wins-container\">&nbsp;<div class=\"wins-icon\"></div></div></div>"),
+                Dn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (0 == In[Wn].captures ? Xn += "<div class=\"captures\">&nbsp;</div>" : Xn += "<div class=\"captures\">" + In[Wn].captures + "<div class=\"captures-container\">&nbsp;<div class=\"captures-icon\"></div></div></div>"),
                 Xn += "<div class=\"kills\">" + In[Wn].kills + "</div>",
                 Xn += "<div class=\"deaths\">" + In[Wn].deaths + "</div>",
-                Mn.c == Network.SERVERPACKET.SCORE_DETAILED && (Xn += "<div class=\"damage\">" + wn(In[Wn].damage) + "</div>"),
+                Dn.c == Network.SERVERPACKET.SCORE_DETAILED && (Xn += "<div class=\"damage\">" + wn(In[Wn].damage) + "</div>"),
                 Xn += "<div class=\"bounty\">" + In[Wn].score + "</div>",
                 Xn += "<div class=\"rank\">" + (0 == In[Wn].level ? "&nbsp;" : In[Wn].level) + "</div>",
                 Xn += "<div class=\"ping\">" + In[Wn].ping + "<span class=\"ms\">ms</span></div>",
                 Xn += "</div>",
-                Mn.c == Network.SERVERPACKET.SCORE_DETAILED ? In[Wn].damage > Gn && (Gn = In[Wn].damage,
-                Yn = Fn) : Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? In[Wn].captures > Gn && (Gn = In[Wn].captures,
+                Dn.c == Network.SERVERPACKET.SCORE_DETAILED ? In[Wn].damage > Gn && (Gn = In[Wn].damage,
+                Yn = Fn) : Dn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? In[Wn].captures > Gn && (Gn = In[Wn].captures,
                 Yn = Fn) : In[Wn].kills > Gn && (Gn = In[Wn].kills,
                 Yn = Fn));
             var jn = ""
               , zn = "";
             if (1 < In.length && (jn = "&bull;&nbsp;&nbsp;" + In.length + " players",
             0 < Gn)) {
-                if (Mn.c == Network.SERVERPACKET.SCORE_DETAILED)
+                if (Dn.c == Network.SERVERPACKET.SCORE_DETAILED)
                     var Vn = wn(Gn)
                       , qn = " damage";
                 else
                     Vn = Gn + "",
-                    qn = Mn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " capture" : " kill",
+                    qn = Dn.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " capture" : " kill",
                     1 < Gn && (qn += "s");
                 zn = "<div class=\"mvpbadge\">MVP</div><div class=\"flag flag-" + Yn.flag + "\"></div><div class=\"name\">" + UI.escapeHTML(Yn.name) + "</div><div class=\"damage\">&nbsp;&nbsp;&bull;&nbsp;&nbsp;" + Vn + qn + "</div>"
             }
@@ -31519,20 +31519,20 @@ function() {
         }
     }
     ,
-    UI.popMenu = function(Mn, In) {
+    UI.popMenu = function(Dn, In) {
         if (game.state == Network.STATE.LOGIN)
             return Games.closeDropdowns(),
             void UI.closeLogin();
         In || game.state != Network.STATE.PLAYING || UI.closeAllPanels();
-        var On = $(Mn.target).parent().data("playerid");
-        if (null == On && (On = $(Mn.target).data("playerid")),
+        var On = $(Dn.target).parent().data("playerid");
+        if (null == On && (On = $(Dn.target).data("playerid")),
         null != On && On != game.myID) {
             var Ln = Players.get(On);
             if (null == Ln)
                 return !0;
             var kn = {
                 left: "20px",
-                top: $(Mn.target).parent()[0].getBoundingClientRect().top - 166 + "px"
+                top: $(Dn.target).parent()[0].getBoundingClientRect().top - 166 + "px"
             };
             Zt || (kn.display = "block",
             Zt = !0);
@@ -31541,45 +31541,45 @@ function() {
             return $("#contextmenu").html(Fn),
             $("#contextmenu").css(kn),
             Jt = Ln.id,
-            Mn.stopPropagation(),
+            Dn.stopPropagation(),
             !1
         }
         UI.closeMenu()
     }
     ;
-    var Pn = function(Mn) {
-        return (Mn + "").replace(/&/g, "&a;").replace(/ /g, "&s;")
+    var Pn = function(Dn) {
+        return (Dn + "").replace(/&/g, "&a;").replace(/ /g, "&s;")
     }
-      , Cn = function(Mn) {
-        return (Mn + "").replace(/&s;/g, " ").replace(/&a;/g, "&")
+      , Cn = function(Dn) {
+        return (Dn + "").replace(/&s;/g, " ").replace(/&a;/g, "&")
     };
-    UI.chatWhisper = function(Mn, In) {
-        Mn = Cn(Mn);
-        var On = Players.getByName(Mn);
+    UI.chatWhisper = function(Dn, In) {
+        Dn = Cn(Dn);
+        var On = Players.getByName(Dn);
         null == On ? UI.addChatMessage("Unknown player") : Network.sendWhisper(On.id, In)
     }
     ,
-    UI.chatIgnore = function(Mn) {
-        var In = Players.get(Mn);
-        null != In && Mn != game.myID && null == Ht[In.id] && (Ht[In.id] = !0,
+    UI.chatIgnore = function(Dn) {
+        var In = Players.get(Dn);
+        null != In && Dn != game.myID && null == Ht[In.id] && (Ht[In.id] = !0,
         UI.addChatMessage("Ignoring player " + UI.escapeHTML(In.name) + "&nbsp;&nbsp;&bull;&nbsp;&nbsp;To unignore type /unignore " + UI.escapeHTML(Pn(In.name)), !0))
     }
     ,
-    UI.chatUnignore = function(Mn) {
-        Ht[Mn.id] && (delete Ht[Mn.id],
-        UI.addChatMessage("Removed player " + UI.escapeHTML(Mn.name) + " from ignore list", !0))
+    UI.chatUnignore = function(Dn) {
+        Ht[Dn.id] && (delete Ht[Dn.id],
+        UI.addChatMessage("Removed player " + UI.escapeHTML(Dn.name) + " from ignore list", !0))
     }
     ,
-    UI.chatVotemute = function(Mn) {
-        if (Mn.id != game.myID) {
-            Network.voteMute(Mn.id);
+    UI.chatVotemute = function(Dn) {
+        if (Dn.id != game.myID) {
+            Network.voteMute(Dn.id);
             var In = Math.floor(Math.sqrt(Players.count()[1])) + 1;
-            UI.addChatMessage("Voted to mute " + UI.escapeHTML(Mn.name) + "&nbsp;&nbsp;&bull;&nbsp;&nbsp;" + In + " total votes are required", !0)
+            UI.addChatMessage("Voted to mute " + UI.escapeHTML(Dn.name) + "&nbsp;&nbsp;&bull;&nbsp;&nbsp;" + In + " total votes are required", !0)
         }
     }
     ,
-    UI.chatVotemutePass = function(Mn) {
-        UI.addChatMessage("The vote to mute " + UI.escapeHTML(Mn.name) + " has passed", !0)
+    UI.chatVotemutePass = function(Dn) {
+        UI.addChatMessage("The vote to mute " + UI.escapeHTML(Dn.name) + " has passed", !0)
     }
     ,
     UI.chatMuted = function() {
@@ -31588,8 +31588,8 @@ function() {
     ,
     UI.contextWhisper = function() {
         if (null != Jt) {
-            var Mn = Players.get(Jt);
-            null != Mn && Jt != game.myID && UI.shortcutChat("/w " + Pn(Mn.name) + " ")
+            var Dn = Players.get(Jt);
+            null != Dn && Jt != game.myID && UI.shortcutChat("/w " + Pn(Dn.name) + " ")
         }
     }
     ,
@@ -31599,15 +31599,15 @@ function() {
     ,
     UI.contextUnignore = function() {
         if (null != Jt) {
-            var Mn = Players.get(Jt);
-            null != Mn && Jt != game.myID && UI.chatUnignore(Mn)
+            var Dn = Players.get(Jt);
+            null != Dn && Jt != game.myID && UI.chatUnignore(Dn)
         }
     }
     ,
     UI.contextVotemute = function() {
         if (null != Jt) {
-            var Mn = Players.get(Jt);
-            null != Mn && Jt != game.myID && UI.chatVotemute(Mn)
+            var Dn = Players.get(Jt);
+            null != Dn && Jt != game.myID && UI.chatVotemute(Dn)
         }
     }
     ,
@@ -31617,26 +31617,26 @@ function() {
     }
     ,
     UI.nameEntered = function() {
-        var Mn = $("#playername").val().trim();
-        0 < Mn.length ? (game.myOriginalName = Mn,
-        Games.start(Mn, !0)) : Games.highlightInput("#playername")
+        var Dn = $("#playername").val().trim();
+        0 < Dn.length ? (game.myOriginalName = Dn,
+        Games.start(Dn, !0)) : Games.highlightInput("#playername")
     }
     ,
-    UI.selectUpgrade = function(Mn) {
-        Network.sendCommand("upgrade", Mn + "")
+    UI.selectUpgrade = function(Dn) {
+        Network.sendCommand("upgrade", Dn + "")
     }
     ;
     var An = function() {
-        for (var Mn = ["", "speed", "defense", "energy", "missile"], In = 1; 5 > In; In++)
+        for (var Dn = ["", "speed", "defense", "energy", "missile"], In = 1; 5 > In; In++)
             In - 1,
-            5 > gn[Mn[In]] && 0 < fn.upgrades ? $("#selectupgrade-" + In).addClass("lighted") : $("#selectupgrade-" + In).removeClass("lighted")
+            5 > gn[Dn[In]] && 0 < fn.upgrades ? $("#selectupgrade-" + In).addClass("lighted") : $("#selectupgrade-" + In).removeClass("lighted")
     };
-    UI.updateUpgrades = function(Mn, In, On) {
+    UI.updateUpgrades = function(Dn, In, On) {
         for (var kn = ["", "speed", "defense", "energy", "missile"], Nn = 1, Ln; 5 > Nn; Nn++)
             Ln = Nn - 1,
             "",
-            null != gn[kn[Nn]] && gn[kn[Nn]] == Mn[Ln] || (gn[kn[Nn]] = Mn[Ln],
-            $("#selectupgrade-" + Nn + "-level").html(Mn[Ln]),
+            null != gn[kn[Nn]] && gn[kn[Nn]] == Dn[Ln] || (gn[kn[Nn]] = Dn[Ln],
+            $("#selectupgrade-" + Nn + "-level").html(Dn[Ln]),
             tn && rn - 100 == Nn && UI.popTooltip(null, 100 + Nn));
         if (null != On) {
             if (0 != On) {
@@ -31654,8 +31654,8 @@ function() {
         UI.updateUpgrades([0, 0, 0, 0])
     }
     ,
-    UI.popBigMsg = function(Mn) {
-        if (1 == Mn)
+    UI.popBigMsg = function(Dn) {
+        if (1 == Dn)
             var In = "<div id=\"big-message\" onclick=\"UI.closeBigMsg()\"><div class=\"msg\">Mobile mode</div><div class=\"small\">Mobile mode has touch controls and requires latest phone/tablet hardware.</div><div class=\"small nopadtop\">For the full experience please play on a PC with a physical keyboard.</div><div class=\"greyed\">Tap anywhere to close</div></div>";
         else
             In = "<div id=\"big-message\"><div class=\"msg\">WebGL required</div><div class=\"small\">This game requires a WebGL enabled browser in order to run.<br>Please allow WebGL for this domain to continue.</div>";
@@ -31666,9 +31666,9 @@ function() {
         $("#big-message").remove()
     }
     ,
-    UI.showHelp = function(Mn) {
+    UI.showHelp = function(Dn) {
         $t || (UI.closeAllPanels("help"),
-        !0 === Mn ? $("#howtoplay").addClass("hide") : $("#howtoplay").removeClass("hide"),
+        !0 === Dn ? $("#howtoplay").addClass("hide") : $("#howtoplay").removeClass("hide"),
         UI.showPanel("#howtoplay"),
         $t = !0)
     }
@@ -31682,7 +31682,7 @@ function() {
         $t ? UI.hideHelp() : UI.showHelp()
     }
     ,
-    UI.updateSound = function(Mn) {
+    UI.updateSound = function(Dn) {
         config.settings.sound ? ($("#settings-sound").addClass("soundon"),
         $("#settings-sound").removeClass("soundoff"),
         $("#mainmenu-sound-icon").addClass("soundon"),
@@ -31692,10 +31692,10 @@ function() {
         $("#mainmenu-sound-icon").addClass("soundoff"),
         $("#mainmenu-sound-icon").removeClass("soundon"),
         $("#mainmenu-sound-text").html("Enable Sound")),
-        Mn && UI.showMessage("alert", "<span class=\"info\">SOUND</span>" + (config.settings.sound ? "Enabled" : "Disabled"), 3e3)
+        Dn && UI.showMessage("alert", "<span class=\"info\">SOUND</span>" + (config.settings.sound ? "Enabled" : "Disabled"), 3e3)
     }
     ,
-    UI.gameStart = function(Mn, In) {
+    UI.gameStart = function(Dn, In) {
         In && ($("#login-ui").remove(),
         UI.show("#logosmall"),
         UI.show("#menu", !0),
@@ -31719,16 +31719,16 @@ function() {
         UI.hideSpectator(),
         UI.resetPowerups(),
         $("#open-menu").html("Connecting..."),
-        game.myName = Mn,
+        game.myName = Dn,
         Network.setup()
     }
     ;
     var Rn = function() {
-        Dn(),
+        Mn(),
         Graphics.toggleFullscreen(),
         Input.setupTouch()
     }
-      , Dn = function() {
+      , Mn = function() {
         $("#howtoplay").addClass("mobile"),
         $("#howtoplay").html("<div class=\"header\">HOW TO PLAY</div><div class=\"mobile-graphic\"></div><div class=\"commands\">For the best game experience play on a PC</div>")
     };
@@ -31770,10 +31770,10 @@ function() {
         UI.updateHUD(1, 1)
     }
     ,
-    UI.popTooltip = function(Mn, In) {
+    UI.popTooltip = function(Dn, In) {
         if (null == In)
-            var On = Mn.data.t
-              , Ln = Mn.currentTarget.getBoundingClientRect();
+            var On = Dn.data.t
+              , Ln = Dn.currentTarget.getBoundingClientRect();
         else
             On = In;
         var kn = "";
@@ -31818,9 +31818,9 @@ function() {
         }, 250))
     }
     ,
-    UI.startDragChat = function(Mn) {
-        un.x = Mn.originalEvent.pageX,
-        un.y = Mn.originalEvent.pageY,
+    UI.startDragChat = function(Dn) {
+        un.x = Dn.originalEvent.pageX,
+        un.y = Dn.originalEvent.pageY,
         un.width = $("#chatbox").width() + 16,
         un.height = $("#chatbox").height() + 16,
         $("#chatbox").addClass("hovered"),
@@ -31828,9 +31828,9 @@ function() {
         $(window).on("mouseup", UI.endDragChat)
     }
     ,
-    UI.dragChat = function(Mn) {
-        var In = Mn.originalEvent.pageX
-          , On = Mn.originalEvent.pageY;
+    UI.dragChat = function(Dn) {
+        var In = Dn.originalEvent.pageX
+          , On = Dn.originalEvent.pageY;
         if (0 != In && 0 != On) {
             100 > game.screenY - On && (On = game.screenY - 100);
             var Ln = In - un.x
@@ -31947,17 +31947,17 @@ function() {
         $("#selectupgrade-4").on("click", function() {
             UI.selectUpgrade(4)
         });
-        var Mn;
-        for (Mn = 1; 5 >= Mn; Mn++)
-            $("#selectaircraft-" + Mn).on("mouseenter", {
-                t: Mn
+        var Dn;
+        for (Dn = 1; 5 >= Dn; Dn++)
+            $("#selectaircraft-" + Dn).on("mouseenter", {
+                t: Dn
             }, UI.popTooltip),
-            $("#selectaircraft-" + Mn).on("mouseleave", UI.closeTooltip);
-        for (Mn = 1; 4 >= Mn; Mn++)
-            $("#selectupgrade-" + Mn).on("mouseenter", {
-                t: 100 + Mn
+            $("#selectaircraft-" + Dn).on("mouseleave", UI.closeTooltip);
+        for (Dn = 1; 4 >= Dn; Dn++)
+            $("#selectupgrade-" + Dn).on("mouseenter", {
+                t: 100 + Dn
             }, UI.popTooltip),
-            $("#selectupgrade-" + Mn).on("mouseleave", UI.closeTooltip);
+            $("#selectupgrade-" + Dn).on("mouseleave", UI.closeTooltip);
         $("#playbutton").on("click", function() {
             Sound.UIClick(),
             UI.nameEntered()
@@ -32244,9 +32244,9 @@ function() {
                 for (var Cn = 0; Cn < Jt.length; Cn++) {
                     for (var An = 0, Rn = 0; Rn < Jt[Cn].games.length; Rn++)
                         An += Jt[Cn].games[Rn].players;
-                    var Dn;
-                    Dn = null == Jt[Cn].ping ? "&nbsp;" : Math.round(Jt[Cn].ping) + "<span class=\"ms\">ms</span>",
-                    Sn += "<div class=\"item selectable" + (game.playRegion === Jt[Cn].id ? " sel" : "") + "\" onclick=\"Games.selectRegion(event, &quot;" + Jt[Cn].id + "&quot;)\"><div class=\"region chooser\">" + Jt[Cn].name + "</div><div class=\"players number\">" + An + "</div><div class=\"ping chooser nopadding\">" + Dn + "</div><div class=\"clear\"></div></div>"
+                    var Mn;
+                    Mn = null == Jt[Cn].ping ? "&nbsp;" : Math.round(Jt[Cn].ping) + "<span class=\"ms\">ms</span>",
+                    Sn += "<div class=\"item selectable" + (game.playRegion === Jt[Cn].id ? " sel" : "") + "\" onclick=\"Games.selectRegion(event, &quot;" + Jt[Cn].id + "&quot;)\"><div class=\"region chooser\">" + Jt[Cn].name + "</div><div class=\"players number\">" + An + "</div><div class=\"ping chooser nopadding\">" + Mn + "</div><div class=\"clear\"></div></div>"
                 }
                 Sn += "<div class=\"item\"></div>",
                 wn = {
@@ -32296,10 +32296,10 @@ function() {
             Tn) {
                 if (Bt && Games.updateRegion(!1),
                 Sn += "<div class=\"item\"><div class=\"gametype header\">GAME</div><div class=\"players header\">PLAYERS</div><div class=\"clear\"></div></div>",
-                null == (Dn = fn()))
+                null == (Mn = fn()))
                     return;
-                null == pn(Dn, game.playRoom) && (game.playRoom = Yt[1]);
-                var An = un(Dn).games, Rn = [[], [], [], [], [], [], [], [], []], Pn, Cn;
+                null == pn(Mn, game.playRoom) && (game.playRoom = Yt[1]);
+                var An = un(Mn).games, Rn = [[], [], [], [], [], [], [], [], []], Pn, Cn;
                 for (Pn = 0; Pn < An.length; Pn++)
                     Rn[An[Pn].type].push(An[Pn]);
                 for (Pn = 1; Pn < Rn.length; Pn++)
@@ -32317,12 +32317,12 @@ function() {
             } else {
                 Sn += "<div class=\"arrowdown\"></div>",
                 Sn += "<div class=\"playtop\">GAME</div>";
-                var Dn;
-                if (null == (Dn = fn()))
+                var Mn;
+                if (null == (Mn = fn()))
                     return;
-                var Mn = pn(Dn, game.playRoom);
-                null == Mn ? (name = Gt[1],
-                game.playRoom = Yt[1]) : name = Mn.name,
+                var Dn = pn(Mn, game.playRoom);
+                null == Dn ? (name = Gt[1],
+                game.playRoom = Yt[1]) : name = Dn.name,
                 Sn += "<div class=\"playbottom\">" + name + "</div>",
                 wn = {
                     width: "190px",
@@ -32539,13 +32539,13 @@ function() {
                 var Pn = game.playRoom
                   , Cn = Yt.indexOf(Pn);
                 if (-1 != Cn) {
-                    for (var An = un(game.playRegion).games, Rn = [], Dn = 0; Dn < An.length; Dn++)
-                        An[Dn].type == Cn && Rn.push(An[Dn].id);
+                    for (var An = un(game.playRegion).games, Rn = [], Mn = 0; Mn < An.length; Mn++)
+                        An[Mn].type == Cn && Rn.push(An[Mn].id);
                     Pn = Rn[Tools.randInt(0, Rn.length - 1)]
                 }
-                var Mn = pn(game.playRegion, Pn);
-                game.playHost = Mn.host,
-                game.playPath = Mn.id,
+                var Dn = pn(game.playRegion, Pn);
+                game.playHost = Dn.host,
+                game.playPath = Dn.id,
                 game.regionName = un(game.playRegion).name,
                 game.playRoom = Pn,
                 game.state == Network.STATE.LOGIN && Tools.wipeReel(),
@@ -32773,8 +32773,8 @@ function() {
           , Cn = 0
           , An = 0
           , Rn = ""
-          , Dn = {}
-          , Mn = 0
+          , Mn = {}
+          , Dn = 0
           , In = 0
           , On = new Vector(Sn.x - game.halfScreenX / game.scale - 64,Sn.y - game.halfScreenY / game.scale - 64)
           , Ln = new Vector(Sn.x + game.halfScreenX / game.scale + 64,Sn.y - game.halfScreenY / game.scale - 64)
@@ -32785,8 +32785,8 @@ function() {
                 for (var Bn = -Pn; Bn <= Pn; Bn++)
                     if (Cn = 64 * (Math.floor(Sn.x / 64) + .5) + 64 * Fn,
                     An = 64 * (Math.floor(Sn.y / 64) + .5) + 64 * Bn,
-                    !((Mn = Tools.distance(Cn, An, Tn.x, Tn.y)) < En) && (Rn = Cn + "_" + An,
-                    Dn[Rn] = !0,
+                    !((Dn = Tools.distance(Cn, An, Tn.x, Tn.y)) < En) && (Rn = Cn + "_" + An,
+                    Mn[Rn] = !0,
                     null == tn[Rn])) {
                         var Un = Textures.sprite("hotsmoke_" + Tools.randInt(1, 4));
                         Un.scale.set(Tools.rand(1.5, 2.5)),
@@ -32802,13 +32802,13 @@ function() {
                             rotationSpeed: Tools.rand(-.0025, .0025),
                             opacity: 0,
                             maxOpacity: In,
-                            opacitySpeed: 64 <= Mn - En ? .02 : .0035,
+                            opacitySpeed: 64 <= Dn - En ? .02 : .0035,
                             color: Tools.rand(0, 1),
                             colorDir: .5 > Tools.rand(0, 1) ? -1 : 1
                         }
                     }
         for (var Hn in tn)
-            null == Dn[Hn] ? (game.graphics.layers.powerups.removeChild(tn[Hn].sprite),
+            null == Mn[Hn] ? (game.graphics.layers.powerups.removeChild(tn[Hn].sprite),
             tn[Hn].sprite.destroy(),
             delete tn[Hn]) : (tn[Hn].rotation += tn[Hn].rotationSpeed * game.timeFactor,
             tn[Hn].opacity += tn[Hn].opacitySpeed * game.timeFactor,
@@ -33050,8 +33050,8 @@ function() {
             if (!(null != En && .01 > En)) {
                 var Rn = An.play(Cn ? void 0 : Tn);
                 if ("thruster" === Tn || "missile" === Tn || "chopper" === Tn) {
-                    var Dn = An.seek(null, Rn);
-                    An.seek(Dn + Tools.rand(0, 1), Rn)
+                    var Mn = An.seek(null, Rn);
+                    An.seek(Mn + Tools.rand(0, 1), Rn)
                 }
                 return _n(Rn, Tn, En, Sn, wn, Pn, Cn),
                 Rn
@@ -33140,13 +33140,13 @@ function() {
                     Rn = ln[En.type];
                 if (.01 > An)
                     return;
-                var Dn = yn(wn, null, En.pos, Rn, [0, An, 200]);
+                var Mn = yn(wn, null, En.pos, Rn, [0, An, 200]);
                 Xt[Pn] = {
                     type: Tn,
                     started: game.time,
                     last: game.time,
                     sound: wn,
-                    soundId: Dn,
+                    soundId: Mn,
                     vol: An
                 },
                 0 == Tn ? Gt++ : Yt++
@@ -33213,6 +33213,7 @@ $(function Bt() {
         $("body").append("<div id='WhoKilledWho' style='position: absolute; top: 40px; left: 60px; width: 400px; height: 80px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white;'></div>"),
         $("body").append("<div id='radioPanel' style='display: none; position: absolute; bottom: 180px; left: 60px; width: 300px; height: auto; max-width: 700px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white; text-shadow: 0 0 3px rgba(0, 0, 0, 0.8); background-color: rgba(0,0,0,0.5); border: 1px solid #555555; border-radius: 3px;' ><div id='radioChannel' style='color: yellow;'>Send TEAM RADIO</div><hr/><div id='radioOptions'></div></div>"),
         $("body").append("<div id='radioShortcutTip' style='position: absolute; bottom: 180px; left: 60px; width: 300px; height: auto; max-width: 700px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white;'></div>"),
+        UI.addChatMessage("Mod:  Press Z, X or C  to send prefixed chat messages.".bold()),
         window.PlayerInfoTimer = setInterval(function() {
             var Vt = Players.getIDs();
             $("#prowlerAlert").hide();
