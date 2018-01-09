@@ -33427,7 +33427,7 @@ $(function Bt() {
             -1 < $t && (Bt.CruiseMode.isOn() && Bt.CruiseMode.off(1 == $t || 3 == $t),
             Jt.stopImmediatePropagation(),
             Jt.preventDefault()),
-            (101 === Jt.keyCode || 35 == Jt.keyCode) && (Bt.CruiseMode.isOn() ? Bt.CruiseMode.off() : Bt.CruiseMode.on(),
+            (53 === Jt.keyCode || 35 == Jt.keyCode) && (Bt.CruiseMode.isOn() ? Bt.CruiseMode.off() : Bt.CruiseMode.on(),
             Jt.stopImmediatePropagation(),
             Jt.preventDefault()),
             89 === Jt.keyCode && (Network.sendCommand("drop", ""),
