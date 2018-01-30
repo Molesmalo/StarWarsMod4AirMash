@@ -420,7 +420,7 @@
     function Rn(wa, Aa, Ca, Pa) {
         if (Array.isArray(Aa))
             Vn.each(Aa, function(Ra, Da) {
-                Ca || oa.test(wa) ? Pa(wa, Da) : Rn(wa + "[" + ("object" == typeof Da && null != Da ? Ra : "") + "]", Da, Ca, Pa)
+                Ca || ia.test(wa) ? Pa(wa, Da) : Rn(wa + "[" + ("object" == typeof Da && null != Da ? Ra : "") + "]", Da, Ca, Pa)
             });
         else if (Ca || "object" !== Vn.type(Aa))
             Pa(wa, Aa);
@@ -646,239 +646,239 @@
         Xn["[object " + Aa + "]"] = Aa.toLowerCase()
     });
     var Jn = function(wa) {
-        function Aa(Ko, Qo, Zo, Jo) {
-            var ii = Qo && Qo.ownerDocument, si = Qo ? Qo.nodeType : 9, $o, ei, ti, ni, ri, ai, oi;
-            if (Zo = Zo || [],
-            "string" != typeof Ko || !Ko || 1 !== si && 9 !== si && 11 !== si)
-                return Zo;
-            if (!Jo && ((Qo ? Qo.ownerDocument || Qo : po) !== no && to(Qo),
-            Qo = Qo || no,
-            ao)) {
-                if (11 !== si && (ri = Xo.exec(Ko)))
-                    if (!($o = ri[1])) {
-                        if (ri[2])
-                            return To.apply(Zo, Qo.getElementsByTagName(Ko)),
-                            Zo;
-                        if (($o = ri[3]) && ja.getElementsByClassName && Qo.getElementsByClassName)
-                            return To.apply(Zo, Qo.getElementsByClassName($o)),
-                            Zo
-                    } else if (9 === si) {
-                        if (!(ti = Qo.getElementById($o)))
-                            return Zo;
-                        if (ti.id === $o)
-                            return Zo.push(ti),
-                            Zo
-                    } else if (ii && (ti = ii.getElementById($o)) && lo(Qo, ti) && ti.id === $o)
-                        return Zo.push(ti),
-                        Zo;
-                if (ja.qsa && !mo[Ko + " "] && (!oo || !oo.test(Ko))) {
-                    if (1 !== si)
-                        ii = Qo,
-                        oi = Ko;
-                    else if ("object" !== Qo.nodeName.toLowerCase()) {
-                        for ((ni = Qo.getAttribute("id")) ? ni = ni.replace(jo, zo) : Qo.setAttribute("id", ni = uo),
-                        ei = (ai = Ka(Ko)).length; ei--; )
-                            ai[ei] = "#" + ni + " " + Ba(ai[ei]);
-                        oi = ai.join(","),
-                        ii = Ho.test(Ko) && Na(Qo.parentNode) || Qo
+        function Aa(qi, Ki, Qi, Zi) {
+            var io = Ki && Ki.ownerDocument, oo = Ki ? Ki.nodeType : 9, Ji, $i, eo, to, no, ro, ao;
+            if (Qi = Qi || [],
+            "string" != typeof qi || !qi || 1 !== oo && 9 !== oo && 11 !== oo)
+                return Qi;
+            if (!Zi && ((Ki ? Ki.ownerDocument || Ki : ui) !== ni && ti(Ki),
+            Ki = Ki || ni,
+            ai)) {
+                if (11 !== oo && (no = Gi.exec(qi)))
+                    if (!(Ji = no[1])) {
+                        if (no[2])
+                            return vi.apply(Qi, Ki.getElementsByTagName(qi)),
+                            Qi;
+                        if ((Ji = no[3]) && ja.getElementsByClassName && Ki.getElementsByClassName)
+                            return vi.apply(Qi, Ki.getElementsByClassName(Ji)),
+                            Qi
+                    } else if (9 === oo) {
+                        if (!(eo = Ki.getElementById(Ji)))
+                            return Qi;
+                        if (eo.id === Ji)
+                            return Qi.push(eo),
+                            Qi
+                    } else if (io && (eo = io.getElementById(Ji)) && di(Ki, eo) && eo.id === Ji)
+                        return Qi.push(eo),
+                        Qi;
+                if (ja.qsa && !gi[qi + " "] && (!ii || !ii.test(qi))) {
+                    if (1 !== oo)
+                        io = Ki,
+                        ao = qi;
+                    else if ("object" !== Ki.nodeName.toLowerCase()) {
+                        for ((to = Ki.getAttribute("id")) ? to = to.replace(Wi, ji) : Ki.setAttribute("id", to = li),
+                        $i = (ro = Ka(qi)).length; $i--; )
+                            ro[$i] = "#" + to + " " + Ba(ro[$i]);
+                        ao = ro.join(","),
+                        io = Xi.test(qi) && Na(Ki.parentNode) || Ki
                     }
-                    if (oi)
+                    if (ao)
                         try {
-                            return To.apply(Zo, ii.querySelectorAll(oi)),
-                            Zo
-                        } catch (di) {} finally {
-                            ni === uo && Qo.removeAttribute("id")
+                            return vi.apply(Qi, io.querySelectorAll(ao)),
+                            Qi
+                        } catch (so) {} finally {
+                            to === li && Ki.removeAttribute("id")
                         }
                 }
             }
-            return Za(Ko.replace(Do, "$1"), Qo, Zo, Jo)
+            return Za(qi.replace(Ri, "$1"), Ki, Qi, Zi)
         }
         function Ca() {
-            function Ko(Zo, Jo) {
-                return Qo.push(Zo + " ") > za.cacheLength && delete Ko[Qo.shift()],
-                Ko[Zo + " "] = Jo
+            function qi(Qi, Zi) {
+                return Ki.push(Qi + " ") > za.cacheLength && delete qi[Ki.shift()],
+                qi[Qi + " "] = Zi
             }
-            var Qo = [];
-            return Ko
+            var Ki = [];
+            return qi
         }
-        function Pa(Ko) {
-            return Ko[uo] = !0,
-            Ko
+        function Pa(qi) {
+            return qi[li] = !0,
+            qi
         }
-        function Ma(Ko) {
-            var Qo = no.createElement("fieldset");
+        function Ma(qi) {
+            var Ki = ni.createElement("fieldset");
             try {
-                return !!Ko(Qo)
-            } catch (Zo) {
+                return !!qi(Ki)
+            } catch (Qi) {
                 return !1
             } finally {
-                Qo.parentNode && Qo.parentNode.removeChild(Qo),
-                Qo = null
+                Ki.parentNode && Ki.parentNode.removeChild(Ki),
+                Ki = null
             }
         }
-        function Ra(Ko, Qo) {
-            for (var Zo = Ko.split("|"), Jo = Zo.length; Jo--; )
-                za.attrHandle[Zo[Jo]] = Qo
+        function Ra(qi, Ki) {
+            for (var Qi = qi.split("|"), Zi = Qi.length; Zi--; )
+                za.attrHandle[Qi[Zi]] = Ki
         }
-        function Da(Ko, Qo) {
-            var Zo = Qo && Ko
-              , Jo = Zo && 1 === Ko.nodeType && 1 === Qo.nodeType && Ko.sourceIndex - Qo.sourceIndex;
-            if (Jo)
-                return Jo;
-            if (Zo)
-                for (; Zo = Zo.nextSibling; )
-                    if (Zo === Qo)
+        function Da(qi, Ki) {
+            var Qi = Ki && qi
+              , Zi = Qi && 1 === qi.nodeType && 1 === Ki.nodeType && qi.sourceIndex - Ki.sourceIndex;
+            if (Zi)
+                return Zi;
+            if (Qi)
+                for (; Qi = Qi.nextSibling; )
+                    if (Qi === Ki)
                         return -1;
-            return Ko ? 1 : -1
+            return qi ? 1 : -1
         }
-        function Ia(Ko) {
-            return function(Qo) {
-                return "input" === Qo.nodeName.toLowerCase() && Qo.type === Ko
+        function Ia(qi) {
+            return function(Ki) {
+                return "input" === Ki.nodeName.toLowerCase() && Ki.type === qi
             }
         }
-        function Oa(Ko) {
-            return function(Qo) {
-                var Zo = Qo.nodeName.toLowerCase();
-                return ("input" === Zo || "button" === Zo) && Qo.type === Ko
+        function Oa(qi) {
+            return function(Ki) {
+                var Qi = Ki.nodeName.toLowerCase();
+                return ("input" === Qi || "button" === Qi) && Ki.type === qi
             }
         }
-        function La(Ko) {
-            return function(Qo) {
-                return "form"in Qo ? Qo.parentNode && !1 === Qo.disabled ? "label"in Qo ? "label"in Qo.parentNode ? Qo.parentNode.disabled === Ko : Qo.disabled === Ko : Qo.isDisabled === Ko || Qo.isDisabled !== !Ko && qo(Qo) === Ko : Qo.disabled === Ko : "label"in Qo && Qo.disabled === Ko
+        function La(qi) {
+            return function(Ki) {
+                return "form"in Ki ? Ki.parentNode && !1 === Ki.disabled ? "label"in Ki ? "label"in Ki.parentNode ? Ki.parentNode.disabled === qi : Ki.disabled === qi : Ki.isDisabled === qi || Ki.isDisabled !== !qi && Vi(Ki) === qi : Ki.disabled === qi : "label"in Ki && Ki.disabled === qi
             }
         }
-        function ka(Ko) {
-            return Pa(function(Qo) {
-                return Qo = +Qo,
-                Pa(function(Zo, Jo) {
-                    for (var ei = Ko([], Zo.length, Qo), ti = ei.length, $o; ti--; )
-                        Zo[$o = ei[ti]] && (Zo[$o] = !(Jo[$o] = Zo[$o]))
+        function ka(qi) {
+            return Pa(function(Ki) {
+                return Ki = +Ki,
+                Pa(function(Qi, Zi) {
+                    for (var $i = qi([], Qi.length, Ki), eo = $i.length, Ji; eo--; )
+                        Qi[Ji = $i[eo]] && (Qi[Ji] = !(Zi[Ji] = Qi[Ji]))
                 })
             })
         }
-        function Na(Ko) {
-            return Ko && void 0 !== Ko.getElementsByTagName && Ko
+        function Na(qi) {
+            return qi && void 0 !== qi.getElementsByTagName && qi
         }
         function Fa() {}
-        function Ba(Ko) {
-            for (var Qo = 0, Zo = Ko.length, Jo = ""; Qo < Zo; Qo++)
-                Jo += Ko[Qo].value;
-            return Jo
+        function Ba(qi) {
+            for (var Ki = 0, Qi = qi.length, Zi = ""; Ki < Qi; Ki++)
+                Zi += qi[Ki].value;
+            return Zi
         }
-        function Ua(Ko, Qo, Zo) {
-            var Jo = Qo.dir
-              , $o = Qo.next
-              , ei = $o || Jo
-              , ti = Zo && "parentNode" === ei
-              , ni = ho++;
-            return Qo.first ? function(ri, ai, oi) {
-                for (; ri = ri[Jo]; )
-                    if (1 === ri.nodeType || ti)
-                        return Ko(ri, ai, oi);
+        function Ua(qi, Ki, Qi) {
+            var Zi = Ki.dir
+              , Ji = Ki.next
+              , $i = Ji || Zi
+              , eo = Qi && "parentNode" === $i
+              , to = ci++;
+            return Ki.first ? function(no, ro, ao) {
+                for (; no = no[Zi]; )
+                    if (1 === no.nodeType || eo)
+                        return qi(no, ro, ao);
                 return !1
             }
-            : function(ri, ai, oi) {
-                var li = [co, ni], ii, si, di;
-                if (oi) {
-                    for (; ri = ri[Jo]; )
-                        if ((1 === ri.nodeType || ti) && Ko(ri, ai, oi))
+            : function(no, ro, ao) {
+                var lo = [pi, to], io, oo, so;
+                if (ao) {
+                    for (; no = no[Zi]; )
+                        if ((1 === no.nodeType || eo) && qi(no, ro, ao))
                             return !0;
                 } else
-                    for (; ri = ri[Jo]; )
-                        if (1 === ri.nodeType || ti)
-                            if (di = ri[uo] || (ri[uo] = {}),
-                            si = di[ri.uniqueID] || (di[ri.uniqueID] = {}),
-                            $o && $o === ri.nodeName.toLowerCase())
-                                ri = ri[Jo] || ri;
+                    for (; no = no[Zi]; )
+                        if (1 === no.nodeType || eo)
+                            if (so = no[li] || (no[li] = {}),
+                            oo = so[no.uniqueID] || (so[no.uniqueID] = {}),
+                            Ji && Ji === no.nodeName.toLowerCase())
+                                no = no[Zi] || no;
                             else {
-                                if ((ii = si[ei]) && ii[0] === co && ii[1] === ni)
-                                    return li[2] = ii[2];
-                                if (si[ei] = li,
-                                li[2] = Ko(ri, ai, oi))
+                                if ((io = oo[$i]) && io[0] === pi && io[1] === to)
+                                    return lo[2] = io[2];
+                                if (oo[$i] = lo,
+                                lo[2] = qi(no, ro, ao))
                                     return !0
                             }
                 return !1
             }
         }
-        function Ga(Ko) {
-            return 1 < Ko.length ? function(Qo, Zo, Jo) {
-                for (var $o = Ko.length; $o--; )
-                    if (!Ko[$o](Qo, Zo, Jo))
+        function Ga(qi) {
+            return 1 < qi.length ? function(Ki, Qi, Zi) {
+                for (var Ji = qi.length; Ji--; )
+                    if (!qi[Ji](Ki, Qi, Zi))
                         return !1;
                 return !0
             }
-            : Ko[0]
+            : qi[0]
         }
-        function Xa(Ko, Qo, Zo, Jo, $o) {
-            for (var ti = [], ni = 0, ri = Ko.length, ei; ni < ri; ni++)
-                (ei = Ko[ni]) && (Zo && !Zo(ei, Jo, $o) || (ti.push(ei),
-                null != Qo && Qo.push(ni)));
-            return ti
+        function Xa(qi, Ki, Qi, Zi, Ji) {
+            for (var eo = [], to = 0, no = qi.length, $i; to < no; to++)
+                ($i = qi[to]) && (Qi && !Qi($i, Zi, Ji) || (eo.push($i),
+                null != Ki && Ki.push(to)));
+            return eo
         }
-        function Ha(Ko, Qo, Zo, Jo, $o, ei) {
-            return Jo && !Jo[uo] && (Jo = Ha(Jo)),
-            $o && !$o[uo] && ($o = Ha($o, ei)),
-            Pa(function(ti, ni, ri, ai) {
-                var di = [], li = [], ui = ni.length, pi = ti || function(fi, gi, mi) {
-                    for (var yi = 0, _i = gi.length; yi < _i; yi++)
-                        Aa(fi, gi[yi], mi);
-                    return mi
-                }(Qo || "*", ri.nodeType ? [ri] : ri, []), ci = Ko && (ti || !Qo) ? Xa(pi, di, Ko, ri, ai) : pi, hi = Zo ? $o || (ti ? Ko : ui || Jo) ? [] : ni : ci, oi, ii, si;
-                if (Zo && Zo(ci, hi, ri, ai),
-                Jo)
-                    for (oi = Xa(hi, li),
-                    Jo(oi, [], ri, ai),
-                    ii = oi.length; ii--; )
-                        (si = oi[ii]) && (hi[li[ii]] = !(ci[li[ii]] = si));
-                if (!ti)
-                    hi = Xa(hi === ni ? hi.splice(ui, hi.length) : hi),
-                    $o ? $o(null, ni, hi, ai) : To.apply(ni, hi);
-                else if ($o || Ko) {
-                    if ($o) {
-                        for (oi = [],
-                        ii = hi.length; ii--; )
-                            (si = hi[ii]) && oi.push(ci[ii] = si);
-                        $o(null, hi = [], oi, ai)
+        function Ha(qi, Ki, Qi, Zi, Ji, $i) {
+            return Zi && !Zi[li] && (Zi = Ha(Zi)),
+            Ji && !Ji[li] && (Ji = Ha(Ji, $i)),
+            Pa(function(eo, to, no, ro) {
+                var so = [], lo = [], uo = to.length, po = eo || function(fo, go, mo) {
+                    for (var yo = 0, _o = go.length; yo < _o; yo++)
+                        Aa(fo, go[yo], mo);
+                    return mo
+                }(Ki || "*", no.nodeType ? [no] : no, []), co = qi && (eo || !Ki) ? Xa(po, so, qi, no, ro) : po, ho = Qi ? Ji || (eo ? qi : uo || Zi) ? [] : to : co, ao, io, oo;
+                if (Qi && Qi(co, ho, no, ro),
+                Zi)
+                    for (ao = Xa(ho, lo),
+                    Zi(ao, [], no, ro),
+                    io = ao.length; io--; )
+                        (oo = ao[io]) && (ho[lo[io]] = !(co[lo[io]] = oo));
+                if (!eo)
+                    ho = Xa(ho === to ? ho.splice(uo, ho.length) : ho),
+                    Ji ? Ji(null, to, ho, ro) : vi.apply(to, ho);
+                else if (Ji || qi) {
+                    if (Ji) {
+                        for (ao = [],
+                        io = ho.length; io--; )
+                            (oo = ho[io]) && ao.push(co[io] = oo);
+                        Ji(null, ho = [], ao, ro)
                     }
-                    for (ii = hi.length; ii--; )
-                        (si = hi[ii]) && -1 < (oi = $o ? Eo(ti, si) : di[ii]) && (ti[oi] = !(ni[oi] = si))
+                    for (io = ho.length; io--; )
+                        (oo = ho[io]) && -1 < (ao = Ji ? Si(eo, oo) : so[io]) && (eo[ao] = !(to[ao] = oo))
                 }
             })
         }
-        function Ya(Ko) {
-            for (var $o = Ko.length, ei = za.relative[Ko[0].type], ti = ei || za.relative[" "], ni = ei ? 1 : 0, ri = Ua(function(ii) {
-                return ii === Qo
-            }, ti, !0), ai = Ua(function(ii) {
-                return -1 < Eo(Qo, ii)
-            }, ti, !0), oi = [function(ii, si, di) {
-                var li = !ei && (di || si !== Ja) || ((Qo = si).nodeType ? ri(ii, si, di) : ai(ii, si, di));
-                return Qo = null,
-                li
+        function Ya(qi) {
+            for (var Ji = qi.length, $i = za.relative[qi[0].type], eo = $i || za.relative[" "], to = $i ? 1 : 0, no = Ua(function(io) {
+                return io === Ki
+            }, eo, !0), ro = Ua(function(io) {
+                return -1 < Si(Ki, io)
+            }, eo, !0), ao = [function(io, oo, so) {
+                var lo = !$i && (so || oo !== Ja) || ((Ki = oo).nodeType ? no(io, oo, so) : ro(io, oo, so));
+                return Ki = null,
+                lo
             }
-            ], Qo, Zo, Jo; ni < $o; ni++)
-                if (Zo = za.relative[Ko[ni].type])
-                    oi = [Ua(Ga(oi), Zo)];
+            ], Ki, Qi, Zi; to < Ji; to++)
+                if (Qi = za.relative[qi[to].type])
+                    ao = [Ua(Ga(ao), Qi)];
                 else {
-                    if ((Zo = za.filter[Ko[ni].type].apply(null, Ko[ni].matches))[uo]) {
-                        for (Jo = ++ni; Jo < $o && !za.relative[Ko[Jo].type]; Jo++)
+                    if ((Qi = za.filter[qi[to].type].apply(null, qi[to].matches))[li]) {
+                        for (Zi = ++to; Zi < Ji && !za.relative[qi[Zi].type]; Zi++)
                             ;
-                        return Ha(1 < ni && Ga(oi), 1 < ni && Ba(Ko.slice(0, ni - 1).concat({
-                            value: " " === Ko[ni - 2].type ? "*" : ""
-                        })).replace(Do, "$1"), Zo, ni < Jo && Ya(Ko.slice(ni, Jo)), Jo < $o && Ya(Ko = Ko.slice(Jo)), Jo < $o && Ba(Ko))
+                        return Ha(1 < to && Ga(ao), 1 < to && Ba(qi.slice(0, to - 1).concat({
+                            value: " " === qi[to - 2].type ? "*" : ""
+                        })).replace(Ri, "$1"), Qi, to < Zi && Ya(qi.slice(to, Zi)), Zi < Ji && Ya(qi = qi.slice(Zi)), Zi < Ji && Ba(qi))
                     }
-                    oi.push(Zo)
+                    ao.push(Qi)
                 }
-            return Ga(oi)
+            return Ga(ao)
         }
-        var uo = "sizzle" + 1 * new Date, po = wa.document, co = 0, ho = 0, fo = Ca(), go = Ca(), mo = Ca(), yo = function(Ko, Qo) {
-            return Ko === Qo && (eo = !0),
+        var li = "sizzle" + 1 * new Date, ui = wa.document, pi = 0, ci = 0, hi = Ca(), fi = Ca(), gi = Ca(), mi = function(qi, Ki) {
+            return qi === Ki && (ei = !0),
             0
-        }, _o = {}.hasOwnProperty, bo = [], xo = bo.pop, vo = bo.push, To = bo.push, So = bo.slice, Eo = function(Ko, Qo) {
-            for (var Zo = 0, Jo = Ko.length; Zo < Jo; Zo++)
-                if (Ko[Zo] === Qo)
-                    return Zo;
+        }, yi = {}.hasOwnProperty, _i = [], bi = _i.pop, xi = _i.push, vi = _i.push, Ti = _i.slice, Si = function(qi, Ki) {
+            for (var Qi = 0, Zi = qi.length; Qi < Zi; Qi++)
+                if (qi[Qi] === Ki)
+                    return Qi;
             return -1
-        }, wo = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", Ao = "[\\x20\\t\\r\\n\\f]", Co = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Ro = /[\x20\t\r\n\f]+/g, Do = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Io = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, Oo = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Lo = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, ko = /:((?:\\.|[\w-]|[^-\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^-\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^-\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, No = /^(?:\\.|[\w-]|[^-\xa0])+$/, Fo = {
+        }, Ei = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", wi = "[\\x20\\t\\r\\n\\f]", Ai = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Mi = /[\x20\t\r\n\f]+/g, Ri = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Di = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, Ii = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Oi = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, Li = /:((?:\\.|[\w-]|[^-\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^-\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^-\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, ki = /^(?:\\.|[\w-]|[^-\xa0])+$/, Ni = {
             ID: /^#((?:\\.|[\w-]|[^-\xa0])+)/,
             CLASS: /^\.((?:\\.|[\w-]|[^-\xa0])+)/,
             TAG: /^((?:\\.|[\w-]|[^-\xa0])+|[*])/,
@@ -887,254 +887,254 @@
             CHILD: /^:(only|first|last|nth|nth-last)-(child|of-type)(?:\([\x20\t\r\n\f]*(even|odd|(([+-]|)(\d*)n|)[\x20\t\r\n\f]*(?:([+-]|)[\x20\t\r\n\f]*(\d+)|))[\x20\t\r\n\f]*\)|)/i,
             bool: /^(?:checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped)$/i,
             needsContext: /^[\x20\t\r\n\f]*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\([\x20\t\r\n\f]*((?:-\d)?\d*)[\x20\t\r\n\f]*\)|)(?=[^-]|$)/i
-        }, Bo = /^(?:input|select|textarea|button)$/i, Uo = /^h\d$/i, Go = /^[^{]+\{\s*\[native \w/, Xo = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, Ho = /[+~]/, Yo = /\\([\da-f]{1,6}[\x20\t\r\n\f]?|([\x20\t\r\n\f])|.)/ig, Wo = function(Ko, Qo, Zo) {
-            var Jo = "0x" + Qo - 65536;
-            return Jo != Jo || Zo ? Qo : 0 > Jo ? String.fromCharCode(Jo + 65536) : String.fromCharCode(55296 | Jo >> 10, 56320 | 1023 & Jo)
-        }, jo = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g, zo = function(Ko, Qo) {
-            return Qo ? "\0" === Ko ? "\uFFFD" : Ko.slice(0, -1) + "\\" + Ko.charCodeAt(Ko.length - 1).toString(16) + " " : "\\" + Ko
-        }, Vo = function() {
-            to()
-        }, qo = Ua(function(Ko) {
-            return !0 === Ko.disabled && ("form"in Ko || "label"in Ko)
+        }, Fi = /^(?:input|select|textarea|button)$/i, Bi = /^h\d$/i, Ui = /^[^{]+\{\s*\[native \w/, Gi = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, Xi = /[+~]/, Hi = /\\([\da-f]{1,6}[\x20\t\r\n\f]?|([\x20\t\r\n\f])|.)/ig, Yi = function(qi, Ki, Qi) {
+            var Zi = "0x" + Ki - 65536;
+            return Zi != Zi || Qi ? Ki : 0 > Zi ? String.fromCharCode(Zi + 65536) : String.fromCharCode(55296 | Zi >> 10, 56320 | 1023 & Zi)
+        }, Wi = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g, ji = function(qi, Ki) {
+            return Ki ? "\0" === qi ? "\uFFFD" : qi.slice(0, -1) + "\\" + qi.charCodeAt(qi.length - 1).toString(16) + " " : "\\" + qi
+        }, zi = function() {
+            ti()
+        }, Vi = Ua(function(qi) {
+            return !0 === qi.disabled && ("form"in qi || "label"in qi)
         }, {
             dir: "parentNode",
             next: "legend"
-        }), Wa, ja, za, Va, qa, Ka, Qa, Za, Ja, $a, eo, to, no, ro, ao, oo, io, so, lo;
+        }), Wa, ja, za, Va, qa, Ka, Qa, Za, Ja, $a, ei, ti, ni, ri, ai, ii, oi, si, di;
         try {
-            To.apply(bo = So.call(po.childNodes), po.childNodes),
-            bo[po.childNodes.length].nodeType
-        } catch (Ko) {
-            To = {
-                apply: bo.length ? function(Qo, Zo) {
-                    vo.apply(Qo, So.call(Zo))
+            vi.apply(_i = Ti.call(ui.childNodes), ui.childNodes),
+            _i[ui.childNodes.length].nodeType
+        } catch (qi) {
+            vi = {
+                apply: _i.length ? function(Ki, Qi) {
+                    xi.apply(Ki, Ti.call(Qi))
                 }
-                : function(Qo, Zo) {
-                    for (var Jo = Qo.length, $o = 0; Qo[Jo++] = Zo[$o++]; )
+                : function(Ki, Qi) {
+                    for (var Zi = Ki.length, Ji = 0; Ki[Zi++] = Qi[Ji++]; )
                         ;
-                    Qo.length = Jo - 1
+                    Ki.length = Zi - 1
                 }
             }
         }
         for (Wa in ja = Aa.support = {},
-        qa = Aa.isXML = function(Ko) {
-            var Qo = Ko && (Ko.ownerDocument || Ko).documentElement;
-            return !!Qo && "HTML" !== Qo.nodeName
+        qa = Aa.isXML = function(qi) {
+            var Ki = qi && (qi.ownerDocument || qi).documentElement;
+            return !!Ki && "HTML" !== Ki.nodeName
         }
         ,
-        to = Aa.setDocument = function(Ko) {
-            var Jo = Ko ? Ko.ownerDocument || Ko : po, Qo, Zo;
-            return Jo !== no && 9 === Jo.nodeType && Jo.documentElement ? (no = Jo,
-            ro = no.documentElement,
-            ao = !qa(no),
-            po !== no && (Zo = no.defaultView) && Zo.top !== Zo && (Zo.addEventListener ? Zo.addEventListener("unload", Vo, !1) : Zo.attachEvent && Zo.attachEvent("onunload", Vo)),
-            ja.attributes = Ma(function($o) {
-                return $o.className = "i",
-                !$o.getAttribute("className")
+        ti = Aa.setDocument = function(qi) {
+            var Zi = qi ? qi.ownerDocument || qi : ui, Ki, Qi;
+            return Zi !== ni && 9 === Zi.nodeType && Zi.documentElement ? (ni = Zi,
+            ri = ni.documentElement,
+            ai = !qa(ni),
+            ui !== ni && (Qi = ni.defaultView) && Qi.top !== Qi && (Qi.addEventListener ? Qi.addEventListener("unload", zi, !1) : Qi.attachEvent && Qi.attachEvent("onunload", zi)),
+            ja.attributes = Ma(function(Ji) {
+                return Ji.className = "i",
+                !Ji.getAttribute("className")
             }),
-            ja.getElementsByTagName = Ma(function($o) {
-                return $o.appendChild(no.createComment("")),
-                !$o.getElementsByTagName("*").length
+            ja.getElementsByTagName = Ma(function(Ji) {
+                return Ji.appendChild(ni.createComment("")),
+                !Ji.getElementsByTagName("*").length
             }),
-            ja.getElementsByClassName = Go.test(no.getElementsByClassName),
-            ja.getById = Ma(function($o) {
-                return ro.appendChild($o).id = uo,
-                !no.getElementsByName || !no.getElementsByName(uo).length
+            ja.getElementsByClassName = Ui.test(ni.getElementsByClassName),
+            ja.getById = Ma(function(Ji) {
+                return ri.appendChild(Ji).id = li,
+                !ni.getElementsByName || !ni.getElementsByName(li).length
             }),
-            ja.getById ? (za.filter.ID = function($o) {
-                var ei = $o.replace(Yo, Wo);
-                return function(ti) {
-                    return ti.getAttribute("id") === ei
+            ja.getById ? (za.filter.ID = function(Ji) {
+                var $i = Ji.replace(Hi, Yi);
+                return function(eo) {
+                    return eo.getAttribute("id") === $i
                 }
             }
             ,
-            za.find.ID = function($o, ei) {
-                if (void 0 !== ei.getElementById && ao) {
-                    var ti = ei.getElementById($o);
-                    return ti ? [ti] : []
+            za.find.ID = function(Ji, $i) {
+                if (void 0 !== $i.getElementById && ai) {
+                    var eo = $i.getElementById(Ji);
+                    return eo ? [eo] : []
                 }
             }
-            ) : (za.filter.ID = function($o) {
-                var ei = $o.replace(Yo, Wo);
-                return function(ti) {
-                    var ni = void 0 !== ti.getAttributeNode && ti.getAttributeNode("id");
-                    return ni && ni.value === ei
+            ) : (za.filter.ID = function(Ji) {
+                var $i = Ji.replace(Hi, Yi);
+                return function(eo) {
+                    var to = void 0 !== eo.getAttributeNode && eo.getAttributeNode("id");
+                    return to && to.value === $i
                 }
             }
             ,
-            za.find.ID = function($o, ei) {
-                if (void 0 !== ei.getElementById && ao) {
-                    var ai = ei.getElementById($o), ti, ni, ri;
-                    if (ai) {
-                        if ((ti = ai.getAttributeNode("id")) && ti.value === $o)
-                            return [ai];
-                        for (ri = ei.getElementsByName($o),
-                        ni = 0; ai = ri[ni++]; )
-                            if ((ti = ai.getAttributeNode("id")) && ti.value === $o)
-                                return [ai]
+            za.find.ID = function(Ji, $i) {
+                if (void 0 !== $i.getElementById && ai) {
+                    var ro = $i.getElementById(Ji), eo, to, no;
+                    if (ro) {
+                        if ((eo = ro.getAttributeNode("id")) && eo.value === Ji)
+                            return [ro];
+                        for (no = $i.getElementsByName(Ji),
+                        to = 0; ro = no[to++]; )
+                            if ((eo = ro.getAttributeNode("id")) && eo.value === Ji)
+                                return [ro]
                     }
                     return []
                 }
             }
             ),
-            za.find.TAG = ja.getElementsByTagName ? function($o, ei) {
-                return void 0 === ei.getElementsByTagName ? ja.qsa ? ei.querySelectorAll($o) : void 0 : ei.getElementsByTagName($o)
+            za.find.TAG = ja.getElementsByTagName ? function(Ji, $i) {
+                return void 0 === $i.getElementsByTagName ? ja.qsa ? $i.querySelectorAll(Ji) : void 0 : $i.getElementsByTagName(Ji)
             }
-            : function($o, ei) {
-                var ni = [], ri = 0, ai = ei.getElementsByTagName($o), ti;
-                if ("*" === $o) {
-                    for (; ti = ai[ri++]; )
-                        1 === ti.nodeType && ni.push(ti);
-                    return ni
+            : function(Ji, $i) {
+                var to = [], no = 0, ro = $i.getElementsByTagName(Ji), eo;
+                if ("*" === Ji) {
+                    for (; eo = ro[no++]; )
+                        1 === eo.nodeType && to.push(eo);
+                    return to
                 }
-                return ai
+                return ro
             }
             ,
-            za.find.CLASS = ja.getElementsByClassName && function($o, ei) {
-                if (void 0 !== ei.getElementsByClassName && ao)
-                    return ei.getElementsByClassName($o)
+            za.find.CLASS = ja.getElementsByClassName && function(Ji, $i) {
+                if (void 0 !== $i.getElementsByClassName && ai)
+                    return $i.getElementsByClassName(Ji)
             }
             ,
-            io = [],
-            oo = [],
-            (ja.qsa = Go.test(no.querySelectorAll)) && (Ma(function($o) {
-                ro.appendChild($o).innerHTML = "<a id='" + uo + "'></a><select id='" + uo + "-\r\\' msallowcapture=''><option selected=''></option></select>",
-                $o.querySelectorAll("[msallowcapture^='']").length && oo.push("[*^$]=" + Ao + "*(?:''|\"\")"),
-                $o.querySelectorAll("[selected]").length || oo.push("\\[" + Ao + "*(?:value|" + wo + ")"),
-                $o.querySelectorAll("[id~=" + uo + "-]").length || oo.push("~="),
-                $o.querySelectorAll(":checked").length || oo.push(":checked"),
-                $o.querySelectorAll("a#" + uo + "+*").length || oo.push(".#.+[+~]")
+            oi = [],
+            ii = [],
+            (ja.qsa = Ui.test(ni.querySelectorAll)) && (Ma(function(Ji) {
+                ri.appendChild(Ji).innerHTML = "<a id='" + li + "'></a><select id='" + li + "-\r\\' msallowcapture=''><option selected=''></option></select>",
+                Ji.querySelectorAll("[msallowcapture^='']").length && ii.push("[*^$]=" + wi + "*(?:''|\"\")"),
+                Ji.querySelectorAll("[selected]").length || ii.push("\\[" + wi + "*(?:value|" + Ei + ")"),
+                Ji.querySelectorAll("[id~=" + li + "-]").length || ii.push("~="),
+                Ji.querySelectorAll(":checked").length || ii.push(":checked"),
+                Ji.querySelectorAll("a#" + li + "+*").length || ii.push(".#.+[+~]")
             }),
-            Ma(function($o) {
-                $o.innerHTML = "<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";
-                var ei = no.createElement("input");
-                ei.setAttribute("type", "hidden"),
-                $o.appendChild(ei).setAttribute("name", "D"),
-                $o.querySelectorAll("[name=d]").length && oo.push("name" + Ao + "*[*^$|!~]?="),
-                2 !== $o.querySelectorAll(":enabled").length && oo.push(":enabled", ":disabled"),
-                ro.appendChild($o).disabled = !0,
-                2 !== $o.querySelectorAll(":disabled").length && oo.push(":enabled", ":disabled"),
-                $o.querySelectorAll("*,:x"),
-                oo.push(",.*:")
+            Ma(function(Ji) {
+                Ji.innerHTML = "<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";
+                var $i = ni.createElement("input");
+                $i.setAttribute("type", "hidden"),
+                Ji.appendChild($i).setAttribute("name", "D"),
+                Ji.querySelectorAll("[name=d]").length && ii.push("name" + wi + "*[*^$|!~]?="),
+                2 !== Ji.querySelectorAll(":enabled").length && ii.push(":enabled", ":disabled"),
+                ri.appendChild(Ji).disabled = !0,
+                2 !== Ji.querySelectorAll(":disabled").length && ii.push(":enabled", ":disabled"),
+                Ji.querySelectorAll("*,:x"),
+                ii.push(",.*:")
             })),
-            (ja.matchesSelector = Go.test(so = ro.matches || ro.webkitMatchesSelector || ro.mozMatchesSelector || ro.oMatchesSelector || ro.msMatchesSelector)) && Ma(function($o) {
-                ja.disconnectedMatch = so.call($o, "*"),
-                so.call($o, "[s!='']:x"),
-                io.push("!=", ":(" + Co + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + ("\\[" + Ao + "*(" + Co + ")(?:" + Ao + "*([*^$|!~]?=)" + Ao + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + Co + "))|)" + Ao + "*\\]") + ")*)|.*)\\)|)")
+            (ja.matchesSelector = Ui.test(si = ri.matches || ri.webkitMatchesSelector || ri.mozMatchesSelector || ri.oMatchesSelector || ri.msMatchesSelector)) && Ma(function(Ji) {
+                ja.disconnectedMatch = si.call(Ji, "*"),
+                si.call(Ji, "[s!='']:x"),
+                oi.push("!=", ":(" + Ai + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + ("\\[" + wi + "*(" + Ai + ")(?:" + wi + "*([*^$|!~]?=)" + wi + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + Ai + "))|)" + wi + "*\\]") + ")*)|.*)\\)|)")
             }),
-            oo = oo.length && new RegExp(oo.join("|")),
-            io = io.length && new RegExp(io.join("|")),
-            Qo = Go.test(ro.compareDocumentPosition),
-            lo = Qo || Go.test(ro.contains) ? function($o, ei) {
-                var ti = 9 === $o.nodeType ? $o.documentElement : $o
-                  , ni = ei && ei.parentNode;
-                return $o === ni || ni && 1 === ni.nodeType && (ti.contains ? ti.contains(ni) : $o.compareDocumentPosition && 16 & $o.compareDocumentPosition(ni))
+            ii = ii.length && new RegExp(ii.join("|")),
+            oi = oi.length && new RegExp(oi.join("|")),
+            Ki = Ui.test(ri.compareDocumentPosition),
+            di = Ki || Ui.test(ri.contains) ? function(Ji, $i) {
+                var eo = 9 === Ji.nodeType ? Ji.documentElement : Ji
+                  , to = $i && $i.parentNode;
+                return Ji === to || to && 1 === to.nodeType && (eo.contains ? eo.contains(to) : Ji.compareDocumentPosition && 16 & Ji.compareDocumentPosition(to))
             }
-            : function($o, ei) {
-                if (ei)
-                    for (; ei = ei.parentNode; )
-                        if (ei === $o)
+            : function(Ji, $i) {
+                if ($i)
+                    for (; $i = $i.parentNode; )
+                        if ($i === Ji)
                             return !0;
                 return !1
             }
             ,
-            yo = Qo ? function($o, ei) {
-                if ($o === ei)
-                    return eo = !0,
+            mi = Ki ? function(Ji, $i) {
+                if (Ji === $i)
+                    return ei = !0,
                     0;
-                var ti = !$o.compareDocumentPosition - !ei.compareDocumentPosition;
-                return ti || (1 & (ti = ($o.ownerDocument || $o) === (ei.ownerDocument || ei) ? $o.compareDocumentPosition(ei) : 1) || !ja.sortDetached && ei.compareDocumentPosition($o) === ti ? $o === no || $o.ownerDocument === po && lo(po, $o) ? -1 : ei === no || ei.ownerDocument === po && lo(po, ei) ? 1 : $a ? Eo($a, $o) - Eo($a, ei) : 0 : 4 & ti ? -1 : 1)
+                var eo = !Ji.compareDocumentPosition - !$i.compareDocumentPosition;
+                return eo || (1 & (eo = (Ji.ownerDocument || Ji) === ($i.ownerDocument || $i) ? Ji.compareDocumentPosition($i) : 1) || !ja.sortDetached && $i.compareDocumentPosition(Ji) === eo ? Ji === ni || Ji.ownerDocument === ui && di(ui, Ji) ? -1 : $i === ni || $i.ownerDocument === ui && di(ui, $i) ? 1 : $a ? Si($a, Ji) - Si($a, $i) : 0 : 4 & eo ? -1 : 1)
             }
-            : function($o, ei) {
-                if ($o === ei)
-                    return eo = !0,
+            : function(Ji, $i) {
+                if (Ji === $i)
+                    return ei = !0,
                     0;
-                var ni = 0, ri = $o.parentNode, ai = ei.parentNode, oi = [$o], ii = [ei], ti;
-                if (!ri || !ai)
-                    return $o === no ? -1 : ei === no ? 1 : ri ? -1 : ai ? 1 : $a ? Eo($a, $o) - Eo($a, ei) : 0;
-                if (ri === ai)
-                    return Da($o, ei);
-                for (ti = $o; ti = ti.parentNode; )
-                    oi.unshift(ti);
-                for (ti = ei; ti = ti.parentNode; )
-                    ii.unshift(ti);
-                for (; oi[ni] === ii[ni]; )
-                    ni++;
-                return ni ? Da(oi[ni], ii[ni]) : oi[ni] === po ? -1 : ii[ni] === po ? 1 : 0
+                var to = 0, no = Ji.parentNode, ro = $i.parentNode, ao = [Ji], io = [$i], eo;
+                if (!no || !ro)
+                    return Ji === ni ? -1 : $i === ni ? 1 : no ? -1 : ro ? 1 : $a ? Si($a, Ji) - Si($a, $i) : 0;
+                if (no === ro)
+                    return Da(Ji, $i);
+                for (eo = Ji; eo = eo.parentNode; )
+                    ao.unshift(eo);
+                for (eo = $i; eo = eo.parentNode; )
+                    io.unshift(eo);
+                for (; ao[to] === io[to]; )
+                    to++;
+                return to ? Da(ao[to], io[to]) : ao[to] === ui ? -1 : io[to] === ui ? 1 : 0
             }
             ,
-            no) : no
+            ni) : ni
         }
         ,
-        Aa.matches = function(Ko, Qo) {
-            return Aa(Ko, null, null, Qo)
+        Aa.matches = function(qi, Ki) {
+            return Aa(qi, null, null, Ki)
         }
         ,
-        Aa.matchesSelector = function(Ko, Qo) {
-            if ((Ko.ownerDocument || Ko) !== no && to(Ko),
-            Qo = Qo.replace(Lo, "='$1']"),
-            ja.matchesSelector && ao && !mo[Qo + " "] && (!io || !io.test(Qo)) && (!oo || !oo.test(Qo)))
+        Aa.matchesSelector = function(qi, Ki) {
+            if ((qi.ownerDocument || qi) !== ni && ti(qi),
+            Ki = Ki.replace(Oi, "='$1']"),
+            ja.matchesSelector && ai && !gi[Ki + " "] && (!oi || !oi.test(Ki)) && (!ii || !ii.test(Ki)))
                 try {
-                    var Zo = so.call(Ko, Qo);
-                    if (Zo || ja.disconnectedMatch || Ko.document && 11 !== Ko.document.nodeType)
-                        return Zo
-                } catch (Jo) {}
-            return 0 < Aa(Qo, no, null, [Ko]).length
+                    var Qi = si.call(qi, Ki);
+                    if (Qi || ja.disconnectedMatch || qi.document && 11 !== qi.document.nodeType)
+                        return Qi
+                } catch (Zi) {}
+            return 0 < Aa(Ki, ni, null, [qi]).length
         }
         ,
-        Aa.contains = function(Ko, Qo) {
-            return (Ko.ownerDocument || Ko) !== no && to(Ko),
-            lo(Ko, Qo)
+        Aa.contains = function(qi, Ki) {
+            return (qi.ownerDocument || qi) !== ni && ti(qi),
+            di(qi, Ki)
         }
         ,
-        Aa.attr = function(Ko, Qo) {
-            (Ko.ownerDocument || Ko) !== no && to(Ko);
-            var Zo = za.attrHandle[Qo.toLowerCase()]
-              , Jo = Zo && _o.call(za.attrHandle, Qo.toLowerCase()) ? Zo(Ko, Qo, !ao) : void 0;
-            return void 0 === Jo ? ja.attributes || !ao ? Ko.getAttribute(Qo) : (Jo = Ko.getAttributeNode(Qo)) && Jo.specified ? Jo.value : null : Jo
+        Aa.attr = function(qi, Ki) {
+            (qi.ownerDocument || qi) !== ni && ti(qi);
+            var Qi = za.attrHandle[Ki.toLowerCase()]
+              , Zi = Qi && yi.call(za.attrHandle, Ki.toLowerCase()) ? Qi(qi, Ki, !ai) : void 0;
+            return void 0 === Zi ? ja.attributes || !ai ? qi.getAttribute(Ki) : (Zi = qi.getAttributeNode(Ki)) && Zi.specified ? Zi.value : null : Zi
         }
         ,
-        Aa.escape = function(Ko) {
-            return (Ko + "").replace(jo, zo)
+        Aa.escape = function(qi) {
+            return (qi + "").replace(Wi, ji)
         }
         ,
-        Aa.error = function(Ko) {
-            throw new Error("Syntax error, unrecognized expression: " + Ko)
+        Aa.error = function(qi) {
+            throw new Error("Syntax error, unrecognized expression: " + qi)
         }
         ,
-        Aa.uniqueSort = function(Ko) {
-            var Zo = [], Jo = 0, $o = 0, Qo;
-            if (eo = !ja.detectDuplicates,
-            $a = !ja.sortStable && Ko.slice(0),
-            Ko.sort(yo),
-            eo) {
-                for (; Qo = Ko[$o++]; )
-                    Qo === Ko[$o] && (Jo = Zo.push($o));
-                for (; Jo--; )
-                    Ko.splice(Zo[Jo], 1)
+        Aa.uniqueSort = function(qi) {
+            var Qi = [], Zi = 0, Ji = 0, Ki;
+            if (ei = !ja.detectDuplicates,
+            $a = !ja.sortStable && qi.slice(0),
+            qi.sort(mi),
+            ei) {
+                for (; Ki = qi[Ji++]; )
+                    Ki === qi[Ji] && (Zi = Qi.push(Ji));
+                for (; Zi--; )
+                    qi.splice(Qi[Zi], 1)
             }
             return $a = null,
-            Ko
+            qi
         }
         ,
-        Va = Aa.getText = function(Ko) {
-            var Zo = "", Jo = 0, $o = Ko.nodeType, Qo;
-            if (!$o)
-                for (; Qo = Ko[Jo++]; )
-                    Zo += Va(Qo);
-            else if (1 === $o || 9 === $o || 11 === $o) {
-                if ("string" == typeof Ko.textContent)
-                    return Ko.textContent;
-                for (Ko = Ko.firstChild; Ko; Ko = Ko.nextSibling)
-                    Zo += Va(Ko)
-            } else if (3 === $o || 4 === $o)
-                return Ko.nodeValue;
-            return Zo
+        Va = Aa.getText = function(qi) {
+            var Qi = "", Zi = 0, Ji = qi.nodeType, Ki;
+            if (!Ji)
+                for (; Ki = qi[Zi++]; )
+                    Qi += Va(Ki);
+            else if (1 === Ji || 9 === Ji || 11 === Ji) {
+                if ("string" == typeof qi.textContent)
+                    return qi.textContent;
+                for (qi = qi.firstChild; qi; qi = qi.nextSibling)
+                    Qi += Va(qi)
+            } else if (3 === Ji || 4 === Ji)
+                return qi.nodeValue;
+            return Qi
         }
         ,
         (za = Aa.selectors = {
             cacheLength: 50,
             createPseudo: Pa,
-            match: Fo,
+            match: Ni,
             attrHandle: {},
             find: {},
             relative: {
@@ -1154,205 +1154,205 @@
                 }
             },
             preFilter: {
-                ATTR: function(Ko) {
-                    return Ko[1] = Ko[1].replace(Yo, Wo),
-                    Ko[3] = (Ko[3] || Ko[4] || Ko[5] || "").replace(Yo, Wo),
-                    "~=" === Ko[2] && (Ko[3] = " " + Ko[3] + " "),
-                    Ko.slice(0, 4)
+                ATTR: function(qi) {
+                    return qi[1] = qi[1].replace(Hi, Yi),
+                    qi[3] = (qi[3] || qi[4] || qi[5] || "").replace(Hi, Yi),
+                    "~=" === qi[2] && (qi[3] = " " + qi[3] + " "),
+                    qi.slice(0, 4)
                 },
-                CHILD: function(Ko) {
-                    return Ko[1] = Ko[1].toLowerCase(),
-                    "nth" === Ko[1].slice(0, 3) ? (Ko[3] || Aa.error(Ko[0]),
-                    Ko[4] = +(Ko[4] ? Ko[5] + (Ko[6] || 1) : 2 * ("even" === Ko[3] || "odd" === Ko[3])),
-                    Ko[5] = +(Ko[7] + Ko[8] || "odd" === Ko[3])) : Ko[3] && Aa.error(Ko[0]),
-                    Ko
+                CHILD: function(qi) {
+                    return qi[1] = qi[1].toLowerCase(),
+                    "nth" === qi[1].slice(0, 3) ? (qi[3] || Aa.error(qi[0]),
+                    qi[4] = +(qi[4] ? qi[5] + (qi[6] || 1) : 2 * ("even" === qi[3] || "odd" === qi[3])),
+                    qi[5] = +(qi[7] + qi[8] || "odd" === qi[3])) : qi[3] && Aa.error(qi[0]),
+                    qi
                 },
-                PSEUDO: function(Ko) {
-                    var Zo = !Ko[6] && Ko[2], Qo;
-                    return Fo.CHILD.test(Ko[0]) ? null : (Ko[3] ? Ko[2] = Ko[4] || Ko[5] || "" : Zo && ko.test(Zo) && (Qo = Ka(Zo, !0)) && (Qo = Zo.indexOf(")", Zo.length - Qo) - Zo.length) && (Ko[0] = Ko[0].slice(0, Qo),
-                    Ko[2] = Zo.slice(0, Qo)),
-                    Ko.slice(0, 3))
+                PSEUDO: function(qi) {
+                    var Qi = !qi[6] && qi[2], Ki;
+                    return Ni.CHILD.test(qi[0]) ? null : (qi[3] ? qi[2] = qi[4] || qi[5] || "" : Qi && Li.test(Qi) && (Ki = Ka(Qi, !0)) && (Ki = Qi.indexOf(")", Qi.length - Ki) - Qi.length) && (qi[0] = qi[0].slice(0, Ki),
+                    qi[2] = Qi.slice(0, Ki)),
+                    qi.slice(0, 3))
                 }
             },
             filter: {
-                TAG: function(Ko) {
-                    var Qo = Ko.replace(Yo, Wo).toLowerCase();
-                    return "*" === Ko ? function() {
+                TAG: function(qi) {
+                    var Ki = qi.replace(Hi, Yi).toLowerCase();
+                    return "*" === qi ? function() {
                         return !0
                     }
-                    : function(Zo) {
-                        return Zo.nodeName && Zo.nodeName.toLowerCase() === Qo
+                    : function(Qi) {
+                        return Qi.nodeName && Qi.nodeName.toLowerCase() === Ki
                     }
                 },
-                CLASS: function(Ko) {
-                    var Qo = fo[Ko + " "];
-                    return Qo || (Qo = new RegExp("(^|" + Ao + ")" + Ko + "(" + Ao + "|$)")) && fo(Ko, function(Zo) {
-                        return Qo.test("string" == typeof Zo.className && Zo.className || void 0 !== Zo.getAttribute && Zo.getAttribute("class") || "")
+                CLASS: function(qi) {
+                    var Ki = hi[qi + " "];
+                    return Ki || (Ki = new RegExp("(^|" + wi + ")" + qi + "(" + wi + "|$)")) && hi(qi, function(Qi) {
+                        return Ki.test("string" == typeof Qi.className && Qi.className || void 0 !== Qi.getAttribute && Qi.getAttribute("class") || "")
                     })
                 },
-                ATTR: function(Ko, Qo, Zo) {
-                    return function(Jo) {
-                        var $o = Aa.attr(Jo, Ko);
-                        return null == $o ? "!=" === Qo : !Qo || ($o += "",
-                        "=" === Qo ? $o === Zo : "!=" === Qo ? $o !== Zo : "^=" === Qo ? Zo && 0 === $o.indexOf(Zo) : "*=" === Qo ? Zo && -1 < $o.indexOf(Zo) : "$=" === Qo ? Zo && $o.slice(-Zo.length) === Zo : "~=" === Qo ? -1 < (" " + $o.replace(Ro, " ") + " ").indexOf(Zo) : "|=" == Qo && ($o === Zo || $o.slice(0, Zo.length + 1) === Zo + "-"))
+                ATTR: function(qi, Ki, Qi) {
+                    return function(Zi) {
+                        var Ji = Aa.attr(Zi, qi);
+                        return null == Ji ? "!=" === Ki : !Ki || (Ji += "",
+                        "=" === Ki ? Ji === Qi : "!=" === Ki ? Ji !== Qi : "^=" === Ki ? Qi && 0 === Ji.indexOf(Qi) : "*=" === Ki ? Qi && -1 < Ji.indexOf(Qi) : "$=" === Ki ? Qi && Ji.slice(-Qi.length) === Qi : "~=" === Ki ? -1 < (" " + Ji.replace(Mi, " ") + " ").indexOf(Qi) : "|=" == Ki && (Ji === Qi || Ji.slice(0, Qi.length + 1) === Qi + "-"))
                     }
                 },
-                CHILD: function(Ko, Qo, Zo, Jo, $o) {
-                    var ei = "nth" !== Ko.slice(0, 3)
-                      , ti = "last" !== Ko.slice(-4)
-                      , ni = "of-type" === Qo;
-                    return 1 === Jo && 0 === $o ? function(ri) {
-                        return !!ri.parentNode
+                CHILD: function(qi, Ki, Qi, Zi, Ji) {
+                    var $i = "nth" !== qi.slice(0, 3)
+                      , eo = "last" !== qi.slice(-4)
+                      , to = "of-type" === Ki;
+                    return 1 === Zi && 0 === Ji ? function(no) {
+                        return !!no.parentNode
                     }
-                    : function(ri, ai, oi) {
-                        var ci = ei == ti ? "previousSibling" : "nextSibling", hi = ri.parentNode, fi = ni && ri.nodeName.toLowerCase(), gi = !oi && !ni, mi = !1, ii, si, di, li, ui, pi;
-                        if (hi) {
-                            if (ei) {
-                                for (; ci; ) {
-                                    for (li = ri; li = li[ci]; )
-                                        if (ni ? li.nodeName.toLowerCase() === fi : 1 === li.nodeType)
+                    : function(no, ro, ao) {
+                        var co = $i == eo ? "previousSibling" : "nextSibling", ho = no.parentNode, fo = to && no.nodeName.toLowerCase(), go = !ao && !to, mo = !1, io, oo, so, lo, uo, po;
+                        if (ho) {
+                            if ($i) {
+                                for (; co; ) {
+                                    for (lo = no; lo = lo[co]; )
+                                        if (to ? lo.nodeName.toLowerCase() === fo : 1 === lo.nodeType)
                                             return !1;
-                                    pi = ci = "only" === Ko && !pi && "nextSibling"
+                                    po = co = "only" === qi && !po && "nextSibling"
                                 }
                                 return !0
                             }
-                            if (pi = [ti ? hi.firstChild : hi.lastChild],
-                            ti && gi) {
-                                for (mi = (ui = (ii = (si = (di = (li = hi)[uo] || (li[uo] = {}))[li.uniqueID] || (di[li.uniqueID] = {}))[Ko] || [])[0] === co && ii[1]) && ii[2],
-                                li = ui && hi.childNodes[ui]; li = ++ui && li && li[ci] || (mi = ui = 0) || pi.pop(); )
-                                    if (1 === li.nodeType && ++mi && li === ri) {
-                                        si[Ko] = [co, ui, mi];
+                            if (po = [eo ? ho.firstChild : ho.lastChild],
+                            eo && go) {
+                                for (mo = (uo = (io = (oo = (so = (lo = ho)[li] || (lo[li] = {}))[lo.uniqueID] || (so[lo.uniqueID] = {}))[qi] || [])[0] === pi && io[1]) && io[2],
+                                lo = uo && ho.childNodes[uo]; lo = ++uo && lo && lo[co] || (mo = uo = 0) || po.pop(); )
+                                    if (1 === lo.nodeType && ++mo && lo === no) {
+                                        oo[qi] = [pi, uo, mo];
                                         break
                                     }
-                            } else if (gi && (mi = ui = (ii = (si = (di = (li = ri)[uo] || (li[uo] = {}))[li.uniqueID] || (di[li.uniqueID] = {}))[Ko] || [])[0] === co && ii[1]),
-                            !1 === mi)
-                                for (; (li = ++ui && li && li[ci] || (mi = ui = 0) || pi.pop()) && ((ni ? li.nodeName.toLowerCase() !== fi : 1 !== li.nodeType) || !++mi || (gi && ((si = (di = li[uo] || (li[uo] = {}))[li.uniqueID] || (di[li.uniqueID] = {}))[Ko] = [co, mi]),
-                                li !== ri)); )
+                            } else if (go && (mo = uo = (io = (oo = (so = (lo = no)[li] || (lo[li] = {}))[lo.uniqueID] || (so[lo.uniqueID] = {}))[qi] || [])[0] === pi && io[1]),
+                            !1 === mo)
+                                for (; (lo = ++uo && lo && lo[co] || (mo = uo = 0) || po.pop()) && ((to ? lo.nodeName.toLowerCase() !== fo : 1 !== lo.nodeType) || !++mo || (go && ((oo = (so = lo[li] || (lo[li] = {}))[lo.uniqueID] || (so[lo.uniqueID] = {}))[qi] = [pi, mo]),
+                                lo !== no)); )
                                     ;
-                            return (mi -= $o) == Jo || 0 == mi % Jo && 0 <= mi / Jo
+                            return (mo -= Ji) == Zi || 0 == mo % Zi && 0 <= mo / Zi
                         }
                     }
                 },
-                PSEUDO: function(Ko, Qo) {
-                    var Jo = za.pseudos[Ko] || za.setFilters[Ko.toLowerCase()] || Aa.error("unsupported pseudo: " + Ko), Zo;
-                    return Jo[uo] ? Jo(Qo) : 1 < Jo.length ? (Zo = [Ko, Ko, "", Qo],
-                    za.setFilters.hasOwnProperty(Ko.toLowerCase()) ? Pa(function($o, ei) {
-                        for (var ni = Jo($o, Qo), ri = ni.length, ti; ri--; )
-                            $o[ti = Eo($o, ni[ri])] = !(ei[ti] = ni[ri])
-                    }) : function($o) {
-                        return Jo($o, 0, Zo)
+                PSEUDO: function(qi, Ki) {
+                    var Zi = za.pseudos[qi] || za.setFilters[qi.toLowerCase()] || Aa.error("unsupported pseudo: " + qi), Qi;
+                    return Zi[li] ? Zi(Ki) : 1 < Zi.length ? (Qi = [qi, qi, "", Ki],
+                    za.setFilters.hasOwnProperty(qi.toLowerCase()) ? Pa(function(Ji, $i) {
+                        for (var to = Zi(Ji, Ki), no = to.length, eo; no--; )
+                            Ji[eo = Si(Ji, to[no])] = !($i[eo] = to[no])
+                    }) : function(Ji) {
+                        return Zi(Ji, 0, Qi)
                     }
-                    ) : Jo
+                    ) : Zi
                 }
             },
             pseudos: {
-                not: Pa(function(Ko) {
-                    var Qo = []
-                      , Zo = []
-                      , Jo = Qa(Ko.replace(Do, "$1"));
-                    return Jo[uo] ? Pa(function($o, ei, ti, ni) {
-                        for (var ai = Jo($o, null, ni, []), oi = $o.length, ri; oi--; )
-                            (ri = ai[oi]) && ($o[oi] = !(ei[oi] = ri))
-                    }) : function($o, ei, ti) {
-                        return Qo[0] = $o,
-                        Jo(Qo, null, ti, Zo),
-                        Qo[0] = null,
-                        !Zo.pop()
+                not: Pa(function(qi) {
+                    var Ki = []
+                      , Qi = []
+                      , Zi = Qa(qi.replace(Ri, "$1"));
+                    return Zi[li] ? Pa(function(Ji, $i, eo, to) {
+                        for (var ro = Zi(Ji, null, to, []), ao = Ji.length, no; ao--; )
+                            (no = ro[ao]) && (Ji[ao] = !($i[ao] = no))
+                    }) : function(Ji, $i, eo) {
+                        return Ki[0] = Ji,
+                        Zi(Ki, null, eo, Qi),
+                        Ki[0] = null,
+                        !Qi.pop()
                     }
                 }),
-                has: Pa(function(Ko) {
-                    return function(Qo) {
-                        return 0 < Aa(Ko, Qo).length
+                has: Pa(function(qi) {
+                    return function(Ki) {
+                        return 0 < Aa(qi, Ki).length
                     }
                 }),
-                contains: Pa(function(Ko) {
-                    return Ko = Ko.replace(Yo, Wo),
-                    function(Qo) {
-                        return -1 < (Qo.textContent || Qo.innerText || Va(Qo)).indexOf(Ko)
+                contains: Pa(function(qi) {
+                    return qi = qi.replace(Hi, Yi),
+                    function(Ki) {
+                        return -1 < (Ki.textContent || Ki.innerText || Va(Ki)).indexOf(qi)
                     }
                 }),
-                lang: Pa(function(Ko) {
-                    return No.test(Ko || "") || Aa.error("unsupported lang: " + Ko),
-                    Ko = Ko.replace(Yo, Wo).toLowerCase(),
-                    function(Qo) {
-                        var Zo;
+                lang: Pa(function(qi) {
+                    return ki.test(qi || "") || Aa.error("unsupported lang: " + qi),
+                    qi = qi.replace(Hi, Yi).toLowerCase(),
+                    function(Ki) {
+                        var Qi;
                         do
-                            if (Zo = ao ? Qo.lang : Qo.getAttribute("xml:lang") || Qo.getAttribute("lang"))
-                                return (Zo = Zo.toLowerCase()) === Ko || 0 === Zo.indexOf(Ko + "-");
-                        while ((Qo = Qo.parentNode) && 1 === Qo.nodeType);return !1
+                            if (Qi = ai ? Ki.lang : Ki.getAttribute("xml:lang") || Ki.getAttribute("lang"))
+                                return (Qi = Qi.toLowerCase()) === qi || 0 === Qi.indexOf(qi + "-");
+                        while ((Ki = Ki.parentNode) && 1 === Ki.nodeType);return !1
                     }
                 }),
-                target: function(Ko) {
-                    var Qo = wa.location && wa.location.hash;
-                    return Qo && Qo.slice(1) === Ko.id
+                target: function(qi) {
+                    var Ki = wa.location && wa.location.hash;
+                    return Ki && Ki.slice(1) === qi.id
                 },
-                root: function(Ko) {
-                    return Ko === ro
+                root: function(qi) {
+                    return qi === ri
                 },
-                focus: function(Ko) {
-                    return Ko === no.activeElement && (!no.hasFocus || no.hasFocus()) && !!(Ko.type || Ko.href || ~Ko.tabIndex)
+                focus: function(qi) {
+                    return qi === ni.activeElement && (!ni.hasFocus || ni.hasFocus()) && !!(qi.type || qi.href || ~qi.tabIndex)
                 },
                 enabled: La(!1),
                 disabled: La(!0),
-                checked: function(Ko) {
-                    var Qo = Ko.nodeName.toLowerCase();
-                    return "input" === Qo && !!Ko.checked || "option" === Qo && !!Ko.selected
+                checked: function(qi) {
+                    var Ki = qi.nodeName.toLowerCase();
+                    return "input" === Ki && !!qi.checked || "option" === Ki && !!qi.selected
                 },
-                selected: function(Ko) {
-                    return Ko.parentNode && Ko.parentNode.selectedIndex,
-                    !0 === Ko.selected
+                selected: function(qi) {
+                    return qi.parentNode && qi.parentNode.selectedIndex,
+                    !0 === qi.selected
                 },
-                empty: function(Ko) {
-                    for (Ko = Ko.firstChild; Ko; Ko = Ko.nextSibling)
-                        if (6 > Ko.nodeType)
+                empty: function(qi) {
+                    for (qi = qi.firstChild; qi; qi = qi.nextSibling)
+                        if (6 > qi.nodeType)
                             return !1;
                     return !0
                 },
-                parent: function(Ko) {
-                    return !za.pseudos.empty(Ko)
+                parent: function(qi) {
+                    return !za.pseudos.empty(qi)
                 },
-                header: function(Ko) {
-                    return Uo.test(Ko.nodeName)
+                header: function(qi) {
+                    return Bi.test(qi.nodeName)
                 },
-                input: function(Ko) {
-                    return Bo.test(Ko.nodeName)
+                input: function(qi) {
+                    return Fi.test(qi.nodeName)
                 },
-                button: function(Ko) {
-                    var Qo = Ko.nodeName.toLowerCase();
-                    return "input" === Qo && "button" === Ko.type || "button" === Qo
+                button: function(qi) {
+                    var Ki = qi.nodeName.toLowerCase();
+                    return "input" === Ki && "button" === qi.type || "button" === Ki
                 },
-                text: function(Ko) {
-                    var Qo;
-                    return "input" === Ko.nodeName.toLowerCase() && "text" === Ko.type && (null == (Qo = Ko.getAttribute("type")) || "text" === Qo.toLowerCase())
+                text: function(qi) {
+                    var Ki;
+                    return "input" === qi.nodeName.toLowerCase() && "text" === qi.type && (null == (Ki = qi.getAttribute("type")) || "text" === Ki.toLowerCase())
                 },
                 first: ka(function() {
                     return [0]
                 }),
-                last: ka(function(Ko, Qo) {
-                    return [Qo - 1]
+                last: ka(function(qi, Ki) {
+                    return [Ki - 1]
                 }),
-                eq: ka(function(Ko, Qo, Zo) {
-                    return [0 > Zo ? Zo + Qo : Zo]
+                eq: ka(function(qi, Ki, Qi) {
+                    return [0 > Qi ? Qi + Ki : Qi]
                 }),
-                even: ka(function(Ko, Qo) {
-                    for (var Zo = 0; Zo < Qo; Zo += 2)
-                        Ko.push(Zo);
-                    return Ko
+                even: ka(function(qi, Ki) {
+                    for (var Qi = 0; Qi < Ki; Qi += 2)
+                        qi.push(Qi);
+                    return qi
                 }),
-                odd: ka(function(Ko, Qo) {
-                    for (var Zo = 1; Zo < Qo; Zo += 2)
-                        Ko.push(Zo);
-                    return Ko
+                odd: ka(function(qi, Ki) {
+                    for (var Qi = 1; Qi < Ki; Qi += 2)
+                        qi.push(Qi);
+                    return qi
                 }),
-                lt: ka(function(Ko, Qo, Zo) {
-                    for (var Jo = 0 > Zo ? Zo + Qo : Zo; 0 <= --Jo; )
-                        Ko.push(Jo);
-                    return Ko
+                lt: ka(function(qi, Ki, Qi) {
+                    for (var Zi = 0 > Qi ? Qi + Ki : Qi; 0 <= --Zi; )
+                        qi.push(Zi);
+                    return qi
                 }),
-                gt: ka(function(Ko, Qo, Zo) {
-                    for (var Jo = 0 > Zo ? Zo + Qo : Zo; ++Jo < Qo; )
-                        Ko.push(Jo);
-                    return Ko
+                gt: ka(function(qi, Ki, Qi) {
+                    for (var Zi = 0 > Qi ? Qi + Ki : Qi; ++Zi < Ki; )
+                        qi.push(Zi);
+                    return qi
                 })
             }
         }).pseudos.nth = za.pseudos.eq,
@@ -1371,135 +1371,135 @@
             za.pseudos[Wa] = Oa(Wa);
         return Fa.prototype = za.filters = za.pseudos,
         za.setFilters = new Fa,
-        Ka = Aa.tokenize = function(Ko, Qo) {
-            var ai = go[Ko + " "], Zo, Jo, $o, ei, ti, ni, ri;
-            if (ai)
-                return Qo ? 0 : ai.slice(0);
-            for (ti = Ko,
-            ni = [],
-            ri = za.preFilter; ti; ) {
-                for (ei in Zo && !(Jo = Io.exec(ti)) || (Jo && (ti = ti.slice(Jo[0].length) || ti),
-                ni.push($o = [])),
-                Zo = !1,
-                (Jo = Oo.exec(ti)) && (Zo = Jo.shift(),
-                $o.push({
-                    value: Zo,
-                    type: Jo[0].replace(Do, " ")
+        Ka = Aa.tokenize = function(qi, Ki) {
+            var ro = fi[qi + " "], Qi, Zi, Ji, $i, eo, to, no;
+            if (ro)
+                return Ki ? 0 : ro.slice(0);
+            for (eo = qi,
+            to = [],
+            no = za.preFilter; eo; ) {
+                for ($i in Qi && !(Zi = Di.exec(eo)) || (Zi && (eo = eo.slice(Zi[0].length) || eo),
+                to.push(Ji = [])),
+                Qi = !1,
+                (Zi = Ii.exec(eo)) && (Qi = Zi.shift(),
+                Ji.push({
+                    value: Qi,
+                    type: Zi[0].replace(Ri, " ")
                 }),
-                ti = ti.slice(Zo.length)),
+                eo = eo.slice(Qi.length)),
                 za.filter)
-                    (Jo = Fo[ei].exec(ti)) && (!ri[ei] || (Jo = ri[ei](Jo))) && (Zo = Jo.shift(),
-                    $o.push({
-                        value: Zo,
-                        type: ei,
-                        matches: Jo
+                    (Zi = Ni[$i].exec(eo)) && (!no[$i] || (Zi = no[$i](Zi))) && (Qi = Zi.shift(),
+                    Ji.push({
+                        value: Qi,
+                        type: $i,
+                        matches: Zi
                     }),
-                    ti = ti.slice(Zo.length));
-                if (!Zo)
+                    eo = eo.slice(Qi.length));
+                if (!Qi)
                     break
             }
-            return Qo ? ti.length : ti ? Aa.error(Ko) : go(Ko, ni).slice(0)
+            return Ki ? eo.length : eo ? Aa.error(qi) : fi(qi, to).slice(0)
         }
         ,
-        Qa = Aa.compile = function(Ko, Qo) {
-            var Jo = [], $o = [], ei = mo[Ko + " "], Zo;
-            if (!ei) {
-                for (Qo || (Qo = Ka(Ko)),
-                Zo = Qo.length; Zo--; )
-                    (ei = Ya(Qo[Zo]))[uo] ? Jo.push(ei) : $o.push(ei);
-                (ei = mo(Ko, function(ti, ni) {
-                    var ri = 0 < ni.length
-                      , ai = 0 < ti.length
-                      , oi = function(ii, si, di, li, ui) {
-                        var fi = 0, gi = "0", mi = ii && [], yi = [], _i = Ja, bi = ii || ai && za.find.TAG("*", ui), xi = co += null == _i ? 1 : Math.random() || .1, vi = bi.length, pi, ci, hi;
-                        for (ui && (Ja = si === no || si || ui); gi !== vi && null != (pi = bi[gi]); gi++) {
-                            if (ai && pi) {
-                                for (ci = 0,
-                                si || pi.ownerDocument === no || (to(pi),
-                                di = !ao); hi = ti[ci++]; )
-                                    if (hi(pi, si || no, di)) {
-                                        li.push(pi);
+        Qa = Aa.compile = function(qi, Ki) {
+            var Zi = [], Ji = [], $i = gi[qi + " "], Qi;
+            if (!$i) {
+                for (Ki || (Ki = Ka(qi)),
+                Qi = Ki.length; Qi--; )
+                    ($i = Ya(Ki[Qi]))[li] ? Zi.push($i) : Ji.push($i);
+                ($i = gi(qi, function(eo, to) {
+                    var no = 0 < to.length
+                      , ro = 0 < eo.length
+                      , ao = function(io, oo, so, lo, uo) {
+                        var fo = 0, go = "0", mo = io && [], yo = [], _o = Ja, bo = io || ro && za.find.TAG("*", uo), xo = pi += null == _o ? 1 : Math.random() || .1, vo = bo.length, po, co, ho;
+                        for (uo && (Ja = oo === ni || oo || uo); go !== vo && null != (po = bo[go]); go++) {
+                            if (ro && po) {
+                                for (co = 0,
+                                oo || po.ownerDocument === ni || (ti(po),
+                                so = !ai); ho = eo[co++]; )
+                                    if (ho(po, oo || ni, so)) {
+                                        lo.push(po);
                                         break
                                     }
-                                ui && (co = xi)
+                                uo && (pi = xo)
                             }
-                            ri && ((pi = !hi && pi) && fi--,
-                            ii && mi.push(pi))
+                            no && ((po = !ho && po) && fo--,
+                            io && mo.push(po))
                         }
-                        if (fi += gi,
-                        ri && gi !== fi) {
-                            for (ci = 0; hi = ni[ci++]; )
-                                hi(mi, yi, si, di);
-                            if (ii) {
-                                if (0 < fi)
-                                    for (; gi--; )
-                                        mi[gi] || yi[gi] || (yi[gi] = xo.call(li));
-                                yi = Xa(yi)
+                        if (fo += go,
+                        no && go !== fo) {
+                            for (co = 0; ho = to[co++]; )
+                                ho(mo, yo, oo, so);
+                            if (io) {
+                                if (0 < fo)
+                                    for (; go--; )
+                                        mo[go] || yo[go] || (yo[go] = bi.call(lo));
+                                yo = Xa(yo)
                             }
-                            To.apply(li, yi),
-                            ui && !ii && 0 < yi.length && 1 < fi + ni.length && Aa.uniqueSort(li)
+                            vi.apply(lo, yo),
+                            uo && !io && 0 < yo.length && 1 < fo + to.length && Aa.uniqueSort(lo)
                         }
-                        return ui && (co = xi,
-                        Ja = _i),
-                        mi
+                        return uo && (pi = xo,
+                        Ja = _o),
+                        mo
                     };
-                    return ri ? Pa(oi) : oi
-                }($o, Jo))).selector = Ko
+                    return no ? Pa(ao) : ao
+                }(Ji, Zi))).selector = qi
             }
-            return ei
+            return $i
         }
         ,
-        Za = Aa.select = function(Ko, Qo, Zo, Jo) {
-            var ai = "function" == typeof Ko && Ko, oi = !Jo && Ka(Ko = ai.selector || Ko), $o, ei, ti, ni, ri;
-            if (Zo = Zo || [],
-            1 === oi.length) {
-                if (2 < (ei = oi[0] = oi[0].slice(0)).length && "ID" === (ti = ei[0]).type && 9 === Qo.nodeType && ao && za.relative[ei[1].type]) {
-                    if (!(Qo = (za.find.ID(ti.matches[0].replace(Yo, Wo), Qo) || [])[0]))
-                        return Zo;
-                    ai && (Qo = Qo.parentNode),
-                    Ko = Ko.slice(ei.shift().value.length)
+        Za = Aa.select = function(qi, Ki, Qi, Zi) {
+            var ro = "function" == typeof qi && qi, ao = !Zi && Ka(qi = ro.selector || qi), Ji, $i, eo, to, no;
+            if (Qi = Qi || [],
+            1 === ao.length) {
+                if (2 < ($i = ao[0] = ao[0].slice(0)).length && "ID" === (eo = $i[0]).type && 9 === Ki.nodeType && ai && za.relative[$i[1].type]) {
+                    if (!(Ki = (za.find.ID(eo.matches[0].replace(Hi, Yi), Ki) || [])[0]))
+                        return Qi;
+                    ro && (Ki = Ki.parentNode),
+                    qi = qi.slice($i.shift().value.length)
                 }
-                for ($o = Fo.needsContext.test(Ko) ? 0 : ei.length; $o-- && (ti = ei[$o],
-                !za.relative[ni = ti.type]); )
-                    if ((ri = za.find[ni]) && (Jo = ri(ti.matches[0].replace(Yo, Wo), Ho.test(ei[0].type) && Na(Qo.parentNode) || Qo))) {
-                        if (ei.splice($o, 1),
-                        !(Ko = Jo.length && Ba(ei)))
-                            return To.apply(Zo, Jo),
-                            Zo;
+                for (Ji = Ni.needsContext.test(qi) ? 0 : $i.length; Ji-- && (eo = $i[Ji],
+                !za.relative[to = eo.type]); )
+                    if ((no = za.find[to]) && (Zi = no(eo.matches[0].replace(Hi, Yi), Xi.test($i[0].type) && Na(Ki.parentNode) || Ki))) {
+                        if ($i.splice(Ji, 1),
+                        !(qi = Zi.length && Ba($i)))
+                            return vi.apply(Qi, Zi),
+                            Qi;
                         break
                     }
             }
-            return (ai || Qa(Ko, oi))(Jo, Qo, !ao, Zo, !Qo || Ho.test(Ko) && Na(Qo.parentNode) || Qo),
-            Zo
+            return (ro || Qa(qi, ao))(Zi, Ki, !ai, Qi, !Ki || Xi.test(qi) && Na(Ki.parentNode) || Ki),
+            Qi
         }
         ,
-        ja.sortStable = uo.split("").sort(yo).join("") === uo,
-        ja.detectDuplicates = !!eo,
-        to(),
-        ja.sortDetached = Ma(function(Ko) {
-            return 1 & Ko.compareDocumentPosition(no.createElement("fieldset"))
+        ja.sortStable = li.split("").sort(mi).join("") === li,
+        ja.detectDuplicates = !!ei,
+        ti(),
+        ja.sortDetached = Ma(function(qi) {
+            return 1 & qi.compareDocumentPosition(ni.createElement("fieldset"))
         }),
-        Ma(function(Ko) {
-            return Ko.innerHTML = "<a href='#'></a>",
-            "#" === Ko.firstChild.getAttribute("href")
-        }) || Ra("type|href|height|width", function(Ko, Qo, Zo) {
-            if (!Zo)
-                return Ko.getAttribute(Qo, "type" === Qo.toLowerCase() ? 1 : 2)
+        Ma(function(qi) {
+            return qi.innerHTML = "<a href='#'></a>",
+            "#" === qi.firstChild.getAttribute("href")
+        }) || Ra("type|href|height|width", function(qi, Ki, Qi) {
+            if (!Qi)
+                return qi.getAttribute(Ki, "type" === Ki.toLowerCase() ? 1 : 2)
         }),
-        ja.attributes && Ma(function(Ko) {
-            return Ko.innerHTML = "<input/>",
-            Ko.firstChild.setAttribute("value", ""),
-            "" === Ko.firstChild.getAttribute("value")
-        }) || Ra("value", function(Ko, Qo, Zo) {
-            if (!Zo && "input" === Ko.nodeName.toLowerCase())
-                return Ko.defaultValue
+        ja.attributes && Ma(function(qi) {
+            return qi.innerHTML = "<input/>",
+            qi.firstChild.setAttribute("value", ""),
+            "" === qi.firstChild.getAttribute("value")
+        }) || Ra("value", function(qi, Ki, Qi) {
+            if (!Qi && "input" === qi.nodeName.toLowerCase())
+                return qi.defaultValue
         }),
-        Ma(function(Ko) {
-            return null == Ko.getAttribute("disabled")
-        }) || Ra(wo, function(Ko, Qo, Zo) {
-            var Jo;
-            if (!Zo)
-                return !0 === Ko[Qo] ? Qo.toLowerCase() : (Jo = Ko.getAttributeNode(Qo)) && Jo.specified ? Jo.value : null
+        Ma(function(qi) {
+            return null == qi.getAttribute("disabled")
+        }) || Ra(Ei, function(qi, Ki, Qi) {
+            var Zi;
+            if (!Qi)
+                return !0 === qi[Ki] ? Ki.toLowerCase() : (Zi = qi.getAttributeNode(Ki)) && Zi.specified ? Zi.value : null
         }),
         Aa
     }(Bt);
@@ -1560,14 +1560,14 @@
             return !!Wt(this, "string" == typeof wa && tr.test(wa) ? Vn(wa) : wa || [], !1).length
         }
     });
-    var or = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/, ar;
+    var ir = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/, ar;
     (Vn.fn.init = function(wa, Aa, Ca) {
         var Pa, Ma;
         if (!wa)
             return this;
         if (Ca = Ca || ar,
         "string" == typeof wa) {
-            if (!(Pa = "<" === wa[0] && ">" === wa[wa.length - 1] && 3 <= wa.length ? [null, wa, null] : or.exec(wa)) || !Pa[1] && Aa)
+            if (!(Pa = "<" === wa[0] && ">" === wa[wa.length - 1] && 3 <= wa.length ? [null, wa, null] : ir.exec(wa)) || !Pa[1] && Aa)
                 return !Aa || Aa.jquery ? (Aa || Ca).find(wa) : this.constructor(Aa).find(wa);
             if (Pa[1]) {
                 if (Aa = Aa instanceof Vn ? Aa[0] : Aa,
@@ -1587,7 +1587,7 @@
     }
     ).prototype = Vn.fn,
     ar = Vn(kn);
-    var ir = /^(?:parents|prev(?:Until|All))/
+    var or = /^(?:parents|prev(?:Until|All))/
       , sr = {
         children: !0,
         contents: !0,
@@ -1670,7 +1670,7 @@
             return "Until" !== wa.slice(-5) && (Pa = Ca),
             Pa && "string" == typeof Pa && (Ma = Vn.filter(Pa, Ma)),
             1 < this.length && (sr[wa] || Vn.uniqueSort(Ma),
-            ir.test(wa) && Ma.reverse()),
+            or.test(wa) && Ma.reverse()),
             this.pushStack(Ma)
         }
     });
@@ -3336,8 +3336,8 @@
         Aa
     }
     ;
-    var oa = /\[\]$/
-      , ia = /\r?\n/g
+    var ia = /\[\]$/
+      , oa = /\r?\n/g
       , sa = /^(?:submit|button|image|reset|file)$/i
       , da = /^(?:input|select|textarea|keygen)/i;
     Vn.param = function(wa, Aa) {
@@ -3371,11 +3371,11 @@
                 return null == Ca ? null : Array.isArray(Ca) ? Vn.map(Ca, function(Pa) {
                     return {
                         name: Aa.name,
-                        value: Pa.replace(ia, "\r\n")
+                        value: Pa.replace(oa, "\r\n")
                     }
                 }) : {
                     name: Aa.name,
-                    value: Ca.replace(ia, "\r\n")
+                    value: Ca.replace(oa, "\r\n")
                 }
             }).get()
         }
@@ -3438,90 +3438,90 @@
         ajaxTransport: Dn(ma),
         ajax: function(wa, Aa) {
             function Ca(qa, Ka, Qa, Za) {
-                var ro = Ka, Ja, $a, eo, to, no;
+                var ri = Ka, Ja, $a, ei, ti, ni;
                 La || (La = !0,
                 Ia && Bt.clearTimeout(Ia),
                 Pa = void 0,
                 Ra = Za || "",
                 Va.readyState = 0 < qa ? 4 : 0,
                 Ja = 200 <= qa && 300 > qa || 304 === qa,
-                Qa && (to = function(ao, oo, io) {
-                    for (var co = ao.contents, ho = ao.dataTypes, so, lo, uo, po; "*" === ho[0]; )
-                        ho.shift(),
-                        void 0 === so && (so = ao.mimeType || oo.getResponseHeader("Content-Type"));
-                    if (so)
-                        for (lo in co)
-                            if (co[lo] && co[lo].test(so)) {
-                                ho.unshift(lo);
+                Qa && (ti = function(ai, ii, oi) {
+                    for (var pi = ai.contents, ci = ai.dataTypes, si, di, li, ui; "*" === ci[0]; )
+                        ci.shift(),
+                        void 0 === si && (si = ai.mimeType || ii.getResponseHeader("Content-Type"));
+                    if (si)
+                        for (di in pi)
+                            if (pi[di] && pi[di].test(si)) {
+                                ci.unshift(di);
                                 break
                             }
-                    if (ho[0]in io)
-                        uo = ho[0];
+                    if (ci[0]in oi)
+                        li = ci[0];
                     else {
-                        for (lo in io) {
-                            if (!ho[0] || ao.converters[lo + " " + ho[0]]) {
-                                uo = lo;
+                        for (di in oi) {
+                            if (!ci[0] || ai.converters[di + " " + ci[0]]) {
+                                li = di;
                                 break
                             }
-                            po || (po = lo)
+                            ui || (ui = di)
                         }
-                        uo = uo || po
+                        li = li || ui
                     }
-                    return uo ? (uo !== ho[0] && ho.unshift(uo),
-                    io[uo]) : void 0
+                    return li ? (li !== ci[0] && ci.unshift(li),
+                    oi[li]) : void 0
                 }(Ba, Va, Qa)),
-                to = function(ao, oo, io, so) {
-                    var fo = {}, go = ao.dataTypes.slice(), lo, uo, po, co, ho;
-                    if (go[1])
-                        for (po in ao.converters)
-                            fo[po.toLowerCase()] = ao.converters[po];
-                    for (uo = go.shift(); uo; )
-                        if (ao.responseFields[uo] && (io[ao.responseFields[uo]] = oo),
-                        !ho && so && ao.dataFilter && (oo = ao.dataFilter(oo, ao.dataType)),
-                        ho = uo,
-                        uo = go.shift())
-                            if ("*" === uo)
-                                uo = ho;
-                            else if ("*" !== ho && ho !== uo) {
-                                if (!(po = fo[ho + " " + uo] || fo["* " + uo]))
-                                    for (lo in fo)
-                                        if ((co = lo.split(" "))[1] === uo && (po = fo[ho + " " + co[0]] || fo["* " + co[0]])) {
-                                            !0 === po ? po = fo[lo] : !0 !== fo[lo] && (uo = co[0],
-                                            go.unshift(co[1]));
+                ti = function(ai, ii, oi, si) {
+                    var hi = {}, fi = ai.dataTypes.slice(), di, li, ui, pi, ci;
+                    if (fi[1])
+                        for (ui in ai.converters)
+                            hi[ui.toLowerCase()] = ai.converters[ui];
+                    for (li = fi.shift(); li; )
+                        if (ai.responseFields[li] && (oi[ai.responseFields[li]] = ii),
+                        !ci && si && ai.dataFilter && (ii = ai.dataFilter(ii, ai.dataType)),
+                        ci = li,
+                        li = fi.shift())
+                            if ("*" === li)
+                                li = ci;
+                            else if ("*" !== ci && ci !== li) {
+                                if (!(ui = hi[ci + " " + li] || hi["* " + li]))
+                                    for (di in hi)
+                                        if ((pi = di.split(" "))[1] === li && (ui = hi[ci + " " + pi[0]] || hi["* " + pi[0]])) {
+                                            !0 === ui ? ui = hi[di] : !0 !== hi[di] && (li = pi[0],
+                                            fi.unshift(pi[1]));
                                             break
                                         }
-                                if (!0 !== po)
-                                    if (po && ao.throws)
-                                        oo = po(oo);
+                                if (!0 !== ui)
+                                    if (ui && ai.throws)
+                                        ii = ui(ii);
                                     else
                                         try {
-                                            oo = po(oo)
-                                        } catch (mo) {
+                                            ii = ui(ii)
+                                        } catch (gi) {
                                             return {
                                                 state: "parsererror",
-                                                error: po ? mo : "No conversion from " + ho + " to " + uo
+                                                error: ui ? gi : "No conversion from " + ci + " to " + li
                                             }
                                         }
                             }
                     return {
                         state: "success",
-                        data: oo
+                        data: ii
                     }
-                }(Ba, to, Va, Ja),
-                Ja ? (Ba.ifModified && ((no = Va.getResponseHeader("Last-Modified")) && (Vn.lastModified[Ma] = no),
-                (no = Va.getResponseHeader("etag")) && (Vn.etag[Ma] = no)),
-                204 === qa || "HEAD" === Ba.type ? ro = "nocontent" : 304 === qa ? ro = "notmodified" : (ro = to.state,
-                $a = to.data,
-                Ja = !(eo = to.error))) : (eo = ro,
-                !qa && ro || (ro = "error",
+                }(Ba, ti, Va, Ja),
+                Ja ? (Ba.ifModified && ((ni = Va.getResponseHeader("Last-Modified")) && (Vn.lastModified[Ma] = ni),
+                (ni = Va.getResponseHeader("etag")) && (Vn.etag[Ma] = ni)),
+                204 === qa || "HEAD" === Ba.type ? ri = "nocontent" : 304 === qa ? ri = "notmodified" : (ri = ti.state,
+                $a = ti.data,
+                Ja = !(ei = ti.error))) : (ei = ri,
+                !qa && ri || (ri = "error",
                 0 > qa && (qa = 0))),
                 Va.status = qa,
-                Va.statusText = (Ka || ro) + "",
-                Ja ? Xa.resolveWith(Ua, [$a, ro, Va]) : Xa.rejectWith(Ua, [Va, ro, eo]),
+                Va.statusText = (Ka || ri) + "",
+                Ja ? Xa.resolveWith(Ua, [$a, ri, Va]) : Xa.rejectWith(Ua, [Va, ri, ei]),
                 Va.statusCode(Ya),
                 Ya = void 0,
-                ka && Ga.trigger(Ja ? "ajaxSuccess" : "ajaxError", [Va, Ba, Ja ? $a : eo]),
-                Ha.fireWith(Ua, [Va, ro]),
+                ka && Ga.trigger(Ja ? "ajaxSuccess" : "ajaxError", [Va, Ba, Ja ? $a : ei]),
+                Ha.fireWith(Ua, [Va, ri]),
                 ka && (Ga.trigger("ajaxComplete", [Va, Ba]),
                 --Vn.active || Vn.event.trigger("ajaxStop")))
             }
@@ -26100,7 +26100,6 @@ class Vector {
         Xt.pan += 1 / Xt.dist * game.timeFactor,
         Xt.pos.x = Xt.startX + Math.sin(Xt.pan) * Xt.dist,
         Xt.pos.y = Xt.startY - Math.cos(Xt.pan) * Xt.dist,
-        Graphics.setCamera(Xt.pos.x, Xt.pos.y),
         Players.update(),
         Particles.update();
         for (var nn = 1, tn; 5 >= nn; nn++)
@@ -26559,9 +26558,9 @@ class Vector {
 }(),
 function() {
     var Bt = {
-        asteroids1: getFilePath("asteroids1.png"),
-        asteroids2: getFilePath("asteroids2.png"),
-        asteroids3: getFilePath("asteroids3.png"),
+        asteroids1: getFilePath("asteroids/asteroids1.png"),
+        asteroids2: getFilePath("asteroids/asteroids2.png"),
+        asteroids3: getFilePath("asteroids/asteroids3.png"),
         map_sea: "assets/map_sea.jpg",
         map_sea_mask: "assets/map_sea_mask.jpg",
         map_forest: "assets/map_forest.jpg",
@@ -26689,8 +26688,6 @@ function() {
         ui_minimap_1: ["gui", [500, 596, 16, 16]],
         ui_minimap_2: ["gui", [516, 596, 16, 16]],
         ui_minimap_3: ["gui", [532, 596, 16, 16]],
-        ui_minimap_stealth: ["gui", [548, 596, 16, 16]],
-        ui_minimap_stealth_target: ["gui", [564, 596, 16, 16]],
         ui_minimap_target: ["gui", [580, 596, 16, 16]],
         ui_minimap_blue: ["gui", [484, 596, 16, 16]],
         ui_minimap_base_blue: ["gui", [484, 556, 32, 32]],
@@ -26920,6 +26917,13 @@ function() {
             anchor: [0.5, 0.5],
             alpha: 1,
             scale: .8
+        },
+        minimapTarget: {
+            texture: "ui_minimap_target",
+            layer: "ui3",
+            anchor: [0.5, 0.5],
+            alpha: 1,
+            scale: .5
         },
         minimapFlagBlue: {
             texture: "ui_minimap_flag_blue",
@@ -27521,7 +27525,7 @@ function() {
         Yt.doodads.position.set(an + sn, on + sn),
         Yt.shadows.position.set(-nn * (game.scale / config.shadowScaling), -rn * (game.scale / config.shadowScaling)),
         Ht.minimap_box.position.set(game.screenX - config.minimapPaddingX - config.minimapSize * ((16384 - Gt.center.x) / 32768), game.screenY - config.minimapPaddingY - config.minimapSize / 2 * ((8192 - Gt.center.y) / 16384)),
-        SWAM.planet && SWAM.updateLayers(an, on),
+        SWAM.planet && SWAM.updateLayers(an, on, Gt),
         config.overdrawOptimize ? (Math.abs(nn - Gt.lastOverdraw.x) > sn / game.scale || Math.abs(rn - Gt.lastOverdraw.y) > sn / game.scale || 2e3 < game.time - Gt.lastOverdrawTime) && tn() : tn()
     }
     ,
@@ -27588,9 +27592,9 @@ function() {
         Gt.lastOverdraw.x = Gt.position.x,
         Gt.lastOverdraw.y = Gt.position.y,
         Xt.renderSprite.position.set(-config.overdraw / 2, -config.overdraw / 2);
-        var rn = Gt.position.x - config.overdraw / game.scale / 2, an = Gt.position.y - config.overdraw / game.scale / 2, on = -rn * game.scale, sn = -an * game.scale, dn = (-rn - 16384) * game.scale, ln = (-an - 8192) * game.scale, nn;
+        var rn = Gt.position.x - config.overdraw / game.scale / 2, an = Gt.position.y - config.overdraw / game.scale / 2, on = -rn * game.scale, sn = -an * game.scale, dn = (-rn - 16384) * game.scale, ln = (-an - 8192) * game.scale, nn, un = 100;
         for (nn of ["sea", "forest", "sand", "rock"])
-            Xt[nn].tilePosition.set(on / 30, sn / 15);
+            Xt[nn].tilePosition.set(on / un, sn / un);
         for (nn of ["forest", "sand", "rock"])
             Xt[nn + "_mask"].position.set(dn, ln);
         Gt.lastOverdrawTime = game.time,
@@ -29010,14 +29014,13 @@ function() {
         Bt["STRAFERIGHT" === bn ? "STRAFELEFT" : "STRAFERIGHT"] || _n("SPECIAL"))
     }
 }();
-var reWhitespace = /[\0-\x1F\x7F-\x9F\xAD\u0378\u0379\u037F-\u0383\u038B\u038D\u03A2\u0528-\u0530\u0557\u0558\u0560\u0588\u058B-\u058E\u0590\u05C8-\u05CF\u05EB-\u05EF\u05F5-\u0605\u061C\u061D\u06DD\u070E\u070F\u074B\u074C\u07B2-\u07BF\u07FB-\u07FF\u082E\u082F\u083F\u085C\u085D\u085F-\u089F\u08A1\u08AD-\u08E3\u08FF\u0978\u0980\u0984\u098D\u098E\u0991\u0992\u09A9\u09B1\u09B3-\u09B5\u09BA\u09BB\u09C5\u09C6\u09C9\u09CA\u09CF-\u09D6\u09D8-\u09DB\u09DE\u09E4\u09E5\u09FC-\u0A00\u0A04\u0A0B-\u0A0E\u0A11\u0A12\u0A29\u0A31\u0A34\u0A37\u0A3A\u0A3B\u0A3D\u0A43-\u0A46\u0A49\u0A4A\u0A4E-\u0A50\u0A52-\u0A58\u0A5D\u0A5F-\u0A65\u0A76-\u0A80\u0A84\u0A8E\u0A92\u0AA9\u0AB1\u0AB4\u0ABA\u0ABB\u0AC6\u0ACA\u0ACE\u0ACF\u0AD1-\u0ADF\u0AE4\u0AE5\u0AF2-\u0B00\u0B04\u0B0D\u0B0E\u0B11\u0B12\u0B29\u0B31\u0B34\u0B3A\u0B3B\u0B45\u0B46\u0B49\u0B4A\u0B4E-\u0B55\u0B58-\u0B5B\u0B5E\u0B64\u0B65\u0B78-\u0B81\u0B84\u0B8B-\u0B8D\u0B91\u0B96-\u0B98\u0B9B\u0B9D\u0BA0-\u0BA2\u0BA5-\u0BA7\u0BAB-\u0BAD\u0BBA-\u0BBD\u0BC3-\u0BC5\u0BC9\u0BCE\u0BCF\u0BD1-\u0BD6\u0BD8-\u0BE5\u0BFB-\u0C00\u0C04\u0C0D\u0C11\u0C29\u0C34\u0C3A-\u0C3C\u0C45\u0C49\u0C4E-\u0C54\u0C57\u0C5A-\u0C5F\u0C64\u0C65\u0C70-\u0C77\u0C80\u0C81\u0C84\u0C8D\u0C91\u0CA9\u0CB4\u0CBA\u0CBB\u0CC5\u0CC9\u0CCE-\u0CD4\u0CD7-\u0CDD\u0CDF\u0CE4\u0CE5\u0CF0\u0CF3-\u0D01\u0D04\u0D0D\u0D11\u0D3B\u0D3C\u0D45\u0D49\u0D4F-\u0D56\u0D58-\u0D5F\u0D64\u0D65\u0D76-\u0D78\u0D80\u0D81\u0D84\u0D97-\u0D99\u0DB2\u0DBC\u0DBE\u0DBF\u0DC7-\u0DC9\u0DCB-\u0DCE\u0DD5\u0DD7\u0DE0-\u0DF1\u0DF5-\u0E00\u0E3B-\u0E3E\u0E5C-\u0E80\u0E83\u0E85\u0E86\u0E89\u0E8B\u0E8C\u0E8E-\u0E93\u0E98\u0EA0\u0EA4\u0EA6\u0EA8\u0EA9\u0EAC\u0EBA\u0EBE\u0EBF\u0EC5\u0EC7\u0ECE\u0ECF\u0EDA\u0EDB\u0EE0-\u0EFF\u0F48\u0F6D-\u0F70\u0F98\u0FBD\u0FCD\u0FDB-\u0FFF\u10C6\u10C8-\u10CC\u10CE\u10CF\u1249\u124E\u124F\u1257\u1259\u125E\u125F\u1289\u128E\u128F\u12B1\u12B6\u12B7\u12BF\u12C1\u12C6\u12C7\u12D7\u1311\u1316\u1317\u135B\u135C\u137D-\u137F\u139A-\u139F\u13F5-\u13FF\u169D-\u169F\u16F1-\u16FF\u170D\u1715-\u171F\u1737-\u173F\u1754-\u175F\u176D\u1771\u1774-\u177F\u17DE\u17DF\u17EA-\u17EF\u17FA-\u17FF\u180F\u181A-\u181F\u1878-\u187F\u18AB-\u18AF\u18F6-\u18FF\u191D-\u191F\u192C-\u192F\u193C-\u193F\u1941-\u1943\u196E\u196F\u1975-\u197F\u19AC-\u19AF\u19CA-\u19CF\u19DB-\u19DD\u1A1C\u1A1D\u1A5F\u1A7D\u1A7E\u1A8A-\u1A8F\u1A9A-\u1A9F\u1AAE-\u1AFF\u1B4C-\u1B4F\u1B7D-\u1B7F\u1BF4-\u1BFB\u1C38-\u1C3A\u1C4A-\u1C4C\u1C80-\u1CBF\u1CC8-\u1CCF\u1CF7-\u1CFF\u1DE7-\u1DFB\u1F16\u1F17\u1F1E\u1F1F\u1F46\u1F47\u1F4E\u1F4F\u1F58\u1F5A\u1F5C\u1F5E\u1F7E\u1F7F\u1FB5\u1FC5\u1FD4\u1FD5\u1FDC\u1FF0\u1FF1\u1FF5\u1FFF\u200B-\u200F\u202A-\u202E\u2060-\u206F\u2072\u2073\u208F\u209D-\u209F\u20BB-\u20CF\u20F1-\u20FF\u218A-\u218F\u23F4-\u23FF\u2427-\u243F\u244B-\u245F\u2700\u2B4D-\u2B4F\u2B5A-\u2BFF\u2C2F\u2C5F\u2CF4-\u2CF8\u2D26\u2D28-\u2D2C\u2D2E\u2D2F\u2D68-\u2D6E\u2D71-\u2D7E\u2D97-\u2D9F\u2DA7\u2DAF\u2DB7\u2DBF\u2DC7\u2DCF\u2DD7\u2DDF\u2E3C-\u2E7F\u2E9A\u2EF4-\u2EFF\u2FD6-\u2FEF\u2FFC-\u2FFF\u3040\u3097\u3098\u3100-\u3104\u312E-\u3130\u318F\u31BB-\u31BF\u31E4-\u31EF\u321F\u32FF\u4DB6-\u4DBF\u9FCD-\u9FFF\uA48D-\uA48F\uA4C7-\uA4CF\uA62C-\uA63F\uA698-\uA69E\uA6F8-\uA6FF\uA78F\uA794-\uA79F\uA7AB-\uA7F7\uA82C-\uA82F\uA83A-\uA83F\uA878-\uA87F\uA8C5-\uA8CD\uA8DA-\uA8DF\uA8FC-\uA8FF\uA954-\uA95E\uA97D-\uA97F\uA9CE\uA9DA-\uA9DD\uA9E0-\uA9FF\uAA37-\uAA3F\uAA4E\uAA4F\uAA5A\uAA5B\uAA7C-\uAA7F\uAAC3-\uAADA\uAAF7-\uAB00\uAB07\uAB08\uAB0F\uAB10\uAB17-\uAB1F\uAB27\uAB2F-\uABBF\uABEE\uABEF\uABFA-\uABFF\uD7A4-\uD7AF\uD7C7-\uD7CA\uD7FC-\uF8FF\uFA6E\uFA6F\uFADA-\uFAFF\uFB07-\uFB12\uFB18-\uFB1C\uFB37\uFB3D\uFB3F\uFB42\uFB45\uFBC2-\uFBD2\uFD40-\uFD4F\uFD90\uFD91\uFDC8-\uFDEF\uFDFE\uFDFF\uFE1A-\uFE1F\uFE27-\uFE2F\uFE53\uFE67\uFE6C-\uFE6F\uFE75\uFEFD-\uFF00\uFFBF-\uFFC1\uFFC8\uFFC9\uFFD0\uFFD1\uFFD8\uFFD9\uFFDD-\uFFDF\uFFE7\uFFEF-\uFFFB\uFFFE\uFFFF]/g;
 class Player {
     constructor(Bt, Gt) {
         this.id = Bt.id,
         this.status = Bt.status,
         this.level = null == Bt.level || 0 == Bt.level ? null : Bt.level,
         this.reel = 1 == Bt.reel,
-        this.name = Bt.name.replace(reWhitespace, "[Whitespace]"),
+        this.name = Bt.name.replace(nonprintRegex, "[WS]"),
         this.type = Bt.type,
         this.team = Bt.team,
         this.pos = new Vector(Bt.posX,Bt.posY),
@@ -30959,6 +30962,7 @@ function() {
             0 < In.length && kn.id == In[0].id && (qn = "minimap1"),
             1 < In.length && kn.id == In[1].id && (qn = "minimap2"),
             2 < In.length && kn.id == In[2].id && (qn = "minimap3"),
+            window.target == kn.id && (qn = "minimapTarget"),
             Bt[In[Kn].id] = {
                 sprite: Textures.init(qn),
                 x: jn.x,
@@ -33209,11 +33213,12 @@ function() {
         return Tools.clamp(.8 * En / wn, -1, 1)
     }
 }();
+var nonprintRegex = /[\0-\x1F\x7F-\x9F\xAD\u0378\u0379\u037F-\u0383\u038B\u038D\u03A2\u0528-\u0530\u0557\u0558\u0560\u0588\u058B-\u058E\u0590\u05C8-\u05CF\u05EB-\u05EF\u05F5-\u0605\u061C\u061D\u06DD\u070E\u070F\u074B\u074C\u07B2-\u07BF\u07FB-\u07FF\u082E\u082F\u083F\u085C\u085D\u085F-\u089F\u08A1\u08AD-\u08E3\u08FF\u0978\u0980\u0984\u098D\u098E\u0991\u0992\u09A9\u09B1\u09B3-\u09B5\u09BA\u09BB\u09C5\u09C6\u09C9\u09CA\u09CF-\u09D6\u09D8-\u09DB\u09DE\u09E4\u09E5\u09FC-\u0A00\u0A04\u0A0B-\u0A0E\u0A11\u0A12\u0A29\u0A31\u0A34\u0A37\u0A3A\u0A3B\u0A3D\u0A43-\u0A46\u0A49\u0A4A\u0A4E-\u0A50\u0A52-\u0A58\u0A5D\u0A5F-\u0A65\u0A76-\u0A80\u0A84\u0A8E\u0A92\u0AA9\u0AB1\u0AB4\u0ABA\u0ABB\u0AC6\u0ACA\u0ACE\u0ACF\u0AD1-\u0ADF\u0AE4\u0AE5\u0AF2-\u0B00\u0B04\u0B0D\u0B0E\u0B11\u0B12\u0B29\u0B31\u0B34\u0B3A\u0B3B\u0B45\u0B46\u0B49\u0B4A\u0B4E-\u0B55\u0B58-\u0B5B\u0B5E\u0B64\u0B65\u0B78-\u0B81\u0B84\u0B8B-\u0B8D\u0B91\u0B96-\u0B98\u0B9B\u0B9D\u0BA0-\u0BA2\u0BA5-\u0BA7\u0BAB-\u0BAD\u0BBA-\u0BBD\u0BC3-\u0BC5\u0BC9\u0BCE\u0BCF\u0BD1-\u0BD6\u0BD8-\u0BE5\u0BFB-\u0C00\u0C04\u0C0D\u0C11\u0C29\u0C34\u0C3A-\u0C3C\u0C45\u0C49\u0C4E-\u0C54\u0C57\u0C5A-\u0C5F\u0C64\u0C65\u0C70-\u0C77\u0C80\u0C81\u0C84\u0C8D\u0C91\u0CA9\u0CB4\u0CBA\u0CBB\u0CC5\u0CC9\u0CCE-\u0CD4\u0CD7-\u0CDD\u0CDF\u0CE4\u0CE5\u0CF0\u0CF3-\u0D01\u0D04\u0D0D\u0D11\u0D3B\u0D3C\u0D45\u0D49\u0D4F-\u0D56\u0D58-\u0D5F\u0D64\u0D65\u0D76-\u0D78\u0D80\u0D81\u0D84\u0D97-\u0D99\u0DB2\u0DBC\u0DBE\u0DBF\u0DC7-\u0DC9\u0DCB-\u0DCE\u0DD5\u0DD7\u0DE0-\u0DF1\u0DF5-\u0E00\u0E3B-\u0E3E\u0E5C-\u0E80\u0E83\u0E85\u0E86\u0E89\u0E8B\u0E8C\u0E8E-\u0E93\u0E98\u0EA0\u0EA4\u0EA6\u0EA8\u0EA9\u0EAC\u0EBA\u0EBE\u0EBF\u0EC5\u0EC7\u0ECE\u0ECF\u0EDA\u0EDB\u0EE0-\u0EFF\u0F48\u0F6D-\u0F70\u0F98\u0FBD\u0FCD\u0FDB-\u0FFF\u10C6\u10C8-\u10CC\u10CE\u10CF\u1249\u124E\u124F\u1257\u1259\u125E\u125F\u1289\u128E\u128F\u12B1\u12B6\u12B7\u12BF\u12C1\u12C6\u12C7\u12D7\u1311\u1316\u1317\u135B\u135C\u137D-\u137F\u139A-\u139F\u13F5-\u13FF\u169D-\u169F\u16F1-\u16FF\u170D\u1715-\u171F\u1737-\u173F\u1754-\u175F\u176D\u1771\u1774-\u177F\u17DE\u17DF\u17EA-\u17EF\u17FA-\u17FF\u180F\u181A-\u181F\u1878-\u187F\u18AB-\u18AF\u18F6-\u18FF\u191D-\u191F\u192C-\u192F\u193C-\u193F\u1941-\u1943\u196E\u196F\u1975-\u197F\u19AC-\u19AF\u19CA-\u19CF\u19DB-\u19DD\u1A1C\u1A1D\u1A5F\u1A7D\u1A7E\u1A8A-\u1A8F\u1A9A-\u1A9F\u1AAE-\u1AFF\u1B4C-\u1B4F\u1B7D-\u1B7F\u1BF4-\u1BFB\u1C38-\u1C3A\u1C4A-\u1C4C\u1C80-\u1CBF\u1CC8-\u1CCF\u1CF7-\u1CFF\u1DE7-\u1DFB\u1F16\u1F17\u1F1E\u1F1F\u1F46\u1F47\u1F4E\u1F4F\u1F58\u1F5A\u1F5C\u1F5E\u1F7E\u1F7F\u1FB5\u1FC5\u1FD4\u1FD5\u1FDC\u1FF0\u1FF1\u1FF5\u1FFF\u200B-\u200F\u202A-\u202E\u2060-\u206F\u2072\u2073\u208F\u209D-\u209F\u20BB-\u20CF\u20F1-\u20FF\u218A-\u218F\u23F4-\u23FF\u2427-\u243F\u244B-\u245F\u2700\u2B4D-\u2B4F\u2B5A-\u2BFF\u2C2F\u2C5F\u2CF4-\u2CF8\u2D26\u2D28-\u2D2C\u2D2E\u2D2F\u2D68-\u2D6E\u2D71-\u2D7E\u2D97-\u2D9F\u2DA7\u2DAF\u2DB7\u2DBF\u2DC7\u2DCF\u2DD7\u2DDF\u2E3C-\u2E7F\u2E9A\u2EF4-\u2EFF\u2FD6-\u2FEF\u2FFC-\u2FFF\u3040\u3097\u3098\u3100-\u3104\u312E-\u3130\u318F\u31BB-\u31BF\u31E4-\u31EF\u321F\u32FF\u4DB6-\u4DBF\u9FCD-\u9FFF\uA48D-\uA48F\uA4C7-\uA4CF\uA62C-\uA63F\uA698-\uA69E\uA6F8-\uA6FF\uA78F\uA794-\uA79F\uA7AB-\uA7F7\uA82C-\uA82F\uA83A-\uA83F\uA878-\uA87F\uA8C5-\uA8CD\uA8DA-\uA8DF\uA8FC-\uA8FF\uA954-\uA95E\uA97D-\uA97F\uA9CE\uA9DA-\uA9DD\uA9E0-\uA9FF\uAA37-\uAA3F\uAA4E\uAA4F\uAA5A\uAA5B\uAA7C-\uAA7F\uAAC3-\uAADA\uAAF7-\uAB00\uAB07\uAB08\uAB0F\uAB10\uAB17-\uAB1F\uAB27\uAB2F-\uABBF\uABEE\uABEF\uABFA-\uABFF\uD7A4-\uD7AF\uD7C7-\uD7CA\uD7FC-\uF8FF\uFA6E\uFA6F\uFADA-\uFAFF\uFB07-\uFB12\uFB18-\uFB1C\uFB37\uFB3D\uFB3F\uFB42\uFB45\uFBC2-\uFBD2\uFD40-\uFD4F\uFD90\uFD91\uFDC8-\uFDEF\uFDFE\uFDFF\uFE1A-\uFE1F\uFE27-\uFE2F\uFE53\uFE67\uFE6C-\uFE6F\uFE75\uFEFD-\uFF00\uFFBF-\uFFC1\uFFC8\uFFC9\uFFD0\uFFD1\uFFD8\uFFD9\uFFDD-\uFFDF\uFFE7\uFFEF-\uFFFB\uFFFE\uFFFF]/g;
 function ReplaceWhitespaceNames() {
     var Bt = Players.getIDs();
     for (var Gt in Bt) {
         var Xt = Players.get(Gt);
-        Xt.name = Xt.name.replace(/[\u00A0\u1680​\u180E\u2000-\u2009\u200A​\u200B​\u200D\u202F\u205F​\u3000\u034F]/g, "[Whitespace]")
+        Xt.name = Xt.name.replace(nonprintRegex, "[WS]")
     }
 }
 function toUnicode(Bt) {
@@ -33319,11 +33324,118 @@ function SWAM() {
         game.graphics.layers.map.children[2].visible = Gt.nebulas.green,
         game.graphics.layers.map.children[4].alpha = 0.8,
         game.graphics.layers.map.children[4].visible = Gt.nebulas.red,
-        SWAM.planet.visible = Gt.decorations.planets;
+        SWAM.planet.visible = Gt.decorations.planets,
+        SWAM.ShipContainer.visible = Gt.decorations.ships;
         var Xt = [SWAM.asteroids1, SWAM.asteroids2, SWAM.asteroids3];
         for (let Ht = 0; 3 > Ht; Ht++)
             Xt[Ht].visible = Ht < Gt.asteroidLayers;
         localStorage.setItem("SWAM_Settings", JSON.stringify(Bt))
+    }
+    function LoadTextures(Bt) {
+        for (let Yt in TextureInfo) {
+            let Wt = TextureInfo[Yt];
+            Wt.scale = Wt.scale || 1;
+            let jt = PIXI.Texture.fromImage(Yt)
+              , zt = null;
+            for (let Vt in Wt.useMask && (zt = PIXI.Texture.fromImage(Yt + "_Mask")),
+            Wt.items) {
+                let qt = Wt.items[Vt]
+                  , Kt = new PIXI.Texture(jt,new PIXI.Rectangle(qt[0],qt[1],qt[2],qt[3]))
+                  , Qt = new PIXI.Sprite(Kt);
+                if (Qt.scale.set(Wt.scale, Wt.scale),
+                Wt.useMask) {
+                    var Gt = Wt.maskScale || 1
+                      , Xt = new PIXI.Texture(zt,new PIXI.Rectangle(qt[0] / Gt,qt[1] / Gt,qt[2] / Gt,qt[3] / Gt))
+                      , Ht = new PIXI.Sprite(Xt);
+                    Ht.scale.set(Gt, Gt),
+                    Qt.addChild(Ht),
+                    Qt.filters = [new PIXI.SpriteMaskFilter(Ht)],
+                    Ht.position.set(-qt[0], -qt[1])
+                }
+                let Zt = PIXI.RenderTexture.create(Qt.width, Qt.height);
+                Bt.render(Qt, Zt, !0),
+                SWAM.Textures[Vt] = Zt
+            }
+        }
+    }
+    function createSprite(Bt, Gt) {
+        let Xt = SWAM.Textures[Bt]
+          , Ht = new PIXI.Sprite(Xt);
+        return "undefined" == typeof Gt && (Gt = {}),
+        Ht.distanceFactor = Gt.distanceFactor ? Gt.distanceFactor : [1, 1],
+        Ht.basePosition = Gt.distanceFactor ? Gt.distanceFactor : [1, 1],
+        Gt.position && Ht.position.set(Gt.position[0], Gt.position[1]),
+        Gt.anchor && Ht.anchor.set(Gt.anchor[0], Gt.anchor[1]),
+        Gt.pivot && Ht.pivot.set(Gt.pivot[0], Gt.pivot[1]),
+        Gt.scale && (Array.isArray(Gt.scale) ? Ht.scale.set(Gt.scale[0], Gt.scale[1]) : Ht.scale.set(Gt.scale)),
+        Gt.rotation && (Ht.rotation = Gt.rotation),
+        Gt.alpha && (Ht.alpha = Gt.alpha),
+        Gt.blend && (Ht.blendMode = PIXI.BLEND_MODES[Gt.blend]),
+        Gt.tint && (Ht.tint = Gt.tint),
+        Gt.mask && (Ht.mask = Gt.mask),
+        Gt.visible && (Ht.visible = Gt.visible),
+        Gt.container && Gt.container.addChild(Ht),
+        Ht
+    }
+    function createSpriteUpdatable(Bt, Gt) {
+        "undefined" == typeof Gt && (Gt = {});
+        let Xt = createSprite(Bt, Gt);
+        return Xt.distanceFactor = Gt.distanceFactor ? Gt.distanceFactor : [1, 1],
+        Xt.basePosition = Gt.basePosition ? Gt.basePosition : [0, 0],
+        Xt.update = function() {
+            let Wt = Graphics.getCamera()
+              , jt = Wt.x + (Xt.basePosition[0] - Wt.x) / Xt.distanceFactor[0]
+              , zt = Wt.y + (Xt.basePosition[1] - Wt.y) / Xt.distanceFactor[1];
+            Xt.position.set(jt, zt)
+        }
+        ,
+        Xt
+    }
+    function createShips() {
+        var Bt = 12
+          , Gt = []
+          , Xt = new PIXI.Container;
+        for (let Yt in Xt.scale.set(game.scale, game.scale),
+        game.graphics.layers.map.addChildAt(Xt, getDoodadsIndex()),
+        SWAM.ShipContainer = Xt,
+        TextureInfo.ImperialShips.items)
+            Gt.push(Yt);
+        let Ht = 2 * Math.PI / Bt;
+        for (let Yt = 0, Wt = 0; Yt < Bt; Yt++,
+        Wt += Ht) {
+            let jt = Tools.randInt(-14000, -1e4)
+              , zt = Tools.randInt(-1e3, 1e3)
+              , Vt = Tools.randInt(5e3, 13000)
+              , qt = getCirclePoint(jt, zt, Vt, Wt);
+            jt = qt.x,
+            zt = qt.y;
+            let Kt = Tools.rand(0.2, 0.85)
+              , Qt = 0.5 * (1 / (Kt / 0.85)) + 0.5
+              , Zt = Gt[Tools.randInt(0, Gt.length - 1)]
+              , Jt = createSpriteUpdatable(Zt, {
+                distanceFactor: [8 * Qt, 8 * Qt],
+                scale: [Kt, Kt],
+                basePosition: [jt, zt],
+                position: [jt, zt],
+                anchor: [0.5, 0.5]
+            });
+            Jt.textureName = Zt,
+            Jt.angleUsed = Wt,
+            SWAM.Ships.push(Jt)
+        }
+        SWAM.Ships.sort(function(Yt, Wt) {
+            return Wt.distanceFactor[0] - Yt.distanceFactor[0]
+        });
+        for (let Yt of SWAM.Ships)
+            Xt.addChild(Yt)
+    }
+    function getCirclePoint(Bt, Gt, Xt, Ht) {
+        let Yt = Xt * Math.cos(Ht) + Bt
+          , Wt = Xt * Math.sin(Ht) + Gt;
+        return {
+            x: Yt,
+            y: Wt
+        }
     }
     function getDoodadsIndex() {
         let Bt = game.graphics.layers.map
@@ -33343,32 +33455,37 @@ function SWAM() {
         Wt
     }
     function createPlanet(Bt) {
-        let Gt = createPlanetSprite(Bt);
+        let Gt = createPlanet2Sprite(Bt);
         return Gt.layerName = "planet",
-        Gt.scale.set(game.scale / 2, game.scale / 2),
+        Gt.scaleModifier = 0.5,
+        Gt.scale.set(game.scale * Gt.scaleModifier, game.scale * Gt.scaleModifier),
         Gt.baseX = -16384,
         Gt.baseY = 8192 - Gt.height,
+        Gt.update = function(Xt, Ht) {
+            var Yt = (Xt - 16384 * game.scale) / 30;
+            let Wt = (Ht + 8192 * game.scale - Gt.height) / 30 + game.halfScreenY;
+            Gt.position.set(Yt, Wt)
+        }
+        ,
         Gt
     }
-    function createPlanetSprite(Bt) {
-        var Gt = PIXI.Texture.fromImage("halfplanet_sprite")
+    function createPlanet2Sprite(Bt) {
+        var Gt = PIXI.Texture.fromImage("planet2")
           , Xt = new PIXI.Sprite(Gt)
-          , Ht = PIXI.Sprite.fromImage("halfplanet_mask");
-        Ht.scale.set(4, 4);
-        let Yt = PIXI.RenderTexture.create(4 * Xt.width, 2 * Xt.height)
+          , Ht = PIXI.Sprite.fromImage("planet2_mask");
+        Ht.scale.set(1, 1);
+        let Yt = PIXI.RenderTexture.create(2 * Xt.width, 2 * Xt.height)
           , Wt = new PIXI.Sprite(Yt);
         return Xt.addChild(Ht),
         Xt.filters = [new PIXI.SpriteMaskFilter(Ht)],
         Xt.position.set(0, 0),
         Xt.scale.set(2, 2),
         Bt.render(Xt, Yt),
-        Xt.scale.set(-2, 2),
-        Xt.position.set(2 * Xt.width, 0),
-        Bt.render(Xt, Yt, !1),
+        Wt.update = SWAM.updatePlanet,
         Wt
     }
     window.SWAM = SWAM,
-    SWAM.debug = !1,
+    SWAM.debug = !0,
     config.overdraw = 0,
     config.overdrawOptimize = !0,
     window.ShowKilled = !0,
@@ -33476,36 +33593,70 @@ function SWAM() {
         $("#howtoplay .hiddenstuff").append(Gt)
     }
     )(),
-    game.graphics.layers.map.children[0].alpha = 0.8,
-    game.graphics.layers.map.children[2].alpha = 0.8,
-    game.graphics.layers.map.children[4].alpha = 0.8,
     SWAM.Templates = document.createElement("div"),
     $.get(getFilePath("mod_templates.html"), Bt=>{
         $(SWAM.Templates).html(Bt)
     }
-    );
+    ),
+    game.graphics.layers.map.children[0].alpha = 0.8,
+    game.graphics.layers.map.children[2].alpha = 0.8,
+    game.graphics.layers.map.children[4].alpha = 0.8;
     let loader = new PIXI.loaders.Loader;
-    loader.add("halfplanet_sprite", getFilePath("planet.jpg")),
-    loader.add("halfplanet_mask", getFilePath("planet-mask.jpg")),
-    loader.add("planet2", getFilePath("planet2.jpg")),
-    loader.add("planet2_mask", getFilePath("planet2-mask.jpg")),
     loader.add("hyperspace", getFilePath("hyperspace.jpg")),
+    loader.add("planet2", getFilePath("planets/planet2.jpg")),
+    loader.add("planet2_mask", getFilePath("planets/planet2-mask.jpg")),
+    loader.add("ImperialShips", getFilePath("ships/ships1.jpg")),
+    loader.add("ImperialShips_Mask", getFilePath("ships/ships1-mask-50.jpg")),
+    SWAM.Ships = [],
+    SWAM.Planets = [],
+    SWAM.Moons = [],
+    SWAM.Stellar = [],
+    SWAM.Textures = {
+        ships: {},
+        moons: {},
+        planets: {},
+        stellar: {}
+    };
+    let TextureInfo = {
+        ImperialShips: {
+            scale: 0.5,
+            useMask: !0,
+            maskScale: 2,
+            items: {
+                ISD_01: [0, 0, 1700, 583],
+                ISD_02: [0, 2017, 1250, 803],
+                ISD_03: [1701, 0, 1414, 741],
+                ISD_04: [0, 1288, 1418, 728],
+                ISD_05: [1419, 1566, 1109, 738],
+                ISD_06: [1251, 2305, 913, 523],
+                ISD_07: [1463, 742, 1409, 575],
+                ISD_08: [0, 584, 1462, 703],
+                Dread_01: [0, 2821, 925, 294],
+                Dread_02: [2545, 1318, 657, 505],
+                Dread_03: [1419, 1318, 1125, 247],
+                Dread_04: [926, 2829, 711, 348]
+            }
+        }
+    };
     loader.load(()=>{
         SWAM.planet = createPlanet(Graphics.renderer),
         game.graphics.layers.map.addChildAt(SWAM.planet, getDoodadsIndex()),
+        LoadTextures(Graphics.renderer),
+        createShips(),
         SWAM.asteroids3 = crateTileLayer("asteroids1", "asteroids3", game.scale / 3),
-        SWAM.asteroids3.tileScale.set(game.scale / 3, game.scale / 3),
         SWAM.asteroids2 = crateTileLayer("asteroids2", "asteroids2", game.scale),
         SWAM.asteroids1 = crateTileLayer("asteroids1", "asteroids1", game.scale),
         SWAM.hyperSpace = new HyperSpace,
         setModSettings(getModSettings()),
-        Graphics.setCamera(0, 0)
+        Graphics.setCamera(0, 0),
+        SWAM.BackgroundFactor = 2 * ((config.mapWidth - SWAM.planet.width) / SWAM.planet.width)
     }
     ),
     SWAM.resizeLayers = function(Bt, Gt) {
         let Xt = Bt / game.scale
           , Ht = Gt / game.scale;
-        SWAM.planet && SWAM.planet.scale.set(game.scale / 2, game.scale / 2),
+        SWAM.planet,
+        SWAM.ShipContainer && SWAM.ShipContainer.scale.set(game.scale, game.scale),
         SWAM.asteroids1 && (SWAM.asteroids1.width = Bt,
         SWAM.asteroids1.height = Gt),
         SWAM.asteroids2 && (SWAM.asteroids2.width = Bt,
@@ -33516,8 +33667,18 @@ function SWAM() {
     ,
     SWAM.doUpdates = !0,
     SWAM.updateLayers = function(Bt, Gt) {
-        SWAM.doUpdates && (SWAM.Settings.graphics.decorations.planets && this.updatePlanet(Bt, Gt),
-        0 < SWAM.Settings.graphics.asteroidLayers && this.updateAsteroids(Bt, Gt))
+        if (SWAM.doUpdates && (SWAM.Settings.graphics.decorations.planets && this.planet.update(Bt, Gt),
+        0 < SWAM.Settings.graphics.asteroidLayers && this.updateAsteroids(Bt, Gt),
+        SWAM.Settings.graphics.decorations.ships && SWAM.ShipContainer && (SWAM.ShipContainer.position.set(Bt, Gt),
+        SWAM.Ships)))
+            for (let Ht in SWAM.Ships)
+                SWAM.Ships[Ht].update(Bt, Gt)
+    }
+    ,
+    SWAM.updateSprite = function(Bt, Gt, Xt) {
+        var Ht = (Bt - 16384 * game.scale) / Xt.distanceFactor;
+        let Yt = (Gt + 8192 * game.scale - planet.height * game.scale - game.halfScreenY) / Xt.distanceFactor;
+        planet.position.set(Ht, Yt)
     }
     ,
     SWAM.updatePlanet = function() {
@@ -33549,8 +33710,8 @@ function SWAM() {
     ,
     SWAM.panX = function(Bt) {
         Bt = Bt || {};
-        let Gt = "undefined" == typeof Bt.start ? -8192 : Bt.start
-          , Xt = "undefined" == typeof Bt.end ? 8192 : Bt.end
+        let Gt = "undefined" == typeof Bt.start ? -16384 : Bt.start
+          , Xt = "undefined" == typeof Bt.end ? 16384 : Bt.end
           , Ht = "undefined" == typeof Bt.step ? 200 : Bt.step
           , Yt = "undefined" == typeof Bt.speed ? 50 : Bt.speed;
         Xt <= Gt || (Graphics.setCamera(Gt, Graphics.getCamera().y),
@@ -33590,6 +33751,26 @@ function SWAM() {
         Graphics.resizeRenderer(game.screenX, game.screenY)
     }
     ;
+    let UI_serverMessage = UI.serverMessage;
+    UI.serverMessage = function(Bt) {
+        UI_serverMessage.call(UI, Bt);
+        let Gt = "<span class=\"info inline\"><span class=\"blueflag\"></span></span>"
+          , Xt = "<span class=\"info inline\"><span class=\"redflag\"></span></span>"
+          , Ht = Bt.text.includes(Gt)
+          , Yt = Bt.text.includes(Xt);
+        if (2 == Bt.type && (Ht || Yt)) {
+            let Wt = "";
+            Ht && (Wt = Bt.text.substring(Gt.length)),
+            Yt && (Wt = Bt.text.substring(Xt.length)),
+            Wt = Wt.substring(0, Wt.indexOf(" ")).toLowerCase();
+            let jt = game.myTeam
+              , zt = 0
+              , Vt = Ht ? 1 : 2;
+            "taken" == Wt ? zt = game.myTeam == Vt ? SWAM.Audio.Flag.OursTaken : SWAM.Audio.Flag.EnemyTaken : "captured" == Wt ? zt = game.myTeam == Vt ? SWAM.Audio.Flag.OursCaptured : SWAM.Audio.Flag.EnemyCaptured : "returned" == Wt ? zt = game.myTeam == Vt ? SWAM.Audio.Flag.OursRecovered : SWAM.Audio.Flag.EnemyRecovered : void 0,
+            SWAM.Audio.playFlagEvent(zt, jt)
+        }
+    }
+    ;
     let UI_selectUpgrade = UI.selectUpgrade;
     UI.selectUpgrade = function(Bt) {
         SWAM.radio.visible() || UI_selectUpgrade.call(UI, Bt)
@@ -33599,7 +33780,8 @@ function SWAM() {
     UI.addChatLine = function(Bt, Gt, Xt) {
         var Yt = $.inArray(Gt.toUpperCase(), ["-SWAM-PING", "-SWAM-PONG"]);
         0 > Yt ? UI_addChatLine.call(UI, Bt, Gt, Xt) : (Gt = Gt.toUpperCase(),
-        Bt.id != game.myID && "-SWAM-PING" == Gt && Network.sendWhisper(Bt.id, "-SWAM-PONG"),
+        "-SWAM-PING" == Gt && (Bt.id != game.myID && Network.sendWhisper(Bt.id, "-SWAM-PONG"),
+        UI_addChatLine.call(UI, Bt, Gt, Xt)),
         2 == Xt && Bt.id != game.myID && "-SWAM-PONG" == Gt && UI_addChatLine.call(UI, Bt, "IM USING THE MOD.", Xt))
     }
     ;
@@ -33617,7 +33799,7 @@ function SWAM() {
               , Gt = Players.getMe();
             for (var Xt in Bt) {
                 var Ht = Players.get(Xt);
-                "undefined" != typeof Ht.scorePlace && (Ht.sprites.name.text = Ht.scorePlace + ". " + Ht.name)
+                "undefined" != typeof Ht.scorePlace && (Ht.sprites.name.text = Ht.scorePlace + ". " + Ht.name + (Ht.team == game.myTeam ? " [" + Math.floor(100 * parseFloat(Ht.health)) + "]" : ""))
             }
         }, 500),
         SWAM.hyperSpace.show(),
@@ -33631,15 +33813,18 @@ function SWAM() {
         games_wipe.apply(Games),
         clearInterval(SWAM.PlayerInfoTimer),
         $("#graphicsSet").hide(),
+        $("body").remove("#prowlerAlert"),
         $("body").remove("#WhoKilledWho"),
         $(window).off("keydown", SWAM.keydown_handler),
         $(window).off("keyup", SWAM.keyup_handler),
         $("canvas").off("click", SWAM.canvas_click_handler)
     }
-    ;
+    ,
+    SWAM.BackgroundFactor = 30;
     let graphics_resizeRenderer = Graphics.resizeRenderer;
     if (Graphics.resizeRenderer = function(Bt, Gt) {
         graphics_resizeRenderer.call(Graphics, Bt, Gt),
+        SWAM.BackgroundFactor = 2 * ((config.mapWidth - SWAM.planet.width) / SWAM.planet.width),
         SWAM.resizeLayers(Bt, Gt)
     }
     ,
@@ -33741,6 +33926,12 @@ function SWAM() {
             $("#gameinfo").toggle(400),
             $("#scorebig").toggle(400)
         }
+    }
+    ,
+    SWAM.showDegubInfo = function() {
+        config.debug.show = !0,
+        window.DEVELOPMENT = !0,
+        Tools.setupDebug()
     }
     ,
     SWAM.moveMinimap = function() {
@@ -33846,7 +34037,7 @@ function SWAM() {
         channelNames: ["* Radio to All *", "* Radio to TEAM *", "* CLOSE RANGE signal *"],
         channelKeys: ["Z", "X", "C"],
         options: [[], [], []],
-        defaultOptions: [["gg", "Hi!", "Yes", "No", "Thanks!", "You are welcome!", "I'll be right back.", "Got to go, cya!", "Great work, team!"], ["Affirmative", "Negative", "** I'VE GOT THE FLAG! COVER ME! **", "** THE ENEMY HAS OUR FLAG! **", "** All wings, protect our flag carrier! **", "Defending the base! Need assistance!", "Attacking their base!  Need assistance!", "Regroup team", "Hold this position", "Stick together, team!"], ["Hey there!", "Stop!", "Go Go Go!", "Imperial scum!", "Rebel scum!", "%@*#$!!", "YEE-HAW!!!", ":lol:", ":cry:", ":clap:"]],
+        defaultOptions: [["gg", "Hi!", "Yes", "No", "Thanks!", "You are welcome!", "I'll be right back.", "Got to go, cya!", "Great work, team!", "Try the STAR WARS MOD for AirMash! More info in:  reddit.com/r/airmash"], ["Affirmative", "Negative", "** I'VE GOT THE FLAG! COVER ME! **", "** THE ENEMY HAS OUR FLAG! **", "** All wings, protect our flag carrier! **", "Defending the base! Need assistance!", "Attacking their base!  Need assistance!", "Regroup team", "Hold this position", "Stick together, team!"], ["Hey there!", "Stop!", "Go Go Go!", "Imperial scum!", "Rebel scum!", "%@*#$!!", "YEE-HAW!!!", ":lol:", ":cry:", ":clap:"]],
         loadOptions: function() {
             var Bt = localStorage.getItem("radioMessages");
             if (null != Bt)
@@ -33995,14 +34186,37 @@ function SWAM() {
     SWAM.debug) {
         let Bt = new Textures.sprite("ui_minimap_target");
         Bt.position.set(0, 0),
+        Bt.anchor.set(.5, .5),
         game.graphics.layers.doodads.addChild(Bt);
         let Gt = Graphics.setCamera;
-        Graphics.setCamera = function(Xt, Ht) {
-            Gt(Xt, Ht),
-            null != Bt && Bt.position.set(Xt, Ht)
+        Graphics.setCamera = function(Yt, Wt) {
+            Gt(Yt, Wt),
+            null != Bt && Bt.position.set(Yt, Wt)
         }
         ,
-        SWAM.addDebugElements()
+        SWAM.addDebugElements();
+        let Xt = $("#logon")[0];
+        $(window).keydown(function(Yt) {
+            if (game.state !== Network.STATE.PLAYING && "none" != Xt.style.display) {
+                var Wt = $.inArray(Yt.which, [37, 38, 39, 40]);
+                if (-1 < Wt) {
+                    let jt = Graphics.getCamera();
+                    switch (Yt.which) {
+                    case 37:
+                        Graphics.setCamera(jt.x - 200, jt.y);
+                        break;
+                    case 38:
+                        Graphics.setCamera(jt.x, jt.y - 200);
+                        break;
+                    case 39:
+                        Graphics.setCamera(jt.x + 200, jt.y);
+                        break;
+                    case 40:
+                        Graphics.setCamera(jt.x, jt.y + 200);
+                    }
+                }
+            }
+        })
     }
     AutoPilot.Load()
 }
@@ -34314,30 +34528,60 @@ window.HyperSpace.prototype = {
         this.sprite.filters = [Yt, Wt],
         jt()
     }
-};
+},
+SWAM.Audio = {
+    Flag: {
+        EnemyTaken: 0,
+        OursTaken: 1,
+        EnemyCaptured: 2,
+        OursCaptured: 3,
+        EnemyRecovered: 4,
+        OursRecovered: 5
+    },
+    initialize: function() {
+        var Bt = new Howl({
+            src: [getFilePath("flag_phrases_1.mp3")],
+            sprite: {
+                EnemyTaken_1: [0, 1450],
+                OursTaken_1: [1500, 1800],
+                EnemyCaptured_1: [3300, 1800],
+                OursCaptured_1: [5200, 1900],
+                EnemyRecovered_1: [7300, 1600],
+                OursRecovered_1: [9000, 1800],
+                EnemyTaken_2: [11000, 1500],
+                OursTaken_2: [12600, 1800],
+                EnemyCaptured_2: [14600, 1600],
+                OursCaptured_2: [16400, 1800],
+                EnemyRecovered_2: [18400, 1600],
+                OursRecovered_2: [20200, 1800]
+            }
+        });
+        SWAM.Audio.playFlagEvent = function(Gt, Xt) {
+            if (config.settings.sound) {
+                var Ht = null;
+                for (let Yt in 1 != Xt && 2 != Xt && (Xt = 1),
+                SWAM.Audio.Flag)
+                    if (SWAM.Audio.Flag[Yt] == Gt) {
+                        Ht = Yt + "_" + Xt;
+                        break
+                    }
+                null != Ht && SWAM.Audio.play(Ht)
+            }
+        }
+        ,
+        SWAM.Audio.play = function(Gt) {
+            if (config.settings.sound) {
+                let Xt = Bt.play(Gt);
+                setTimeout(function() {
+                    Bt.stop(Xt)
+                }, Bt._sprite[Gt][1])
+            }
+        }
+    }
+},
+SWAM.Audio.initialize();
 function getFilePath(Bt) {
     return "https://cdn.rawgit.com/Molesmalo/StarWarsMod4AirMash/master/assets/" + Bt
-}
-function TestBackground() {
-    var Bt = new PIXI.Texture.fromImage("http://localhost/isd22.png")
-      , Gt = new PIXI.Sprite(Bt);
-    blur1.blur = 1,
-    blur2.blur = 0,
-    Gt.x = 0,
-    Gt.y = -2300,
-    Gt.scale = {
-        x: 0.5,
-        y: 0.5
-    };
-    var Xt = new PIXI.Sprite(Bt);
-    Xt.x = -300,
-    Xt.y = -2e3,
-    Xt.scale = {
-        x: 1,
-        y: 1
-    },
-    game.graphics.layers.doodads.addChildAt(Xt, 0),
-    game.graphics.layers.doodads.addChildAt(Gt, 0)
 }
 $(function() {
     SWAM()
