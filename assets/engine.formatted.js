@@ -33291,12 +33291,15 @@ function SWAM() {
                     moons: !0,
                     ships: !0
                 }
+            },
+            audio: {
+                voiceEventsCTF: !0
             }
         }
     }
     function getModSettings() {
         function Bt(Ht, Yt) {
-            return "undefined" == typeof Gt.graphics.nebulas.red ? Yt : Ht
+            return "undefined" == typeof Ht ? Yt : Ht
         }
         let Gt = getDefaultModSettings()
           , Xt = null;
@@ -33313,6 +33316,7 @@ function SWAM() {
         Gt.graphics.decorations.planets = Bt(Xt.graphics.decorations.planets, !0),
         Gt.graphics.decorations.moons = Bt(Xt.graphics.decorations.moons, !0),
         Gt.graphics.decorations.ships = Bt(Xt.graphics.decorations.ships, !0))) : localStorage.removeItem("SWAM_Settings"),
+        null != Xt && Xt.audio && (Gt.audio.voiceEventsCTF = Bt(Xt.audio.voiceEventsCTF, !0)),
         Gt
     }
     function setModSettings(Bt) {
@@ -33753,21 +33757,23 @@ function SWAM() {
     ;
     let UI_serverMessage = UI.serverMessage;
     UI.serverMessage = function(Bt) {
-        UI_serverMessage.call(UI, Bt);
-        let Gt = "<span class=\"info inline\"><span class=\"blueflag\"></span></span>"
-          , Xt = "<span class=\"info inline\"><span class=\"redflag\"></span></span>"
-          , Ht = Bt.text.includes(Gt)
-          , Yt = Bt.text.includes(Xt);
-        if (2 == Bt.type && (Ht || Yt)) {
-            let Wt = "";
-            Ht && (Wt = Bt.text.substring(Gt.length)),
-            Yt && (Wt = Bt.text.substring(Xt.length)),
-            Wt = Wt.substring(0, Wt.indexOf(" ")).toLowerCase();
-            let jt = game.myTeam
-              , zt = 0
-              , Vt = Ht ? 1 : 2;
-            "taken" == Wt ? zt = game.myTeam == Vt ? SWAM.Audio.Flag.OursTaken : SWAM.Audio.Flag.EnemyTaken : "captured" == Wt ? zt = game.myTeam == Vt ? SWAM.Audio.Flag.OursCaptured : SWAM.Audio.Flag.EnemyCaptured : "returned" == Wt ? zt = game.myTeam == Vt ? SWAM.Audio.Flag.OursRecovered : SWAM.Audio.Flag.EnemyRecovered : void 0,
-            SWAM.Audio.playFlagEvent(zt, jt)
+        if ((UI_serverMessage.call(UI, Bt),
+        2 === game.gameType) && !(SWAM.Settings && SWAM.Settings.audio && !SWAM.Settings.audio.voiceEventsCTF)) {
+            let Gt = "<span class=\"info inline\"><span class=\"blueflag\"></span></span>"
+              , Xt = "<span class=\"info inline\"><span class=\"redflag\"></span></span>"
+              , Ht = Bt.text.includes(Gt)
+              , Yt = Bt.text.includes(Xt);
+            if (2 == Bt.type && (Ht || Yt)) {
+                let Wt = "";
+                Ht && (Wt = Bt.text.substring(Gt.length)),
+                Yt && (Wt = Bt.text.substring(Xt.length)),
+                Wt = Wt.substring(0, Wt.indexOf(" ")).toLowerCase();
+                let jt = Players.getMe().team
+                  , zt = 0
+                  , Vt = Ht ? 1 : 2;
+                "taken" == Wt ? zt = jt == Vt ? SWAM.Audio.Flag.OursTaken : SWAM.Audio.Flag.EnemyTaken : "captured" == Wt ? zt = jt == Vt ? SWAM.Audio.Flag.OursCaptured : SWAM.Audio.Flag.EnemyCaptured : "returned" == Wt ? zt = jt == Vt ? SWAM.Audio.Flag.OursRecovered : SWAM.Audio.Flag.EnemyRecovered : void 0,
+                SWAM.Audio.playFlagEvent(zt, jt)
+            }
         }
     }
     ;
@@ -33799,7 +33805,7 @@ function SWAM() {
               , Gt = Players.getMe();
             for (var Xt in Bt) {
                 var Ht = Players.get(Xt);
-                "undefined" != typeof Ht.scorePlace && (Ht.sprites.name.text = Ht.scorePlace + ". " + Ht.name + (Ht.team == game.myTeam ? " [" + Math.floor(100 * parseFloat(Ht.health)) + "]" : ""))
+                "undefined" != typeof Ht.scorePlace && (Ht.sprites.name.text = Ht.scorePlace + ". " + Ht.name + (Ht.team == Gt.team ? " [" + Math.floor(100 * parseFloat(Ht.health)) + "]" : ""))
             }
         }, 500),
         SWAM.hyperSpace.show(),
@@ -33813,7 +33819,6 @@ function SWAM() {
         games_wipe.apply(Games),
         clearInterval(SWAM.PlayerInfoTimer),
         $("#graphicsSet").hide(),
-        $("body").remove("#prowlerAlert"),
         $("body").remove("#WhoKilledWho"),
         $(window).off("keydown", SWAM.keydown_handler),
         $(window).off("keyup", SWAM.keyup_handler),
@@ -33839,7 +33844,8 @@ function SWAM() {
             Wt[0].checked = Ht.graphics.decorations.stellar,
             Wt[1].checked = Ht.graphics.decorations.planets,
             Wt[2].checked = Ht.graphics.decorations.moons,
-            Wt[3].checked = Ht.graphics.decorations.ships
+            Wt[3].checked = Ht.graphics.decorations.ships,
+            $(".chkVoiceEventsCTF", Gt)[0].checked = Ht.audio.voiceEventsCTF
         }
         let Gt = createModal({
             title: "StarMash Mod Settings",
@@ -33859,6 +33865,10 @@ function SWAM() {
         $(".chkDecorations", Gt).click(Ht=>{
             let Yt = $(Ht.target).data("layer");
             Xt.graphics.decorations[Yt] = Ht.target.checked
+        }
+        ),
+        $(".chkVoiceEventsCTF", Gt).click(Ht=>{
+            Xt.audio.voiceEventsCTF = Ht.target.checked
         }
         ),
         $(".divRestore", Gt).click(()=>{
@@ -34581,7 +34591,7 @@ SWAM.Audio = {
 },
 SWAM.Audio.initialize();
 function getFilePath(Bt) {
-    return "https://cdn.rawgit.com/Molesmalo/StarWarsMod4AirMash/master/assets/" + Bt
+    return "https://molesmalo.github.io/StarWarsMod4AirMash/assets/" + Bt
 }
 $(function() {
     SWAM()
