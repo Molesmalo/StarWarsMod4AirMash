@@ -1,7 +1,8 @@
 <div class='modalDialog' tabindex='1'
     style='position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;
-           background-color: rgba(0,0,0,.5)'>
-    <div style='position: absolute; width: 550px; min-height: 180px; left: calc(50% - 275px); top: 150px;
+           background-color: rgba(0,0,0,.5);  overflow-x: hidden; overflow-y: auto;'>
+    <div style='position: absolute; width: 550px; min-height: 180px; 
+        left: calc(50% - 275px); top: 50px;
         background-color: rgba(0,0,0,1); box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
         border-radius: 9px; border-bottom: 2px solid rgba(0,0,0,0.3); border-top: 2px solid rgba(255,255,255,0.08);
         box-sizing: border-box; padding: 18px 18px 0 18px; cursor: default; font-family: verdana,arial,helvetica,sans-serif'>
@@ -109,6 +110,12 @@
             <li><label><input type="checkbox" class='chkDecorations' data-layer="moons" />Moons</label></li>
             <li><label><input type="checkbox" class='chkDecorations' data-layer="ships" />Ships</label></li>
         </ul>
+    </div>
+    <div class="section">
+        <div class="title">Audio</div>
+        <div class="values">
+            <label><input type="checkbox" class='chkVoiceEventsCTF' />CTF: Voice messages for flag events.</label>
+        </div>
     </div>
     <div style="clear:both; text-align: center;">
         <div class="divRestore"><span >[Restore all to default]</span></div>
