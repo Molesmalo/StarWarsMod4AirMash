@@ -33485,7 +33485,7 @@ function SWAM() {
         Wt
     }
     window.SWAM = SWAM,
-    SWAM.debug = !0,
+    SWAM.debug = !1,
     config.overdraw = 0,
     config.overdrawOptimize = !0,
     window.ShowKilled = !0,
