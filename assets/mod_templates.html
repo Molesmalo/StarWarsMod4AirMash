@@ -124,3 +124,72 @@
         <input class='btnCancel' type='button' value='Cancel'></div>
     </div>
 </div>
+
+
+
+
+
+<div id="redditPanel">
+    <style type="text/css">
+        #redditPanel {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            right: 50px;
+            top: 40%;
+            margin-top: -140px;
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            background-color: rgba(0,0,0,0.75);
+            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+            border-radius: 9px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.08);
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #redditPanel .redditPosts div
+        {
+            padding: 5px;
+        }
+        #redditPanel .title
+        {
+            padding: 5px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgb(15, 15, 15);
+            background-color: #101010;
+        }
+        #redditPanel .title a{
+            color: white;
+            font-size: 12pt;
+        }
+        #redditPanel .author
+        {
+            color: rgb(146, 146, 146);
+            margin-left: 10px;
+        }
+        #redditPanel a
+        {
+            color: rgb(79, 128, 219);
+        }
+        #redditPanel a.sticky
+        {
+            color: rgb(92, 173, 92) !important;
+        }
+
+        @media only screen and (max-width: 1100px)
+        {
+            #redditPanel {
+                display: none;
+            }
+        }
+    </style>
+    <div class="title"><a href="https://www.reddit.com/r/airmash/" >Discussion</a></div>
+    <div class="redditPosts">
+
+    </div>
+</div>
