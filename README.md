@@ -1,3 +1,5 @@
+![Ships](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Banner.jpg)
+
 # StarMash - A Star Wars Mod for AirMash
 
 Hi! Welcome to StarMash's Home planet.... I mean, home repo! 
@@ -15,6 +17,14 @@ I play as `Bombita` inside of this game and StarMash was my little creation as a
 The very first thing you will notice, is the entirely new graphics and sounds (over 30 new sounds!).
 
 But that is just the beginning... There's a lot of other things, let's see them!
+
+**Discussion**
+
+Check the current discussion for this Mod in this reddit post:
+[Current Mod Discussion](https://www.reddit.com/r/airmash/comments/7y2dwr/starmash_mod_version_2_is_now_released_major/)
+
+Comments, feedback, questions, opinions and suggestions are welcome!
+Let me know what you think about this MOD!
 
 
 
@@ -39,7 +49,7 @@ Galleries:
 
 # Index / Short Summary:
 
-If you are in a hurry, a very short list would sumarize the main features as follow. Please, be remainded this is not a complete list. I'll add more as I remember them (sorry about that).
+If you are in a hurry, a very short list would summarize the main features as follow. Please, be reminded this is not a complete list. I'll add more as I remember them (sorry about that).
 
 - *Graphics*
     - New graphics stack, containing:
@@ -627,7 +637,7 @@ Detect, Romario, THOM182, MATTDAMON, yutru, jediMaster, Maximous, Sky Lounge, Mo
 # **Discussion**
 
 Check the current discussion for this Mod in this reddit post:
-[Current Mod Discussion](http://www.reddit.com/r/airmash)
+[Current Mod Discussion](https://www.reddit.com/r/airmash/comments/7y2dwr/starmash_mod_version_2_is_now_released_major/)
 
 Comments, feedback, questions, opinions and suggestions are welcome!
 Let me know what you think about this MOD!
