@@ -2,11 +2,13 @@
 
 Hi! Welcome to StarMash's Home planet.... I mean, home repo! 
 
-What's StarMash?
+I play as `Bombita` inside of this game and StarMash was my little creation as a hobbie and a means to learn some new stuff.
+
+**So, What's StarMash?**
 
 - It's a Star Wars Mod for an cool web game called [AirMash](htts://airma.sh).
 
-What does StarMash add to the game? What's included in this mod?
+**What does StarMash add to the game? What's included in this mod?**
 
 - While it originally started as just a cosmetic MOD, eventually StarMash added A LOT of new features to the base game. Here, I'll try to cover most of the more important features, but it will most surely be an incomplete list, because... believe me, there's a lot of stuff!
 
@@ -90,18 +92,20 @@ Words are one thing... but this is a game!
 
 If you want to see how the Mod really looks like, please check the following Galleries and Videos!  (If you want me to add your own pics using this mod, let me know!)
 
-Galleries:
-
-[Gallery 1](https://imgur.com/gallery/kjvZ6)
-
 Videos:
+
+Not uploaded yet.
+
+
+Galleries:
+[Gallery 1](https://imgur.com/gallery/kjvZ6)
 
 
 <br><br>
 -------------------------------------------------------
 <br><br>
 
-## Changelog
+# Changelog
 
 - Follow this link to check the most recent changes to the Mod: [No changelog yet!]
 
@@ -215,7 +219,7 @@ And given that the background now moves very slowly because of its distance to t
 
 Those layers can be enabled/disabled in the Mod Settings window, but I would recommend you to keep them, because given the immensity of space, it can be confusing to pilot your ship without close reference points.
 
-![Asteroids](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Asteroids.jpg)
+![Asteroids](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/asteroids.jpg)
 
 
 ### New icons
@@ -569,7 +573,7 @@ Of course, feedback and opinions and feature suggestions are greatly appreciated
 <br>
 
 
-## **HOW TO USE THIS MOD?**
+# **HOW TO USE THIS MOD?**
 
 Ok, enough with the feature listing, I'm convinced, how do I use this MOD? 
 Easy! Just follow these simple steps, and you will be done faster than reading this paragraph!
@@ -597,7 +601,7 @@ The Steps:
 <br>
 
 
-## **Acknowledgements**
+# **Acknowledgements**
 
 First of all, thanks to the Airmash developers for making this great game, and be cool with me modding it.
 
@@ -613,7 +617,7 @@ Detect, Romario, THOM182, MATTDAMON, yutru, jediMaster, Maximous, Sky Lounge, Mo
 -------------------------------------------------------
 <br>
 
-## **Discussion**
+# **Discussion**
 
 Check the current discussion for this Mod in this reddit post:
 [Current Mod Discussion](http://www.reddit.com/r/airmash)
