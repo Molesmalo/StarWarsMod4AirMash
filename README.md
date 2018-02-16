@@ -30,6 +30,7 @@ Videos:
 
 
 Galleries:
+
 [Gallery 1](https://imgur.com/gallery/kjvZ6)
 
 <br><br>
@@ -237,7 +238,6 @@ Even the Connected Users icon was replaced by a rebel pilot icon.
 
 
 <br><br>
--------------------------------------------------------
 <br>
 
 
@@ -259,7 +259,6 @@ But you can enable it via the Mod Settings window. It's just a small element to 
 
 
 <br><br>
--------------------------------------------------------
 <br>
 
 
@@ -409,7 +408,6 @@ It's currently disabled but I might enable it in the next release.
 
 
 <br><br>
--------------------------------------------------------
 <br>
 
 
@@ -490,7 +488,6 @@ This is just a cosmetic change, but the tooltips for the ships now display the r
 
 
 <br><br>
--------------------------------------------------------
 <br>
 
 
@@ -534,7 +531,6 @@ I added a button to clear the chat box. Just click the button that says: "Clear 
 
 
 <br><br>
--------------------------------------------------------
 <br>
 
 
@@ -640,9 +636,9 @@ Let me know what you think about this MOD!
 
 For historical reasons, I also leave the links for the previous discussions, it has some pictures that show how the mod changed over time!
 
-[Previous version](https://www.reddit.com/r/airmash/comments/7mr3r5/starmash_a_star_wars_mod_is_now_released/)
+[StarMash, version 1](https://www.reddit.com/r/airmash/comments/7mr3r5/starmash_a_star_wars_mod_is_now_released/)
 
-[Initial announce](https://www.reddit.com/r/airmash/comments/7kkjye/a_star_wars_mod/)
+[Initial announcement (unreleased)](https://www.reddit.com/r/airmash/comments/7kkjye/a_star_wars_mod/)
 
 
 
