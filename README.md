@@ -16,6 +16,22 @@ The very first thing you will notice, is the entirely new graphics and sounds (o
 
 But that is just the beginning... There's a lot of other things, let's see them!
 
+
+
+# **Gallery and Videos:**
+
+Words are one thing... but this is a game! 
+
+If you want to see how the Mod really looks like, please check the following Galleries and Videos!  (If you want me to add your own pics using this mod, let me know!)
+
+Videos:
+
+[Video 1](https://youtu.be/VmEKfAZPukM)
+
+
+Galleries:
+[Gallery 1](https://imgur.com/gallery/kjvZ6)
+
 <br><br>
 -------------------------------------------------------
 <br><br>
@@ -86,24 +102,7 @@ If you are in a hurry, a very short list would sumarize the main features as fol
 -------------------------------------------------------
 <br><br>
 
-# **Gallery and Videos:**
 
-Words are one thing... but this is a game! 
-
-If you want to see how the Mod really looks like, please check the following Galleries and Videos!  (If you want me to add your own pics using this mod, let me know!)
-
-Videos:
-
-Not uploaded yet.
-
-
-Galleries:
-[Gallery 1](https://imgur.com/gallery/kjvZ6)
-
-
-<br><br>
--------------------------------------------------------
-<br><br>
 
 # Changelog
 
@@ -112,6 +111,11 @@ Galleries:
 <br><br>
 -------------------------------------------------------
 <br><br>
+
+
+
+
+
 
 # **Attention, read this first:**
 
@@ -141,23 +145,22 @@ Before I start detailing the features, please read the following:
 <br><br>
 
 
+
+
+
 # **Features**
 
 Here, I will give a litte more detailed explanation for each feature. It's still an incomplete list. I'll have to re-check the code to find other things I forgot to add here...
 
 
-## Paralaxing Background
+## **Graphics**
+
+### Paralaxing Background
 
 The game now represents space in a simil-3D way, with depth simulation. Closer elements move faster than distant elements, taking the game to a whole new Dimension!
 
 (This is best viewd in the youtube videos)
 
-
-<br><br>
--------------------------------------------------------
-<br>
-
-## **Graphics**
 
 ### 12 New Ships:
 
@@ -171,6 +174,7 @@ Imperial Ships:
 - Tie Interceptor
 - Tie Advanced
 - Tie Phantom
+- Leader:  Sith Infiltrator
 
 Rebel Ships:
 - X-Wing
@@ -178,6 +182,9 @@ Rebel Ships:
 - A-Wing
 - Y-Wing
 - Scout Ship
+- Leader:  Golden X-Wing
+
+![Ships](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Ships.jpg)
 
 Each ship has also it's own style for the thrusters... a small cosmetic change that adds to the overall experience.
 
@@ -226,7 +233,7 @@ Those layers can be enabled/disabled in the Mod Settings window, but I would rec
 
 Almost every resource used by the game was changed, even the icons! They now reflect their Star Wars equivalents, including icons for Lasers, Deflector Shields, etc.
 
-Even the Connected Users icon was replaced by a Rebel pilot Icon.
+Even the Connected Users icon was replaced by a rebel pilot icon.
 
 
 <br><br>
@@ -274,8 +281,8 @@ Radio messages are predefined messages that can be sent by pressing a 2-keys com
 
 First press a radio the key:
 - `Z`, for sending to All Players
-- `X`, for sending only Team Members
-- `C`, to send using a Bubble over your ship
+- `X`, for sending only to Team Members
+- `C`, to say something using a bubble over your ship
 
 Then, press a number key (`0`-`9`), to send the desired message.  You can also cancel (and hide this panel), by pressing the respective radio key again.
 
@@ -551,9 +558,6 @@ You can enable/disable the ZOOM OUT in free camera spectator, in the Mod Setting
 When in Spectator mode, click over a player, a name on the leaderboard, or a name in the "View All scoreboard", to spectate the selected player. (Note that u can't see enemy prowlers when they are hidden).
 
 
-<br><br>
--------------------------------------------------------
-<br>
 
 ## **Future features**
 
@@ -571,6 +575,7 @@ Of course, feedback and opinions and feature suggestions are greatly appreciated
 <br><br>
 -------------------------------------------------------
 <br>
+
 
 
 # **HOW TO USE THIS MOD?**
@@ -596,6 +601,9 @@ The Steps:
 7. Enjoy!
 
 
+
+
+
 <br><br>
 -------------------------------------------------------
 <br>
@@ -611,6 +619,9 @@ To a lot of players that helped me testing this Mod, and suggested some features
 
 The ones I can remember right off the top of my head:
 Detect, Romario, THOM182, MATTDAMON, yutru, jediMaster, Maximous, Sky Lounge, Moz://a, Linus Torvalds, Akaryatrh (for opening issues on the GH repo)... Sorry if I forgot somebody!
+
+
+
 
 
 <br><br>
@@ -636,7 +647,7 @@ For historical reasons, I also leave the links for the previous discussions, it 
 
 
 
-<br><br><br><br><br><br>
+<br><br><br><br>
 -------------------------------------------------------
 <br>
 
@@ -646,4 +657,4 @@ Disclaimer:
 I am not responsible for any damages that the use of this mod can cause to you, or the device. Use it at your own risk!
 
 
-Star Wars, its Intellectual Property (ships, names, images, sounds and logos) are property of Lucasfilm LTE and The Walt Disney Company. All the resources used for this mode are for non-commercial use, fan made and under fair use.
+Star Wars, its Intellectual Property (ships, names, images, sounds and logos) are property of Lucasfilm LTE and The Walt Disney Company. All the resources used for this mode are for non-commercial use, fan made and under fair use.<>
