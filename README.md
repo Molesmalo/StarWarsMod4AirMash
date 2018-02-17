@@ -288,7 +288,7 @@ Radio messages are predefined messages that can be sent by pressing a 2-keys com
 
 ![Radio Panels](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/RadioPanels.jpg)
 
-First press a radio the key:
+First press a radio key:
 - `Z`, for sending to All Players
 - `X`, for sending only to Team Members
 - `C`, to say something using a bubble over your ship
