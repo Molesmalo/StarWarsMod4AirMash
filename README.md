@@ -38,6 +38,8 @@ Videos:
 
 [Video 1](https://youtu.be/VmEKfAZPukM)
 
+[Experimenting with 3D Ships](https://youtu.be/vuTVAypshO4)
+
 
 Galleries:
 
@@ -207,7 +209,7 @@ No two matches look the same! The background is generated for each match.
 
 The background is composed by 3 main nebula layers, a planet, some other celestial object (still not uploaded), a randomized fleet of Imperial capital ships, and a randomized fleet of Rebel Capital ships.
 
-If you want to change the background for some reason, you can use SWAM.RandomizeBackground() via the console.
+If you want to change the background for some reason, you can use `SWAM.RandomizeBackground();` via the console.
 
 Later, I plan on adding more functionality, like the possibility of saving the current background setings for reuse.
 
@@ -259,7 +261,7 @@ Every sound of the game was changed, and then I added a lot more! Because the so
 
 ### Each Ship has its own sound
 
-No two ship types use the same ambient sound... every single one of them (10) have their own distintive ambient sound, respecting the base material (Star Wars).
+No two ship types use the same ambient sound... every single one of them (10) have their own distinctive ambient sound, respecting the base material (Star Wars).
 
 ### Main Menu Music
 
@@ -288,7 +290,7 @@ Radio messages are predefined messages that can be sent by pressing a 2-keys com
 
 ![Radio Panels](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/RadioPanels.jpg)
 
-First press a radio the key:
+First press a radio key:
 - `Z`, for sending to All Players
 - `X`, for sending only to Team Members
 - `C`, to say something using a bubble over your ship
@@ -394,7 +396,7 @@ Currently, it's only available for predators (tie fighter/x-wings).  Imperials g
 
 Press `5` or `END` key, or click the Cruise Control button below the upgrades icons, to enable or disable.
 
-Cruise Press makes your ship  moving forward, until you disable it, by either pressed `5`/`END` again, or `UP`/`DOWN`.
+Cruise Control makes your ship keep moving forward automatically, until you disable it, by either pressing `5`/`END` again, or `UP`/`DOWN`.
 
 A![Cruise Control](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/CruiseControl.jpg)
 
@@ -426,7 +428,7 @@ It's currently disabled but I might enable it in the next release.
 
 ### Drop Flag Shortcut
 
-When playing Capture The Flag (CTF), press Y to /drop the flag. The flag will be left floating for others to grab.
+When playing Capture The Flag (CTF), press `Y` to /drop the flag. The flag will be left floating for others to grab.
 
 
 ### Mod Settings Window
@@ -475,21 +477,21 @@ These options let you have a cleaner screen to play.
 
 While playing, in the upper right corner of the screen, there is a button that shows/hides the leaderboard. 
 
-F3 shortcut:  You can also use F3 key to toggle leaderboard (F3).
+`F3` shortcut:  You can also use `F3` key to toggle leaderboard.
 
-F4 shortcut:  Use the F4 key to show/hide the majority of the other user User Interface controls (logo, users connected, left-sidebar icons, leaderboard, etc).  This can be used in conjunction with F3 key.
+`F4` shortcut:  Use the `F4` key to show/hide the majority of the other user User Interface controls (logo, users connected, left-sidebar icons, leaderboard, etc).  This can be used in conjunction with `F3` key.
 
 
 ### FPS / Debug Information
 
-As this is intended to be used for debug, it's only accessible via a console command:   SWAM.showDegubInfo();
+As this is intended to be used for debug, it's only accessible via a console command:   `SWAM.showDegubInfo();`
 
 
 ### Move Minimap to Upper Right corner
 
 As the title implies, moves the minimap from the bottom, to the upper right corner of the screen.
 
-This is only accesible via console, but was requested by a user:   SWAM.moveMinimap();
+This is only accesible via console, but was requested by a user:   `SWAM.moveMinimap();`
 
 
 ### Ship Names
@@ -515,16 +517,16 @@ Thanks to player "Linus Torvalds" for this idea.
 ### URL Links
 URLs sent and received are converted into links, for easy opening.
 
-Note: right now it works pretty poorly because I used a weak regular expression... I have to google for a better one to replace that :P.... I'll update this when I do that.
+`Note: right now it works pretty poorly because I used a weak regular expression... I have to google for a better one to replace that :P.... I'll update this when I do that.`
 
-Thanks to player "Linus Torvalds" for this idea.
+Again, thanks to player "Linus Torvalds" for this idea.
 
 
 ### Resend previous messages
 
-When you have the chat input box open, and you havent written anything, press UP or DOWN to navigate previous sent messages. It behaves similar to a console window (for the players who are developers).
+When you have the chat input box open, and you haven't written anything, press UP or DOWN to navigate previous sent messages. It behaves similar to a console window (for the players who are developers).
 
-NOTE: If you edit one of the previous messages, you can't keep navigating, you have to clear the box or undo the change.
+TIP: Please note that if you write something, or edit one of the previous messages, then you can't navigating the messages. You have to clear the box or undo the change. This is made intentionally because sometimes, when you are writing, an enemy comes and you need to move. Without this failsafe, if you pressed UP/DOWN to move, you would also lose the text you wrote before the interruption.
 
 
 ### Team Colors in chat window
@@ -548,13 +550,13 @@ I added a button to clear the chat box. Just click the button that says: "Clear 
 
 #### Free Camera Spectator Mode
 
-This is a completely new way to watch the game.  When you are in spectator mode, press the Free Camera button at the bottom center of the screen. You can also activate this clicking your name in the leaderboard (and the View All scoreboard).
+This is a completely new way to watch the game.  When you are in spectator mode, press the `Free Camera` button at the bottom center of the screen. You can also activate this clicking your name in the leaderboard (and the View All scoreboard).
 
 The game will stop following the player, ZOOM OUT and now you can navigate the map freely with a wider view of the map using the Arrow Keys.
 
 This is ideal and inspired for those players who love to commentate the match.
 
-To exit Free Camera Spectator,  just click the Spectate Next/Spectate Previous  buttons at the bottom of the screen,   click on player, or click a player's name in the scoreboard.
+To exit Free Camera Spectator,  just click the `Spectate Next` or `Spectate Previous`  buttons at the bottom of the screen,   click on player's ship, or click a player's name in the scoreboard.
 
 You can enable/disable the ZOOM OUT in free camera spectator, in the Mod Settings window.
 
@@ -575,7 +577,7 @@ While I can't promise anything, I've been working on some features that are stil
     - Friend Lists
     - And more!
 
-Of course, feedback and opinions and feature suggestions are greatly appreciated!
+Of course, feedback, opinions and feature suggestions are greatly appreciated!
 
 
 <br><br>
