@@ -1,0 +1,20 @@
+[
+  {
+    "creationDate": 1518938737086,
+    "description": "",
+    "id": "Redirect_1518938737086",
+    "name": "redirect vanilla style",
+    "pairs": [
+      {
+        "destination": "https://molesmalo.github.io/StarWarsMod4AirMash/assets/engine-vanilla.js",
+        "source": {
+          "key": "Url",
+          "operator": "Wildcard_Matches",
+          "value": "https://airma.sh/assets/engine.js*"
+        }
+      }
+    ],
+    "ruleType": "Redirect",
+    "status": "Active"
+  }
+]
