@@ -14,7 +14,7 @@
 - Show the number of players for each team in CTF
 - After a background is generated, a panel is shown for 10 seconds to generate a new one.
 - Added button in settings to regenerate background.
-- CHAT: Copy text from chat panel by right click a message
+- CHAT: Copy text from chat panel by right clicking a message
 - CHAT: Valid URLS (need http/https) are converted to links
 - CHAT: **New shortcut:** `DEL` to clear chat panel
 - **New shortcut:** `F10` opens Mod Settings window
