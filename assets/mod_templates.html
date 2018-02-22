@@ -1,3 +1,35 @@
+<div id='confirmDialog' tabindex='1'
+    style='position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    z-index: 10000;'>
+    <div style='position: absolute;
+        width: 550px;
+        height: 180px;
+        left: calc(50% - 275px);
+        top: calc(50% - 90px);
+        background-color: rgba(0,0,0,0.9);
+        box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7); 
+        border-radius: 9px;
+        border-bottom: 2px solid rgba(0,0,0,0.3);
+        border-top: 2px solid rgba(255,255,255,0.08); 
+        box-sizing: border-box;
+        padding: 18px 18px 0 18px;
+        cursor: default;
+        font-family: verdana,arial,helvetica,sans-serif'>
+    <div style='font-size: 20px; color: white; margin-bottom: 10px;'>$title</div>
+    <div style='color: #AAAAAA'>$message</div>
+        <hr/>
+        <div style='width: 100%; position: absolute; left: calc(50% - 100px); margin-top: 20px;'>
+            <input id='confirmYes' type='button' value='' style='width: 80px; height: 25px; background-color: #228a12; color: white; border-radius: 4px; font-size: 16px; text-shadow: 0 -1px 0 rgba(0,0,0,0.6); border: 2px solid rgba(0,0,0,.2)'>
+            <span style='margin-left: 40px'></span>
+            <input id='confirmNo' type='button' value='' style='width: 80px; height: 25px; background-color: #555555; color: white; border-radius: 4px; font-size: 16px; text-shadow: 0 -1px 0 rgba(0,0,0,0.6); border: 2px solid rgba(0,0,0,.2)'>
+        </div>
+    </div>
+</div>
 <div class='modalContainer' tabindex='1'
     style='position: fixed;
         top: 0px;
@@ -6,12 +38,18 @@
         height: 100%;
         background-color: rgba(0,0,0,.5);
         overflow-x: hidden;
-        overflow-y: auto;'>
+        overflow-y: auto;
+        z-index: 30;'>
     <div class='modalDialog' style='position: absolute;
-        width: 550px;
-        min-height: 180px; 
-        left: calc(50% - 275px);
+        width: 600px;
+        min-height: 180px;
+        max-height: 800px;
+
+        overflow-y: auto;
+        
+        left: calc(50% - 300px);
         top: 50px;
+        
         background-color: rgba(0,0,0,1);
         box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
         border-radius: 9px;
@@ -20,6 +58,8 @@
         box-sizing: border-box;
         padding: 18px 18px 0 18px;
         cursor: default;
+
+        color: white;
         font-family: verdana,arial,helvetica,sans-serif'>
         <div style='font-size: 20px; color: white; margin-bottom: 10px;'>$title</div>
         <div class='modalContent'></div>
@@ -81,7 +121,7 @@
             margin: 10px;
             margin-bottom: 30px;
         }
-        .SWAM_Settings .btnAccept,.btnCancel {
+        .SWAM_Settings .btn {
             width: 80px;
             height: 25px;
             background-color: #555555;
@@ -89,8 +129,15 @@
             border-radius: 4px;
             font-size: 16px;
             text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+            text-align: center;
             border: 2px solid rgba(0,0,0,.2);
             cursor: pointer;
+        }
+        .SWAM_Settings .btnRegenerate
+        {
+            background-color: #555555;
+            width: 300px;
+            margin-bottom: 20px;
         }
         .SWAM_Settings .btnAccept
         {
@@ -126,6 +173,7 @@
         <div class="section">
             <div class="title">Background</div>
             <div class="values">
+                <div class="btn btnRegenerate" onclick="SWAM.RandomizeBackground();">Generate New Background</div>
                 <ul class="swamNebulas">
                     <li><label><input type="checkbox" class='chkNebula' data-layer="blue" data-index='0'/>Blue nebulas</label></li>
                     <li><label><input type="checkbox" class='chkNebula' data-layer="green"   data-index='1'/>Green nebulas</label></li>
@@ -165,9 +213,9 @@
     </div>
     <div style="clear:both; text-align: center;">
         <div class="divRestore"><span >[Restore all to default]</span></div>
-        <input class='btnAccept' type='button' value='Accept'>
+        <input class='btn btnAccept' type='button' value='Accept'>
         <span style='margin-left: 40px'></span>
-        <input class='btnCancel' type='button' value='Cancel'></div>
+        <input class='btn btnCancel' type='button' value='Cancel'></div>
     </div>
 </div>
 
@@ -206,7 +254,6 @@
         #redditPanel .title
         {
             padding: 5px;
-            margin-bottom: 20px;
             border-bottom: 1px solid rgb(15, 15, 15);
             background-color: #101010;
         }
@@ -239,4 +286,180 @@
     <div class="redditPosts">
 
     </div>
+</div>
+
+<div id="changelogPanel">
+    <style type="text/css">
+        #changelogPanel {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            left: 50px;
+            top: 40%;
+            margin-top: -140px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-size: 11px;
+
+            background-color: rgba(0,0,0,0.75);
+            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+            border-radius: 9px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.08);
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #changelogPanel .title
+        {
+            padding: 5px;
+            border-bottom: 1px solid rgb(15, 15, 15);
+            background-color: #101010;
+        }
+        #changelogPanel .title a{
+            color: white;
+            font-size: 12pt;
+        }
+        #changelogPanel .changelogContent .date
+        {
+            color: rgb(79, 128, 219);
+            margin-left: 10px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+        #changelogPanel ul
+        {
+            list-style-type: disc;
+            margin-bottom: 20px;
+        }
+        #changelogPanel li
+        {
+            margin-left: 0px;
+            padding: 8px 5px;
+            color: rgb(146, 146, 146);
+        }
+        #changelogPanel key
+        {
+            color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: rgb(114, 103, 66);
+        }
+
+        @media only screen and (max-width: 1100px)
+        {
+            #changelogPanel {
+                display: none;
+            }
+        }
+    </style>
+    <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
+    <div class="changelogContent">
+        <div class="date">Feb 22 2018</div>
+        <ul>
+            <li>Some planets are now darker for better contrast</li>
+            <li>Added a changelog panel to the main screen</li>
+            <li>Added a Game Log Window. Open it by clicking the WHO killed Who panel or...</li>
+            <li><b>New Shortcut: </b><key>F9</key> opens Game Log Window</li>
+            <li>Show the number of players for each team in CTF</li>
+            <li>After a background is generated, a panel is shown for 10 seconds to generate a new one.</li>
+            <li>Added button in settings to regenerate background.</li>
+            <li>CHAT: Copy text from chat panel by right click a message</li>
+            <li>CHAT: Valid URLS (need http/https) are converted to links</li>
+            <li>CHAT: <b>New shortcut: </b><key>DEL</key> to clear chat panel</li>
+            <li><b>New shortcut: </b><key>F10</key> opens Mod Settings window</li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="regenerateBackground">
+    <style type='text/css'>
+        #regenerateBackground
+        {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: calc(50% - 300px);
+            width: 600px;
+            height: 100px;
+
+            background-color: rgba(0,0,0,0.5);
+            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+            border-radius: 9px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.08);
+            box-sizing: border-box;
+            padding: 18px 18px 0 18px;
+            cursor: default;
+            font-family: verdana,arial,helvetica,sans-serif;
+            text-align: center;
+        }
+        #regenerateBackground div.title
+        {
+            color: white;
+        }
+        #regenerateBackground #btnRegenerate
+        {
+            margin-top: 20px;
+            position: absolute;
+            left: calc(50% - 150px);
+            width: 300px;
+            height: 25px;
+            background-color: #555555;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+            border: 2px solid rgba(0,0,0,.2);
+            cursor: pointer;
+        }
+        #regenerateBackground .timerContainer
+        {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #regenerateBackground .timerIndicator
+        {
+            width: 100%;
+            height: 5px;
+            background-color: rgb(92, 173, 92);
+            border-radius: 2px;
+        }
+    </style>
+    <div class="title">You you don't like the generated background, you can generate a new one!</div>
+    <div id="btnRegenerate">Generate New Background</div>
+    <div class="timerContainer">
+        <div class="timerIndicator"></div>
+    </div>
+</div>
+
+<div id="fullLogTemplate">
+    <style type="text/css">
+        .fullLogcontent
+        {
+            overflow-y: auto;
+            height: 400px;
+            max-height: 700px;
+        }
+        #fullLog ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        #fullLog li {
+            padding: 5px;
+        }
+
+    </style>
+    <ul>
+        <li><label><input type="checkbox" class='chkFLKills' checked="checked"/>Display kill log</label></li>
+        <li><label><input type="checkbox" class='chkFLPlayers'/>Display players connection log.</label></li>
+    </ul>
+    <hr/>
+    <div class="fullLogcontent"></div>
 </div>
