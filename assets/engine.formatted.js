@@ -33760,7 +33760,7 @@ function SWAM() {
         removePlayerGlow(Xt))
     }
     function addToLog(Bt) {
-        SWAM.GameLog.add(Bt);
+        SWAM.GameLog && SWAM.GameLog.add(Bt);
         $("#WhoKilledWho");
         if (0 != $("#WhoKilledWho").length) {
             let Gt = $(Bt);
