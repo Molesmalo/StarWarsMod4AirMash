@@ -1,0 +1,704 @@
+<div id='confirmDialog' tabindex='1'
+    style='position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    z-index: 10000;'>
+    <div style='position: absolute;
+        width: 550px;
+        height: 180px;
+        left: calc(50% - 275px);
+        top: calc(50% - 90px);
+        background-color: rgba(0,0,0,0.9);
+        box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7); 
+        border-radius: 9px;
+        border-bottom: 2px solid rgba(0,0,0,0.3);
+        border-top: 2px solid rgba(255,255,255,0.08); 
+        box-sizing: border-box;
+        padding: 18px 18px 0 18px;
+        cursor: default;
+        font-family: verdana,arial,helvetica,sans-serif'>
+        <div style='font-size: 20px; color: white; margin-bottom: 10px;'>$title</div>
+        <div style='color: #AAAAAA'>$message</div>
+        <hr/>
+        <div style='width: 100%; position: absolute; left: calc(50% - 100px); margin-top: 20px;'>
+            <input id='confirmYes' type='button' value='' style='width: 80px; height: 25px; background-color: #228a12; color: white; border-radius: 4px; font-size: 16px; text-shadow: 0 -1px 0 rgba(0,0,0,0.6); border: 2px solid rgba(0,0,0,.2)'>
+            <span style='margin-left: 40px'></span>
+            <input id='confirmNo' type='button' value='' style='width: 80px; height: 25px; background-color: #555555; color: white; border-radius: 4px; font-size: 16px; text-shadow: 0 -1px 0 rgba(0,0,0,0.6); border: 2px solid rgba(0,0,0,.2)'>
+        </div>
+    </div>
+</div>
+<div class='modalContainer' tabindex='1'>
+    <div class='modalDialog'>
+        <style type="text/css">
+            .modalContainer
+            {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,.5);
+                outline: none;
+                overflow-x: hidden;
+                overflow-y: auto;
+                z-index: 30;
+            }
+            .modalDialog
+            {
+                position: absolute;
+                width: 600px;
+                min-height: 180px;
+                max-height: 800px;
+
+                overflow-y: auto;
+                
+                left: calc(50% - 300px);
+                top: 50px;
+                
+                background-color: rgba(0,0,0,1);
+                box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+                border-radius: 9px;
+                border-bottom: 2px solid rgba(0,0,0,0.3);
+                border-top: 2px solid rgba(255,255,255,0.08);
+                box-sizing: border-box;
+                padding: 18px 18px 0 18px;
+                cursor: default;
+
+                color: white;
+                font-family: verdana,arial,helvetica,sans-serif;
+            }
+            .modalTitle
+            {
+                font-size: 20px;
+                color: white;
+                margin-bottom: 10px;
+            }
+        </style>
+        <div class='modalTitle'>$title</div>
+        <div class='modalContent'></div>
+    </div>
+</div>
+
+<div class="SWAM_Settings">
+    <style type="text/css">
+        .SWAM_Settings
+        {
+            padding-bottom: 50px;
+            color: #c5c5c5;
+        }
+        .SWAM_Settings ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        .SWAM_Settings li {
+            padding: 5px;
+        }
+        .SWAM_Settings .sectionsContainer
+        {
+            overflow-y: auto;
+            max-height: 600px;
+        }
+        .SWAM_Settings .section
+        {
+            padding: 10px;
+            display: inline-flex;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            
+            width: calc(100% - 20px);
+        }
+        .SWAM_Settings .title{
+            padding: 10px;
+            display: inline-block;
+            width: 150px;
+            background-color: #050505;
+            color: #8fb8bd;
+            font-size: 12pt;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+        .SWAM_Settings .values{
+            padding: 10px;
+            display: inline-block;
+            width: calc(100% - 150px);
+            background-color: #101010;
+        }
+        .SWAM_Settings input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .SWAM_Settings .divRestore{
+            color: #888888;
+            text-decoration: underline;
+            cursor: pointer;
+            margin: 10px;
+            margin-bottom: 30px;
+        }
+        .SWAM_Settings .btn {
+            width: 80px;
+            height: 25px;
+            background-color: #555555;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+            text-align: center;
+            border: 2px solid rgba(0,0,0,.2);
+            cursor: pointer;
+        }
+        .SWAM_Settings .btnRegenerate
+        {
+            background-color: #555555;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        .SWAM_Settings .btnAccept
+        {
+            background-color: #228a12;
+        }
+        .SWAM_Settings .btnCancel
+        {
+            background-color: #555555;
+        }
+    </style>
+
+    <div class="sectionsContainer">
+        <div class="section">
+            <span>Version&nbsp;&nbsp;</span>&nbsp;<span id="modVersion"></span>
+        </div>
+        <div class="section">
+            <div class="title">General</div>
+            <ul class="values">
+                <li><label><input type="checkbox" class='chkPowerupsFX' />Visual effects for powerups.</label></li>
+                <li><label><input type="checkbox" class='chkKillstreaks' />Player glow with kill streaks (5 kills without dying)</label></li>
+                <li><label><input type="checkbox" class='chkZoomSpectator' />Zoom out in free-camera spectator mode.</label></li>
+            </ul>
+        </div>
+        <div class="section">
+            <div class="title">Interface</div>
+            <ul class="values">
+                <li><label><input type="checkbox" class='chkReddit' />Reddit: Load and display discussion panel. (changes will be made on next load)</label></li>
+                <li><label><input type="checkbox" class='chkLogWhoKilledWho' />Log: Show Who killed Who</label></li>
+                <li><label><input type="checkbox" class='chkLogConnections' />Log: Show players joining/leaving</label></li>
+            </ul>
+        </div>
+        <div class="section">
+            <div class="title">Audio</div>
+            <div class="values">
+                <ul>
+                    <li><label><input type="checkbox" class='chkVoiceEventsCTF' />CTF: Voice messages for flag events.</label></li>
+                    <li><label><input type="checkbox" class='chkBgMusicMainMenu' />Main Menu: Play background music.</label></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both; text-align: center;">
+        <div class="divRestore"><span >[Restore all to default]</span></div>
+        <input class='btn btnAccept' type='button' value='Accept'>
+        <span style='margin-left: 40px'></span>
+        <input class='btn btnCancel' type='button' value='Cancel'>
+    </div>
+</div>
+
+<div id="Vanilla_Settings">
+    <div class="section">
+        <div class="title">Background</div>
+        <div class="values">
+            <ul class="swamVanilla">
+                <li><label><input type="checkbox" class='chkSea' />Sea depth</label></li>
+                <li><label><input type="checkbox" class='chkForest' />Forest</label></li>
+                <li><label><input type="checkbox" class='chkSand' />Sand</label></li>
+                <li><label><input type="checkbox" class='chkRock' />Rock</label></li>
+                <li><label><input type="checkbox" class='chkPolygons' />Continents</label></li>
+                <li><label><input type="checkbox" class='chkShadows' />Shadows</label></li>
+                <li><label><input type="checkbox" class='chkSmoke' />Missile's Smoke</label></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="StarMash1_Settings">
+    <div class="section">
+        <div class="title">Background</div>
+        <div class="values">
+            <ul class="swamNebulas">
+                <li><label><input type="checkbox" class='chkNebula' data-layer="blue" data-index='0'/>Blue nebulas</label></li>
+                <li><label><input type="checkbox" class='chkNebula' data-layer="green"   data-index='1'/>Green nebulas</label></li>
+                <li><label><input type="checkbox" class='chkNebula' data-layer="red"   data-index='3'/>Red nebulas</label></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="StarMash2_Settings">
+    <div class="section">
+        <div class="title">Background</div>
+        <div class="values">
+            <div class="btn btnRegenerate" onclick="SWAM.RandomizeBackground();">Generate New Background</div>
+            <ul class="swamNebulas">
+                <li><label><input type="checkbox" class='chkNebula' data-layer="blue" data-index='0'/>Blue nebulas</label></li>
+                <li><label><input type="checkbox" class='chkNebula' data-layer="green"   data-index='1'/>Green nebulas</label></li>
+                <li><label><input type="checkbox" class='chkNebula' data-layer="red"   data-index='3'/>Red nebulas</label></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <div class="title">Asteroid field layers</div>
+        <div class="values">
+            <select class='selAsteroidLayers'>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+    </div>
+    <div class="section">
+        <div class="title">Decorative objects</div>
+        <ul class="values swamDecorations">
+            <li><label><input type="checkbox" class='chkDecorations' data-layer="stellar" />Distant stellar objects</label></li>
+            <li><label><input type="checkbox" class='chkDecorations' data-layer="planets"/>Planets</label></li>
+            <li><label><input type="checkbox" class='chkDecorations' data-layer="moons" />Moons</label></li>
+            <li><label><input type="checkbox" class='chkDecorations' data-layer="ships" />Ships</label></li>
+        </ul>
+    </div>
+</div>
+
+<div id="btnOpenExtensions"
+    style='position: relative;
+    width: 295px;
+    left: 35px;
+    margin-top: 20px;
+    text-align: center;
+    vertical-align: top;
+    padding: 9px 18px 7px 18px;
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+    border-bottom: 2px solid rgba(0,0,0,0.2);'>
+    Themes and extensions</div>
+
+<div class="SWAM_Extensions">
+    <style type="text/css">
+        .SWAM_Extensions
+        {
+            padding-bottom: 50px;
+            color: #c5c5c5;
+        }
+        .SWAM_Extensions .sectionsContainer
+        {
+            overflow-y: auto;
+            max-height: 600px;
+        }
+        .SWAM_Extensions .btn,
+        .SWAM_Extensions .btnSmall {
+            width: 80px;
+            height: 25px;
+            background-color: #555555;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+            text-align: center;
+            border: 2px solid rgba(0,0,0,.2);
+            cursor: pointer;
+        }
+        .SWAM_Extensions .section
+        {
+            padding: 10px;
+            display: inline-flex;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            
+            width: calc(100% - 20px);
+        }
+        .SWAM_Extensions .title{
+            padding: 10px;
+            display: inline-block;
+            width: 150px;
+            background-color: #050505;
+            color: #8fb8bd;
+            font-size: 12pt;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+        .SWAM_Extensions .values{
+            padding: 10px;
+            display: inline-block;
+            width: calc(100% - 150px);
+            background-color: #101010;
+        }
+        .SWAM_Extensions #selTheme
+        {
+            background-color: #555555;
+            color: white;
+            outline: none;
+            padding: 5px;
+            border: 2px solid rgba(0,0,0,.2);
+            border-radius: 4px;
+        }
+        .SWAM_Extensions .btnAccept,
+        .SWAM_Extensions .btnAcceptURL
+        {
+            background-color: #228a12;
+        }
+        .SWAM_Extensions .btnDelete
+        {
+            background-color: #8a1212;
+        }
+
+        .SWAM_Extensions .btnSmall
+        {
+            width: 30px;
+            height: 30px;
+            vertical-align: top;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+
+        .SWAM_Extensions .scriptURL
+        {
+            width: calc(100% - 40px);
+            margin-left: 10px;
+            display: none;
+        }
+        .SWAM_Extensions .modName
+        {
+            width: 100%;
+        }
+        .SWAM_Extensions .error
+        {
+            width: 100%;
+            color: red;
+            display: none;
+        }
+        /* .SWAM_Extensions .arrows
+        {
+            display: none;
+        } */
+        .SWAM_Extensions .newModButtons
+        {
+            display: none;
+        }
+        .SWAM_Extensions .name
+        {
+            color: #AACCFF;
+            font-weight: bold;
+        }
+        .SWAM_Extensions .description
+        {
+            padding-left: 20px;
+        }
+        .SWAM_Extensions .author
+        {
+            color: #AAFFAA;
+        }
+        .SWAM_Extensions .url
+        {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: calc(100% - 20px);
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+
+    <div class="sectionsContainer">
+        <div class="section">
+            <div class="title">Select Theme</div>
+            <div class="values">
+                <select id="selTheme">
+                </select>
+            </div>
+        </div>
+        <div class="section">
+            <input class='btn btnNew' type='button' value='Add new extension/theme' style="width: 250px;">
+        </div>
+    </div>
+    <div style="clear:both; text-align: center;">
+        <input class='btn btnAccept' type='button' value='Accept'>
+        <span style='margin-left: 40px'></span>
+        <input class='btn btnCancel' type='button' value='Cancel'>
+    </div>
+</div>
+
+<div id="ExtensionEditPanel">
+    <div class="section">
+        <div class="values">
+            <div class="modName">
+                <div class="name"></div>
+                <div class="description"></div>
+                <div style="padding-left: 20px;">
+                    by
+                    <span class="author"></span>, 
+                    ver: 
+                    <span class="version"></span>,
+                    <span class="url"></span>
+                </div>
+            </div>
+            <input class="scriptURL" type="text" value="https://localhost/christmasmod.js" placeholder="Enter here the URL for the extension."/>
+            <div class="error"></div>
+        </div>
+        <div class="title">
+            <div class="arrows">
+                <!-- <input class='btnSmall btnUp' type='button' value='▲'>
+                <input class='btnSmall btnDown' type='button' value='▼'> -->
+                <input class='btnSmall btnDelete' type='button' value='✘'>
+            </div>
+            <div class="newModButtons">
+                <input class='btnSmall btnAcceptURL' type='button' value='✔'>
+                <input class='btnSmall btnCancelURL' type='button' value='✘'>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+<div id="redditPanel">
+    <style type="text/css">
+        #redditPanel {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            right: 50px;
+            top: 40%;
+            margin-top: -140px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-size: 11px;
+
+            background-color: rgba(0,0,0,0.75);
+            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+            border-radius: 9px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.08);
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #redditPanel .redditPosts div
+        {
+            padding: 8px 5px;
+        }
+        #redditPanel .title
+        {
+            padding: 5px;
+            border-bottom: 1px solid rgb(15, 15, 15);
+            background-color: #101010;
+        }
+        #redditPanel .title a{
+            color: white;
+            font-size: 12pt;
+        }
+        #redditPanel .author
+        {
+            color: rgb(146, 146, 146);
+            margin-left: 10px;
+        }
+        #redditPanel a
+        {
+            color: rgb(79, 128, 219);
+        }
+        #redditPanel a.sticky
+        {
+            color: rgb(92, 173, 92) !important;
+        }
+
+        @media only screen and (max-width: 1100px)
+        {
+            #redditPanel {
+                display: none;
+            }
+        }
+    </style>
+    <div class="title"><a href="https://www.reddit.com/r/airmash/" >Discussion</a></div>
+    <div class="redditPosts">
+
+    </div>
+</div>
+
+<div id="changelogPanel">
+    <style type="text/css">
+        #changelogPanel {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            left: 50px;
+            top: 40%;
+            margin-top: -140px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-size: 11px;
+
+            background-color: rgba(0,0,0,0.75);
+            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+            border-radius: 9px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.08);
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #changelogPanel .title
+        {
+            padding: 5px;
+            border-bottom: 1px solid rgb(15, 15, 15);
+            background-color: #101010;
+        }
+        #changelogPanel .title a{
+            color: white;
+            font-size: 12pt;
+        }
+        #changelogPanel .changelogContent .date
+        {
+            color: rgb(79, 128, 219);
+            margin-left: 10px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+        #changelogPanel ul
+        {
+            list-style-type: disc;
+            margin-bottom: 20px;
+        }
+        #changelogPanel li
+        {
+            margin-left: 0px;
+            padding: 8px 5px;
+            color: rgb(146, 146, 146);
+        }
+        #changelogPanel key
+        {
+            color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: rgb(114, 103, 66);
+        }
+
+        @media only screen and (max-width: 1100px)
+        {
+            #changelogPanel {
+                display: none;
+            }
+        }
+    </style>
+    <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
+    <div class="changelogContent">
+        <div class="date">Feb 22 2018</div>
+        <ul>
+            <li>Some planets are now darker for better contrast</li>
+            <li>Added a changelog panel to the main screen</li>
+            <li>Added a Game Log Window. Open it by clicking the WHO killed Who panel or...</li>
+            <li><b>New Shortcut: </b><key>F9</key> opens Game Log Window</li>
+            <li>Show the number of players for each team in CTF</li>
+            <li>After a background is generated, a panel is shown for 10 seconds to generate a new one.</li>
+            <li>Added button in settings to regenerate background.</li>
+            <li>CHAT: Copy text from chat panel by right clicking a message</li>
+            <li>CHAT: Valid URLS (need http/https) are converted to links</li>
+            <li>CHAT: <b>New shortcut: </b><key>DEL</key> to clear chat panel</li>
+            <li><b>New shortcut: </b><key>F10</key> opens Mod Settings window</li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="regenerateBackground">
+    <style type='text/css'>
+        #regenerateBackground
+        {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: calc(50% - 300px);
+            width: 600px;
+            height: 100px;
+
+            background-color: rgba(0,0,0,0.5);
+            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+            border-radius: 9px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.08);
+            box-sizing: border-box;
+            padding: 18px 18px 0 18px;
+            cursor: default;
+            font-family: verdana,arial,helvetica,sans-serif;
+            text-align: center;
+        }
+        #regenerateBackground div.title
+        {
+            color: white;
+        }
+        #regenerateBackground #btnRegenerate
+        {
+            margin-top: 20px;
+            position: absolute;
+            left: calc(50% - 150px);
+            width: 300px;
+            height: 25px;
+            background-color: #555555;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+            border: 2px solid rgba(0,0,0,.2);
+            cursor: pointer;
+        }
+        #regenerateBackground .timerContainer
+        {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #regenerateBackground .timerIndicator
+        {
+            width: 100%;
+            height: 5px;
+            background-color: rgb(92, 173, 92);
+            border-radius: 2px;
+        }
+    </style>
+    <div class="title">You you don't like the generated background, you can generate a new one!</div>
+    <div id="btnRegenerate">Generate New Background</div>
+    <div class="timerContainer">
+        <div class="timerIndicator"></div>
+    </div>
+</div>
+
+<div id="fullLogTemplate">
+    <style type="text/css">
+        .fullLogcontent
+        {
+            overflow-y: auto;
+            height: 400px;
+            max-height: 700px;
+        }
+        #fullLog ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        #fullLog li {
+            padding: 5px;
+        }
+
+    </style>
+    <ul>
+        <li><label><input type="checkbox" class='chkFLKills' checked="checked"/>Display kill log</label></li>
+        <li><label><input type="checkbox" class='chkFLPlayers'/>Display players connection log.</label></li>
+    </ul>
+    <hr/>
+    <div class="fullLogcontent"></div>
+</div>
