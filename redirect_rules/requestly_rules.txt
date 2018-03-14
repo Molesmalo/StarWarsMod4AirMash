@@ -1,56 +1,16 @@
 [
   {
-    "creationDate": 1514146290860,
+    "creationDate": 1518938737087,
     "description": "",
-    "id": "Redirect_1514146290860",
-    "name": "redirects github",
+    "id": "Redirect_1518938737087",
+    "name": "Redirect StarMash 2.2",
     "pairs": [
-      {
-        "destination": "https://molesmalo.github.io/StarWarsMod4AirMash/assets/$1.png",
-        "source": {
-          "key": "Url",
-          "operator": "Wildcard_Matches",
-          "value": "https://airma.sh/assets/*.png*"
-        }
-      },
-      {
-        "destination": "https://molesmalo.github.io/StarWarsMod4AirMash/assets/$1.jpg",
-        "source": {
-          "key": "Url",
-          "operator": "Wildcard_Matches",
-          "value": "https://airma.sh/assets/*.jpg*"
-        }
-      },
       {
         "destination": "https://molesmalo.github.io/StarWarsMod4AirMash/assets/engine.js",
         "source": {
           "key": "Url",
           "operator": "Wildcard_Matches",
           "value": "https://airma.sh/assets/engine.js*"
-        }
-      },
-      {
-        "destination": "https://molesmalo.github.io/StarWarsMod4AirMash/assets/map.json",
-        "source": {
-          "key": "Url",
-          "operator": "Wildcard_Matches",
-          "value": "https://airma.sh/assets/map.json*"
-        }
-      },
-      {
-        "destination": "https://molesmalo.github.io/StarWarsMod4AirMash/assets/sounds.mp3",
-        "source": {
-          "key": "Url",
-          "operator": "Wildcard_Matches",
-          "value": "https://airma.sh/assets/sounds.mp3?*"
-        }
-      },
-      {
-        "destination": "https://molesmalo.github.io/StarWarsMod4AirMash/assets/style.css",
-        "source": {
-          "key": "Url",
-          "operator": "Wildcard_Matches",
-          "value": "https://airma.sh/assets/style.css*"
         }
       }
     ],
