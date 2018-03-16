@@ -33,7 +33,7 @@ When you create an extension, you will need a place on the web where you can pub
 
 ### **Image Editing or Web Design**
 
-Another thing that exceeds the scope of this tutorial is the use of application like Photoshop, Gimp, Blender, 3D Studio, or whatever you might want to use to create the resources for your Themes. It's up to you to choose the applications you want to use, and learn how to use them.
+Another thing that exceeds the scope of this tutorial is the use of applications like Photoshop, Gimp, Blender, 3D Studio, or whatever you might want to use to create the resources for your Themes. It's up to you to choose the applications you want to use, and learn how to use them.
 
 
 # The Basics
@@ -128,7 +128,7 @@ In StarMash, this changes. The original game code is encapsulated within a funct
 
 Once all the extensions are loaded, it executes what could be considered StarMash's main startup function. Let's see how this function looks like:
 
-
+```js
     SWAM.loadExtensions(()=>{
         SWAM.trigger("extensionsLoaded");
 
@@ -147,7 +147,7 @@ Once all the extensions are loaded, it executes what could be considered StarMas
 
         SWAM.trigger("gameRunning");
     });
-
+```
 
 It's a very small piece of code, but there's a lot of stuff going on there:
 
@@ -184,18 +184,21 @@ Finally, the settings are loaded and an event called `gameRunning` is triggered.
 
 As mentioned before, StarMash Extensions work by responding to events triggered by StarMash. This way, it becomes super easy for extension developers to make new features that respond to game events. The way you subscribe to an event is as follows:
 
+```js
     SWAM.on( events, handler );
-
     // events: The event name, such as "playerAdded" or "playerDestroyed"
     // handler: A function to execute when the event is triggered.
+```
 
 So, for example, we can declare the following piece of code:
 
+```js
     SWAM.on("playerAdded", function(player) {
         console.log(player.name + " joined the game.");
     });
+```
 
-In this example, we listen to the 'playerAdded' event, and write in the console every time a new player joins the game.
+In this example, we listen to the `playerAdded` event, and write in the console every time a new player joins the game.
 
 The following table contains the current list of events triggered by StarMash, and their corresponding arguments. I might add new events eventually. If you feel the need for a particular event to be triggered, please let me know, and I'll see if it should to the list or not.
 
@@ -237,7 +240,7 @@ The following table contains the current list of events triggered by StarMash, a
 
 # Creating my first extension:
 
-> Enought theory! When do we start coding?
+> Enough theory! When do we start coding?
 
 Now that you know how to load extensions, why don't we try to create our very first StarMash Extension?
 
@@ -245,9 +248,11 @@ As I said previously, an extension is simply a JavaScript file. So, open your fa
 
 Paste in the file the following __VERY IMPORTANT__ piece of code:
 
+```js
     !function() {
 
     }();
+```
 
 > Hey! Are you nuts? That function is empty! Why is it so important then?
 
@@ -257,6 +262,7 @@ You will write your code inside this function. Why? Because it provides you a ne
 
 Let's go on. Now, we will add some code inside our Module. So your file should look like this:
 
+```js
     !function() {
         SWAM.registerExtension({
             name: "Tutorial 1",
@@ -266,6 +272,7 @@ Let's go on. Now, we will add some code inside our Module. So your file should l
             version: "1.0"
         });
     }();
+```
 
 If you want, you can change now the text for the fields: name, description, author and version to whatever you want.
 
@@ -294,6 +301,7 @@ So.. this extension does nothing at this point. I only has the minimum code need
 
 Let's add some code to debug the StarMash life cycle as described above.  For this, we will subscribe to several events. So, modify the file to make it look like this:
 
+```js
     !function() {
 
         // This line will be executed as soon as the extension is loaded
@@ -326,6 +334,7 @@ Let's add some code to debug the StarMash life cycle as described above.  For th
             version: "1.0"
         });
     }();
+```
 
 [Download](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/code/t1.js)
 
