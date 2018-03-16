@@ -351,3 +351,9 @@ Ok, I think we have just left behind the most boring stuff. The point of this ar
 If you are still here reading this, thank you!
 
 And get ready, because on the next article we will start creating some real and funny extensions!
+
+[Continue to Part 2](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part2)
+
+&nbsp;
+
+&nbsp;
