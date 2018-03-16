@@ -8,7 +8,7 @@ Read this if you are interested in creating your own features and themes for Air
 
 This is part 2 of a multi-part tutorial.
 
-Check [StarMash - Extensions and Themes - Part 1(https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part1) for the first part of this tutorial.
+Check [StarMash - Extensions and Themes - Part 1](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part1) for the first part of this tutorial.
 
 &nbsp;
 
