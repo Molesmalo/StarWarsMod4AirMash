@@ -1,3 +1,7 @@
+/*----------------------------------------------------------
+    StarMash Extensions Tutorial - Part 1
+----------------------------------------------------------*/
+
 !function() {
 
     // This line will be executed as soon as the extension is loaded
