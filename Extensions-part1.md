@@ -7,6 +7,17 @@ This is a guide for the creation of extensions and themes for the [StarMash Mod]
 Read this if you are interested in creating your own features and themes for AirMash.
 
 
+&nbsp;
+
+In this part, you will learn:
+
+- An brief introduction and how to use extensions.
+- How StarMash works.
+- How StarMash Extensions work.
+- How to respond to StarMash events.
+- How to create the most basic extensions.
+
+
 # What will I be able to create?
 
 - Well, it depends on your background. This guide is mainly orientated to people that have some basic previous programming knowledge. If you don't know how to write JavaScript code, I hope that after reading this you will be able to create some basic Themes, by adapting a theme template and then editing the images in your favorite image editor. But I can't guarantee that you fully understand everything.
