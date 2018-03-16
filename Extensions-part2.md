@@ -10,6 +10,15 @@ This is part 2 of a multi-part tutorial.
 
 Check [StarMash - Extensions and Themes - Part 1(https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part1) for the first part of this tutorial.
 
+&nbsp;
+
+In this part, you will learn:
+
+- How to create a simple, yet funny extension that interacts with the game.
+- How to interact with AirMash objects.
+- Send bubble messages.
+- How to avoid being disconnected or banned by AirMash's server.
+
 
 # Moving beyond the console
 
@@ -47,7 +56,7 @@ Let's examine this code:
 
 As usual, we create our own Module, and put our code inside it. Then we write our extension's code, and at the end, we register this file as an extension.
 
-In this case, our code is subscribing to the `playerKilled`.  This event sends 3 arguments:  
+In this case, our code is subscribing to the `playerKilled` event.  This event sends three arguments:  
 - `data` with some information sent by the server (
     - id: dead player's id
     - killer: killer player's id,
@@ -108,7 +117,7 @@ If we instead wanted to say it vía the chat panel, we would have used one of th
 
 The first option would send a public message to everybody, the second only to team members, and the third only to the player you just killed.
 
-But as that's a sure recipe for getting vote-muted or ignored, we just use the bubble message. So, please avoid sending automated chat messages. Other users will not like it very much, and they will let you know this.
+But as that's a sure recipe for getting vote-muted or ignored, so we'll just use the bubble message. Please, please, please, avoid sending automated chat messages. Other users will not like it very much, and they will let you know this.
 
 &nbsp;
 
