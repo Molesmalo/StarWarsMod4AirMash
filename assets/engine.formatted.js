@@ -36125,7 +36125,7 @@ window.AutoPilot = {
         if (this.mimicTarget != game.myID) {
             if (189 == Bt.keyCode && (this.reverseMimic = !this.reverseMimic,
             this.reverseMimic ? Network.sendSay("reverse") : Network.sendSay("normal")),
-            45 == Bt.keyCode && this.mimicRotation(!1),
+            (45 == Bt.keyCode || 188 == Bt.keyCode) && this.mimicRotation(!1),
             36 == Bt.keyCode || 190 == Bt.keyCode)
                 if (AutoPilot.mimicPaused = !AutoPilot.mimicPaused,
                 AutoPilot.mimicPaused) {
