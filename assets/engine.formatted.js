@@ -878,12 +878,12 @@
                 if (Ki[Ji] === Qi)
                     return Ji;
             return -1
-        }, Ai = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", wi = "[\\x20\\t\\r\\n\\f]", Ci = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Mi = /[\x20\t\r\n\f]+/g, Ri = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Ii = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, Oi = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Li = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, ki = /:((?:\\.|[\w-]|[^-\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^-\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^-\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, Ni = /^(?:\\.|[\w-]|[^-\xa0])+$/, Fi = {
-            ID: /^#((?:\\.|[\w-]|[^-\xa0])+)/,
-            CLASS: /^\.((?:\\.|[\w-]|[^-\xa0])+)/,
-            TAG: /^((?:\\.|[\w-]|[^-\xa0])+|[*])/,
-            ATTR: /^\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^-\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^-\xa0])+))|)[\x20\t\r\n\f]*\]/,
-            PSEUDO: /^:((?:\\.|[\w-]|[^-\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^-\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^-\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/,
+        }, Ai = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", wi = "[\\x20\\t\\r\\n\\f]", Ci = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Mi = /[\x20\t\r\n\f]+/g, Ri = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Ii = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, Oi = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Li = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, ki = /:((?:\\.|[\w-]|[^ -\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^ -\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^ -\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, Ni = /^(?:\\.|[\w-]|[^ -\xa0])+$/, Fi = {
+            ID: /^#((?:\\.|[\w-]|[^ -\xa0])+)/,
+            CLASS: /^\.((?:\\.|[\w-]|[^ -\xa0])+)/,
+            TAG: /^((?:\\.|[\w-]|[^ -\xa0])+|[*])/,
+            ATTR: /^\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^ -\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^ -\xa0])+))|)[\x20\t\r\n\f]*\]/,
+            PSEUDO: /^:((?:\\.|[\w-]|[^ -\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^ -\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^ -\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/,
             CHILD: /^:(only|first|last|nth|nth-last)-(child|of-type)(?:\([\x20\t\r\n\f]*(even|odd|(([+-]|)(\d*)n|)[\x20\t\r\n\f]*(?:([+-]|)[\x20\t\r\n\f]*(\d+)|))[\x20\t\r\n\f]*\)|)/i,
             bool: /^(?:checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped)$/i,
             needsContext: /^[\x20\t\r\n\f]*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\([\x20\t\r\n\f]*((?:-\d)?\d*)[\x20\t\r\n\f]*\)|)(?=[^-]|$)/i
@@ -26100,6 +26100,7 @@ function loadGameCode() {
             Ht.pan += 1 / Ht.dist * game.timeFactor,
             Ht.pos.x = Ht.startX + Math.sin(Ht.pan) * Ht.dist,
             Ht.pos.y = Ht.startY - Math.cos(Ht.pan) * Ht.dist,
+            Graphics.setCamera(Ht.pos.x, Ht.pos.y),
             Players.update(),
             Particles.update();
             for (var an = 1, nn; 5 >= an; an++)
@@ -33963,14 +33964,17 @@ function SWAM() {
         PIXI.filters.GlowFilter && "Bombita" != Bt.name && (Bt.sprites.sprite.filters = [])
     }
     function controlKillsDeaths(Bt, Gt) {
-        null == Bt || null == Gt || ("undefined" == typeof Bt.killCount && (Bt.killCount = 0),
-        "undefined" == typeof Gt.deathCount && (Gt.deathCount = 0),
+        if (null != Bt && null != Gt && (Bt.totalKills++,
         Bt.killCount++,
         Gt.deathCount++,
         5 <= Bt.killCount && makePlayerGlow(Bt),
         Gt.killCount = 0,
         removePlayerGlow(Gt),
-        Bt.id == game.myID ? $("#score-kills").html(Bt.killCount) : Gt.id == game.myID && $("#score-deaths").html(Gt.deathCount))
+        Bt.id == game.myID || Gt.id == game.myID)) {
+            let Xt = Bt.id == game.myID ? Bt : Gt;
+            $("#score-kills").html(Xt.killCount + "<br/>" + Xt.totalKills),
+            $("#score-deaths").html(Xt.deathCount)
+        }
     }
     function addToLog(Bt) {
         SWAM.GameLog && SWAM.GameLog.add(Bt);
@@ -33983,6 +33987,17 @@ function SWAM() {
             setTimeout(function() {
                 Xt.remove()
             }, 3e4)
+        }
+    }
+    function screenToMap(Bt, Gt) {
+        let Xt = Graphics.getCamera()
+          , Yt = Xt.x - game.halfScreenX / game.scale
+          , Ht = Xt.y - game.halfScreenY / game.scale;
+        return Bt = Yt + Bt / game.scale,
+        Gt = Ht + Gt / game.scale,
+        {
+            x: Bt,
+            y: Gt
         }
     }
     function GameLog() {
@@ -34194,7 +34209,7 @@ function SWAM() {
     }
     ),
     function() {
-        let Gt = new SettingsProvider({
+        let Xt = new SettingsProvider({
             general: {
                 powerupsFX: !0,
                 killStreaksFX: !0,
@@ -34211,31 +34226,31 @@ function SWAM() {
                 bgMusicMainMenu: !1
             }
         });
-        Gt.root = "",
-        Gt.title = "Mod Settings";
-        let Xt = Gt.addSection("General");
-        Xt.addBoolean("general.powerupsFX", "Visual effects for powerups."),
-        Xt.addBoolean("general.killStreaksFX", "Player glow with kill streaks (5 kills without dying)."),
-        Xt.addBoolean("general.zoomFreeSpectator", "Zoom out in free-camera spectator mode."),
-        Xt.addSliderField("general.scalingFactor", "Zoom Level (default: 2500)", {
+        Xt.root = "",
+        Xt.title = "Mod Settings";
+        let Yt = Xt.addSection("General");
+        Yt.addBoolean("general.powerupsFX", "Visual effects for powerups."),
+        Yt.addBoolean("general.killStreaksFX", "Player glow with kill streaks (5 kills without dying)."),
+        Yt.addBoolean("general.zoomFreeSpectator", "Zoom out in free-camera spectator mode."),
+        Yt.addSliderField("general.scalingFactor", "Zoom Level (default: 2500)", {
             min: 2e3,
             max: 6e3,
             step: 500
         }),
-        Xt = Gt.addSection("Interface"),
-        Xt.addBoolean("ui.showReddit", "Reddit: Display discussion panel. (changes will be made on next load)."),
-        Xt.addBoolean("ui.showWhoKilledWho", "Log: Show Who killed Who."),
-        Xt.addBoolean("ui.showLogConnections", "Log: Show players joining/leaving."),
-        window.showRequestlyUpdate && Xt.addButton("Show again Requestly update steps", {
+        Yt = Xt.addSection("Interface"),
+        Yt.addBoolean("ui.showReddit", "Reddit: Display discussion panel. (changes will be made on next load)."),
+        Yt.addBoolean("ui.showWhoKilledWho", "Log: Show Who killed Who."),
+        Yt.addBoolean("ui.showLogConnections", "Log: Show players joining/leaving."),
+        window.showRequestlyUpdate && Yt.addButton("Show again Requestly update steps", {
             click: showAgainRequestlyWarning,
             css: {
                 minWidth: "400px"
             }
         }),
-        Xt = Gt.addSection("Audio"),
-        Xt.addBoolean("audio.voiceEventsCTF", "CTF: Voice messages for flag events."),
-        Xt.addBoolean("audio.bgMusicMainMenu", "Main Menu: Play background music."),
-        SWAM.settingsProvider = Gt
+        Yt = Xt.addSection("Audio"),
+        Yt.addBoolean("audio.voiceEventsCTF", "CTF: Voice messages for flag events."),
+        Yt.addBoolean("audio.bgMusicMainMenu", "Main Menu: Play background music."),
+        SWAM.settingsProvider = Xt
     }(),
     SWAM.loadSettings = function() {
         setModSettings(getModSettings())
@@ -34397,6 +34412,9 @@ function SWAM() {
         Players_add.call(Players, Bt, Gt);
         let Xt = Players.get(Bt.id);
         Xt.scorePlace = 0,
+        Xt.totalKills = 0,
+        Xt.killCount = 0,
+        Xt.deathCount = 0,
         Xt.name = Xt.name.replace(nonprintRegex, "[WS]"),
         SWAM.addPlayerLogLine(Xt, !0),
         SWAM.trigger("playerAdded", Xt)
@@ -34414,7 +34432,7 @@ function SWAM() {
     Players.reteam = function(Bt) {
         Players_reteam.call(Players, Bt),
         Bt.id == game.myID && (game.myTeam = Bt.team),
-        SWAM.trigger("playerReteam", Bt)
+        SWAM.trigger("playerReteamed", Bt)
     }
     ;
     let Players_network = Players.network;
@@ -34424,7 +34442,7 @@ function SWAM() {
         SWAM.hyperSpace && SWAM.hyperSpace.show(),
         $("#btnFreeSpectator").hide(),
         freeSpectatorMode(!1)),
-        SWAM.trigger("playerRespawn", Gt)) : Bt === Network.SERVERPACKET.PLAYER_UPDATE || Bt === Network.SERVERPACKET.PLAYER_FIRE || Bt === Network.SERVERPACKET.EVENT_BOOST || Bt === Network.SERVERPACKET.EVENT_BOUNCE ? AutoPilot && AutoPilot.mimicUpdate(Bt, Gt) : void 0
+        SWAM.trigger("playerRespawned", Gt)) : Bt === Network.SERVERPACKET.PLAYER_UPDATE || Bt === Network.SERVERPACKET.PLAYER_FIRE || Bt === Network.SERVERPACKET.EVENT_BOOST || Bt === Network.SERVERPACKET.EVENT_BOUNCE ? AutoPilot && AutoPilot.mimicUpdate(Bt, Gt) : void 0
     }
     ;
     let Players_stealth = Players.stealth;
@@ -34436,7 +34454,7 @@ function SWAM() {
     let Players_impact = Players.impact;
     Players.impact = function(Bt) {
         Players_impact.call(Players, Bt),
-        SWAM.trigger("playerImpact", Bt)
+        SWAM.trigger("playerImpacted", Bt)
     }
     ;
     let Players_kill = Players.kill;
@@ -34488,14 +34506,10 @@ function SWAM() {
     ;
     let UI_aircraftSelected = UI.aircraftSelected;
     UI.aircraftSelected = function(Bt) {
-        var Gt = 0 == game.myGraphicsSet ? "teamImperial" : "teamRebel";
-        console.log("prev: " + game.myGraphicsSet);
-        for (var Xt = 1; 5 >= Xt; Xt++)
+        for (var Gt = 0 == game.myGraphicsSet ? "teamImperial" : "teamRebel", Xt = 1; 5 >= Xt; Xt++)
             $("#selectaircraft-" + Xt).removeClass("teamImperial").removeClass("teamRebel").addClass(Gt);
         SWAM.updateShipNames(),
-        UI_aircraftSelected.call(UI, Bt),
-        console.log("post: " + game.myGraphicsSet),
-        console.log("-------------------")
+        UI_aircraftSelected.call(UI, Bt)
     }
     ;
     let UI_addPowerup = UI.addPowerup;
@@ -34581,7 +34595,8 @@ function SWAM() {
                   , Vt = Yt ? 1 : 2;
                 "taken" == Wt ? zt = jt == Vt ? SWAM.Audio.Flag.OursTaken : SWAM.Audio.Flag.EnemyTaken : "captured" == Wt ? (SWAM.GameLog.logFlag(Bt.text),
                 zt = jt == Vt ? SWAM.Audio.Flag.OursCaptured : SWAM.Audio.Flag.EnemyCaptured) : "returned" == Wt ? zt = jt == Vt ? SWAM.Audio.Flag.OursRecovered : SWAM.Audio.Flag.EnemyRecovered : void 0,
-                SWAM.Audio.playFlagEvent(zt, jt)
+                SWAM.Audio.playFlagEvent(zt, jt),
+                SWAM.trigger("CTF_FlagEvent", zt, Vt, Wt)
             }
         }
     }
@@ -34627,7 +34642,7 @@ function SWAM() {
         games_prep.apply(Games),
         (1 == game.gameType || 3 == game.gameType) && $("#graphicsSet").show(),
         $("body").append("<div id='AutoPilotAlert' style='position: absolute; top: 100px; left: calc(50% - 100px); width: 200px; color: white; font-size: 40px; background-color: rgb(7, 185, 7); opacity: 0.6; text-align: center; border-radius: 20px; padding: 10px; display:none;'>AutoPilot</div>"),
-        $("#score-kills").html("0"),
+        $("#score-kills").html("0<br>0"),
         $("#score-deaths").html("0");
         let Bt = $("<div id='WhoKilledWho' style='position: absolute; top: 40px; left: 60px; width: 400px; height: 100px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white; cursor: pointer;'></div>").click(()=>{
             SWAM.GameLog.show()
@@ -34635,7 +34650,7 @@ function SWAM() {
         );
         $("body").append(Bt),
         UI.addChatMessage("Mod:  Press H to check StarMash shortcuts.".bold()),
-        UI.addChatMessage("Alt-Click the minimap for autopilot (experimental).".bold()),
+        UI.addChatMessage("Right-Click a chat message to copy to clipboard.".bold()),
         2 == game.gameType && UI.addChatMessage("Y when carrying the flag, to drop it.".bold()),
         SWAM.PlayerInfoTimer = setInterval(function() {
             var Gt = Players.getIDs()
@@ -34649,7 +34664,8 @@ function SWAM() {
         $(window).keydown(SWAM.keydown_handler),
         $(window).keyup(SWAM.keyup_handler),
         $("canvas").click(SWAM.canvas_click_handler),
-        $("canvas").mousedown(SWAM.canvas_mousedown_handler)
+        $("canvas").mousedown(SWAM.canvas_mousedown_handler),
+        SWAM.trigger("gamePrep")
     }
     ;
     let games_wipe = Games.wipe;
@@ -34658,19 +34674,29 @@ function SWAM() {
         clearInterval(SWAM.PlayerInfoTimer),
         freeSpectatorMode(!1),
         $("#graphicsSet").hide(),
+        $("body").remove("#prowlerAlert"),
         $("body").remove("#WhoKilledWho"),
         $("#btnFreeSpectator").hide(),
         $(window).off("keydown", SWAM.keydown_handler),
         $(window).off("keyup", SWAM.keyup_handler),
         $("canvas").off("click", SWAM.canvas_click_handler),
-        $("canvas").off("mousedown", SWAM.canvas_mousedown_handler)
+        $("canvas").off("mousedown", SWAM.canvas_mousedown_handler),
+        SWAM.trigger("gameWipe")
+    }
+    ;
+    let games_showBTRWin = Games.showBTRWin;
+    Games.showBTRWin = function(Bt) {
+        games_showBTRWin.call(Games, Bt),
+        SWAM.trigger("BTR_MatchEnded", Bt)
     }
     ;
     let games_showCTFWin = Games.showCTFWin;
     Games.showCTFWin = function(Bt) {
         games_showCTFWin.call(Games, Bt),
+        SWAM.trigger("CTF_MatchEnded", Bt),
         setTimeout(function() {
             SWAM.GameLog.logNewMatch(),
+            SWAM.trigger("CTF_MatchStarted"),
             SWAM.RandomizeBackground && SWAM.RandomizeBackground()
         }, 6e4)
     }
@@ -34983,22 +35009,20 @@ function SWAM() {
     }
     ,
     SWAM.getClosestPlayer = function(Bt, Gt) {
-        let Xt = Graphics.getCamera()
-          , Yt = Xt.x - game.halfScreenX / game.scale
-          , Ht = Xt.y - game.halfScreenY / game.scale;
-        Bt = Yt + Bt / game.scale,
-        Gt = Ht + Gt / game.scale;
-        let Wt = 1e5
-          , jt = Players.getIDs()
-          , zt = null;
-        for (let Vt in jt) {
-            let qt = Players.get(Vt)
-              , Kt = Tools.distance(Bt, Gt, qt.pos.x, qt.pos.y);
-            Kt < Wt && (zt = qt,
-            Wt = Kt)
+        let Xt = screenToMap(Bt, Gt);
+        Bt = Xt.x,
+        Gt = Xt.y;
+        let Yt = 1e5
+          , Ht = Players.getIDs()
+          , Wt = null;
+        for (let jt in Ht) {
+            let zt = Players.get(jt)
+              , Vt = Tools.distance(Bt, Gt, zt.pos.x, zt.pos.y);
+            Vt < Yt && (Wt = zt,
+            Yt = Vt)
         }
-        return SWAM.debug && console.log(zt.name),
-        zt
+        return SWAM.debug && console.log(Wt.name),
+        Wt
     }
     ;
     let sentMessages = []
@@ -35081,7 +35105,8 @@ function SWAM() {
                 var Wt = -1 * (32768 * ((game.screenX - config.minimapPaddingX - Bt.pageX) / config.minimapSize) - 16384)
                   , jt = -1 * (16384 * (2 * ((game.screenY - config.minimapPaddingY - Bt.pageY) / config.minimapSize)) - 8192);
                 AutoPilot.log(Wt, jt),
-                AutoPilot.NavigateTo(Wt, jt)
+                AutoPilot.NavigateTo(Wt, jt),
+                SWAM.trigger("minimap_click", [Bt, Wt, jt])
             }
         }
         SWAM.trigger("canvas_click", Bt)
@@ -35298,6 +35323,7 @@ SWAM.injectSounds = function(Bt) {
             extensionsToLoad: $t,
             selectedTheme: nn
         };
+        window.specialTheme && (rn.lastSpecialTheme = window.specialTheme),
         localStorage.setItem("SWAM_Extensions", JSON.stringify(rn))
     }
     function Vt(rn) {
@@ -35535,27 +35561,33 @@ SWAM.injectSounds = function(Bt) {
     let Zt = $({});
     SWAM.trigger = Zt.trigger.bind(Zt),
     SWAM.on = function(rn, on) {
-        Zt.on(rn, function() {
+        const sn = function() {
             let ln = Array.from(arguments);
             ln.shift(),
             on.apply(null, ln)
-        })
+        };
+        sn.guid = on.guid = on.guid || $.guid++,
+        Zt.on(rn, sn)
     }
     ,
     SWAM.off = Zt.off.bind(Zt);
     let $t = Bt()
       , en = {}
       , tn = {}
-      , nn = "";
+      , nn = ""
+      , an = "";
     "#clean" == window.location.hash ? jt() : "#noextensions" != window.location.hash && function() {
         try {
             let rn = localStorage.getItem("SWAM_Extensions");
             null != rn && (rn = JSON.parse(rn),
             rn.extensionsToLoad && ($t = $.extend(rn.extensionsToLoad, Bt())),
-            rn.selectedTheme && null != rn.selectedTheme && (nn = rn.selectedTheme))
+            rn.selectedTheme && "" != rn.selectedTheme && (nn = rn.selectedTheme),
+            rn.lastSpecialTheme && (an = rn.lastSpecialTheme))
         } catch (rn) {}
     }(),
     SWAM.loadTheme = function() {
+        an && an == window.specialTheme || (nn = window.specialTheme,
+        jt()),
         null != nn && "" != nn && "function" == typeof tn[nn] || (nn = "StarMash_2"),
         SWAM.Theme = new tn[nn];
         let rn = SWAM.Theme.settingsProvider;
@@ -36146,7 +36178,8 @@ window.AutoPilot = {
         function Xt(jt, zt) {
             let Vt = jt;
             AutoPilot.reverseMimic && ("UP" == jt ? Vt = "DOWN" : "DOWN" == jt && (Vt = "UP")),
-            AutoPilot.lastState.keystate[jt] != zt[jt] && Network.sendKey(Vt, zt[jt])
+            AutoPilot.lastState.keystate[jt] != zt[jt] && (console.log("sending key: " + Vt + " - " + zt[jt]),
+            Network.sendKey(Vt, zt[jt]))
         }
         function Yt() {
             let jt = Players.getMe();
@@ -36169,7 +36202,8 @@ window.AutoPilot = {
             Wt[Network.SERVERPACKET.EVENT_BOOST] = "boost",
             Wt[Network.SERVERPACKET.EVENT_BOUNCE] = "bounce",
             Yt(),
-            null != Gt.keystate && (Xt("UP", Ht.keystate),
+            null != Gt.keystate && (console.log("event: " + Bt[Bt]),
+            Xt("UP", Ht.keystate),
             Xt("DOWN", Ht.keystate),
             Xt("LEFT", Ht.keystate),
             Xt("RIGHT", Ht.keystate)),
@@ -36263,6 +36297,7 @@ function showRequestlyWarning() {
 }
 SWAM.loadExtensions(()=>{
     window.showRequestlyUpdate = !0,
+    window.specialTheme = "StPatricksDay2018",
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
     SWAM.trigger("themeLoaded"),
