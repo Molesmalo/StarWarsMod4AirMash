@@ -1,10 +1,20 @@
 ![Ships](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Banner.jpg)
 
-# StarMash - Extensions and Themes - Part 1
+# StarMash - Extensions and Themes - Part 1 - Introduction
 
 This is a guide for the creation of extensions and themes for the [StarMash Mod](https://molesmalo.github.io/StarWarsMod4AirMash/) for [AirMash](https://airma.sh).
 
 Read this if you are interested in creating your own features and themes for AirMash.
+
+This is part 3 of a multi-part tutorial.
+
+**StarMash - Extensions and Themes - Part 1 - Introduction**
+
+[StarMash - Extensions and Themes - Part 2 - Basic Extension](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part2).
+
+[StarMash - Extensions and Themes - Part 3 - Settings](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part3).
+
+[StarMash - Extensions and Themes - Part 4 - Themes](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part4).
 
 
 &nbsp;
@@ -196,7 +206,7 @@ Finally, the settings are loaded and an event called `gameRunning` is triggered.
 As mentioned before, StarMash Extensions work by responding to events triggered by StarMash. This way, it becomes super easy for extension developers to make new features that respond to game events. The way you subscribe to an event is as follows:
 
 ```js
-    SWAM.on( events, handler );
+    SWAM.on( event, handler );
     // events: The event name, such as "playerAdded" or "playerDestroyed"
     // handler: A function to execute when the event is triggered.
 ```
@@ -247,6 +257,19 @@ The following table contains the current list of events triggered by StarMash, a
 |canvas_mousedown       |event              |The user pressed a mouse button.|
 
 <br/><br/>
+
+
+Just like using jQuery, to remove an event handler, that is, to stop receiving events of a type in your function, when calling `SWAM.on(event, handler)`, handler needs to be a function that you can then reference later.
+
+Then, you can call `SWAM.off(event, handler)`, passing a reference of the handler function.
+
+```js
+    SWAM.off( event, handler );
+    // event: The event name, such as "playerAdded" or "playerDestroyed"
+    // handler: A function that is currently executed when the event is triggered.
+```
+
+&nbsp;
 
 
 # Creating my first extension:
