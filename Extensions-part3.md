@@ -92,7 +92,7 @@ Sections are visual separations of the Settings Window. It's useful to separate 
 
 Take this example. Here, the StarMash v.2 Theme uses three different sections: Background, Asteroid field and Decorative Objects.
 
-![Settings Sections](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/settings-sections.png)
+![Settings Sections](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/settings-sections.jpg)
 
 The main mod settings also uses three different sections: General, Interface and Audio.
 
@@ -191,8 +191,8 @@ Let's create an extension that does nothing but provide settings.
     
         let section = sp.addSection("First Section");
     
-        section.addBoolean("bool1", "This is a toggle switch.", {useToggle: false});
-        section.addBoolean("bool2", "And this is a checkbox.");
+        section.addBoolean("bool1", "This is a checkbox.", {useToggle: false});
+        section.addBoolean("bool2", "And this is a toggle switch.");
     
         let section2 = sp.addSection("Second Section");
         section2.addString("string1", "This is an input box for string1.", {maxLength: 10});

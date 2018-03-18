@@ -27,8 +27,8 @@
     
         let section = sp.addSection("First Section");
     
-        section.addBoolean("bool1", "This is a toggle switch.", {useToggle: false});
-        section.addBoolean("bool2", "And this is a checkbox.");
+        section.addBoolean("bool1", "This is a checkbox.", {useToggle: false});
+        section.addBoolean("bool2", "And this is a toggle switch.");
     
         let section2 = sp.addSection("Second Section");
         section2.addString("string1", "This is an input box for string1.", {maxLength: 10});
