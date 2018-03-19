@@ -27,6 +27,7 @@ In this part, you will learn:
 - How to respond to StarMash events.
 - How to create the most basic extensions.
 
+&nbsp;
 
 # What will I be able to create?
 
@@ -377,6 +378,8 @@ Save it, open the Developer Tools console (Control+Shift+I), and refresh the pag
 ![Tutorial Life Cycle](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/tutorial-lifecycle.png)
 
 So here, we have used some special events fired by StarMash at during the loading process. As you see, the lines of code that are outside an event handler are executed immediately when the extension is loaded. This is why, in most cases you want to put your code inside event handlers. So it can run at the proper time, reacting to what's happening during the game.
+
+&nbsp;
 
 # Rounding up
 
