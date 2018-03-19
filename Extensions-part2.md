@@ -26,6 +26,7 @@ In this part, you will learn:
 - Send bubble messages.
 - How to avoid being disconnected or banned by AirMash's server.
 
+&nbsp;
 
 # Moving beyond the console
 

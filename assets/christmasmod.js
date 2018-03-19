@@ -1,50 +1,57 @@
 // ------------------------------------------------------------------------
-//   Christmas Mod
+//   Christmas Theme for StarMash
 // ------------------------------------------------------------------------
+"use strict";
+
 !function()
 {
-    function Christmas2017Theme()
-    {
-        VanillaTheme.prototype.constructor.call(this);
-    }
-
-    extend(Christmas2017Theme, VanillaTheme);
-    Christmas2017Theme.themeName = "Christmas 2017 Theme";
-    Christmas2017Theme.description = "A christmassy theme for AirMash!!";
-    Christmas2017Theme.author = "Bombita";
-    Christmas2017Theme.thumbnail = "";
-
-
-    // ------------------------------------------------------------------------
-
+    // Returns the filename part of an AirMash's image URL
     function getFileName(str)
     {
-        str = str.substring(str.lastIndexOf('/')+1)
+        str = str.substring(str.lastIndexOf('/')+1);
         if (str.indexOf("?")>-1)
             str = str.substr(0, str.indexOf("?"));
         return str;
     }
 
-    Christmas2017Theme.prototype.injectTextures = function(files, textureInfo, flagTextureInfo, spriteInfo, textures)
+    // ------------------------------------------------------------------------
+
+    // Theme Function
+    // This theme inherits from VanillaTheme, so we call VanillaTheme's constructor
+    // when this theme is instantiated.
+    class Christmas2017Theme extends VanillaTheme
     {
-        for(let i in files)
+        //constructor() {
+            //super();
+        //}
+
+        // This method called by StarMash when the game is loading
+        injectTextures(files, textureInfo, flagTextureInfo, spriteInfo, textures) 
         {
-            //files[i] = "//localhost/Christmas/" + getFileName(files[i]);
-            files[i] = "//raw.githubusercontent.com/Molesmalo/AirMashChristmasMod/master/assets/" + getFileName(files[i]);
+            for(let i in files)
+            {
+                //files[i] = "//localhost/Christmas/" + getFileName(files[i]);
+                files[i] = "//raw.githubusercontent.com/Molesmalo/AirMashChristmasMod/master/assets/" + getFileName(files[i]);
+            }
         }
     }
 
+    // We add some metadata to our theme class
+    $.extend(Christmas2017Theme, {
+        themeName: "Christmas 2017 Theme",
+        description: "A christmassy theme for StarMash!!",
+        author: "Bombita"
+    });
+
+    // ------------------------------------------------------------------------
+
+    // Register our extension and theme
     SWAM.registerExtension({
         name: "Christmas 2017 Theme Extension",
         id: "Christmas2017",
         description: "Happy holidays and merry Christmas!",
         author: "Bombita",
         version: "1.0",
-        thumbnail: "",
-        themes: [ Christmas2017Theme ],
-        dependencies: [],
-        settingsProvider: null
+        themes: [ Christmas2017Theme ]
     });
-
-    console.log("Merry Christmas!  Christmas 2017 Theme Loaded!");
 }();

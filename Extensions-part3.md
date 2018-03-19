@@ -22,6 +22,7 @@ In part 3, you will learn:
 
 - How to use a `SettingsProvider` object that will let you show custom settings for your extension in the Settings Window.
 
+&nbsp;
 
 # Give your users a choice
 
@@ -398,6 +399,7 @@ Of course, we could improve this code. Even if `sayWhenHit` and `sayWhenKill` ar
 
 I'll leave that as an exercise for the reader.
 
+&nbsp;
 
 # Rounding up
 
