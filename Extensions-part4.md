@@ -50,13 +50,13 @@ The images are:
 <a href="https://airma.sh/assets/gui.png" target="_blank">gui.png</a>
 - User Interface elements.
 
-<a href="https://airma.sh/assets/map_forest.jpg" target="_blank">map_forest.jpg</a>
-<a href="https://airma.sh/assets/map_rock.jpg" target="_blank">map_rock.jpg</a>
-<a href="https://airma.sh/assets/map_sand.jpg" target="_blank">map_sand.jpg</a>
+<a href="https://airma.sh/assets/map_forest.jpg" target="_blank">map_forest.jpg</a><br/>
+<a href="https://airma.sh/assets/map_rock.jpg" target="_blank">map_rock.jpg</a><br/>
+<a href="https://airma.sh/assets/map_sand.jpg" target="_blank">map_sand.jpg</a><br/>
 <a href="https://airma.sh/assets/map_sea.jpg" target="_blank">map_sea.jpg</a>
 - Tiling textures used for the background. Those images are repeated continuously.
 
-<a href="https://airma.sh/assets/map_rock_mask.jpg" target="_blank">map_rock_mask.jpg</a>
+<a href="https://airma.sh/assets/map_rock_mask.jpg" target="_blank">map_rock_mask.jpg</a><br/>
 <a href="https://airma.sh/assets/map_sand_mask.jpg" target="_blank">map_sand_mask.jpg</a>
 - Grayscale image that represents the Masks used to draw rocks and sand on the background. The lighter the color, the more visible the sand/rock will be. The darker, the more trasnparent. White is fully visible, Black is fully transparent.
 
@@ -77,9 +77,9 @@ So, in order to create your own themes, you need to decide which file you want t
 The most common files to edit are:
 aircraft and shadows, items, gui and map_forest/rock/sand. That's why I will leave you here some images that you can use as guides when editing those files.
 
-<a href="https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/assets-guides/aircraft-guide.png" target="_blank">aircraft-guide.png</a>
-<a href="https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/assets-guides/gui-guide.png" target="_blank">gui-guide.png</a>
-<a href="https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/assets-guides/items-guide.png" target="_blank">items-guide.png</a>
+<a href="https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/assets-guides/aircraft-guide.png" target="_blank">aircraft-guide.png</a><br/>
+<a href="https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/assets-guides/gui-guide.png" target="_blank">gui-guide.png</a><br/>
+<a href="https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/assets-guides/items-guide.png" target="_blank">items-guide.png</a><br/>
 <a href="https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Tutorials/assets-guides/shadows-guide.png" target="_blank">shadows-guide.png</a>
 
 When editing an image (like `aircraft.png`) using an application like Photoshop or Gimp, you can load those images as layers, to have a reference for the limits of each texture.
@@ -196,7 +196,7 @@ Now, check these lines:
 
 Those are the lines for the constructor method of our class. In our example we don't need any initialization code for this theme, that's why those lines are commentated.
 
-But here is the place to put our initialization code in case we needed it. We would need it, for example, to create our own `SettingsProvider` object like we learned in Part 3, and it would look something like this:
+But here is the place to put our initialization code in case we need it. We would need it, for example, to create our own `SettingsProvider` for the theme (both the theme and the extension can have their own SettingsProvider). It's similar to what we learned in Part 3, but instead of offering settings for the whole extension, it offers for the theme (and it's not show when the theme is not loaded). It would look something like this:
 ```js
     constructor() {
         super();
@@ -299,8 +299,9 @@ injectTextures(files, textureInfo, flagTextureInfo, spriteInfo, textures)
 
 Here, we create an array that contains the files we need to change, and then we proceed to iterate over the files. If the current file name is in the list, we change its URL.
 
+Also, in this example we do use the constructor, because the theme changes the color of the main screen window when the instance is created.
 
-View the full code if you want: [Download the file](https://molesmalo.github.io/StarWarsMod4AirMash/assets/themes/StPatricksDay2018/st-patricks-theme.js)
+You can view the full code for this example here: [Download the file](https://molesmalo.github.io/StarWarsMod4AirMash/assets/themes/StPatricksDay2018/st-patricks-theme.js)
 
 &nbsp;
 
