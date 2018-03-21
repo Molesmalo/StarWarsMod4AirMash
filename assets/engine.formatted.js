@@ -26100,7 +26100,7 @@ function loadGameCode() {
             Ht.pan += 1 / Ht.dist * game.timeFactor,
             Ht.pos.x = Ht.startX + Math.sin(Ht.pan) * Ht.dist,
             Ht.pos.y = Ht.startY - Math.cos(Ht.pan) * Ht.dist,
-            Graphics.setCamera(Ht.pos.x, Ht.pos.y),
+            SWAM.debug || Graphics.setCamera(Ht.pos.x, Ht.pos.y),
             Players.update(),
             Particles.update();
             for (var an = 1, nn; 5 >= an; an++)
@@ -33632,16 +33632,6 @@ jQuery.cachedScript = function(Bt, Gt) {
 }
 ,
 $.cachedScript("https://cdn.jsdelivr.net/npm/pixi-filters@2.5.0/dist/pixi-filters.js");
-function extend(Bt, Gt) {
-    return Bt.prototype = Object.create(Gt.prototype),
-    Bt.prototype.constructor = Bt,
-    Gt.prototype
-}
-function addStaticMethods(Bt, Gt) {
-    let Xt = Object.keys(Gt);
-    for (let Yt of Xt)
-        Bt[Yt] = Gt[Yt]
-}
 function getURLRegEx(Bt) {
     return Bt = "undefined" == typeof Bt || Bt,
     /(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[\/?#]\S*)?/img
@@ -33814,10 +33804,9 @@ function forEachPlayer(Bt) {
         Bt(Yt)
     }
 }
-function overrideMethod(Bt, Gt) {
-    return Gt(Bt)
-}
-window.SWAM_version = "2.2031401";
+window.SWAM_version = "2.2032101",
+SWAM.version = window.SWAM_version,
+SWAM.debug = !1;
 function SWAM() {
     function addRedditPanel() {
         if (!SWAM.Settings.ui || SWAM.Settings.ui.showReddit) {
@@ -33879,7 +33868,9 @@ function SWAM() {
     function setModSettings(Bt) {
         SWAM.Settings = Bt,
         Bt.audio.bgMusicMainMenu ? AddMusic() : RemoveMusic(),
-        SWAM.resizeMap(Bt.general.scalingFactor);
+        SWAM.resizeMap(Bt.general.scalingFactor),
+        config.minimapSize = Bt.ui.minimapSize,
+        UI.resizeMinimap();
         for (let Gt of SWAM.getSettingsProviders())
             try {
                 Gt.apply(Bt)
@@ -33964,9 +33955,9 @@ function SWAM() {
         PIXI.filters.GlowFilter && "Bombita" != Bt.name && (Bt.sprites.sprite.filters = [])
     }
     function controlKillsDeaths(Bt, Gt) {
-        if (null != Bt && null != Gt && (Bt.totalKills++,
-        Bt.killCount++,
-        Gt.deathCount++,
+        if (null != Bt && null != Gt && (++Bt.totalKills,
+        ++Bt.killCount,
+        ++Gt.deathCount,
         5 <= Bt.killCount && makePlayerGlow(Bt),
         Gt.killCount = 0,
         removePlayerGlow(Gt),
@@ -33975,6 +33966,18 @@ function SWAM() {
             $("#score-kills").html(Xt.killCount + "<br/>" + Xt.totalKills),
             $("#score-deaths").html(Xt.deathCount)
         }
+    }
+    function updatePlayerCounters() {
+        SWAM.one("detailedScoreUpdate", function(Bt) {
+            console.log(Players.count()),
+            Bt.scores.forEach(Gt=>{
+                let Xt = Players.get(Gt.id);
+                Xt.totalKills = Gt.kills,
+                Xt.deathCount = Gt.deaths
+            }
+            )
+        }),
+        Network.getScores()
     }
     function addToLog(Bt) {
         SWAM.GameLog && SWAM.GameLog.add(Bt);
@@ -34009,11 +34012,12 @@ function SWAM() {
             if (game.state === Network.STATE.PLAYING) {
                 let jt = $(Wt);
                 jt.hasClass("flwkw") && !Gt && jt.hide(),
-                jt.hasClass("flplayer") && !Xt && jt.hide(),
+                jt.hasClass("flplayer") && !Xt && jt.hide();
+                let zt = Ht[0]
+                  , Vt = zt.scrollTop == zt.scrollHeight;
                 Ht.append(jt),
-                1e3 < Ht.children().length && Ht.children().first().remove();
-                let zt = Ht[0];
-                zt.scrollTop = zt.scrollHeight
+                1e3 < Ht.children().length && Ht.children().first().remove(),
+                Vt && (zt.scrollTop = zt.scrollHeight)
             }
         }
         ,
@@ -34071,8 +34075,6 @@ function SWAM() {
         $("#chatlines").html(""),
         $("#chatbox").scrollTop(0).perfectScrollbar("update")
     }
-    SWAM.version = window.SWAM_version,
-    SWAM.debug = !1,
     config.overdraw = 0,
     config.overdrawOptimize = !0,
     SWAM.Settings = getModSettings(),
@@ -34086,7 +34088,7 @@ function SWAM() {
     let Base64 = {
         _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
         encode: function(Bt) {
-            var Gt = "", qt = 0, Xt, Yt, Ht, Wt, jt, zt, Vt;
+            var Gt = "", Xt, Yt, Ht, Wt, jt, zt, Vt, qt = 0;
             for (Bt = Base64._utf8_encode(Bt); qt < Bt.length; )
                 Xt = Bt.charCodeAt(qt++),
                 Yt = Bt.charCodeAt(qt++),
@@ -34209,7 +34211,7 @@ function SWAM() {
     }
     ),
     function() {
-        let Xt = new SettingsProvider({
+        let Gt = new SettingsProvider({
             general: {
                 powerupsFX: !0,
                 killStreaksFX: !0,
@@ -34219,38 +34221,44 @@ function SWAM() {
             ui: {
                 showReddit: !0,
                 showWhoKilledWho: !0,
-                showLogConnections: !0
+                showLogConnections: !0,
+                minimapSize: 240
             },
             audio: {
                 voiceEventsCTF: !0,
                 bgMusicMainMenu: !1
             }
         });
-        Xt.root = "",
-        Xt.title = "Mod Settings";
-        let Yt = Xt.addSection("General");
-        Yt.addBoolean("general.powerupsFX", "Visual effects for powerups."),
-        Yt.addBoolean("general.killStreaksFX", "Player glow with kill streaks (5 kills without dying)."),
-        Yt.addBoolean("general.zoomFreeSpectator", "Zoom out in free-camera spectator mode."),
-        Yt.addSliderField("general.scalingFactor", "Zoom Level (default: 2500)", {
+        Gt.root = "",
+        Gt.title = "Mod Settings";
+        let Xt = Gt.addSection("General");
+        Xt.addBoolean("general.powerupsFX", "Visual effects for powerups."),
+        Xt.addBoolean("general.killStreaksFX", "Player glow with kill streaks (5 kills without dying)."),
+        Xt.addBoolean("general.zoomFreeSpectator", "Zoom out in free-camera spectator mode."),
+        Xt.addSliderField("general.scalingFactor", "Zoom Level (default: 2500)", {
             min: 2e3,
             max: 6e3,
             step: 500
         }),
-        Yt = Xt.addSection("Interface"),
-        Yt.addBoolean("ui.showReddit", "Reddit: Display discussion panel. (changes will be made on next load)."),
-        Yt.addBoolean("ui.showWhoKilledWho", "Log: Show Who killed Who."),
-        Yt.addBoolean("ui.showLogConnections", "Log: Show players joining/leaving."),
-        window.showRequestlyUpdate && Yt.addButton("Show again Requestly update steps", {
-            click: showAgainRequestlyWarning,
+        Xt = Gt.addSection("Interface"),
+        Xt.addBoolean("ui.showReddit", "Reddit: Display discussion panel. (changes will be made on next load)."),
+        Xt.addBoolean("ui.showWhoKilledWho", "Log: Show Who killed Who."),
+        Xt.addBoolean("ui.showLogConnections", "Log: Show players joining/leaving."),
+        Xt.addSliderField("ui.minimapSize", "Minimap Size (default: 240)", {
+            min: 50,
+            max: 700,
+            step: 10
+        }),
+        window.showRequestlyUpdate && Xt.addButton("Show again Requestly update steps", {
+            click: showRequestlyWarningAgain,
             css: {
                 minWidth: "400px"
             }
         }),
-        Yt = Xt.addSection("Audio"),
-        Yt.addBoolean("audio.voiceEventsCTF", "CTF: Voice messages for flag events."),
-        Yt.addBoolean("audio.bgMusicMainMenu", "Main Menu: Play background music."),
-        SWAM.settingsProvider = Xt
+        Xt = Gt.addSection("Audio"),
+        Xt.addBoolean("audio.voiceEventsCTF", "CTF: Voice messages for flag events."),
+        Xt.addBoolean("audio.bgMusicMainMenu", "Main Menu: Play background music."),
+        SWAM.settingsProvider = Gt
     }(),
     SWAM.loadSettings = function() {
         setModSettings(getModSettings())
@@ -34259,8 +34267,9 @@ function SWAM() {
     SWAM.OpenSettingsWindow = function() {
         function Bt(Ht) {
             $("#modVersion", Yt).html(SWAM.version);
-            for (let Wt of Gt)
-                Wt.setValues(Ht)
+            let Wt = $.extend({}, Ht);
+            for (let jt of Gt)
+                jt.setValues(Wt)
         }
         let Gt = [];
         var Xt = getModSettings();
@@ -34437,7 +34446,7 @@ function SWAM() {
     ;
     let Players_network = Players.network;
     Players.network = function(Bt, Gt) {
-        Players_network.call(Players, Bt, Gt),
+        Players_network.call(Players, Bt, Gt);
         Bt === Network.SERVERPACKET.PLAYER_RESPAWN ? (Gt.id == game.myID && (SWAM.CruiseMode.off(),
         SWAM.hyperSpace && SWAM.hyperSpace.show(),
         $("#btnFreeSpectator").hide(),
@@ -34514,7 +34523,7 @@ function SWAM() {
     ;
     let UI_addPowerup = UI.addPowerup;
     UI.addPowerup = function(Bt, Gt) {
-        UI_addPowerup.call(UI, Bt, Gt),
+        UI_addPowerup.call(UI, Bt, Gt);
         SWAM.Settings.general.powerupsFX && (game.graphics.layers.game.filters = 1 == Bt ? [new PIXI.filters.AdjustmentFilter({
             gamma: 1,
             saturation: 0.8,
@@ -34634,6 +34643,12 @@ function SWAM() {
         }
     }
     ;
+    let UI_updateScore = UI.updateScore;
+    UI.updateScore = function(Bt) {
+        UI_updateScore.call(UI, Bt),
+        SWAM.trigger("detailedScoreUpdate", Bt)
+    }
+    ;
     let games_prep = Games.prep;
     Games.prep = function() {
         RemoveMusic(),
@@ -34652,14 +34667,8 @@ function SWAM() {
         UI.addChatMessage("Mod:  Press H to check StarMash shortcuts.".bold()),
         UI.addChatMessage("Right-Click a chat message to copy to clipboard.".bold()),
         2 == game.gameType && UI.addChatMessage("Y when carrying the flag, to drop it.".bold()),
-        SWAM.PlayerInfoTimer = setInterval(function() {
-            var Gt = Players.getIDs()
-              , Xt = Players.getMe();
-            for (var Yt in Gt) {
-                var Ht = Players.get(Yt);
-                "undefined" != typeof Ht.scorePlace && (Ht.sprites.name.text = Ht.scorePlace + ". " + Ht.name + (Ht.team == Xt.team ? " [" + Math.floor(100 * parseFloat(Ht.health)) + "]" : ""))
-            }
-        }, 500),
+        updatePlayerCounters(),
+        SWAM.PlayerInfoTimer = setInterval(SWAM.updatePlayersNamePlate, 500),
         SWAM.hyperSpace && SWAM.hyperSpace.show(),
         $(window).keydown(SWAM.keydown_handler),
         $(window).keyup(SWAM.keyup_handler),
@@ -34674,7 +34683,6 @@ function SWAM() {
         clearInterval(SWAM.PlayerInfoTimer),
         freeSpectatorMode(!1),
         $("#graphicsSet").hide(),
-        $("body").remove("#prowlerAlert"),
         $("body").remove("#WhoKilledWho"),
         $("#btnFreeSpectator").hide(),
         $(window).off("keydown", SWAM.keydown_handler),
@@ -34712,18 +34720,24 @@ function SWAM() {
     SWAM.resizeLayers = function() {}
     ,
     SWAM.addDebugElements = function() {
-        SWAM.debug && ($("#logon").append("<div><input class='dgCamUpdates' type='button' value='updates' style='width: 50px; margin-right: 10px;'></div><table><tr><td colspan='3' align='center'><input class='dgCamY' type='button' value='-8192' style='width: 50px; margin-right: 10px;'></td></tr><tr><td><input class='dgCamX' type='button' value='-16384' style='width: 50px; margin-right: 10px;'></td><td><input class='dgCamX' type='button' value='0' style='width: 50px; margin-right: 10px;'><input class='dgCamY' type='button' value='0'    style='width: 50px; margin-right: 10px;'></td><td><input class='dgCamX' type='button' value='16384' style='width: 50px; margin-right: 10px;'></td></tr><tr><td colspan='3' align='center'><input class='dgCamY' type='button' value='8192' style='width: 50px; margin-right: 10px;'></td></tr></table>"),
-        $("#logon input.dgCamX").click(function(Bt) {
-            let Gt = $(Bt.target).val();
-            Graphics.setCamera(parseFloat(Gt), Graphics.getCamera().y)
-        }),
-        $("#logon input.dgCamY").click(function(Bt) {
-            let Gt = $(Bt.target).val();
-            Graphics.setCamera(Graphics.getCamera().x, parseFloat(Gt))
-        }),
-        $("#logon input.dgCamUpdates").click(function() {
-            SWAM.doUpdates = !SWAM.doUpdates
-        }))
+        if (SWAM.debug) {
+            $("#logon").append("<div><input class='dgCamUpdates' type='button' value='updates' style='width: 50px; margin-right: 10px;'></div><table><tr><td colspan='3' align='center'><input class='dgCamY' type='button' value='-8192' style='width: 50px; margin-right: 10px;'></td></tr><tr><td><input class='dgCamX' type='button' value='-16384' style='width: 50px; margin-right: 10px;'></td><td><input class='dgCamX' type='button' value='0' style='width: 50px; margin-right: 10px;'><input class='dgCamY' type='button' value='0'    style='width: 50px; margin-right: 10px;'></td><td><input class='dgCamX' type='button' value='16384' style='width: 50px; margin-right: 10px;'></td></tr><tr><td colspan='3' align='center'><input class='dgCamY' type='button' value='8192' style='width: 50px; margin-right: 10px;'></td></tr></table>"),
+            $("#logon input.dgCamX").click(function(Gt) {
+                let Xt = $(Gt.target).val();
+                Graphics.setCamera(parseFloat(Xt), Graphics.getCamera().y)
+            }),
+            $("#logon input.dgCamY").click(function(Gt) {
+                let Xt = $(Gt.target).val();
+                Graphics.setCamera(Graphics.getCamera().x, parseFloat(Xt))
+            }),
+            $("#logon input.dgCamUpdates").click(function() {
+                SWAM.doUpdates = !SWAM.doUpdates
+            });
+            let Bt = $("#logon")[0];
+            $(window).keydown(function(Gt) {
+                game.state === Network.STATE.PLAYING || "none" == Bt.style.display || SWAM.moveCamera(Gt)
+            })
+        }
     }
     ,
     SWAM.addKilledLine = function(Bt, Gt) {
@@ -34899,7 +34913,7 @@ function SWAM() {
         channelNames: ["* Radio to All *", "* Radio to TEAM *", "* CLOSE RANGE signal *"],
         channelKeys: ["Z", "X", "C"],
         options: [[], [], []],
-        defaultOptions: [["gg", "Hi!", "Yes", "No", "Thanks!", "You are welcome!", "I'll be right back.", "Got to go, cya!", "Great work, team!", "Try the STAR WARS MOD for AirMash! More info in:  reddit.com/r/airmash"], ["Affirmative", "Negative", "** I'VE GOT THE FLAG! COVER ME! **", "** THE ENEMY HAS OUR FLAG! **", "** All wings, protect our flag carrier! **", "Defending the base! Need assistance!", "Attacking their base!  Need assistance!", "On my way!", "Cancel that..", "Stick together, team!"], ["Hey there!", "Stop!", "Go Go Go!", "Imperial scum!", "Rebel scum!", "%@*#$!!", "YEE-HAW!!!", ":lol:", ":cry:", ":clap:"]],
+        defaultOptions: [["gg", "Hi!", "Yes", "No", "Thanks!", "You are welcome!", "I'll be right back.", "Got to go, cya!", "Great work, team!", "Try the STARMASH MOD for AirMash! More info in:  reddit.com/r/airmash"], ["Affirmative", "Negative", "** I'VE GOT THE FLAG! COVER ME! **", "** THE ENEMY HAS OUR FLAG! **", "** All wings, protect our flag carrier! **", "Defending the base! Need assistance!", "Attacking their base!  Need assistance!", "On my way!", "Cancel that..", "Stick together, team!"], ["Hey there!", "Stop!", "Go Go Go!", "Imperial scum!", "Rebel scum!", "%@*#$!!", "YEE-HAW!!!", ":lol:", ":cry:", ":clap:"]],
         loadOptions: function() {
             var Bt = localStorage.getItem("radioMessages");
             if (null != Bt)
@@ -35024,10 +35038,19 @@ function SWAM() {
         return SWAM.debug && console.log(Wt.name),
         Wt
     }
+    ,
+    SWAM.updatePlayersNamePlate = function() {
+        var Bt = Players.getIDs()
+          , Gt = Players.getMe();
+        for (var Xt in Bt) {
+            var Yt = Players.get(Xt);
+            "undefined" != typeof Yt.scorePlace && (Yt.sprites.name.text = Yt.scorePlace + ". " + Yt.name + (Yt.team == Gt.team ? " [" + Math.floor(100 * parseFloat(Yt.health)) + "]" : ""))
+        }
+    }
     ;
     let sentMessages = []
       , sentMessageIndex = 0;
-    if ($("#chatinput").keydown(function(Bt) {
+    $("#chatinput").keydown(function(Bt) {
         let Gt = $("#chatinput");
         if ("" == Gt.val() || Gt.val() == sentMessages[sentMessageIndex]) {
             if (38 == Bt.which && 0 < sentMessageIndex)
@@ -35126,61 +35149,7 @@ function SWAM() {
             console.log(Bt.children[Gt].layerName)
     }
     ,
-    SWAM.debug) {
-        setTimeout(function() {
-            let Gt = new Textures.sprite("ui_minimap_target");
-            Gt.position.set(0, 0),
-            Gt.anchor.set(.5, .5),
-            game.graphics.layers.doodads.addChild(Gt);
-            let Xt = Graphics.setCamera;
-            Graphics.setCamera = function(Yt, Ht) {
-                Xt.call(Graphics, Yt, Ht),
-                null != Gt && Gt.position.set(Yt, Ht)
-            }
-        }, 2e3),
-        SWAM.addDebugElements();
-        let Bt = $("#logon")[0];
-        $(window).keydown(function(Gt) {
-            game.state === Network.STATE.PLAYING || "none" == Bt.style.display || SWAM.moveCamera(Gt)
-        }),
-        SWAM.saveSprite = function(Gt, Xt=0) {
-            let jt = new PIXI.CanvasRenderer({
-                width: 800,
-                height: 800
-            })
-              , zt = new PIXI.Container
-              , Vt = ["", "shipRaptor", "shipSpirit", "shipComanche", "shipTornado", "shipProwler"][Gt] + (0 == Xt ? "" : "_2")
-              , qt = Textures.init(Vt, null);
-            qt.position.set(qt.width * qt.anchor.x, 256 * qt.anchor.y);
-            let Kt = [1, 0.25, 0.35, 0.25, 0.28, 0.28][Gt];
-            zt.width = qt.width,
-            zt.height = qt.height,
-            zt.addChild(qt);
-            let Qt = new PIXI.Graphics;
-            for (var Jt of config.ships[Gt].collisions)
-                Qt.beginFill(16777215, .2),
-                Qt.drawCircle(Jt[0] / Kt, Jt[1] / Kt, Jt[2] / Kt),
-                Qt.endFill();
-            zt.addChild(Qt),
-            Qt.position.set(qt.width / 2, 256 * qt.anchor.y),
-            function(Zt, $t, en) {
-                Zt.extract.canvas($t).toBlob(function(tn) {
-                    var nn = document.createElement("a");
-                    document.body.append(nn),
-                    nn.download = en,
-                    nn.href = URL.createObjectURL(tn),
-                    nn.click(),
-                    nn.remove()
-                }, "image/png")
-            }(jt, zt, Vt + "-cols.png"),
-            jt.destroy()
-        }
-        ,
-        SWAM.saveSprites = function() {
-            for (let Gt = 1; 6 > Gt; Gt++)
-                SWAM.saveSprite(Gt, 0)
-        }
-    }
+    SWAM.debug,
     AutoPilot.Load(),
     SWAM.Audio.initialize(),
     function() {
@@ -35240,402 +35209,421 @@ SWAM.injectSounds = function(Bt) {
 }
 ,
 !function() {
-    function Bt() {
-        return {
+    function Bt(sn) {
+        const dn = function() {
+            let un = Array.from(arguments);
+            un.shift(),
+            sn.apply(null, un)
+        };
+        return dn.guid = sn.guid = sn.guid || $.guid++,
+        dn
+    }
+    function Xt() {
+        let sn = {
             StarMashThemes: {
                 url: getFilePath("swam.themes.js"),
                 enabled: !0
             }
-        }
-    }
-    function Gt() {
-        return location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "") + location.pathname + (location.search ? location.search : "")
-    }
-    function Xt() {
-        let rn = {}
-          , on = {};
-        for (let sn in en) {
-            let dn = en[sn];
-            on[dn.url] = dn.url;
-            for (let ln of dn.dependencies)
-                rn[ln] = ln
-        }
-        return {
-            extensions: Object.values(on),
-            dependencies: Object.values(rn)
-        }
+        };
+        return SWAM.debug && (sn.SWAM_Debug = {
+            url: getFilePath("swam.debug.js"),
+            enabled: !0
+        }),
+        sn
     }
     function Yt() {
-        var rn = document.getElementsByTagName("script")
-          , on = rn[rn.length - 1];
-        return on.src
+        return location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "") + location.pathname + (location.search ? location.search : "")
     }
-    function Ht(rn) {
-        let on = $.extend({
+    function Ht() {
+        let sn = {}
+          , dn = {};
+        for (let ln in nn) {
+            let un = nn[ln];
+            dn[un.url] = un.url;
+            for (let pn of un.dependencies)
+                sn[pn] = pn
+        }
+        return {
+            extensions: Object.values(dn),
+            dependencies: Object.values(sn)
+        }
+    }
+    function Wt() {
+        var sn = document.getElementsByTagName("script")
+          , dn = sn[sn.length - 1];
+        return dn.src
+    }
+    function jt(sn) {
+        let dn = $.extend({
             id: "",
             themeName: "",
             description: "",
             author: "Anonymous",
-            version: "0.0",
-            object: null
-        }, rn);
-        if ($.extend(rn, on),
-        "function" != typeof rn)
+            version: "1.0"
+        }, sn);
+        if ($.extend(sn, dn),
+        "function" != typeof sn)
             throw "Invalid theme. The object is not a function.";
-        if (rn.id = rn.name,
-        "" == rn.themeName)
+        if (sn.id = sn.name,
+        "" == sn.themeName)
             throw "Invalid theme. 'themeName' field not defined.";
-        if (rn[rn.id])
+        if (sn[sn.id])
             throw "A theme with that name has already been registered!";
-        tn[rn.id] = rn,
-        SWAM.trigger("themeAdded", rn)
+        an[sn.id] = sn,
+        SWAM.trigger("themeAdded", sn)
     }
-    function Wt(rn, on, sn) {
-        function dn(cn) {
-            un++,
-            pn = cn
+    function zt(sn, dn, ln) {
+        function un(fn) {
+            cn++,
+            hn = fn
         }
-        function ln() {
-            SWAM.off("extensionAdded", dn),
-            1 == un ? on(pn) : 0 == un ? sn("File loaded, but no extension registered successfully.<br>Check the console to verify if there were errors when the file was executed.") : sn("File loaded, but multiple registrations where detected. A file must have only one registration.")
+        function pn() {
+            SWAM.off("extensionAdded", un),
+            1 == cn ? dn(hn) : 0 == cn ? ln("File loaded, but no extension registered successfully.<br>Check the console to verify if there were errors when the file was executed.") : ln("File loaded, but multiple registrations where detected. A file must have only one registration.")
         }
-        let un = 0
-          , pn = null;
-        SWAM.on("extensionAdded", dn);
+        let cn = 0
+          , hn = null;
+        SWAM.on("extensionAdded", un);
         try {
             jQuery.ajax({
                 dataType: "script",
-                url: rn,
+                url: sn,
                 cache: !0,
                 timeout: 5e3
-            }).done(ln).fail(function() {
-                SWAM.off("extensionAdded", dn),
-                sn("There was an error when trying to load the file.")
+            }).done(pn).fail(function() {
+                SWAM.off("extensionAdded", un),
+                ln("There was an error when trying to load the file.")
             })
-        } catch (cn) {
-            SWAM.off("extensionAdded", dn),
-            sn("There was an error executing the file. " + cn),
-            console.error(cn)
+        } catch (fn) {
+            SWAM.off("extensionAdded", un),
+            ln("There was an error executing the file. " + fn),
+            console.error(fn)
         }
     }
-    function jt() {
-        let rn = {
-            extensionsToLoad: $t,
-            selectedTheme: nn
+    function Vt() {
+        let sn = {
+            extensionsToLoad: tn,
+            selectedTheme: rn
         };
-        window.specialTheme && (rn.lastSpecialTheme = window.specialTheme),
-        localStorage.setItem("SWAM_Extensions", JSON.stringify(rn))
+        window.specialTheme && (sn.lastSpecialTheme = window.specialTheme),
+        localStorage.setItem("SWAM_Extensions", JSON.stringify(sn))
     }
-    function Vt(rn) {
-        let on = rn.info.id;
-        if (delete $t[on],
-        en[on]) {
-            for (let sn of en[on].themes)
-                delete SWAM.Settings.themes[sn.id],
-                delete tn[sn.id];
-            delete SWAM.Settings.extensions[on],
-            delete en[on]
+    function Kt(sn) {
+        let dn = sn.info.id;
+        if (delete tn[dn],
+        nn[dn]) {
+            for (let ln of nn[dn].themes)
+                delete SWAM.Settings.themes[ln.id],
+                delete an[ln.id];
+            delete SWAM.Settings.extensions[dn],
+            delete nn[dn]
         }
         localStorage.setItem("SWAM_Settings", JSON.stringify(SWAM.Settings))
     }
-    function qt(rn, on) {
-        on = on.replace(/\[(\w+)\]/g, ".$1"),
-        on = on.replace(/^\./, "");
-        for (var sn = on.split("."), dn = 0, ln; dn < sn.length; ++dn)
-            if (ln = sn[dn],
-            ln in rn)
-                rn = rn[ln];
+    function Qt(sn, dn) {
+        dn = dn.replace(/\[(\w+)\]/g, ".$1"),
+        dn = dn.replace(/^\./, "");
+        for (var ln = dn.split("."), un = 0, pn; un < ln.length; ++un)
+            if (pn = ln[un],
+            pn in sn)
+                sn = sn[pn];
             else
                 return;
-        return rn
+        return sn
     }
-    function Kt(rn, on, sn) {
-        on = on.replace(/\[(\w+)\]/g, ".$1"),
-        on = on.replace(/^\./, "");
-        let dn = on.split(".");
-        for (let ln = 0, un; ln < dn.length; ++ln)
-            if (un = dn[ln],
-            un in rn)
-                ln < dn.length - 1 ? rn = rn[un] : rn[un] = sn;
+    function Jt(sn, dn, ln) {
+        dn = dn.replace(/\[(\w+)\]/g, ".$1"),
+        dn = dn.replace(/^\./, "");
+        let un = dn.split(".");
+        for (let pn = 0, cn; pn < un.length; ++pn)
+            if (cn = un[pn],
+            cn in sn)
+                pn < un.length - 1 ? sn = sn[cn] : sn[cn] = ln;
             else
                 return
     }
-    function Jt(rn, on) {
-        function sn(gn) {
-            return gn = gn.replace(/\[(\w+)\]/g, ".$1"),
-            gn = gn.replace(/^\./, ""),
-            gn = gn.replace(/\./g, ""),
-            gn
+    function $t(sn, dn) {
+        function ln(yn) {
+            return yn = yn.replace(/\[(\w+)\]/g, ".$1"),
+            yn = yn.replace(/^\./, ""),
+            yn = yn.replace(/\./g, ""),
+            yn
         }
-        function dn(gn) {
-            gn = $.extend({
+        function un(yn) {
+            yn = $.extend({
                 css: {}
-            }, gn),
-            this.render = function(mn) {
-                let _n = $("<div><hr class='separator'></div>")
-                  , bn = $("hr", _n).css(gn.css);
-                mn.append(_n)
+            }, yn),
+            this.render = function(_n) {
+                let xn = $("<div><hr class='separator'></div>")
+                  , vn = $("hr", xn).css(yn.css);
+                _n.append(xn)
             }
         }
-        function ln(gn, mn) {
-            mn = $.extend({
+        function pn(yn, _n) {
+            _n = $.extend({
                 click: function() {},
                 css: {
                     minWidth: "250px",
                     outline: "none",
                     margin: "5px"
                 }
-            }, mn),
-            this.render = function(yn) {
-                let _n = `<button class='btn'>${gn}</button>`
-                  , bn = $(_n).css(mn.css).click(mn.click);
-                yn.append(bn)
+            }, _n),
+            this.render = function(bn) {
+                let xn = `<button class='btn'>${yn}</button>`
+                  , vn = $(xn).css(_n.css).click(_n.click);
+                bn.append(vn)
             }
         }
-        function un(gn, mn, yn) {
-            yn = $.extend({
+        function cn(yn, _n, bn) {
+            bn = $.extend({
                 css: {},
                 useToggle: !0
-            }, yn),
-            this.property = gn;
-            let _n = sn(gn)
-              , bn = null;
-            this.render = function(xn) {
-                let vn = null;
-                vn = yn.useToggle ? `<div><label><label class='switch'><input type='checkbox' class='chk${_n}' /><span class="slider round"></span></label> ${mn}</label></div>` : `<div><label><input type='checkbox' class='chk${_n}' /> ${mn}</label></div>`;
-                let Tn = $(vn);
-                bn = $(`.chk${_n}`, Tn)[0],
-                $(Tn).css(yn.css),
-                xn.append(Tn)
+            }, bn),
+            this.property = yn;
+            let xn = ln(yn)
+              , vn = null;
+            this.render = function(Tn) {
+                let En = null;
+                En = bn.useToggle ? `<div><label><label class='switch'><input type='checkbox' class='chk${xn}' /><span class="slider round"></span></label> ${_n}</label></div>` : `<div><label><input type='checkbox' class='chk${xn}' /> ${_n}</label></div>`;
+                let Sn = $(En);
+                vn = $(`.chk${xn}`, Sn)[0],
+                $(Sn).css(bn.css),
+                Tn.append(Sn)
             }
             ,
             this.getValue = function() {
-                return bn.checked
+                return vn.checked
             }
             ,
-            this.setValue = function(xn) {
-                bn.checked = xn
+            this.setValue = function(Tn) {
+                vn.checked = Tn
             }
         }
-        function pn(gn, mn, yn) {
-            yn = $.extend({
+        function hn(yn, _n, bn) {
+            bn = $.extend({
                 css: {},
                 maxLength: null
-            }, yn),
-            this.property = gn;
-            let _n = sn(gn)
-              , bn = null;
-            this.render = function(xn) {
-                let vn = `<div><label><input type='text' class='txt${_n}' /> ${mn}</label></div>`
-                  , Tn = $(vn);
-                bn = $(`.txt${_n}`, Tn),
-                bn.css(yn.css),
-                yn.maxLength && bn.attr("maxlength", yn.maxLength),
-                xn.append(Tn)
+            }, bn),
+            this.property = yn;
+            let xn = ln(yn)
+              , vn = null;
+            this.render = function(Tn) {
+                let En = `<div><label><input type='text' class='txt${xn}' /> ${_n}</label></div>`
+                  , Sn = $(En);
+                vn = $(`.txt${xn}`, Sn),
+                vn.css(bn.css),
+                bn.maxLength && vn.attr("maxlength", bn.maxLength),
+                Tn.append(Sn)
             }
             ,
             this.getValue = function() {
-                return bn.val()
+                return vn.val()
             }
             ,
-            this.setValue = function(xn) {
-                bn.val(xn)
+            this.setValue = function(Tn) {
+                vn.val(Tn)
             }
         }
-        function cn(gn, mn, yn) {
-            this.property = gn;
-            let _n = sn(gn)
-              , bn = null
-              , xn = null;
-            yn = $.extend({
+        function fn(yn, _n, bn) {
+            this.property = yn;
+            let xn = ln(yn)
+              , vn = null
+              , Tn = null;
+            bn = $.extend({
                 min: 0,
                 max: 10,
                 step: 1
-            }, yn),
-            this.render = function(vn) {
-                let Tn = `<div><label><span class='sliderValue'></span> <input type='range' class='slider${_n}' min='${yn.min}' max='${yn.max}' step='${yn.step}' /> ${mn}</label></div>`
-                  , En = $(Tn);
-                bn = $(`.slider${_n}`, En),
-                xn = $(".sliderValue", En).css({
-                    minWidth: 10 * ("" + yn.max).length + 20 + "px"
-                }),
-                bn.change(()=>{
-                    xn.html(bn.val())
+            }, bn),
+            bn = $.extend({
+                css: {
+                    minWidth: 10 * ("" + bn.max).length + 20 + "px"
+                }
+            }, bn),
+            this.render = function(En) {
+                let Sn = `<div><label><span class='sliderValue'></span> <input type='range' class='slider${xn}' min='${bn.min}' max='${bn.max}' step='${bn.step}' /> ${_n}</label></div>`
+                  , An = $(Sn);
+                vn = $(`.slider${xn}`, An),
+                Tn = $(".sliderValue", An).css(bn.css),
+                vn.change(()=>{
+                    Tn.html(vn.val())
                 }
                 ),
-                vn.append(En)
+                En.append(An)
             }
             ,
             this.getValue = function() {
-                return bn.val()
+                return vn.val()
             }
             ,
-            this.setValue = function(vn) {
-                bn.val(vn),
-                xn.html(vn)
+            this.setValue = function(En) {
+                vn.val(En),
+                Tn.html(En)
             }
         }
-        function hn(gn, mn, yn) {
-            this.property = gn;
-            let bn = sn(gn)
-              , xn = null;
-            this.render = function(vn) {
-                let Tn = `<div><label><select class='sel${bn}'></select> ${mn}</label></div>`
-                  , En = $(Tn);
-                xn = $(`.sel${bn}`, En);
-                for (let Sn of Object.keys(yn))
-                    xn.append($("<option>", {
-                        value: Sn,
-                        text: yn[Sn]
+        function gn(yn, _n, bn, xn) {
+            xn = $.extend({
+                css: {}
+            }, xn),
+            this.property = yn;
+            let vn = ln(yn)
+              , Tn = null;
+            this.render = function(En) {
+                let Sn = `<div><label><select class='sel${vn}'></select> ${_n}</label></div>`
+                  , An = $(Sn);
+                Tn = $(`.sel${vn}`, An).css(xn.css);
+                for (let wn of Object.keys(bn))
+                    Tn.append($("<option>", {
+                        value: wn,
+                        text: bn[wn]
                     }));
-                vn.append(En)
+                En.append(An)
             }
             ,
             this.getValue = function() {
-                return xn.val()
+                return Tn.val()
             }
             ,
-            this.setValue = function(vn) {
-                xn.val(vn)
+            this.setValue = function(En) {
+                Tn.val(En)
             }
         }
-        let fn = [];
-        this.setValue = function(gn) {
-            for (let mn of fn)
-                if (mn.property && mn.setValue) {
-                    let yn = mn.property;
-                    yn = rn.root ? rn.root + "." + mn.property : mn.property;
+        let mn = [];
+        this.setValue = function(yn) {
+            for (let _n of mn)
+                if (_n.property && _n.setValue) {
+                    let bn = _n.property;
+                    bn = sn.root ? sn.root + "." + _n.property : _n.property;
                     try {
-                        let _n = qt(gn, yn);
-                        mn.setValue(_n)
-                    } catch (_n) {
-                        console.error(_n)
+                        let xn = Qt(yn, bn);
+                        _n.setValue(xn)
+                    } catch (xn) {
+                        console.error(xn)
                     }
                 }
         }
         ,
-        this.onAccept = function(gn) {
-            let mn = rn.root ? qt(gn, rn.root) : gn;
-            for (let yn of fn)
-                if (yn.property && yn.getValue)
+        this.onAccept = function(yn) {
+            let _n = sn.root ? Qt(yn, sn.root) : yn;
+            for (let bn of mn)
+                if (bn.property && bn.getValue)
                     try {
-                        Kt(mn, yn.property, yn.getValue())
-                    } catch (_n) {
-                        console.error(_n)
+                        Jt(_n, bn.property, bn.getValue())
+                    } catch (xn) {
+                        console.error(xn)
                     }
         }
         ,
-        this.render = function(gn) {
-            let mn = $(getTemplateContent("#Settings_section"));
-            $(".sectionsContainer", gn).append(mn),
-            $(".title", mn).html(on);
-            let yn = $(".values", mn);
-            for (let _n of fn)
-                _n.render(yn)
+        this.render = function(yn) {
+            let _n = $(getTemplateContent("#Settings_section"));
+            $(".sectionsContainer", yn).append(_n),
+            $(".title", _n).html(dn);
+            let bn = $(".values", _n);
+            for (let xn of mn)
+                xn.render(bn)
         }
         ,
-        this.addSeparator = function(gn) {
-            fn.push(new dn(gn))
+        this.addSeparator = function(yn) {
+            mn.push(new un(yn))
         }
         ,
-        this.addButton = function(gn, mn) {
-            fn.push(new ln(gn,mn))
+        this.addButton = function(yn, _n) {
+            mn.push(new pn(yn,_n))
         }
         ,
-        this.addBoolean = function(gn, mn, yn) {
-            fn.push(new un(gn,mn,yn))
+        this.addBoolean = function(yn, _n, bn) {
+            mn.push(new cn(yn,_n,bn))
         }
         ,
-        this.addString = function(gn, mn, yn) {
-            fn.push(new pn(gn,mn,yn))
+        this.addString = function(yn, _n, bn) {
+            mn.push(new hn(yn,_n,bn))
         }
         ,
-        this.addValuesField = function(gn, mn, yn, _n) {
-            fn.push(new hn(gn,mn,yn,_n))
+        this.addValuesField = function(yn, _n, bn, xn) {
+            mn.push(new gn(yn,_n,bn,xn))
         }
         ,
-        this.addSliderField = function(gn, mn, yn) {
-            fn.push(new cn(gn,mn,yn))
+        this.addSliderField = function(yn, _n, bn) {
+            mn.push(new fn(yn,_n,bn))
         }
     }
-    let Zt = $({});
-    SWAM.trigger = Zt.trigger.bind(Zt),
-    SWAM.on = function(rn, on) {
-        const sn = function() {
-            let ln = Array.from(arguments);
-            ln.shift(),
-            on.apply(null, ln)
-        };
-        sn.guid = on.guid = on.guid || $.guid++,
-        Zt.on(rn, sn)
+    let en = $({});
+    SWAM.trigger = en.trigger.bind(en),
+    SWAM.on = function(sn, dn) {
+        en.on(sn, Bt(dn))
     }
     ,
-    SWAM.off = Zt.off.bind(Zt);
-    let $t = Bt()
-      , en = {}
-      , tn = {}
-      , nn = ""
-      , an = "";
-    "#clean" == window.location.hash ? jt() : "#noextensions" != window.location.hash && function() {
+    SWAM.one = function(sn, dn) {
+        en.one(sn, Bt(dn))
+    }
+    ,
+    SWAM.off = en.off.bind(en),
+    SWAM.extend = function(sn, dn) {
+        return sn.prototype = Object.create(dn.prototype),
+        sn.prototype.constructor = sn,
+        dn.prototype
+    }
+    ;
+    let tn = Xt(), nn = {}, an = {}, rn = "", on;
+    "#clean" == window.location.hash ? Vt() : "#noextensions" != window.location.hash && function() {
         try {
-            let rn = localStorage.getItem("SWAM_Extensions");
-            null != rn && (rn = JSON.parse(rn),
-            rn.extensionsToLoad && ($t = $.extend(rn.extensionsToLoad, Bt())),
-            rn.selectedTheme && "" != rn.selectedTheme && (nn = rn.selectedTheme),
-            rn.lastSpecialTheme && (an = rn.lastSpecialTheme))
-        } catch (rn) {}
+            let sn = localStorage.getItem("SWAM_Extensions");
+            null != sn && (sn = JSON.parse(sn),
+            sn.extensionsToLoad && (tn = $.extend(sn.extensionsToLoad, Xt())),
+            sn.selectedTheme && "" != sn.selectedTheme && (rn = sn.selectedTheme),
+            sn.lastSpecialTheme && (on = sn.lastSpecialTheme))
+        } catch (sn) {}
     }(),
     SWAM.loadTheme = function() {
-        an && an == window.specialTheme || (nn = window.specialTheme,
-        jt()),
-        null != nn && "" != nn && "function" == typeof tn[nn] || (nn = "StarMash_2"),
-        SWAM.Theme = new tn[nn];
-        let rn = SWAM.Theme.settingsProvider;
-        rn && (rn.title = tn[nn].themeName,
-        rn.isTheme = !0,
-        rn.root = "themes." + tn[nn].id)
+        on != window.specialTheme && (window.specialTheme && (rn = window.specialTheme),
+        Vt()),
+        null != rn && "" != rn && "function" == typeof an[rn] || (rn = "StarMash_2"),
+        SWAM.Theme = new an[rn];
+        let sn = SWAM.Theme.settingsProvider;
+        sn && (sn.title = an[rn].themeName,
+        sn.isTheme = !0,
+        sn.root = "themes." + an[rn].id)
     }
     ,
     SWAM.getThemeFunction = function() {
-        return tn[nn]
+        return an[rn]
     }
     ,
-    SWAM.loadExtensions = function(rn) {
-        function on(dn, ln) {
-            var un = 0;
-            (function pn() {
-                un < dn.length ? (console.log("SWAM: Loading script: " + dn[un]),
-                $.cachedScript(dn[un]).fail(function() {
-                    console.error("SWAM: Load failed: " + dn[un])
+    SWAM.loadExtensions = function(sn) {
+        function dn(un, pn) {
+            var cn = 0;
+            (function hn() {
+                cn < un.length ? (console.log("SWAM: Loading script: " + un[cn]),
+                $.cachedScript(un[cn]).fail(function() {
+                    console.error("SWAM: Load failed: " + un[cn])
                 }).always(function() {
-                    ++un,
-                    pn()
-                })) : ln && ln()
+                    ++cn,
+                    hn()
+                })) : pn && pn()
             }
             )()
         }
-        let sn = [];
-        for (let dn in $t)
-            $t[dn].enabled && sn.push($t[dn].url);
-        on(sn, function() {
-            sn = Xt().dependencies,
-            on(sn, function() {
-                rn && rn()
+        let ln = [];
+        for (let un in tn)
+            tn[un].enabled && ln.push(tn[un].url);
+        dn(ln, function() {
+            ln = Ht().dependencies,
+            dn(ln, function() {
+                sn && sn()
             })
         })
     }
     ,
     SWAM.getSettingsProviders = function() {
-        let rn = [];
-        SWAM.settingsProvider && rn.push(SWAM.settingsProvider),
-        SWAM.Theme && SWAM.Theme.settingsProvider && rn.push(SWAM.Theme.settingsProvider);
-        for (let on of Object.values(en))
-            on.settingsProvider && rn.push(on.settingsProvider);
-        return rn
+        let sn = [];
+        SWAM.settingsProvider && sn.push(SWAM.settingsProvider),
+        SWAM.Theme && SWAM.Theme.settingsProvider && sn.push(SWAM.Theme.settingsProvider);
+        for (let dn of Object.values(nn))
+            dn.settingsProvider && sn.push(dn.settingsProvider);
+        return sn
     }
     ,
-    SWAM.registerExtension = function(rn) {
-        if (rn = $.extend({
+    SWAM.registerExtension = function(sn) {
+        if (sn = $.extend({
             id: "",
             name: "",
             description: "",
@@ -35645,208 +35633,208 @@ SWAM.injectSounds = function(Bt) {
             themes: [],
             settingsProvider: null,
             url: ""
-        }, rn),
-        "" == rn.id)
+        }, sn),
+        "" == sn.id)
             throw "Invalid extension. 'id' field not defined.";
-        if ("" == rn.name)
+        if ("" == sn.name)
             throw "Invalid extension. 'name' field not defined.";
-        if (en[rn.id])
+        if (nn[sn.id])
             throw "An extension with that name has already been registered!";
-        let on = [];
+        let dn = [];
         try {
-            "StarMashThemes" !== rn.id && (en[rn.id] = rn);
-            for (let dn of rn.themes)
-                Ht(dn),
-                on.push(dn);
-            let sn = rn.settingsProvider;
-            sn && (sn.title = rn.name,
-            sn.isExtension = !0,
-            sn.root = "extensions." + rn.id),
-            $t[rn.id] = {
-                url: Yt(),
+            "StarMashThemes" !== sn.id && (nn[sn.id] = sn);
+            for (let un of sn.themes)
+                jt(un),
+                dn.push(un);
+            let ln = sn.settingsProvider;
+            ln && (ln.title = sn.name,
+            ln.isExtension = !0,
+            ln.root = "extensions." + sn.id),
+            tn[sn.id] = {
+                url: Wt(),
                 enabled: !0,
                 info: {
-                    id: rn.id,
-                    name: rn.name,
-                    description: rn.description,
-                    author: rn.author,
-                    version: rn.version
+                    id: sn.id,
+                    name: sn.name,
+                    description: sn.description,
+                    author: sn.author,
+                    version: sn.version
                 }
             },
-            SWAM.trigger("extensionAdded", rn)
-        } catch (sn) {
-            delete en[rn.id];
-            for (let dn of on)
-                delete tn[dn.id];
-            throw "There was an error when attempting to load a theme: " + sn
+            SWAM.trigger("extensionAdded", sn)
+        } catch (ln) {
+            delete nn[sn.id];
+            for (let un of dn)
+                delete an[un.id];
+            throw "There was an error when attempting to load a theme: " + ln
         }
     }
     ;
     SWAM.OpenExtensionsWindow = function() {
-        function rn() {
-            dn(),
-            sn()
-        }
-        function on() {
-            $(".section", cn).slice(2).remove()
-        }
         function sn() {
-            let mn = $("#selTheme", cn);
-            mn.html(""),
-            $.each(tn, function(yn, _n) {
-                mn.append($("<option>", {
-                    value: _n.id,
-                    text: _n.themeName
-                }))
-            }),
-            mn.val(nn)
+            un(),
+            ln()
         }
         function dn() {
-            for (let mn in on(),
-            $t)
-                "StarMashThemes" != mn && ln($t[mn])
+            $(".section", fn).slice(2).remove()
         }
-        function ln(mn) {
-            let yn = $(getTemplate("#ExtensionEditPanel", !1));
-            $(".sectionsContainer", cn).append(yn);
-            let _n = $(".modName", yn)
-              , bn = $(".arrows", yn);
-            $(".name", yn).html(mn.info.name),
-            $(".description", yn).html(mn.info.description),
-            $(".author", yn).html(mn.info.author),
-            $(".version", yn).html(mn.info.version),
-            $(".url", yn).html(mn.url).prop("title", mn.url),
-            $(".chkEnabled", yn).prop("checked", mn.enabled).change(xn=>{
-                mn.enabled = xn.currentTarget.checked
+        function ln() {
+            let _n = $("#selTheme", fn);
+            _n.html(""),
+            $.each(an, function(bn, xn) {
+                _n.append($("<option>", {
+                    value: xn.id,
+                    text: xn.themeName
+                }))
+            }),
+            _n.val(rn)
+        }
+        function un() {
+            for (let _n in dn(),
+            tn)
+                "StarMashThemes" != _n && pn(tn[_n])
+        }
+        function pn(_n) {
+            let bn = $(getTemplate("#ExtensionEditPanel", !1));
+            $(".sectionsContainer", fn).append(bn);
+            let xn = $(".modName", bn)
+              , vn = $(".arrows", bn);
+            $(".name", bn).html(_n.info.name),
+            $(".description", bn).html(_n.info.description),
+            $(".author", bn).html(_n.info.author),
+            $(".version", bn).html(_n.info.version),
+            $(".url", bn).html(_n.url).prop("title", _n.url),
+            $(".chkEnabled", bn).prop("checked", _n.enabled).change(Tn=>{
+                _n.enabled = Tn.currentTarget.checked
             }
             ),
-            $(".btnDelete", yn).click(()=>{
+            $(".btnDelete", bn).click(()=>{
                 confirmDialog({
                     title: "Confirmation needed",
                     message: "Are you sure? The extension will not be loaded once you restart the game.",
                     yes: function() {
-                        Vt(mn),
-                        rn()
+                        Kt(_n),
+                        sn()
                     }
                 })
             }
             )
         }
-        function pn() {
-            cn.remove()
+        function hn() {
+            fn.remove()
         }
-        let cn = createModal({
+        let fn = createModal({
             title: "StarMash Themes and Extensions",
             content: getTemplate(".SWAM_Extensions"),
             width: "800px",
             maxHeight: "650px",
             top: "200px"
         })
-          , hn = $.extend({}, $t)
-          , fn = $.extend({}, en)
-          , gn = $.extend({}, tn);
-        rn(),
-        $(".btnNew", cn).click(function() {
-            let mn = $(getTemplate("#ExtensionEditPanel", !1));
-            $(".sectionsContainer", cn).append(mn);
-            let yn = $(".modName", mn)
-              , _n = $(".scriptURL", mn)
-              , bn = $(".arrows", mn)
-              , xn = $(".newModButtons", mn)
-              , vn = $(".error", mn);
-            SWAM.debug || _n.val(""),
-            vn.hide(),
-            yn.hide(),
+          , gn = $.extend({}, tn)
+          , mn = $.extend({}, nn)
+          , yn = $.extend({}, an);
+        sn(),
+        $(".btnNew", fn).click(function() {
+            let _n = $(getTemplate("#ExtensionEditPanel", !1));
+            $(".sectionsContainer", fn).append(_n);
+            let bn = $(".modName", _n)
+              , xn = $(".scriptURL", _n)
+              , vn = $(".arrows", _n)
+              , Tn = $(".newModButtons", _n)
+              , En = $(".error", _n);
+            SWAM.debug || xn.val(""),
+            En.hide(),
             bn.hide(),
+            vn.hide(),
+            Tn.show(),
             xn.show(),
-            _n.show(),
-            $(".btnAcceptURL", mn).click(function() {
-                xn.hide(),
-                vn.html("").hide(),
-                Wt(_n.val(), function() {
-                    rn()
-                }, function(Tn) {
-                    vn.html(Tn).show(),
-                    xn.show()
+            $(".btnAcceptURL", _n).click(function() {
+                Tn.hide(),
+                En.html("").hide(),
+                zt(xn.val(), function() {
+                    sn()
+                }, function(Sn) {
+                    En.html(Sn).show(),
+                    Tn.show()
                 })
             }),
-            $(".btnCancelURL", mn).click(function() {
-                mn.remove()
+            $(".btnCancelURL", _n).click(function() {
+                _n.remove()
             })
         }),
-        $(".btnAccept", cn).click(()=>{
-            nn = $("#selTheme", cn).val(),
-            jt(),
-            pn(),
-            window.location = Gt()
+        $(".btnAccept", fn).click(()=>{
+            rn = $("#selTheme", fn).val(),
+            Vt(),
+            hn(),
+            window.location = Yt()
         }
         ),
-        $(".btnCancel", cn).click(()=>{
-            $t = hn,
-            en = fn,
+        $(".btnCancel", fn).click(()=>{
             tn = gn,
-            pn()
+            nn = mn,
+            an = yn,
+            hn()
         }
         )
     }
     ,
-    window.SettingsProvider = function(rn, on) {
-        function sn(ln) {
-            let un = {}
-              , pn = un;
-            if ("" == ln)
-                return un;
-            ln = ln.replace(/\[(\w+)\]/g, ".$1"),
-            ln = ln.replace(/^\./, "");
-            for (var cn = ln.split("."), hn = 0, fn; hn < cn.length; ++hn)
-                fn = cn[hn],
-                pn[fn] = {},
-                pn = pn[fn];
-            return un
+    window.SettingsProvider = function(sn, dn) {
+        function ln(pn) {
+            let cn = {}
+              , hn = cn;
+            if ("" == pn)
+                return cn;
+            pn = pn.replace(/\[(\w+)\]/g, ".$1"),
+            pn = pn.replace(/^\./, "");
+            for (var fn = pn.split("."), gn = 0, mn; gn < fn.length; ++gn)
+                mn = fn[gn],
+                hn[mn] = {},
+                hn = hn[mn];
+            return cn
         }
         this.title = "";
-        let dn = [];
+        let un = [];
         this.getDefault = function() {
-            let ln = this.root || "";
-            if ("" != ln) {
-                let un = sn(ln);
-                return Kt(un, ln, rn),
-                un
+            let pn = this.root || "";
+            if ("" != pn) {
+                let cn = ln(pn);
+                return Jt(cn, pn, sn),
+                cn
             }
-            return rn
+            return sn
         }
         ,
         this.getLocal = function() {}
         ,
-        this.apply = function(ln) {
-            on && on(qt(ln, this.root), ln)
+        this.apply = function(pn) {
+            dn && dn(Qt(pn, this.root), pn)
         }
         ,
-        this.setWindow = function(ln, un) {
-            for (let cn of dn)
-                cn.render(un);
+        this.setWindow = function(pn, cn) {
+            for (let fn of un)
+                fn.render(cn);
             return {
-                setValues: function(cn) {
-                    for (let hn of dn)
-                        hn.setValue(cn)
+                setValues: function(fn) {
+                    for (let gn of un)
+                        gn.setValue(fn)
                 },
                 accept: function() {
-                    for (let cn of dn)
-                        cn.onAccept(ln)
+                    for (let fn of un)
+                        fn.onAccept(pn)
                 },
                 cancel: function() {}
             }
         }
         ,
-        this.addSection = function(ln) {
-            let un = new Jt(this,ln);
-            return dn.push(un),
-            un
+        this.addSection = function(pn) {
+            let cn = new $t(this,pn);
+            return un.push(cn),
+            cn
         }
     }
     ,
-    SWAM.replaceCSS = function(rn) {
-        $("link[href*=\"style.css\"]").replaceWith("<link href=\"" + rn + "\" type=\"text/css\" rel=\"stylesheet\">")
+    SWAM.replaceCSS = function(sn) {
+        $("link[href*=\"style.css\"]").replaceWith("<link href=\"" + sn + "\" type=\"text/css\" rel=\"stylesheet\">")
     }
 }(),
 window.AutoPilot = {
@@ -36125,7 +36113,7 @@ window.AutoPilot = {
         if (this.mimicTarget != game.myID) {
             if (189 == Bt.keyCode && (this.reverseMimic = !this.reverseMimic,
             this.reverseMimic ? Network.sendSay("reverse") : Network.sendSay("normal")),
-            (45 == Bt.keyCode || 188 == Bt.keyCode) && this.mimicRotation(!1),
+            (45 == Bt.keyCode || 190 == Bt.keyCode) && this.mimicRotation(!1),
             36 == Bt.keyCode || 190 == Bt.keyCode)
                 if (AutoPilot.mimicPaused = !AutoPilot.mimicPaused,
                 AutoPilot.mimicPaused) {
@@ -36193,7 +36181,10 @@ window.AutoPilot = {
         };
         if (Gt.id != game.myID && Gt.id == AutoPilot.mimicTarget && !AutoPilot.mimicPaused) {
             if (null == Gt.keystate)
-                return void (Bt == Network.SERVERPACKET.EVENT_BOOST && AutoPilot.lastState.boost != Gt.boost && (Network.sendKey("SPECIAL", Gt.boost),
+                return Bt == Network.SERVERPACKET.PLAYER_FIRE ? (Network.sendKey("FIRE", !0),
+                void setTimeout(function() {
+                    Network.sendKey("FIRE", !1)
+                }, 100)) : void (Bt == Network.SERVERPACKET.EVENT_BOOST && AutoPilot.lastState.boost != Gt.boost && (Network.sendKey("SPECIAL", Gt.boost),
                 AutoPilot.lastState.boost = Gt.boost));
             Tools.decodeKeystate(Ht, Gt.keystate);
             var Wt = {};
@@ -36273,7 +36264,7 @@ $(function() {
 function showLoadingScreen() {
     $("body").append($("<div id='LoadingMainScreen' style='position: fixed; top:0px; left:0px; width: 100%; height: 100%; background-color: black; z-index: 1000; '><div id='LoadingText' style='position: absolute; top: calc(50% - 15px); width: 100%; font-size: 30px; color: #555555; text-align: center;  font-family: \"Lucida Sans Unicode\", \"Lucida Grande\", sans-serif; '>Loading...</div></div>")).css("overflow", "hidden")
 }
-function showAgainRequestlyWarning() {
+function showRequestlyWarningAgain() {
     localStorage.removeItem("requestlyWarning"),
     window.location = "/"
 }
@@ -36296,8 +36287,6 @@ function showRequestlyWarning() {
     }
 }
 SWAM.loadExtensions(()=>{
-    window.showRequestlyUpdate = !0,
-    window.specialTheme = "StPatricksDay2018",
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
     SWAM.trigger("themeLoaded"),
