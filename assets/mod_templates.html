@@ -124,7 +124,7 @@
     #scorebig .deaths,
     #scorebig .container-deaths
     {
-        right: -10px;
+        right: -20px;
     }
     #scorebig #score-kills,
     #scorebig #score-deaths
@@ -133,6 +133,31 @@
         background-color: rgba(0,0,0,0.5);
         border-radius: 5px;
         padding: 2px 8px 2px 8px;
+    }
+    #scorebig #score-kills
+    {
+        font-size: 15px;
+    }
+
+    /*------------------------------------------------------------------------
+        General
+    ------------------------------------------------------------------------*/
+
+    #btnFreeSpectator {
+        display: none;
+        position: absolute;
+        left: 50%;
+        margin: -75px;
+        bottom: 200px;
+        width: 150px;
+        height: 25px;
+        padding: 5px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 5px;
+        text-align: center;
+        color: #b4b4b4;
+        font-size: 15px;
+        cursor: pointer;
     }
 
 </style>
@@ -820,12 +845,12 @@
         {
             overflow-y: auto;
             height: 400px;
-            max-height: 700px;
         }
         #fullLog ul {
             list-style: none;
             padding: 0px;
             margin: 0px;
+            margin-bottom: 15px;
         }
         #fullLog li {
             padding: 5px;
@@ -836,7 +861,6 @@
         <li><label><input type="checkbox" class='chkFLKills' checked="checked"/>Display kill log</label></li>
         <li><label><input type="checkbox" class='chkFLPlayers'/>Display players connection log.</label></li>
     </ul>
-    <hr/>
     <div class="fullLogcontent"></div>
 </div>
 

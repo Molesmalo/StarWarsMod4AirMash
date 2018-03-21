@@ -6,7 +6,7 @@ This is a guide for the creation of extensions and themes for the [StarMash Mod]
 
 Read this if you are interested in creating your own features and themes for AirMash.
 
-This is part 3 of a multi-part tutorial.
+This is part 4 of a multi-part tutorial.
 
 [StarMash - Extensions and Themes - Part 1 - Introduction](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part1).
 

@@ -6,7 +6,7 @@ This is a guide for the creation of extensions and themes for the [StarMash Mod]
 
 Read this if you are interested in creating your own features and themes for AirMash.
 
-This is part 3 of a multi-part tutorial.
+This is part 1 of a multi-part tutorial.
 
 **StarMash - Extensions and Themes - Part 1 - Introduction**
 
@@ -208,7 +208,7 @@ As mentioned before, StarMash Extensions work by responding to events triggered 
 
 ```js
     SWAM.on( event, handler );
-    // events: The event name, such as "playerAdded" or "playerDestroyed"
+    // event: The event name, such as "playerAdded" or "playerDestroyed"
     // handler: A function to execute when the event is triggered.
 ```
 
@@ -250,6 +250,7 @@ The following table contains the current list of events triggered by StarMash, a
 |mobAdded               |data, existing, playerId       |A new missile is created.|
 |                       |                   |                   |
 |scoreboardUpdate       |scores, minimap, maxScoreboard |A scoreboard update was received.|
+|detailedScoreUpdate    |data               |A detailed scoreboard update was received.|
 |                       |                   |                   |
 |keydown                |event              |The user pressed a key while playing.|
 |keyup                  |event              |The user pressed a key while playing.|
@@ -259,10 +260,18 @@ The following table contains the current list of events triggered by StarMash, a
 
 <br/><br/>
 
+You can also use `SWAM.one(event, handler)` to set a handler that will run only once, and then detach from the event. The .one() method is identical to .on(), except that the handler is unbound after its first invocation.
+
+
+```js
+    SWAM.one( event, handler );
+    // event: The event name, such as "playerAdded" or "playerDestroyed"
+    // handler: A function to execute when the event is triggered.
+```
 
 Just like using jQuery, to remove an event handler, that is, to stop receiving events of a type in your function, when calling `SWAM.on(event, handler)`, handler needs to be a function that you can then reference later.
 
-Then, you can call `SWAM.off(event, handler)`, passing a reference of the handler function.
+Then, you can call `SWAM.off(event, handler)`, passing a reference of the handler function to stop receiving events.
 
 ```js
     SWAM.off( event, handler );
