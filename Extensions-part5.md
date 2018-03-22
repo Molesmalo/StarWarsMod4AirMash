@@ -22,15 +22,16 @@ This is part 5 of a multi-part tutorial.
 
 In part 5, you will learn:
 
-- How to build super simple themes with almost no coding.
-- Assets and Textures used by AirMash.
-- A little about how AirMash's graphics work.
+- AirMash graphics and layers.
+- Loading your own files and textures.
+- Replacing the CSS file.
+- Using your own audio files.
 
 &nbsp;
 
 # A graphics library called PixiJS
 
-Before we start building our first Theme, we should take a look at how AirMash's graphics are built.
+We will start this part by taking a look at how AirMash's graphics are built.
 
 AirMash uses an open source JavaScript graphics library called [PixiJS](http://www.pixijs.com/) to render its graphics. As Pixi's page put it:
 
