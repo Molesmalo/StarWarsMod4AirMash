@@ -16,6 +16,7 @@ This is part 1 of a multi-part tutorial.
 
 [StarMash - Extensions and Themes - Part 4 - Themes](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part4).
 
+[StarMash - Extensions and Themes - Part 5 - Advanced Themes](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part5).
 
 &nbsp;
 
@@ -247,7 +248,8 @@ The following table contains the current list of events triggered by StarMash, a
 |playerImpacted         |data               |A player was hit.|
 |playerKilled           |data, dead, killer |A player was killed.|
 |playerUpgraded         |index              |The user upgraded his ship.|
-|mobAdded               |data, existing, playerId       |A new missile is created.|
+|mobAdded               |data, existing, playerId       |A new mob is created.|
+|mobDespawned           |data               |A mob is despawned.|
 |                       |                   |                   |
 |scoreboardUpdate       |scores, minimap, maxScoreboard |A scoreboard update was received.|
 |detailedScoreUpdate    |data               |A detailed scoreboard update was received.|

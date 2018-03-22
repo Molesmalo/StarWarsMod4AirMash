@@ -16,6 +16,7 @@ This is part 2 of a multi-part tutorial.
 
 [StarMash - Extensions and Themes - Part 4 - Themes](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part4).
 
+[StarMash - Extensions and Themes - Part 5 - Advanced Themes](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part5).
 
 &nbsp;
 

@@ -33967,18 +33967,6 @@ function SWAM() {
             $("#score-deaths").html(Xt.deathCount)
         }
     }
-    function updatePlayerCounters() {
-        SWAM.one("detailedScoreUpdate", function(Bt) {
-            console.log(Players.count()),
-            Bt.scores.forEach(Gt=>{
-                let Xt = Players.get(Gt.id);
-                Xt.totalKills = Gt.kills,
-                Xt.deathCount = Gt.deaths
-            }
-            )
-        }),
-        Network.getScores()
-    }
     function addToLog(Bt) {
         SWAM.GameLog && SWAM.GameLog.add(Bt);
         $("#WhoKilledWho");
@@ -34014,7 +34002,7 @@ function SWAM() {
                 jt.hasClass("flwkw") && !Gt && jt.hide(),
                 jt.hasClass("flplayer") && !Xt && jt.hide();
                 let zt = Ht[0]
-                  , Vt = zt.scrollTop == zt.scrollHeight;
+                  , Vt = isScrolledToBottom(zt);
                 Ht.append(jt),
                 1e3 < Ht.children().length && Ht.children().first().remove(),
                 Vt && (zt.scrollTop = zt.scrollHeight)
@@ -34070,6 +34058,10 @@ function SWAM() {
             ),
             $("body").append(Yt)
         }()
+    }
+    function isScrolledToBottom(Bt) {
+        var Gt = $(Bt);
+        return 1 > Bt.scrollHeight - Gt.scrollTop() - Gt.outerHeight()
     }
     function clearChat() {
         $("#chatlines").html(""),
@@ -34469,12 +34461,14 @@ function SWAM() {
     let Players_kill = Players.kill;
     Players.kill = function(Bt) {
         var Gt = Players.get(Bt.id);
-        if (null != Gt && (0 != Bt.killer || 0 != Bt.posX || 0 != Bt.posY)) {
-            let Xt = Players.get(Bt.killer);
-            controlKillsDeaths(Xt, Gt),
-            SWAM.addKilledLine(Xt, Gt),
-            SWAM.trigger("playerKilled", [Bt, Gt, Xt])
-        }
+        if (null != Gt)
+            if (0 != Bt.killer || 0 != Bt.posX || 0 != Bt.posY) {
+                let Xt = Players.get(Bt.killer);
+                controlKillsDeaths(Xt, Gt),
+                SWAM.addKilledLine(Xt, Gt),
+                SWAM.trigger("playerKilled", [Bt, Gt, Xt])
+            } else
+                console.log("playerkilled", Bt);
         Players_kill.call(Players, Bt)
     }
     ;
@@ -34492,6 +34486,12 @@ function SWAM() {
     Mobs.add = function(Bt, Gt, Xt) {
         Mobs_add.call(Mobs, Bt, Gt, Xt),
         SWAM.trigger("mobAdded", [Bt, Gt, Xt])
+    }
+    ;
+    let Mobs_despawn = Mobs.despawn;
+    Mobs.despawn = function(Bt) {
+        Mobs_despawn.call(Mobs, Bt),
+        SWAM.trigger("mobDespawned", Bt)
     }
     ;
     let Network_sendMethods = [Network.sendChat, Network.sendTeam, Network.sendWhisper, Network.sendSay];
@@ -34667,7 +34667,7 @@ function SWAM() {
         UI.addChatMessage("Mod:  Press H to check StarMash shortcuts.".bold()),
         UI.addChatMessage("Right-Click a chat message to copy to clipboard.".bold()),
         2 == game.gameType && UI.addChatMessage("Y when carrying the flag, to drop it.".bold()),
-        updatePlayerCounters(),
+        SWAM.updatePlayerCounters(),
         SWAM.PlayerInfoTimer = setInterval(SWAM.updatePlayersNamePlate, 500),
         SWAM.hyperSpace && SWAM.hyperSpace.show(),
         $(window).keydown(SWAM.keydown_handler),
@@ -34738,6 +34738,19 @@ function SWAM() {
                 game.state === Network.STATE.PLAYING || "none" == Bt.style.display || SWAM.moveCamera(Gt)
             })
         }
+    }
+    ,
+    SWAM.updatePlayerCounters = function() {
+        SWAM.one("detailedScoreUpdate", function(Bt) {
+            console.log(Players.count()),
+            Bt.scores.forEach(Gt=>{
+                let Xt = Players.get(Gt.id);
+                Xt.totalKills = Gt.kills,
+                Xt.deathCount = Gt.deaths
+            }
+            )
+        }),
+        Network.getScores()
     }
     ,
     SWAM.addKilledLine = function(Bt, Gt) {
