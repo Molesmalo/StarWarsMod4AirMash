@@ -97,7 +97,7 @@ Also, a Sprite is used as a mask to alter the way those sprites are drawn. As I 
 
 - Forest (the grass) does not use a Sprite as mask. 
 
-- Forest, Sand and Rock TilingSprites are contained inside a Container. This container in turn uses as mask to create the shape of continents. This mask is a vectorial objected (`PIXI.Graphics`) that is created using map data that is downloaded when the game starts. If you want, you can modify this mask by swapping it with your own, or remove it completely.
+- Forest, Sand and Rock TilingSprites are contained inside a Container. This container in turn uses a mask to create the shape of continents. This mask is a vectorial object (`PIXI.Graphics`) that is created using map data that is downloaded when the game starts. If you want, you can modify this mask by swapping it with your own, or remove it completely.
 
 
 > **Note:** this applies for the __default Graphics Module__. StarMash themes utilize a modified Graphics module, where some of the layers are modified. For example, the 'sea' layer (the bottom most layer for the background rendering) that is used for the star field does not have a mask. But the equivalent of the 'forest' layer (the first tilelayer stacked over the sea) does, working then similar as sand and rock `TilingSprite`s works for the default theme. Also, the way those layers are updated is slightly different, to create a parallax effect.
@@ -126,7 +126,7 @@ Please note that the vectorial mask is loaded asynchronously, so it takes a few 
 
 So, for example, if you want to create your region, instead of a world map (for example, to create a map of Eastern Europe), you could replace `map.mask` with your own vectorial object (`PIXI.Graphics`) or an image (`PIXI.Sprite`).
 
-Or, if you want a continuous land with no water, you can just set set:
+Or, if you want a continuous land with no water, you can just set:
 
 ```js
     map.mask = null;
@@ -134,7 +134,7 @@ Or, if you want a continuous land with no water, you can just set set:
     map.removeChild(polygons);
 ```
 
-In this snippet, we set the sea mask to null so the land will be continuous, without water This is because the land is drawn on top of the water layer. If you do this, please help optimize the rendering process by setting `sea.visible = false;`. This makes the renderer skip this layer when drawing the scene.
+In this snippet, we set the sea mask to null so the land will be continuous, without water. This is because the land is drawn on top of the water layer. If you do this, please help optimize the rendering process by setting `sea.visible = false;`. This makes the renderer skip this layer when drawing the scene.
 
 As the polygons object is inside the map Container, we remove it permanently. Otherwise, as it stopped being used as a mask, it will now be a 'normal' object that will be drawn on our scene!
 
