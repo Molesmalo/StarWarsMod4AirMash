@@ -35041,6 +35041,10 @@ function SWAM() {
                 x: 0,
                 y: 0
             },
+            BASE_COORDINATES: {
+                x: -9670,
+                y: -1470
+            },
             isCarried: !1,
             player: null
         }
@@ -35048,6 +35052,10 @@ function SWAM() {
             position: {
                 x: 0,
                 y: 0
+            },
+            BASE_COORDINATES: {
+                x: 8600,
+                y: -940
             },
             isCarried: !1,
             player: null
@@ -35081,7 +35089,7 @@ function SWAM() {
                 return game.gameType == SWAM.GAME_TYPE.CTF
             }
             isVisible() {
-                return null != this.flag.player && this.flag.player.id != game.myID
+                return (this.flag.BASE_COORDINATES.x != this.flag.position.x || this.flag.BASE_COORDINATES.y != this.flag.position.y) && (null == this.flag.player || this.flag.player.id != game.myID)
             }
         }
         class Wt {
