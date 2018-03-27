@@ -227,8 +227,10 @@ Continue reading the example code. Our theme class then defines a method called 
 - spriteInfo: object with [key/value] pairs with information about the sprites that will be used during the game.
 - textures: an empty object. In some RARE cases you might need to save a reference for this object, as it is where the textures as saved once they are loaded (for example, if you have your own loading mechanism but you wanted to inject later some textures). But I guess in 99.9% of the cases you will __just ignore this object__.
 
-
 Inside this method, we iterate over all the URLs of the images that are going to be loaded, get their file name using our helper function `getFileName`, and change the URL to point to another file that we have previously uploaded to some server.
+
+> Note: In the example above, we set the URLs to `//raw.githubusercontent.com/.....`. Pay attention to the start of that URL. The `//` indicates that we want to preserve the protocol used by the page. As `airma.sh` is served using HTTPS, we are telling the browser that we will also use HTTPS. But sometimes, when developing on a local server, you might not want to enable HTTPS locally. In those cases, make sure to provide the protocol in the URL, e.g.: `http://localhost/assets/`. Just remember that is advisable to serve under HTTPS when deploying your files to other users. Otherwise, some security warnings will be displayed by the browser.
+
 
 Then, we add some metadata to our Theme class. Here, I'm using jQuery's `extend` method for brevity, whose use (for this case) is similar to doing:
 ```js

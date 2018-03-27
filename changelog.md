@@ -5,6 +5,21 @@
 <br>
 <br>
 
+## Mar 27 2018
+
+- **Arrow Indicators:** In CTF, when a flag is being carried, an arrow is shown pointing in its direction.
+- Fixed: Some icons are now vectorial, for HiDPI displays.
+- Fixed: Alignamet of bounty panel.
+- Re-enabled some special characters for player names.
+- Replaced [WS] with � for non-printable characters.
+- Vanilla Theme:
+    - Fixed: Plane names still displayed SW equivalents.
+    - Fixed: rendering optimization re-enabled.
+    - Fixed: Button for changing plane graphics (Imperial/Rebel) removed.
+- **Extensions:** new events (chatLineAdded, CTF_Flag).
+
+&nbsp;
+
 ## Mar 21 2018
 
 - **Vanilla Theme:** Color for missiles and players is now **optional.**

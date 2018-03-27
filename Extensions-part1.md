@@ -238,6 +238,7 @@ The following table contains the current list of events triggered by StarMash, a
 |                       |                   |                   |
 |CTF_MatchStarted       |                   |A new CTF Match started.|
 |CTF_MatchEnded         |data               |A CTF Match ended.|
+|CTF_Flag               |data               |A flag was taken/returned/captured.|
 |CTF_FlagEvent          |event, team, verb  |A flag was taken/returned/captured.|
 |BTR_MatchEnded         |data               |A BTR Match ended.|
 |                       |                   |                   |
@@ -253,6 +254,7 @@ The following table contains the current list of events triggered by StarMash, a
 |                       |                   |                   |
 |scoreboardUpdate       |scores, minimap, maxScoreboard |A scoreboard update was received.|
 |detailedScoreUpdate    |data               |A detailed scoreboard update was received.|
+|chatLineAdded          |player, text, type |A chat line was received and added to the chat.|
 |                       |                   |                   |
 |keydown                |event              |The user pressed a key while playing.|
 |keyup                  |event              |The user pressed a key while playing.|
