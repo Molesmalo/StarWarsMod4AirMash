@@ -249,6 +249,8 @@ The following table contains the current list of events triggered by StarMash, a
 |playerImpacted         |data               |A player was hit.|
 |playerKilled           |data, dead, killer |A player was killed.|
 |playerUpgraded         |index              |The user upgraded his ship.|
+|playerPowerUp          |data               |The user received a powerup.|
+|                       |                   |                   |
 |mobAdded               |data, existing, playerId       |A new mob is created.|
 |mobDespawned           |data               |A mob is despawned.|
 |                       |                   |                   |
