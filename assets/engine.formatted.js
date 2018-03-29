@@ -33870,7 +33870,7 @@ window.Base64 = {
         return Yt
     }
 },
-window.SWAM_version = "2.2032701",
+window.SWAM_version = "2.2032901",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34470,6 +34470,12 @@ function SWAM() {
             } else
                 console.log("playerkilled", Bt);
         Players_kill.call(Players, Bt)
+    }
+    ;
+    let Players_powerup = Players.powerup;
+    Players.powerup = function(Bt) {
+        Players_powerup.call(Players, Bt),
+        SWAM.trigger("playerPowerUp", Bt)
     }
     ;
     let Players_whisper = Players.whisper;
@@ -35125,13 +35131,11 @@ function SWAM() {
             }
             addToScene() {
                 game.graphics.layers.game.addChild(this.arrow),
-                this.ticker.start(),
-                console.log("added")
+                this.ticker.start()
             }
             removeFromScene() {
                 this.ticker.stop(),
-                game.graphics.layers.game.removeChild(this.arrow),
-                console.log("removed")
+                game.graphics.layers.game.removeChild(this.arrow)
             }
             update() {
                 if (!this.tracker.isVisible())
