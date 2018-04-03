@@ -564,10 +564,24 @@
             padding-bottom: 50px;
             color: #c5c5c5;
         }
+        .SWAM_Extensions .divAcceptCancel
+        {
+            clear:both;
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            left: calc(50% - 100px);
+        }
         .SWAM_Extensions .sectionsContainer
         {
             overflow-y: auto;
-            max-height: 600px;
+            /*max-height: 600px;*/
+            position: absolute;
+            top: 50px;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            padding-left: 10px
         }
         .SWAM_Extensions .btn,
         .SWAM_Extensions .btnSmall {
@@ -700,7 +714,7 @@
             <input class='btn btnNew' type='button' value='Add new extension' style="width: 250px;">
         </div>
     </div>
-    <div style="clear:both; text-align: center;">
+    <div class="divAcceptCancel">
         <input class='btn btnAccept' type='button' value='Accept'>
         <span style='margin-left: 40px'></span>
         <input class='btn btnCancel' type='button' value='Cancel'>

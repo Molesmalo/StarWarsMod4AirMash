@@ -253,6 +253,7 @@ The following table contains the current list of events triggered by StarMash, a
 |                       |                   |                   |
 |mobAdded               |data, existing, playerId       |A new mob is created.|
 |mobDespawned           |data               |A mob is despawned.|
+|mobDestroyed           |data               |A mob is destroyed.|
 |                       |                   |                   |
 |scoreboardUpdate       |scores, minimap, maxScoreboard |A scoreboard update was received.|
 |detailedScoreUpdate    |data               |A detailed scoreboard update was received.|
