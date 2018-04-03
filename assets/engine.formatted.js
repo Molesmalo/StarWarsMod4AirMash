@@ -21,15 +21,15 @@
         return Pr.nodeName && Pr.nodeName.toLowerCase() === Mr.toLowerCase()
     }
     function jt(Pr, Mr, Dr) {
-        return Vn.isFunction(Mr) ? Vn.grep(Pr, function(Ir, Rr) {
-            return !!Mr.call(Ir, Rr, Ir) !== Dr
-        }) : Mr.nodeType ? Vn.grep(Pr, function(Ir) {
-            return Ir === Mr !== Dr
+        return Vn.isFunction(Mr) ? Vn.grep(Pr, function(Rr, Ir) {
+            return !!Mr.call(Rr, Ir, Rr) !== Dr
+        }) : Mr.nodeType ? Vn.grep(Pr, function(Rr) {
+            return Rr === Mr !== Dr
         }) : "string" == typeof Mr ? aa.test(Mr) ? Vn.filter(Mr, Pr, Dr) : (Mr = Vn.filter(Mr, Pr),
-        Vn.grep(Pr, function(Ir) {
-            return -1 < Yn.call(Mr, Ir) !== Dr && 1 === Ir.nodeType
-        })) : Vn.grep(Pr, function(Ir) {
-            return -1 < Yn.call(Mr, Ir) !== Dr
+        Vn.grep(Pr, function(Rr) {
+            return -1 < Yn.call(Mr, Rr) !== Dr && 1 === Rr.nodeType
+        })) : Vn.grep(Pr, function(Rr) {
+            return -1 < Yn.call(Mr, Rr) !== Dr
         })
     }
     function Wt(Pr, Mr) {
@@ -43,10 +43,10 @@
     function Vt(Pr) {
         throw Pr
     }
-    function qt(Pr, Mr, Dr, Ir) {
-        var Rr;
+    function qt(Pr, Mr, Dr, Rr) {
+        var Ir;
         try {
-            Pr && Vn.isFunction(Rr = Pr.promise) ? Rr.call(Pr).done(Mr).fail(Dr) : Pr && Vn.isFunction(Rr = Pr.then) ? Rr.call(Pr, Mr, Dr) : Mr.apply(void 0, [Pr].slice(Ir))
+            Pr && Vn.isFunction(Ir = Pr.promise) ? Ir.call(Pr).done(Mr).fail(Dr) : Pr && Vn.isFunction(Ir = Pr.then) ? Ir.call(Pr, Mr, Dr) : Mr.apply(void 0, [Pr].slice(Rr))
         } catch (Or) {
             Dr.apply(void 0, [Or])
         }
@@ -60,28 +60,28 @@
         this.expando = Vn.expando + Jt.uid++
     }
     function Zt(Pr, Mr, Dr) {
-        var Ir;
+        var Rr;
         if (void 0 === Dr && 1 === Pr.nodeType)
-            if (Ir = "data-" + Mr.replace(ya, "-$&").toLowerCase(),
-            "string" == typeof (Dr = Pr.getAttribute(Ir))) {
+            if (Rr = "data-" + Mr.replace(ya, "-$&").toLowerCase(),
+            "string" == typeof (Dr = Pr.getAttribute(Rr))) {
                 try {
-                    Dr = function(Rr) {
-                        return "true" === Rr || "false" !== Rr && ("null" === Rr ? null : Rr === +Rr + "" ? +Rr : ma.test(Rr) ? JSON.parse(Rr) : Rr)
+                    Dr = function(Ir) {
+                        return "true" === Ir || "false" !== Ir && ("null" === Ir ? null : Ir === +Ir + "" ? +Ir : ma.test(Ir) ? JSON.parse(Ir) : Ir)
                     }(Dr)
-                } catch (Rr) {}
+                } catch (Ir) {}
                 ga.set(Pr, Mr, Dr)
             } else
                 Dr = void 0;
         return Dr
     }
-    function Qt(Pr, Mr, Dr, Ir) {
-        var Or = 1, Lr = 20, kr = Ir ? function() {
-            return Ir.cur()
+    function Qt(Pr, Mr, Dr, Rr) {
+        var Or = 1, Lr = 20, kr = Rr ? function() {
+            return Rr.cur()
         }
         : function() {
             return Vn.css(Pr, Mr, "")
         }
-        , Nr = kr(), Fr = Dr && Dr[3] || (Vn.cssNumber[Mr] ? "" : "px"), Br = (Vn.cssNumber[Mr] || "px" !== Fr && +Nr) && xa.exec(Vn.css(Pr, Mr)), Rr;
+        , Nr = kr(), Fr = Dr && Dr[3] || (Vn.cssNumber[Mr] ? "" : "px"), Br = (Vn.cssNumber[Mr] || "px" !== Fr && +Nr) && xa.exec(Vn.css(Pr, Mr)), Ir;
         if (Br && Br[3] !== Fr) {
             Fr = Fr || Br[3],
             Dr = Dr || [],
@@ -92,30 +92,30 @@
             while (Or != (Or = kr() / Nr) && 1 != Or && --Lr)
         }
         return Dr && (Br = +Br || +Nr || 0,
-        Rr = Dr[1] ? Br + (Dr[1] + 1) * Dr[2] : +Dr[2],
-        Ir && (Ir.unit = Fr,
-        Ir.start = Br,
-        Ir.end = Rr)),
-        Rr
+        Ir = Dr[1] ? Br + (Dr[1] + 1) * Dr[2] : +Dr[2],
+        Rr && (Rr.unit = Fr,
+        Rr.start = Br,
+        Rr.end = Ir)),
+        Ir
     }
     function $t(Pr) {
-        var Dr = Pr.ownerDocument, Ir = Pr.nodeName, Rr = Sa[Ir], Mr;
-        return Rr || (Mr = Dr.body.appendChild(Dr.createElement(Ir)),
-        Rr = Vn.css(Mr, "display"),
+        var Dr = Pr.ownerDocument, Rr = Pr.nodeName, Ir = Sa[Rr], Mr;
+        return Ir || (Mr = Dr.body.appendChild(Dr.createElement(Rr)),
+        Ir = Vn.css(Mr, "display"),
         Mr.parentNode.removeChild(Mr),
-        "none" === Rr && (Rr = "block"),
-        Sa[Ir] = Rr,
-        Rr)
+        "none" === Ir && (Ir = "block"),
+        Sa[Rr] = Ir,
+        Ir)
     }
     function en(Pr, Mr) {
-        for (var Rr = [], Or = 0, Lr = Pr.length, Dr, Ir; Or < Lr; Or++)
-            (Ir = Pr[Or]).style && (Dr = Ir.style.display,
-            Mr ? ("none" === Dr && (Rr[Or] = fa.get(Ir, "display") || null,
-            Rr[Or] || (Ir.style.display = "")),
-            "" === Ir.style.display && Ta(Ir) && (Rr[Or] = $t(Ir))) : "none" !== Dr && (Rr[Or] = "none",
-            fa.set(Ir, "display", Dr)));
+        for (var Ir = [], Or = 0, Lr = Pr.length, Dr, Rr; Or < Lr; Or++)
+            (Rr = Pr[Or]).style && (Dr = Rr.style.display,
+            Mr ? ("none" === Dr && (Ir[Or] = fa.get(Rr, "display") || null,
+            Ir[Or] || (Rr.style.display = "")),
+            "" === Rr.style.display && Ta(Rr) && (Ir[Or] = $t(Rr))) : "none" !== Dr && (Ir[Or] = "none",
+            fa.set(Rr, "display", Dr)));
         for (Or = 0; Or < Lr; Or++)
-            null != Rr[Or] && (Pr[Or].style.display = Rr[Or]);
+            null != Ir[Or] && (Pr[Or].style.display = Ir[Or]);
         return Pr
     }
     function tn(Pr, Mr) {
@@ -124,10 +124,10 @@
         void 0 === Mr || Mr && Ht(Pr, Mr) ? Vn.merge([Pr], Dr) : Dr
     }
     function nn(Pr, Mr) {
-        for (var Dr = 0, Ir = Pr.length; Dr < Ir; Dr++)
+        for (var Dr = 0, Rr = Pr.length; Dr < Rr; Dr++)
             fa.set(Pr[Dr], "globalEval", !Mr || fa.get(Mr[Dr], "globalEval"))
     }
-    function an(Pr, Mr, Dr, Ir, Rr) {
+    function an(Pr, Mr, Dr, Rr, Ir) {
         for (var Ur = Mr.createDocumentFragment(), Yr = [], Gr = 0, Xr = Pr.length, Or, Lr, kr, Nr, Fr, Br; Gr < Xr; Gr++)
             if ((Or = Pr[Gr]) || 0 === Or)
                 if ("object" === Vn.type(Or))
@@ -145,8 +145,8 @@
                     Yr.push(Mr.createTextNode(Or));
         for (Ur.textContent = "",
         Gr = 0; Or = Yr[Gr++]; )
-            if (Ir && -1 < Vn.inArray(Or, Ir))
-                Rr && Rr.push(Or);
+            if (Rr && -1 < Vn.inArray(Or, Rr))
+                Ir && Ir.push(Or);
             else if (Fr = Vn.contains(Or.ownerDocument, Or),
             Lr = tn(Ur.appendChild(Or), "script"),
             Fr && nn(Lr),
@@ -166,32 +166,32 @@
             return kn.activeElement
         } catch (Pr) {}
     }
-    function dn(Pr, Mr, Dr, Ir, Rr, Or) {
+    function dn(Pr, Mr, Dr, Rr, Ir, Or) {
         var Lr, kr;
         if ("object" == typeof Mr) {
-            for (kr in "string" != typeof Dr && (Ir = Ir || Dr,
+            for (kr in "string" != typeof Dr && (Rr = Rr || Dr,
             Dr = void 0),
             Mr)
-                dn(Pr, kr, Dr, Ir, Mr[kr], Or);
+                dn(Pr, kr, Dr, Rr, Mr[kr], Or);
             return Pr
         }
-        if (null == Ir && null == Rr ? (Rr = Dr,
-        Ir = Dr = void 0) : null == Rr && ("string" == typeof Dr ? (Rr = Ir,
-        Ir = void 0) : (Rr = Ir,
-        Ir = Dr,
+        if (null == Rr && null == Ir ? (Ir = Dr,
+        Rr = Dr = void 0) : null == Ir && ("string" == typeof Dr ? (Ir = Rr,
+        Rr = void 0) : (Ir = Rr,
+        Rr = Dr,
         Dr = void 0)),
-        !1 === Rr)
-            Rr = on;
-        else if (!Rr)
+        !1 === Ir)
+            Ir = on;
+        else if (!Ir)
             return Pr;
-        return 1 === Or && (Lr = Rr,
-        (Rr = function(Nr) {
+        return 1 === Or && (Lr = Ir,
+        (Ir = function(Nr) {
             return Vn().off(Nr),
             Lr.apply(this, arguments)
         }
         ).guid = Lr.guid || (Lr.guid = Vn.guid++)),
         Pr.each(function() {
-            Vn.event.add(this, Mr, Rr, Ir, Dr)
+            Vn.event.add(this, Mr, Ir, Rr, Dr)
         })
     }
     function ln(Pr, Mr) {
@@ -207,17 +207,17 @@
         Pr
     }
     function cn(Pr, Mr) {
-        var Dr, Ir, Rr, Or, Lr, kr, Nr, Fr;
+        var Dr, Rr, Ir, Or, Lr, kr, Nr, Fr;
         if (1 === Mr.nodeType) {
             if (fa.hasData(Pr) && (Or = fa.access(Pr),
             Lr = fa.set(Mr, Or),
             Fr = Or.events))
-                for (Rr in delete Lr.handle,
+                for (Ir in delete Lr.handle,
                 Lr.events = {},
                 Fr)
                     for (Dr = 0,
-                    Ir = Fr[Rr].length; Dr < Ir; Dr++)
-                        Vn.event.add(Mr, Rr, Fr[Rr][Dr]);
+                    Rr = Fr[Ir].length; Dr < Rr; Dr++)
+                        Vn.event.add(Mr, Ir, Fr[Ir][Dr]);
             ga.hasData(Pr) && (kr = ga.access(Pr),
             Nr = Vn.extend({}, kr),
             ga.set(Mr, Nr))
@@ -227,21 +227,21 @@
         var Dr = Mr.nodeName.toLowerCase();
         "input" === Dr && wa.test(Pr.type) ? Mr.checked = Pr.checked : "input" !== Dr && "textarea" !== Dr || (Mr.defaultValue = Pr.defaultValue)
     }
-    function fn(Pr, Mr, Dr, Ir) {
+    function fn(Pr, Mr, Dr, Rr) {
         Mr = Bn.apply([], Mr);
-        var Br = 0, Ur = Pr.length, Gr = Mr[0], Xr = Vn.isFunction(Gr), Rr, Or, Lr, kr, Nr, Fr;
+        var Br = 0, Ur = Pr.length, Gr = Mr[0], Xr = Vn.isFunction(Gr), Ir, Or, Lr, kr, Nr, Fr;
         if (Xr || 1 < Ur && "string" == typeof Gr && !zn.checkClone && Na.test(Gr))
             return Pr.each(function(Hr) {
                 var jr = Pr.eq(Hr);
                 Xr && (Mr[0] = Gr.call(this, Hr, jr.html())),
-                fn(jr, Mr, Dr, Ir)
+                fn(jr, Mr, Dr, Rr)
             });
-        if (Ur && (Rr = an(Mr, Pr[0].ownerDocument, !1, Pr, Ir),
-        Or = Rr.firstChild,
-        1 === Rr.childNodes.length && (Rr = Or),
-        Or || Ir)) {
-            for (kr = (Lr = Vn.map(tn(Rr, "script"), un)).length; Br < Ur; Br++)
-                Nr = Rr,
+        if (Ur && (Ir = an(Mr, Pr[0].ownerDocument, !1, Pr, Rr),
+        Or = Ir.firstChild,
+        1 === Ir.childNodes.length && (Ir = Or),
+        Or || Rr)) {
+            for (kr = (Lr = Vn.map(tn(Ir, "script"), un)).length; Br < Ur; Br++)
+                Nr = Ir,
                 Br != Ur - 1 && (Nr = Vn.clone(Nr, !0, !0),
                 kr && Vn.merge(Lr, tn(Nr, "script"))),
                 Dr.call(Pr[Br], Nr, Br);
@@ -255,22 +255,22 @@
         return Pr
     }
     function gn(Pr, Mr, Dr) {
-        for (var Rr = Mr ? Vn.filter(Mr, Pr) : Pr, Or = 0, Ir; null != (Ir = Rr[Or]); Or++)
-            Dr || 1 !== Ir.nodeType || Vn.cleanData(tn(Ir)),
-            Ir.parentNode && (Dr && Vn.contains(Ir.ownerDocument, Ir) && nn(tn(Ir, "script")),
-            Ir.parentNode.removeChild(Ir));
+        for (var Ir = Mr ? Vn.filter(Mr, Pr) : Pr, Or = 0, Rr; null != (Rr = Ir[Or]); Or++)
+            Dr || 1 !== Rr.nodeType || Vn.cleanData(tn(Rr)),
+            Rr.parentNode && (Dr && Vn.contains(Rr.ownerDocument, Rr) && nn(tn(Rr, "script")),
+            Rr.parentNode.removeChild(Rr));
         return Pr
     }
     function mn(Pr, Mr, Dr) {
-        var kr = Pr.style, Ir, Rr, Or, Lr;
+        var kr = Pr.style, Rr, Ir, Or, Lr;
         return (Dr = Dr || Ga(Pr)) && ("" !== (Lr = Dr.getPropertyValue(Mr) || Dr[Mr]) || Vn.contains(Pr.ownerDocument, Pr) || (Lr = Vn.style(Pr, Mr)),
-        !zn.pixelMarginRight() && Ya.test(Lr) && Ua.test(Mr) && (Ir = kr.width,
-        Rr = kr.minWidth,
+        !zn.pixelMarginRight() && Ya.test(Lr) && Ua.test(Mr) && (Rr = kr.width,
+        Ir = kr.minWidth,
         Or = kr.maxWidth,
         kr.minWidth = kr.maxWidth = kr.width = Lr,
         Lr = Dr.width,
-        kr.width = Ir,
-        kr.minWidth = Rr,
+        kr.width = Rr,
+        kr.minWidth = Ir,
         kr.maxWidth = Or)),
         void 0 === Lr ? Lr : Lr + ""
     }
@@ -286,33 +286,33 @@
         return Mr || (Mr = Vn.cssProps[Pr] = function(Dr) {
             if (Dr in Va)
                 return Dr;
-            for (var Ir = Dr[0].toUpperCase() + Dr.slice(1), Rr = za.length; Rr--; )
-                if ((Dr = za[Rr] + Ir)in Va)
+            for (var Rr = Dr[0].toUpperCase() + Dr.slice(1), Ir = za.length; Ir--; )
+                if ((Dr = za[Ir] + Rr)in Va)
                     return Dr
         }(Pr) || Pr),
         Mr
     }
     function bn(Pr, Mr, Dr) {
-        var Ir = xa.exec(Mr);
-        return Ir ? Math.max(0, Ir[2] - (Dr || 0)) + (Ir[3] || "px") : Mr
+        var Rr = xa.exec(Mr);
+        return Rr ? Math.max(0, Rr[2] - (Dr || 0)) + (Rr[3] || "px") : Mr
     }
-    function xn(Pr, Mr, Dr, Ir, Rr) {
+    function xn(Pr, Mr, Dr, Rr, Ir) {
         var Lr = 0, Or;
-        for (Or = Dr === (Ir ? "border" : "content") ? 4 : "width" === Mr ? 1 : 0; 4 > Or; Or += 2)
-            "margin" === Dr && (Lr += Vn.css(Pr, Dr + va[Or], !0, Rr)),
-            Ir ? ("content" === Dr && (Lr -= Vn.css(Pr, "padding" + va[Or], !0, Rr)),
-            "margin" !== Dr && (Lr -= Vn.css(Pr, "border" + va[Or] + "Width", !0, Rr))) : (Lr += Vn.css(Pr, "padding" + va[Or], !0, Rr),
-            "padding" !== Dr && (Lr += Vn.css(Pr, "border" + va[Or] + "Width", !0, Rr)));
+        for (Or = Dr === (Rr ? "border" : "content") ? 4 : "width" === Mr ? 1 : 0; 4 > Or; Or += 2)
+            "margin" === Dr && (Lr += Vn.css(Pr, Dr + va[Or], !0, Ir)),
+            Rr ? ("content" === Dr && (Lr -= Vn.css(Pr, "padding" + va[Or], !0, Ir)),
+            "margin" !== Dr && (Lr -= Vn.css(Pr, "border" + va[Or] + "Width", !0, Ir))) : (Lr += Vn.css(Pr, "padding" + va[Or], !0, Ir),
+            "padding" !== Dr && (Lr += Vn.css(Pr, "border" + va[Or] + "Width", !0, Ir)));
         return Lr
     }
     function vn(Pr, Mr, Dr) {
-        var Rr = Ga(Pr), Or = mn(Pr, Mr, Rr), Lr = "border-box" === Vn.css(Pr, "boxSizing", !1, Rr), Ir;
-        return Ya.test(Or) ? Or : (Ir = Lr && (zn.boxSizingReliable() || Or === Pr.style[Mr]),
+        var Ir = Ga(Pr), Or = mn(Pr, Mr, Ir), Lr = "border-box" === Vn.css(Pr, "boxSizing", !1, Ir), Rr;
+        return Ya.test(Or) ? Or : (Rr = Lr && (zn.boxSizingReliable() || Or === Pr.style[Mr]),
         "auto" === Or && (Or = Pr["offset" + Mr[0].toUpperCase() + Mr.slice(1)]),
-        (Or = parseFloat(Or) || 0) + xn(Pr, Mr, Dr || (Lr ? "border" : "content"), Ir, Rr) + "px")
+        (Or = parseFloat(Or) || 0) + xn(Pr, Mr, Dr || (Lr ? "border" : "content"), Rr, Ir) + "px")
     }
-    function Tn(Pr, Mr, Dr, Ir, Rr) {
-        return new Tn.prototype.init(Pr,Mr,Dr,Ir,Rr)
+    function Tn(Pr, Mr, Dr, Rr, Ir) {
+        return new Tn.prototype.init(Pr,Mr,Dr,Rr,Ir)
     }
     function En() {
         Ka && (!1 === kn.hidden && Bt.requestAnimationFrame ? Bt.requestAnimationFrame(En) : Bt.setTimeout(En, Vn.fx.interval),
@@ -325,24 +325,24 @@
         qa = Vn.now()
     }
     function wn(Pr, Mr) {
-        var Ir = 0, Rr = {
+        var Rr = 0, Ir = {
             height: Pr
         }, Dr;
-        for (Mr = Mr ? 1 : 0; 4 > Ir; Ir += 2 - Mr)
-            Rr["margin" + (Dr = va[Ir])] = Rr["padding" + Dr] = Pr;
-        return Mr && (Rr.opacity = Rr.width = Pr),
-        Rr
+        for (Mr = Mr ? 1 : 0; 4 > Rr; Rr += 2 - Mr)
+            Ir["margin" + (Dr = va[Rr])] = Ir["padding" + Dr] = Pr;
+        return Mr && (Ir.opacity = Ir.width = Pr),
+        Ir
     }
     function Cn(Pr, Mr, Dr) {
-        for (var Rr = (An.tweeners[Mr] || []).concat(An.tweeners["*"]), Or = 0, Lr = Rr.length, Ir; Or < Lr; Or++)
-            if (Ir = Rr[Or].call(Dr, Mr, Pr))
-                return Ir
+        for (var Ir = (An.tweeners[Mr] || []).concat(An.tweeners["*"]), Or = 0, Lr = Ir.length, Rr; Or < Lr; Or++)
+            if (Rr = Ir[Or].call(Dr, Mr, Pr))
+                return Rr
     }
     function An(Pr, Mr, Dr) {
         var Or = 0, Lr = An.prefilters.length, kr = Vn.Deferred().always(function() {
             delete Nr.elem
         }), Nr = function() {
-            if (Rr)
+            if (Ir)
                 return !1;
             for (var Ur = qa || Sn(), Yr = Math.max(0, Fr.startTime + Fr.duration - Ur), Gr = 1 - (Yr / Fr.duration || 0), Xr = 0, Hr = Fr.tweens.length; Xr < Hr; Xr++)
                 Fr.tweens[Xr].run(Gr);
@@ -370,15 +370,15 @@
             stop: function(Ur) {
                 var Yr = 0
                   , Gr = Ur ? Fr.tweens.length : 0;
-                if (Rr)
+                if (Ir)
                     return this;
-                for (Rr = !0; Yr < Gr; Yr++)
+                for (Ir = !0; Yr < Gr; Yr++)
                     Fr.tweens[Yr].run(1);
                 return Ur ? (kr.notifyWith(Pr, [Fr, 1, 0]),
                 kr.resolveWith(Pr, [Fr, Ur])) : kr.rejectWith(Pr, [Fr, Ur]),
                 this
             }
-        }), Br = Fr.props, Ir, Rr;
+        }), Br = Fr.props, Rr, Ir;
         for (!function(Ur, Yr) {
             var Gr, Xr, Hr, jr, Wr;
             for (Gr in Ur)
@@ -398,9 +398,9 @@
                 else
                     Yr[Xr] = Hr
         }(Br, Fr.opts.specialEasing); Or < Lr; Or++)
-            if (Ir = An.prefilters[Or].call(Fr, Pr, Br, Fr.opts))
-                return Vn.isFunction(Ir.stop) && (Vn._queueHooks(Fr.elem, Fr.opts.queue).stop = Vn.proxy(Ir.stop, Ir)),
-                Ir;
+            if (Rr = An.prefilters[Or].call(Fr, Pr, Br, Fr.opts))
+                return Vn.isFunction(Rr.stop) && (Vn._queueHooks(Fr.elem, Fr.opts.queue).stop = Vn.proxy(Rr.stop, Rr)),
+                Rr;
         return Vn.map(Br, Cn, Fr),
         Vn.isFunction(Fr.opts.start) && Fr.opts.start.call(Pr, Fr),
         Fr.progress(Fr.opts.progress).done(Fr.opts.done, Fr.opts.complete).fail(Fr.opts.fail).always(Fr.opts.always),
@@ -417,49 +417,49 @@
     function Mn(Pr) {
         return Pr.getAttribute && Pr.getAttribute("class") || ""
     }
-    function Dn(Pr, Mr, Dr, Ir) {
+    function Dn(Pr, Mr, Dr, Rr) {
         if (Array.isArray(Mr))
             Vn.each(Mr, function(Or, Lr) {
-                Dr || sr.test(Pr) ? Ir(Pr, Lr) : Dn(Pr + "[" + ("object" == typeof Lr && null != Lr ? Or : "") + "]", Lr, Dr, Ir)
+                Dr || sr.test(Pr) ? Rr(Pr, Lr) : Dn(Pr + "[" + ("object" == typeof Lr && null != Lr ? Or : "") + "]", Lr, Dr, Rr)
             });
         else if (Dr || "object" !== Vn.type(Mr))
-            Ir(Pr, Mr);
+            Rr(Pr, Mr);
         else
-            for (var Rr in Mr)
-                Dn(Pr + "[" + Rr + "]", Mr[Rr], Dr, Ir)
+            for (var Ir in Mr)
+                Dn(Pr + "[" + Ir + "]", Mr[Ir], Dr, Rr)
     }
-    function In(Pr) {
+    function Rn(Pr) {
         return function(Mr, Dr) {
             "string" != typeof Mr && (Dr = Mr,
             Mr = "*");
-            var Rr = 0, Or = Mr.toLowerCase().match(la) || [], Ir;
+            var Ir = 0, Or = Mr.toLowerCase().match(la) || [], Rr;
             if (Vn.isFunction(Dr))
-                for (; Ir = Or[Rr++]; )
-                    "+" === Ir[0] ? (Ir = Ir.slice(1) || "*",
-                    (Pr[Ir] = Pr[Ir] || []).unshift(Dr)) : (Pr[Ir] = Pr[Ir] || []).push(Dr)
+                for (; Rr = Or[Ir++]; )
+                    "+" === Rr[0] ? (Rr = Rr.slice(1) || "*",
+                    (Pr[Rr] = Pr[Rr] || []).unshift(Dr)) : (Pr[Rr] = Pr[Rr] || []).push(Dr)
         }
     }
-    function Rn(Pr, Mr, Dr, Ir) {
-        function Rr(kr) {
+    function In(Pr, Mr, Dr, Rr) {
+        function Ir(kr) {
             var Nr;
             return Or[kr] = !0,
             Vn.each(Pr[kr] || [], function(Fr, Br) {
-                var Ur = Br(Mr, Dr, Ir);
+                var Ur = Br(Mr, Dr, Rr);
                 return "string" != typeof Ur || Lr || Or[Ur] ? Lr ? !(Nr = Ur) : void 0 : (Mr.dataTypes.unshift(Ur),
-                Rr(Ur),
+                Ir(Ur),
                 !1)
             }),
             Nr
         }
         var Or = {}
           , Lr = Pr === br;
-        return Rr(Mr.dataTypes[0]) || !Or["*"] && Rr("*")
+        return Ir(Mr.dataTypes[0]) || !Or["*"] && Ir("*")
     }
     function On(Pr, Mr) {
-        var Rr = Vn.ajaxSettings.flatOptions || {}, Dr, Ir;
+        var Ir = Vn.ajaxSettings.flatOptions || {}, Dr, Rr;
         for (Dr in Mr)
-            void 0 !== Mr[Dr] && ((Rr[Dr] ? Pr : Ir || (Ir = {}))[Dr] = Mr[Dr]);
-        return Ir && Vn.extend(!0, Pr, Ir),
+            void 0 !== Mr[Dr] && ((Ir[Dr] ? Pr : Rr || (Rr = {}))[Dr] = Mr[Dr]);
+        return Rr && Vn.extend(!0, Pr, Rr),
         Pr
     }
     var Ln = []
@@ -529,7 +529,7 @@
         splice: Ln.splice
     },
     Vn.extend = Vn.fn.extend = function() {
-        var Lr = arguments[0] || {}, kr = 1, Nr = arguments.length, Fr = !1, Pr, Mr, Dr, Ir, Rr, Or;
+        var Lr = arguments[0] || {}, kr = 1, Nr = arguments.length, Fr = !1, Pr, Mr, Dr, Rr, Ir, Or;
         for ("boolean" == typeof Lr && (Fr = Lr,
         Lr = arguments[kr] || {},
         kr++),
@@ -539,9 +539,9 @@
             if (null != (Pr = arguments[kr]))
                 for (Mr in Pr)
                     Dr = Lr[Mr],
-                    Lr !== (Ir = Pr[Mr]) && (Fr && Ir && (Vn.isPlainObject(Ir) || (Rr = Array.isArray(Ir))) ? (Rr ? (Rr = !1,
+                    Lr !== (Rr = Pr[Mr]) && (Fr && Rr && (Vn.isPlainObject(Rr) || (Ir = Array.isArray(Rr))) ? (Ir ? (Ir = !1,
                     Or = Dr && Array.isArray(Dr) ? Dr : []) : Or = Dr && Vn.isPlainObject(Dr) ? Dr : {},
-                    Lr[Mr] = Vn.extend(Fr, Or, Ir)) : void 0 != Ir && (Lr[Mr] = Ir));
+                    Lr[Mr] = Vn.extend(Fr, Or, Rr)) : void 0 != Rr && (Lr[Mr] = Rr));
         return Lr
     }
     ,
@@ -581,13 +581,13 @@
             return Pr.replace(Kn, "ms-").replace(Jn, Zn)
         },
         each: function(Pr, Mr) {
-            var Ir = 0, Dr;
+            var Rr = 0, Dr;
             if (Xt(Pr))
-                for (Dr = Pr.length; Ir < Dr && !1 !== Mr.call(Pr[Ir], Ir, Pr[Ir]); Ir++)
+                for (Dr = Pr.length; Rr < Dr && !1 !== Mr.call(Pr[Rr], Rr, Pr[Rr]); Rr++)
                     ;
             else
-                for (Ir in Pr)
-                    if (!1 === Mr.call(Pr[Ir], Ir, Pr[Ir]))
+                for (Rr in Pr)
+                    if (!1 === Mr.call(Pr[Rr], Rr, Pr[Rr]))
                         break;
             return Pr
         },
@@ -603,40 +603,40 @@
             return null == Mr ? -1 : Yn.call(Mr, Pr, Dr)
         },
         merge: function(Pr, Mr) {
-            for (var Dr = +Mr.length, Ir = 0, Rr = Pr.length; Ir < Dr; Ir++)
-                Pr[Rr++] = Mr[Ir];
-            return Pr.length = Rr,
+            for (var Dr = +Mr.length, Rr = 0, Ir = Pr.length; Rr < Dr; Rr++)
+                Pr[Ir++] = Mr[Rr];
+            return Pr.length = Ir,
             Pr
         },
         grep: function(Pr, Mr, Dr) {
-            for (var Ir = [], Rr = 0, Or = Pr.length; Rr < Or; Rr++)
-                !Mr(Pr[Rr], Rr) !== !Dr && Ir.push(Pr[Rr]);
-            return Ir
+            for (var Rr = [], Ir = 0, Or = Pr.length; Ir < Or; Ir++)
+                !Mr(Pr[Ir], Ir) !== !Dr && Rr.push(Pr[Ir]);
+            return Rr
         },
         map: function(Pr, Mr, Dr) {
-            var Or = 0, Lr = [], Ir, Rr;
+            var Or = 0, Lr = [], Rr, Ir;
             if (Xt(Pr))
-                for (Ir = Pr.length; Or < Ir; Or++)
-                    null != (Rr = Mr(Pr[Or], Or, Dr)) && Lr.push(Rr);
+                for (Rr = Pr.length; Or < Rr; Or++)
+                    null != (Ir = Mr(Pr[Or], Or, Dr)) && Lr.push(Ir);
             else
                 for (Or in Pr)
-                    null != (Rr = Mr(Pr[Or], Or, Dr)) && Lr.push(Rr);
+                    null != (Ir = Mr(Pr[Or], Or, Dr)) && Lr.push(Ir);
             return Bn.apply([], Lr)
         },
         guid: 1,
         proxy: function(Pr, Mr) {
-            var Dr, Ir, Rr;
+            var Dr, Rr, Ir;
             if ("string" == typeof Mr && (Dr = Pr[Mr],
             Mr = Pr,
             Pr = Dr),
             Vn.isFunction(Pr))
-                return Ir = Fn.call(arguments, 2),
-                Rr = function() {
-                    return Pr.apply(Mr || this, Ir.concat(Fn.call(arguments)))
+                return Rr = Fn.call(arguments, 2),
+                Ir = function() {
+                    return Pr.apply(Mr || this, Rr.concat(Fn.call(arguments)))
                 }
                 ,
-                Rr.guid = Pr.guid = Pr.guid || Vn.guid++,
-                Rr
+                Ir.guid = Pr.guid = Pr.guid || Vn.guid++,
+                Ir
         },
         now: Date.now,
         support: zn
@@ -701,11 +701,11 @@
             var Qi = [];
             return Zi
         }
-        function Ir(Zi) {
+        function Rr(Zi) {
             return Zi[ci] = !0,
             Zi
         }
-        function Rr(Zi) {
+        function Ir(Zi) {
             var Qi = ii.createElement("fieldset");
             try {
                 return !!Zi(Qi)
@@ -748,9 +748,9 @@
             }
         }
         function Br(Zi) {
-            return Ir(function(Qi) {
+            return Rr(function(Qi) {
                 return Qi = +Qi,
-                Ir(function($i, eo) {
+                Rr(function($i, eo) {
                     for (var no = Zi([], $i.length, Qi), ao = no.length, to; ao--; )
                         $i[to = no[ao]] && ($i[to] = !(eo[to] = $i[to]))
                 })
@@ -818,7 +818,7 @@
         function Wr(Zi, Qi, $i, eo, to, no) {
             return eo && !eo[ci] && (eo = Wr(eo)),
             to && !to[ci] && (to = Wr(to, no)),
-            Ir(function(ao, ro, io, oo) {
+            Rr(function(ao, ro, io, oo) {
                 var po = [], co = [], ho = ro.length, fo = ao || function(yo, _o, bo) {
                     for (var xo = 0, vo = _o.length; xo < vo; xo++)
                         Mr(yo, _o[xo], bo);
@@ -878,7 +878,7 @@
                 if (Zi[$i] === Qi)
                     return $i;
             return -1
-        }, Ai = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", Pi = "[\\x20\\t\\r\\n\\f]", Mi = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Ri = /[\x20\t\r\n\f]+/g, Oi = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Li = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, ki = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Ni = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, Fi = /:((?:\\.|[\w-]|[^ -\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^ -\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^ -\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, Bi = /^(?:\\.|[\w-]|[^ -\xa0])+$/, Ui = {
+        }, Ai = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", Pi = "[\\x20\\t\\r\\n\\f]", Mi = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+", Ii = /[\x20\t\r\n\f]+/g, Oi = /^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, Li = /^[\x20\t\r\n\f]*,[\x20\t\r\n\f]*/, ki = /^[\x20\t\r\n\f]*([>+~]|[\x20\t\r\n\f])[\x20\t\r\n\f]*/, Ni = /=[\x20\t\r\n\f]*([^\]'"]*?)[\x20\t\r\n\f]*\]/g, Fi = /:((?:\\.|[\w-]|[^ -\xa0])+)(?:\((('((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)")|((?:\\.|[^\\()[\]]|\[[\x20\t\r\n\f]*((?:\\.|[\w-]|[^ -\xa0])+)(?:[\x20\t\r\n\f]*([*^$|!~]?=)[\x20\t\r\n\f]*(?:'((?:\\.|[^\\'])*)'|"((?:\\.|[^\\"])*)"|((?:\\.|[\w-]|[^ -\xa0])+))|)[\x20\t\r\n\f]*\])*)|.*)\)|)/, Bi = /^(?:\\.|[\w-]|[^ -\xa0])+$/, Ui = {
             ID: /^#((?:\\.|[\w-]|[^ -\xa0])+)/,
             CLASS: /^\.((?:\\.|[\w-]|[^ -\xa0])+)/,
             TAG: /^((?:\\.|[\w-]|[^ -\xa0])+|[*])/,
@@ -927,16 +927,16 @@
             oi = ii.documentElement,
             si = !Zr(ii),
             hi !== ii && ($i = ii.defaultView) && $i.top !== $i && ($i.addEventListener ? $i.addEventListener("unload", Ki, !1) : $i.attachEvent && $i.attachEvent("onunload", Ki)),
-            qr.attributes = Rr(function(to) {
+            qr.attributes = Ir(function(to) {
                 return to.className = "i",
                 !to.getAttribute("className")
             }),
-            qr.getElementsByTagName = Rr(function(to) {
+            qr.getElementsByTagName = Ir(function(to) {
                 return to.appendChild(ii.createComment("")),
                 !to.getElementsByTagName("*").length
             }),
             qr.getElementsByClassName = Xi.test(ii.getElementsByClassName),
-            qr.getById = Rr(function(to) {
+            qr.getById = Ir(function(to) {
                 return oi.appendChild(to).id = ci,
                 !ii.getElementsByName || !ii.getElementsByName(ci).length
             }),
@@ -996,7 +996,7 @@
             ,
             li = [],
             di = [],
-            (qr.qsa = Xi.test(ii.querySelectorAll)) && (Rr(function(to) {
+            (qr.qsa = Xi.test(ii.querySelectorAll)) && (Ir(function(to) {
                 oi.appendChild(to).innerHTML = "<a id='" + ci + "'></a><select id='" + ci + "-\r\\' msallowcapture=''><option selected=''></option></select>",
                 to.querySelectorAll("[msallowcapture^='']").length && di.push("[*^$]=" + Pi + "*(?:''|\"\")"),
                 to.querySelectorAll("[selected]").length || di.push("\\[" + Pi + "*(?:value|" + Ai + ")"),
@@ -1004,7 +1004,7 @@
                 to.querySelectorAll(":checked").length || di.push(":checked"),
                 to.querySelectorAll("a#" + ci + "+*").length || di.push(".#.+[+~]")
             }),
-            Rr(function(to) {
+            Ir(function(to) {
                 to.innerHTML = "<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";
                 var no = ii.createElement("input");
                 no.setAttribute("type", "hidden"),
@@ -1016,7 +1016,7 @@
                 to.querySelectorAll("*,:x"),
                 di.push(",.*:")
             })),
-            (qr.matchesSelector = Xi.test(ui = oi.matches || oi.webkitMatchesSelector || oi.mozMatchesSelector || oi.oMatchesSelector || oi.msMatchesSelector)) && Rr(function(to) {
+            (qr.matchesSelector = Xi.test(ui = oi.matches || oi.webkitMatchesSelector || oi.mozMatchesSelector || oi.oMatchesSelector || oi.msMatchesSelector)) && Ir(function(to) {
                 qr.disconnectedMatch = ui.call(to, "*"),
                 ui.call(to, "[s!='']:x"),
                 li.push("!=", ":(" + Mi + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + ("\\[" + Pi + "*(" + Mi + ")(?:" + Pi + "*([*^$|!~]?=)" + Pi + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + Mi + "))|)" + Pi + "*\\]") + ")*)|.*)\\)|)")
@@ -1133,7 +1133,7 @@
         ,
         (Kr = Mr.selectors = {
             cacheLength: 50,
-            createPseudo: Ir,
+            createPseudo: Rr,
             match: Ui,
             attrHandle: {},
             find: {},
@@ -1194,7 +1194,7 @@
                     return function(eo) {
                         var to = Mr.attr(eo, Zi);
                         return null == to ? "!=" === Qi : !Qi || (to += "",
-                        "=" === Qi ? to === $i : "!=" === Qi ? to !== $i : "^=" === Qi ? $i && 0 === to.indexOf($i) : "*=" === Qi ? $i && -1 < to.indexOf($i) : "$=" === Qi ? $i && to.slice(-$i.length) === $i : "~=" === Qi ? -1 < (" " + to.replace(Ri, " ") + " ").indexOf($i) : "|=" == Qi && (to === $i || to.slice(0, $i.length + 1) === $i + "-"))
+                        "=" === Qi ? to === $i : "!=" === Qi ? to !== $i : "^=" === Qi ? $i && 0 === to.indexOf($i) : "*=" === Qi ? $i && -1 < to.indexOf($i) : "$=" === Qi ? $i && to.slice(-$i.length) === $i : "~=" === Qi ? -1 < (" " + to.replace(Ii, " ") + " ").indexOf($i) : "|=" == Qi && (to === $i || to.slice(0, $i.length + 1) === $i + "-"))
                     }
                 },
                 CHILD: function(Zi, Qi, $i, eo, to) {
@@ -1236,7 +1236,7 @@
                 PSEUDO: function(Zi, Qi) {
                     var eo = Kr.pseudos[Zi] || Kr.setFilters[Zi.toLowerCase()] || Mr.error("unsupported pseudo: " + Zi), $i;
                     return eo[ci] ? eo(Qi) : 1 < eo.length ? ($i = [Zi, Zi, "", Qi],
-                    Kr.setFilters.hasOwnProperty(Zi.toLowerCase()) ? Ir(function(to, no) {
+                    Kr.setFilters.hasOwnProperty(Zi.toLowerCase()) ? Rr(function(to, no) {
                         for (var ro = eo(to, Qi), io = ro.length, ao; io--; )
                             to[ao = Ci(to, ro[io])] = !(no[ao] = ro[io])
                     }) : function(to) {
@@ -1246,11 +1246,11 @@
                 }
             },
             pseudos: {
-                not: Ir(function(Zi) {
+                not: Rr(function(Zi) {
                     var Qi = []
                       , $i = []
                       , eo = $r(Zi.replace(Oi, "$1"));
-                    return eo[ci] ? Ir(function(to, no, ao, ro) {
+                    return eo[ci] ? Rr(function(to, no, ao, ro) {
                         for (var oo = eo(to, null, ro, []), so = to.length, io; so--; )
                             (io = oo[so]) && (to[so] = !(no[so] = io))
                     }) : function(to, no, ao) {
@@ -1260,18 +1260,18 @@
                         !$i.pop()
                     }
                 }),
-                has: Ir(function(Zi) {
+                has: Rr(function(Zi) {
                     return function(Qi) {
                         return 0 < Mr(Zi, Qi).length
                     }
                 }),
-                contains: Ir(function(Zi) {
+                contains: Rr(function(Zi) {
                     return Zi = Zi.replace(Wi, zi),
                     function(Qi) {
                         return -1 < (Qi.textContent || Qi.innerText || Jr(Qi)).indexOf(Zi)
                     }
                 }),
-                lang: Ir(function(Zi) {
+                lang: Rr(function(Zi) {
                     return Bi.test(Zi || "") || Mr.error("unsupported lang: " + Zi),
                     Zi = Zi.replace(Wi, zi).toLowerCase(),
                     function(Qi) {
@@ -1443,7 +1443,7 @@
                         ti = vo),
                         bo
                     };
-                    return io ? Ir(so) : so
+                    return io ? Rr(so) : so
                 }(to, eo))).selector = Zi
             }
             return no
@@ -1476,17 +1476,17 @@
         qr.sortStable = ci.split("").sort(bi).join("") === ci,
         qr.detectDuplicates = !!ai,
         ri(),
-        qr.sortDetached = Rr(function(Zi) {
+        qr.sortDetached = Ir(function(Zi) {
             return 1 & Zi.compareDocumentPosition(ii.createElement("fieldset"))
         }),
-        Rr(function(Zi) {
+        Ir(function(Zi) {
             return Zi.innerHTML = "<a href='#'></a>",
             "#" === Zi.firstChild.getAttribute("href")
         }) || Or("type|href|height|width", function(Zi, Qi, $i) {
             if (!$i)
                 return Zi.getAttribute(Qi, "type" === Qi.toLowerCase() ? 1 : 2)
         }),
-        qr.attributes && Rr(function(Zi) {
+        qr.attributes && Ir(function(Zi) {
             return Zi.innerHTML = "<input/>",
             Zi.firstChild.setAttribute("value", ""),
             "" === Zi.firstChild.getAttribute("value")
@@ -1494,7 +1494,7 @@
             if (!$i && "input" === Zi.nodeName.toLowerCase())
                 return Zi.defaultValue
         }),
-        Rr(function(Zi) {
+        Ir(function(Zi) {
             return null == Zi.getAttribute("disabled")
         }) || Or(Ai, function(Zi, Qi, $i) {
             var eo;
@@ -1512,13 +1512,13 @@
     Vn.contains = Qn.contains,
     Vn.escapeSelector = Qn.escape;
     var $n = function(Pr, Mr, Dr) {
-        for (var Ir = []; (Pr = Pr[Mr]) && 9 !== Pr.nodeType; )
+        for (var Rr = []; (Pr = Pr[Mr]) && 9 !== Pr.nodeType; )
             if (1 === Pr.nodeType) {
                 if (void 0 !== Dr && Vn(Pr).is(Dr))
                     break;
-                Ir.push(Pr)
+                Rr.push(Pr)
             }
-        return Ir
+        return Rr
     }
       , ea = function(Pr, Mr) {
         for (var Dr = []; Pr; Pr = Pr.nextSibling)
@@ -1529,26 +1529,26 @@
       , na = /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i
       , aa = /^.[^:#\[\.,]*$/;
     Vn.filter = function(Pr, Mr, Dr) {
-        var Ir = Mr[0];
+        var Rr = Mr[0];
         return Dr && (Pr = ":not(" + Pr + ")"),
-        1 === Mr.length && 1 === Ir.nodeType ? Vn.find.matchesSelector(Ir, Pr) ? [Ir] : [] : Vn.find.matches(Pr, Vn.grep(Mr, function(Rr) {
-            return 1 === Rr.nodeType
+        1 === Mr.length && 1 === Rr.nodeType ? Vn.find.matchesSelector(Rr, Pr) ? [Rr] : [] : Vn.find.matches(Pr, Vn.grep(Mr, function(Ir) {
+            return 1 === Ir.nodeType
         }))
     }
     ,
     Vn.fn.extend({
         find: function(Pr) {
-            var Ir = this.length, Rr = this, Mr, Dr;
+            var Rr = this.length, Ir = this, Mr, Dr;
             if ("string" != typeof Pr)
                 return this.pushStack(Vn(Pr).filter(function() {
-                    for (Mr = 0; Mr < Ir; Mr++)
-                        if (Vn.contains(Rr[Mr], this))
+                    for (Mr = 0; Mr < Rr; Mr++)
+                        if (Vn.contains(Ir[Mr], this))
                             return !0
                 }));
             for (Dr = this.pushStack([]),
-            Mr = 0; Mr < Ir; Mr++)
-                Vn.find(Pr, Rr[Mr], Dr);
-            return 1 < Ir ? Vn.uniqueSort(Dr) : Dr
+            Mr = 0; Mr < Rr; Mr++)
+                Vn.find(Pr, Ir[Mr], Dr);
+            return 1 < Rr ? Vn.uniqueSort(Dr) : Dr
         },
         filter: function(Pr) {
             return this.pushStack(jt(this, Pr || [], !1))
@@ -1562,22 +1562,22 @@
     });
     var oa = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/, ia;
     (Vn.fn.init = function(Pr, Mr, Dr) {
-        var Ir, Rr;
+        var Rr, Ir;
         if (!Pr)
             return this;
         if (Dr = Dr || ia,
         "string" == typeof Pr) {
-            if (!(Ir = "<" === Pr[0] && ">" === Pr[Pr.length - 1] && 3 <= Pr.length ? [null, Pr, null] : oa.exec(Pr)) || !Ir[1] && Mr)
+            if (!(Rr = "<" === Pr[0] && ">" === Pr[Pr.length - 1] && 3 <= Pr.length ? [null, Pr, null] : oa.exec(Pr)) || !Rr[1] && Mr)
                 return !Mr || Mr.jquery ? (Mr || Dr).find(Pr) : this.constructor(Mr).find(Pr);
-            if (Ir[1]) {
+            if (Rr[1]) {
                 if (Mr = Mr instanceof Vn ? Mr[0] : Mr,
-                Vn.merge(this, Vn.parseHTML(Ir[1], Mr && Mr.nodeType ? Mr.ownerDocument || Mr : kn, !0)),
-                na.test(Ir[1]) && Vn.isPlainObject(Mr))
-                    for (Ir in Mr)
-                        Vn.isFunction(this[Ir]) ? this[Ir](Mr[Ir]) : this.attr(Ir, Mr[Ir]);
+                Vn.merge(this, Vn.parseHTML(Rr[1], Mr && Mr.nodeType ? Mr.ownerDocument || Mr : kn, !0)),
+                na.test(Rr[1]) && Vn.isPlainObject(Mr))
+                    for (Rr in Mr)
+                        Vn.isFunction(this[Rr]) ? this[Rr](Mr[Rr]) : this.attr(Rr, Mr[Rr]);
                 return this
             }
-            return (Rr = kn.getElementById(Ir[2])) && (this[0] = Rr,
+            return (Ir = kn.getElementById(Rr[2])) && (this[0] = Ir,
             this.length = 1),
             this
         }
@@ -1599,16 +1599,16 @@
             var Mr = Vn(Pr, this)
               , Dr = Mr.length;
             return this.filter(function() {
-                for (var Ir = 0; Ir < Dr; Ir++)
-                    if (Vn.contains(this, Mr[Ir]))
+                for (var Rr = 0; Rr < Dr; Rr++)
+                    if (Vn.contains(this, Mr[Rr]))
                         return !0
             })
         },
         closest: function(Pr, Mr) {
-            var Ir = 0, Rr = this.length, Or = [], Lr = "string" != typeof Pr && Vn(Pr), Dr;
+            var Rr = 0, Ir = this.length, Or = [], Lr = "string" != typeof Pr && Vn(Pr), Dr;
             if (!ta.test(Pr))
-                for (; Ir < Rr; Ir++)
-                    for (Dr = this[Ir]; Dr && Dr !== Mr; Dr = Dr.parentNode)
+                for (; Rr < Ir; Rr++)
+                    for (Dr = this[Rr]; Dr && Dr !== Mr; Dr = Dr.parentNode)
                         if (11 > Dr.nodeType && (Lr ? -1 < Lr.index(Dr) : 1 === Dr.nodeType && Vn.find.matchesSelector(Dr, Pr))) {
                             Or.push(Dr);
                             break
@@ -1665,13 +1665,13 @@
             Vn.merge([], Pr.childNodes))
         }
     }, function(Pr, Mr) {
-        Vn.fn[Pr] = function(Dr, Ir) {
-            var Rr = Vn.map(this, Mr, Dr);
-            return "Until" !== Pr.slice(-5) && (Ir = Dr),
-            Ir && "string" == typeof Ir && (Rr = Vn.filter(Ir, Rr)),
-            1 < this.length && (da[Pr] || Vn.uniqueSort(Rr),
-            sa.test(Pr) && Rr.reverse()),
-            this.pushStack(Rr)
+        Vn.fn[Pr] = function(Dr, Rr) {
+            var Ir = Vn.map(this, Mr, Dr);
+            return "Until" !== Pr.slice(-5) && (Rr = Dr),
+            Rr && "string" == typeof Rr && (Ir = Vn.filter(Rr, Ir)),
+            1 < this.length && (da[Pr] || Vn.uniqueSort(Ir),
+            sa.test(Pr) && Ir.reverse()),
+            this.pushStack(Ir)
         }
     });
     var la = /[^\x20\t\r\n\f]+/g;
@@ -1684,14 +1684,14 @@
             Ur
         }(Pr) : Vn.extend({}, Pr);
         var Or = [], Lr = [], kr = -1, Nr = function() {
-            for (Rr = Rr || Pr.once,
-            Ir = Mr = !0; Lr.length; kr = -1)
+            for (Ir = Ir || Pr.once,
+            Rr = Mr = !0; Lr.length; kr = -1)
                 for (Dr = Lr.shift(); ++kr < Or.length; )
                     !1 === Or[kr].apply(Dr[0], Dr[1]) && Pr.stopOnFalse && (kr = Or.length,
                     Dr = !1);
             Pr.memory || (Dr = !1),
             Mr = !1,
-            Rr && (Or = Dr ? [] : "")
+            Ir && (Or = Dr ? [] : "")
         }, Fr = {
             add: function() {
                 return Or && (Dr && !Mr && (kr = Or.length - 1,
@@ -1720,7 +1720,7 @@
                 this
             },
             disable: function() {
-                return Rr = Lr = [],
+                return Ir = Lr = [],
                 Or = Dr = "",
                 this
             },
@@ -1728,15 +1728,15 @@
                 return !Or
             },
             lock: function() {
-                return Rr = Lr = [],
+                return Ir = Lr = [],
                 Dr || Mr || (Or = Dr = ""),
                 this
             },
             locked: function() {
-                return !!Rr
+                return !!Ir
             },
             fireWith: function(Br, Ur) {
-                return Rr || (Ur = [Br, (Ur = Ur || []).slice ? Ur.slice() : Ur],
+                return Ir || (Ur = [Br, (Ur = Ur || []).slice ? Ur.slice() : Ur],
                 Lr.push(Ur),
                 Mr || Nr()),
                 this
@@ -1746,9 +1746,9 @@
                 this
             },
             fired: function() {
-                return !!Ir
+                return !!Rr
             }
-        }, Mr, Dr, Ir, Rr;
+        }, Mr, Dr, Rr, Ir;
         return Fr
     }
     ,
@@ -1756,23 +1756,23 @@
         Deferred: function(Pr) {
             var Mr = [["notify", "progress", Vn.Callbacks("memory"), Vn.Callbacks("memory"), 2], ["resolve", "done", Vn.Callbacks("once memory"), Vn.Callbacks("once memory"), 0, "resolved"], ["reject", "fail", Vn.Callbacks("once memory"), Vn.Callbacks("once memory"), 1, "rejected"]]
               , Dr = "pending"
-              , Ir = {
+              , Rr = {
                 state: function() {
                     return Dr
                 },
                 always: function() {
-                    return Rr.done(arguments).fail(arguments),
+                    return Ir.done(arguments).fail(arguments),
                     this
                 },
                 catch: function(Or) {
-                    return Ir.then(null, Or)
+                    return Rr.then(null, Or)
                 },
                 pipe: function() {
                     var Or = arguments;
                     return Vn.Deferred(function(Lr) {
                         Vn.each(Mr, function(kr, Nr) {
                             var Fr = Vn.isFunction(Or[Nr[4]]) && Or[Nr[4]];
-                            Rr[Nr[1]](function() {
+                            Ir[Nr[1]](function() {
                                 var Br = Fr && Fr.apply(this, arguments);
                                 Br && Vn.isFunction(Br.promise) ? Br.promise().progress(Lr.notify).done(Lr.resolve).fail(Lr.reject) : Lr[Nr[0] + "With"](this, Fr ? [Br] : arguments)
                             })
@@ -1820,47 +1820,47 @@
                     }).promise()
                 },
                 promise: function(Or) {
-                    return null == Or ? Ir : Vn.extend(Or, Ir)
+                    return null == Or ? Rr : Vn.extend(Or, Rr)
                 }
             }
-              , Rr = {};
+              , Ir = {};
             return Vn.each(Mr, function(Or, Lr) {
                 var kr = Lr[2]
                   , Nr = Lr[5];
-                Ir[Lr[1]] = kr.add,
+                Rr[Lr[1]] = kr.add,
                 Nr && kr.add(function() {
                     Dr = Nr
                 }, Mr[3 - Or][2].disable, Mr[0][2].lock),
                 kr.add(Lr[3].fire),
-                Rr[Lr[0]] = function() {
-                    return Rr[Lr[0] + "With"](this === Rr ? void 0 : this, arguments),
+                Ir[Lr[0]] = function() {
+                    return Ir[Lr[0] + "With"](this === Ir ? void 0 : this, arguments),
                     this
                 }
                 ,
-                Rr[Lr[0] + "With"] = kr.fireWith
+                Ir[Lr[0] + "With"] = kr.fireWith
             }),
-            Ir.promise(Rr),
-            Pr && Pr.call(Rr, Rr),
-            Rr
+            Rr.promise(Ir),
+            Pr && Pr.call(Ir, Ir),
+            Ir
         },
         when: function(Pr) {
             var Mr = arguments.length
               , Dr = Mr
-              , Ir = Array(Dr)
-              , Rr = Fn.call(arguments)
+              , Rr = Array(Dr)
+              , Ir = Fn.call(arguments)
               , Or = Vn.Deferred()
               , Lr = function(kr) {
                 return function(Nr) {
-                    Ir[kr] = this,
-                    Rr[kr] = 1 < arguments.length ? Fn.call(arguments) : Nr,
-                    --Mr || Or.resolveWith(Ir, Rr)
+                    Rr[kr] = this,
+                    Ir[kr] = 1 < arguments.length ? Fn.call(arguments) : Nr,
+                    --Mr || Or.resolveWith(Rr, Ir)
                 }
             };
             if (1 >= Mr && (qt(Pr, Or.done(Lr(Dr)).resolve, Or.reject, !Mr),
-            "pending" === Or.state() || Vn.isFunction(Rr[Dr] && Rr[Dr].then)))
+            "pending" === Or.state() || Vn.isFunction(Ir[Dr] && Ir[Dr].then)))
                 return Or.then();
             for (; Dr--; )
-                qt(Rr[Dr], Lr(Dr), Or.reject);
+                qt(Ir[Dr], Lr(Dr), Or.reject);
             return Or.promise()
         }
     });
@@ -1894,17 +1894,17 @@
     Vn.ready.then = pa.then,
     "complete" !== kn.readyState && ("loading" === kn.readyState || kn.documentElement.doScroll) ? (kn.addEventListener("DOMContentLoaded", Kt),
     Bt.addEventListener("load", Kt)) : Bt.setTimeout(Vn.ready);
-    var ca = function(Pr, Mr, Dr, Ir, Rr, Or, Lr) {
+    var ca = function(Pr, Mr, Dr, Rr, Ir, Or, Lr) {
         var kr = 0
           , Nr = Pr.length
           , Fr = null == Dr;
         if ("object" === Vn.type(Dr))
-            for (kr in Rr = !0,
+            for (kr in Ir = !0,
             Dr)
                 ca(Pr, Mr, kr, Dr[kr], !0, Or, Lr);
-        else if (void 0 !== Ir && (Rr = !0,
-        Vn.isFunction(Ir) || (Lr = !0),
-        Fr && (Lr ? (Mr.call(Pr, Ir),
+        else if (void 0 !== Rr && (Ir = !0,
+        Vn.isFunction(Rr) || (Lr = !0),
+        Fr && (Lr ? (Mr.call(Pr, Rr),
         Mr = null) : (Fr = Mr,
         Mr = function(Br, Ur, Yr) {
             return Fr.call(Vn(Br), Yr)
@@ -1912,8 +1912,8 @@
         )),
         Mr))
             for (; kr < Nr; kr++)
-                Mr(Pr[kr], Dr, Lr ? Ir : Ir.call(Pr[kr], kr, Mr(Pr[kr], Dr)));
-        return Rr ? Pr : Fr ? Mr.call(Pr) : Nr ? Mr(Pr[0], Dr) : Or
+                Mr(Pr[kr], Dr, Lr ? Rr : Rr.call(Pr[kr], kr, Mr(Pr[kr], Dr)));
+        return Ir ? Pr : Fr ? Mr.call(Pr) : Nr ? Mr(Pr[0], Dr) : Or
     }
       , ha = function(Pr) {
         return 1 === Pr.nodeType || 9 === Pr.nodeType || !+Pr.nodeType
@@ -1930,13 +1930,13 @@
             Mr
         },
         set: function(Pr, Mr, Dr) {
-            var Rr = this.cache(Pr), Ir;
+            var Ir = this.cache(Pr), Rr;
             if ("string" == typeof Mr)
-                Rr[Vn.camelCase(Mr)] = Dr;
+                Ir[Vn.camelCase(Mr)] = Dr;
             else
-                for (Ir in Mr)
-                    Rr[Vn.camelCase(Ir)] = Mr[Ir];
-            return Rr
+                for (Rr in Mr)
+                    Ir[Vn.camelCase(Rr)] = Mr[Rr];
+            return Ir
         },
         get: function(Pr, Mr) {
             return void 0 === Mr ? this.cache(Pr) : Pr[this.expando] && Pr[this.expando][Vn.camelCase(Mr)]
@@ -1946,12 +1946,12 @@
             void 0 === Dr ? Mr : Dr)
         },
         remove: function(Pr, Mr) {
-            var Ir = Pr[this.expando], Dr;
-            if (void 0 !== Ir) {
+            var Rr = Pr[this.expando], Dr;
+            if (void 0 !== Rr) {
                 if (void 0 !== Mr)
-                    for (Dr = (Mr = Array.isArray(Mr) ? Mr.map(Vn.camelCase) : ((Mr = Vn.camelCase(Mr))in Ir) ? [Mr] : Mr.match(la) || []).length; Dr--; )
-                        delete Ir[Mr[Dr]];
-                (void 0 === Mr || Vn.isEmptyObject(Ir)) && (Pr.nodeType ? Pr[this.expando] = void 0 : delete Pr[this.expando])
+                    for (Dr = (Mr = Array.isArray(Mr) ? Mr.map(Vn.camelCase) : ((Mr = Vn.camelCase(Mr))in Rr) ? [Mr] : Mr.match(la) || []).length; Dr--; )
+                        delete Rr[Mr[Dr]];
+                (void 0 === Mr || Vn.isEmptyObject(Rr)) && (Pr.nodeType ? Pr[this.expando] = void 0 : delete Pr[this.expando])
             }
         },
         hasData: function(Pr) {
@@ -1982,16 +1982,16 @@
     }),
     Vn.fn.extend({
         data: function(Pr, Mr) {
-            var Or = this[0], Lr = Or && Or.attributes, Dr, Ir, Rr;
+            var Or = this[0], Lr = Or && Or.attributes, Dr, Rr, Ir;
             if (void 0 === Pr) {
-                if (this.length && (Rr = ga.get(Or),
+                if (this.length && (Ir = ga.get(Or),
                 1 === Or.nodeType && !fa.get(Or, "hasDataAttrs"))) {
                     for (Dr = Lr.length; Dr--; )
-                        Lr[Dr] && 0 === (Ir = Lr[Dr].name).indexOf("data-") && (Ir = Vn.camelCase(Ir.slice(5)),
-                        Zt(Or, Ir, Rr[Ir]));
+                        Lr[Dr] && 0 === (Rr = Lr[Dr].name).indexOf("data-") && (Rr = Vn.camelCase(Rr.slice(5)),
+                        Zt(Or, Rr, Ir[Rr]));
                     fa.set(Or, "hasDataAttrs", !0)
                 }
-                return Rr
+                return Ir
             }
             return "object" == typeof Pr ? this.each(function() {
                 ga.set(this, Pr)
@@ -2016,27 +2016,27 @@
     }),
     Vn.extend({
         queue: function(Pr, Mr, Dr) {
-            var Ir;
+            var Rr;
             if (Pr)
                 return Mr = (Mr || "fx") + "queue",
-                Ir = fa.get(Pr, Mr),
-                Dr && (!Ir || Array.isArray(Dr) ? Ir = fa.access(Pr, Mr, Vn.makeArray(Dr)) : Ir.push(Dr)),
-                Ir || []
+                Rr = fa.get(Pr, Mr),
+                Dr && (!Rr || Array.isArray(Dr) ? Rr = fa.access(Pr, Mr, Vn.makeArray(Dr)) : Rr.push(Dr)),
+                Rr || []
         },
         dequeue: function(Pr, Mr) {
             Mr = Mr || "fx";
             var Dr = Vn.queue(Pr, Mr)
-              , Ir = Dr.length
-              , Rr = Dr.shift()
+              , Rr = Dr.length
+              , Ir = Dr.shift()
               , Or = Vn._queueHooks(Pr, Mr);
-            "inprogress" === Rr && (Rr = Dr.shift(),
-            Ir--),
-            Rr && ("fx" === Mr && Dr.unshift("inprogress"),
+            "inprogress" === Ir && (Ir = Dr.shift(),
+            Rr--),
+            Ir && ("fx" === Mr && Dr.unshift("inprogress"),
             delete Or.stop,
-            Rr.call(Pr, function() {
+            Ir.call(Pr, function() {
                 Vn.dequeue(Pr, Mr)
             }, Or)),
-            !Ir && Or && Or.empty.fire()
+            !Rr && Or && Or.empty.fire()
         },
         _queueHooks: function(Pr, Mr) {
             var Dr = Mr + "queueHooks";
@@ -2054,9 +2054,9 @@
             Pr = "fx",
             Dr--),
             arguments.length < Dr ? Vn.queue(this[0], Pr) : void 0 === Mr ? this : this.each(function() {
-                var Ir = Vn.queue(this, Pr, Mr);
+                var Rr = Vn.queue(this, Pr, Mr);
                 Vn._queueHooks(this, Pr),
-                "fx" === Pr && "inprogress" !== Ir[0] && Vn.dequeue(this, Pr)
+                "fx" === Pr && "inprogress" !== Rr[0] && Vn.dequeue(this, Pr)
             })
         },
         dequeue: function(Pr) {
@@ -2068,16 +2068,16 @@
             return this.queue(Pr || "fx", [])
         },
         promise: function(Pr, Mr) {
-            var Ir = 1, Rr = Vn.Deferred(), Or = this, Lr = this.length, kr = function() {
-                --Ir || Rr.resolveWith(Or, [Or])
+            var Rr = 1, Ir = Vn.Deferred(), Or = this, Lr = this.length, kr = function() {
+                --Rr || Ir.resolveWith(Or, [Or])
             }, Dr;
             for ("string" != typeof Pr && (Mr = Pr,
             Pr = void 0),
             Pr = Pr || "fx"; Lr--; )
-                (Dr = fa.get(Or[Lr], Pr + "queueHooks")) && Dr.empty && (Ir++,
+                (Dr = fa.get(Or[Lr], Pr + "queueHooks")) && Dr.empty && (Rr++,
                 Dr.empty.add(kr));
             return kr(),
-            Rr.promise(Mr)
+            Ir.promise(Mr)
         }
     });
     var _a = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source
@@ -2086,15 +2086,15 @@
       , Ta = function(Pr, Mr) {
         return "none" === (Pr = Mr || Pr).style.display || "" === Pr.style.display && Vn.contains(Pr.ownerDocument, Pr) && "none" === Vn.css(Pr, "display")
     }
-      , Ea = function(Pr, Mr, Dr, Ir) {
-        var Lr = {}, Rr, Or;
+      , Ea = function(Pr, Mr, Dr, Rr) {
+        var Lr = {}, Ir, Or;
         for (Or in Mr)
             Lr[Or] = Pr.style[Or],
             Pr.style[Or] = Mr[Or];
-        for (Or in Rr = Dr.apply(Pr, Ir || []),
+        for (Or in Ir = Dr.apply(Pr, Rr || []),
         Mr)
             Pr.style[Or] = Lr[Or];
-        return Rr
+        return Ir
     }
       , Sa = {};
     Vn.fn.extend({
@@ -2137,17 +2137,17 @@
         zn.noCloneChecked = !!Pr.cloneNode(!0).lastChild.defaultValue
     }();
     var Da = kn.documentElement
-      , Ia = /^key/
-      , Ra = /^(?:mouse|pointer|contextmenu|drag|drop)|click/
+      , Ra = /^key/
+      , Ia = /^(?:mouse|pointer|contextmenu|drag|drop)|click/
       , Oa = /^([^.]*)(?:\.(.+)|)/;
     Vn.event = {
         global: {},
-        add: function(Pr, Mr, Dr, Ir, Rr) {
+        add: function(Pr, Mr, Dr, Rr, Ir) {
             var jr = fa.get(Pr), Or, Lr, kr, Nr, Fr, Br, Ur, Yr, Gr, Xr, Hr;
             if (jr)
                 for (Dr.handler && (Dr = (Or = Dr).handler,
-                Rr = Or.selector),
-                Rr && Vn.find.matchesSelector(Da, Rr),
+                Ir = Or.selector),
+                Ir && Vn.find.matchesSelector(Da, Ir),
                 Dr.guid || (Dr.guid = Vn.guid++),
                 (Nr = jr.events) || (Nr = jr.events = {}),
                 (Lr = jr.handle) || (Lr = jr.handle = function(Wr) {
@@ -2158,26 +2158,26 @@
                     Gr = Hr = (kr = Oa.exec(Mr[Fr]) || [])[1],
                     Xr = (kr[2] || "").split(".").sort(),
                     Gr && (Ur = Vn.event.special[Gr] || {},
-                    Gr = (Rr ? Ur.delegateType : Ur.bindType) || Gr,
+                    Gr = (Ir ? Ur.delegateType : Ur.bindType) || Gr,
                     Ur = Vn.event.special[Gr] || {},
                     Br = Vn.extend({
                         type: Gr,
                         origType: Hr,
-                        data: Ir,
+                        data: Rr,
                         handler: Dr,
                         guid: Dr.guid,
-                        selector: Rr,
-                        needsContext: Rr && Vn.expr.match.needsContext.test(Rr),
+                        selector: Ir,
+                        needsContext: Ir && Vn.expr.match.needsContext.test(Ir),
                         namespace: Xr.join(".")
                     }, Or),
                     (Yr = Nr[Gr]) || ((Yr = Nr[Gr] = []).delegateCount = 0,
-                    Ur.setup && !1 !== Ur.setup.call(Pr, Ir, Xr, Lr) || Pr.addEventListener && Pr.addEventListener(Gr, Lr)),
+                    Ur.setup && !1 !== Ur.setup.call(Pr, Rr, Xr, Lr) || Pr.addEventListener && Pr.addEventListener(Gr, Lr)),
                     Ur.add && (Ur.add.call(Pr, Br),
                     Br.handler.guid || (Br.handler.guid = Dr.guid)),
-                    Rr ? Yr.splice(Yr.delegateCount++, 0, Br) : Yr.push(Br),
+                    Ir ? Yr.splice(Yr.delegateCount++, 0, Br) : Yr.push(Br),
                     Vn.event.global[Gr] = !0)
         },
-        remove: function(Pr, Mr, Dr, Ir, Rr) {
+        remove: function(Pr, Mr, Dr, Rr, Ir) {
             var jr = fa.hasData(Pr) && fa.get(Pr), Or, Lr, kr, Nr, Fr, Br, Ur, Yr, Gr, Xr, Hr;
             if (jr && (Nr = jr.events)) {
                 for (Fr = (Mr = (Mr || "").match(la) || [""]).length; Fr--; )
@@ -2186,50 +2186,50 @@
                     Xr = (kr[2] || "").split(".").sort(),
                     Gr) {
                         for (Ur = Vn.event.special[Gr] || {},
-                        Yr = Nr[Gr = (Ir ? Ur.delegateType : Ur.bindType) || Gr] || [],
+                        Yr = Nr[Gr = (Rr ? Ur.delegateType : Ur.bindType) || Gr] || [],
                         kr = kr[2] && new RegExp("(^|\\.)" + Xr.join("\\.(?:.*\\.|)") + "(\\.|$)"),
                         Lr = Or = Yr.length; Or--; )
                             Br = Yr[Or],
-                            !Rr && Hr !== Br.origType || Dr && Dr.guid !== Br.guid || kr && !kr.test(Br.namespace) || Ir && Ir !== Br.selector && ("**" !== Ir || !Br.selector) || (Yr.splice(Or, 1),
+                            !Ir && Hr !== Br.origType || Dr && Dr.guid !== Br.guid || kr && !kr.test(Br.namespace) || Rr && Rr !== Br.selector && ("**" !== Rr || !Br.selector) || (Yr.splice(Or, 1),
                             Br.selector && Yr.delegateCount--,
                             Ur.remove && Ur.remove.call(Pr, Br));
                         Lr && !Yr.length && (Ur.teardown && !1 !== Ur.teardown.call(Pr, Xr, jr.handle) || Vn.removeEvent(Pr, Gr, jr.handle),
                         delete Nr[Gr])
                     } else
                         for (Gr in Nr)
-                            Vn.event.remove(Pr, Gr + Mr[Fr], Dr, Ir, !0);
+                            Vn.event.remove(Pr, Gr + Mr[Fr], Dr, Rr, !0);
                 Vn.isEmptyObject(Nr) && fa.remove(Pr, "handle events")
             }
         },
         dispatch: function(Pr) {
-            var kr = Vn.event.fix(Pr), Nr = Array(arguments.length), Fr = (fa.get(this, "events") || {})[kr.type] || [], Br = Vn.event.special[kr.type] || {}, Mr, Dr, Ir, Rr, Or, Lr;
+            var kr = Vn.event.fix(Pr), Nr = Array(arguments.length), Fr = (fa.get(this, "events") || {})[kr.type] || [], Br = Vn.event.special[kr.type] || {}, Mr, Dr, Rr, Ir, Or, Lr;
             for (Nr[0] = kr,
             Mr = 1; Mr < arguments.length; Mr++)
                 Nr[Mr] = arguments[Mr];
             if (kr.delegateTarget = this,
             !Br.preDispatch || !1 !== Br.preDispatch.call(this, kr)) {
                 for (Lr = Vn.event.handlers.call(this, kr, Fr),
-                Mr = 0; (Rr = Lr[Mr++]) && !kr.isPropagationStopped(); )
-                    for (kr.currentTarget = Rr.elem,
-                    Dr = 0; (Or = Rr.handlers[Dr++]) && !kr.isImmediatePropagationStopped(); )
+                Mr = 0; (Ir = Lr[Mr++]) && !kr.isPropagationStopped(); )
+                    for (kr.currentTarget = Ir.elem,
+                    Dr = 0; (Or = Ir.handlers[Dr++]) && !kr.isImmediatePropagationStopped(); )
                         kr.rnamespace && !kr.rnamespace.test(Or.namespace) || (kr.handleObj = Or,
                         kr.data = Or.data,
-                        void 0 !== (Ir = ((Vn.event.special[Or.origType] || {}).handle || Or.handler).apply(Rr.elem, Nr)) && !1 === (kr.result = Ir) && (kr.preventDefault(),
+                        void 0 !== (Rr = ((Vn.event.special[Or.origType] || {}).handle || Or.handler).apply(Ir.elem, Nr)) && !1 === (kr.result = Rr) && (kr.preventDefault(),
                         kr.stopPropagation()));
                 return Br.postDispatch && Br.postDispatch.call(this, kr),
                 kr.result
             }
         },
         handlers: function(Pr, Mr) {
-            var kr = [], Nr = Mr.delegateCount, Fr = Pr.target, Dr, Ir, Rr, Or, Lr;
+            var kr = [], Nr = Mr.delegateCount, Fr = Pr.target, Dr, Rr, Ir, Or, Lr;
             if (Nr && Fr.nodeType && !("click" === Pr.type && 1 <= Pr.button))
                 for (; Fr !== this; Fr = Fr.parentNode || this)
                     if (1 === Fr.nodeType && ("click" !== Pr.type || !0 !== Fr.disabled)) {
                         for (Or = [],
                         Lr = {},
                         Dr = 0; Dr < Nr; Dr++)
-                            void 0 === Lr[Rr = (Ir = Mr[Dr]).selector + " "] && (Lr[Rr] = Ir.needsContext ? -1 < Vn(Rr, this).index(Fr) : Vn.find(Rr, this, null, [Fr]).length),
-                            Lr[Rr] && Or.push(Ir);
+                            void 0 === Lr[Ir = (Rr = Mr[Dr]).selector + " "] && (Lr[Ir] = Rr.needsContext ? -1 < Vn(Ir, this).index(Fr) : Vn.find(Ir, this, null, [Fr]).length),
+                            Lr[Ir] && Or.push(Rr);
                         Or.length && kr.push({
                             elem: Fr,
                             handlers: Or
@@ -2376,7 +2376,7 @@
         touches: !0,
         which: function(Pr) {
             var Mr = Pr.button;
-            return null == Pr.which && Ia.test(Pr.type) ? null == Pr.charCode ? Pr.keyCode : Pr.charCode : !Pr.which && void 0 !== Mr && Ra.test(Pr.type) ? 1 & Mr ? 1 : 2 & Mr ? 3 : 4 & Mr ? 2 : 0 : Pr.which
+            return null == Pr.which && Ra.test(Pr.type) ? null == Pr.charCode ? Pr.keyCode : Pr.charCode : !Pr.which && void 0 !== Mr && Ia.test(Pr.type) ? 1 & Mr ? 1 : 2 & Mr ? 3 : 4 & Mr ? 2 : 0 : Pr.which
         }
     }, Vn.event.addProp),
     Vn.each({
@@ -2389,30 +2389,30 @@
             delegateType: Mr,
             bindType: Mr,
             handle: function(Dr) {
-                var Rr = Dr.relatedTarget, Or = Dr.handleObj, Ir;
-                return Rr && (Rr === this || Vn.contains(this, Rr)) || (Dr.type = Or.origType,
-                Ir = Or.handler.apply(this, arguments),
+                var Ir = Dr.relatedTarget, Or = Dr.handleObj, Rr;
+                return Ir && (Ir === this || Vn.contains(this, Ir)) || (Dr.type = Or.origType,
+                Rr = Or.handler.apply(this, arguments),
                 Dr.type = Mr),
-                Ir
+                Rr
             }
         }
     }),
     Vn.fn.extend({
-        on: function(Pr, Mr, Dr, Ir) {
-            return dn(this, Pr, Mr, Dr, Ir)
+        on: function(Pr, Mr, Dr, Rr) {
+            return dn(this, Pr, Mr, Dr, Rr)
         },
-        one: function(Pr, Mr, Dr, Ir) {
-            return dn(this, Pr, Mr, Dr, Ir, 1)
+        one: function(Pr, Mr, Dr, Rr) {
+            return dn(this, Pr, Mr, Dr, Rr, 1)
         },
         off: function(Pr, Mr, Dr) {
-            var Ir, Rr;
+            var Rr, Ir;
             if (Pr && Pr.preventDefault && Pr.handleObj)
-                return Ir = Pr.handleObj,
-                Vn(Pr.delegateTarget).off(Ir.namespace ? Ir.origType + "." + Ir.namespace : Ir.origType, Ir.selector, Ir.handler),
+                return Rr = Pr.handleObj,
+                Vn(Pr.delegateTarget).off(Rr.namespace ? Rr.origType + "." + Rr.namespace : Rr.origType, Rr.selector, Rr.handler),
                 this;
             if ("object" == typeof Pr) {
-                for (Rr in Pr)
-                    this.off(Rr, Mr, Pr[Rr]);
+                for (Ir in Pr)
+                    this.off(Ir, Mr, Pr[Ir]);
                 return this
             }
             return !1 !== Mr && "function" != typeof Mr || (Dr = Mr,
@@ -2433,31 +2433,31 @@
             return Pr.replace(La, "<$1></$2>")
         },
         clone: function(Pr, Mr, Dr) {
-            var kr = Pr.cloneNode(!0), Nr = Vn.contains(Pr.ownerDocument, Pr), Ir, Rr, Or, Lr;
+            var kr = Pr.cloneNode(!0), Nr = Vn.contains(Pr.ownerDocument, Pr), Rr, Ir, Or, Lr;
             if (!(zn.noCloneChecked || 1 !== Pr.nodeType && 11 !== Pr.nodeType || Vn.isXMLDoc(Pr)))
                 for (Lr = tn(kr),
-                Ir = 0,
-                Rr = (Or = tn(Pr)).length; Ir < Rr; Ir++)
-                    hn(Or[Ir], Lr[Ir]);
+                Rr = 0,
+                Ir = (Or = tn(Pr)).length; Rr < Ir; Rr++)
+                    hn(Or[Rr], Lr[Rr]);
             if (Mr)
                 if (Dr)
                     for (Or = Or || tn(Pr),
                     Lr = Lr || tn(kr),
-                    Ir = 0,
-                    Rr = Or.length; Ir < Rr; Ir++)
-                        cn(Or[Ir], Lr[Ir]);
+                    Rr = 0,
+                    Ir = Or.length; Rr < Ir; Rr++)
+                        cn(Or[Rr], Lr[Rr]);
                 else
                     cn(Pr, kr);
             return 0 < (Lr = tn(kr, "script")).length && nn(Lr, !Nr && tn(Pr, "script")),
             kr
         },
         cleanData: function(Pr) {
-            for (var Rr = Vn.event.special, Or = 0, Mr, Dr, Ir; void 0 !== (Dr = Pr[Or]); Or++)
+            for (var Ir = Vn.event.special, Or = 0, Mr, Dr, Rr; void 0 !== (Dr = Pr[Or]); Or++)
                 if (ha(Dr)) {
                     if (Mr = Dr[fa.expando]) {
                         if (Mr.events)
-                            for (Ir in Mr.events)
-                                Rr[Ir] ? Vn.event.remove(Dr, Ir) : Vn.removeEvent(Dr, Ir, Mr.handle);
+                            for (Rr in Mr.events)
+                                Ir[Rr] ? Vn.event.remove(Dr, Rr) : Vn.removeEvent(Dr, Rr, Mr.handle);
                         Dr[fa.expando] = void 0
                     }
                     Dr[ga.expando] && (Dr[ga.expando] = void 0)
@@ -2517,15 +2517,15 @@
         html: function(Pr) {
             return ca(this, function(Mr) {
                 var Dr = this[0] || {}
-                  , Ir = 0
-                  , Rr = this.length;
+                  , Rr = 0
+                  , Ir = this.length;
                 if (void 0 === Mr && 1 === Dr.nodeType)
                     return Dr.innerHTML;
                 if ("string" == typeof Mr && !ka.test(Mr) && !Pa[(Ca.exec(Mr) || ["", ""])[1].toLowerCase()]) {
                     Mr = Vn.htmlPrefilter(Mr);
                     try {
-                        for (; Ir < Rr; Ir++)
-                            1 === (Dr = this[Ir] || {}).nodeType && (Vn.cleanData(tn(Dr, !1)),
+                        for (; Rr < Ir; Rr++)
+                            1 === (Dr = this[Rr] || {}).nodeType && (Vn.cleanData(tn(Dr, !1)),
                             Dr.innerHTML = Mr);
                         Dr = 0
                     } catch (Or) {}
@@ -2550,11 +2550,11 @@
         replaceAll: "replaceWith"
     }, function(Pr, Mr) {
         Vn.fn[Pr] = function(Dr) {
-            for (var Rr = [], Or = Vn(Dr), Lr = Or.length - 1, kr = 0, Ir; kr <= Lr; kr++)
-                Ir = kr === Lr ? this : this.clone(!0),
-                Vn(Or[kr])[Mr](Ir),
-                Un.apply(Rr, Ir.get());
-            return this.pushStack(Rr)
+            for (var Ir = [], Or = Vn(Dr), Lr = Or.length - 1, kr = 0, Rr; kr <= Lr; kr++)
+                Rr = kr === Lr ? this : this.clone(!0),
+                Vn(Or[kr])[Mr](Rr),
+                Un.apply(Ir, Rr.get());
+            return this.pushStack(Ir)
         }
     });
     var Ua = /^margin/
@@ -2572,15 +2572,15 @@
                 Da.appendChild(Or);
                 var kr = Bt.getComputedStyle(Lr);
                 Mr = "1%" !== kr.top,
-                Rr = "2px" === kr.marginLeft,
+                Ir = "2px" === kr.marginLeft,
                 Dr = "4px" === kr.width,
                 Lr.style.marginRight = "50%",
-                Ir = "4px" === kr.marginRight,
+                Rr = "4px" === kr.marginRight,
                 Da.removeChild(Or),
                 Lr = null
             }
         }
-        var Or = kn.createElement("div"), Lr = kn.createElement("div"), Mr, Dr, Ir, Rr;
+        var Or = kn.createElement("div"), Lr = kn.createElement("div"), Mr, Dr, Rr, Ir;
         Lr.style && (Lr.style.backgroundClip = "content-box",
         Lr.cloneNode(!0).style.backgroundClip = "",
         zn.clearCloneStyle = "content-box" === Lr.style.backgroundClip,
@@ -2597,11 +2597,11 @@
             },
             pixelMarginRight: function() {
                 return Pr(),
-                Ir
+                Rr
             },
             reliableMarginLeft: function() {
                 return Pr(),
-                Rr
+                Ir
             }
         }))
     }();
@@ -2647,43 +2647,43 @@
         cssProps: {
             float: "cssFloat"
         },
-        style: function(Pr, Mr, Dr, Ir) {
+        style: function(Pr, Mr, Dr, Rr) {
             if (Pr && 3 !== Pr.nodeType && 8 !== Pr.nodeType && Pr.style) {
-                var kr = Vn.camelCase(Mr), Nr = Ha.test(Mr), Fr = Pr.style, Rr, Or, Lr;
+                var kr = Vn.camelCase(Mr), Nr = Ha.test(Mr), Fr = Pr.style, Ir, Or, Lr;
                 if (Nr || (Mr = _n(kr)),
                 Lr = Vn.cssHooks[Mr] || Vn.cssHooks[kr],
                 void 0 === Dr)
-                    return Lr && "get"in Lr && void 0 !== (Rr = Lr.get(Pr, !1, Ir)) ? Rr : Fr[Mr];
-                "string" == (Or = typeof Dr) && (Rr = xa.exec(Dr)) && Rr[1] && (Dr = Qt(Pr, Mr, Rr),
+                    return Lr && "get"in Lr && void 0 !== (Ir = Lr.get(Pr, !1, Rr)) ? Ir : Fr[Mr];
+                "string" == (Or = typeof Dr) && (Ir = xa.exec(Dr)) && Ir[1] && (Dr = Qt(Pr, Mr, Ir),
                 Or = "number"),
-                null != Dr && Dr == Dr && ("number" === Or && (Dr += Rr && Rr[3] || (Vn.cssNumber[kr] ? "" : "px")),
+                null != Dr && Dr == Dr && ("number" === Or && (Dr += Ir && Ir[3] || (Vn.cssNumber[kr] ? "" : "px")),
                 zn.clearCloneStyle || "" !== Dr || 0 !== Mr.indexOf("background") || (Fr[Mr] = "inherit"),
-                Lr && "set"in Lr && void 0 === (Dr = Lr.set(Pr, Dr, Ir)) || (Nr ? Fr.setProperty(Mr, Dr) : Fr[Mr] = Dr))
+                Lr && "set"in Lr && void 0 === (Dr = Lr.set(Pr, Dr, Rr)) || (Nr ? Fr.setProperty(Mr, Dr) : Fr[Mr] = Dr))
             }
         },
-        css: function(Pr, Mr, Dr, Ir) {
-            var kr = Vn.camelCase(Mr), Rr, Or, Lr;
+        css: function(Pr, Mr, Dr, Rr) {
+            var kr = Vn.camelCase(Mr), Ir, Or, Lr;
             return Ha.test(Mr) || (Mr = _n(kr)),
-            (Lr = Vn.cssHooks[Mr] || Vn.cssHooks[kr]) && "get"in Lr && (Rr = Lr.get(Pr, !0, Dr)),
-            void 0 === Rr && (Rr = mn(Pr, Mr, Ir)),
-            "normal" === Rr && Mr in Wa && (Rr = Wa[Mr]),
-            "" === Dr || Dr ? (Or = parseFloat(Rr),
-            !0 === Dr || isFinite(Or) ? Or || 0 : Rr) : Rr
+            (Lr = Vn.cssHooks[Mr] || Vn.cssHooks[kr]) && "get"in Lr && (Ir = Lr.get(Pr, !0, Dr)),
+            void 0 === Ir && (Ir = mn(Pr, Mr, Rr)),
+            "normal" === Ir && Mr in Wa && (Ir = Wa[Mr]),
+            "" === Dr || Dr ? (Or = parseFloat(Ir),
+            !0 === Dr || isFinite(Or) ? Or || 0 : Ir) : Ir
         }
     }),
     Vn.each(["height", "width"], function(Pr, Mr) {
         Vn.cssHooks[Mr] = {
-            get: function(Dr, Ir, Rr) {
-                if (Ir)
-                    return !Xa.test(Vn.css(Dr, "display")) || Dr.getClientRects().length && Dr.getBoundingClientRect().width ? vn(Dr, Mr, Rr) : Ea(Dr, ja, function() {
-                        return vn(Dr, Mr, Rr)
+            get: function(Dr, Rr, Ir) {
+                if (Rr)
+                    return !Xa.test(Vn.css(Dr, "display")) || Dr.getClientRects().length && Dr.getBoundingClientRect().width ? vn(Dr, Mr, Ir) : Ea(Dr, ja, function() {
+                        return vn(Dr, Mr, Ir)
                     })
             },
-            set: function(Dr, Ir, Rr) {
-                var Lr = Rr && Ga(Dr), kr = Rr && xn(Dr, Mr, Rr, "border-box" === Vn.css(Dr, "boxSizing", !1, Lr), Lr), Or;
-                return kr && (Or = xa.exec(Ir)) && "px" !== (Or[3] || "px") && (Dr.style[Mr] = Ir,
-                Ir = Vn.css(Dr, Mr)),
-                bn(0, Ir, kr)
+            set: function(Dr, Rr, Ir) {
+                var Lr = Ir && Ga(Dr), kr = Ir && xn(Dr, Mr, Ir, "border-box" === Vn.css(Dr, "boxSizing", !1, Lr), Lr), Or;
+                return kr && (Or = xa.exec(Rr)) && "px" !== (Or[3] || "px") && (Dr.style[Mr] = Rr,
+                Rr = Vn.css(Dr, Mr)),
+                bn(0, Rr, kr)
             }
         }
     }),
@@ -2702,37 +2702,37 @@
     }, function(Pr, Mr) {
         Vn.cssHooks[Pr + Mr] = {
             expand: function(Dr) {
-                for (var Ir = 0, Rr = {}, Or = "string" == typeof Dr ? Dr.split(" ") : [Dr]; 4 > Ir; Ir++)
-                    Rr[Pr + va[Ir] + Mr] = Or[Ir] || Or[Ir - 2] || Or[0];
-                return Rr
+                for (var Rr = 0, Ir = {}, Or = "string" == typeof Dr ? Dr.split(" ") : [Dr]; 4 > Rr; Rr++)
+                    Ir[Pr + va[Rr] + Mr] = Or[Rr] || Or[Rr - 2] || Or[0];
+                return Ir
             }
         },
         Ua.test(Pr) || (Vn.cssHooks[Pr + Mr].set = bn)
     }),
     Vn.fn.extend({
         css: function(Pr, Mr) {
-            return ca(this, function(Dr, Ir, Rr) {
+            return ca(this, function(Dr, Rr, Ir) {
                 var kr = {}, Nr = 0, Or, Lr;
-                if (Array.isArray(Ir)) {
+                if (Array.isArray(Rr)) {
                     for (Or = Ga(Dr),
-                    Lr = Ir.length; Nr < Lr; Nr++)
-                        kr[Ir[Nr]] = Vn.css(Dr, Ir[Nr], !1, Or);
+                    Lr = Rr.length; Nr < Lr; Nr++)
+                        kr[Rr[Nr]] = Vn.css(Dr, Rr[Nr], !1, Or);
                     return kr
                 }
-                return void 0 === Rr ? Vn.css(Dr, Ir) : Vn.style(Dr, Ir, Rr)
+                return void 0 === Ir ? Vn.css(Dr, Rr) : Vn.style(Dr, Rr, Ir)
             }, Pr, Mr, 1 < arguments.length)
         }
     }),
     Vn.Tween = Tn,
     (Tn.prototype = {
         constructor: Tn,
-        init: function(Pr, Mr, Dr, Ir, Rr, Or) {
+        init: function(Pr, Mr, Dr, Rr, Ir, Or) {
             this.elem = Pr,
             this.prop = Dr,
-            this.easing = Rr || Vn.easing._default,
+            this.easing = Ir || Vn.easing._default,
             this.options = Mr,
             this.start = this.now = this.cur(),
-            this.end = Ir,
+            this.end = Rr,
             this.unit = Or || (Vn.cssNumber[Dr] ? "" : "px")
         },
         cur: function() {
@@ -2787,14 +2787,14 @@
         tweener: function(Pr, Mr) {
             Vn.isFunction(Pr) ? (Mr = Pr,
             Pr = ["*"]) : Pr = Pr.match(la);
-            for (var Ir = 0, Rr = Pr.length, Dr; Ir < Rr; Ir++)
-                Dr = Pr[Ir],
+            for (var Rr = 0, Ir = Pr.length, Dr; Rr < Ir; Rr++)
+                Dr = Pr[Rr],
                 An.tweeners[Dr] = An.tweeners[Dr] || [],
                 An.tweeners[Dr].unshift(Mr)
         },
         prefilters: [function(Pr, Mr, Dr) {
-            var Yr = this, Gr = {}, Xr = Pr.style, Hr = Pr.nodeType && Ta(Pr), jr = fa.get(Pr, "fxshow"), Ir, Rr, Or, Lr, kr, Nr, Fr, Br;
-            for (Ir in Dr.queue || (null == (Lr = Vn._queueHooks(Pr, "fx")).unqueued && (Lr.unqueued = 0,
+            var Yr = this, Gr = {}, Xr = Pr.style, Hr = Pr.nodeType && Ta(Pr), jr = fa.get(Pr, "fxshow"), Rr, Ir, Or, Lr, kr, Nr, Fr, Br;
+            for (Rr in Dr.queue || (null == (Lr = Vn._queueHooks(Pr, "fx")).unqueued && (Lr.unqueued = 0,
             kr = Lr.empty.fire,
             Lr.empty.fire = function() {
                 Lr.unqueued || kr()
@@ -2808,19 +2808,19 @@
                 })
             })),
             Mr)
-                if (Rr = Mr[Ir],
-                Ja.test(Rr)) {
-                    if (delete Mr[Ir],
-                    Or = Or || "toggle" === Rr,
-                    Rr === (Hr ? "hide" : "show")) {
-                        if ("show" !== Rr || !jr || void 0 === jr[Ir])
+                if (Ir = Mr[Rr],
+                Ja.test(Ir)) {
+                    if (delete Mr[Rr],
+                    Or = Or || "toggle" === Ir,
+                    Ir === (Hr ? "hide" : "show")) {
+                        if ("show" !== Ir || !jr || void 0 === jr[Rr])
                             continue;
                         Hr = !0
                     }
-                    Gr[Ir] = jr && jr[Ir] || Vn.style(Pr, Ir)
+                    Gr[Rr] = jr && jr[Rr] || Vn.style(Pr, Rr)
                 }
             if ((Nr = !Vn.isEmptyObject(Mr)) || !Vn.isEmptyObject(Gr))
-                for (Ir in ("width"in Mr || "height"in Mr) && 1 === Pr.nodeType && (Dr.overflow = [Xr.overflow, Xr.overflowX, Xr.overflowY],
+                for (Rr in ("width"in Mr || "height"in Mr) && 1 === Pr.nodeType && (Dr.overflow = [Xr.overflow, Xr.overflowX, Xr.overflowY],
                 null == (Fr = jr && jr.display) && (Fr = fa.get(Pr, "display")),
                 "none" === (Br = Vn.css(Pr, "display")) && (Fr ? Br = Fr : (en([Pr], !0),
                 Fr = Pr.style.display || Fr,
@@ -2846,13 +2846,13 @@
                     Or && (jr.hidden = !Hr),
                     Hr && en([Pr], !0),
                     Yr.done(function() {
-                        for (Ir in Hr || en([Pr]),
+                        for (Rr in Hr || en([Pr]),
                         fa.remove(Pr, "fxshow"),
                         Gr)
-                            Vn.style(Pr, Ir, Gr[Ir])
+                            Vn.style(Pr, Rr, Gr[Rr])
                     })),
-                    Nr = Cn(Hr ? jr[Ir] : 0, Ir, Yr),
-                    Ir in jr || (jr[Ir] = Nr.start,
+                    Nr = Cn(Hr ? jr[Rr] : 0, Rr, Yr),
+                    Rr in jr || (jr[Rr] = Nr.start,
                     Hr && (Nr.end = Nr.start,
                     Nr.start = 0))
         }
@@ -2862,42 +2862,42 @@
         }
     }),
     Vn.speed = function(Pr, Mr, Dr) {
-        var Ir = Pr && "object" == typeof Pr ? Vn.extend({}, Pr) : {
+        var Rr = Pr && "object" == typeof Pr ? Vn.extend({}, Pr) : {
             complete: Dr || !Dr && Mr || Vn.isFunction(Pr) && Pr,
             duration: Pr,
             easing: Dr && Mr || Mr && !Vn.isFunction(Mr) && Mr
         };
-        return Vn.fx.off ? Ir.duration = 0 : "number" != typeof Ir.duration && (Ir.duration in Vn.fx.speeds ? Ir.duration = Vn.fx.speeds[Ir.duration] : Ir.duration = Vn.fx.speeds._default),
-        null != Ir.queue && !0 !== Ir.queue || (Ir.queue = "fx"),
-        Ir.old = Ir.complete,
-        Ir.complete = function() {
-            Vn.isFunction(Ir.old) && Ir.old.call(this),
-            Ir.queue && Vn.dequeue(this, Ir.queue)
+        return Vn.fx.off ? Rr.duration = 0 : "number" != typeof Rr.duration && (Rr.duration in Vn.fx.speeds ? Rr.duration = Vn.fx.speeds[Rr.duration] : Rr.duration = Vn.fx.speeds._default),
+        null != Rr.queue && !0 !== Rr.queue || (Rr.queue = "fx"),
+        Rr.old = Rr.complete,
+        Rr.complete = function() {
+            Vn.isFunction(Rr.old) && Rr.old.call(this),
+            Rr.queue && Vn.dequeue(this, Rr.queue)
         }
         ,
-        Ir
+        Rr
     }
     ,
     Vn.fn.extend({
-        fadeTo: function(Pr, Mr, Dr, Ir) {
+        fadeTo: function(Pr, Mr, Dr, Rr) {
             return this.filter(Ta).css("opacity", 0).show().end().animate({
                 opacity: Mr
-            }, Pr, Dr, Ir)
+            }, Pr, Dr, Rr)
         },
-        animate: function(Pr, Mr, Dr, Ir) {
-            var Rr = Vn.isEmptyObject(Pr)
-              , Or = Vn.speed(Mr, Dr, Ir)
+        animate: function(Pr, Mr, Dr, Rr) {
+            var Ir = Vn.isEmptyObject(Pr)
+              , Or = Vn.speed(Mr, Dr, Rr)
               , Lr = function() {
                 var kr = An(this, Vn.extend({}, Pr), Or);
-                (Rr || fa.get(this, "finish")) && kr.stop(!0)
+                (Ir || fa.get(this, "finish")) && kr.stop(!0)
             };
             return Lr.finish = Lr,
-            Rr || !1 === Or.queue ? this.each(Lr) : this.queue(Or.queue, Lr)
+            Ir || !1 === Or.queue ? this.each(Lr) : this.queue(Or.queue, Lr)
         },
         stop: function(Pr, Mr, Dr) {
-            var Ir = function(Rr) {
-                var Or = Rr.stop;
-                delete Rr.stop,
+            var Rr = function(Ir) {
+                var Or = Ir.stop;
+                delete Ir.stop,
                 Or(Dr)
             };
             return "string" != typeof Pr && (Dr = Mr,
@@ -2905,42 +2905,42 @@
             Pr = void 0),
             Mr && !1 !== Pr && this.queue(Pr || "fx", []),
             this.each(function() {
-                var Rr = !0
+                var Ir = !0
                   , Or = null != Pr && Pr + "queueHooks"
                   , Lr = Vn.timers
                   , kr = fa.get(this);
                 if (Or)
-                    kr[Or] && kr[Or].stop && Ir(kr[Or]);
+                    kr[Or] && kr[Or].stop && Rr(kr[Or]);
                 else
                     for (Or in kr)
-                        kr[Or] && kr[Or].stop && Za.test(Or) && Ir(kr[Or]);
+                        kr[Or] && kr[Or].stop && Za.test(Or) && Rr(kr[Or]);
                 for (Or = Lr.length; Or--; )
                     Lr[Or].elem !== this || null != Pr && Lr[Or].queue !== Pr || (Lr[Or].anim.stop(Dr),
-                    Rr = !1,
+                    Ir = !1,
                     Lr.splice(Or, 1));
-                !Rr && Dr || Vn.dequeue(this, Pr)
+                !Ir && Dr || Vn.dequeue(this, Pr)
             })
         },
         finish: function(Pr) {
             return !1 !== Pr && (Pr = Pr || "fx"),
             this.each(function() {
-                var Dr = fa.get(this), Ir = Dr[Pr + "queue"], Rr = Dr[Pr + "queueHooks"], Or = Vn.timers, Lr = Ir ? Ir.length : 0, Mr;
+                var Dr = fa.get(this), Rr = Dr[Pr + "queue"], Ir = Dr[Pr + "queueHooks"], Or = Vn.timers, Lr = Rr ? Rr.length : 0, Mr;
                 for (Dr.finish = !0,
                 Vn.queue(this, Pr, []),
-                Rr && Rr.stop && Rr.stop.call(this, !0),
+                Ir && Ir.stop && Ir.stop.call(this, !0),
                 Mr = Or.length; Mr--; )
                     Or[Mr].elem === this && Or[Mr].queue === Pr && (Or[Mr].anim.stop(!0),
                     Or.splice(Mr, 1));
                 for (Mr = 0; Mr < Lr; Mr++)
-                    Ir[Mr] && Ir[Mr].finish && Ir[Mr].finish.call(this);
+                    Rr[Mr] && Rr[Mr].finish && Rr[Mr].finish.call(this);
                 delete Dr.finish
             })
         }
     }),
     Vn.each(["toggle", "show", "hide"], function(Pr, Mr) {
         var Dr = Vn.fn[Mr];
-        Vn.fn[Mr] = function(Ir, Rr, Or) {
-            return null == Ir || "boolean" == typeof Ir ? Dr.apply(this, arguments) : this.animate(wn(Mr, !0), Ir, Rr, Or)
+        Vn.fn[Mr] = function(Rr, Ir, Or) {
+            return null == Rr || "boolean" == typeof Rr ? Dr.apply(this, arguments) : this.animate(wn(Mr, !0), Rr, Ir, Or)
         }
     }),
     Vn.each({
@@ -2957,8 +2957,8 @@
             opacity: "toggle"
         }
     }, function(Pr, Mr) {
-        Vn.fn[Pr] = function(Dr, Ir, Rr) {
-            return this.animate(Mr, Dr, Ir, Rr)
+        Vn.fn[Pr] = function(Dr, Rr, Ir) {
+            return this.animate(Mr, Dr, Rr, Ir)
         }
     }),
     Vn.timers = [],
@@ -2993,10 +2993,10 @@
     Vn.fn.delay = function(Pr, Mr) {
         return Pr = Vn.fx ? Vn.fx.speeds[Pr] || Pr : Pr,
         Mr = Mr || "fx",
-        this.queue(Mr, function(Dr, Ir) {
-            var Rr = Bt.setTimeout(Dr, Pr);
-            Ir.stop = function() {
-                Bt.clearTimeout(Rr)
+        this.queue(Mr, function(Dr, Rr) {
+            var Ir = Bt.setTimeout(Dr, Pr);
+            Rr.stop = function() {
+                Bt.clearTimeout(Ir)
             }
         })
     }
@@ -3024,10 +3024,10 @@
     }),
     Vn.extend({
         attr: function(Pr, Mr, Dr) {
-            var Or = Pr.nodeType, Ir, Rr;
+            var Or = Pr.nodeType, Rr, Ir;
             if (3 !== Or && 8 !== Or && 2 !== Or)
-                return void 0 === Pr.getAttribute ? Vn.prop(Pr, Mr, Dr) : (1 === Or && Vn.isXMLDoc(Pr) || (Rr = Vn.attrHooks[Mr.toLowerCase()] || (Vn.expr.match.bool.test(Mr) ? Qa : void 0)),
-                void 0 === Dr ? Rr && "get"in Rr && null !== (Ir = Rr.get(Pr, Mr)) ? Ir : null == (Ir = Vn.find.attr(Pr, Mr)) ? void 0 : Ir : null === Dr ? void Vn.removeAttr(Pr, Mr) : Rr && "set"in Rr && void 0 !== (Ir = Rr.set(Pr, Dr, Mr)) ? Ir : (Pr.setAttribute(Mr, Dr + ""),
+                return void 0 === Pr.getAttribute ? Vn.prop(Pr, Mr, Dr) : (1 === Or && Vn.isXMLDoc(Pr) || (Ir = Vn.attrHooks[Mr.toLowerCase()] || (Vn.expr.match.bool.test(Mr) ? Qa : void 0)),
+                void 0 === Dr ? Ir && "get"in Ir && null !== (Rr = Ir.get(Pr, Mr)) ? Rr : null == (Rr = Vn.find.attr(Pr, Mr)) ? void 0 : Rr : null === Dr ? void Vn.removeAttr(Pr, Mr) : Ir && "set"in Ir && void 0 !== (Rr = Ir.set(Pr, Dr, Mr)) ? Rr : (Pr.setAttribute(Mr, Dr + ""),
                 Dr))
         },
         attrHooks: {
@@ -3043,9 +3043,9 @@
             }
         },
         removeAttr: function(Pr, Mr) {
-            var Ir = 0, Rr = Mr && Mr.match(la), Dr;
-            if (Rr && 1 === Pr.nodeType)
-                for (; Dr = Rr[Ir++]; )
+            var Rr = 0, Ir = Mr && Mr.match(la), Dr;
+            if (Ir && 1 === Pr.nodeType)
+                for (; Dr = Ir[Rr++]; )
                     Pr.removeAttribute(Dr)
         }
     }),
@@ -3057,11 +3057,11 @@
     },
     Vn.each(Vn.expr.match.bool.source.match(/\w+/g), function(Pr, Mr) {
         var Dr = $a[Mr] || Vn.find.attr;
-        $a[Mr] = function(Ir, Rr, Or) {
-            var Nr = Rr.toLowerCase(), Lr, kr;
+        $a[Mr] = function(Rr, Ir, Or) {
+            var Nr = Ir.toLowerCase(), Lr, kr;
             return Or || (kr = $a[Nr],
             $a[Nr] = Lr,
-            Lr = null == Dr(Ir, Rr, Or) ? null : Nr,
+            Lr = null == Dr(Rr, Ir, Or) ? null : Nr,
             $a[Nr] = kr),
             Lr
         }
@@ -3080,11 +3080,11 @@
     }),
     Vn.extend({
         prop: function(Pr, Mr, Dr) {
-            var Or = Pr.nodeType, Ir, Rr;
+            var Or = Pr.nodeType, Rr, Ir;
             if (3 !== Or && 8 !== Or && 2 !== Or)
                 return 1 === Or && Vn.isXMLDoc(Pr) || (Mr = Vn.propFix[Mr] || Mr,
-                Rr = Vn.propHooks[Mr]),
-                void 0 === Dr ? Rr && "get"in Rr && null !== (Ir = Rr.get(Pr, Mr)) ? Ir : Pr[Mr] : Rr && "set"in Rr && void 0 !== (Ir = Rr.set(Pr, Dr, Mr)) ? Ir : Pr[Mr] = Dr
+                Ir = Vn.propHooks[Mr]),
+                void 0 === Dr ? Ir && "get"in Ir && null !== (Rr = Ir.get(Pr, Mr)) ? Rr : Pr[Mr] : Ir && "set"in Ir && void 0 !== (Rr = Ir.set(Pr, Dr, Mr)) ? Rr : Pr[Mr] = Dr
         },
         propHooks: {
             tabIndex: {
@@ -3116,23 +3116,23 @@
     }),
     Vn.fn.extend({
         addClass: function(Pr) {
-            var Nr = 0, Mr, Dr, Ir, Rr, Or, Lr, kr;
+            var Nr = 0, Mr, Dr, Rr, Ir, Or, Lr, kr;
             if (Vn.isFunction(Pr))
                 return this.each(function(Fr) {
                     Vn(this).addClass(Pr.call(this, Fr, Mn(this)))
                 });
             if ("string" == typeof Pr && Pr)
                 for (Mr = Pr.match(la) || []; Dr = this[Nr++]; )
-                    if (Rr = Mn(Dr),
-                    Ir = 1 === Dr.nodeType && " " + Pn(Rr) + " ") {
+                    if (Ir = Mn(Dr),
+                    Rr = 1 === Dr.nodeType && " " + Pn(Ir) + " ") {
                         for (Lr = 0; Or = Mr[Lr++]; )
-                            0 > Ir.indexOf(" " + Or + " ") && (Ir += Or + " ");
-                        Rr !== (kr = Pn(Ir)) && Dr.setAttribute("class", kr)
+                            0 > Rr.indexOf(" " + Or + " ") && (Rr += Or + " ");
+                        Ir !== (kr = Pn(Rr)) && Dr.setAttribute("class", kr)
                     }
             return this
         },
         removeClass: function(Pr) {
-            var Nr = 0, Mr, Dr, Ir, Rr, Or, Lr, kr;
+            var Nr = 0, Mr, Dr, Rr, Ir, Or, Lr, kr;
             if (Vn.isFunction(Pr))
                 return this.each(function(Fr) {
                     Vn(this).removeClass(Pr.call(this, Fr, Mn(this)))
@@ -3141,34 +3141,34 @@
                 return this.attr("class", "");
             if ("string" == typeof Pr && Pr)
                 for (Mr = Pr.match(la) || []; Dr = this[Nr++]; )
-                    if (Rr = Mn(Dr),
-                    Ir = 1 === Dr.nodeType && " " + Pn(Rr) + " ") {
+                    if (Ir = Mn(Dr),
+                    Rr = 1 === Dr.nodeType && " " + Pn(Ir) + " ") {
                         for (Lr = 0; Or = Mr[Lr++]; )
-                            for (; -1 < Ir.indexOf(" " + Or + " "); )
-                                Ir = Ir.replace(" " + Or + " ", " ");
-                        Rr !== (kr = Pn(Ir)) && Dr.setAttribute("class", kr)
+                            for (; -1 < Rr.indexOf(" " + Or + " "); )
+                                Rr = Rr.replace(" " + Or + " ", " ");
+                        Ir !== (kr = Pn(Rr)) && Dr.setAttribute("class", kr)
                     }
             return this
         },
         toggleClass: function(Pr, Mr) {
             var Dr = typeof Pr;
-            return "boolean" == typeof Mr && "string" == Dr ? Mr ? this.addClass(Pr) : this.removeClass(Pr) : Vn.isFunction(Pr) ? this.each(function(Ir) {
-                Vn(this).toggleClass(Pr.call(this, Ir, Mn(this), Mr), Mr)
+            return "boolean" == typeof Mr && "string" == Dr ? Mr ? this.addClass(Pr) : this.removeClass(Pr) : Vn.isFunction(Pr) ? this.each(function(Rr) {
+                Vn(this).toggleClass(Pr.call(this, Rr, Mn(this), Mr), Mr)
             }) : this.each(function() {
-                var Ir, Rr, Or, Lr;
+                var Rr, Ir, Or, Lr;
                 if ("string" == Dr)
-                    for (Rr = 0,
+                    for (Ir = 0,
                     Or = Vn(this),
-                    Lr = Pr.match(la) || []; Ir = Lr[Rr++]; )
-                        Or.hasClass(Ir) ? Or.removeClass(Ir) : Or.addClass(Ir);
+                    Lr = Pr.match(la) || []; Rr = Lr[Ir++]; )
+                        Or.hasClass(Rr) ? Or.removeClass(Rr) : Or.addClass(Rr);
                 else
-                    void 0 !== Pr && "boolean" != Dr || ((Ir = Mn(this)) && fa.set(this, "__className__", Ir),
-                    this.setAttribute && this.setAttribute("class", Ir || !1 === Pr ? "" : fa.get(this, "__className__") || ""))
+                    void 0 !== Pr && "boolean" != Dr || ((Rr = Mn(this)) && fa.set(this, "__className__", Rr),
+                    this.setAttribute && this.setAttribute("class", Rr || !1 === Pr ? "" : fa.get(this, "__className__") || ""))
             })
         },
         hasClass: function(Pr) {
-            var Ir = 0, Mr, Dr;
-            for (Mr = " " + Pr + " "; Dr = this[Ir++]; )
+            var Rr = 0, Mr, Dr;
+            for (Mr = " " + Pr + " "; Dr = this[Rr++]; )
                 if (1 === Dr.nodeType && -1 < (" " + Pn(Mn(Dr)) + " ").indexOf(Mr))
                     return !0;
             return !1
@@ -3177,15 +3177,15 @@
     var nr = /\r/g;
     Vn.fn.extend({
         val: function(Pr) {
-            var Rr = this[0], Mr, Dr, Ir;
-            return arguments.length ? (Ir = Vn.isFunction(Pr),
+            var Ir = this[0], Mr, Dr, Rr;
+            return arguments.length ? (Rr = Vn.isFunction(Pr),
             this.each(function(Or) {
                 var Lr;
-                1 === this.nodeType && (null == (Lr = Ir ? Pr.call(this, Or, Vn(this).val()) : Pr) ? Lr = "" : "number" == typeof Lr ? Lr += "" : Array.isArray(Lr) && (Lr = Vn.map(Lr, function(kr) {
+                1 === this.nodeType && (null == (Lr = Rr ? Pr.call(this, Or, Vn(this).val()) : Pr) ? Lr = "" : "number" == typeof Lr ? Lr += "" : Array.isArray(Lr) && (Lr = Vn.map(Lr, function(kr) {
                     return null == kr ? "" : kr + ""
                 })),
                 (Mr = Vn.valHooks[this.type] || Vn.valHooks[this.nodeName.toLowerCase()]) && "set"in Mr && void 0 !== Mr.set(this, Lr, "value") || (this.value = Lr))
-            })) : Rr ? (Mr = Vn.valHooks[Rr.type] || Vn.valHooks[Rr.nodeName.toLowerCase()]) && "get"in Mr && void 0 !== (Dr = Mr.get(Rr, "value")) ? Dr : "string" == typeof (Dr = Rr.value) ? Dr.replace(nr, "") : null == Dr ? "" : Dr : void 0
+            })) : Ir ? (Mr = Vn.valHooks[Ir.type] || Vn.valHooks[Ir.nodeName.toLowerCase()]) && "get"in Mr && void 0 !== (Dr = Mr.get(Ir, "value")) ? Dr : "string" == typeof (Dr = Ir.value) ? Dr.replace(nr, "") : null == Dr ? "" : Dr : void 0
         }
     }),
     Vn.extend({
@@ -3198,9 +3198,9 @@
             },
             select: {
                 get: function(Pr) {
-                    var Rr = Pr.options, Or = Pr.selectedIndex, Lr = "select-one" === Pr.type, kr = Lr ? null : [], Nr = Lr ? Or + 1 : Rr.length, Mr, Dr, Ir;
-                    for (Ir = 0 > Or ? Nr : Lr ? Or : 0; Ir < Nr; Ir++)
-                        if (((Dr = Rr[Ir]).selected || Ir === Or) && !Dr.disabled && (!Dr.parentNode.disabled || !Ht(Dr.parentNode, "optgroup"))) {
+                    var Ir = Pr.options, Or = Pr.selectedIndex, Lr = "select-one" === Pr.type, kr = Lr ? null : [], Nr = Lr ? Or + 1 : Ir.length, Mr, Dr, Rr;
+                    for (Rr = 0 > Or ? Nr : Lr ? Or : 0; Rr < Nr; Rr++)
+                        if (((Dr = Ir[Rr]).selected || Rr === Or) && !Dr.disabled && (!Dr.parentNode.disabled || !Ht(Dr.parentNode, "optgroup"))) {
                             if (Mr = Vn(Dr).val(),
                             Lr)
                                 return Mr;
@@ -3209,8 +3209,8 @@
                     return kr
                 },
                 set: function(Pr, Mr) {
-                    for (var Rr = Pr.options, Or = Vn.makeArray(Mr), Lr = Rr.length, Dr, Ir; Lr--; )
-                        ((Ir = Rr[Lr]).selected = -1 < Vn.inArray(Vn.valHooks.option.get(Ir), Or)) && (Dr = !0);
+                    for (var Ir = Pr.options, Or = Vn.makeArray(Mr), Lr = Ir.length, Dr, Rr; Lr--; )
+                        ((Rr = Ir[Lr]).selected = -1 < Vn.inArray(Vn.valHooks.option.get(Rr), Or)) && (Dr = !0);
                     return Dr || (Pr.selectedIndex = -1),
                     Or
                 }
@@ -3231,35 +3231,35 @@
     });
     var ar = /^(?:focusinfocus|focusoutblur)$/;
     Vn.extend(Vn.event, {
-        trigger: function(Pr, Mr, Dr, Ir) {
-            var Ur = [Dr || kn], Yr = Hn.call(Pr, "type") ? Pr.type : Pr, Gr = Hn.call(Pr, "namespace") ? Pr.namespace.split(".") : [], Rr, Or, Lr, kr, Nr, Fr, Br;
+        trigger: function(Pr, Mr, Dr, Rr) {
+            var Ur = [Dr || kn], Yr = Hn.call(Pr, "type") ? Pr.type : Pr, Gr = Hn.call(Pr, "namespace") ? Pr.namespace.split(".") : [], Ir, Or, Lr, kr, Nr, Fr, Br;
             if (Or = Lr = Dr = Dr || kn,
             3 !== Dr.nodeType && 8 !== Dr.nodeType && !ar.test(Yr + Vn.event.triggered) && (-1 < Yr.indexOf(".") && (Yr = (Gr = Yr.split(".")).shift(),
             Gr.sort()),
             Nr = 0 > Yr.indexOf(":") && "on" + Yr,
             Pr = Pr[Vn.expando] ? Pr : new Vn.Event(Yr,"object" == typeof Pr && Pr),
-            Pr.isTrigger = Ir ? 2 : 3,
+            Pr.isTrigger = Rr ? 2 : 3,
             Pr.namespace = Gr.join("."),
             Pr.rnamespace = Pr.namespace ? new RegExp("(^|\\.)" + Gr.join("\\.(?:.*\\.|)") + "(\\.|$)") : null,
             Pr.result = void 0,
             Pr.target || (Pr.target = Dr),
             Mr = null == Mr ? [Pr] : Vn.makeArray(Mr, [Pr]),
             Br = Vn.event.special[Yr] || {},
-            Ir || !Br.trigger || !1 !== Br.trigger.apply(Dr, Mr))) {
-                if (!Ir && !Br.noBubble && !Vn.isWindow(Dr)) {
+            Rr || !Br.trigger || !1 !== Br.trigger.apply(Dr, Mr))) {
+                if (!Rr && !Br.noBubble && !Vn.isWindow(Dr)) {
                     for (kr = Br.delegateType || Yr,
                     ar.test(kr + Yr) || (Or = Or.parentNode); Or; Or = Or.parentNode)
                         Ur.push(Or),
                         Lr = Or;
                     Lr === (Dr.ownerDocument || kn) && Ur.push(Lr.defaultView || Lr.parentWindow || Bt)
                 }
-                for (Rr = 0; (Or = Ur[Rr++]) && !Pr.isPropagationStopped(); )
-                    Pr.type = 1 < Rr ? kr : Br.bindType || Yr,
+                for (Ir = 0; (Or = Ur[Ir++]) && !Pr.isPropagationStopped(); )
+                    Pr.type = 1 < Ir ? kr : Br.bindType || Yr,
                     (Fr = (fa.get(Or, "events") || {})[Pr.type] && fa.get(Or, "handle")) && Fr.apply(Or, Mr),
                     (Fr = Nr && Or[Nr]) && Fr.apply && ha(Or) && (Pr.result = Fr.apply(Or, Mr),
                     !1 === Pr.result && Pr.preventDefault());
                 return Pr.type = Yr,
-                Ir || Pr.isDefaultPrevented() || Br._default && !1 !== Br._default.apply(Ur.pop(), Mr) || !ha(Dr) || Nr && Vn.isFunction(Dr[Yr]) && !Vn.isWindow(Dr) && ((Lr = Dr[Nr]) && (Dr[Nr] = null),
+                Rr || Pr.isDefaultPrevented() || Br._default && !1 !== Br._default.apply(Ur.pop(), Mr) || !ha(Dr) || Nr && Vn.isFunction(Dr[Yr]) && !Vn.isWindow(Dr) && ((Lr = Dr[Nr]) && (Dr[Nr] = null),
                 Vn.event.triggered = Yr,
                 Dr[Yr](),
                 Vn.event.triggered = void 0,
@@ -3268,11 +3268,11 @@
             }
         },
         simulate: function(Pr, Mr, Dr) {
-            var Ir = Vn.extend(new Vn.Event, Dr, {
+            var Rr = Vn.extend(new Vn.Event, Dr, {
                 type: Pr,
                 isSimulated: !0
             });
-            Vn.event.trigger(Ir, null, Mr)
+            Vn.event.trigger(Rr, null, Mr)
         }
     }),
     Vn.fn.extend({
@@ -3288,8 +3288,8 @@
         }
     }),
     Vn.each("blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu".split(" "), function(Pr, Mr) {
-        Vn.fn[Mr] = function(Dr, Ir) {
-            return 0 < arguments.length ? this.on(Mr, null, Dr, Ir) : this.trigger(Mr)
+        Vn.fn[Mr] = function(Dr, Rr) {
+            return 0 < arguments.length ? this.on(Mr, null, Dr, Rr) : this.trigger(Mr)
         }
     }),
     Vn.fn.extend({
@@ -3302,21 +3302,21 @@
         focus: "focusin",
         blur: "focusout"
     }, function(Pr, Mr) {
-        var Dr = function(Ir) {
-            Vn.event.simulate(Mr, Ir.target, Vn.event.fix(Ir))
+        var Dr = function(Rr) {
+            Vn.event.simulate(Mr, Rr.target, Vn.event.fix(Rr))
         };
         Vn.event.special[Mr] = {
             setup: function() {
-                var Ir = this.ownerDocument || this
-                  , Rr = fa.access(Ir, Mr);
-                Rr || Ir.addEventListener(Pr, Dr, !0),
-                fa.access(Ir, Mr, (Rr || 0) + 1)
+                var Rr = this.ownerDocument || this
+                  , Ir = fa.access(Rr, Mr);
+                Ir || Rr.addEventListener(Pr, Dr, !0),
+                fa.access(Rr, Mr, (Ir || 0) + 1)
             },
             teardown: function() {
-                var Ir = this.ownerDocument || this
-                  , Rr = fa.access(Ir, Mr) - 1;
-                Rr ? fa.access(Ir, Mr, Rr) : (Ir.removeEventListener(Pr, Dr, !0),
-                fa.remove(Ir, Mr))
+                var Rr = this.ownerDocument || this
+                  , Ir = fa.access(Rr, Mr) - 1;
+                Ir ? fa.access(Rr, Mr, Ir) : (Rr.removeEventListener(Pr, Dr, !0),
+                fa.remove(Rr, Mr))
             }
         }
     });
@@ -3341,18 +3341,18 @@
       , lr = /^(?:submit|button|image|reset|file)$/i
       , ur = /^(?:input|select|textarea|keygen)/i;
     Vn.param = function(Pr, Mr) {
-        var Ir = [], Rr = function(Or, Lr) {
+        var Rr = [], Ir = function(Or, Lr) {
             var kr = Vn.isFunction(Lr) ? Lr() : Lr;
-            Ir[Ir.length] = encodeURIComponent(Or) + "=" + encodeURIComponent(null == kr ? "" : kr)
+            Rr[Rr.length] = encodeURIComponent(Or) + "=" + encodeURIComponent(null == kr ? "" : kr)
         }, Dr;
         if (Array.isArray(Pr) || Pr.jquery && !Vn.isPlainObject(Pr))
             Vn.each(Pr, function() {
-                Rr(this.name, this.value)
+                Ir(this.name, this.value)
             });
         else
             for (Dr in Pr)
-                Dn(Dr, Pr[Dr], Mr, Rr);
-        return Ir.join("&")
+                Dn(Dr, Pr[Dr], Mr, Ir);
+        return Rr.join("&")
     }
     ,
     Vn.fn.extend({
@@ -3368,10 +3368,10 @@
                 return this.name && !Vn(this).is(":disabled") && ur.test(this.nodeName) && !lr.test(Pr) && (this.checked || !wa.test(Pr))
             }).map(function(Pr, Mr) {
                 var Dr = Vn(this).val();
-                return null == Dr ? null : Array.isArray(Dr) ? Vn.map(Dr, function(Ir) {
+                return null == Dr ? null : Array.isArray(Dr) ? Vn.map(Dr, function(Rr) {
                     return {
                         name: Mr.name,
-                        value: Ir.replace(dr, "\r\n")
+                        value: Rr.replace(dr, "\r\n")
                     }
                 }) : {
                     name: Mr.name,
@@ -3434,14 +3434,14 @@
         ajaxSetup: function(Pr, Mr) {
             return Mr ? On(On(Pr, Vn.ajaxSettings), Mr) : On(Vn.ajaxSettings, Pr)
         },
-        ajaxPrefilter: In(_r),
-        ajaxTransport: In(br),
+        ajaxPrefilter: Rn(_r),
+        ajaxTransport: Rn(br),
         ajax: function(Pr, Mr) {
             function Dr(Zr, Qr, $r, ei) {
                 var oi = Qr, ti, ni, ai, ri, ii;
                 Fr || (Fr = !0,
                 kr && Bt.clearTimeout(kr),
-                Ir = void 0,
+                Rr = void 0,
                 Or = ei || "",
                 Jr.readyState = 0 < Zr ? 4 : 0,
                 ti = 200 <= Zr && 300 > Zr || 304 === Zr,
@@ -3508,8 +3508,8 @@
                         data: di
                     }
                 }(Gr, ri, Jr, ti),
-                ti ? (Gr.ifModified && ((ii = Jr.getResponseHeader("Last-Modified")) && (Vn.lastModified[Rr] = ii),
-                (ii = Jr.getResponseHeader("etag")) && (Vn.etag[Rr] = ii)),
+                ti ? (Gr.ifModified && ((ii = Jr.getResponseHeader("Last-Modified")) && (Vn.lastModified[Ir] = ii),
+                (ii = Jr.getResponseHeader("etag")) && (Vn.etag[Ir] = ii)),
                 204 === Zr || "HEAD" === Gr.type ? oi = "nocontent" : 304 === Zr ? oi = "notmodified" : (oi = ri.state,
                 ni = ri.data,
                 ti = !(ai = ri.error))) : (ai = oi,
@@ -3563,11 +3563,11 @@
                 },
                 abort: function(Zr) {
                     var Qr = Zr || Kr;
-                    return Ir && Ir.abort(Qr),
+                    return Rr && Rr.abort(Qr),
                     Dr(0, Qr),
                     this
                 }
-            }, Ir, Rr, Or, Lr, kr, Nr, Fr, Br, Ur, Yr;
+            }, Rr, Ir, Or, Lr, kr, Nr, Fr, Br, Ur, Yr;
             if (jr.promise(Jr),
             Gr.url = ((Pr || Gr.url || rr.href) + "").replace(yr, rr.protocol + "//"),
             Gr.type = Mr.method || Mr.type || Gr.method || Gr.type,
@@ -3583,21 +3583,21 @@
                 }
             }
             if (Gr.data && Gr.processData && "string" != typeof Gr.data && (Gr.data = Vn.param(Gr.data, Gr.traditional)),
-            Rn(_r, Gr, Mr, Jr),
+            In(_r, Gr, Mr, Jr),
             Fr)
                 return Jr;
             for (Ur in (Br = Vn.event && Gr.global) && 0 == Vn.active++ && Vn.event.trigger("ajaxStart"),
             Gr.type = Gr.type.toUpperCase(),
             Gr.hasContent = !mr.test(Gr.type),
-            Rr = Gr.url.replace(cr, ""),
-            Gr.hasContent ? Gr.data && Gr.processData && 0 === (Gr.contentType || "").indexOf("application/x-www-form-urlencoded") && (Gr.data = Gr.data.replace(pr, "+")) : (Yr = Gr.url.slice(Rr.length),
-            Gr.data && (Rr += (or.test(Rr) ? "&" : "?") + Gr.data,
+            Ir = Gr.url.replace(cr, ""),
+            Gr.hasContent ? Gr.data && Gr.processData && 0 === (Gr.contentType || "").indexOf("application/x-www-form-urlencoded") && (Gr.data = Gr.data.replace(pr, "+")) : (Yr = Gr.url.slice(Ir.length),
+            Gr.data && (Ir += (or.test(Ir) ? "&" : "?") + Gr.data,
             delete Gr.data),
-            !1 === Gr.cache && (Rr = Rr.replace(fr, "$1"),
-            Yr = (or.test(Rr) ? "&" : "?") + "_=" + ir++ + Yr),
-            Gr.url = Rr + Yr),
-            Gr.ifModified && (Vn.lastModified[Rr] && Jr.setRequestHeader("If-Modified-Since", Vn.lastModified[Rr]),
-            Vn.etag[Rr] && Jr.setRequestHeader("If-None-Match", Vn.etag[Rr])),
+            !1 === Gr.cache && (Ir = Ir.replace(fr, "$1"),
+            Yr = (or.test(Ir) ? "&" : "?") + "_=" + ir++ + Yr),
+            Gr.url = Ir + Yr),
+            Gr.ifModified && (Vn.lastModified[Ir] && Jr.setRequestHeader("If-Modified-Since", Vn.lastModified[Ir]),
+            Vn.etag[Ir] && Jr.setRequestHeader("If-None-Match", Vn.etag[Ir])),
             (Gr.data && Gr.hasContent && !1 !== Gr.contentType || Mr.contentType) && Jr.setRequestHeader("Content-Type", Gr.contentType),
             Jr.setRequestHeader("Accept", Gr.dataTypes[0] && Gr.accepts[Gr.dataTypes[0]] ? Gr.accepts[Gr.dataTypes[0]] + ("*" === Gr.dataTypes[0] ? "" : ", " + xr + "; q=0.01") : Gr.accepts["*"]),
             Gr.headers)
@@ -3608,7 +3608,7 @@
             Wr.add(Gr.complete),
             Jr.done(Gr.success),
             Jr.fail(Gr.error),
-            Ir = Rn(br, Gr, Mr, Jr)) {
+            Rr = In(br, Gr, Mr, Jr)) {
                 if (Jr.readyState = 1,
                 Br && Hr.trigger("ajaxSend", [Jr, Gr]),
                 Fr)
@@ -3618,7 +3618,7 @@
                 }, Gr.timeout));
                 try {
                     Fr = !1,
-                    Ir.send(Vr, Dr)
+                    Rr.send(Vr, Dr)
                 } catch (Zr) {
                     if (Fr)
                         throw Zr;
@@ -3636,16 +3636,16 @@
         }
     }),
     Vn.each(["get", "post"], function(Pr, Mr) {
-        Vn[Mr] = function(Dr, Ir, Rr, Or) {
-            return Vn.isFunction(Ir) && (Or = Or || Rr,
-            Rr = Ir,
-            Ir = void 0),
+        Vn[Mr] = function(Dr, Rr, Ir, Or) {
+            return Vn.isFunction(Rr) && (Or = Or || Ir,
+            Ir = Rr,
+            Rr = void 0),
             Vn.ajax(Vn.extend({
                 url: Dr,
                 type: Mr,
                 dataType: Or,
-                data: Ir,
-                success: Rr
+                data: Rr,
+                success: Ir
             }, Vn.isPlainObject(Dr) && Dr))
         }
     }),
@@ -3721,20 +3721,20 @@
         var Mr, Dr;
         if (zn.cors || Er && !Pr.crossDomain)
             return {
-                send: function(Ir, Rr) {
+                send: function(Rr, Ir) {
                     var Lr = Pr.xhr(), Or;
                     if (Lr.open(Pr.type, Pr.url, Pr.async, Pr.username, Pr.password),
                     Pr.xhrFields)
                         for (Or in Pr.xhrFields)
                             Lr[Or] = Pr.xhrFields[Or];
                     for (Or in Pr.mimeType && Lr.overrideMimeType && Lr.overrideMimeType(Pr.mimeType),
-                    Pr.crossDomain || Ir["X-Requested-With"] || (Ir["X-Requested-With"] = "XMLHttpRequest"),
-                    Ir)
-                        Lr.setRequestHeader(Or, Ir[Or]);
+                    Pr.crossDomain || Rr["X-Requested-With"] || (Rr["X-Requested-With"] = "XMLHttpRequest"),
+                    Rr)
+                        Lr.setRequestHeader(Or, Rr[Or]);
                     Mr = function(kr) {
                         return function() {
                             Mr && (Mr = Dr = Lr.onload = Lr.onerror = Lr.onabort = Lr.onreadystatechange = null,
-                            "abort" === kr ? Lr.abort() : "error" === kr ? "number" == typeof Lr.status ? Rr(Lr.status, Lr.statusText) : Rr(0, "error") : Rr(Tr[Lr.status] || Lr.status, Lr.statusText, "text" !== (Lr.responseType || "text") || "string" != typeof Lr.responseText ? {
+                            "abort" === kr ? Lr.abort() : "error" === kr ? "number" == typeof Lr.status ? Ir(Lr.status, Lr.statusText) : Ir(0, "error") : Ir(Tr[Lr.status] || Lr.status, Lr.statusText, "text" !== (Lr.responseType || "text") || "string" != typeof Lr.responseText ? {
                                 binary: Lr.response
                             } : {
                                 text: Lr.responseText
@@ -3788,14 +3788,14 @@
         if (Pr.crossDomain) {
             var Mr, Dr;
             return {
-                send: function(Ir, Rr) {
+                send: function(Rr, Ir) {
                     Mr = Vn("<script>").prop({
                         charset: Pr.scriptCharset,
                         src: Pr.url
                     }).on("load error", Dr = function(Or) {
                         Mr.remove(),
                         Dr = null,
-                        Or && Rr("error" === Or.type ? 404 : 200, Or.type)
+                        Or && Ir("error" === Or.type ? 404 : 200, Or.type)
                     }
                     ),
                     kn.head.appendChild(Mr[0])
@@ -3817,27 +3817,27 @@
         }
     }),
     Vn.ajaxPrefilter("json jsonp", function(Pr, Mr, Dr) {
-        var Lr = !1 !== Pr.jsonp && (wr.test(Pr.url) ? "url" : "string" == typeof Pr.data && 0 === (Pr.contentType || "").indexOf("application/x-www-form-urlencoded") && wr.test(Pr.data) && "data"), Ir, Rr, Or;
+        var Lr = !1 !== Pr.jsonp && (wr.test(Pr.url) ? "url" : "string" == typeof Pr.data && 0 === (Pr.contentType || "").indexOf("application/x-www-form-urlencoded") && wr.test(Pr.data) && "data"), Rr, Ir, Or;
         if (Lr || "jsonp" === Pr.dataTypes[0])
-            return Ir = Pr.jsonpCallback = Vn.isFunction(Pr.jsonpCallback) ? Pr.jsonpCallback() : Pr.jsonpCallback,
-            Lr ? Pr[Lr] = Pr[Lr].replace(wr, "$1" + Ir) : !1 !== Pr.jsonp && (Pr.url += (or.test(Pr.url) ? "&" : "?") + Pr.jsonp + "=" + Ir),
+            return Rr = Pr.jsonpCallback = Vn.isFunction(Pr.jsonpCallback) ? Pr.jsonpCallback() : Pr.jsonpCallback,
+            Lr ? Pr[Lr] = Pr[Lr].replace(wr, "$1" + Rr) : !1 !== Pr.jsonp && (Pr.url += (or.test(Pr.url) ? "&" : "?") + Pr.jsonp + "=" + Rr),
             Pr.converters["script json"] = function() {
-                return Or || Vn.error(Ir + " was not called"),
+                return Or || Vn.error(Rr + " was not called"),
                 Or[0]
             }
             ,
             Pr.dataTypes[0] = "json",
-            Rr = Bt[Ir],
-            Bt[Ir] = function() {
+            Ir = Bt[Rr],
+            Bt[Rr] = function() {
                 Or = arguments
             }
             ,
             Dr.always(function() {
-                void 0 === Rr ? Vn(Bt).removeProp(Ir) : Bt[Ir] = Rr,
-                Pr[Ir] && (Pr.jsonpCallback = Mr.jsonpCallback,
-                Sr.push(Ir)),
-                Or && Vn.isFunction(Rr) && Rr(Or[0]),
-                Or = Rr = void 0
+                void 0 === Ir ? Vn(Bt).removeProp(Rr) : Bt[Rr] = Ir,
+                Pr[Rr] && (Pr.jsonpCallback = Mr.jsonpCallback,
+                Sr.push(Rr)),
+                Or && Vn.isFunction(Ir) && Ir(Or[0]),
+                Or = Ir = void 0
             }),
             "script"
     }),
@@ -3851,30 +3851,30 @@
             return [];
         "boolean" == typeof Mr && (Dr = Mr,
         Mr = !1);
-        var Ir, Rr, Or;
-        return Mr || (zn.createHTMLDocument ? ((Ir = (Mr = kn.implementation.createHTMLDocument("")).createElement("base")).href = kn.location.href,
-        Mr.head.appendChild(Ir)) : Mr = kn),
-        Rr = na.exec(Pr),
+        var Rr, Ir, Or;
+        return Mr || (zn.createHTMLDocument ? ((Rr = (Mr = kn.implementation.createHTMLDocument("")).createElement("base")).href = kn.location.href,
+        Mr.head.appendChild(Rr)) : Mr = kn),
+        Ir = na.exec(Pr),
         Or = !Dr && [],
-        Rr ? [Mr.createElement(Rr[1])] : (Rr = an([Pr], Mr, Or),
+        Ir ? [Mr.createElement(Ir[1])] : (Ir = an([Pr], Mr, Or),
         Or && Or.length && Vn(Or).remove(),
-        Vn.merge([], Rr.childNodes))
+        Vn.merge([], Ir.childNodes))
     }
     ,
     Vn.fn.load = function(Pr, Mr, Dr) {
-        var Lr = this, kr = Pr.indexOf(" "), Ir, Rr, Or;
-        return -1 < kr && (Ir = Pn(Pr.slice(kr)),
+        var Lr = this, kr = Pr.indexOf(" "), Rr, Ir, Or;
+        return -1 < kr && (Rr = Pn(Pr.slice(kr)),
         Pr = Pr.slice(0, kr)),
         Vn.isFunction(Mr) ? (Dr = Mr,
-        Mr = void 0) : Mr && "object" == typeof Mr && (Rr = "POST"),
+        Mr = void 0) : Mr && "object" == typeof Mr && (Ir = "POST"),
         0 < Lr.length && Vn.ajax({
             url: Pr,
-            type: Rr || "GET",
+            type: Ir || "GET",
             dataType: "html",
             data: Mr
         }).done(function(Nr) {
             Or = arguments,
-            Lr.html(Ir ? Vn("<div>").append(Vn.parseHTML(Nr)).find(Ir) : Nr)
+            Lr.html(Rr ? Vn("<div>").append(Vn.parseHTML(Nr)).find(Rr) : Nr)
         }).always(Dr && function(Nr, Fr) {
             Lr.each(function() {
                 Dr.apply(this, Or || [Nr.responseText, Fr, Nr])
@@ -3897,17 +3897,17 @@
     ,
     Vn.offset = {
         setOffset: function(Pr, Mr, Dr) {
-            var Fr = Vn.css(Pr, "position"), Br = Vn(Pr), Ur = {}, Ir, Rr, Or, Lr, kr, Nr;
+            var Fr = Vn.css(Pr, "position"), Br = Vn(Pr), Ur = {}, Rr, Ir, Or, Lr, kr, Nr;
             "static" === Fr && (Pr.style.position = "relative"),
             kr = Br.offset(),
             Or = Vn.css(Pr, "top"),
             Nr = Vn.css(Pr, "left"),
-            ("absolute" === Fr || "fixed" === Fr) && -1 < (Or + Nr).indexOf("auto") ? (Lr = (Ir = Br.position()).top,
-            Rr = Ir.left) : (Lr = parseFloat(Or) || 0,
-            Rr = parseFloat(Nr) || 0),
+            ("absolute" === Fr || "fixed" === Fr) && -1 < (Or + Nr).indexOf("auto") ? (Lr = (Rr = Br.position()).top,
+            Ir = Rr.left) : (Lr = parseFloat(Or) || 0,
+            Ir = parseFloat(Nr) || 0),
             Vn.isFunction(Mr) && (Mr = Mr.call(Pr, Dr, Vn.extend({}, kr))),
             null != Mr.top && (Ur.top = Mr.top - kr.top + Lr),
-            null != Mr.left && (Ur.left = Mr.left - kr.left + Rr),
+            null != Mr.left && (Ur.left = Mr.left - kr.left + Ir),
             "using"in Mr ? Mr.using.call(Pr, Ur) : Br.css(Ur)
         }
     },
@@ -3917,15 +3917,15 @@
                 return void 0 === Pr ? this : this.each(function(Lr) {
                     Vn.offset.setOffset(this, Pr, Lr)
                 });
-            var Or = this[0], Mr, Dr, Ir, Rr;
+            var Or = this[0], Mr, Dr, Rr, Ir;
             if (Or)
-                return Or.getClientRects().length ? (Ir = Or.getBoundingClientRect(),
+                return Or.getClientRects().length ? (Rr = Or.getBoundingClientRect(),
                 Mr = Or.ownerDocument,
                 Dr = Mr.documentElement,
-                Rr = Mr.defaultView,
+                Ir = Mr.defaultView,
                 {
-                    top: Ir.top + Rr.pageYOffset - Dr.clientTop,
-                    left: Ir.left + Rr.pageXOffset - Dr.clientLeft
+                    top: Rr.top + Ir.pageYOffset - Dr.clientTop,
+                    left: Rr.left + Ir.pageXOffset - Dr.clientLeft
                 }) : {
                     top: 0,
                     left: 0
@@ -3933,20 +3933,20 @@
         },
         position: function() {
             if (this[0]) {
-                var Dr = this[0], Ir = {
+                var Dr = this[0], Rr = {
                     top: 0,
                     left: 0
                 }, Pr, Mr;
                 return "fixed" === Vn.css(Dr, "position") ? Mr = Dr.getBoundingClientRect() : (Pr = this.offsetParent(),
                 Mr = this.offset(),
-                Ht(Pr[0], "html") || (Ir = Pr.offset()),
-                Ir = {
-                    top: Ir.top + Vn.css(Pr[0], "borderTopWidth", !0),
-                    left: Ir.left + Vn.css(Pr[0], "borderLeftWidth", !0)
+                Ht(Pr[0], "html") || (Rr = Pr.offset()),
+                Rr = {
+                    top: Rr.top + Vn.css(Pr[0], "borderTopWidth", !0),
+                    left: Rr.left + Vn.css(Pr[0], "borderLeftWidth", !0)
                 }),
                 {
-                    top: Mr.top - Ir.top - Vn.css(Dr, "marginTop", !0),
-                    left: Mr.left - Ir.left - Vn.css(Dr, "marginLeft", !0)
+                    top: Mr.top - Rr.top - Vn.css(Dr, "marginTop", !0),
+                    left: Mr.left - Rr.left - Vn.css(Dr, "marginLeft", !0)
                 }
             }
         },
@@ -3963,19 +3963,19 @@
         scrollTop: "pageYOffset"
     }, function(Pr, Mr) {
         var Dr = "pageYOffset" === Mr;
-        Vn.fn[Pr] = function(Ir) {
-            return ca(this, function(Rr, Or, Lr) {
+        Vn.fn[Pr] = function(Rr) {
+            return ca(this, function(Ir, Or, Lr) {
                 var kr;
-                return (Vn.isWindow(Rr) ? kr = Rr : 9 === Rr.nodeType && (kr = Rr.defaultView),
-                void 0 === Lr) ? kr ? kr[Mr] : Rr[Or] : void (kr ? kr.scrollTo(Dr ? kr.pageXOffset : Lr, Dr ? Lr : kr.pageYOffset) : Rr[Or] = Lr)
-            }, Pr, Ir, arguments.length)
+                return (Vn.isWindow(Ir) ? kr = Ir : 9 === Ir.nodeType && (kr = Ir.defaultView),
+                void 0 === Lr) ? kr ? kr[Mr] : Ir[Or] : void (kr ? kr.scrollTo(Dr ? kr.pageXOffset : Lr, Dr ? Lr : kr.pageYOffset) : Ir[Or] = Lr)
+            }, Pr, Rr, arguments.length)
         }
     }),
     Vn.each(["top", "left"], function(Pr, Mr) {
-        Vn.cssHooks[Mr] = yn(zn.pixelPosition, function(Dr, Ir) {
-            if (Ir)
-                return Ir = mn(Dr, Mr),
-                Ya.test(Ir) ? Vn(Dr).position()[Mr] + "px" : Ir
+        Vn.cssHooks[Mr] = yn(zn.pixelPosition, function(Dr, Rr) {
+            if (Rr)
+                return Rr = mn(Dr, Mr),
+                Ya.test(Rr) ? Vn(Dr).position()[Mr] + "px" : Rr
         })
     }),
     Vn.each({
@@ -3986,15 +3986,15 @@
             padding: "inner" + Pr,
             content: Mr,
             "": "outer" + Pr
-        }, function(Dr, Ir) {
-            Vn.fn[Ir] = function(Rr, Or) {
-                var Lr = arguments.length && (Dr || "boolean" != typeof Rr)
-                  , kr = Dr || (!0 === Rr || !0 === Or ? "margin" : "border");
+        }, function(Dr, Rr) {
+            Vn.fn[Rr] = function(Ir, Or) {
+                var Lr = arguments.length && (Dr || "boolean" != typeof Ir)
+                  , kr = Dr || (!0 === Ir || !0 === Or ? "margin" : "border");
                 return ca(this, function(Nr, Fr, Br) {
                     var Ur;
-                    return Vn.isWindow(Nr) ? 0 === Ir.indexOf("outer") ? Nr["inner" + Pr] : Nr.document.documentElement["client" + Pr] : 9 === Nr.nodeType ? (Ur = Nr.documentElement,
+                    return Vn.isWindow(Nr) ? 0 === Rr.indexOf("outer") ? Nr["inner" + Pr] : Nr.document.documentElement["client" + Pr] : 9 === Nr.nodeType ? (Ur = Nr.documentElement,
                     Math.max(Nr.body["scroll" + Pr], Ur["scroll" + Pr], Nr.body["offset" + Pr], Ur["offset" + Pr], Ur["client" + Pr])) : void 0 === Br ? Vn.css(Nr, Fr, kr) : Vn.style(Nr, Fr, Br, kr)
-                }, Mr, Lr ? Rr : void 0, Lr)
+                }, Mr, Lr ? Ir : void 0, Lr)
             }
         })
     }),
@@ -4005,8 +4005,8 @@
         unbind: function(Pr, Mr) {
             return this.off(Pr, null, Mr)
         },
-        delegate: function(Pr, Mr, Dr, Ir) {
-            return this.on(Mr, Pr, Dr, Ir)
+        delegate: function(Pr, Mr, Dr, Rr) {
+            return this.on(Mr, Pr, Dr, Rr)
         },
         undelegate: function(Pr, Mr, Dr) {
             return 1 === arguments.length ? this.off(Pr, "**") : this.off(Mr, Pr || "**", Dr)
@@ -5254,17 +5254,17 @@ function(Bt) {
                         An = Sn < wn - 1 ? vn[Sn + 1] * En : xn.length,
                         (Pn = Ht(xn, Cn, An, En, !1)) === Pn.next && (Pn.steiner = !0),
                         Mn.push(function(Dn) {
-                            var In = Dn
-                              , Rn = Dn;
+                            var Rn = Dn
+                              , In = Dn;
                             do
-                                In.x < Rn.x && (Rn = In),
-                                In = In.next;
-                            while (In !== Dn);return Rn
+                                Rn.x < In.x && (In = Rn),
+                                Rn = Rn.next;
+                            while (Rn !== Dn);return In
                         }(Pn));
                     for (Mn.sort(zt),
                     Sn = 0; Sn < Mn.length; Sn++)
-                        !function(Dn, In) {
-                            if (In = function(On, Ln) {
+                        !function(Dn, Rn) {
+                            if (Rn = function(On, Ln) {
                                 var Nn = Ln, Fn = On.x, Bn = On.y, Un = -1 / 0, kn;
                                 do {
                                     if (Bn <= Nn.y && Bn >= Nn.next.y) {
@@ -5291,9 +5291,9 @@ function(Bt) {
                                     Wn = Gn),
                                     Nn = Nn.next;
                                 return kn
-                            }(Dn, In)) {
-                                var Rn = $t(In, Dn);
-                                jt(Rn, Rn.next)
+                            }(Dn, Rn)) {
+                                var In = $t(Rn, Dn);
+                                jt(In, In.next)
                             }
                         }(Mn[Sn], Tn),
                         Tn = jt(Tn, Tn.next);
@@ -5456,9 +5456,9 @@ function(Bt) {
                                                 var Pn = Cn
                                                   , Mn = !1
                                                   , Dn = (Cn.x + An.x) / 2
-                                                  , In = (Cn.y + An.y) / 2;
+                                                  , Rn = (Cn.y + An.y) / 2;
                                                 do
-                                                    Pn.y > In != Pn.next.y > In && Dn < (Pn.next.x - Pn.x) * (In - Pn.y) / (Pn.next.y - Pn.y) + Pn.x && (Mn = !Mn),
+                                                    Pn.y > Rn != Pn.next.y > Rn && Dn < (Pn.next.x - Pn.x) * (Rn - Pn.y) / (Pn.next.y - Pn.y) + Pn.x && (Mn = !Mn),
                                                     Pn = Pn.next;
                                                 while (Pn !== Cn);return Mn
                                             }(Sn, wn)
@@ -6827,7 +6827,7 @@ function(Bt) {
                         return xn(wn + (bn + 1) * Tn / (Tn + 38))
                     }
                     function Qt(Tn) {
-                        var On = [], Ln = Tn.length, kn = 0, Nn = hn, Fn = cn, En, Sn, wn, Cn, An, Pn, Mn, Dn, In, Rn;
+                        var On = [], Ln = Tn.length, kn = 0, Nn = hn, Fn = cn, En, Sn, wn, Cn, An, Pn, Mn, Dn, Rn, In;
                         for (0 > (Sn = Tn.lastIndexOf(fn)) && (Sn = 0),
                         wn = 0; wn < Sn; ++wn)
                             128 <= Tn.charCodeAt(wn) && jt("not-basic"),
@@ -6838,10 +6838,10 @@ function(Bt) {
                             Mn = sn; Cn >= Ln && jt("invalid-input"),
                             ((Dn = Kt(Tn.charCodeAt(Cn++))) >= sn || Dn > xn((on - kn) / Pn)) && jt("overflow"),
                             kn += Dn * Pn,
-                            In = Mn <= Fn ? dn : Mn >= Fn + ln ? ln : Mn - Fn,
-                            !(Dn < In); Mn += sn)
-                                Pn > xn(on / (Rn = sn - In)) && jt("overflow"),
-                                Pn *= Rn;
+                            Rn = Mn <= Fn ? dn : Mn >= Fn + ln ? ln : Mn - Fn,
+                            !(Dn < Rn); Mn += sn)
+                                Pn > xn(on / (In = sn - Rn)) && jt("overflow"),
+                                Pn *= In;
                             Fn = Zt(kn - An, En = On.length + 1, 0 == An),
                             xn(kn / En) > on - Nn && jt("overflow"),
                             Nn += xn(kn / En),
@@ -6851,7 +6851,7 @@ function(Bt) {
                         return qt(On)
                     }
                     function $t(Tn) {
-                        var Bn = [], En, Sn, wn, Cn, An, Pn, Mn, Dn, In, Rn, On, Ln, kn, Nn, Fn;
+                        var Bn = [], En, Sn, wn, Cn, An, Pn, Mn, Dn, Rn, In, On, Ln, kn, Nn, Fn;
                         for (Ln = (Tn = Vt(Tn)).length,
                         En = hn,
                         Sn = 0,
@@ -6870,11 +6870,11 @@ function(Bt) {
                                 if ((On = Tn[Pn]) < En && ++Sn > on && jt("overflow"),
                                 On == En) {
                                     for (Dn = Sn,
-                                    In = sn; Rn = In <= An ? dn : In >= An + ln ? ln : In - An,
-                                    !(Dn < Rn); In += sn)
-                                        Fn = Dn - Rn,
-                                        Nn = sn - Rn,
-                                        Bn.push(vn(Jt(Rn + Fn % Nn, 0))),
+                                    Rn = sn; In = Rn <= An ? dn : Rn >= An + ln ? ln : Rn - An,
+                                    !(Dn < In); Rn += sn)
+                                        Fn = Dn - In,
+                                        Nn = sn - In,
+                                        Bn.push(vn(Jt(In + Fn % Nn, 0))),
                                         Dn = xn(Fn / Nn);
                                     Bn.push(vn(Jt(Dn, 0))),
                                     An = Zt(Sn, kn, wn == Cn),
@@ -7138,9 +7138,9 @@ function(Bt) {
                                 if (!Cn.match($t)) {
                                     var Mn = En.slice(0, _n)
                                       , Dn = En.slice(_n + 1)
-                                      , In = wn.match(en);
-                                    In && (Mn.push(In[1]),
-                                    Dn.unshift(In[2])),
+                                      , Rn = wn.match(en);
+                                    Rn && (Mn.push(Rn[1]),
+                                    Dn.unshift(Rn[2])),
                                     Dn.length && (cn = "/" + Dn.join(".") + cn),
                                     this.hostname = Mn.join(".");
                                     break
@@ -7148,9 +7148,9 @@ function(Bt) {
                             }
                     this.hostname = 255 < this.hostname.length ? "" : this.hostname.toLowerCase(),
                     Tn || (this.hostname = jt.toASCII(this.hostname));
-                    var Rn = this.port ? ":" + this.port : ""
+                    var In = this.port ? ":" + this.port : ""
                       , On = this.hostname || "";
-                    this.host = On + Rn,
+                    this.host = On + In,
                     this.href += this.host,
                     Tn && (this.hostname = this.hostname.substr(1, this.hostname.length - 2),
                     "/" !== cn[0] && (cn = "/" + cn))
@@ -7177,9 +7177,9 @@ function(Bt) {
                 cn && (this.pathname = cn),
                 an[gn] && this.hostname && !this.pathname && (this.pathname = "/"),
                 this.pathname || this.search) {
-                    Rn = this.pathname || "";
+                    In = this.pathname || "";
                     var Bn = this.search || "";
-                    this.path = Rn + Bn
+                    this.path = In + Bn
                 }
                 return this.href = this.format(),
                 this
@@ -7300,8 +7300,8 @@ function(Bt) {
                     dn.query = on.query;
                 else if (!Wt.isNullOrUndefined(on.search))
                     return Cn && (dn.hostname = dn.host = wn.shift(),
-                    (Rn = !!(dn.host && 0 < dn.host.indexOf("@")) && dn.host.split("@")) && (dn.auth = Rn.shift(),
-                    dn.host = dn.hostname = Rn.shift())),
+                    (In = !!(dn.host && 0 < dn.host.indexOf("@")) && dn.host.split("@")) && (dn.auth = In.shift(),
+                    dn.host = dn.hostname = In.shift())),
                     dn.search = on.search,
                     dn.query = on.query,
                     Wt.isNull(dn.pathname) && Wt.isNull(dn.search) || (dn.path = (dn.pathname ? dn.pathname : "") + (dn.search ? dn.search : "")),
@@ -7321,14 +7321,14 @@ function(Bt) {
                         wn.unshift("..");
                 !En || "" === wn[0] || wn[0] && "/" === wn[0].charAt(0) || wn.unshift(""),
                 Pn && "/" !== wn.join("/").substr(-1) && wn.push("");
-                var In = "" === wn[0] || wn[0] && "/" === wn[0].charAt(0);
+                var Rn = "" === wn[0] || wn[0] && "/" === wn[0].charAt(0);
                 if (Cn) {
-                    dn.hostname = dn.host = In ? "" : wn.length ? wn.shift() : "";
-                    var Rn;
-                    (Rn = !!(dn.host && 0 < dn.host.indexOf("@")) && dn.host.split("@")) && (dn.auth = Rn.shift(),
-                    dn.host = dn.hostname = Rn.shift())
+                    dn.hostname = dn.host = Rn ? "" : wn.length ? wn.shift() : "";
+                    var In;
+                    (In = !!(dn.host && 0 < dn.host.indexOf("@")) && dn.host.split("@")) && (dn.auth = In.shift(),
+                    dn.host = dn.hostname = In.shift())
                 }
-                return (En = En || dn.host && wn.length) && !In && wn.unshift(""),
+                return (En = En || dn.host && wn.length) && !Rn && wn.unshift(""),
                 wn.length ? dn.pathname = wn.join("/") : (dn.pathname = null,
                 dn.path = null),
                 Wt.isNull(dn.pathname) && Wt.isNull(dn.search) || (dn.path = (dn.pathname ? dn.pathname : "") + (dn.search ? dn.search : "")),
@@ -10274,11 +10274,11 @@ function(Bt) {
                                 pn = gn - yn < pn ? gn - yn : pn,
                                 cn = gn + yn > cn ? gn + yn : cn;
                             else
-                                for (var Tn = hn.points, En = 0, Sn = 0, wn = 0, Cn = 0, An = 0, Pn = 0, Mn = 0, Dn = 0, In = 0; In + 2 < Tn.length; In += 2)
-                                    fn = Tn[In],
-                                    gn = Tn[In + 1],
-                                    En = Tn[In + 2],
-                                    Sn = Tn[In + 3],
+                                for (var Tn = hn.points, En = 0, Sn = 0, wn = 0, Cn = 0, An = 0, Pn = 0, Mn = 0, Dn = 0, Rn = 0; Rn + 2 < Tn.length; Rn += 2)
+                                    fn = Tn[Rn],
+                                    gn = Tn[Rn + 1],
+                                    En = Tn[Rn + 2],
+                                    Sn = Tn[Rn + 3],
                                     wn = Math.abs(En - fn),
                                     Cn = Math.abs(Sn - gn),
                                     yn = vn,
@@ -10294,11 +10294,11 @@ function(Bt) {
                         un = 0,
                         pn = 0,
                         cn = 0;
-                    var Rn = this.boundsPadding;
-                    this._localBounds.minX = ln - Rn,
-                    this._localBounds.maxX = un + Rn,
-                    this._localBounds.minY = pn - Rn,
-                    this._localBounds.maxY = cn + Rn
+                    var In = this.boundsPadding;
+                    this._localBounds.minX = ln - In,
+                    this._localBounds.maxX = un + In,
+                    this._localBounds.minY = pn - In,
+                    this._localBounds.maxY = cn + In
                 }
                 ,
                 dn.prototype.drawShape = function(ln) {
@@ -10958,15 +10958,15 @@ function(Bt) {
                               , Pn = (-_n + cn) * (-bn + gn) - (-_n + fn) * (-bn + hn)
                               , Mn = -(vn *= on) + yn - (-vn + gn)
                               , Dn = -(xn *= on) + fn - (-xn + mn)
-                              , In = (-xn + mn) * (-vn + gn) - (-xn + fn) * (-vn + yn)
-                              , Rn = Cn * Dn - Mn * An;
-                            if (.1 > Math.abs(Rn))
-                                Rn += 10.1,
+                              , Rn = (-xn + mn) * (-vn + gn) - (-xn + fn) * (-vn + yn)
+                              , In = Cn * Dn - Mn * An;
+                            if (.1 > Math.abs(In))
+                                In += 10.1,
                                 en.push(fn - _n, gn - bn, ln, un, pn, dn),
                                 en.push(fn + _n, gn + bn, ln, un, pn, dn);
                             else {
-                                var On = (An * In - Dn * Pn) / Rn
-                                  , Ln = (Mn * Pn - Cn * In) / Rn;
+                                var On = (An * Rn - Dn * Pn) / In
+                                  , Ln = (Mn * Pn - Cn * Rn) / In;
                                 (On - fn) * (On - fn) + (Ln - gn) * (Ln - gn) > 196 * on * on ? (Tn = _n - xn,
                                 En = bn - vn,
                                 Tn /= Sn = Math.sqrt(Tn * Tn + En * En),
@@ -11459,13 +11459,13 @@ function(Bt) {
             var Pn = Xt(Bt("./utils"))
               , Mn = Xt(Bt("./ticker"))
               , Dn = Ht(Bt("./settings"))
-              , In = Ht(Bt("./renderers/canvas/CanvasRenderer"))
-              , Rn = Ht(Bt("./renderers/webgl/WebGLRenderer"));
+              , Rn = Ht(Bt("./renderers/canvas/CanvasRenderer"))
+              , In = Ht(Bt("./renderers/webgl/WebGLRenderer"));
             Gt.settings = Dn.default,
             Gt.utils = Pn,
             Gt.ticker = Mn,
-            Gt.CanvasRenderer = In.default,
-            Gt.WebGLRenderer = Rn.default
+            Gt.CanvasRenderer = Rn.default,
+            Gt.WebGLRenderer = In.default
         }
         , {
             "./Application": 43,
@@ -15210,10 +15210,10 @@ function(Bt) {
                                 -1 === _n._virtalBoundId)
                                     for (var Mn = 0; Mn < on; ++Mn) {
                                         var Dn = (Mn + en) % on
-                                          , In = fn[Dn];
-                                        if (In._enabled !== $t) {
+                                          , Rn = fn[Dn];
+                                        if (Rn._enabled !== $t) {
                                             en++,
-                                            In._virtalBoundId = -1,
+                                            Rn._virtalBoundId = -1,
                                             _n._virtalBoundId = Dn,
                                             fn[Dn] = _n;
                                             break
@@ -15227,15 +15227,15 @@ function(Bt) {
                             if (En = An.vertexData,
                             Sn = An._texture._uvs.uvsUint32,
                             this.renderer.roundPixels) {
-                                var Rn = this.renderer.resolution;
-                                cn[yn] = (0 | En[0] * Rn) / Rn,
-                                cn[yn + 1] = (0 | En[1] * Rn) / Rn,
-                                cn[yn + 5] = (0 | En[2] * Rn) / Rn,
-                                cn[yn + 6] = (0 | En[3] * Rn) / Rn,
-                                cn[yn + 10] = (0 | En[4] * Rn) / Rn,
-                                cn[yn + 11] = (0 | En[5] * Rn) / Rn,
-                                cn[yn + 15] = (0 | En[6] * Rn) / Rn,
-                                cn[yn + 16] = (0 | En[7] * Rn) / Rn
+                                var In = this.renderer.resolution;
+                                cn[yn] = (0 | En[0] * In) / In,
+                                cn[yn + 1] = (0 | En[1] * In) / In,
+                                cn[yn + 5] = (0 | En[2] * In) / In,
+                                cn[yn + 6] = (0 | En[3] * In) / In,
+                                cn[yn + 10] = (0 | En[4] * In) / In,
+                                cn[yn + 11] = (0 | En[5] * In) / In,
+                                cn[yn + 15] = (0 | En[6] * In) / In,
+                                cn[yn + 16] = (0 | En[7] * In) / In
                             } else
                                 cn[yn] = En[0],
                                 cn[yn + 1] = En[1],
@@ -22381,8 +22381,8 @@ function(Bt) {
                           , Pn = rn * ln * fn + dn * hn * sn + cn * on * un - cn * ln * sn - dn * on * fn - rn * hn * un
                           , Mn = gn * ln + dn * yn + mn * un - ln * yn - dn * mn - gn * un
                           , Dn = rn * mn + gn * sn + on * yn - mn * sn - gn * on - rn * yn
-                          , In = rn * ln * yn + dn * mn * sn + gn * on * un - gn * ln * sn - dn * on * yn - rn * mn * un;
-                        Jt.transform(Cn / wn, Mn / wn, An / wn, Dn / wn, Pn / wn, In / wn),
+                          , Rn = rn * ln * yn + dn * mn * sn + gn * on * un - gn * ln * sn - dn * on * yn - rn * mn * un;
+                        Jt.transform(Cn / wn, Mn / wn, An / wn, Dn / wn, Pn / wn, Rn / wn),
                         Jt.drawImage(tn, 0, 0, nn * en.resolution, an * en.resolution, 0, 0, nn, an),
                         Jt.restore(),
                         this.renderer.invalidateBlendMode()
@@ -28081,13 +28081,10 @@ function loadGameCode() {
                     break;
                 case yn.PING:
                     !function(vn) {
-                        setTimeout(()=>{
-                            cn({
-                                c: gn.PONG,
-                                num: vn
-                            })
-                        }
-                        , Tools.randInt(300, 400))
+                        cn({
+                            c: gn.PONG,
+                            num: vn
+                        })
                     }(bn.num);
                     break;
                 case yn.PING_RESULT:
@@ -28252,8 +28249,8 @@ function loadGameCode() {
                     var Dn = En[Pn].length;
                     An.setUint8(Mn, Dn, !0),
                     Mn += 1;
-                    for (var In = 0; In < Dn; In++)
-                        An.setUint8(Mn + In, En[Pn][In], !0);
+                    for (var Rn = 0; Rn < Dn; Rn++)
+                        An.setUint8(Mn + Rn, En[Pn][Rn], !0);
                     En[Pn],
                     Pn++,
                     Mn += Dn;
@@ -28316,19 +28313,19 @@ function loadGameCode() {
                 case fn.array:
                 case fn.arraysmall:
                     if (Sn[wn][1] == fn.arraysmall) {
-                        var In = vn.getUint8(En, !0);
+                        var Rn = vn.getUint8(En, !0);
                         En += 1
                     } else
-                        In = vn.getUint16(En, !0),
+                        Rn = vn.getUint16(En, !0),
                         En += 2;
                     Tn[Cn] = [];
-                    for (var Rn = Sn[wn][2], On = 0; On < In; On++) {
-                        for (var Ln = {}, kn = 0, Nn; kn < Rn.length; kn++)
-                            switch (Nn = Rn[kn][0],
-                            Rn[kn][1]) {
+                    for (var In = Sn[wn][2], On = 0; On < Rn; On++) {
+                        for (var Ln = {}, kn = 0, Nn; kn < In.length; kn++)
+                            switch (Nn = In[kn][0],
+                            In[kn][1]) {
                             case fn.text:
                             case fn.textbig:
-                                for (Rn[kn][1] == fn.text ? (An = vn.getUint8(En, !0),
+                                for (In[kn][1] == fn.text ? (An = vn.getUint8(En, !0),
                                 En += 1) : (An = vn.getUint16(En, !0),
                                 En += 2),
                                 Pn = new Uint8Array(An),
@@ -29005,10 +29002,10 @@ function loadGameCode() {
                         Kt.special = Pn);
                         var Mn = new Vector(Tn.axes[1],Tn.axes[0])
                           , Dn = Mn.length()
-                          , In = -Mn.angle() + Math.PI / 2
-                          , Rn = In = (In % zt + zt) % zt;
+                          , Rn = -Mn.angle() + Math.PI / 2
+                          , In = Rn = (Rn % zt + zt) % zt;
                         .2 < Dn ? (Kt.forward = !0,
-                        _n(Rn, Dn)) : (Kt.forward && !En && yn("UP", !1),
+                        _n(In, Dn)) : (Kt.forward && !En && yn("UP", !1),
                         Kt.forward = !1)
                     }
                 } else
@@ -31841,7 +31838,7 @@ function loadGameCode() {
             UI.show("#scorebig"),
             UI.show("#settings"),
             UI.show("#sidebar"),
-            config.mobile && In(),
+            config.mobile && Rn(),
             config.settings.helpshown || (UI.showHelp(!0),
             config.settings.helpshown = !0,
             Tools.setSettings({
@@ -31859,12 +31856,12 @@ function loadGameCode() {
             Network.setup()
         }
         ;
-        var In = function() {
-            Rn(),
+        var Rn = function() {
+            In(),
             Graphics.toggleFullscreen(),
             Input.setupTouch()
         }
-          , Rn = function() {
+          , In = function() {
             $("#howtoplay").addClass("mobile"),
             $("#howtoplay").html("<div class=\"header\">HOW TO PLAY</div><div class=\"mobile-graphic\"></div><div class=\"commands\">For the best game experience play on a PC</div>")
         };
@@ -32207,8 +32204,8 @@ function loadGameCode() {
             var Pn = void 0 == window.screenLeft ? window.screenX : window.screenLeft
               , Mn = void 0 == window.screenTop ? window.screenY : window.screenTop
               , Dn = (window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width) / 2 - Cn / 2 + Pn
-              , In = (window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height) / 2 - An / 2 + Mn;
-            window.open(Sn, wn, "width=" + Cn + ", height=" + An + ", top=" + In + ", left=" + Dn)
+              , Rn = (window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height) / 2 - An / 2 + Mn;
+            window.open(Sn, wn, "width=" + Cn + ", height=" + An + ", top=" + Rn + ", left=" + Dn)
         };
         window.loginSuccess = function(Sn) {
             config.settings.session = Sn,
@@ -32381,11 +32378,11 @@ function loadGameCode() {
                     null != Jt && (Pn = "<span class=\"autoregion\">(" + en[Jt].name + ")</span>"),
                     Cn += "<div class=\"item selectable" + ("closest" === game.playRegion ? " sel" : "") + "\" onclick=\"Games.selectRegion(event, &quot;closest&quot;)\"><div class=\"region chooser\">Closest" + Pn + "</div><div class=\"clear\"></div></div>";
                     for (var Mn = 0; Mn < en.length; Mn++) {
-                        for (var Dn = 0, In = 0; In < en[Mn].games.length; In++)
-                            Dn += en[Mn].games[In].players;
-                        var Rn;
-                        Rn = null == en[Mn].ping ? "&nbsp;" : Math.round(en[Mn].ping) + "<span class=\"ms\">ms</span>",
-                        Cn += "<div class=\"item selectable" + (game.playRegion === en[Mn].id ? " sel" : "") + "\" onclick=\"Games.selectRegion(event, &quot;" + en[Mn].id + "&quot;)\"><div class=\"region chooser\">" + en[Mn].name + "</div><div class=\"players number\">" + Dn + "</div><div class=\"ping chooser nopadding\">" + Rn + "</div><div class=\"clear\"></div></div>"
+                        for (var Dn = 0, Rn = 0; Rn < en[Mn].games.length; Rn++)
+                            Dn += en[Mn].games[Rn].players;
+                        var In;
+                        In = null == en[Mn].ping ? "&nbsp;" : Math.round(en[Mn].ping) + "<span class=\"ms\">ms</span>",
+                        Cn += "<div class=\"item selectable" + (game.playRegion === en[Mn].id ? " sel" : "") + "\" onclick=\"Games.selectRegion(event, &quot;" + en[Mn].id + "&quot;)\"><div class=\"region chooser\">" + en[Mn].name + "</div><div class=\"players number\">" + Dn + "</div><div class=\"ping chooser nopadding\">" + In + "</div><div class=\"clear\"></div></div>"
                     }
                     Cn += "<div class=\"item\"></div>",
                     An = {
@@ -32435,17 +32432,17 @@ function loadGameCode() {
                 Sn) {
                     if (Gt && Games.updateRegion(!1),
                     Cn += "<div class=\"item\"><div class=\"gametype header\">GAME</div><div class=\"players header\">PLAYERS</div><div class=\"clear\"></div></div>",
-                    null == (Rn = gn()))
+                    null == (In = gn()))
                         return;
-                    null == hn(Rn, game.playRoom) && (game.playRoom = Wt[1]);
-                    var Dn = cn(Rn).games, In = [[], [], [], [], [], [], [], [], []], Pn, Mn;
+                    null == hn(In, game.playRoom) && (game.playRoom = Wt[1]);
+                    var Dn = cn(In).games, Rn = [[], [], [], [], [], [], [], [], []], Pn, Mn;
                     for (Pn = 0; Pn < Dn.length; Pn++)
-                        In[Dn[Pn].type].push(Dn[Pn]);
-                    for (Pn = 1; Pn < In.length; Pn++)
-                        if (0 != In[Pn].length)
+                        Rn[Dn[Pn].type].push(Dn[Pn]);
+                    for (Pn = 1; Pn < Rn.length; Pn++)
+                        if (0 != Rn[Pn].length)
                             for (Cn += "<div class=\"item selectable" + (Wt[Pn] === game.playRoom ? " sel" : "") + "\" onclick=\"Games.selectGame(event, &quot;" + Wt[Pn] + "&quot;)\"><div class=\"gametype chooser\">" + jt[Pn] + "<span class=\"infocontainer\">&nbsp;<div class=\"infoicon\">" + mn(Pn) + "</div></span></div><div class=\"clear\"></div></div>",
-                            Mn = 0; Mn < In[Pn].length; Mn++)
-                                Cn += "<div class=\"item selectable" + (In[Pn][Mn].id === game.playRoom ? " sel" : "") + "\" onclick=\"Games.selectGame(event, &quot;" + In[Pn][Mn].id + "&quot;)\"><div class=\"gametype chooser\">" + In[Pn][Mn].nameShort + "</div><div class=\"players number\">" + In[Pn][Mn].players + "</div><div class=\"clear\"></div></div>";
+                            Mn = 0; Mn < Rn[Pn].length; Mn++)
+                                Cn += "<div class=\"item selectable" + (Rn[Pn][Mn].id === game.playRoom ? " sel" : "") + "\" onclick=\"Games.selectGame(event, &quot;" + Rn[Pn][Mn].id + "&quot;)\"><div class=\"gametype chooser\">" + Rn[Pn][Mn].nameShort + "</div><div class=\"players number\">" + Rn[Pn][Mn].players + "</div><div class=\"clear\"></div></div>";
                     Cn += "<div class=\"item\"></div>",
                     An = {
                         width: "240px",
@@ -32456,10 +32453,10 @@ function loadGameCode() {
                 } else {
                     Cn += "<div class=\"arrowdown\"></div>",
                     Cn += "<div class=\"playtop\">GAME</div>";
-                    var Rn;
-                    if (null == (Rn = gn()))
+                    var In;
+                    if (null == (In = gn()))
                         return;
-                    var On = hn(Rn, game.playRoom);
+                    var On = hn(In, game.playRoom);
                     null == On ? (name = jt[1],
                     game.playRoom = Wt[1]) : name = On.name,
                     Cn += "<div class=\"playbottom\">" + name + "</div>",
@@ -32661,7 +32658,7 @@ function loadGameCode() {
             var Dn = !1;
             try {
                 Dn = An.document.execCommand("copy")
-            } catch (In) {}
+            } catch (Rn) {}
             return Pn.removeAllRanges(),
             wn.remove(),
             Cn.remove(),
@@ -32678,9 +32675,9 @@ function loadGameCode() {
                     var Pn = game.playRoom
                       , Mn = Wt.indexOf(Pn);
                     if (-1 != Mn) {
-                        for (var Dn = cn(game.playRegion).games, In = [], Rn = 0; Rn < Dn.length; Rn++)
-                            Dn[Rn].type == Mn && In.push(Dn[Rn].id);
-                        Pn = In[Tools.randInt(0, In.length - 1)]
+                        for (var Dn = cn(game.playRegion).games, Rn = [], In = 0; In < Dn.length; In++)
+                            Dn[In].type == Mn && Rn.push(Dn[In].id);
+                        Pn = Rn[Tools.randInt(0, Rn.length - 1)]
                     }
                     var On = hn(game.playRegion, Pn);
                     game.playHost = On.host,
@@ -32911,8 +32908,8 @@ function loadGameCode() {
               , Pn = Math.ceil((game.halfScreenY + 64) / game.scale / 64)
               , Mn = 0
               , Dn = 0
-              , In = ""
-              , Rn = {}
+              , Rn = ""
+              , In = {}
               , On = 0
               , Ln = 0
               , kn = new Vector(Cn.x - game.halfScreenX / game.scale - 64,Cn.y - game.halfScreenY / game.scale - 64)
@@ -32924,9 +32921,9 @@ function loadGameCode() {
                     for (var Yn = -Pn; Yn <= Pn; Yn++)
                         if (Mn = 64 * (Math.floor(Cn.x / 64) + .5) + 64 * Un,
                         Dn = 64 * (Math.floor(Cn.y / 64) + .5) + 64 * Yn,
-                        !((On = Tools.distance(Mn, Dn, Sn.x, Sn.y)) < wn) && (In = Mn + "_" + Dn,
-                        Rn[In] = !0,
-                        null == an[In])) {
+                        !((On = Tools.distance(Mn, Dn, Sn.x, Sn.y)) < wn) && (Rn = Mn + "_" + Dn,
+                        In[Rn] = !0,
+                        null == an[Rn])) {
                             var Gn = Textures.sprite("hotsmoke_" + Tools.randInt(1, 4));
                             Gn.scale.set(Tools.rand(1.5, 2.5)),
                             Gn.anchor.set(.5, .5),
@@ -32935,7 +32932,7 @@ function loadGameCode() {
                             .5 < Tools.rand(0, 1) && (Gn.blendMode = PIXI.BLEND_MODES.ADD,
                             Ln = .5),
                             game.graphics.layers.powerups.addChild(Gn),
-                            an[In] = {
+                            an[Rn] = {
                                 sprite: Gn,
                                 rotation: Tools.rand(0, 100),
                                 rotationSpeed: Tools.rand(-.0025, .0025),
@@ -32947,7 +32944,7 @@ function loadGameCode() {
                             }
                         }
             for (var Xn in an)
-                null == Rn[Xn] ? (game.graphics.layers.powerups.removeChild(an[Xn].sprite),
+                null == In[Xn] ? (game.graphics.layers.powerups.removeChild(an[Xn].sprite),
                 an[Xn].sprite.destroy(),
                 delete an[Xn]) : (an[Xn].rotation += an[Xn].rotationSpeed * game.timeFactor,
                 an[Xn].opacity += an[Xn].opacitySpeed * game.timeFactor,
@@ -33179,13 +33176,13 @@ function loadGameCode() {
                 } else
                     Dn = Gt;
                 if (!(null != wn && .01 > wn)) {
-                    var In = Dn.play(Mn ? void 0 : Sn);
+                    var Rn = Dn.play(Mn ? void 0 : Sn);
                     if ("thruster" === Sn || "missile" === Sn || "chopper" === Sn) {
-                        var Rn = Dn.seek(null, In);
-                        Dn.seek(Rn + Tools.rand(0, 1), In)
+                        var In = Dn.seek(null, Rn);
+                        Dn.seek(In + Tools.rand(0, 1), Rn)
                     }
-                    return xn(In, Sn, wn, Cn, An, Pn, Mn),
-                    In
+                    return xn(Rn, Sn, wn, Cn, An, Pn, Mn),
+                    Rn
                 }
             }
         }
@@ -33194,13 +33191,13 @@ function loadGameCode() {
                 if (Dn) {
                     if (null == Xt[wn])
                         return;
-                    var In = Xt[wn]
+                    var Rn = Xt[wn]
                 } else
-                    In = Gt;
-                null != Cn && In.volume(Cn, Sn),
-                null != Mn && In.fade(Mn[0], Mn[1], Mn[2], Sn, 4 == Mn.length || null),
-                null != Pn && In.rate(Pn, Sn),
-                null == An || config.ios || In.stereo(En(An), Sn)
+                    Rn = Gt;
+                null != Cn && Rn.volume(Cn, Sn),
+                null != Mn && Rn.fade(Mn[0], Mn[1], Mn[2], Sn, 4 == Mn.length || null),
+                null != Pn && Rn.rate(Pn, Sn),
+                null == An || config.ios || Rn.stereo(En(An), Sn)
             }
         }
           , vn = function(Sn, wn, Cn) {
@@ -33253,19 +33250,19 @@ function loadGameCode() {
                     var Mn = Tn(wn.pos);
                     if (0 == Sn)
                         var Dn = Mn * un[wn.type] * $t
-                          , In = ln[wn.type];
+                          , Rn = ln[wn.type];
                     else
                         Dn = Mn * en,
-                        In = pn[wn.type];
+                        Rn = pn[wn.type];
                     if (.01 > Dn)
                         return;
-                    var Rn = bn(An, null, wn.pos, In, [0, Dn, 200]);
+                    var In = bn(An, null, wn.pos, Rn, [0, Dn, 200]);
                     Ht[Pn] = {
                         type: Sn,
                         started: game.time,
                         last: game.time,
                         sound: An,
-                        soundId: Rn,
+                        soundId: In,
                         vol: Dn
                     },
                     0 == Sn ? jt++ : Wt++
@@ -33277,11 +33274,11 @@ function loadGameCode() {
                     wn.boost && (Dn *= 3)) : Dn = Mn * en,
                     .01 > Dn)
                         return void Sound.clearThruster(Pn);
-                    if (In = null,
-                    0 == Sn && 3 == wn.type && (In = ln[wn.type] + wn.speed.length() / 20),
+                    if (Rn = null,
+                    0 == Sn && 3 == wn.type && (Rn = ln[wn.type] + wn.speed.length() / 20),
                     250 > game.time - Ht[Pn].started)
                         return;
-                    xn(Ht[Pn].soundId, Ht[Pn].sound, null, wn.pos, In, [Ht[Pn].vol, Dn, 100, !0]),
+                    xn(Ht[Pn].soundId, Ht[Pn].sound, null, wn.pos, Rn, [Ht[Pn].vol, Dn, 100, !0]),
                     Ht[Pn].last = game.time,
                     Ht[Pn].vol = Dn
                 }
@@ -33502,13 +33499,13 @@ function loadGameCode() {
                 } else
                     Dn = Gt;
                 if (!(null != wn && .01 > wn)) {
-                    var In = Dn.play(Mn ? void 0 : Sn);
+                    var Rn = Dn.play(Mn ? void 0 : Sn);
                     if ("thruster" === Sn || "missile" === Sn || "chopper" === Sn) {
-                        var Rn = Dn.seek(null, In);
-                        Dn.seek(Rn + Tools.rand(0, 1), In)
+                        var In = Dn.seek(null, Rn);
+                        Dn.seek(In + Tools.rand(0, 1), Rn)
                     }
-                    return xn(In, Sn, wn, Cn, An, Pn, Mn),
-                    In
+                    return xn(Rn, Sn, wn, Cn, An, Pn, Mn),
+                    Rn
                 }
             }
         }
@@ -33517,13 +33514,13 @@ function loadGameCode() {
                 if (Dn) {
                     if (null == Xt[wn])
                         return;
-                    var In = Xt[wn]
+                    var Rn = Xt[wn]
                 } else
-                    In = Gt;
-                null != Cn && In.volume(Cn, Sn),
-                null != Mn && In.fade(Mn[0], Mn[1], Mn[2], Sn, 4 == Mn.length || null),
-                null != Pn && In.rate(Pn, Sn),
-                null == An || config.ios || In.stereo(En(An), Sn)
+                    Rn = Gt;
+                null != Cn && Rn.volume(Cn, Sn),
+                null != Mn && Rn.fade(Mn[0], Mn[1], Mn[2], Sn, 4 == Mn.length || null),
+                null != Pn && Rn.rate(Pn, Sn),
+                null == An || config.ios || Rn.stereo(En(An), Sn)
             }
         }
           , vn = function(Sn, wn, Cn) {
@@ -33588,19 +33585,19 @@ function loadGameCode() {
                     var Mn = Tn(wn.pos);
                     if (0 == Sn)
                         var Dn = Mn * un[wn.type] * $t
-                          , In = ln[wn.type];
+                          , Rn = ln[wn.type];
                     else
                         Dn = Mn * en,
-                        In = pn[wn.type];
+                        Rn = pn[wn.type];
                     if (.01 > Dn)
                         return;
-                    var Rn = bn(An, null, wn.pos, In, [0, Dn, 200]);
+                    var In = bn(An, null, wn.pos, Rn, [0, Dn, 200]);
                     Ht[Pn] = {
                         type: Sn,
                         started: game.time,
                         last: game.time,
                         sound: An,
-                        soundId: Rn,
+                        soundId: In,
                         vol: Dn
                     },
                     0 == Sn ? jt++ : Wt++
@@ -33612,11 +33609,11 @@ function loadGameCode() {
                     wn.boost && (Dn *= 3)) : Dn = Mn * en,
                     .01 > Dn)
                         return void Sound.clearThruster(Pn);
-                    if (In = null,
-                    0 == Sn && 3 == wn.type && (In = ln[wn.type] + wn.speed.length() / 20),
+                    if (Rn = null,
+                    0 == Sn && 3 == wn.type && (Rn = ln[wn.type] + wn.speed.length() / 20),
                     250 > game.time - Ht[Pn].started)
                         return;
-                    xn(Ht[Pn].soundId, Ht[Pn].sound, null, wn.pos, In, [Ht[Pn].vol, Dn, 100, !0]),
+                    xn(Ht[Pn].soundId, Ht[Pn].sound, null, wn.pos, Rn, [Ht[Pn].vol, Dn, 100, !0]),
                     Ht[Pn].last = game.time,
                     Ht[Pn].vol = Dn
                 }
@@ -33879,7 +33876,7 @@ window.Base64 = {
         return Yt
     }
 },
-window.SWAM_version = "2.2040301",
+window.SWAM_version = "2.2040302",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
