@@ -115,8 +115,6 @@ Extensions are plugins for StarMash, that can add new features and Themes. For a
 
 &nbsp;
 
-&nbsp;
-
 ## **StarMash v1 and v2 Themes**
 
 ### Paralaxing Background
