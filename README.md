@@ -32,78 +32,24 @@ Galleries:
 
 [Gallery 1](https://imgur.com/gallery/kjvZ6)
 
-<br><br>
--------------------------------------------------------
-<br><br>
+<br>
+<br>
 
 # Features and Help:
 
-If you are in a hurry, a very short list would summarize the main features as follow. Please, be reminded this is not a complete list.
+[For a list of features included in the Mod, check this page.](https://molesmalo.github.io/StarWarsMod4AirMash/Features)
 
-[For a more detailed list check this page.](https://molesmalo.github.io/StarWarsMod4AirMash/Features)
-
-
-- *Extensions*
-    - Extensions created by other users can be added.
-
-- *Default Themes*
-    - StarMash v.2 Theme (default)
-    - StarMash v.1 Theme - No Parallaxing
-    - Vanilla Theme (AirMash's default look)
-
-- *Improvements in gameplay, including:*
-    - Non-printable characters in player's names replaced
-    - Customizable radio messages (Press `Z`, `X` or `C`,  then choose a message with a number key `0`-`9`)
-    - Cruise Control (Press `5` or `END` to activate/deactivate,  you can also disable pressing `UP/DOWN`)
-    - AutoPilot (Experimental...  `ALT + Left Click` on the minimap)
-    - Mimic other players
-    - 1, 2, 3 Leaders tracking
-    - Targeted Player tracking (click a player's name in either of the scoreboards)
-    - Flag events informed vocally
-    - Visual FX for Respawn and Power ups
-    - Kill Streaks
-    - Leader's ship
-    - Drop Flag shortcut (`Y`)
-
-- *Improvements in User Interface:*
-    - Mod settings window
-    - Reddit discussion panel
-    - Who killed who log
-    - Player joined/left log
-    - Mod section for help window
-    - Show/Hide Leaderboard (`F3` key)
-    - Show/Hide User Interface (`F4` key)
-    - FPS / Debug Information (via console)
-    - Move Minimap (via console)
-    - Pan the camera along the X or Y axis (via console)
-
-- *Chat improvements:*
-    - Unlimited length for messages
-    - Links for URLs
-    - Navigate-Resend previous messages
-    - Team colors in chat window
-    - Clear chat button.
-
-- *Spectator Mode:*
-    - Free Camera spectator Mode (move around the map freely with a Zoomed Out view)
-    - Click to spectate (click a player's ship or a player's name in the scoreboards)
-
-- *Future features*
-    There are several new features coming!
-
-<br><br>
--------------------------------------------------------
-<br><br>
-
+<br>
+<br>
 
 
 # Changelog
 
-- Follow this link to check the most recent changes to the Mod: [Changelog](https://molesmalo.github.io/StarWarsMod4AirMash/Changelog)
+- Follow this link to check the most recent changes to the Mod: [Changelog](https://molesmalo.github.io/StarWarsMod4AirMash/changelog)
 
-<br><br>
--------------------------------------------------------
-<br><br>
+<br>
+<br>
+
 
 
 # **Attention, read this first:**
@@ -125,9 +71,9 @@ Before I start detailing the features, please read the following:
 
 - Windows users should be OK with all the new layeres enabled by default, but if you are using an old PC, you might want to try enabling / disabling layers (read the mac note above, it's the same).
 
-<br><br>
--------------------------------------------------------
-<br><br>
+<br>
+<br>
+
 
 # **HOW TO USE THIS MOD?**
 
@@ -151,12 +97,53 @@ The Steps:
 7. Enjoy!
 
 
-<br><br>
--------------------------------------------------------
+<br>
+<br>
+
+# **How to create Extensions and Themes?**
+
+If you want to create your own Extensions and Themes for StarMash, you can read the following tutorials, that explain how to do it.
+
+&nbsp;
+
+- **[Extensions - Part 1:   Introduction](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part1):** 
+ My very first StarMash tutorial.  In this article, you will learn:
+    - How StarMash works.
+    - How StarMash Extensions work.
+    - How to respond to StarMash events.
+    - How to create the most basic extensions.
+    - I hope you like it!
+
+- **[Extensions - Part 2:   Having fun with extensions ](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part2):** 
+ In this article, you will learn:
+    - How to create a simple, yet funny extension that interacts with the game.
+    - How to interact with AirMash objects.
+    - Send bubble messages.
+    - How to avoid being disconnected or banned by AirMash's server.
+
+- **[Extensions - Part 3:   Settings ](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part3):** 
+ In this article, you will learn:
+    - How to show custom settings for your extensions and themes in the Mod Settings Window.
+
+- **[Extensions - Part 4:   Themes ](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part4):** 
+ In this article, you will learn:
+    - Assets and Textures used by AirMash.
+    - What files I need to edit for my themes.
+    - How to build super simple themes with almost no coding.
+
+- **[Extensions - Part 5:   Advanced Themes ](https://molesmalo.github.io/StarWarsMod4AirMash/Extensions-part5):** 
+ In this article, you will learn:
+    - AirMash graphics and layers.
+    - Loading your own files and textures.
+    - Replacing the CSS file.
+    - Using your own audio files.
+    - Final thoughts
+
+<br>
 <br>
 
 
-**Discussion**
+# **Discussion**
 
 Check the current discussion for this Mod in this reddit post:
 [Current Mod Discussion](https://www.reddit.com/r/airmash/comments/84jaez/starmash_22_extensions_update_now_released/)
@@ -178,8 +165,7 @@ The ones I can remember right off the top of my head:
 Detect, Romario, THOM182, MATTDAMON, yutru, jediMaster, Maximus, Sky Lounge, Moz://a, Linus Torvalds, Akaryatrh, Nuppet... Sorry if I forgot somebody!
 
 
-<br><br>
--------------------------------------------------------
+<br>
 <br>
 
 # **Discussion**
