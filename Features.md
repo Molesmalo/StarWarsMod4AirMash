@@ -22,24 +22,32 @@ If you are in a hurry, a very short list would summarize the main features as fo
     - Vanilla Theme (AirMash's default look)
 
 - *Improvements in gameplay, including:*
-    - Non-printable characters in player's names replaced
+    - Non-printable characters in player's names replaced with �
     - Customizable radio messages (Press `Z`, `X` or `C`,  then choose a message with a number key `0`-`9`)
-    - Cruise Control (Press `5` or `END` to activate/deactivate,  you can also disable pressing `UP/DOWN`)
-    - AutoPilot (Experimental...  `ALT + Left Click` on the minimap)
-    - Mimic other players
     - 1, 2, 3 Leaders tracking
     - Targeted Player tracking (click a player's name in either of the scoreboards)
+    - Arrow Indicators
+    - Missile/Laser colors in CTF
+    - Player's position and team member's health
     - Flag events informed vocally
     - Visual FX for Respawn and Power ups
     - Kill Streaks
     - Leader's ship
+    
+    - Cruise Control (Press `5` or `END` to activate/deactivate,  you can also disable pressing `UP/DOWN`)
+    - AutoPilot (Experimental...  `ALT + Left Click` on the minimap)
+    - Mimic other players
     - Drop Flag shortcut (`Y`)
-
+    
 - *Improvements in User Interface:*
     - Mod settings window
+    - Zoom Level
     - Reddit discussion panel
+    - Changelog panel
     - Who killed who log
+    - Game Log window
     - Player joined/left log
+    - Kills / Deaths Counters
     - Mod section for help window
     - Show/Hide Leaderboard (`F3` key)
     - Show/Hide User Interface (`F4` key)
@@ -50,9 +58,12 @@ If you are in a hurry, a very short list would summarize the main features as fo
 - *Chat improvements:*
     - Unlimited length for messages
     - Links for URLs
-    - Navigate-Resend previous messages
+    - Navigate and Resend previous messages
     - Team colors in chat window
-    - Clear chat button.
+    - Sound on Whisper
+    - Copy to clipboard
+    - Clear chat button (`DEL` key)
+    - -SWAM-PING Command
 
 - *Spectator Mode:*
     - Free Camera spectator Mode (move around the map freely with a Zoomed Out view)
@@ -158,9 +169,14 @@ No two matches look the same! The background is generated for each match.
 
 The background is composed by 3 main nebula layers, a planet, some other celestial object (still not uploaded), a randomized fleet of Imperial capital ships, and a randomized fleet of Rebel Capital ships.
 
-If you want to change the background for some reason, you can use `SWAM.RandomizeBackground();` via the console.
+After a background is generated, a panel is shown for 10 seconds with a button to generate a new one.
 
-Later, I plan on adding more functionality, like the possibility of saving the current background setings for reuse.
+You can also generate a new background after those 10 seconds, by opening the Mod Settings window, and clicking the button `Generate New Background`.
+
+![Generate New Background Panel](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/GenerateNewBackgroundPanel.png)
+
+![Generate New Background Button](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/GenerateNewBackground.png)
+
 
 
 ### 10 different background planets
@@ -222,13 +238,17 @@ But you can enable it via the Mod Settings window. It's just a small element to 
 <br><br>
 <br>
 
+## Vanilla Theme
+
+It's airmash's default look, with all the other features from StarMash. Also, in CTF missiles and players are optionally colored to their teams' colors.
+
 
 ## **Gameplay**
 
 
-### Non-printable characters replaced with [WS]
+### Non-printable characters replaced with �
 
-Non-printable unicode characters are replaced with [WS], to avoid some players using (abusing) those chars as names, which affects the game when playing CTF (because you can't see that the flag has been taken).
+Non-printable unicode characters are replaced with �, to avoid some players using (abusing) those chars as names, which affects the game when playing CTF (because you can't see that the flag has been taken).
 
 ![Non-print Chars](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/WSNames.jpg)
 
@@ -274,6 +294,12 @@ You want to play with real-life friends and family, but it gets tedious trying t
 ![Player Tracking](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/TargetedPlayer.jpg)
 
 Note:  I understand that for some people, this feature might be polemical. I myself keept it removed when releasing previous versions of the mod, but it was requested to me BY A LOT OF PLAYERS who wanted it to play with real life friends/family, and I think that in those cases, given that there are not private servers, it's a really useful feature.
+
+### Arrow Indicators
+
+In Capture The Flag, when a flag is being carried or dropped outside of its original position, an arrow is shown pointing in its direction.
+
+![CTF Arrows](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/CTFArrows.png)
 
 
 ### Laser colors
@@ -363,22 +389,25 @@ Note: It's a little bit slow to avoid being banned for packet flooding. Its an e
 
 ### Mimick other Players
 
-Just for fun.  Imitate other players' movements.
+Replicate another user's movements.  To avoid this being exploited, I removed most automation. So, now it depends on some manual actions, but it can still be really fun to use and even super dangerous when used by some skilled and coordinated users.
 
-It's currently disabled but I might enable it in the next release.
+How to use it:
 
+- `ALT + [Right Click]` on a player to select as mimic target.
+- `ALT + [Right Click]` on you, to stop mimicking (remove target).
+- `INS` or `,` to align the ship with the mimic target.
+- `HOME` or `.` to pause/resume mimicking.
+- `-` to toggle between normal or mirrored mimic (180 degrees rotation of actions).
+
+### Drop Flag Shortcut
+
+When playing Capture The Flag (CTF), press `Y` to /drop the flag. The flag will be left floating for others to grab.
 
 <br><br>
 <br>
 
 
 ## **User Interface and Shotcuts**
-
-
-### Drop Flag Shortcut
-
-When playing Capture The Flag (CTF), press `Y` to /drop the flag. The flag will be left floating for others to grab.
-
 
 ### Mod Settings Window
 
@@ -387,9 +416,18 @@ A window that lets you enable/disable several mod options.
 NOTE TO MAC USERS:  As Airmash is pretty heavy for Macs (I don't know why), this is where you can play enabling/disabling background layers, to make the game run better.   I would reccomend disabling just the nebula layers for Mac Users.
 
 
-It can be accessed via the Main Menu (clicking the big button called... *suspense* .... Mod Settings), or by clicking the gear button in the upper right corner while playing.
+It can be accessed via the Main Menu by clicking the button Mod Settings, or by clicking the gear button in the upper right corner while playing.
 
-![Auto-Pilot](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/ModSettings.jpg)
+Shortcut: `F10` (only when playing)
+
+![Mod Settings](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/ModSettings.jpg)
+
+
+### Zoom Level
+
+Zoom slider in Settings window. Now that a lot of players are playing with expanded Field of View, having this option might help to level the field. 
+
+Set the zoom level by dragging the slider. Default is 2500.
 
 
 ### Reddit Panel
@@ -400,6 +438,11 @@ This panel can be disabled in the Mod Settings window.
 ![Reddit Panel](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/RedditPanel.jpg)
 
 
+### Changelog Panel
+
+Displays the latest changes to the mod in the Main Screen.
+
+
 ### Who-killed-Who Log
 
 As the name implies, it's a log that shows who was killed, and by who. It's displayed in the upper right corner of the screen and can be disabled via the Mod Settings Panel.
@@ -407,11 +450,29 @@ As the name implies, it's a log that shows who was killed, and by who. It's disp
 ![Who Killed Who](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/WhoKilledWho.jpg)
 
 
+### Game Log
+
+A window containing the complete log of the events occured since the user joined. It can be opened by clicking the Who-Killed-Who Log.
+
+Shortcut: `F9`
+
+![Game Log](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/GameLog.png)
+
+
 ### "Player joined/left" Log
 
 Placed in the same panel as the Who-Killed-Who log, there's also a log of players joining and leaving the game.
 This can also be enabled/disabled via the Mod Settings window.
 
+### Kills / Deaths Counters
+
+A panel displaying Kills/Deaths info of the player:
+- Number of Kills 
+    - First line: during this life
+    - Second line: Total
+- Number of Deaths
+
+![K/D Counters](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/KDCounters.png)
 
 ### Mod Section in the Help Window
 
@@ -445,7 +506,7 @@ This is only accesible via console, but was requested by a user:   `SWAM.moveMin
 
 ### Ship Names
 
-This is just a cosmetic change, but the tooltips for the ships now display the respective star wars ship names.
+This is just a cosmetic change, but the tooltips for the ships now display the respective star wars ship names (only in StarMash v1 & v2 Themes).
 
 
 <br><br>
@@ -464,12 +525,10 @@ Thanks to player "Linus Torvalds" for this idea.
 
 
 ### URL Links
-URLs sent and received are converted into links, for easy opening.
 
-`Note: right now it works pretty poorly because I used a weak regular expression... I have to google for a better one to replace that :P.... I'll update this when I do that.`
+Valid URLs sent and received are converted to links, for easy opening.
 
 Again, thanks to player "Linus Torvalds" for this idea.
-
 
 ### Resend previous messages
 
@@ -484,11 +543,25 @@ Player's name is colored in the chat box, when playing CTF.
 
 ![Chat Colors](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/ChatColors.jpg)
 
+### Sound on Whisper
+
+A double-tic (TIC TIC) Sound is played when a whisper is received.
+
+### Copy to clipboard
+
+Copy the text of a message to the system's clipboard by right-clicking on the message.
+
 ### Clear chat panel
 
 I added a button to clear the chat box. Just click the button that says: "Clear chat" in the chat box!
 
+Shortcut: `DEL` key.
+
 ![Chat Colors](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/ChatClear.jpg)
+
+### -SWAM-PING Command
+
+Ok, this is not a Chat Improvement, but it's done in the chat.  Write and send `-SWAM-PING` in the chat, and you will receive a list of players using StarMash, and the Theme they are using.
 
 
 <br><br>
@@ -522,8 +595,8 @@ While I can't promise anything, I've been working on some features that are stil
 
     - More beautiful background resources
     - 3D animations for every ship! Let's give this 2D game a new 3D perspective!
-    - Statistics
-    - Friend Lists
+    - ~~Statistics~~ (it's now being developed by STEAMROLLER, check for STATSBOT in CTF)
+    - Friends Lists
     - And more!
 
 Of course, feedback, opinions and feature suggestions are greatly appreciated!

@@ -9,7 +9,7 @@
 
 - **Arrow Indicators:** In CTF, when a flag is being carried, an arrow is shown pointing in its direction.
 - Fixed: Some icons are now vectorial, for HiDPI displays.
-- Fixed: Alignamet of bounty panel.
+- Fixed: Alignment of bounty panel.
 - Re-enabled some special characters for player names.
 - Replaced [WS] with � for non-printable characters.
 - Vanilla Theme:
@@ -39,7 +39,7 @@
 - StarMash v.1 Theme: A theme with no parallaxing background, similar to StarMash v1.
 - StarMash v.2 Theme: the default theme for StarMash.
 - Christmas 2017 Theme: a demo extension and theme recycling the Christmas Mod assets.
-- **Extensions:** New extensions framework, so other devs can create their own plugins for StarMash
+- **Extensions:** New extensions framework, so other developers can create their own plugins for StarMash
 - **Extensions Window:** Here you can add/remove third-party extensions for StarMash!
 - -SWAM-PING now informs the theme used.
 
@@ -55,7 +55,7 @@
 - After a background is generated, a panel is shown for 10 seconds to generate a new one.
 - Added button in settings to regenerate background.
 - CHAT: Copy text from chat panel by right clicking a message
-- CHAT: Valid URLS (need http/https) are converted to links
+- CHAT: Valid URLs (need http/https) are converted to links
 - CHAT: **New shortcut:** `DEL` to clear chat panel
 - **New shortcut:** `F10` opens Mod Settings window
 

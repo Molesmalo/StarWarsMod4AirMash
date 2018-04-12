@@ -8,18 +8,19 @@ I play as `Bombita` inside this game and StarMash was my little creation as a ho
 
 **So, What's StarMash?**
 
-StarMash is a Mod for an cool web game called [AirMash](htts://airma.sh). It adds a A LOT of new features to the base game. Here, I'll try to cover most of the more important features, but it will most surely be an incomplete list, because... believe me, there's a lot of stuff!
+StarMash is a Mod for a cool web game called [AirMash](htts://airma.sh). It adds a A LOT of new features to the base game. Here, I'll try to cover most of the more important features, but it will most surely be an incomplete list, because... believe me, there's a lot of stuff!
 
 While originally StarMash was created as a complete new skin for the game, as it evolved, StarMash also became a framework that can load Themes and Extensions to the game.
 
 Extensions can be defined as plugins that other users can create and share, to add new features to the game. Themes are new skins that change the graphics and sounds of the game.
 
+<br>
 
-# **Gallery and Videos:**
+## **Gallery and Videos:**
 
 Words are one thing... but this is a game! 
 
-If you want to see how the Mod really looks like, please check the following Galleries and Videos!  (If you want me to add your own pics using this mod, let me know!)
+If you want to see how the Mod really looks like, please check the following Galleries and Videos!  (If you want me to add your own pictures using this mod, let me know!)
 
 Videos:
 
@@ -58,7 +59,7 @@ Before I start detailing the features, please read the following:
 
 *NOTE TO MAC USERS:*
 
-- Airmash is pretty heavy for Macs. For some reason, Chrome has a hard time rendering the game in this Operating System, and when using the theme StarMash v.2, it's even hevier. But this can be solved:
+- AirMash is pretty heavy for Macs. For some reason, Chrome has a hard time rendering the game in this Operating System, and when using the theme StarMash v.2, it's even heavier. But this can be solved:
 
 - When using the theme StarMash v.2, if you open the MOD SETTINGS window, you can enable/disable some of the new graphics layers. The options that matter for this are under the sections: 
     - Background
@@ -69,7 +70,7 @@ Before I start detailing the features, please read the following:
 
 *WINDOWS USERS:*
 
-- Windows users should be OK with all the new layeres enabled by default, but if you are using an old PC, you might want to try enabling / disabling layers (read the mac note above, it's the same).
+- Windows users should be OK with all the new layers enabled by default, but if you are using an old PC, you might want to try enabling / disabling layers (read the mac note above, it's the same).
 
 <br>
 <br>
@@ -145,17 +146,30 @@ If you want to create your own Extensions and Themes for StarMash, you can read 
 
 # **Discussion**
 
-Check the current discussion for this Mod in this reddit post:
-[Current Mod Discussion](https://www.reddit.com/r/airmash/comments/84jaez/starmash_22_extensions_update_now_released/)
+Check the current discussion for this Mod in this Reddit post:
+[StarMash 2.2 Extensions Update](https://www.reddit.com/r/airmash/comments/84jaez/starmash_22_extensions_update_now_released/)
 
 Comments, feedback, questions, opinions and suggestions are welcome!
 Let me know what you think about this MOD!
 
 
+### **Previous Posts**
+
+For historical reasons, I also leave the links for the previous discussions. They link to some pictures that show how the mod changed over time!
+
+[StarMash, version 2](https://www.reddit.com/r/airmash/comments/7y2dwr/starmash_mod_version_2_is_now_released_major/)
+
+[StarMash, version 1](https://www.reddit.com/r/airmash/comments/7mr3r5/starmash_a_star_wars_mod_is_now_released/)
+
+[Initial announcement (unreleased)](https://www.reddit.com/r/airmash/comments/7kkjye/a_star_wars_mod/)
+
+<br>
+<br>
+
 
 # **Acknowledgements**
 
-First of all, thanks to the Airmash developers for making this great game, and be cool with me modding it.
+First of all, thanks to the AirMash developers for making this great game, and be cool with me modding it.
 
 Also, thanks to Lucasfilms for the Star Wars franchise.
 
@@ -163,26 +177,6 @@ To a lot of players that helped me testing this Mod, and suggested some features
 
 The ones I can remember right off the top of my head:
 Detect, Romario, THOM182, MATTDAMON, yutru, jediMaster, Maximus, Sky Lounge, Moz://a, Linus Torvalds, Akaryatrh, Nuppet... Sorry if I forgot somebody!
-
-
-<br>
-<br>
-
-# **Discussion**
-
-Check the current discussion for this Mod in this reddit post:
-[Current Mod Discussion](https://www.reddit.com/r/airmash/comments/7y2dwr/starmash_mod_version_2_is_now_released_major/)
-
-Comments, feedback, questions, opinions and suggestions are welcome!
-Let me know what you think about this MOD!
-
-.
-
-For historical reasons, I also leave the links for the previous discussions. They link to some pictures that show how the mod changed over time!
-
-[StarMash, version 1](https://www.reddit.com/r/airmash/comments/7mr3r5/starmash_a_star_wars_mod_is_now_released/)
-
-[Initial announcement (unreleased)](https://www.reddit.com/r/airmash/comments/7kkjye/a_star_wars_mod/)
 
 
 <br><br><br><br>
