@@ -5,6 +5,19 @@
 <br>
 <br>
 
+## Apr 15 2018
+
+- Chat input box is not displayed over plane icons.
+- Long messages are split preserving whole words.
+- Chat bubbles are now semi-transluscent.
+- Scoreboard font made smaller.
+- Players' level box scales with zoom.
+- Info panel for level, upgrades, kills and deaths are smaller.
+- Extensions: checks for ignored players before triggering chat events.
+- Extensions: New events, check documentation.
+
+&nbsp;
+
 ## Mar 27 2018
 
 - **Arrow Indicators:** In CTF, when a flag is being carried, an arrow is shown pointing in its direction.

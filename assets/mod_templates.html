@@ -83,6 +83,14 @@
         right: 0px;
     }
 
+    #scorebig .container-upgrades,
+    #scorebig .container-rank,
+    #scorebig .container-kills,
+    #scorebig .container-deaths
+    {
+        font-size: 15px;
+    }
+
     #scorebig .upgrades,
     #scorebig .container-upgrades
     {
@@ -116,7 +124,7 @@
         width: 40px;
         top: 82px;
         font-weight: bold;
-        font-size: 19px;
+        /* font-size: 19px; */
     }
     
     #scorebig .kills,
@@ -145,6 +153,16 @@
     /*------------------------------------------------------------------------
         General
     ------------------------------------------------------------------------*/
+
+    #scoreboard {
+        width: 230px;
+        font-size: 12px;
+    }
+
+    #scoreboard .line
+    {
+        line-height: 12px;
+    }
 
     #btnFreeSpectator {
         display: none;
@@ -989,9 +1007,20 @@
     </style>
     <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
     <div class="changelogContent">
+        <div class="date">Apr 15 2018</div>
+        <ul>
+            <li>Chat input box is not displayed over plane icons.</li>
+            <li>Long messages are split preserving whole words.</li>
+            <li>Chat bubbles are now semi-translucent.</li>
+            <li>Scoreboard font made smaller.</li>
+            <li>Players' level box scales with zoom.</li>
+            <li>Info panel for level, upgrades, kills and deaths are smaller.</li>
+            <li>Extensions: checks for ignored players before triggering chat events.</li>
+            <li>Extensions: New events, check documentation.</li>
+        </ul>
+
         <div class="date">Mar 27 2018</div>
         <ul>
-            <li><a href="http://www.reddit.com/r/airmash/"><u>Discuss this update here</u></a></li>
             <li><b>Arrow Indicators:<b> In CTF, when a flag is being carried, an arrow is shown pointing in its direction.</li>
             <li>Fixed: Some icons are now vectorial, for HiDPI displays.</li>
             <li>Fixed: Alignamet of bounty panel.</li>
