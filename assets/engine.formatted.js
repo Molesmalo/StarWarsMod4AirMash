@@ -33876,7 +33876,7 @@ window.Base64 = {
         return Yt
     }
 },
-window.SWAM_version = "2.2041501",
+window.SWAM_version = "2.2041502",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34669,7 +34669,7 @@ function SWAM() {
             if (Yt = Yt.toUpperCase(),
             "-SWAM-PING" == Yt) {
                 if (Bt.id != game.myID && !window.anonmod) {
-                    let Vt = "starma.sh" === location.hostname.toLowerCase() ? console.log("SM") : "AM"
+                    let Vt = "starma.sh" === location.hostname.toLowerCase() ? "SM" : "AM"
                       , qt = SWAM.getThemeFunction().themeName;
                     Network.sendWhisper(Bt.id, `-SWAM-PONG ${Vt} ${qt}`)
                 }
