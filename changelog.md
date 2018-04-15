@@ -9,7 +9,7 @@
 
 - Chat input box is not displayed over plane icons.
 - Long messages are split preserving whole words.
-- Chat bubbles are now semi-transluscent.
+- Chat bubbles are now semi-translucent.
 - Scoreboard font made smaller.
 - Players' level box scales with zoom.
 - Info panel for level, upgrades, kills and deaths are smaller.

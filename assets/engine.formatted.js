@@ -34425,6 +34425,8 @@ function SWAM() {
         Gt.totalKills = 0,
         Gt.killCount = 0,
         Gt.deathCount = 0,
+        Gt.sprites.bubble && (Gt.sprites.bubble.alpha = Gt.sprites.bubbleCenter.alpha = Gt.sprites.bubbleLeft.alpha = Gt.sprites.bubblePoint.alpha = Gt.sprites.bubbleRight.alpha = 0.4,
+        Gt.sprites.bubbleText.alpha = 0.85),
         Gt.name = Gt.name.replace(nonprintRegex, "\uFFFD"),
         SWAM.addPlayerLogLine(Gt, !0),
         SWAM.trigger("playerAdded", Gt)
