@@ -7,6 +7,7 @@
 
 ## Apr 15 2018
 
+- When spectating, now you can re-spawn with keys 1-5.
 - Chat input box is not displayed over plane icons.
 - Long messages are split preserving whole words.
 - Chat bubbles are now semi-translucent.
