@@ -88,7 +88,7 @@
         sun = new PIXI.extras.TilingSprite(texture, config.mapWidth, config.mapHeight);
         //window.sun = sun;
         sun.position.set(0, 0);
-        sun.alpha = 0.9;
+        sun.alpha = 0.8;
         sun.blendMode = PIXI.BLEND_MODES.MULTIPLY;
         sun.layerName = "sun";
 
