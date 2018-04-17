@@ -134,12 +134,13 @@
             //tileX = - camera.x * game.scale + game.halfScreenX - 16384 * game.scale,
             //tileY = - camera.y * game.scale + game.halfScreenY - 8192 * game.scale;
 
-            sun.tilePosition.set(tileX - sunOffset * game.scale, tileY);
-            clouds.tilePosition.set(tileX + cloudsOffset * game.scale, tileY);
-
-            sunOffset += SUN_SPEED;
+            //sunOffset += SUN_SPEED;
+            sunOffset = getOffsetSinceMidnight();
             cloudsOffset += CLOUDS_SPEED;
             
+            sun.tilePosition.set(tileX - sunOffset * game.scale, tileY);
+            clouds.tilePosition.set(tileX + cloudsOffset * game.scale, tileY);
+           
             if (sunOffset >= 32768)
                 sunOffset = 0;
         });
