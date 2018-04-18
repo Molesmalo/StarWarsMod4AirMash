@@ -5,6 +5,7 @@
     const DEFAULT_VALUES = {
         useDayNight: true,
         cloudsVisible: true,
+        darkness: 85
     };
 
     // Current values
@@ -26,6 +27,7 @@
 
     function setSettings()
     {
+        sun.alpha = parseFloat(settings.darkness / 100);
         sun.visible = settings.useDayNight;
         clouds.visible = settings.cloudsVisible;
     }
@@ -37,6 +39,7 @@
 		let section = sp.addSection('Weather layers');
         section.addBoolean('useDayNight', 'Day / Night Cycle');
         section.addBoolean('cloudsVisible', 'Clouds');
+        section.addSliderField("darkness", "Darkness level (default: 85)", {min: 70, max: 95, step: 5});
 
 		return sp;
     }
@@ -88,7 +91,7 @@
         sun = new PIXI.extras.TilingSprite(texture, config.mapWidth, config.mapHeight);
         //window.sun = sun;
         sun.position.set(0, 0);
-        sun.alpha = 0.8;
+        sun.alpha = 0.85;
         sun.blendMode = PIXI.BLEND_MODES.MULTIPLY;
         sun.layerName = "sun";
 
