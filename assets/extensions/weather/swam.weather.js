@@ -39,7 +39,7 @@
 		let section = sp.addSection('Weather layers');
         section.addBoolean('useDayNight', 'Day / Night Cycle');
         section.addBoolean('cloudsVisible', 'Clouds');
-        section.addSliderField("darkness", "Darkness level (default: 85)", {min: 70, max: 95, step: 5});
+        section.addSliderField("darkness", "Darkness level (default: 85)", {min: 60, max: 95, step: 5});
 
 		return sp;
     }
@@ -94,7 +94,6 @@
         sun.alpha = 0.85;
         sun.blendMode = PIXI.BLEND_MODES.MULTIPLY;
         sun.layerName = "sun";
-
         game.graphics.layers.game.addChildAt(sun, 2);
         
 
@@ -105,7 +104,6 @@
         clouds.alpha = 0.4;
         clouds.blendMode = PIXI.BLEND_MODES.SCREEN;
         clouds.layerName = "clouds";
-
         game.graphics.layers.game.addChildAt(clouds, 2);
 
 
