@@ -27,6 +27,7 @@ If you are in a hurry, a very short list would summarize the main features as fo
     - 1, 2, 3 Leaders tracking
     - Targeted Player tracking (click a player's name in either of the scoreboards)
     - Arrow Indicators
+    - Position age on minimap
     - Missile/Laser colors in CTF
     - Player's position and team member's health
     - Flag events informed vocally
@@ -38,16 +39,19 @@ If you are in a hurry, a very short list would summarize the main features as fo
     - AutoPilot (Experimental...  `ALT + Left Click` on the minimap)
     - Mimic other players
     - Drop Flag shortcut (`Y`)
+    - Respawn shortcuts in Spectator (`1`, `2`, `3`, `4`, `5`)
     
 - *Improvements in User Interface:*
     - Mod settings window
     - Zoom Level
+    - Use squared game area
     - Reddit discussion panel
     - Changelog panel
     - Who killed who log
     - Game Log window
     - Player joined/left log
     - Kills / Deaths Counters
+    - Match Duration
     - Mod section for help window
     - Show/Hide Leaderboard (`F3` key)
     - Show/Hide User Interface (`F4` key)
@@ -57,6 +61,7 @@ If you are in a hurry, a very short list would summarize the main features as fo
 
 - *Chat improvements:*
     - Unlimited length for messages
+    - Transparency in chat bubbles
     - Links for URLs
     - Navigate and Resend previous messages
     - Team colors in chat window
@@ -404,9 +409,16 @@ How to use it:
 - `HOME` or `.` to pause/resume mimicking.
 - `-` to toggle between normal or mirrored mimic (180 degrees rotation of actions).
 
+
 ### Drop Flag Shortcut
 
 When playing Capture The Flag (CTF), press `Y` to /drop the flag. The flag will be left floating for others to grab.
+
+
+### Respawn shortcuts in Spectator
+
+When spectating, you can now respawn pressing `1`, `2`, `3`, `4` or `5` for the different ships.
+
 
 <br><br>
 <br>
