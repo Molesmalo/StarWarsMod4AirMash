@@ -1,7 +1,7 @@
 <style id="ModStyles" type="text/css">
 
     /*------------------------------------------------------------------------
-        SLIDER CONTROL
+        SWITCH CONTROL
     ------------------------------------------------------------------------*/
     .switch {
         vertical-align: middle;
@@ -154,8 +154,38 @@
         General
     ------------------------------------------------------------------------*/
 
+    body {
+        /* background: black url("https://i.imgur.com/c3m8C6H.jpg") no-repeat fixed center; */
+        /* background: black url("https://i.imgur.com/FC9k2Q5.jpg") no-repeat fixed center; */
+        background: black url("https://i.imgur.com/gNJDaJg.jpg") no-repeat fixed center;
+        /*background: black url("https://i.imgur.com/2qxMKgT.jpg") no-repeat fixed center;*/
+
+
+        background-size: cover;
+    }
+
+    /*#gameinfo.ingame {
+        top: 5px;
+    }*/
+
+    #matchTime {
+        position: absolute;
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        top: 35px;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 12px;
+        text-shadow: 0 0 3px rgba(0,0,0,0.8);
+        /*color: #c8c8c8;*/
+        color: #a0a0a0;
+        cursor: default;
+        /*pointer-events: none;*/
+    }
+
     #scoreboard {
-        width: 230px;
+        width: 240px;
         font-size: 12px;
     }
 
@@ -210,6 +240,17 @@
         background-size: 30px auto;
     }
 
+    #sidebar
+    {
+        -moz-transform: scale(.8);
+        -webkit-transform: scale(.8);
+        -o-transform: scale(.8);
+        transform: scale(.8);
+        -moz-transform-origin: left top;
+        -webkit-transform-origin: left top;
+        -o-transform-origin: left top;
+        transform-origin: left top;
+    }
 
 </style>
 
@@ -938,6 +979,201 @@
     <div class="container-deaths"><div id="score-deaths">-</div></div>
 </script>
 
+<div id="adjustmentPanel">
+    <style class="text/css">
+        #adjustmentPanel
+        {
+            width: 365px;
+            height: 200px;
+            position: fixed;
+            top: 100px;
+            left: 100px;
+
+            padding: 5px;
+
+            background-color: rgba(0,0,0,0.75);
+            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+            border-radius: 9px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.08);
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        #adjustmentPanel .title {
+            width: 85px;
+            display: inline-block;
+            color: #d2d2d2;
+        }
+
+        #adjustmentPanel .sliderValue {
+            font-size: 10pt;
+            font-family: 'MontserratWeb',Helvetica,sans-serif;
+            padding-left: 14px;
+            background-color: #1e1e1e;
+            color: #d2d2d2;
+            border: none;
+            border-bottom: 2px solid #141414;
+            box-shadow: 0 0 16px 0 rgba(0,0,0,0.6);
+            border-radius: 5px;
+            box-sizing: border-box;
+            height: 30px;
+            margin-right: 10px;
+        }
+        #adjustmentPanel .sliderValue {
+            padding: 5px;
+            min-width: 40px;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+
+
+
+
+        #adjustmentPanel input[type=range] {
+            -webkit-appearance: none;
+            background-color: rgba(0,0,0,0);
+            margin: 3px 0;
+            width: 200px;
+            margin-right: 10px;
+        }
+        #adjustmentPanel input[type=range]:focus {
+            outline: none;
+        }
+        #adjustmentPanel input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            background: #202020;
+            border-radius: 25px;
+            border: 0.2px solid #010101;
+        }
+        #adjustmentPanel input[type=range]::-webkit-slider-thumb {
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            border: 1px solid #404040;
+            height: 16px;
+            width: 25px;
+            border-radius: 25px;
+            background: #808080;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -3.2px;
+        }
+        #adjustmentPanel     input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #6d6d6d;
+        }
+        #adjustmentPanel     input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            background: #202020;
+            border-radius: 25px;
+            border: 0.2px solid #010101;
+        }
+        #adjustmentPanel     input[type=range]::-moz-range-thumb {
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            border: 1px solid #404040;
+            height: 16px;
+            width: 25px;
+            border-radius: 25px;
+            background: #808080;
+            cursor: pointer;
+        }
+        #adjustmentPanel     input[type=range]::-ms-track {
+            width: 100%;
+            height: 10px;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+        #adjustmentPanel     input[type=range]::-ms-fill-lower {
+            background: #000000;
+            border: 0.2px solid #010101;
+            border-radius: 50px;
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        }
+        #adjustmentPanel     input[type=range]::-ms-fill-upper {
+            background: #202020;
+            border: 0.2px solid #010101;
+            border-radius: 50px;
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        }
+        #adjustmentPanel     input[type=range]::-ms-thumb {
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            border: 1px solid #404040;
+            height: 16px;
+            width: 25px;
+            border-radius: 25px;
+            background: #808080;
+            cursor: pointer;
+            height: 10px;
+        }
+        #adjustmentPanel     input[type=range]:focus::-ms-fill-lower {
+            background: #202020;
+        }
+        #adjustmentPanel     input[type=range]:focus::-ms-fill-upper {
+            background: #6d6d6d;
+        }
+        #adjustmentPanel div
+        {
+            padding: 5px;
+        }
+
+        #adjustmentPanel .btn {
+            width: 80px;
+            height: 25px;
+            background-color: #555555;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+            text-align: center;
+            border: 2px solid rgba(0,0,0,.2);
+            cursor: pointer;
+        }
+    </style>
+    <div>
+        <label>
+            <span class="title">Gamma</span>
+            <span class='sliderValue gamma'>100</span>
+            <input type='range' class='sdrGamma' value='100' min='0' max='200' step='5' />
+        </label>
+    </div>
+    <div>
+        <label>
+            <span class="title">Brightness</span>
+            <span class='sliderValue brightness'>100</span>
+            <input type='range' class='sdrBrightness' value='100' min='0' max='200' step='5' />
+        </label>
+    </div>
+    <div>
+        <label>
+            <span class="title">Contrast</span>
+            <span class='sliderValue contrast'>100</span>
+            <input type='range' class='sdrContrast' value='100' min='0' max='200' step='5' />
+        </label>
+    </div>
+    <div>
+        <label>
+            <span class="title">Saturation</span>
+            <span class='sliderValue saturation'>100</span>
+            <input type='range' class='sdrSaturation' value='100' min='0' max='200' step='5' />
+        </label>
+    </div>
+    <div>
+        <input class='btn reset' type='button' value='Reset' style="width: 120px; left: 10px;">
+        <input class='btn close' type='button' value='Close' style="width: 120px; right: 10px; position: absolute;">
+    </div>
+</div>
+
 <div id="changelogPanel">
     <style type="text/css">
         #changelogPanel {
@@ -989,6 +1225,7 @@
             margin-left: 0px;
             padding: 8px 5px;
             color: rgb(146, 146, 146);
+            opacity: 0.8;
         }
         #changelogPanel key
         {
@@ -1007,6 +1244,17 @@
     </style>
     <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
     <div class="changelogContent">
+        <div class="date">Apr 25 2018</div>
+        <ul>
+            <!-- <li>New color adjustment panel: gamma, brightness, contrast and saturation.</li> -->
+            <li>New on-screen timer indicating match duration.</li>
+            <li>New option to play with squarish game area.</li>
+            <li>Minimap dots and arrows now change opacity as the postion gets older.</li>
+            <li>Adjusted size for plane icons.</li>
+            <li>StarMash v2: Added DeathStar</li>
+            <li>Vanilla: refactored to allow more customization for new themes.</li>
+        </ul>
+    
         <div class="date">Apr 15 2018</div>
         <ul>
             <li>When spectating, now you can re-spawn with keys 1-5.</li>
