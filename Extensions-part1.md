@@ -261,6 +261,7 @@ The following table contains the current list of events triggered by StarMash, a
 |detailedScoreUpdate    |data               |A detailed scoreboard update was received.|
 |chatLineAdded          |player, text, type |A chat line was received and added to the chat.|
 |                       |                   |                   |
+|rendererResized        |width, height      |The game area changed its size.|
 |keydown                |event              |The user pressed a key while playing.|
 |keyup                  |event              |The user pressed a key while playing.|
 |minimap_click          |event, x, y        |The user clicked the mini-map.|
