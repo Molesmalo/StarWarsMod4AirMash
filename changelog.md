@@ -5,6 +5,17 @@
 <br>
 <br>
 
+## Apr 25 2018
+
+- New on-screen timer indicating match duration.
+- New option to play with squarish game area.
+- Minimap dots and arrows now change opacity as the position gets older.
+- Adjusted size for plane icons.
+- StarMash v2: Added Death Star.
+- Vanilla: refactored to allow more customization for new themes.
+
+&nbsp;
+
 ## Apr 15 2018
 
 - When spectating, now you can re-spawn with keys 1-5.

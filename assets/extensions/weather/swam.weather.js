@@ -11,11 +11,15 @@
     // Current values
     let settings = {...DEFAULT_VALUES},
     sun,
-    clouds;
+    clouds,
+    snow,
+    snow_mask;
 
     //const SUN_SPEED = 32678 / 5 / 60 / 60; // (mapwidth 5 mins 60 secs 60fps)
     const SUN_SPEED = 1.8154444444444446;   // 1 cycle every 5 minutes at 60fps
     const CLOUDS_SPEED = 0.15;
+    const CLOUDS_URL = "https://image.ibb.co/hwA2tc/clouds4096.jpg";
+    const CLOUDS_SCALE = 8;
 
     // This is the handler that will be executed when new settings are applied
     function settingsApplied(values)
@@ -74,15 +78,11 @@
         return time / 1000 * 60 * SUN_SPEED;    // 60 FPS * SUN_SPEED => offset pixels
     }
 
-    function getFilePath(file)
-    {
-        return "https://molesmalo.github.io/StarWarsMod4AirMash/assets/extensions/weather/" + file + "?" + SWAM_version;
-        //return "https://localhost/" + file + "?" + SWAM_version;
-    }
-
-
 	// Event handlers
     SWAM.one("gameRunning", ()=> {
+        let map = game.graphics.layers.map;
+        let forest = map.children[0];
+
         //game.graphics.layers.game.children[0].visible = false;
         //game.graphics.layers.game.addChildAt(game.graphics.layers.map, 0);
         //game.graphics.layers.game.addChildAt(game.graphics.layers.sea, 0);
@@ -97,7 +97,9 @@
         game.graphics.layers.game.addChildAt(sun, 2);
         
 
-        let ct = PIXI.Texture.fromImage(getFilePath("clouds.jpg"));
+        let imagePath = (SWAM.debug ? getFilePath("clouds4096.jpg") : CLOUDS_URL )
+
+        let ct = PIXI.Texture.fromImage(imagePath);
         clouds = new PIXI.extras.TilingSprite(ct, config.mapWidth, config.mapHeight);
         //window.clouds = clouds;
         clouds.position.set(0, 0);
@@ -105,6 +107,27 @@
         clouds.blendMode = PIXI.BLEND_MODES.SCREEN;
         clouds.layerName = "clouds";
         game.graphics.layers.game.addChildAt(clouds, 2);
+
+/*
+        let snowTexture = PIXI.Texture.fromImage(getFilePath("map_snow.jpg"));
+        snow = new PIXI.extras.TilingSprite(snowTexture,
+            Graphics.renderer.width + config.overdraw,
+            Graphics.renderer.height + config.overdraw);
+        //snow.blendMode = PIXI.BLEND_MODES.NORMAL;
+        snow.layerName = "snow";
+        map.addChild(snow);
+
+        let snowMaskTexture = PIXI.Texture.fromImage(getFilePath("map_snow_mask.jpg"));
+        snow_mask = new PIXI.Sprite(snowMaskTexture);
+        snow_mask.scale.set(8, 8);
+        snow_mask.layerName = "snow_mask";
+        map.addChild(snow_mask);
+
+        snow.mask = snow_mask;
+        window.snow = snow;
+        window.snow_mask = snow_mask;*/
+
+
 
 
         let
@@ -141,34 +164,56 @@
             
             sun.tilePosition.set(tileX - sunOffset * game.scale, tileY);
             clouds.tilePosition.set(tileX + cloudsOffset * game.scale, tileY);
-           
+            
             if (sunOffset >= 32768)
                 sunOffset = 0;
+
+            //snow.tilePosition.set (forest.tilePosition.x, forest.tilePosition.y);
+            //snow_mask.position.set(map.children[2].position.x, map.children[2].position.y);
         });
 
 
         // Update layers when game resizes
-        let graphics_resizeRenderer = Graphics.resizeRenderer;
-        Graphics.resizeRenderer = function(width, height)
+        SWAM.on("rendererResized", (width, height) =>
         {
-            graphics_resizeRenderer.call(Graphics, width, height);
             sun.tileScale.set(8*game.scale);
             sun.width = game.screenX;
             sun.height = game.screenY;
-
+    
             offsetX = - game.halfScreenX / game.scale + 16384,
             offsetY = - game.halfScreenY / game.scale + 8192;
-
-
-            clouds.tileScale.set(16*game.scale);
+    
+    
+            clouds.tileScale.set(CLOUDS_SCALE * game.scale);
             clouds.width = game.screenX;
             clouds.height = game.screenY;
-        };
+
+            //snow.tileScale.set(game.scale, game.tileScale);
+            //snow_mask.scale.set(8 * game.scale, 8 * game.scale);
+
+            //snow.width = width + config.overdraw;
+            //snow.height = height + config.overdraw;
+        });
 
         setSettings();
 
         ticker.start();
+
+        avoidBlackScreenAtStart();
     });
+
+    // total hack to force redraw
+    function avoidBlackScreenAtStart()
+    {
+        // let camera = Graphics.getCamera();
+        // Graphics.setCamera(-100000, -100000);
+        // setTimeout(()=>Graphics.setCamera(0, 0), 100);
+        let optimize = config.overdrawOptimize;
+        config.overdrawOptimize = false;
+        setTimeout(()=>{
+            config.overdrawOptimize = optimize;
+        }, 500);
+    }
 
 
 	// Register

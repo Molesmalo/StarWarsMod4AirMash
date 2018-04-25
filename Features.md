@@ -302,6 +302,11 @@ In Capture The Flag, when a flag is being carried or dropped outside of its orig
 ![CTF Arrows](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/CTFArrows.png)
 
 
+### Position age on minimap
+
+When the minimap is refreshed every 5 seconds, its dots and the Arrow Indicators become brighter. As the position ages, the elements become more translucent to indicate the loss of precision.
+
+
 ### Laser colors
 
 Lasers! Who needs missiles when you can have pwew-pwew-lasers? And they are colored according to the team.
@@ -430,6 +435,15 @@ Zoom slider in Settings window. Now that a lot of players are playing with expan
 Set the zoom level by dragging the slider. Default is 2500.
 
 
+### Use squared game area
+
+The game maximizes viewable area when the game area is a square. Also, when setting higher zoom levels using wide screen, the ships dissapear before reaching the screen borders. This can be avoided by selecting `Preserve an almost-squared game area.` in the Mod Settings window.
+
+As a plus, some user interface elements are placed outside of the game view.
+
+![Squared Game Area](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/SquaredWindow.jpg)
+
+
 ### Reddit Panel
 
 Displays the first page of posts for the discussion in reddit.com/r/AirMash on the main screen.
@@ -473,6 +487,14 @@ A panel displaying Kills/Deaths info of the player:
 - Number of Deaths
 
 ![K/D Counters](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/KDCounters.png)
+
+
+### Match Duration
+
+A clock indicating the duration of the CTF Match. The initial match duration upon connection is obtained from STATSBOT, if it is present. The timer is then restarted automatically when a new match starts.
+
+![Match Duration](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/MatchTime.jpg)
+
 
 ### Mod Section in the Help Window
 
@@ -519,9 +541,16 @@ This is just a cosmetic change, but the tooltips for the ships now display the r
 
 Messages that are longer than the maximum lenght are split and sent in parts. This applies for messages to All, Team, Whisper and Say (bubble).
 
+The messages are now split preserving whole words (thanks Nup!).
+
 ![Split Chat](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/SplitChat.jpg)
 
 Thanks to player "Linus Torvalds" for this idea.
+
+
+### ** Transparency in chat bubbles. **
+
+The chat bubbles are now translucent, so you can now see the action behind them.
 
 
 ### URL Links
