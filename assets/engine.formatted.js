@@ -33880,7 +33880,7 @@ window.Base64 = {
         return Yt
     }
 },
-window.SWAM_version = "2.2042501",
+window.SWAM_version = "2.2042502",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34079,8 +34079,8 @@ function SWAM() {
     }
     function getMatchStart() {
         function Bt() {
-            Kt = Players.getByName(Vt),
-            Kt && Kt.flag == qt ? ($("#matchTime").html("Loading..."),
+            Kt = Players.getByName("STATSBOT"),
+            Kt && Kt.flag == 10 ? ($("#matchTime").html("Loading..."),
             Gt()) : $("#matchTime").html("")
         }
         function Yt() {
@@ -34122,21 +34122,22 @@ function SWAM() {
             }
             , 1e3)
         }
-        if (game.gameType === SWAM.GAME_TYPE.CTF) {
-            let Jt;
-            $("body").append("<div id='matchTime'></div>"),
-            SWAM.one("gameWipe", ()=>{
-                clearInterval(Jt),
-                SWAM.off("scoreboardUpdate", Bt),
-                SWAM.off("chatLineAdded", Wt),
-                SWAM.off("CTF_MatchStarted", Yt),
-                SWAM.off("chatLineAdded", Wt),
-                $("#matchTime").remove()
-            }
-            ),
-            SWAM.one("scoreboardUpdate", Bt),
-            SWAM.on("CTF_MatchStarted", Yt)
+        const zt = "-api-game-start";
+        var Kt = null
+          , Jt = 0
+          , Zt = 0;
+        game.gameType !== SWAM.GAME_TYPE.CTF || ($("body").append("<div id='matchTime'></div>"),
+        SWAM.one("gameWipe", ()=>{
+            clearInterval(Jt),
+            SWAM.off("scoreboardUpdate", Bt),
+            SWAM.off("chatLineAdded", Wt),
+            SWAM.off("CTF_MatchStarted", Yt),
+            SWAM.off("chatLineAdded", Wt),
+            $("#matchTime").remove()
         }
+        ),
+        SWAM.one("scoreboardUpdate", Bt),
+        SWAM.on("CTF_MatchStarted", Yt))
     }
     function screenToMap(Bt, Yt) {
         let Gt = Graphics.getCamera()
