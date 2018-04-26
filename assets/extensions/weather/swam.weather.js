@@ -87,7 +87,9 @@
         //game.graphics.layers.game.addChildAt(game.graphics.layers.map, 0);
         //game.graphics.layers.game.addChildAt(game.graphics.layers.sea, 0);
 
-        let texture = PIXI.Texture.fromImage(getFilePath("sunmap2.jpg"));
+        let path = SWAM.debug ? "" : "extensions/weather/";
+
+        let texture = PIXI.Texture.fromImage(getFilePath(`${path}sunmap2.jpg`));
         sun = new PIXI.extras.TilingSprite(texture, config.mapWidth, config.mapHeight);
         //window.sun = sun;
         sun.position.set(0, 0);
@@ -97,7 +99,7 @@
         game.graphics.layers.game.addChildAt(sun, 2);
         
 
-        let imagePath = (SWAM.debug ? getFilePath("clouds4096.jpg") : CLOUDS_URL )
+        let imagePath = (SWAM.debug ? getFilePath(`${path}clouds4096.jpg`) : CLOUDS_URL )
 
         let ct = PIXI.Texture.fromImage(imagePath);
         clouds = new PIXI.extras.TilingSprite(ct, config.mapWidth, config.mapHeight);
@@ -167,6 +169,10 @@
             
             if (sunOffset >= 32768)
                 sunOffset = 0;
+
+            /*let me = Players.getMe();
+            if (me)
+            $("canvas").css("transform", "rotate(" + -me.rot + "rad)");*/
 
             //snow.tilePosition.set (forest.tilePosition.x, forest.tilePosition.y);
             //snow_mask.position.set(map.children[2].position.x, map.children[2].position.y);
