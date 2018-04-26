@@ -28081,13 +28081,10 @@ function loadGameCode() {
                     break;
                 case yn.PING:
                     !function(vn) {
-                        setTimeout(()=>{
-                            cn({
-                                c: gn.PONG,
-                                num: vn
-                            })
-                        }
-                        , Tools.randInt(50, 100))
+                        cn({
+                            c: gn.PONG,
+                            num: vn
+                        })
                     }(bn.num);
                     break;
                 case yn.PING_RESULT:
