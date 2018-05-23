@@ -5,6 +5,14 @@
 <br>
 <br>
 
+## May 23 2018
+
+- Repelled missiles now change color.
+- Prowler radar: Low resolution danger zones.
+- Several bugs fixed.
+
+&nbsp;
+
 ## Apr 25 2018
 
 - New on-screen timer indicating match duration.
