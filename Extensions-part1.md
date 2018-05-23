@@ -252,11 +252,13 @@ The following table contains the current list of events triggered by StarMash, a
 |playerPowerUp          |data               |The user received a powerup.|
 |playerStealth          |data               |A player changed its stealth.|
 |playerChangedType      |data               |A player changed its plane type.|
+|playerChangedFlag      |data               |A player changed its flag.|
 |                       |                   |                   |
 |mobAdded               |data, existing, playerId       |A new mob is created.|
 |mobDespawned           |data               |A mob is despawned.|
 |mobDestroyed           |data               |A mob is destroyed.|
 |                       |                   |                   |
+|serverMessageReceived  |data               |The server sent a message.|
 |scoreboardUpdate       |scores, minimap, maxScoreboard |A scoreboard update was received.|
 |detailedScoreUpdate    |data               |A detailed scoreboard update was received.|
 |chatLineAdded          |player, text, type |A chat line was received and added to the chat.|

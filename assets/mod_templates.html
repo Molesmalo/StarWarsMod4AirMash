@@ -77,6 +77,146 @@
     </label>*/
 
     /*------------------------------------------------------------------------
+        SLIDER CONTROL
+    ------------------------------------------------------------------------*/
+
+    input[type=range] {
+        -webkit-appearance: none;
+        background-color: rgba(0,0,0,0);
+        margin: 3px 0;
+        width: 200px;
+        margin-right: 10px;
+    }
+    input[type=range]:focus {
+        outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        background: #202020;
+        border-radius: 25px;
+        border: 0.2px solid #010101;
+    }
+    input[type=range]::-webkit-slider-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        border: 1px solid #404040;
+        height: 16px;
+        width: 25px;
+        border-radius: 25px;
+        background: #808080;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -3.2px;
+    }
+    input[type=range]:focus::-webkit-slider-runnable-track {
+        background: #6d6d6d;
+    }
+    input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        background: #202020;
+        border-radius: 25px;
+        border: 0.2px solid #010101;
+    }
+    input[type=range]::-moz-range-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        border: 1px solid #404040;
+        height: 16px;
+        width: 25px;
+        border-radius: 25px;
+        background: #808080;
+        cursor: pointer;
+    }
+    input[type=range]::-ms-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+    input[type=range]::-ms-fill-lower {
+        background: #000000;
+        border: 0.2px solid #010101;
+        border-radius: 50px;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range]::-ms-fill-upper {
+        background: #202020;
+        border: 0.2px solid #010101;
+        border-radius: 50px;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range]::-ms-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        border: 1px solid #404040;
+        height: 16px;
+        width: 25px;
+        border-radius: 25px;
+        background: #808080;
+        cursor: pointer;
+        height: 10px;
+    }
+    input[type=range]:focus::-ms-fill-lower {
+        background: #202020;
+    }
+    input[type=range]:focus::-ms-fill-upper {
+        background: #6d6d6d;
+    }
+
+    /*------------------------------------------------------------------------
+        MODAL CONTAINER
+    ------------------------------------------------------------------------*/
+
+    .modalContainer
+    {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+        outline: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 30;
+    }
+    .modalDialog
+    {
+        position: absolute;
+        width: 600px;
+        min-height: 180px;
+        max-height: 800px;
+
+        overflow-y: auto;
+        
+        left: calc(50% - 300px);
+        top: 50px;
+        
+        background-color: rgba(0,0,0,0.75); /*rgba(0,0,0,1);*/
+        box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+        border-radius: 9px;
+        border-bottom: 2px solid rgba(0,0,0,0.3);
+        border-top: 2px solid rgba(255,255,255,0.08);
+        box-sizing: border-box;
+        padding: 18px 18px 0 18px;
+        cursor: default;
+
+        color: white;
+        font-family: verdana,arial,helvetica,sans-serif;
+    }
+    .modalTitle
+    {
+        font-size: 20px;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    /*------------------------------------------------------------------------
         Kills Deaths UI
     ------------------------------------------------------------------------*/
     #scorebig {
@@ -164,6 +304,21 @@
         background-size: cover;
     }
 
+    #logon {
+        height: 400px;
+    }
+
+    #logon .logo {
+        background-image: url('data:image/png;base64,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');
+        margin-left: -154px;
+        width: 308px;
+        height: 90px;
+    }
+
+    #logosmall {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANAAAAAqCAMAAAD1cyU5AAAC/VBMVEUAAADfJVnCsADCsADfJVnfJVnCsADCsADCsADfJVnCsADfJVnCsADfJVnCsADaQkvCsADfJVnCsADfJVnfJVn////////////CsADCsADfJVnfJVnfJVnfJVn////CsAD////fJVnfJVn////fJVn////fJVnCsADCsADfJVnfJVnCsADfJVnfJVnfJVnfJVnfJVnfJVnCsAD///86CRTCsAAJAwPCsADCsADfJVnCsADfJVnCsADfJVnCsAAYCQvfJVnfJVnCsADCsADfJVnCsAAVCAr////yL1PfJVnfJVnfJVnfJVnfJVnCsADCsADfJVnCsADCsADCsADCsADfJVnCsADfJVkQAwXc3uXfJVnfJVnCsAB1d37///8KAgQWBgjTYDPCsAA/QEU0DBUbBQkSDA7CsAATDA3CsAARBwjqKVHNIEiRGzTCsADCsADCsACTk5ffJVliFCIxCRD///8GBAXgIVvmM0/////jME61uMLGKETCsADfJVnTXzSKGjCGGi7CsADCsABvESRTDx3CsAA+ChbCsADfJVnfJVnfJVnfJVnfJVniLE7wOFTk5+7CsADBHEDExsy3IT+vHj3fJVmZHzXCsABsFSV4EiVcDRzfJVlYEB45OT01ChIyNDjfJVnCsADCsADfJVnCtADUJ0rV2+LNKEfM0NGlqK+pHTvfJVmWmaa+JEKdoKzIMke2Kz+goaSIHy5sFyRaW19GEBdDREf///8xHSIPBgdBNTffJVnfJVnCsAD09fjs7u/aKUvYJkvm5+fRai2hHTi4t72/v7+xt7+wKzymLUCzurr///9VVFvfJVk3ChNbEx3fJVndJU3GytvcL0vTMkvCwsafoKe0t8SkQlp+iJCgJzeFhYjCsADfJVnYI0vgIlrGnQzRaS7TI0rMfyDR0tXUIk7RNE7HlxDfJVnfJVlkFSPRZy/////CsADfJVn/OVr/QmL/LVz7/f7+MFj9NFb3L1X3+PrwKVTx9v7iJU7l6vP4JEf/H1LCsgBXOEq4AAAA7XRSTlMA8PDu8/b59FP9P1D2+/0Cm0GD+dW7It2aFJecP/6Z8mbtoxEIzMjIkqdI4r+GJOpaHAx3aBYM6Pjg0cSNTEo7Eq2Kh4I8NTP+t7GQiV0zHgz7rKiXjU8uF/Xmz6KeiB0I29dsYUIvLyklI/viz8y/ubafildEEvn07u7k3t7Z1L60tJ2ajXVtRTIXFRAG+/r17Ojn4s7KvrGwpZqUfnd0XEQ+Kyn67Orq5OLf3tvW1dXNvqGTfWpmVU1NRz04Evv6+fTy6NbV0dDGxMCqk4yAdSz99enl4dvZ1rizomcU/fv5+Pb15+PfoXBWLBN8+9SfAAALrklEQVRo3uyWOW8TQRSA38zO7LCwu05sCuJDKxBKHGKOWIp8JCASkiIYCLEDSIQGmogmiWioCBI0nAUNoqDh6vgJQEWNxB9AlNDM/gPE7Js9bK8ToAOJr7B2XmZX78u8eTPwn3+OtYu7tucEIOGUi5Bwvfu1hSn4WygbdEeWQVGLRnWIyArahWHfKmP4G3esAHYGIh5etjR8HGL2hrEcxtIcH2VWCqcBmkoOh1uQZpPKOjW2x6TnVPK0rkeeXU6EhJEgpBS1JRW+6hOkxA9CSMUnGn8vRJxhjCBW7hGkOT9NHEZSMLIHEB8/yck76KctRK18YmH3thiB0LqcwCkLG7KWCJnxay/vZdsGlWJOCTmFYUXRyeVB85qQQ8MBLZ4INazxIs7judYAn70OW5wf7qcYCWVKwSeLFilCH1nD7sBO3AuEXlGVKnKRGvdioWXo4ZQpvetK6ACOWtx6BMhs6S0g+URomJDPgNxwLkOKA44/CQPgXUIAjwcIbUojAzuBK9RxJYRQuRkLudDL1BNpfoiEYL+lH07m2OGU0KK/mqzfMCREr8zDr4UODhCy3RX93x3aFzO0oh2zQWwlEHJlG0KGTLO6nRAsCXfodiR0mPEHegkIxEJxxiTOeLV0GmKiV51w3pGIyd8T+lDXtTTk2WaCbWSDGMWBpGtZoaTinO2ZXqFywClArrgmCiFv/SDTjMUvpIRaOd6d/XlI0BO3dLHmWMz4bwllpInpXZOGaUfUjfoKFpfA4YT66zWIGZMTPUK3cJZXw3PoHKW3b0ZCx9U+wb0EKaGjzg2IcdC4m+ccd919QjjTcCzMXwtBU+d6hYrOSMSHmjmkYsKcw6HKUuACXF9CD2osdAnNCCoUNNQ033xEIWTVnwbY7xRSQocIOwIx41YDepkn/ItWrUyG7GdnVSBHjgNiqYeBQnPUGwLFXU/cgQhDC6lfpC1NLC1P4Gra8lmXUNk2lxRZg+KVYqJb6B0hxXnGT6aEKv4oFtvWol6I1HGy3zqt83amw3Jk7Jj6JZxEDKeFkA3TwKOyQ+3NwUIZ6V7RItKs4j6RmR4hXD2P7sJXEyFM/OmqPwv9QpMcW0LG4QyNtqzZ/iViDL9yvuSMnu8Ses5ISAW2Eaqum8YKVp0n2gOFZoR3PeiDHnUxgodSUnI2rSmWpYtfM8XVLqEjjKjiSgkVnP36pMoRNom3Bj+TKrrQyHcqjxMhmNyjeQGRUNpozDRmwjvDs0FCt+S63m3NtjTCfZcIZaWmnsWY52FTiCgQMg4pIaIvEZed1lF8ypTY4VTnJqyARmofHYyFEhKhtFFThlXniU5aaMHwslhT9twJihvlFHbxUAiyY+tjY+sbU1r+RzNs2wUtcgkzzczmu4T26HUpEnKp4BzVd4m9kDYi2sjKLf6ZEIw0XQOL6Jnw2imhO1Jg13DdKjyRG6BYlp3BB2tZ0BP6plBgZBRipjkpJEKjfgUUp5WFqslDunvch37OhEYPOF/MxEJfTiKZnYSgek3SGUxeeHf7hKrmchAC6nbW1k7Z2BY6rjtQaI66G6CFphlh+eRmTVAFhSKJx1aQYsWqhFdVGLRGzyOjUChzmecCeCm/kxCMKKMsGrliqVeobAcRqC5LqjDpGoA+mNJCm4ac+BAJ8VmmCgt5WOIHIqHkNvqekK1Go8Fx8Ik7kKZFSF73FjZPUKjBiYaxI71CI71MrZu4RlUp7/YK1eSYPowMoaAboC8WzbRQ0xbNqZGR21+1UP6pvxo177ffc4lQjrcwPEqYItr66bag7+QF3RYbR1HIIXsuBXwu9R6s1Z/MmMtO20AUhmecGRsj26E4C3qJkCtESkmKiuQSWkIKgUik6SVqgAqQYAUVi6pi0R1dVlBgwQax5dLH4BV4AxatuqqqySt0fGYysYkVpK74pCjjOYnlX55z5p/jWNfQNXYsMmY7JAhODwsImJ0ulaZ75doytLOIIKgaTKvxO/1KC0FDTwmZlytnt9oSNEOaJ7pctVq9fBJy39Xs4NFgmBcp24bSggkX1MH6fKs5+jWs2gTkPusPCYLjBYqg9lolqKf5hrTA4P74aeaEIP785l5grHl+zLcELTfmUDsnGJ9zL0qvQbBwDA3sdRak99f7ovT0CuPAnocF+Rb41DaOmdXch/IG82WN64Eb/UVSUHK8kQ1KMt4PCVoE09LOErerFbp8P8qWWJ3nhNwk6BDF4lt6PSyorlt3EaeeUayIzUnrldbHMJjjoyggCEzaDN9tTlBLkHKii68V0mBTLmgOxTJPR0b+S9DoJ+aMBoL6pKAE+yzMOFMIEzvMMldGDayPbrG8HyMITtJ4vFFBYUEmvYTnx0RB94JSSPGfKZpFceyn3Vf4BkFjMW2RrpW8Ay4ooT867Z7V9D7eQYAWiMPGhptY2imfKhnGFTRJSpbj68zY4ZOCDZHkIOidZ9v2Hgg6CqoATc0QW2wtZKQJFdVwysw+pBXUzsscNccPCA4EESnoIB2892QD31E5lGhHc5gGGX7IoGOlT2SYAREG9lTAGEzl9fcGBBlDfp61bqIRD2PPtIdkrudgzdiuhz1iH6UaZhDGpheuzR7mH5dsuWk+iuIRl7hL+4jY8D/1hqi4lII2tDgSxvYbUa8SGnA2lpCRDFLwdpUgY4jYMEK+ril+EwyIY10lK22MoOJiyT2kSGHJFI4lPcT99lcM0O+yhmDAHujU/N15iyST0PU944NJ1Q5WdIupSeQvqNhoVwuw94ULFGEXZvm6f1yAUSRcEMFzdCFGUR6EflQQetTlALrdJAPPuVouf1wvFouba2i1WP6QRPAloxBf/4KelYurybXNIh/eYv41Vy6taURRAD7/wNXVnQRkfoHDbN3p/ARd2Ag+EB8LUYNaFwqKOxWjiIqPVZMmNO93Fm0T8k5I6PsFXZS2i3JhXhqTttDrDJk2tBQKs+i3OHPmcg+cj8u5l9neJnH1ZMkZOTg4WNq2XywcXTDAtBeO1wBg0wIE7/Li4nJs62hhzWWPLrzdBK0wY0rNDXiMxDGMSIwjjLHRBKDHWMkUlF8cB72RfJBNLiOYQcUfOWEA3uFHM/cx4cTd5Lm0FayLfClKdN8uj4POd1zieX6xUeJXmECdT6yBVlAY234KoZtow8gEccpgIgZjRJIy6EFG/iWYDJQN9GhUbDACmOVlhfVHu1YiJO7OTD6MLJVxJNvnuDZzkeATRMj7PBUDl4fj5uqfnzcSfF5nz/KpAmiEDVP4jiqEcBw2khQingale7NiQPpHt4XuYL1SoggBJkEhEMG7qy5wXjpeTjq2tvbxi9ffBtyRp85xqSi4VkrcMuNaK/Uz5ysr5wmu9WU7wz+jQSNIX1RSFTKeIkB3EAITMRlBUbKBvNF0S4hY3ywTIblAQbf+EV/u+xWhcqczKe4ff2PZYni63ydClrk+l46BJd1n0026W+xXs5lpTjuhpJHMzIYqFMdmrEdIbRsZblKy/ssMmWULZVlOUVKvHpB4JT5anSBCD+6K5fLl1FlTKlaDbPExm4oyucRgwGYZXawmSex0eCcoSdKAvaeV0IY8A6eqECBshH8+IWKYVAfRPSXencevLM6HROjqq4jfbOWEx417UmU2mMp709JsVUjHGLqb32PZx0V2L9esSpoJnWIZkyq0gfWA/jhDxr/N0Jg6QvaIOHXWubrqOMtEyHH2SjzstISd87CQaQzvtVrBQT4fDGa7c/VG+HowfDJs+S0ZYVojIXIQStuq0Aj077ecaqRzO/CS3/cUzzx4+HXmqcPrnsLz4e/BbqFeyAnX4YpQsVhrwvu9oXD9ZPhh9loY3XLCTkGrR8gkG1C3hX5/h5Ikuy2kvkNKGTGiRlsY5/3JVZhw3r87/+Lwzfyhf5S+rszF7AF7O1QNV0LRCV07FMo0a6FQLdedDbVd47lPtRj8pzCb7l4AXL5197q7t9nrTYCv5/bQHr8OwFqgPTTt04Gfpr3jXg/ttY97aKuO8RY8AYAf742tTMTK5nMAAAAASUVORK5CYII=');
+    }
+
     #sidebar, canvas {
         -webkit-box-shadow: 0px 0px 6px 2px rgba(255,255,255,.1);
         -moz-box-shadow: 0px 0px 6px 2px rgba(255,255,255,.1);
@@ -217,14 +372,60 @@
         cursor: pointer;
     }
 
+    #clearChat {
+        position: absolute;
+        right: 70px;
+        color: #c9c9c9;
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    #settings {
+        width: 135px;
+    }
+
     .leaderBoardIcon
     {
+        position: absolute;
+        right: 66px;
+        top: 0;
+        width: 33px;
+        height: 31px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+        background-position: 7px 6px;
         background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMjAuMTg4cHgiIGhlaWdodD0iMjAuMTg4cHgiIHZpZXdCb3g9IjAgMCAyMC4xODggMjAuMTg4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyMC4xODggMjAuMTg4IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik0xOS4xNzIsMTcuMjk3YzAsMS4wNC0wLjg1LDEuODkzLTEuODkzLDEuODkzSDIuOTIzDQoJYy0xLjA0MSwwLTEuODkzLTAuODUzLTEuODkzLTEuODkzVjIuOTQxYzAtMS4wNDMsMC44NTItMS44OTMsMS44OTMtMS44OTNoMTQuMzU3YzEuMDQzLDAsMS44OTIsMC44NDksMS44OTIsMS44OTNWMTcuMjk3DQoJTDE5LjE3MiwxNy4yOTd6Ii8+DQo8Zz4NCgk8bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iNy44MDgiIHkxPSI1LjM3IiB4Mj0iMTYuMjgxIiB5Mj0iNS4zNyIvPg0KCTxsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI3LjgwOCIgeTE9IjEwLjQ3MyIgeDI9IjE2LjI4MSIgeTI9IjEwLjQ3MyIvPg0KCTxsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI3LjgwOCIgeTE9IjE1LjUwNCIgeDI9IjE2LjI4MSIgeTI9IjE1LjUwNCIvPg0KPC9nPg0KPGNpcmNsZSBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjUuMTg4IiBjeT0iNS4zNyIgcj0iMC43OTciLz4NCjxjaXJjbGUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1LjE4OCIgY3k9IjEwLjQ3MyIgcj0iMC43OTciLz4NCjxjaXJjbGUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1LjE4OCIgY3k9IjE1LjUwNCIgcj0iMC43OTciLz4NCjwvc3ZnPg0K");
+        opacity: .8;
     }
 
     .modSettingsIcon
     {
+        position: absolute;
+        right: 99px;
+        top: 0;
+        width: 33px;
+        height: 31px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+        background-position: 7px 6px;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='445.1' height='445.1' viewBox='0 0 445.1 445.1'%3E%3Cpath d='m442.8 184.2c-1.6-2-3.6-3.2-6.1-3.6l-53-8.1c-2.9-9.3-6.9-18.7-11.9-28.4 3.5-4.8 8.7-11.6 15.6-20.4s11.9-15.2 14.8-19.3c1.5-2.1 2.3-4.3 2.3-6.7 0-2.7-0.7-4.8-2-6.4-7-9.9-22.9-26.3-47.8-49.3-2.3-1.9-4.7-2.9-7.2-2.9-2.9 0-5.2 0.9-7 2.6l-41.1 31c-7.9-4.1-16.6-7.6-26.1-10.7l-8.1-53.3c-0.2-2.5-1.3-4.6-3.3-6.2-2-1.6-4.4-2.5-7.1-2.5h-64.3c-5.6 0-9.1 2.7-10.4 8.1-2.5 9.7-5.3 27.6-8.4 53.9-9.1 2.9-17.9 6.6-26.4 11l-40-31c-2.5-1.9-5-2.9-7.5-2.9-4.2 0-13.4 6.9-27.4 20.7s-23.5 24.2-28.6 31.2c-1.7 2.5-2.6 4.7-2.6 6.7 0 2.3 1 4.6 2.9 7 12.9 15.7 23.3 29 31 40-4.8 8.9-8.6 17.8-11.3 26.7l-53.9 8.1c-2.1 0.4-4 1.6-5.5 3.8-1.5 2.1-2.3 4.3-2.3 6.7v64.3c0 2.5 0.8 4.8 2.3 6.8 1.5 2 3.6 3.2 6.1 3.6l53 7.8c2.7 9.5 6.7 19 11.9 28.7-3.5 4.8-8.7 11.6-15.6 20.4-7 8.8-11.9 15.2-14.8 19.3-1.5 2.1-2.3 4.3-2.3 6.7 0 2.5 0.7 4.7 2 6.7 7.5 10.4 23.5 26.7 47.8 48.7 2.1 2.1 4.5 3.2 7.2 3.2 2.9 0 5.3-0.9 7.2-2.6l40.9-31c7.9 4.1 16.6 7.6 26.1 10.7l8.1 53.3c0.2 2.5 1.3 4.6 3.3 6.2 2 1.6 4.4 2.5 7.1 2.5h64.3c5.6 0 9.1-2.7 10.4-8.1 2.5-9.7 5.3-27.6 8.4-53.9 9.1-2.9 17.9-6.6 26.4-11l40 31.3c2.7 1.7 5.2 2.6 7.5 2.6 4.2 0 13.3-6.9 27.2-20.6 13.9-13.7 23.5-24.1 28.7-31.3 1.7-1.9 2.6-4.2 2.6-6.7s-1-4.9-2.9-7.2c-13.9-17-24.2-30.3-31-40 3.9-7.1 7.6-15.9 11.3-26.4l53.6-8.1c2.3-0.4 4.3-1.6 5.8-3.8s2.3-4.4 2.3-6.7v-64.3c0-2.5-0.8-4.8-2.3-6.8m-167.8 90.8c-14.5 14.5-32 21.7-52.5 21.7s-38-7.2-52.5-21.7c-14.5-14.5-21.7-32-21.7-52.4s7.2-38 21.7-52.5c14.5-14.5 32-21.7 52.5-21.7 20.5 0 38 7.2 52.5 21.7 14.5 14.5 21.7 32 21.7 52.5 0 20.5-7.2 38-21.7 52.4' fill='%23fff'/%3E%3C/svg%3E");
+        opacity: .8;
+    }
+
+    #sidebar
+    {
+        -moz-transform: scale(.8);
+        -webkit-transform: scale(.8);
+        -o-transform: scale(.8);
+        transform: scale(.8);
+        -moz-transform-origin: left top;
+        -webkit-transform-origin: left top;
+        -o-transform-origin: left top;
+        transform-origin: left top;
     }
 
     /* ----- Destroy and Destroyed Messages ----- */
@@ -244,18 +445,6 @@
         height: 22px;
         margin-right: 12px;
         background-size: 30px auto;
-    }
-
-    #sidebar
-    {
-        -moz-transform: scale(.8);
-        -webkit-transform: scale(.8);
-        -o-transform: scale(.8);
-        transform: scale(.8);
-        -moz-transform-origin: left top;
-        -webkit-transform-origin: left top;
-        -o-transform-origin: left top;
-        transform-origin: left top;
     }
 
 </style>
@@ -294,57 +483,16 @@
         </div>
     </div>
 </div>
+
+
 <div class='modalContainer' tabindex='1'>
     <div class='modalDialog'>
-        <style type="text/css">
-            .modalContainer
-            {
-                position: fixed;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0,0,0,.5);
-                outline: none;
-                overflow-x: hidden;
-                overflow-y: auto;
-                z-index: 30;
-            }
-            .modalDialog
-            {
-                position: absolute;
-                width: 600px;
-                min-height: 180px;
-                max-height: 800px;
-
-                overflow-y: auto;
-                
-                left: calc(50% - 300px);
-                top: 50px;
-                
-                background-color: rgba(0,0,0,1);
-                box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
-                border-radius: 9px;
-                border-bottom: 2px solid rgba(0,0,0,0.3);
-                border-top: 2px solid rgba(255,255,255,0.08);
-                box-sizing: border-box;
-                padding: 18px 18px 0 18px;
-                cursor: default;
-
-                color: white;
-                font-family: verdana,arial,helvetica,sans-serif;
-            }
-            .modalTitle
-            {
-                font-size: 20px;
-                color: white;
-                margin-bottom: 10px;
-            }
-        </style>
         <div class='modalTitle'>$title</div>
         <div class='modalContent'></div>
     </div>
 </div>
+
+<!------------------------------------------------>
 
 <div class="SWAM_Settings">
     <style type="text/css">
@@ -485,96 +633,6 @@
         }
 
     </style>
-    <style type="text/css">
-        .SWAM_Settings input[type=range] {
-            -webkit-appearance: none;
-            background-color: rgba(0,0,0,0);
-            margin: 3px 0;
-            width: 200px;
-            margin-right: 10px;
-        }
-        .SWAM_Settings input[type=range]:focus {
-            outline: none;
-        }
-        .SWAM_Settings input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            background: #202020;
-            border-radius: 25px;
-            border: 0.2px solid #010101;
-        }
-        .SWAM_Settings input[type=range]::-webkit-slider-thumb {
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            border: 1px solid #404040;
-            height: 16px;
-            width: 25px;
-            border-radius: 25px;
-            background: #808080;
-            cursor: pointer;
-            -webkit-appearance: none;
-            margin-top: -3.2px;
-        }
-        .SWAM_Settings input[type=range]:focus::-webkit-slider-runnable-track {
-            background: #6d6d6d;
-        }
-        .SWAM_Settings input[type=range]::-moz-range-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            background: #202020;
-            border-radius: 25px;
-            border: 0.2px solid #010101;
-        }
-        .SWAM_Settings input[type=range]::-moz-range-thumb {
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            border: 1px solid #404040;
-            height: 16px;
-            width: 25px;
-            border-radius: 25px;
-            background: #808080;
-            cursor: pointer;
-        }
-        .SWAM_Settings input[type=range]::-ms-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            background: transparent;
-            border-color: transparent;
-            color: transparent;
-        }
-        .SWAM_Settings input[type=range]::-ms-fill-lower {
-            background: #000000;
-            border: 0.2px solid #010101;
-            border-radius: 50px;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        }
-        .SWAM_Settings input[type=range]::-ms-fill-upper {
-            background: #202020;
-            border: 0.2px solid #010101;
-            border-radius: 50px;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        }
-        .SWAM_Settings input[type=range]::-ms-thumb {
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            border: 1px solid #404040;
-            height: 16px;
-            width: 25px;
-            border-radius: 25px;
-            background: #808080;
-            cursor: pointer;
-            height: 10px;
-        }
-        .SWAM_Settings input[type=range]:focus::-ms-fill-lower {
-            background: #202020;
-        }
-        .SWAM_Settings input[type=range]:focus::-ms-fill-upper {
-            background: #6d6d6d;
-        }
-
-    </style>
 
     <div class="sectionsContainer">
         <div class="section">
@@ -589,6 +647,7 @@
     </div>
 </div>
 
+
 <script id="Settings_section" type="text/template">
     <div class="section">
         <div class="title">Title</div>
@@ -597,12 +656,14 @@
     </div>
 </script>
 
+
 <script id="Settings_section_separator" type="text/template">
     <div class="section">
         <div class="sectionSeparator">Title</div>
     </div>
 </script>
 
+<!------------------------------------------------>
 
 <div id="btnOpenExtensions"
     style='position: relative;
@@ -620,7 +681,9 @@
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
     border-bottom: 2px solid rgba(0,0,0,0.2);'>
-    Themes and extensions</div>
+    Themes and extensions
+</div>
+
 
 <div class="SWAM_Extensions">
     <style type="text/css">
@@ -786,6 +849,7 @@
     </div>
 </div>
 
+
 <div id="ExtensionEditPanel">
     <div class="section">
         <label class="loadEnabled">
@@ -823,6 +887,74 @@
     </div> 
 </div>
 
+<!------------------------------------------------>
+
+<script id="Radio_Panel" type="text/template">
+    <div id='radioPanel' style='
+        display: none;
+        position: absolute;
+        bottom: 180px;
+        left: 60px;
+        width: 300px;
+        height: auto;
+        max-width: 700px;
+        opacity:0.9;
+        overflow: hidden;
+        padding: 8px;
+        font-size: 12px;
+        color: white;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+        background-color: rgba(0,0,0,0.5);
+        border: 1px solid #555555;
+        border-radius: 3px;' >
+        <div id='radioChannel' style='color: yellow;'>* Radio not available *</div>
+        <div id='btnRadioConfig' style='
+            color: #888888;
+            text-decoration: underline;
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            cursor: pointer;'>[Customize Messages]</div>
+        <hr/>
+        <div id='radioOptions'></div>
+    </div>
+</script>
+
+<script id="Radio_Customization_Title" type="text/template">
+    Customize messages for: <span style='color: yellow'>$channel</span>
+</script>
+
+<script id="Radio_Customization_Content" type="text/template">
+    <div style='color: #AAAAAA'>Enter the messages below. Use '|' character to separate multiple lines in the same meesage.</div>
+    <div class='optionList'></div>
+    <div style='color: #888888; text-decoration: underline; cursor: pointer; margin: 10px;'>
+        <hr/>
+        <span id='radioRestoreThis'>[Restore THIS panel to default]</span><span id='radioRestoreAll' style='margin-left: 30px;'>[Restore ALL messages to default]</span>
+    </div>
+    <div style='width: 210px; position: absolute; left: calc(50% - 100px); margin-top: 20px;'>
+        <input id='radioCustomizeSave' type='button' value='Save' style='width: 80px; height: 25px; background-color: #228a12; color: white; border-radius: 4px; font-size=16px; text-shadow: 0 -1px 0 rgba(0,0,0,0.6); border: 2px solid rgba(0,0,0,.2)'>
+        <span style='margin-left: 40px'></span>
+        <input id='radioCustomizeCancel' type='button' value='Cancel' style='width: 80px; height: 25px; background-color: #555555; color: white; border-radius: 4px; font-size=16px; text-shadow: 0 -1px 0 rgba(0,0,0,0.6); border: 2px solid rgba(0,0,0,.2)'>
+    </div>
+</script>
+
+<script id="Radio_Customization_Message" type="text/template">
+    <div style='margin: 5px;'>
+        <span style='margin-right: 10px; color:white;'>$index</span>
+        <input type='text' maxlength: '150' value = '' style='
+            font-size: 13px;
+            font-family: MontserratWeb,Helvetica,sans-serif;
+            width: 450px;
+            background-color: rgba(0,0,0,0.5);
+            color: #dcdcdc;
+            text-shadow: 0 0 3px rgba(0,0,0,0.8);
+            border: 1px solid #555555;
+            border-radius: 3px;
+            padding-left: 12px;'>
+    </div>
+</script>
+
+<!------------------------------------------------>
 
 <div id="redditPanel">
     <style type="text/css">
@@ -889,6 +1021,7 @@
     </div>
 </div>
 
+
 <div id="regenerateBackground">
     <style type='text/css'>
         #regenerateBackground
@@ -952,6 +1085,13 @@
     </div>
 </div>
 
+
+<div id='WhoKilledWho' 
+    style='position: absolute; top: 40px; left: 60px; width: 300px; height: 100px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white; cursor: pointer;'>
+    <!-- "<span style='font-size: 10px; color: #c3c3c3; position: absolute; top: 0px;'>[Open full log]</span>" +  -->
+</div>
+
+
 <div id="fullLogTemplate" tabindex="1">
     <style type="text/css">
         .fullLogcontent
@@ -984,6 +1124,7 @@
     <div class="deaths">DEATHS</div>
     <div class="container-deaths"><div id="score-deaths">-</div></div>
 </script>
+
 
 <div id="adjustmentPanel">
     <style class="text/css">
@@ -1037,97 +1178,6 @@
             display: inline-block;
         }
 
-
-
-
-
-        #adjustmentPanel input[type=range] {
-            -webkit-appearance: none;
-            background-color: rgba(0,0,0,0);
-            margin: 3px 0;
-            width: 200px;
-            margin-right: 10px;
-        }
-        #adjustmentPanel input[type=range]:focus {
-            outline: none;
-        }
-        #adjustmentPanel input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            background: #202020;
-            border-radius: 25px;
-            border: 0.2px solid #010101;
-        }
-        #adjustmentPanel input[type=range]::-webkit-slider-thumb {
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            border: 1px solid #404040;
-            height: 16px;
-            width: 25px;
-            border-radius: 25px;
-            background: #808080;
-            cursor: pointer;
-            -webkit-appearance: none;
-            margin-top: -3.2px;
-        }
-        #adjustmentPanel     input[type=range]:focus::-webkit-slider-runnable-track {
-            background: #6d6d6d;
-        }
-        #adjustmentPanel     input[type=range]::-moz-range-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            background: #202020;
-            border-radius: 25px;
-            border: 0.2px solid #010101;
-        }
-        #adjustmentPanel     input[type=range]::-moz-range-thumb {
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            border: 1px solid #404040;
-            height: 16px;
-            width: 25px;
-            border-radius: 25px;
-            background: #808080;
-            cursor: pointer;
-        }
-        #adjustmentPanel     input[type=range]::-ms-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            background: transparent;
-            border-color: transparent;
-            color: transparent;
-        }
-        #adjustmentPanel     input[type=range]::-ms-fill-lower {
-            background: #000000;
-            border: 0.2px solid #010101;
-            border-radius: 50px;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        }
-        #adjustmentPanel     input[type=range]::-ms-fill-upper {
-            background: #202020;
-            border: 0.2px solid #010101;
-            border-radius: 50px;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        }
-        #adjustmentPanel     input[type=range]::-ms-thumb {
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            border: 1px solid #404040;
-            height: 16px;
-            width: 25px;
-            border-radius: 25px;
-            background: #808080;
-            cursor: pointer;
-            height: 10px;
-        }
-        #adjustmentPanel     input[type=range]:focus::-ms-fill-lower {
-            background: #202020;
-        }
-        #adjustmentPanel     input[type=range]:focus::-ms-fill-upper {
-            background: #6d6d6d;
-        }
         #adjustmentPanel div
         {
             padding: 5px;
@@ -1179,6 +1229,7 @@
         <input class='btn close' type='button' value='Close' style="width: 120px; right: 10px; position: absolute;">
     </div>
 </div>
+
 
 <div id="changelogPanel">
     <style type="text/css">
@@ -1250,9 +1301,16 @@
     </style>
     <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
     <div class="changelogContent">
-        <div class="date">Apr 25 2018</div>
+        <div class="date">May 23 2018</div>
         <ul>
             <!-- <li>New color adjustment panel: gamma, brightness, contrast and saturation.</li> -->
+            <li>Repeled missiles now change color.</li>
+            <li>Prowler radar: Low resolution danger zones.</li>
+            <li>Several bugfixes.</li>
+        </ul>
+
+        <div class="date">Apr 25 2018</div>
+        <ul>
             <li>New on-screen timer indicating match duration.</li>
             <li>New option to play with squarish game area.</li>
             <li>Minimap dots and arrows now change opacity as the position gets older.</li>
@@ -1328,6 +1386,7 @@
         </ul>
     </div>
 </div>
+
 
 <div id='RequestlyWarning' style='position: fixed; top:0px; left:0px; width: 100%; height: 100%; background-color: black; z-index: 1000; '>
     <div id='LoadingText' style='
