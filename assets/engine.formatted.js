@@ -34029,7 +34029,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4052302",
+window.SWAM_version = "2.4052303",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34193,18 +34193,18 @@ function SWAM() {
     }
     function getMatchTimer() {
         function Bt() {
-            Kt = Players.getByName("STATSBOT"),
-            Kt && Kt.flag == 10 ? (Jt.html("Loading..."),
-            Gt()) : Jt.html("")
+            Zt = Players.getByName("STATSBOT"),
+            Zt && Zt.flag == 10 ? (Kt.html("Loading..."),
+            Gt()) : Kt.html("")
         }
         function Xt() {
-            clearInterval(Zt),
-            Qt = new Date,
+            clearInterval(Qt),
+            Jt = new Date,
             jt()
         }
         function Gt() {
             SWAM.on("chatLineAdded", Wt),
-            Network.sendWhisper(Kt.id, zt)
+            Network.sendWhisper(Zt.id, zt)
         }
         function Yt() {
             $("#chatlines div").last().remove()
@@ -34215,46 +34215,45 @@ function SWAM() {
             en.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")
         }
         function Wt($t, en, tn) {
-            if ($t == Kt && en == zt)
+            if ($t == Zt && en == zt)
                 return void Yt();
             let nn = !isNaN(en);
-            if ($t == Kt && nn) {
+            if ($t == Zt && nn) {
                 if (Yt(),
                 1 == tn)
                     return;
-                Qt = new Date(parseInt(en)),
+                Jt = new Date(parseInt(en)),
                 jt(),
                 SWAM.off("chatLineAdded", Wt)
             }
         }
         function jt() {
-            Zt = setInterval(()=>{
+            Qt = setInterval(()=>{
                 let $t = new Date
-                  , en = $t.getTime() - Qt.getTime()
+                  , en = $t.getTime() - Jt.getTime()
                   , tn = Ht(en);
-                Jt.html(tn)
+                Kt.html(tn)
             }
             , 1e3)
         }
         const zt = "-api-game-start";
-        var Kt = null
-          , Zt = 0
-          , Qt = 0;
-        if (game.gameType === SWAM.GAME_TYPE.CTF) {
-            let Jt = $("<div id='matchTime'></div>");
-            $("body").append(Jt),
-            SWAM.one("gameWipe", ()=>{
-                clearInterval(Zt),
-                SWAM.off("scoreboardUpdate", Bt),
-                SWAM.off("chatLineAdded", Wt),
-                SWAM.off("CTF_MatchStarted", Xt),
-                SWAM.off("chatLineAdded", Wt),
-                Jt.remove()
-            }
-            ),
-            SWAM.one("scoreboardUpdate", Bt),
-            SWAM.on("CTF_MatchStarted", Xt)
+        let Kt = null
+          , Zt = null
+          , Qt = 0
+          , Jt = 0;
+        game.gameType !== SWAM.GAME_TYPE.CTF || (Kt = $("<div id='matchTime'></div>"),
+        $("body").append(Kt),
+        SWAM.one("gameWipe", ()=>{
+            clearInterval(Qt),
+            SWAM.off("scoreboardUpdate", Bt),
+            SWAM.off("chatLineAdded", Wt),
+            SWAM.off("CTF_MatchStarted", Xt),
+            SWAM.off("chatLineAdded", Wt),
+            Kt.remove()
         }
+        ),
+        SWAM.one("scoreboardUpdate", Bt),
+        SWAM.on("CTF_MatchStarted", Xt))
     }
     function screenToMap(Bt, Xt) {
         let Gt = Graphics.getCamera()
