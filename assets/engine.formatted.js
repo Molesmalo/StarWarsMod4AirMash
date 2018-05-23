@@ -34029,7 +34029,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4052301",
+window.SWAM_version = "2.4052302",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -35589,11 +35589,12 @@ function SWAM() {
     ,
     SWAM.updatePlayersNamePlate = function() {
         var Bt = Players.getIDs()
-          , Xt = Players.getMe();
-        for (var Gt in Bt) {
-            var Yt = Players.get(Gt);
-            "undefined" != typeof Yt.scorePlace && (Yt.sprites.name.text = Yt.scorePlace + ". " + Yt.name + (Yt.team == Xt.team ? " [" + Math.floor(100 * parseFloat(Yt.health)) + "]" : "")),
-            me.id != Gt && SWAM.ProwlerRadar && SWAM.ProwlerRadar.update(Yt, me)
+          , Xt = Players.getMe()
+          , Gt = Players.getMe();
+        for (var Yt in Bt) {
+            var Ht = Players.get(Yt);
+            "undefined" != typeof Ht.scorePlace && (Ht.sprites.name.text = Ht.scorePlace + ". " + Ht.name + (Ht.team == Xt.team ? " [" + Math.floor(100 * parseFloat(Ht.health)) + "]" : "")),
+            Gt.id != Yt && SWAM.ProwlerRadar && SWAM.ProwlerRadar.update(Ht, Gt)
         }
     }
     ;
