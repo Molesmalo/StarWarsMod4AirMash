@@ -838,6 +838,13 @@
         {
             margin: auto;
         }
+
+        span.extensionsLink a {
+            margin-left: 20px;
+            text-decoration: underline;
+            color: #a3a3a3 !important;
+            line-height: 25px;
+        }
     </style>
 
     <div class="sectionsContainer">
@@ -850,6 +857,9 @@
         </div>
         <div class="section">
             <input class='btn btnNew' type='button' value='Add new extension' style="width: 250px;">
+            <span class="extensionsLink">
+                <a href="https://tiny.cc/starmashextensions" target="_blank">Find extensions here</a>
+            </span>
         </div>
     </div>
     <div class="divAcceptCancel">
@@ -1311,9 +1321,17 @@
     </style>
     <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
     <div class="changelogContent">
-        <div class="date">May 23 2018</div>
+        <div class="date">May 31 2018</div>
         <ul>
             <!-- <li>New color adjustment panel: gamma, brightness, contrast and saturation.</li> -->
+            <li>Go back to spectator mode after match start if the player was spectating before.</li>
+            <li>Added "<i>Player</i> left." message in chat, when a player that talked recently leaves the game.</li>
+            <li>Player Names: Cyrillic Unicode block now replaced with �.</li>
+            <li>Link to extensions list in Themes and Extensions window.</li>
+        </ul>
+
+        <div class="date">May 23 2018</div>
+        <ul>
             <li>Repelled missiles now change color.</li>
             <li>Prowler radar: Low resolution danger zones.</li>
             <li>Several bugs fixed.</li>

@@ -5,6 +5,13 @@
 <br>
 <br>
 
+## May 31 2018
+- Go back to spectator mode after match start if the player was spectating before.
+- Added "*Player* left." message in chat, when a player that talked recently leaves the game.
+- Player Names: Cyrillic Unicode block now replaced with �.
+
+&nbsp;
+
 ## May 23 2018
 
 - Repelled missiles now change color.
