@@ -9,6 +9,7 @@
 - Go back to spectator mode after match start if the player was spectating before.
 - Added "*Player* left." message in chat, when a player that talked recently leaves the game.
 - Player Names: Cyrillic Unicode block now replaced with �.
+- Link to extensions list in Themes and Extensions window.
 
 &nbsp;
 
