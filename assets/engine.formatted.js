@@ -26004,7 +26004,8 @@ function() {
         var Gt = new PIXI.ticker.Ticker;
         Gt.add(Bt),
         Gt.start(),
-        setInterval(Xt, 500)
+        setInterval(Xt, 500),
+        Graphics.ticker = Gt
     }
 }();
 class Vector {
@@ -27879,7 +27880,6 @@ function loadGameCode() {
         }
         ,
         Network.getScores = function() {
-            console.log("getting scores"),
             game.state == Network.STATE.PLAYING && cn({
                 c: gn.SCOREDETAILED
             })
@@ -34029,7 +34029,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4053101",
+window.SWAM_version = "2.4060501",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34352,93 +34352,6 @@ function SWAM() {
         var Bt = getTemplateContent("#killDeathInfo");
         $(".container-rank").after($(Bt))
     }(),
-    SWAM.GameLog = new function() {
-        let Xt = !0
-          , Gt = !1
-          , Yt = null
-          , Ht = null;
-        this.add = function(Wt) {
-            if (game.state === Network.STATE.PLAYING) {
-                let jt = $(Wt);
-                jt.hasClass("flwkw") && !Xt && jt.hide(),
-                jt.hasClass("flplayer") && !Gt && jt.hide();
-                let zt = Ht[0]
-                  , Vt = isScrolledToBottom(zt);
-                Ht.append(jt),
-                1e3 < Ht.children().length && Ht.children().first().remove(),
-                Vt && (zt.scrollTop = zt.scrollHeight)
-            }
-        }
-        ,
-        this.logKill = function(Wt, jt) {
-            if (null != Wt && null != jt) {
-                let Vt = "<div class=\"flwkw line\"><span class=\"playersel\" data-playerid=\"" + Wt.id + "\"><span class=\"flag small flag-" + Wt.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == Wt.team ? "#4d7fd5" : 2 == Wt.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(Wt.name) + "</span></span><span class=\"text\" style=\"margin-left: 10px; margin-right: 10px; opacity: 0.6;\"> killed </span><span class=\"playersel\" data-playerid=\"" + jt.id + "\"><span class=\"flag small flag-" + jt.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == jt.team ? "#4d7fd5" : 2 == jt.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(jt.name) + "</span></span></div>";
-                this.add(Vt),
-                SWAM.Settings.ui.showWhoKilledWho && SWAM.SmallLog.add(Vt)
-            }
-        }
-        ,
-        this.logPlayerConnection = function(Wt, jt) {
-            if (null != Wt) {
-                let Vt = "<div class=\"flplayer line\"><span class=\"playersel\" data-playerid=\"" + Wt.id + "\"><span class=\"flag small flag-" + Wt.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == Wt.team ? "#4d7fd5" : 2 == Wt.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(Wt.name) + "</span></span><span class=\"text\" style=\"margin-left: 10px; margin-right: 10px; opacity: 0.6;\">" + (jt ? " joined." : "left.") + "</span></div>";
-                this.add(Vt),
-                SWAM.Settings.ui.showLogConnections && (SWAM.SmallLog.add(Vt),
-                !jt && 3e4 > new Date().getTime() - Wt.lastMessageTime && UI.addChatMessage(Vt, !0))
-            }
-        }
-        ,
-        this.logConnected = function() {
-            let Wt = "";
-            switch (game.gameType) {
-            case SWAM.GAME_TYPE.FFA:
-                Wt = "Free For All";
-                break;
-            case SWAM.GAME_TYPE.CTF:
-                Wt = "Capture the flag";
-                break;
-            case SWAM.GAME_TYPE.BR:
-                Wt = "Battle Royale";
-            }
-            this.add("<hr/><div style='margin: 20px; font-size: 16px;'>" + new Date().toLocaleString() + "  - Joined to " + Wt + "</div>")
-        }
-        ,
-        this.logFlag = function(Wt) {
-            this.add("<div class='message' style='position: relative; display: block;'>" + Wt + "</div>")
-        }
-        ,
-        this.logNewMatch = function() {
-            this.add("<hr/><div style='margin: 20px; font-size: 16px;'>" + new Date().toLocaleString() + "  - New CTF Match started</div>")
-        }
-        ,
-        this.show = function() {
-            Sound.UIClick(),
-            Yt.show(),
-            closeWhenClickOutside(Yt)
-        }
-        ,
-        this.hide = function() {
-            Yt.hide()
-        }
-        ,
-        function() {
-            Yt = $(getTemplate(".modalContainer .modalDialog").replace(/\$title/g, "Game log")).attr("id", "fullLog").css("z-index", "30").hide();
-            let Wt = $(getTemplate("#fullLogTemplate")).removeAttr("id");
-            Ht = $(".fullLogcontent", Wt),
-            $(".modalContent", Yt).append(Wt),
-            $(".chkFLKills", Wt).click(()=>{
-                Xt = !Xt,
-                $(".flwkw", Wt).toggle()
-            }
-            ),
-            $(".chkFLPlayers", Wt).click(()=>{
-                Gt = !Gt,
-                $(".flplayer", Wt).toggle()
-            }
-            ),
-            $("body").append(Yt)
-        }()
-    }
-    ,
     $("#logon > div.buttons").before($(getTemplate("#btnOpenExtensions")).click(function() {
         SWAM.OpenExtensionsWindow()
     })),
@@ -34455,7 +34368,7 @@ function SWAM() {
                 showReddit: !0,
                 showWhoKilledWho: !0,
                 showLogConnections: !0,
-                useSquaredScene: !1,
+                useSquaredScene: !0,
                 minimapSize: 240
             },
             audio: {
@@ -35309,81 +35222,81 @@ function SWAM() {
     },
     SWAM.radio.append();
     let ProwlerRadar = new function() {
-        function Bt(Kt) {
-            if (jt) {
-                let Zt = Wt[Kt.id];
-                Zt || (Zt = new PIXI.Graphics,
-                Zt.clear(),
-                Zt.beginFill(16711680, .125),
-                Zt.drawCircle(0, 0, zt),
-                Zt.endFill(),
-                Wt[Kt.id] = Zt,
-                game.graphics.layers.groundobjects.addChild(Zt)),
-                Zt.position.set(Kt.lowResPos.x, Kt.lowResPos.y),
-                Zt.renderable = Kt.removedFromMap || 1 != game.myType && 4 != game.myType || 5 != Kt.type || Kt.team == Players.getMe().team || Kt.hidden || Kt.render && !Kt.stealthed ? !1 : !0
+        function Xt(Zt) {
+            if (zt) {
+                let Qt = jt[Zt.id];
+                Qt || (Qt = new PIXI.Graphics,
+                Qt.clear(),
+                Qt.beginFill(16711680, .125),
+                Qt.drawCircle(0, 0, Vt),
+                Qt.endFill(),
+                jt[Zt.id] = Qt,
+                game.graphics.layers.groundobjects.addChild(Qt)),
+                Qt.position.set(Zt.lowResPos.x, Zt.lowResPos.y),
+                Qt.renderable = Zt.removedFromMap || 1 != game.myType && 4 != game.myType || 5 != Zt.type || Zt.team == Players.getMe().team || Zt.hidden || Zt.render && !Zt.stealthed ? !1 : !0
             }
         }
-        function Xt() {
-            var Kt = Players.getIDs()
-              , Zt = Players.getMe();
-            if (qt.hide(),
-            !!jt)
-                for (var Qt in Kt) {
-                    var Jt = Players.get(Qt);
-                    if ((1 == game.myType || 4 == game.myType) && 5 == Jt.type && Jt.team != Zt.team) {
-                        var $t = Tools.distance(Jt.lowResPos.x, Jt.lowResPos.y, Zt.pos.x, Zt.pos.y);
-                        $t < zt && qt.show()
+        function Gt() {
+            var Zt = Players.getIDs()
+              , Qt = Players.getMe();
+            if (Kt.hide(),
+            !!zt)
+                for (var Jt in Zt) {
+                    var $t = Players.get(Jt);
+                    if ((1 == game.myType || 4 == game.myType) && 5 == $t.type && $t.team != Qt.team) {
+                        var en = Tools.distance($t.lowResPos.x, $t.lowResPos.y, Qt.pos.x, Qt.pos.y);
+                        en < Vt && Kt.show()
                     }
-                    Bt(Jt, Zt)
+                    Xt($t, Qt)
                 }
         }
-        function Yt() {
-            for (let Kt in Wt)
-                Ht(Kt)
+        function Ht() {
+            for (let Zt in jt)
+                Wt(Zt)
         }
-        function Ht(Kt) {
-            let Zt = Wt[Kt];
-            Zt && (game.graphics.layers.groundobjects.removeChild(Zt),
-            Zt.destroy(),
-            delete Wt[Kt])
+        function Wt(Zt) {
+            let Qt = jt[Zt];
+            Qt && (game.graphics.layers.groundobjects.removeChild(Qt),
+            Qt.destroy(),
+            delete jt[Zt])
         }
-        let Wt = {}
-          , jt = !0
-          , zt = 600
-          , Vt = 0
-          , qt = $("<div id='prowlerAlert' style='position: absolute; top: 100px; left: calc(50% - 50px); width: 100px; height: 30px; background-color: red; opacity:0.6;display:none;'></div>");
+        let jt = {}
+          , zt = !0
+          , Vt = 600
+          , qt = 0
+          , Kt = $("<div id='prowlerAlert' style='position: absolute; top: 100px; left: calc(50% - 50px); width: 100px; height: 30px; background-color: red; opacity:0.6;display:none;'></div>");
         this.updateSettings = function() {
-            "undefined" != typeof SWAM.Settings.general.useProwlerRadar && (jt = SWAM.Settings.general.useProwlerRadar,
-            !jt && (qt.hide(),
-            Yt()))
+            "undefined" != typeof SWAM.Settings.general.useProwlerRadar && (zt = SWAM.Settings.general.useProwlerRadar,
+            !zt && (Kt.hide(),
+            Ht()))
         }
         ,
-        SWAM.on("playerChangedType", Kt=>{
-            Bt(Players.get(Kt.id))
+        SWAM.on("playerChangedType", Zt=>{
+            Xt(Players.get(Zt.id))
         }
         ),
-        SWAM.on("playerKilled", (Kt,Zt)=>{
-            Bt(Zt)
+        SWAM.on("playerKilled", (Zt,Qt)=>{
+            Xt(Qt)
         }
         ),
-        SWAM.on("playerStealth", Kt=>{
-            let Zt = Players.get(Kt.id);
-            Bt(Zt)
+        SWAM.on("playerStealth", Zt=>{
+            let Qt = Players.get(Zt.id);
+            Xt(Qt)
         }
         ),
-        SWAM.on("playerDestroyed", Kt=>{
-            Ht(Kt.id)
+        SWAM.on("playerDestroyed", Zt=>{
+            Wt(Zt.id)
         }
         ),
         SWAM.on("gamePrep", ()=>{
-            $("body").append(qt),
-            Vt = setInterval(Xt, 500)
+            $("body").append(Kt),
+            qt = setInterval(Gt, 500)
         }
         ),
         SWAM.on("gameWipe", ()=>{
-            Yt(),
-            qt.remove(),
-            Vt = clearInterval(Vt)
+            Ht(),
+            Kt.remove(),
+            qt = clearInterval(qt)
         }
         )
     }
@@ -35606,8 +35519,7 @@ function SWAM() {
         }
         ),
         SWAM.on("gameWipe", ()=>{
-            Xt && (console.log("removing"),
-            Xt.remove(),
+            Xt && (Xt.remove(),
             Xt = null)
         }
         ),
@@ -35622,6 +35534,93 @@ function SWAM() {
                 }, 3e4)
             }
         }
+    }
+    ,
+    SWAM.GameLog = new function() {
+        let Gt = !0
+          , Yt = !1
+          , Ht = null
+          , Wt = null;
+        this.add = function(jt) {
+            if (game.state === Network.STATE.PLAYING) {
+                let zt = $(jt);
+                zt.hasClass("flwkw") && !Gt && zt.hide(),
+                zt.hasClass("flplayer") && !Yt && zt.hide();
+                let Vt = Wt[0]
+                  , qt = isScrolledToBottom(Vt);
+                Wt.append(zt),
+                1e3 < Wt.children().length && Wt.children().first().remove(),
+                qt && (Vt.scrollTop = Vt.scrollHeight)
+            }
+        }
+        ,
+        this.logKill = function(jt, zt) {
+            if (null != jt && null != zt) {
+                let qt = "<div class=\"flwkw line\"><span class=\"playersel\" data-playerid=\"" + jt.id + "\"><span class=\"flag small flag-" + jt.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == jt.team ? "#4d7fd5" : 2 == jt.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(jt.name) + "</span></span><span class=\"text\" style=\"margin-left: 10px; margin-right: 10px; opacity: 0.6;\"> killed </span><span class=\"playersel\" data-playerid=\"" + zt.id + "\"><span class=\"flag small flag-" + zt.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == zt.team ? "#4d7fd5" : 2 == zt.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(zt.name) + "</span></span></div>";
+                this.add(qt),
+                SWAM.Settings.ui.showWhoKilledWho && SWAM.SmallLog.add(qt)
+            }
+        }
+        ,
+        this.logPlayerConnection = function(jt, zt) {
+            if (null != jt) {
+                let qt = "<div class=\"flplayer line\"><span class=\"playersel\" data-playerid=\"" + jt.id + "\"><span class=\"flag small flag-" + jt.flag + "\"></span><span class=\"nick\" style=\"color:" + (1 == jt.team ? "#4d7fd5" : 2 == jt.team ? "#dc4f46" : "") + ";\">" + UI.escapeHTML(jt.name) + "</span></span><span class=\"text\" style=\"margin-left: 10px; margin-right: 10px; opacity: 0.6;\">" + (zt ? " joined." : "left.") + "</span></div>";
+                this.add(qt),
+                SWAM.Settings.ui.showLogConnections && (SWAM.SmallLog.add(qt),
+                !zt && 3e4 > new Date().getTime() - jt.lastMessageTime && UI.addChatMessage(qt, !0))
+            }
+        }
+        ,
+        this.logConnected = function() {
+            let jt = "";
+            switch (game.gameType) {
+            case SWAM.GAME_TYPE.FFA:
+                jt = "Free For All";
+                break;
+            case SWAM.GAME_TYPE.CTF:
+                jt = "Capture the flag";
+                break;
+            case SWAM.GAME_TYPE.BR:
+                jt = "Battle Royale";
+            }
+            this.add("<hr/><div style='margin: 20px; font-size: 16px;'>" + new Date().toLocaleString() + "  - Joined to " + jt + "</div>")
+        }
+        ,
+        this.logFlag = function(jt) {
+            this.add("<div class='message' style='position: relative; display: block;'>" + jt + "</div>")
+        }
+        ,
+        this.logNewMatch = function() {
+            this.add("<hr/><div style='margin: 20px; font-size: 16px;'>" + new Date().toLocaleString() + "  - New CTF Match started</div>")
+        }
+        ,
+        this.show = function() {
+            Sound.UIClick(),
+            Ht.show(),
+            closeWhenClickOutside(Ht)
+        }
+        ,
+        this.hide = function() {
+            Ht.hide()
+        }
+        ,
+        function() {
+            Ht = $(getTemplate(".modalContainer .modalDialog").replace(/\$title/g, "Game log")).attr("id", "fullLog").css("z-index", "30").hide();
+            let jt = $(getTemplate("#fullLogTemplate")).removeAttr("id");
+            Wt = $(".fullLogcontent", jt),
+            $(".modalContent", Ht).append(jt),
+            $(".chkFLKills", jt).click(()=>{
+                Gt = !Gt,
+                $(".flwkw", jt).toggle()
+            }
+            ),
+            $(".chkFLPlayers", jt).click(()=>{
+                Yt = !Yt,
+                $(".flplayer", jt).toggle()
+            }
+            ),
+            $("body").append(Ht)
+        }()
     }
     ,
     SWAM.updatePlayersNamePlate = function() {
@@ -36906,6 +36905,7 @@ function showRequestlyWarning() {
     }
 }
 SWAM.loadFiles(()=>{
+    window.specialTheme = "PixelArt_8Bits",
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
     SWAM.trigger("themeLoaded"),
