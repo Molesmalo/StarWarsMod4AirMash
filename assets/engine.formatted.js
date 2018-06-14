@@ -34029,7 +34029,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4060501",
+window.SWAM_version = "2.4061401",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -36905,7 +36905,7 @@ function showRequestlyWarning() {
     }
 }
 SWAM.loadFiles(()=>{
-    window.specialTheme = "PixelArt_8Bits",
+    window.specialTheme = "RealisticSprites",
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
     SWAM.trigger("themeLoaded"),
