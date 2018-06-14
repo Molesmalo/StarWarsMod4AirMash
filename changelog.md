@@ -5,8 +5,16 @@
 <br>
 <br>
 
+## Jun 14 2018
+- New Theme! Realistic Sprites - BETA 1! This theme adds more detailed and realistic graphics to the game.
+- World Cup: Vamos Argentina! ⚽😁
+
+&nbsp;
+
 ## Jun 5 2018
 - New Theme! PixelArt 8-Bit. Let's celebrate AirMash's 6 Months with something new, from the past! Because everything old is new again!
+
+&nbsp;
 
 ## May 31 2018
 - Go back to spectator mode after match start if the player was spectating before.
