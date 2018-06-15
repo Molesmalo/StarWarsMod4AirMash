@@ -5,8 +5,15 @@
 <br>
 <br>
 
+## Jun 15 2018
+- New Theme! World Cup Russia 2018: This is what happens when you let football invade Airmash!
+- Vamos Argentina! ⚽😁
+
+&nbsp;
+
 ## Jun 14 2018
 - New Theme! Realistic Sprites - BETA 1! This theme adds more detailed and realistic graphics to the game.
+- Themes list sorted by name.
 - World Cup: Vamos Argentina! ⚽😁
 
 &nbsp;
