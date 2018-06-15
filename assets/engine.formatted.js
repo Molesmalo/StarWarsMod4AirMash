@@ -34029,7 +34029,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4061401",
+window.SWAM_version = "2.4061501",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34071,6 +34071,7 @@ function SWAM() {
             } catch (Gt) {
                 console.error(Gt)
             }
+        SWAM.trigger("settingsApplied", Bt),
         localStorage.setItem("SWAM_Settings", JSON.stringify(Bt))
     }
     function freeSpectatorMode(Bt) {
@@ -36292,11 +36293,12 @@ SWAM.injectSounds = function(Bt) {
         }
         function cn() {
             let vn = $("#selTheme", yn);
-            vn.html(""),
-            $.each(sn, function(Tn, Sn) {
+            vn.html("");
+            let Tn = Object.values(sn).sort((Sn,En)=>Sn.themeName > En.themeName);
+            $.each(Tn, function(Sn, En) {
                 vn.append($("<option>", {
-                    value: Sn.id,
-                    text: Sn.themeName
+                    value: En.id,
+                    text: En.themeName
                 }))
             }),
             vn.val(dn)
@@ -36905,7 +36907,7 @@ function showRequestlyWarning() {
     }
 }
 SWAM.loadFiles(()=>{
-    window.specialTheme = "RealisticSprites",
+    window.specialTheme = "Russia2018WC",
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
     SWAM.trigger("themeLoaded"),
