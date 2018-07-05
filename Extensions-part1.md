@@ -253,6 +253,7 @@ The following table contains the current list of events triggered by StarMash, a
 |playerStealth          |data               |A player changed its stealth.|
 |playerChangedType      |data               |A player changed its plane type.|
 |playerChangedFlag      |data               |A player changed its flag.|
+|playerSay              |data               |A player said something using a chat bubble.|
 |                       |                   |                   |
 |mobAdded               |data, existing, playerId       |A new mob is created.|
 |mobDespawned           |data               |A mob is despawned.|
