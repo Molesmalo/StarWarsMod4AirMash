@@ -5,6 +5,11 @@
 <br>
 <br>
 
+## Ago 23 2018
+- Default Theme is now Realistic Sprites.
+
+&nbsp;
+
 ## Jun 15 2018
 - New Theme! World Cup Russia 2018: This is what happens when you let football invade Airmash!
 - Vamos Argentina! ⚽😁
