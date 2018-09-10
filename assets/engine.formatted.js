@@ -34032,7 +34032,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091001",
+window.SWAM_version = "2.4091002",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -35789,7 +35789,7 @@ SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
         ui_minimap_2: ["items", [540, 140, 64, 64]],
         ui_minimap_3: ["items", [268, 140, 64, 64]]
     };
-    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "poo", "bones", "insult", "jolly", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "rambo", "vader", "yoda", "bomb", "heart", "fingergun", "chicken", "peace", "party1", "party2", "steamr"];
+    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "poo", "bones", "insult", "jolly", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "rambo", "vader", "yoda", "bomb", "heart", "victory", "fingergun", "chicken", "peace", "party1", "party2", "steamr"];
     SWAM.getEmotesList = ()=>Wt;
     let zt = {};
     for (let Kt = 8; Kt < Wt.length; Kt++) {
