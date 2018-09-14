@@ -242,6 +242,8 @@ The following table contains the current list of events triggered by StarMash, a
 |CTF_FlagEvent          |event, team, verb  |A flag was taken/returned/captured.|
 |BTR_MatchEnded         |data               |A BTR Match ended.|
 |                       |                   |                   |
+|spectate               |id                 |The user is spectating a player.|
+|                       |                   |                   |
 |playerAdded            |player             |A new player joined.|
 |playerDestroyed        |player             |A player left the game.|
 |playerReteamed         |data               |A player changed teams.|
