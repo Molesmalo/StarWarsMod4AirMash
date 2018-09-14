@@ -34032,7 +34032,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091301",
+window.SWAM_version = "2.4091302",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -35252,20 +35252,21 @@ function SWAM() {
             if (-1 < Xt && (SWAM.radio.visible() && Xt == SWAM.radio.currentChannel ? SWAM.radio.hide() : SWAM.radio.show(Xt)),
             48 <= Bt.which && 57 >= Bt.which && SWAM.radio.visible()) {
                 SWAM.radio.hide();
-                var Gt = "";
+                let Ht = "";
                 Xt = Bt.which - 49,
                 -1 == Xt && (Xt = 9);
-                var Yt = SWAM.radio.options
-                  , Ht = SWAM.radio.currentChannel;
-                if (0 <= Xt && Xt < Yt[Ht].length) {
-                    Gt = Yt[Ht][Xt];
-                    var jt = Gt.split(/\s*\|\s*/);
+                let jt = SWAM.radio.options
+                  , Wt = SWAM.radio.currentChannel;
+                if (0 <= Xt && Xt < jt[Wt].length) {
+                    Ht = jt[Wt][Xt];
+                    var Gt = Ht.split(/\s*\|\s*/);
                     Xt = 0;
-                    var Wt = function() {
-                        SWAM.radio.sendTo(Ht, jt[Xt++]),
-                        Xt < jt.length && setTimeout(Wt, 1500)
+                    var Yt = function() {
+                        0 < Gt[Xt].length && SWAM.radio.sendTo(Wt, Gt[Xt]),
+                        Xt++,
+                        Xt < Gt.length && setTimeout(Yt, 1500)
                     };
-                    Wt()
+                    Yt()
                 } else
                     SWAM.radio.hide();
                 Bt.stopImmediatePropagation(),
@@ -35825,7 +35826,7 @@ SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
         ui_minimap_2: ["items", [540, 140, 64, 64]],
         ui_minimap_3: ["items", [268, 140, 64, 64]]
     };
-    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "poo", "bones", "insult", "jolly", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "rambo", "joker", "vader", "yoda", "bomb", "heart", "victory", "wflag", "chicken", "peace", "party1", "party2", "steamr", "ndt", "praptor", "shrug", "mime", "doh", "derp", "salute", "lotfl", "yell", "dab", "fingergun", "hawkes", "loser", "fguns", "sweeteyes", "noob1", "noob2", "rekt", "thief", "alert", "shield", "inferno", "putin", "trump", "beer", "narf", "bang"];
+    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "poo", "bones", "insult", "jolly", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "rambo", "joker", "vader", "yoda", "bomb", "heart", "victory", "wflag", "chicken", "peace", "party1", "party2", "steamr", "ndt", "praptor", "shrug", "mime", "doh", "derp", "salute", "lotfl", "yell", "dab", "fingergun", "hawkes", "loser", "fguns", "sweeteyes", "noob1", "noob2", "rekt", "thief", "alert", "shield", "inferno", "putin", "trump", "kim", "beer", "narf", "bang", "ass", "ddd", "revenge", "monkey", "godfather", "noprow", "noheli"];
     SWAM.getEmotesList = ()=>Wt;
     let zt = {};
     for (let Kt = 8; Kt < Wt.length; Kt++) {
