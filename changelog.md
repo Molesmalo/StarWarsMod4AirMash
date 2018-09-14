@@ -5,6 +5,14 @@
 <br>
 <br>
 
+## Sep 13 2018
+- New Emotes!
+- Use `/emote` to list all the options.Can be used by anyone!
+- I'm open for suggestions!
+- Extensions: new `spectate` event.
+</ul>        
+
+
 ## Ago 23 2018
 - Default Theme is now Realistic Sprites.
 
