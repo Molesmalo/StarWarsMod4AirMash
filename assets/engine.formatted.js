@@ -34032,7 +34032,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091302",
+window.SWAM_version = "2.4091401",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34573,6 +34573,7 @@ function SWAM() {
     Games.spectate = function(Bt) {
         SWAM.debug && console.log("spectating ", Bt),
         $("#btnFreeSpectator").show(),
+        $("body").addClass("spectatorMode"),
         freeSpectator.ignore_next || Games_spectate.call(Games, Bt),
         Bt == game.myID || freeSpectator.ignore_next ? Bt == game.myID && (freeSpectator.ignore_next = !1,
         null != freeSpectator.position && Graphics.setCamera(freeSpectator.position.x, freeSpectator.position.y)) : (freeSpectator.position = Graphics.getCamera().clone(),
@@ -34619,6 +34620,7 @@ function SWAM() {
         Players_network.call(Players, Bt, Xt);
         Bt === Network.SERVERPACKET.CHAT_SAY ? SWAM.trigger("playerSay", Xt) : Bt === Network.SERVERPACKET.PLAYER_RESPAWN ? (Xt.id == game.myID && (SWAM.CruiseMode.off(),
         SWAM.hyperSpace && SWAM.hyperSpace.show(),
+        $("body").removeClass("spectatorMode"),
         $("#btnFreeSpectator").hide(),
         freeSpectatorMode(!1)),
         SWAM.trigger("playerRespawned", Xt)) : Bt === Network.SERVERPACKET.PLAYER_UPDATE || Bt === Network.SERVERPACKET.PLAYER_FIRE || Bt === Network.SERVERPACKET.EVENT_BOOST || Bt === Network.SERVERPACKET.EVENT_BOUNCE ? AutoPilot && AutoPilot.mimicUpdate(Bt, Xt) : Bt === Network.SERVERPACKET.PLAYER_FLAG ? SWAM.trigger("playerChangedFlag", Xt) : void 0
@@ -35826,7 +35828,7 @@ SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
         ui_minimap_2: ["items", [540, 140, 64, 64]],
         ui_minimap_3: ["items", [268, 140, 64, 64]]
     };
-    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "poo", "bones", "insult", "jolly", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "rambo", "joker", "vader", "yoda", "bomb", "heart", "victory", "wflag", "chicken", "peace", "party1", "party2", "steamr", "ndt", "praptor", "shrug", "mime", "doh", "derp", "salute", "lotfl", "yell", "dab", "fingergun", "hawkes", "loser", "fguns", "sweeteyes", "noob1", "noob2", "rekt", "thief", "alert", "shield", "inferno", "putin", "trump", "kim", "beer", "narf", "bang", "ass", "ddd", "revenge", "monkey", "godfather", "noprow", "noheli"];
+    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "poo", "bones", "insult", "jolly", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "rambo", "joker", "vader", "yoda", "bomb", "heart", "victory", "wflag", "chicken", "peace", "party1", "party2", "steamr", "ndt", "praptor", "shrug", "mime", "doh", "derp", "salute", "lotfl", "yell", "dab", "fingergun", "hawkes", "loser", "fguns", "sweeteyes", "noob1", "noob2", "rekt", "thief", "alert", "shield", "inferno", "putin", "trump", "kim", "beer", "narf", "bang", "ass", "ddd", "revenge", "monkey", "godfather", "noprow", "noheli", "rip", "boom", "canttouch", "redcap", "bluecap", "bluefire", "redfire", "fire"];
     SWAM.getEmotesList = ()=>Wt;
     let zt = {};
     for (let Kt = 8; Kt < Wt.length; Kt++) {
