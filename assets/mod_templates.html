@@ -371,6 +371,10 @@
         cursor: pointer;
     }
 
+    .spectatorMode > #btnFreeSpectator {
+        display: block;
+    }
+
     #btnFreeSpectator {
         display: none;
         position: absolute;
@@ -442,6 +446,27 @@
         -webkit-transform-origin: left top;
         -o-transform-origin: left top;
         transform-origin: left top;
+    }
+
+    .emoteSample
+    {
+        background-color: #333;
+        /*-webkit-box-shadow: 0px 0px 5px 1px rgba(136,136,136,1);*/
+        -webkit-box-shadow: 0px 0px 1px 1px rgb(90, 90, 90);
+        -moz-box-shadow: 0px 0px 1px 1px rgb(90, 90, 90);
+        box-shadow: 0px 0px 1px 1px rgb(90, 90, 90);
+
+        margin: 5px 5px;
+        display: inline-block;
+        min-width: 70px;
+        font-size: 11px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .emote
+    {
+        margin: auto auto;
+        /* transform: scale(0.75); */
     }
 
     /* ----- Destroy and Destroyed Messages ----- */
@@ -1329,13 +1354,19 @@
     <div class="changelogContent">
         <!-- <li>New color adjustment panel: gamma, brightness, contrast and saturation.</li> -->
 
+        <div class="date">Sep 17 2018</div>
+        <ul>
+            <li>New Emotes panel now available.<br>
+                Press <key>F5</key> to open/close or /emotes.</li>
+        </ul>
+
         <div class="date">Sep 13 2018</div>
         <ul>
             <li>New Emotes!</li>
             <li>Use <b>/emotes</b> to list all the options. Can be used by anyone!</li>
             <li>I'm open for suggestions!</li>
             <li>Extensions: new <b>spectate</b> event.</li>
-        </ul>        
+        </ul>
 
         <div class="date">Ago 23 2018</div>
         <ul>

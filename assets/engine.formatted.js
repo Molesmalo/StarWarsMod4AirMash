@@ -33962,13 +33962,11 @@ function closeWhenClickOutside(Bt, Xt=null) {
     let Gt = function(Yt) {
         Bt.is(Yt.target) || 0 !== Bt.has(Yt.target).length || (Bt.hide(),
         $(document).off("mousedown", Gt),
-        Yt.stopImmediatePropagation(),
-        Yt.stopPropagation(),
-        Yt.preventDefault(),
         Sound.UIClick(),
         Xt && Xt())
     };
-    $(document).mousedown(Gt)
+    return $(document).mousedown(Gt),
+    Gt
 }
 function forEachPlayer(Bt) {
     let Xt = Players.getIDs();
@@ -34032,7 +34030,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091401",
+window.SWAM_version = "2.4091701",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34743,17 +34741,15 @@ function SWAM() {
           , Gt = Xt[0].substr(1).toLowerCase();
         if (0 == Gt.length)
             return !1;
-        if ("emotes" === Gt) {
-            let Yt = "Emotes available:";
-            return SWAM.getEmotesList().forEach(Ht=>{
-                Yt += `&nbsp;&nbsp;  /${Ht}`
-            }
-            ),
-            UI.addChatMessage(Yt, !0),
-            !0
-        }
-        return UI.isEmote(Gt) ? (Network.sendSay("-" + Gt + "-"),
-        !0) : UI_parseCommand(Bt)
+        if ("reconnect" === Gt)
+            Network.reconnect();
+        else if ("emotes" === Gt)
+            emotesPanel.show();
+        else if (UI.isEmote(Gt))
+            Network.sendSay("-" + Gt + "-");
+        else
+            return UI_parseCommand(Bt);
+        return !0
     }
     ;
     let UI_aircraftSelected = UI.aircraftSelected;
@@ -35688,22 +35684,81 @@ function SWAM() {
             "undefined" != typeof Yt.scorePlace && (Yt.sprites.name.text = Yt.scorePlace + ". " + Yt.name + (Yt.team == Xt.team ? " [" + Math.floor(100 * parseFloat(Yt.health)) + "]" : ""))
         }
     }
-    ,
-    function() {
-        let Xt = SWAM.getEmotesList()
-          , Gt = "";
-        const Yt = getFilePath("emotes.png");
-        for (let jt = 8; jt < Xt.length; jt++) {
-            let Wt = Xt[jt]
-              , zt = jt - 8
-              , qt = 64 * Math.floor(zt / 16) / 2
-              , Kt = Wt.replace(/ /g, "");
-            Gt += `.emote-${Kt} { ` + "width: 32px; height: 32px; " + `background: url(${Yt}) -${64 * (zt % 16) / 2}px  -${qt}px ; ` + "background-size: 50%;  background-repeat: no-repeat; } "
+    ;
+    let emotesPanel = new function() {
+        function Yt() {
+            const Vt = {
+                tf: [340, 404],
+                pepe: [412, 476],
+                clap: [268, 476],
+                lol: [412, 548],
+                bro: [268, 548],
+                kappa: [340, 476],
+                cry: [340, 548],
+                rage: [412, 404]
+            };
+            let qt = "";
+            for (let Kt in Vt)
+                qt += `.emote-${Kt} { width: 32px; height: 32px; background: url(${getFilePath("gui.png")}) -${Vt[Kt][0] / 2}px  -${Vt[Kt][1] / 2}px; background-size: 512px; background-repeat: no-repeat; } `;
+            return qt
         }
-        let Ht = `<style type='text/css'>${Gt}</style>`;
-        $("body").append(Ht)
-    }();
-    let sentMessages = []
+        let jt = null
+          , Wt = null;
+        this.toggle = function() {
+            "none" === jt.css("display") ? this.show() : this.hide()
+        }
+        ,
+        this.show = function() {
+            "none" === jt.css("display") && (jt.fadeIn("fast"),
+            Wt = closeWhenClickOutside(jt))
+        }
+        ;
+        let zt = this.hide = function() {
+            jt.fadeOut("fast"),
+            $(document).off("mousedown", "", Wt)
+        }
+        ;
+        (function() {
+            jt = $(getTemplate(".modalContainer .modalDialog").replace(/\$title/g, "Emotes")).attr("id", "emotesPanel").css({
+                zIndex: "30",
+                left: "0px",
+                maxHeight: "80%"
+            }).hide();
+            let Vt = SWAM.getEmotesList()
+              , qt = ""
+              , Kt = 0;
+            Vt.slice().sort().forEach(Qt=>{
+                qt += `<div class="emoteSample" data-name="${Qt}"><div class="emote emote-${Qt}"></div><div>/${Qt}</div></div>`,
+                Kt++
+            }
+            );
+            let Zt = $(qt);
+            $(".modalContent", jt).append(Zt),
+            $("body").append(jt),
+            jt.on("click", ".emoteSample", Qt=>{
+                UI.parseCommand("/" + $(Qt.currentTarget).data("name")),
+                zt()
+            }
+            )
+        }
+        )(),
+        function() {
+            let Vt = SWAM.getEmotesList()
+              , qt = "";
+            const Kt = getFilePath("emotes.png");
+            for (let Qt = 8; Qt < Vt.length; Qt++) {
+                let Jt = Vt[Qt]
+                  , $t = Qt - 8
+                  , tn = 64 * Math.floor($t / 16) / 2
+                  , nn = Jt.replace(/ /g, "");
+                qt += `.emote-${nn} { ` + "width: 32px; height: 32px; " + `background: url(${Kt}) -${64 * ($t % 16) / 2}px  -${tn}px ; ` + "background-size: 512px;  background-repeat: no-repeat; } "
+            }
+            qt += Yt();
+            let Zt = `<style type='text/css'>${qt}</style>`;
+            $("body").append(Zt)
+        }()
+    }
+      , sentMessages = []
       , sentMessageIndex = 0;
     $("#chatinput").keydown(function(Bt) {
         let Xt = $("#chatinput");
@@ -35765,6 +35820,9 @@ function SWAM() {
                 break;
             case 115:
                 SWAM.toggleUI();
+                break;
+            case 116:
+                emotesPanel.toggle();
                 break;
             case 120:
                 SWAM.GameLog.show();
