@@ -34030,7 +34030,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091701",
+window.SWAM_version = "2.4091702",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34741,7 +34741,9 @@ function SWAM() {
           , Gt = Xt[0].substr(1).toLowerCase();
         if (0 == Gt.length)
             return !1;
-        if ("reconnect" === Gt)
+        let Yt = Bt.indexOf(" ");
+        if ("name" === Gt && Network.reconnectAs(Bt.substr(Yt + 1)),
+        "reconnect" === Gt)
             Network.reconnect();
         else if ("emotes" === Gt)
             emotesPanel.show();
@@ -35005,6 +35007,11 @@ function SWAM() {
         $("canvas").css("margin-left", "")),
         SWAM.resizeLayers(Bt, Xt),
         SWAM.trigger("rendererResized", [Bt, Xt])
+    }
+    ,
+    Network.reconnectAs = function(Bt) {
+        game.myOriginalName = Bt,
+        Network.reconnect()
     }
     ,
     SWAM.updateLayers = function() {}
