@@ -34989,9 +34989,11 @@ function SWAM() {
     let games_showCTFWin = Games.showCTFWin;
     Games.showCTFWin = function(Bt) {
         games_showCTFWin.call(Games, Bt),
+        1 == Bt.w ? SWAM.mapColorizer.showBlue() : SWAM.mapColorizer.showRed(),
         SWAM.trigger("CTF_MatchEnded", Bt),
         setTimeout(function() {
             SWAM.GameLog.logNewMatch(),
+            SWAM.mapColorizer.remove(),
             SWAM.trigger("CTF_MatchStarted"),
             SWAM.RandomizeBackground && SWAM.RandomizeBackground()
         }, 6e4)
@@ -35765,7 +35767,53 @@ function SWAM() {
             $("body").append(Zt)
         }()
     }
-      , sentMessages = []
+    ;
+    SWAM.mapColorizer = new function() {
+        function Bt(zt, Vt) {
+            Xt(),
+            Yt.scale.set(0),
+            Yt.alpha = 0.3,
+            Yt.tint = Vt,
+            Yt.position.set(zt.x, zt.y),
+            Ht.addChild(Yt),
+            Wt.start()
+        }
+        function Xt() {
+            Wt.stop()
+        }
+        let Yt = new PIXI.Graphics
+          , Ht = game.graphics.layers.groundobjects;
+        Yt.beginFill(16777215, 1),
+        Yt.drawCircle(0, 0, 50),
+        Yt.endFill(),
+        Yt.blendMode = PIXI.BLEND_MODES.ADD,
+        Yt.alpha = 0.3;
+        let Wt = new PIXI.ticker.Ticker;
+        Wt.autoStart = !1,
+        Wt.add(function() {
+            return Yt.width > 2 * config.mapWidth ? (console.log("stopped"),
+            void Xt()) : void (0.1 < Yt.alpha && (Yt.alpha -= 1e-3),
+            Yt.height = Yt.width += 100)
+        }),
+        Wt.stop(),
+        this.showBlue = function() {
+            Bt(SWAM.ArrowIndicator.BLUE.tracker.flag.BASE_COORDINATES, 255)
+        }
+        ,
+        this.showRed = function() {
+            Bt(SWAM.ArrowIndicator.RED.tracker.flag.BASE_COORDINATES, 16711680)
+        }
+        ,
+        this.remove = function() {
+            Xt(),
+            Yt.scale.set(0),
+            Ht.removeChild(Yt)
+        }
+        ,
+        this.circle = Yt
+    }
+    ;
+    let sentMessages = []
       , sentMessageIndex = 0;
     $("#chatinput").keydown(function(Bt) {
         let Xt = $("#chatinput");
