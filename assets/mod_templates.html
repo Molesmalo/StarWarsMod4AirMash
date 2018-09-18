@@ -1343,6 +1343,14 @@
             background-color: rgb(114, 103, 66);
         }
 
+        #changelogPanel cmd
+        {
+            color: #00d4ae;
+            padding-left: 4px;
+            padding-right: 4px;
+            background-color: rgb(0, 19, 70);
+        }
+
         @media only screen and (max-width: 1100px)
         {
             #changelogPanel {
@@ -1358,12 +1366,16 @@
         <ul>
             <li>New Emotes panel now available.<br>
                 Press <key>F5</key> to open/close or /emotes.</li>
+            <li>New chat input commands:<br>
+                <cmd>/reconnect</cmd> to reconnect. (handy for fast team switching).<br>
+                <cmd>/name YourName</cmd> to reconnect with <i>YourName</i> as your new name.
+            </li>
         </ul>
 
         <div class="date">Sep 13 2018</div>
         <ul>
             <li>New Emotes!</li>
-            <li>Use <b>/emotes</b> to list all the options. Can be used by anyone!</li>
+            <li>Use <cmd>/emotes</cmd> to list all the options. Can be used by anyone!</li>
             <li>I'm open for suggestions!</li>
             <li>Extensions: new <b>spectate</b> event.</li>
         </ul>

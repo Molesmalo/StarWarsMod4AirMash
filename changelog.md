@@ -8,6 +8,9 @@
 ## Sep 17 2018
 - New Emotes panel now available.<br>
   Press `F5` to open/close or `/emotes`.
+- New commands:<br>
+  `/reconnect` to reconnect. (handy for fast team switching).
+  `/name SomeName` to reconnect with SomeName as your new name.
 
 &nbsp;
 
