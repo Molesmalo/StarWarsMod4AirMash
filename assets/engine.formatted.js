@@ -34030,7 +34030,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091702",
+window.SWAM_version = "2.4091801",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -35769,48 +35769,88 @@ function SWAM() {
     }
     ;
     SWAM.mapColorizer = new function() {
-        function Bt(zt, Vt) {
-            Xt(),
-            Yt.scale.set(0),
-            Yt.alpha = 0.3,
-            Yt.tint = Vt,
-            Yt.position.set(zt.x, zt.y),
-            Ht.addChild(Yt),
-            Wt.start()
+        function Bt(Qt) {
+            for (let Jt in Qt)
+                Zt[Jt] = (Qt[Jt] - 1) / 145
         }
-        function Xt() {
-            Wt.stop()
+        function Xt(Qt, Jt) {
+            Gt(),
+            Vt = 0,
+            zt = 50,
+            Ht.scale.set(0),
+            Ht.alpha = 0.4,
+            Ht.tint = Jt,
+            Ht.position.set(Qt.x, Qt.y),
+            jt.addChild(Ht),
+            qt.start(),
+            game.graphics.layers.map.filters = [new PIXI.filters.AdjustmentFilter]
         }
-        let Yt = new PIXI.Graphics
-          , Ht = game.graphics.layers.groundobjects;
-        Yt.beginFill(16777215, 1),
-        Yt.drawCircle(0, 0, 50),
-        Yt.endFill(),
-        Yt.blendMode = PIXI.BLEND_MODES.ADD,
-        Yt.alpha = 0.3;
-        let Wt = new PIXI.ticker.Ticker;
-        Wt.autoStart = !1,
-        Wt.add(function() {
-            return Yt.width > 2 * config.mapWidth ? (console.log("stopped"),
-            void Xt()) : void (0.1 < Yt.alpha && (Yt.alpha -= 1e-3),
-            Yt.height = Yt.width += 100)
+        function Gt() {
+            qt.stop()
+        }
+        let Ht = new PIXI.Graphics
+          , jt = game.graphics.layers.groundobjects
+          , zt = 0
+          , Vt = 0;
+        Ht.beginFill(16777215, 1),
+        Ht.drawCircle(0, 0, 50),
+        Ht.endFill(),
+        Ht.blendMode = PIXI.BLEND_MODES.ADD,
+        Ht.alpha = 0.3;
+        let qt = new PIXI.ticker.Ticker;
+        qt.autoStart = !1,
+        qt.add(function() {
+            if (Ht.width > 1.8 * config.mapWidth)
+                return console.log("stopped " + Vt),
+                Gt(),
+                Graphics.renderBackground(),
+                void jt.removeChild(Ht);
+            for (let Jt in Zt)
+                game.graphics.layers.map.filters[0][Jt] += Zt[Jt];
+            0 < Ht.alpha && (Ht.alpha -= 3e-3),
+            Ht.height = Ht.width += zt,
+            zt += 5,
+            Vt++,
+            Graphics.renderBackground()
         }),
-        Wt.stop(),
+        qt.stop();
+        let Zt = {};
         this.showBlue = function() {
-            Bt(SWAM.ArrowIndicator.BLUE.tracker.flag.BASE_COORDINATES, 255)
+            Bt({
+                gamma: 1.2,
+                saturation: 0,
+                contrast: 1,
+                brightness: 1.2,
+                red: 0.1,
+                green: 0.3,
+                blue: 0.75,
+                alpha: 2
+            }),
+            Xt(SWAM.ArrowIndicator.BLUE.tracker.flag.BASE_COORDINATES, 3355647)
         }
         ,
         this.showRed = function() {
-            Bt(SWAM.ArrowIndicator.RED.tracker.flag.BASE_COORDINATES, 16711680)
+            Bt({
+                gamma: 1.2,
+                brightness: 1.2,
+                contrast: 1,
+                saturation: 1.5,
+                red: 1.1,
+                green: 0.4,
+                blue: 0.1,
+                alpha: 1
+            }),
+            Xt(SWAM.ArrowIndicator.RED.tracker.flag.BASE_COORDINATES, 16724787)
         }
         ,
         this.remove = function() {
-            Xt(),
-            Yt.scale.set(0),
-            Ht.removeChild(Yt)
+            Gt(),
+            Ht.scale.set(0),
+            jt.removeChild(Ht),
+            game.graphics.layers.map.filters = []
         }
         ,
-        this.circle = Yt
+        this.circle = Ht
     }
     ;
     let sentMessages = []
