@@ -34030,7 +34030,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091801",
+window.SWAM_version = "2.4091802",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -35818,27 +35818,27 @@ function SWAM() {
         this.showBlue = function() {
             Bt({
                 gamma: 1.2,
-                saturation: 0,
+                saturation: 0.8,
                 contrast: 1,
-                brightness: 1.2,
+                brightness: 1.3,
                 red: 0.1,
                 green: 0.3,
-                blue: 0.75,
-                alpha: 2
+                blue: 0.6,
+                alpha: 1.4
             }),
             Xt(SWAM.ArrowIndicator.BLUE.tracker.flag.BASE_COORDINATES, 3355647)
         }
         ,
         this.showRed = function() {
             Bt({
-                gamma: 1.2,
-                brightness: 1.2,
-                contrast: 1,
-                saturation: 1.5,
-                red: 1.1,
-                green: 0.4,
-                blue: 0.1,
-                alpha: 1
+                gamma: 1.7,
+                brightness: 1.3,
+                contrast: 1.2,
+                saturation: .2,
+                red: 0.7,
+                green: 0.3,
+                blue: 0.3,
+                alpha: 1.2
             }),
             Xt(SWAM.ArrowIndicator.RED.tracker.flag.BASE_COORDINATES, 16724787)
         }
