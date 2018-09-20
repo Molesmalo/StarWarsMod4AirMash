@@ -5,6 +5,16 @@
 <br>
 <br>
 
+## Sep 18 2018
+- Wave effect after CTF's match ending. The world is ours!
+- New chat input commands:<br>
+  `/cap` sends -redcap- or -bluecap- emotes depending on the user's team.<br>
+  `/burn` sends -redfire- or -bluefire- emotes depending on the user's team.<br>
+  When chatting, sending just "shrug" sends ¯\_(ツ)_/¯.
+- 8 new emotes.
+- Minor bugs fixed.
+</ul>
+
 ## Sep 17 2018
 - New Emotes panel now available.<br>
   Press `F5` to open/close or `/emotes`.

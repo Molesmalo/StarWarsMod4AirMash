@@ -34030,7 +34030,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091802",
+window.SWAM_version = "2.4091901",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34136,6 +34136,9 @@ function SWAM() {
             Wt < jt.length && setTimeout(zt, Yt)
         };
         zt()
+    }
+    function replaceSpecialWordsInChat(Bt) {
+        return "shrug" === Bt.toLowerCase() ? "\xAF\\_(\u30C4)_/\xAF" : Bt
     }
     function getFilters(Bt) {
         return config.adjustmentFilter ? [config.adjustmentFilter, ...Bt] : Bt
@@ -34694,20 +34697,24 @@ function SWAM() {
     ;
     let Network_sendMethods = [Network.sendChat, Network.sendTeam, Network.sendWhisper, Network.sendSay];
     Network.sendChat = function(Bt) {
+        Bt = replaceSpecialWordsInChat(Bt),
         splitAndSend(Bt, Network_sendMethods[0])
     }
     ,
     Network.sendTeam = function(Bt) {
+        Bt = replaceSpecialWordsInChat(Bt),
         splitAndSend(Bt, Network_sendMethods[1])
     }
     ,
     Network.sendWhisper = function(Bt, Xt) {
+        Xt = replaceSpecialWordsInChat(Xt),
         splitAndSend(Xt, function(Gt) {
             Network_sendMethods[2].call(Network, Bt, Gt)
         })
     }
     ,
     Network.sendSay = function(Bt) {
+        Bt = replaceSpecialWordsInChat(Bt),
         splitAndSend(Bt, Network_sendMethods[3], 30, 3e3)
     }
     ;
@@ -34742,8 +34749,11 @@ function SWAM() {
         if (0 == Gt.length)
             return !1;
         let Yt = Bt.indexOf(" ");
-        if ("name" === Gt && Network.reconnectAs(Bt.substr(Yt + 1)),
-        "reconnect" === Gt)
+        if ("cap" === Gt && (Gt = 1 == game.myTeam ? "bluecap" : "redcap"),
+        "burn" === Gt && (Gt = 1 == game.myTeam ? "redfire" : "bluefire"),
+        "name" === Gt)
+            -1 == Yt ? UI.addChatMessage("Usage: /name your_name") : Network.reconnectAs(Bt.substr(Yt + 1));
+        else if ("reconnect" === Gt)
             Network.reconnect();
         else if ("emotes" === Gt)
             emotesPanel.show();
@@ -35981,7 +35991,7 @@ SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
         ui_minimap_2: ["items", [540, 140, 64, 64]],
         ui_minimap_3: ["items", [268, 140, 64, 64]]
     };
-    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "poo", "bones", "insult", "jolly", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "rambo", "joker", "vader", "yoda", "bomb", "heart", "victory", "wflag", "chicken", "peace", "party1", "party2", "steamr", "ndt", "praptor", "shrug", "mime", "doh", "derp", "salute", "lotfl", "yell", "dab", "fingergun", "hawkes", "loser", "fguns", "sweeteyes", "noob1", "noob2", "rekt", "thief", "alert", "shield", "inferno", "putin", "trump", "kim", "beer", "narf", "bang", "ass", "ddd", "revenge", "monkey", "godfather", "noprow", "noheli", "rip", "boom", "canttouch", "redcap", "bluecap", "bluefire", "redfire", "fire"];
+    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "poo", "bones", "insult", "jolly", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "rambo", "joker", "vader", "yoda", "bomb", "heart", "victory", "wflag", "chicken", "peace", "party1", "party2", "steamr", "ndt", "praptor", "shrug", "mime", "doh", "derp", "salute", "lotfl", "yell", "dab", "fingergun", "hawkes", "loser", "fguns", "sweeteyes", "noob1", "noob2", "rekt", "thief", "alert", "shield", "inferno", "putin", "trump", "kim", "beer", "narf", "bang", "ass", "ddd", "revenge", "monkey", "godfather", "noprow", "noheli", "rip", "boom", "canttouch", "redcap", "bluecap", "bluefire", "redfire", "fire", "bot", "nobot", "hehe", "skullpilot", "hellpilot", "acepilot", "pigpilot", "dragon"];
     SWAM.getEmotesList = ()=>Wt;
     let zt = {};
     for (let Kt = 8; Kt < Wt.length; Kt++) {
