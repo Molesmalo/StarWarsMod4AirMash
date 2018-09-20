@@ -34030,7 +34030,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091901",
+window.SWAM_version = "2.4091902",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -35779,52 +35779,70 @@ function SWAM() {
     }
     ;
     SWAM.mapColorizer = new function() {
-        function Bt(Qt) {
-            for (let Jt in Qt)
-                Zt[Jt] = (Qt[Jt] - 1) / 145
+        function Bt($t) {
+            for (let en in $t)
+                Qt[en] = ($t[en] - 1) / Zt
         }
-        function Xt(Qt, Jt) {
+        function Xt($t, en) {
             Gt(),
+            Jt = new Date,
+            qt = !0,
             Vt = 0,
             zt = 50,
-            Ht.scale.set(0),
-            Ht.alpha = 0.4,
-            Ht.tint = Jt,
-            Ht.position.set(Qt.x, Qt.y),
-            jt.addChild(Ht),
-            qt.start(),
+            jt.scale.set(0),
+            jt.alpha = 0.4,
+            jt.tint = en,
+            jt.position.set($t.x, $t.y),
+            Wt.addChild(jt),
+            Kt.start(),
             game.graphics.layers.map.filters = [new PIXI.filters.AdjustmentFilter]
         }
         function Gt() {
-            qt.stop()
+            Kt.stop()
         }
-        let Ht = new PIXI.Graphics
-          , jt = game.graphics.layers.groundobjects
+        function Yt() {
+            if (SWAM.debug) {
+                let $t = new Date().getTime() - Jt.getTime();
+                console.log("Steps: " + Vt + "   Time: " + $t / 1e3 + "ms.")
+            }
+        }
+        let jt = new PIXI.Graphics
+          , Wt = game.graphics.layers.groundobjects
           , zt = 0
-          , Vt = 0;
-        Ht.beginFill(16777215, 1),
-        Ht.drawCircle(0, 0, 50),
-        Ht.endFill(),
-        Ht.blendMode = PIXI.BLEND_MODES.ADD,
-        Ht.alpha = 0.3;
-        let qt = new PIXI.ticker.Ticker;
-        qt.autoStart = !1,
-        qt.add(function() {
-            if (Ht.width > 1.8 * config.mapWidth)
-                return console.log("stopped " + Vt),
+          , Vt = 0
+          , qt = !1;
+        jt.beginFill(16777215, 1),
+        jt.drawCircle(0, 0, 50),
+        jt.endFill(),
+        jt.blendMode = PIXI.BLEND_MODES.ADD,
+        jt.alpha = 0.3;
+        let Kt = new PIXI.ticker.Ticker;
+        Kt.autoStart = !1,
+        Kt.add(function() {
+            if (qt) {
+                if (jt.width > 1.8 * config.mapWidth)
+                    return Yt(),
+                    qt = !1,
+                    Graphics.renderBackground(),
+                    void Wt.removeChild(jt);
+                for (let en in Qt)
+                    game.graphics.layers.map.filters[0][en] += Qt[en];
+                0 < jt.alpha && (jt.alpha -= 3e-3),
+                jt.height = jt.width += zt,
+                zt += 5
+            } else if (Vt < 5 * Zt)
+                for (let en in Qt)
+                    game.graphics.layers.map.filters[0][en] -= Qt[en] / 15;
+            else
                 Gt(),
-                Graphics.renderBackground(),
-                void jt.removeChild(Ht);
-            for (let Jt in Zt)
-                game.graphics.layers.map.filters[0][Jt] += Zt[Jt];
-            0 < Ht.alpha && (Ht.alpha -= 3e-3),
-            Ht.height = Ht.width += zt,
-            zt += 5,
+                Yt();
             Vt++,
             Graphics.renderBackground()
         }),
-        qt.stop();
-        let Zt = {};
+        Kt.stop();
+        const Zt = 145;
+        let Qt = {}
+          , Jt = new Date;
         this.showBlue = function() {
             Bt({
                 gamma: 1.2,
@@ -35833,8 +35851,8 @@ function SWAM() {
                 brightness: 1.3,
                 red: 0.1,
                 green: 0.3,
-                blue: 0.6,
-                alpha: 1.4
+                blue: 0.7,
+                alpha: 1.5
             }),
             Xt(SWAM.ArrowIndicator.BLUE.tracker.flag.BASE_COORDINATES, 3355647)
         }
@@ -35855,12 +35873,12 @@ function SWAM() {
         ,
         this.remove = function() {
             Gt(),
-            Ht.scale.set(0),
-            jt.removeChild(Ht),
+            jt.scale.set(0),
+            Wt.removeChild(jt),
             game.graphics.layers.map.filters = []
         }
         ,
-        this.circle = Ht
+        this.circle = jt
     }
     ;
     let sentMessages = []
