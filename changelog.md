@@ -5,6 +5,15 @@
 <br>
 <br>
 
+## Sep 24 2018
+- 57 new emotes!
+- Chat command: `/take` sends `-tblue-` or `-tred-` emotes depending on the user's team.
+- `-cap-`, `-burn-` and `-take-` now work from customized radio messages (C panel).
+- Spam blocker for bot messages.
+</ul>
+
+&nbsp;
+
 ## Sep 18 2018
 - Wave effect after CTF's match ending. The world is ours!
 - New chat input commands:<br>
@@ -14,6 +23,8 @@
 - 8 new emotes.
 - Minor bugs fixed.
 </ul>
+
+&nbsp;
 
 ## Sep 17 2018
 - New Emotes panel now available.<br>
