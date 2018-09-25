@@ -34030,7 +34030,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4091902",
+window.SWAM_version = "2.4092401",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34139,6 +34139,10 @@ function SWAM() {
     }
     function replaceSpecialWordsInChat(Bt) {
         return "shrug" === Bt.toLowerCase() ? "\xAF\\_(\u30C4)_/\xAF" : Bt
+    }
+    function replaceTeamEmotes(Bt) {
+        return "-cap-" === Bt ? Bt = 1 == game.myTeam ? "-bluecap-" : "-redcap-" : "-burn-" === Bt ? Bt = 1 == game.myTeam ? "-redfire-" : "-bluefire-" : "-take-" == Bt && (Bt = 1 == game.myTeam ? "-tred-" : "-tblue-"),
+        Bt
     }
     function getFilters(Bt) {
         return config.adjustmentFilter ? [config.adjustmentFilter, ...Bt] : Bt
@@ -34592,6 +34596,11 @@ function SWAM() {
         Gt.deathCount = 0,
         Gt.captures = 0,
         Gt.lastMessageTime = 0,
+        Gt.spamBlock = !0,
+        setTimeout(()=>{
+            delete Gt.spamBlock
+        }
+        , 1388),
         Gt.sprites.bubble && (Gt.sprites.bubble.alpha = Gt.sprites.bubbleCenter.alpha = Gt.sprites.bubbleLeft.alpha = Gt.sprites.bubblePoint.alpha = Gt.sprites.bubbleRight.alpha = 0.4,
         Gt.sprites.bubbleText.alpha = 0.85);
         game.state !== Network.STATE.PLAYING || (Gt.name = Gt.name.replace(nonprintRegex, "\uFFFD"),
@@ -34715,6 +34724,7 @@ function SWAM() {
     ,
     Network.sendSay = function(Bt) {
         Bt = replaceSpecialWordsInChat(Bt),
+        Bt = replaceTeamEmotes(Bt),
         splitAndSend(Bt, Network_sendMethods[3], 30, 3e3)
     }
     ;
@@ -34731,6 +34741,8 @@ function SWAM() {
     ,
     UI.isEmote = function(Bt, Xt) {
         let Gt = SWAM.getEmotesList();
+        if ("x" == Bt)
+            return !1;
         for (var Yt = 0; Yt < Gt.length; Yt++)
             if (Xt) {
                 if (Bt === ":" + Gt[Yt] + ":" || Bt === "-" + Gt[Yt] + "-")
@@ -34738,6 +34750,10 @@ function SWAM() {
             } else if (Bt === Gt[Yt])
                 return Gt[Yt];
         return !1
+    }
+    ,
+    UI.isTeamEmote = function(Bt) {
+        return ["cap", "burn", "take"].includes(Bt)
     }
     ;
     let UI_parseCommand = UI.parseCommand;
@@ -34749,15 +34765,13 @@ function SWAM() {
         if (0 == Gt.length)
             return !1;
         let Yt = Bt.indexOf(" ");
-        if ("cap" === Gt && (Gt = 1 == game.myTeam ? "bluecap" : "redcap"),
-        "burn" === Gt && (Gt = 1 == game.myTeam ? "redfire" : "bluefire"),
-        "name" === Gt)
+        if ("name" === Gt)
             -1 == Yt ? UI.addChatMessage("Usage: /name your_name") : Network.reconnectAs(Bt.substr(Yt + 1));
         else if ("reconnect" === Gt)
             Network.reconnect();
         else if ("emotes" === Gt)
             emotesPanel.show();
-        else if (UI.isEmote(Gt))
+        else if (UI.isTeamEmote(Gt) || UI.isEmote(Gt))
             Network.sendSay("-" + Gt + "-");
         else
             return UI_parseCommand(Bt);
@@ -34889,7 +34903,9 @@ function SWAM() {
     let UI_addChatLine = UI.addChatLine;
     UI.addChatLine = function(Bt, Xt, Gt) {
         let Yt = ["-SWAM-PONG"];
-        Bt.lastMessageTime = new Date().getTime();
+        if (Bt.lastMessageTime = new Date().getTime(),
+        2 == Gt && Bt.spamBlock && "STATSBOT" != Bt.name)
+            return void console.log("SPAM BLOCKED: ", Xt);
         let jt = -1 < $.inArray(Xt.toUpperCase(), ["-SWAM-PING"]);
         for (var Wt of Yt)
             jt = jt || Xt.startsWith(Wt);
@@ -34999,13 +35015,11 @@ function SWAM() {
     let games_showCTFWin = Games.showCTFWin;
     Games.showCTFWin = function(Bt) {
         games_showCTFWin.call(Games, Bt),
-        1 == Bt.w ? SWAM.mapColorizer.showBlue() : SWAM.mapColorizer.showRed(),
         SWAM.trigger("CTF_MatchEnded", Bt),
         setTimeout(function() {
             SWAM.GameLog.logNewMatch(),
-            SWAM.mapColorizer.remove(),
-            SWAM.trigger("CTF_MatchStarted"),
-            SWAM.RandomizeBackground && SWAM.RandomizeBackground()
+            SWAM.RandomizeBackground && SWAM.RandomizeBackground(),
+            SWAM.trigger("CTF_MatchStarted")
         }, 6e4)
     }
     ;
@@ -35705,8 +35719,12 @@ function SWAM() {
     }
     ;
     let emotesPanel = new function() {
-        function Yt() {
-            const Vt = {
+        function Gt() {
+            let qt = SWAM.getEmotesList().slice().filter(Kt=>"x" != Kt).sort();
+            return [...new Set(qt)]
+        }
+        function Ht() {
+            const qt = {
                 tf: [340, 404],
                 pepe: [412, 476],
                 clap: [268, 476],
@@ -35716,66 +35734,68 @@ function SWAM() {
                 cry: [340, 548],
                 rage: [412, 404]
             };
-            let qt = "";
-            for (let Kt in Vt)
-                qt += `.emote-${Kt} { width: 32px; height: 32px; background: url(${getFilePath("gui.png")}) -${Vt[Kt][0] / 2}px  -${Vt[Kt][1] / 2}px; background-size: 512px; background-repeat: no-repeat; } `;
-            return qt
+            let Kt = "";
+            for (let Zt in qt)
+                Kt += `.emote-${Zt} { width: 32px; height: 32px; background: url(${getFilePath("gui.png")}) -${qt[Zt][0] / 2}px  -${qt[Zt][1] / 2}px; background-size: 512px; background-repeat: no-repeat; } `;
+            return Kt
         }
-        let jt = null
-          , Wt = null;
+        let Wt = null
+          , zt = null;
         this.toggle = function() {
-            "none" === jt.css("display") ? this.show() : this.hide()
+            "none" === Wt.css("display") ? this.show() : this.hide()
         }
         ,
         this.show = function() {
-            "none" === jt.css("display") && (jt.fadeIn("fast"),
-            Wt = closeWhenClickOutside(jt))
+            "none" === Wt.css("display") && (Wt.fadeIn("fast"),
+            zt = closeWhenClickOutside(Wt))
         }
         ;
-        let zt = this.hide = function() {
-            jt.fadeOut("fast"),
-            $(document).off("mousedown", "", Wt)
+        let Vt = this.hide = function() {
+            Wt.fadeOut("fast"),
+            $(document).off("mousedown", "", zt)
         }
         ;
         (function() {
-            jt = $(getTemplate(".modalContainer .modalDialog").replace(/\$title/g, "Emotes")).attr("id", "emotesPanel").css({
+            Wt = $(getTemplate(".modalContainer .modalDialog").replace(/\$title/g, "Emotes")).attr("id", "emotesPanel").css({
                 zIndex: "30",
                 left: "0px",
                 maxHeight: "80%"
             }).hide();
-            let Vt = SWAM.getEmotesList()
-              , qt = ""
+            let qt = ""
               , Kt = 0;
-            Vt.slice().sort().forEach(Qt=>{
+            Gt().forEach(Qt=>{
                 qt += `<div class="emoteSample" data-name="${Qt}"><div class="emote emote-${Qt}"></div><div>/${Qt}</div></div>`,
                 Kt++
             }
             );
             let Zt = $(qt);
-            $(".modalContent", jt).append(Zt),
-            $("body").append(jt),
-            jt.on("click", ".emoteSample", Qt=>{
+            $(".modalContent", Wt).append(Zt),
+            $("body").append(Wt),
+            Wt.on("click", ".emoteSample", Qt=>{
                 UI.parseCommand("/" + $(Qt.currentTarget).data("name")),
-                zt()
+                Vt()
             }
             )
         }
         )(),
         function() {
-            let Vt = SWAM.getEmotesList()
-              , qt = "";
-            const Kt = getFilePath("emotes.png");
-            for (let Qt = 8; Qt < Vt.length; Qt++) {
-                let Jt = Vt[Qt]
-                  , $t = Qt - 8
-                  , tn = 64 * Math.floor($t / 16) / 2
-                  , nn = Jt.replace(/ /g, "");
-                qt += `.emote-${nn} { ` + "width: 32px; height: 32px; " + `background: url(${Kt}) -${64 * ($t % 16) / 2}px  -${tn}px ; ` + "background-size: 512px;  background-repeat: no-repeat; } "
+            let qt = SWAM.getEmotesList()
+              , Kt = Ht();
+            const Zt = getFilePath("emotes.png");
+            for (let Jt = 8; Jt < qt.length; Jt++) {
+                let $t = qt[Jt]
+                  , en = Jt - 8;
+                if ("x" != $t) {
+                    let on = 64 * Math.floor(en / 16) / 2
+                      , sn = $t.replace(/ /g, "");
+                    Kt += `.emote-${sn} { ` + "width: 32px; height: 32px; " + `background: url(${Zt}) -${64 * (en % 16) / 2}px  -${on}px ; ` + "background-size: 512px;  background-repeat: no-repeat; } "
+                }
             }
-            qt += Yt();
-            let Zt = `<style type='text/css'>${qt}</style>`;
-            $("body").append(Zt)
-        }()
+            let Qt = `<style type='text/css'>${Kt}</style>`;
+            $("body").append(Qt)
+        }(),
+        this.show(),
+        this.hide()
     }
     ;
     SWAM.mapColorizer = new function() {
@@ -35811,6 +35831,7 @@ function SWAM() {
           , zt = 0
           , Vt = 0
           , qt = !1;
+        this.circle = jt,
         jt.beginFill(16777215, 1),
         jt.drawCircle(0, 0, 50),
         jt.endFill(),
@@ -35823,16 +35844,15 @@ function SWAM() {
                 if (jt.width > 1.8 * config.mapWidth)
                     return Yt(),
                     qt = !1,
-                    Graphics.renderBackground(),
-                    void Wt.removeChild(jt);
+                    void Graphics.renderBackground();
                 for (let en in Qt)
                     game.graphics.layers.map.filters[0][en] += Qt[en];
-                0 < jt.alpha && (jt.alpha -= 3e-3),
+                0.2 < jt.alpha && (jt.alpha -= 3e-3),
                 jt.height = jt.width += zt,
                 zt += 5
-            } else if (Vt < 5 * Zt)
+            } else if (Vt < 4 * Zt)
                 for (let en in Qt)
-                    game.graphics.layers.map.filters[0][en] -= Qt[en] / 15;
+                    game.graphics.layers.map.filters[0][en] -= Qt[en] / 4;
             else
                 Gt(),
                 Yt();
@@ -35878,7 +35898,12 @@ function SWAM() {
             game.graphics.layers.map.filters = []
         }
         ,
-        this.circle = jt
+        SWAM.on("CTF_MatchEnded", $t=>{
+            1 == $t.w ? SWAM.mapColorizer.showBlue() : SWAM.mapColorizer.showRed()
+        }
+        ),
+        SWAM.on("CTF_MatchStarted", this.remove),
+        SWAM.on("gamePrep", this.remove)
     }
     ;
     let sentMessages = []
@@ -36009,15 +36034,15 @@ SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
         ui_minimap_2: ["items", [540, 140, 64, 64]],
         ui_minimap_3: ["items", [268, 140, 64, 64]]
     };
-    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "poo", "bones", "insult", "jolly", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "rambo", "joker", "vader", "yoda", "bomb", "heart", "victory", "wflag", "chicken", "peace", "party1", "party2", "steamr", "ndt", "praptor", "shrug", "mime", "doh", "derp", "salute", "lotfl", "yell", "dab", "fingergun", "hawkes", "loser", "fguns", "sweeteyes", "noob1", "noob2", "rekt", "thief", "alert", "shield", "inferno", "putin", "trump", "kim", "beer", "narf", "bang", "ass", "ddd", "revenge", "monkey", "godfather", "noprow", "noheli", "rip", "boom", "canttouch", "redcap", "bluecap", "bluefire", "redfire", "fire", "bot", "nobot", "hehe", "skullpilot", "hellpilot", "acepilot", "pigpilot", "dragon"];
-    SWAM.getEmotesList = ()=>Wt;
+    const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "hehe", "wink", "joke", "sweeteyes", "insult", "angry", "fury", "yell", "lol", "cry", "sad", "zzz", "mime", "salute", "lotfl", "loser", "fgun", "fguns", "dab", "doh", "derp", "nerd", "flushed", "rolleyes", "drunk", "tblue", "tred", "thief", "greedy", "blah", "stopit", "tired", "drool", "devil", "devilfury", "king1", "king2", "king3", "old", "leader", "dog", "doglol", "dogrr", "dogoh", "clap", "victory", "fu", "tup", "tdown", "h5", "hs", "wave", "ass", "x", "x", "x", "x", "x", "x", "x", "redcap", "bluecap", "bluefire", "redfire", "fire", "alert", "shield", "inferno", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "poo", "poosad", "pooangry", "poobull", "bones", "jolly", "wflag", "bomb", "heart", "bear", "bird", "chicken", "peace", "party1", "party2", "beer", "rambo", "joker", "vader", "yoda", "godfather", "hawkes", "monkey", "narf", "steamr", "noob1", "noob2", "dragon", "bot", "nobot", "noprow", "noheli", "putin", "trump", "kim", "rip", "boom", "canttouch", "bang", "ddd", "revenge", "rekt", "skullpilot", "hellpilot", "acepilot", "pigpilot", "ndt", "raptor", "gg", "ggwp", "bs", "nyan", "elon", "think", "missibis", "pluto", "shrug", "ace", "salty", "mvp", "stop", "camp", "bananas", "mine"];
     let zt = {};
     for (let Kt = 8; Kt < Wt.length; Kt++) {
         let Zt = Wt[Kt]
           , Qt = Kt - 8;
-        zt["emote_" + Zt] = ["emotes", [64 * (Qt % 16), 64 * Math.floor(Qt / 16), 64, 64]]
+        "x" == Zt || (zt["emote_" + Zt] = ["emotes", [64 * (Qt % 16), 64 * Math.floor(Qt / 16), 64, 64]])
     }
-    for (let Kt in $.extend(jt, zt),
+    for (let Kt in SWAM.getEmotesList = ()=>Wt,
+    $.extend(jt, zt),
     jt)
         Xt[Kt] = jt[Kt];
     var qt = {
@@ -36063,8 +36088,12 @@ SWAM.injectSounds = function(Bt) {
     function Bt(un) {
         const pn = function() {
             let hn = Array.from(arguments);
-            return hn.shift(),
-            un.apply(null, hn)
+            hn.shift();
+            try {
+                return un.apply(null, hn)
+            } catch (fn) {
+                console.error(fn)
+            }
         };
         return pn.guid = un.guid = un.guid || $.guid++,
         pn
