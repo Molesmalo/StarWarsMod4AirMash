@@ -5,12 +5,16 @@
 <br>
 <br>
 
+## Sep 28 2018
+- Fireworks!  When a CTF match ends, a fireworks show begins!
+
+&nbsp;
+
 ## Sep 24 2018
 - 57 new emotes!
 - Chat command: `/take` sends `-tblue-` or `-tred-` emotes depending on the user's team.
 - `-cap-`, `-burn-` and `-take-` now work from customized radio messages (C panel).
 - Spam blocker for bot messages.
-</ul>
 
 &nbsp;
 
