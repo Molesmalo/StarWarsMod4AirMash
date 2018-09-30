@@ -31657,8 +31657,7 @@ function loadGameCode() {
                 $("#scoreplayers").html(Vn),
                 $("#scoretable").html(Fn),
                 $("#scorecontainer").html(Hn),
-                $("#scoremvp").html(qn),
-                $("#scorecontainer div").click(SWAM.scoreboard_click_handler)
+                $("#scoremvp").html(qn)
             }
         }
         ,
@@ -34030,7 +34029,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.4092901",
+window.SWAM_version = "2.4093001",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34146,6 +34145,20 @@ function SWAM() {
     }
     function getFilters(Bt) {
         return config.adjustmentFilter ? [config.adjustmentFilter, ...Bt] : Bt
+    }
+    function replaceChatEmotes(Bt) {
+        let Xt = SWAM.getEmotesList()
+          , Gt = Bt.match(/-[A-Za-z0-9]*-/g);
+        if (null != Gt) {
+            let Yt = "";
+            for (let Ht of Gt)
+                if (!(3 > Ht.length) && (Yt = Ht.substr(1, Ht.length - 2).toLowerCase(),
+                Xt.includes(Yt))) {
+                    let zt = `<span class="emote-${Yt} chatboxEmote"></span>`;
+                    Bt = Bt.replace(Ht, zt)
+                }
+        }
+        return Bt
     }
     function AddMusic() {
         0 == $("#logon").length || 0 < $("#bgMusicIFrame").length || SWAM.Settings.audio.bgMusicMainMenu && (console.log("Playing music..."),
@@ -34917,10 +34930,10 @@ function SWAM() {
                 let qt = Xt.split(getURLRegEx());
                 Xt = "";
                 for (let Kt = 0; Kt < qt.length; Kt++)
-                    Xt += UI.escapeHTML(qt[Kt]),
+                    Xt += replaceChatEmotes(UI.escapeHTML(qt[Kt])),
                     Kt < zt.length && (Xt += "<a href='" + zt[Kt] + "' target='_blank' style='text-decoration: underline;'>" + zt[Kt] + "</a>")
             } else
-                Xt = UI.escapeHTML(Xt);
+                Xt = replaceChatEmotes(UI.escapeHTML(Xt));
             UI_addChatLine.call(UI, Bt, Xt, Gt, !1);
             let Vt = UI.getIgnored();
             Vt[Bt.id] || SWAM.trigger("chatLineAdded", [Bt, Xt, Gt])
@@ -34946,6 +34959,7 @@ function SWAM() {
     let UI_updateScore = UI.updateScore;
     UI.updateScore = function(Bt) {
         UI_updateScore.call(UI, Bt),
+        $("#scorecontainer div").click(SWAM.scoreboard_click_handler),
         updatePlayerCounters(Bt.scores),
         SWAM.trigger("detailedScoreUpdate", Bt)
     }
@@ -35773,7 +35787,8 @@ function SWAM() {
             Wt = $(getTemplate(".modalContainer .modalDialog").replace(/\$title/g, "Emotes")).attr("id", "emotesPanel").css({
                 zIndex: "30",
                 left: "0px",
-                maxHeight: "80%"
+                maxHeight: "80%",
+                display: "none"
             }).hide();
             let qt = ""
               , Kt = 0;
@@ -35793,25 +35808,27 @@ function SWAM() {
         }
         )(),
         function() {
-            let qt = SWAM.getEmotesList()
-              , Kt = Ht();
-            const Zt = getFilePath("emotes.png");
+            let qt = SWAM.getEmotesList();
+            const Kt = getFilePath("emotes.png");
+            let Zt = "";
+            Zt += Ht();
             for (let Jt = 8; Jt < qt.length; Jt++) {
                 let $t = qt[Jt]
                   , en = Jt - 8;
                 if ("x" != $t) {
-                    let on = 64 * Math.floor(en / 16) / 2
+                    let on = 100 * Math.floor(en / 16)
                       , sn = $t.replace(/ /g, "");
-                    Kt += `.emote-${sn} { ` + "width: 32px; height: 32px; " + `background: url(${Zt}) -${64 * (en % 16) / 2}px  -${on}px ; ` + "background-size: 512px;  background-repeat: no-repeat; } "
+                    Zt += `.emote-${sn} { ` + "width: 32px; height: 32px; " + `background: url(${Kt}) -${100 * (en % 16)}%  -${on}% ; ` + "background-size: 1600%;} "
                 }
             }
-            let Qt = `<style type='text/css'>${Kt}</style>`;
+            let Qt = `<style type='text/css'>${Zt}</style>`;
             $("body").append(Qt)
         }(),
-        this.show(),
-        this.hide()
+        Wt.css("display", "block"),
+        Wt.css("display", "none")
     }
     ;
+    SWAM.emotesPanel = emotesPanel,
     !function() {
         function Bt(Vt, qt, Kt) {
             var Zt, Qt, Jt;
