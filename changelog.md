@@ -5,6 +5,11 @@
 <br>
 <br>
 
+## Sep 30 2018
+- Emotes in chat! Just write: e.g. -poo-
+
+&nbsp;
+
 ## Sep 29 2018
 - New ending screen for CTF.
 - Fireworks now spawn in winner's base.
