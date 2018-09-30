@@ -216,6 +216,12 @@
         margin-bottom: 10px;
     }
 
+    /* fix outline added on focus by tabindex */
+    .modalContent > div[tabindex="1"]:focus
+    {
+        outline: none;
+    }
+
     /*------------------------------------------------------------------------
         Kills Deaths UI
     ------------------------------------------------------------------------*/
@@ -456,6 +462,46 @@
         -webkit-transform-origin: left top;
         -o-transform-origin: left top;
         transform-origin: left top;
+    }
+
+    #custom-msg.ctfwin
+    {
+        /*display: none;*/
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: transparent;
+        box-shadow: none;
+        border: 0;
+        box-sizing: initial;
+        cursor: default;
+
+        margin-left: -250px;
+        margin-top: -218px;
+        width: 500px;
+        height: 436px;
+
+        background-repeat: no-repeat;
+        /*background-image: url("https://localhost/ctfvictory.png");*/
+    }
+    #custom-msg.customCTFWin .trophy
+    {
+        display: none;
+    }
+    #custom-msg.customCTFWin .bounty
+    {
+        top: 195px;
+        position: relative;
+        color: white;
+        font-weight: normal;
+        font-size: 16px;
+    }
+    #custom-msg.customCTFWin .winner .player
+    {
+        top: 285px;
+        font-weight: normal;
+        background-color: transparent;
+        text-shadow:0px 0px 4px #fff,0px 0px 10px #fff;  /* http://angrytools.com/css-generator/text-shadow/  */
     }
 
     .emoteSample
@@ -1170,6 +1216,18 @@
             padding: 5px;
         }
 
+        #fullLog .message 
+        {
+            pointer-events: initial;
+        }
+
+        #fullLog .blueflag,
+        #fullLog .redflag
+        {
+            width: 20px;
+            height: 20px;
+            background-size: 20px 20px;
+        }
     </style>
     <ul>
         <li><label><input type="checkbox" class='chkFLKills' checked="checked"/>Display kill log</label></li>
@@ -1400,6 +1458,16 @@
     <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
     <div class="changelogContent">
         <!-- <li>New color adjustment panel: gamma, brightness, contrast and saturation.</li> -->
+
+        <div class="date">Sep 29 2018</div>
+        <ul>
+            <li>Fireworks! When a CTF match ends, a fireworks show begins!</li>
+            <li>New ending screen for CTF.</li>
+            <li>Fireworks now spawn in winner's base.</li>
+            <li>Flag Returned events are now logged in the full Game Log window.</li>
+            <li>Radio panels and Game Log can now be closed with <key>ESC<key> key.</li>
+        </ul>
+    
 
         <div class="date">Sep 28 2018</div>
         <ul>

@@ -5,6 +5,14 @@
 <br>
 <br>
 
+## Sep 29 2018
+- New ending screen for CTF.
+- Fireworks now spawn in winner's base.
+- Flag Returned events are now logged in the full Game Log window.
+- Radio panels and Game Log can now be closed with `ESC` key.
+
+&nbsp;
+
 ## Sep 28 2018
 - Fireworks!  When a CTF match ends, a fireworks show begins!
 
