@@ -20,6 +20,9 @@ If you are in a hurry, a very short list would summarize the main features as fo
         - All new sounds! Every ship has its own characteristic sound.
         - Cosmetic changes in the UI (icons/fonts/sizes/etc)
     - Vanilla Theme (AirMash's default look)
+    - Pixel Art Theme
+    - Realistic Sprites Theme
+    - Other Themes
 
 - *Improvements in gameplay, including:*
     - Non-printable characters in player's names replaced with �
@@ -28,18 +31,19 @@ If you are in a hurry, a very short list would summarize the main features as fo
     - Targeted Player tracking (click a player's name in either of the scoreboards)
     - Arrow Indicators
     - Position age on minimap
+    - Prowler radar: Low resolution danger zones.
     - Missile/Laser colors in CTF
     - Player's position and team member's health
     - Flag events informed vocally
     - Visual FX for Respawn and Power ups
     - Kill Streaks
-    - Leader's ship
-    
+    - Leader's ship    
     - Cruise Control (Press `5` or `END` to activate/deactivate,  you can also disable pressing `UP/DOWN`)
     - AutoPilot (Experimental...  `ALT + Left Click` on the minimap)
     - Mimic other players
     - Drop Flag shortcut (`Y`)
     - Respawn shortcuts in Spectator (`1`, `2`, `3`, `4`, `5`)
+    - Spectate when CTF match begins
     
 - *Improvements in User Interface:*
     - Mod settings window
@@ -55,11 +59,15 @@ If you are in a hurry, a very short list would summarize the main features as fo
     - Mod section for help window
     - Show/Hide Leaderboard (`F3` key)
     - Show/Hide User Interface (`F4` key)
-    - FPS / Debug Information (via console)
+    - Emotes Panel (`F5` key)
+    - CTF Match ending effects
+    - Minimap Size settings
     - Move Minimap (via console)
     - Pan the camera along the X or Y axis (via console)
+    - FPS / Debug Information (via console)
 
 - *Chat improvements:*
+    - Lots of new emotes!
     - Unlimited length for messages
     - Transparency in chat bubbles
     - Links for URLs
@@ -68,6 +76,9 @@ If you are in a hurry, a very short list would summarize the main features as fo
     - Sound on Whisper
     - Copy to clipboard
     - Clear chat button (`DEL` key)
+    - "Player left" message.
+    - Spam blocker
+    - ¯\\\_(ツ)_/¯ (shrug message)
     - -SWAM-PING Command
 
 - *Spectator Mode:*
@@ -248,6 +259,29 @@ But you can enable it via the Mod Settings window. It's just a small element to 
 It's airmash's default look, with all the other features from StarMash. Also, in CTF missiles and players are optionally colored to their teams' colors.
 
 
+## Pixel Art Theme
+
+This theme features a retro pixelated look, that looks similar to the old 8-bit games.
+
+Let's celebrate AirMash's 6 Months with something new, from the past! Because everything old is new again!
+
+![Pixel Art 8-bits theme](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/PixelArt8bits.jpg)
+
+
+## Realistic Sprites Theme
+
+This theme adds more detailed and realistic graphics to the game.
+
+![Realistic Sprites Theme](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/RealisticSpritesTheme.jpg)
+
+# Other celebratory themes
+
+From time to time, a new celebratory theme is featured, like St. Patrick's day Theme, Christmas Theme or even World Cup Russia 2018 Theme!
+
+![Other Themes](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/OtherThemes.jpg)
+
+
+
 ## **Gameplay**
 
 
@@ -312,10 +346,31 @@ In Capture The Flag, when a flag is being carried or dropped outside of its orig
 When the minimap is refreshed every 5 seconds, its dots and the Arrow Indicators become brighter. As the position ages, the elements become more translucent to indicate the loss of precision.
 
 
-### Laser colors
+### Prowler radar: Low resolution danger zones.
 
-Lasers! Who needs missiles when you can have pwew-pwew-lasers? And they are colored according to the team.
-Green lasers for the Imperials (blue team), red lasers for the Rebels (red team).
+Renders a big circle over the map to indicate danger of prowlers in that area. It uses a low resolution for the position, meaning that it's not accurate. The circle covers just 19% of the possible area where the prowler may be. It is only available for tornado and predator.
+
+Originally, it was going to be a Tornado-exclusive, to give some new life to that plane, that was underused.
+
+But as I made a "self-spectating detection extension" (an extension that detects when a player is self-spectating to see enemy prowlers in CTF), and then I saw that many players were using this method (I confronted a few via whisper, who admitted it, and the feeling was always similar about how annoying the game is when there's not much you can do with them). So, as it was becoming dangerously "common", adding Predator was a compromise that made sense, considering the alternative. 
+
+Helis can spam a lot of missiles to defend himself and reveal the hidden prowler, Goliath can already make it visible by using repel, and prowler vs prowler is an equal ground fight, so that's why those planes have it disabled.
+
+Putting it in numbers:
+
+- The circles update once every 5 seconds.
+- In that time, a prowler can move 1350 (in-game) pixels.
+- The circles have a 600 (in-game) pixels radius ... that is, 44% of travel distance for a prowler in that time.
+- This means, the circle covers theoretically 19.75 % of the possible location area of a moving prowler.
+- But, the position is based on the low resolution position, which is calculated by the server, and according to sigma, it has a small randomized component in it, so in reality that 19% ends up being less...
+
+This means that the circle gives you a very rough idea of where "there is some danger", but you still need some luck or skill to guess the exact position, if the prowler is moving.
+
+
+### Missile/Laser colors
+
+Missiles (lasers in starmash themes) are colored according to the team. Also, repelled missiles by a Goliath (or equivalent) also change color.
+For example, in starmash themes, you can see green lasers for the Imperials (blue team), and red lasers for the Rebels (red team).
 
 ![Laser Colors](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/LaserColors.jpg)
 
@@ -418,6 +473,11 @@ When playing Capture The Flag (CTF), press `Y` to /drop the flag. The flag will 
 ### Respawn shortcuts in Spectator
 
 When spectating, you can now respawn pressing `1`, `2`, `3`, `4` or `5` for the different ships.
+
+
+### Spectate when CTF match begins
+
+If you were in spectator mode just before a new match begins, and you don't press any key after the respawn, you now go back to spectator mode automatically.
 
 
 <br><br>
@@ -526,16 +586,38 @@ While playing, in the upper right corner of the screen, there is a button that s
 `F4` shortcut:  Use the `F4` key to show/hide the majority of the other user User Interface controls (logo, users connected, left-sidebar icons, leaderboard, etc).  This can be used in conjunction with `F3` key.
 
 
-### FPS / Debug Information
+### Emotes Panel (`F5` key)
 
-As this is intended to be used for debug, it's only accessible via a console command:   `SWAM.showDegubInfo();`
+StarMash includes over 100 new emotes!  Press `F5` to open the list of available emotes. Alternatively, you can open the panel writing `/emotes` in the chat.
 
+![Emotes Panel](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/EmotesPanel.jpg)
+
+
+### CTF Match ending effects
+
+Now, when the match ends, this happens:
+
+- A new splash panel is shown when a CTF match ends, indicating Victory or Defeat.
+- A coloring wave blasts through the map, painting the world in the winner's colors.
+- A fireworks show begin over the winning team's base.
+
+![CTF Ending](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/CTFVictory.jpg)
+
+
+### Minimap Size settings
+
+You can increase or decrese the size of the minimap. You can set the `Minimap size` in the Mod Settings Window. The default value is 240.
 
 ### Move Minimap to Upper Right corner
 
 As the title implies, moves the minimap from the bottom, to the upper right corner of the screen.
 
 This is only accesible via console, but was requested by a user:   `SWAM.moveMinimap();`
+
+
+### FPS / Debug Information
+
+As this is intended to be used for debug, it's only accessible via a console command:   `SWAM.showDegubInfo();`
 
 
 ### Ship Names
@@ -548,6 +630,28 @@ This is just a cosmetic change, but the tooltips for the ships now display the r
 
 
 ## **Chat**
+
+### Lots of new emotes!
+
+StarMash includes a lot of new emotes (more than 130 currently). You can open the emotes panel to see the full pressing `F5` (press again to close it).
+
+You can also open the list writing `/emotes`.
+
+To send an emote, you need to use in the chat input: `/emote_to_use`.  For example:  `/poo` or `/facepalm`.
+
+You can also send them writing: `-someemote-`,  e.g. : `-rambo-`  . This method is very usefull, because it works both with the chat bubbles (`/s`), and with the general chat!
+
+This format also allows you to customize radio messages to send emotes. Just assign a predifined message to something like: `-ddd-|-devil-`. This example sends first a "die die die" emote, and then a devil emote.
+
+![New Emotes](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/Emotes1.jpg)
+
+
+There are some special emotes that change appearance depending on the team you are assigned to in CTF.
+
+- `/cap` sends `-redcap-` or `-bluecap-`
+- `/burn` sends `-redfire-` or `-bluefire-`
+- `/take` sends `-tblue-` or `-tred-`
+
 
 ### Unlimited length for chat messages
 
@@ -599,6 +703,20 @@ I added a button to clear the chat box. Just click the button that says: "Clear 
 Shortcut: `DEL` key.
 
 ![Chat Colors](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/ChatClear.jpg)
+
+### "Player left" message.
+
+When a player that talked recently leaves the game, a line in the chat is added indicating that he left the room.  "*Name* left."
+
+### Spam blocker
+
+Blocks the messages sent by the spam bots.
+
+
+### ¯\\\_(ツ)_/¯ (shrug message)
+
+Send just `shrug` (to all, team, whisper or bubble) and it gets converted to this ascii face:  ¯\\\_(ツ)_/¯
+
 
 ### -SWAM-PING Command
 
