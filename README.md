@@ -46,7 +46,7 @@ Galleries:
 
 # Changelog
 
-- Follow this link to check the most recent changes to the Mod: [Changelog](https://molesmalo.github.io/StarWarsMod4AirMash/changelog)
+- [Follow this link](https://molesmalo.github.io/StarWarsMod4AirMash/changelog) to check the most recent changes to the Mod.
 
 <br>
 <br>
