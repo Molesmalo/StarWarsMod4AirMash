@@ -69,6 +69,7 @@ If you are in a hurry, a very short list would summarize the main features as fo
 - *Chat improvements:*
     - Lots of new emotes!
     - Unlimited length for messages
+    - Emoticons converted to emojis
     - Transparency in chat bubbles
     - Links for URLs
     - Navigate and Resend previous messages
@@ -639,7 +640,7 @@ You can also open the list writing `/emotes`.
 
 To send an emote, you need to use in the chat input: `/emote_to_use`.  For example:  `/poo` or `/facepalm`.
 
-You can also send them writing: `-someemote-`,  e.g. : `-rambo-`  . This method is very usefull, because it works both with the chat bubbles (`/s`), and with the general chat!
+You can also send them writing: `-someemote-`,  e.g. : `-rambo-`  . This method is very useful, because it works both with the chat bubbles (`/s`), and with the general chat!
 
 This format also allows you to customize radio messages to send emotes. Just assign a predifined message to something like: `-ddd-|-devil-`. This example sends first a "die die die" emote, and then a devil emote.
 
@@ -662,6 +663,13 @@ The messages are now split preserving whole words (thanks Nup!).
 ![Split Chat](https://molesmalo.github.io/StarWarsMod4AirMash/WebResources/SplitChat.jpg)
 
 Thanks to player "Linus Torvalds" for this idea.
+
+
+### Emoticons converted to emojis
+
+While you type in the chat box, emotions (ascii faces) are converted to emojis.
+
+This feature can be disabled from the Mod Settings Window, as it's enabled by default.
 
 
 ### ** Transparency in chat bubbles. **
