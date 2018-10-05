@@ -36486,23 +36486,24 @@ function SWAM() {
     }
     ,
     $("#chatinput").on("input", function() {
-        function Yt(Wt) {
-            const zt = [["\uD83D\uDE42", /[:=]-?\)/g], ["\uD83D\uDE43", /\(-?[:=]/g], ["\uD83D\uDE03", /:D/g], ["\uD83D\uDE04", /\^_?\^/g], ["\uD83D\uDE09", /;-?\)/g], ["\uD83D\uDE0E", /B-?\)/g], ["\uD83D\uDE21", /:-?\@/g], ["\uD83D\uDE12", /¬_?¬/g], ["\uD83D\uDE10", /:-?\|/g], [" \uD83D\uDE06", / [xX]-?D/g], ["\uD83D\uDE1B", /[:=]-?[pP]/g], ["\uD83D\uDE1C", /;-?[pP]/g], ["\uD83D\uDE15", /[:=]-?[sS]/g], ["\uD83D\uDE14", /[:=]-[\/\\]/g], ["\uD83D\uDE41", /[:=]-?\(/g], ["\uD83D\uDE22", /[:=]'-?\(/g], ["\uD83D\uDE2D", /[:=]''-?\(/g], ["\uD83D\uDE2E", /[:=]-[oO]/g], ["\uD83D\uDE33", /[:=]-?\$/g], ["\u2764\uFE0F", /<3|&lt;3/g], ["\uD83D\uDC94", /<\/3|&lt;&#x2F;3/g]];
-            for (let qt of zt) {
-                var Vt = new RegExp(qt[1],"gim");
-                Wt = Wt.replace(Vt, function(Kt) {
-                    return Ht += qt[0].length - Kt.length,
-                    qt[0]
-                })
-            }
-            return Wt
-        }
         if (SWAM.Settings.ui.replaceEmoticons) {
-            let Ht = this.selectionStart
-              , jt = this.value;
-            jt.substr(0, 2).toLowerCase().startsWith("/s") || (jt = Yt(jt),
-            this.value = jt,
-            this.setSelectionRange(Ht, Ht))
+            let Yt = this.selectionStart
+              , Ht = this.value;
+            if (!Ht.substr(0, 2).toLowerCase().startsWith("/s")) {
+                Ht = function(Wt) {
+                    const zt = [["\uD83D\uDE42", /[:=]-?\)/g], ["\uD83D\uDE43", /\(-?[:=]/g], ["\uD83D\uDE03", /:D/g], ["\uD83D\uDE04", /\^_?\^/g], ["\uD83D\uDE09", /;-?\)/g], ["\uD83D\uDE0E", /B-?\)/g], ["\uD83D\uDE21", /:-?\@/g], ["\uD83D\uDE12", /¬_?¬/g], ["\uD83D\uDE10", /:-?\|/g], [" \uD83D\uDE06", / [xX]-?D/g], ["\uD83D\uDE1B", /[:=]-?[pP]/g], ["\uD83D\uDE1C", /;-?[pP]/g], ["\uD83D\uDE15", /[:=]-?[sS]/g], ["\uD83D\uDE14", /[:=]-[\/\\]/g], ["\uD83D\uDE41", /[:=]-?\(/g], ["\uD83D\uDE22", /[:=]'-?\(/g], ["\uD83D\uDE2D", /[:=]''-?\(/g], ["\uD83D\uDE2E", /[:=]-[oO]/g], ["\uD83D\uDE33", /[:=]-?\$/g], ["\u2764\uFE0F", /<3|&lt;3/g], ["\uD83D\uDC94", /<\/3|&lt;&#x2F;3/g]];
+                    for (let qt of zt) {
+                        var Vt = new RegExp(qt[1],"gim");
+                        Wt = Wt.replace(Vt, function(Kt) {
+                            return Yt += qt[0].length - Kt.length,
+                            qt[0]
+                        })
+                    }
+                    return Wt
+                }(Ht),
+                this.value = Ht,
+                this.setSelectionRange(Yt, Yt)
+            }
         }
     });
     let sentMessages = []
