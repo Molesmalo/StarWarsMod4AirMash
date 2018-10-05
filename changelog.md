@@ -5,6 +5,12 @@
 <br>
 <br>
 
+## Oct 05 2018
+- Emoticons are converted to emojis while typing.
+- New setting for disabling emoticons conversion.
+
+&nbsp;
+
 ## Sep 30 2018
 - Emotes in chat! Just write: e.g. -poo-
 
