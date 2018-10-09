@@ -34027,7 +34027,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.5105001",
+window.SWAM_version = "2.5100801",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34059,7 +34059,6 @@ function SWAM() {
     function setModSettings(Bt) {
         SWAM.Settings = Bt,
         Bt.audio.bgMusicMainMenu ? AddMusic() : RemoveMusic(),
-        ProwlerRadar.updateSettings(),
         SWAM.resizeMap(Bt.general.scalingFactor),
         config.minimapSize = Bt.ui.minimapSize,
         UI.resizeMinimap();
@@ -34159,11 +34158,16 @@ function SWAM() {
         if (null != Gt) {
             let Yt = "";
             for (let Ht of Gt)
-                if (!(3 > Ht.length) && (Yt = Ht.substr(1, Ht.length - 2).toLowerCase(),
-                Xt.includes(Yt))) {
-                    let zt = `<span class="emote-${Yt} chatboxEmote" title="${Yt}"></span>`;
-                    Bt = Bt.replace(Ht, zt)
-                }
+                if (!(3 > Ht.length))
+                    if (Yt = Ht.substr(1, Ht.length - 2).toLowerCase(),
+                    Xt.includes(Yt)) {
+                        let zt = `<span class="emote-${Yt} chatboxEmote" title="${Yt}"></span>`;
+                        Bt = Bt.replace(Ht, zt)
+                    } else if (isFlag(Yt)) {
+                        let zt = flagsByCode[Yt.substr(4)].index
+                          , Vt = `<span class="flag small flag-${zt}" title="${Yt}"></span>`;
+                        Bt = Bt.replace(Ht, Vt)
+                    }
         }
         return Bt
     }
@@ -34311,6 +34315,10 @@ function SWAM() {
         $("#chatlines").html(""),
         $("#chatbox").scrollTop(0).perfectScrollbar("update")
     }
+    function openColorAdjustments() {
+        closeSettingsWindow(),
+        SWAM.ColorAdjustments.open()
+    }
     SWAM.Settings = getModSettings(),
     SWAM.GAME_TYPE = {
         FFA: 1,
@@ -34432,6 +34440,12 @@ function SWAM() {
             step: 10
         }),
         Gt.addBoolean("ui.replaceEmoticons", "Replace emoticons with emojis while typing. :) \uD83E\uDC46 \uD83D\uDE42"),
+        Gt.addButton("Color Adjustments panel", {
+            click: openColorAdjustments,
+            css: {
+                minWidth: "400px"
+            }
+        }),
         window.showRequestlyUpdate && Gt.addButton("Show again Requestly update steps", {
             click: showRequestlyWarningAgain,
             css: {
@@ -34446,7 +34460,9 @@ function SWAM() {
     SWAM.loadSettings = function() {
         setModSettings(getModSettings())
     }
-    ,
+    ;
+    let closeSettingsWindow = ()=>{}
+    ;
     SWAM.OpenSettingsWindow = function() {
         function Bt(jt) {
             $("#modVersion", Ht).html(SWAM.version);
@@ -34496,7 +34512,8 @@ function SWAM() {
                 jt.cancel();
             Xt()
         }
-        )
+        ),
+        closeSettingsWindow = Xt
     }
     ,
     SWAM.panX = function(Bt) {
@@ -35333,7 +35350,14 @@ function SWAM() {
                 Xt = replaceChatEmotes(UI.escapeHTML(Xt));
             UI_addChatLine.call(UI, Bt, Xt, Gt, !1);
             let Vt = UI.getIgnored();
-            Vt[Bt.id] || SWAM.trigger("chatLineAdded", [Bt, Xt, Gt])
+            if (!Vt[Bt.id]) {
+                let qt = $("#chatlines div").last().find("span.flag");
+                if (0 < qt.length && "STATSBOT" == Bt.name && 10 == Bt.flag) {
+                    let Kt = qt.attr("class").split(/\s+/);
+                    qt.removeClass(Kt[1]).removeClass(Kt[2]).addClass("emote emote-bot flag-statsbot")
+                }
+                SWAM.trigger("chatLineAdded", [Bt, Xt, Gt])
+            }
         } else {
             let zt = Xt;
             if (Xt = Xt.toUpperCase(),
@@ -35775,6 +35799,7 @@ function SWAM() {
             Ht()))
         }
         ,
+        SWAM.on("settingsApplied", this.updateSettings.bind(this)),
         SWAM.on("playerChangedType", Zt=>{
             Xt(Players.get(Zt.id))
         }
@@ -36107,7 +36132,8 @@ function SWAM() {
         }
         ,
         this.hide = function() {
-            Ht.hide()
+            Ht.hide(),
+            Sound.UIClick()
         }
         ,
         function() {
@@ -36142,7 +36168,7 @@ function SWAM() {
         }
     }
     ;
-    let emotesPanel = new function() {
+    let emotesPanel = new function Bt() {
         function Gt() {
             let qt = SWAM.getEmotesList().slice().filter(Kt=>"x" != Kt).sort();
             return [...new Set(qt)]
@@ -36165,18 +36191,24 @@ function SWAM() {
         }
         let Wt = null
           , zt = null;
+        this.visible = function() {
+            return "none" !== Wt.css("display")
+        }
+        ,
         this.toggle = function() {
-            "none" === Wt.css("display") ? this.show() : this.hide()
+            this.visible() ? this.hide() : this.show()
         }
         ,
         this.show = function() {
+            Sound.UIClick(),
             "none" === Wt.css("display") && (Wt.fadeIn("fast"),
             zt = closeWhenClickOutside(Wt))
         }
         ;
         let Vt = this.hide = function() {
             Wt.fadeOut("fast"),
-            $(document).off("mousedown", "", zt)
+            $(document).off("mousedown", "", zt),
+            Sound.UIClick()
         }
         ;
         (function() {
@@ -36188,22 +36220,21 @@ function SWAM() {
             }).hide();
             let qt = ""
               , Kt = 0;
-            Gt().forEach(Jt=>{
-                qt += `<div class="emoteSample" data-name="${Jt}"><div class="emote emote-${Jt}"></div><div>/${Jt}</div></div>`,
+            Gt().forEach(Qt=>{
+                qt += `<div class="emoteSample" data-name="${Qt}"><div class="emote emote-${Qt}"></div><div>/${Qt}</div></div>`,
                 Kt++
             }
             );
             let Zt = $(qt);
             $(".modalContent", Wt).append(Zt),
             $("body").append(Wt),
-            Wt.on("click", ".emoteSample", Jt=>{
-                UI.parseCommand("/" + $(Jt.currentTarget).data("name")),
+            Wt.on("click", ".emoteSample", Qt=>{
+                UI.parseCommand("/" + $(Qt.currentTarget).data("name")),
                 Vt()
             }
-            );
-            let Qt = this;
-            SWAM.on("keyup", Jt=>{
-                27 == Jt.which && "none" !== Wt.css("display") && Qt.hide()
+            ),
+            SWAM.on("keyup", Qt=>{
+                27 == Qt.which && Bt.visible() && Bt.hide()
             }
             )
         }
@@ -36488,24 +36519,116 @@ function SWAM() {
     $("#chatinput").on("input", function() {
         if (SWAM.Settings.ui.replaceEmoticons) {
             let Yt = this.selectionStart
-              , Ht = this.value;
-            if (!Ht.substr(0, 2).toLowerCase().startsWith("/s")) {
-                Ht = function(Wt) {
-                    const zt = [["\uD83D\uDE42", /[:=]-?\)/g], ["\uD83D\uDE43", /\(-?[:=]/g], ["\uD83D\uDE03", /:D/g], ["\uD83D\uDE04", /\^_?\^/g], ["\uD83D\uDE09", /;-?\)/g], ["\uD83D\uDE0E", /B-?\)/g], ["\uD83D\uDE21", /:-?\@/g], ["\uD83D\uDE12", /¬_?¬/g], ["\uD83D\uDE10", /:-?\|/g], [" \uD83D\uDE06", / [xX]-?D/g], ["\uD83D\uDE1B", /[:=]-?[pP]/g], ["\uD83D\uDE1C", /;-?[pP]/g], ["\uD83D\uDE15", /[:=]-?[sS]/g], ["\uD83D\uDE14", /[:=]-[\/\\]/g], ["\uD83D\uDE41", /[:=]-?\(/g], ["\uD83D\uDE22", /[:=]'-?\(/g], ["\uD83D\uDE2D", /[:=]''-?\(/g], ["\uD83D\uDE2E", /[:=]-[oO]/g], ["\uD83D\uDE33", /[:=]-?\$/g], ["\u2764\uFE0F", /<3|&lt;3/g], ["\uD83D\uDC94", /<\/3|&lt;&#x2F;3/g]];
-                    for (let qt of zt) {
-                        var Vt = new RegExp(qt[1],"gim");
-                        Wt = Wt.replace(Vt, function(Kt) {
-                            return Yt += qt[0].length - Kt.length,
-                            qt[0]
+              , Ht = this.value
+              , jt = Ht.substr(0, 2).toLowerCase();
+            if (!jt.startsWith("/s")) {
+                if (jt.startsWith("/w")) {
+                    let zt = Ht.indexOf(" ", 3) + 1;
+                    jt = Ht.substr(0, zt),
+                    Ht = Ht.substr(zt)
+                } else
+                    jt = "";
+                Ht = function(zt) {
+                    const Vt = [["\uD83D\uDE42", /[:=]-?\)/g], ["\uD83D\uDE03", /:D/g], ["\uD83D\uDE04", /\^_?\^/g], [" \uD83D\uDE06", / [xX]-?D/g], ["\uD83D\uDE09", /;-?\)/g], ["\uD83D\uDE0E", /B-?\)/g], ["\uD83D\uDE10", /:-?\|/g], ["\uD83D\uDE12", /¬_?¬/g], ["\uD83D\uDE14", /[:=]-[\/\\]/g], ["\uD83D\uDE15", /[:=]-?[sS]/g], ["\uD83D\uDE1B", /[:=]-?[pP]/g], ["\uD83D\uDE1C", /;-?[pP]/g], ["\uD83D\uDE21", /:-?\@/g], ["\uD83D\uDE22", /[:=]'-?\(/g], ["\uD83D\uDE2D", /[:=]''-?\(/g], ["\uD83D\uDE2E", /[:=]-[oO]/g], ["\uD83D\uDE33", /[:=]-?\$/g], ["\uD83D\uDE41", /[:=]-?\(/g], ["\uD83D\uDE43", /\(-?[:=]/g], ["\u2764\uFE0F", /<3|&lt;3/g], ["\uD83D\uDC94", /<\/3|&lt;&#x2F;3/g]];
+                    for (let Kt of Vt) {
+                        var qt = new RegExp(Kt[1],"gim");
+                        zt = zt.replace(qt, function(Zt) {
+                            return Yt += Kt[0].length - Zt.length,
+                            Kt[0]
                         })
                     }
-                    return Wt
+                    return zt
                 }(Ht),
-                this.value = Ht,
+                this.value = jt + Ht,
                 this.setSelectionRange(Yt, Yt)
             }
         }
-    });
+    }),
+    SWAM.ColorAdjustments = new function() {
+        function Xt() {
+            Qt = $(getTemplate("#adjustmentPanel")),
+            $("body").append(Qt),
+            $(".toggleAdvanced", Qt).click(Gt),
+            $("input", Qt).change(Yt),
+            $(".reset", Qt).click(jt),
+            $(".close", Qt).click(Ht)
+        }
+        function Gt() {
+            $(".advancedColorAdjustments", Qt).toggle(100)
+        }
+        function Yt() {
+            zt(),
+            Vt(),
+            Kt()
+        }
+        function Ht() {
+            Qt.remove(),
+            Sound.UIClick()
+        }
+        function jt() {
+            for (let $t in Jt)
+                Jt[$t] = 1;
+            Vt(),
+            Kt()
+        }
+        function Wt($t) {
+            return ".sdr" + $t[0].toUpperCase() + $t.substr(1)
+        }
+        function zt() {
+            for (let $t in Jt)
+                Jt[$t] = parseInt($(Wt($t), Qt).val()) / 100
+        }
+        function Vt() {
+            for (let $t in Jt) {
+                let en = Math.round(100 * Jt[$t]);
+                $(Wt($t), Qt).val(en),
+                $("." + $t, Qt).html(en)
+            }
+        }
+        function Kt() {
+            let $t = !1;
+            for (let en in Jt)
+                1 != Jt[en] && ($t = !0);
+            if ($t) {
+                let en = new PIXI.filters.AdjustmentFilter;
+                for (let tn in Jt)
+                    en[tn] = Jt[tn];
+                config.adjustmentFilter = en,
+                game.graphics.layers.game.filters = [en],
+                localStorage.setItem(Zt, JSON.stringify(Jt))
+            } else
+                delete config.adjustmentFilter,
+                game.graphics.layers.game.filters = [],
+                localStorage.removeItem(Zt)
+        }
+        const Zt = "SWAM_ColorAdjustments";
+        let Qt, Jt = {
+            gamma: 1,
+            brightness: 1,
+            contrast: 1,
+            saturation: 1,
+            red: 1,
+            green: 1,
+            blue: 1,
+            alpha: 1
+        };
+        (function() {
+            return $.extend(Jt, JSON.parse(localStorage.getItem(Zt)))
+        }
+        )(),
+        Kt(),
+        this.open = function() {
+            if (0 == $("#adjustmentPanel").length ? Xt() : $("#adjustmentPanel").show(),
+            config.adjustmentFilter) {
+                let $t = config.adjustmentFilter;
+                for (let en in Jt)
+                    Jt[en] = $t[en];
+                Vt()
+            }
+            Sound.UIClick()
+        }
+    }
+    ;
     let sentMessages = []
       , sentMessageIndex = 0;
     $("#chatinput").keydown(function(Bt) {

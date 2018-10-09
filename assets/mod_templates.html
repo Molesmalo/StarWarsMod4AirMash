@@ -341,6 +341,20 @@
         box-shadow: 0px 0px 6px 2px rgba(255,255,255,.1);
     }
 
+    #sidebar
+    {
+        -moz-transform: scale(.8);
+        -webkit-transform: scale(.8);
+        -o-transform: scale(.8);
+        transform: scale(.8);
+        -moz-transform-origin: left top;
+        -webkit-transform-origin: left top;
+        -o-transform-origin: left top;
+        transform-origin: left top;
+    }
+
+    #chatinput { z-index: 1; }
+
     /*#gameinfo.ingame {
         top: 5px;
     }*/
@@ -452,18 +466,6 @@
         opacity: .8;
     }
 
-    #sidebar
-    {
-        -moz-transform: scale(.8);
-        -webkit-transform: scale(.8);
-        -o-transform: scale(.8);
-        transform: scale(.8);
-        -moz-transform-origin: left top;
-        -webkit-transform-origin: left top;
-        -o-transform-origin: left top;
-        transform-origin: left top;
-    }
-
     #custom-msg.ctfwin
     {
         /*display: none;*/
@@ -531,6 +533,13 @@
         vertical-align: middle;
         width: 18px !important;
         height: 18px !important;
+    }
+
+    .emote-bot.flag-statsbot
+    {
+        width: 13px;
+        height: 13px;
+        margin: 0 9px 0 4px;
     }
 
     /* ----- Destroy and Destroyed Messages ----- */
@@ -1257,8 +1266,9 @@
     <style class="text/css">
         #adjustmentPanel
         {
+            z-index: 1;
             width: 365px;
-            height: 200px;
+            min-height: 200px;
             position: fixed;
             top: 100px;
             left: 100px;
@@ -1308,6 +1318,7 @@
         #adjustmentPanel div
         {
             padding: 5px;
+            color: #d2d2d2;
         }
 
         #adjustmentPanel .btn {
@@ -1322,62 +1333,80 @@
             border: 2px solid rgba(0,0,0,.2);
             cursor: pointer;
         }
+
+        #adjustmentPanel .advancedColorAdjustments
+        {
+            display: none;
+        }
+        #adjustmentPanel .toggleAdvanced
+        {
+            color: #2196F3;
+            margin: 10px auto;
+            font-size: 14px;
+            cursor: pointer;
+        }
     </style>
-    <div>
-        <label>
-            <span class="title">Gamma</span>
-            <span class='sliderValue gamma'>100</span>
-            <input type='range' class='sdrGamma' value='100' min='0' max='200' step='5' />
-        </label>
+    <div>Note: In some devices, setting values here might make the game rendering slightly slower.</div>
+    <div class="basicColorAdjustments">
+        <div>
+            <label>
+                <span class="title">Gamma</span>
+                <span class='sliderValue gamma'>100</span>
+                <input type='range' class='sdrGamma' value='100' min='0' max='200' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Brightness</span>
+                <span class='sliderValue brightness'>100</span>
+                <input type='range' class='sdrBrightness' value='100' min='0' max='200' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Contrast</span>
+                <span class='sliderValue contrast'>100</span>
+                <input type='range' class='sdrContrast' value='100' min='0' max='200' step='5' />
+            </label>
+        </div>
     </div>
-    <div>
-        <label>
-            <span class="title">Brightness</span>
-            <span class='sliderValue brightness'>100</span>
-            <input type='range' class='sdrBrightness' value='100' min='0' max='200' step='5' />
-        </label>
-    </div>
-    <div>
-        <label>
-            <span class="title">Contrast</span>
-            <span class='sliderValue contrast'>100</span>
-            <input type='range' class='sdrContrast' value='100' min='0' max='200' step='5' />
-        </label>
-    </div>
-    <div>
-        <label>
-            <span class="title">Saturation</span>
-            <span class='sliderValue saturation'>100</span>
-            <input type='range' class='sdrSaturation' value='100' min='0' max='200' step='5' />
-        </label>
-    </div>
-    <div>
-        <label>
-            <span class="title">Red</span>
-            <span class='sliderValue red'>100</span>
-            <input type='range' class='sdrRed' value='100' min='0' max='500' step='5' />
-        </label>
-    </div>
-    <div>
-        <label>
-            <span class="title">Green</span>
-            <span class='sliderValue green'>100</span>
-            <input type='range' class='sdrGreen' value='100' min='0' max='500' step='5' />
-        </label>
-    </div>
-    <div>
-        <label>
-            <span class="title">Blue</span>
-            <span class='sliderValue blue'>100</span>
-            <input type='range' class='sdrBlue' value='100' min='0' max='500' step='5' />
-        </label>
-    </div>
-    <div>
-        <label>
-            <span class="title">Alpha</span>
-            <span class='sliderValue alpha'>100</span>
-            <input type='range' class='sdrAlpha' value='100' min='0' max='500' step='5' />
-        </label>
+    <div class="toggleAdvanced">▶ Color Settings</div>
+    <div class="advancedColorAdjustments">
+        <div>
+            <label>
+                <span class="title">Saturation</span>
+                <span class='sliderValue saturation'>100</span>
+                <input type='range' class='sdrSaturation' value='100' min='0' max='200' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Red</span>
+                <span class='sliderValue red'>100</span>
+                <input type='range' class='sdrRed' value='100' min='0' max='500' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Green</span>
+                <span class='sliderValue green'>100</span>
+                <input type='range' class='sdrGreen' value='100' min='0' max='500' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Blue</span>
+                <span class='sliderValue blue'>100</span>
+                <input type='range' class='sdrBlue' value='100' min='0' max='500' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Alpha</span>
+                <span class='sliderValue alpha'>100</span>
+                <input type='range' class='sdrAlpha' value='100' min='0' max='500' step='5' />
+            </label>
+        </div>
     </div>
 
     <div>
@@ -1465,11 +1494,18 @@
     </style>
     <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
     <div class="changelogContent">
-        <!-- <li>New color adjustment panel: gamma, brightness, contrast and saturation.</li> -->
+        <div class="date">Oct 08 2018</div>
+        <ul>
+            <li>New Color Adjustment Panel: lets you adjust color settings. Open it from the Settings Window.</li>
+            <li>Replaced STATSBOT flag with a bot image.</li>
+            <li>New Emotes: 125 flags (all the game flags) can now be used as emotes like <cmd>-flagUS-</cmd> or <cmd>-flagjolly-</cmd>.</li>
+            <li>Minor bugfix for emojis replacing the player's name when typing a whisper.</li>
+            <li>Chat input box is nowº displayed over the plane icons.</li>
+        </ul>
 
         <div class="date">Oct 05 2018</div>
         <ul>
-            <li>Emoticons are converted to emojis while typing.</li>
+            <li>Chat: Emoticons are converted to emojis while typing.</li>
             <li>New setting for disabling emoticons conversion.</li>
         </ul>
 
@@ -1582,7 +1618,6 @@
         <div class="date">Apr 15 2018</div>
         <ul>
             <li>When spectating, now you can re-spawn with keys 1-5.</li>
-            <li>Chat input box is not displayed over plane icons.</li>
             <li>Long messages are split preserving whole words.</li>
             <li>Chat bubbles are now semi-translucent.</li>
             <li>Scoreboard font made smaller.</li>

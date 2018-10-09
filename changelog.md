@@ -5,6 +5,15 @@
 <br>
 <br>
 
+## Oct 08 2018
+- New Color Adjustment Panel: lets you adjust color settings. Open it from the Settings Window.
+- Replaced STATSBOT flag with a bot image.
+- New Emotes: 125 flags (all the game flags) can now be used as emotes like `-flagUS-` or `-flagjolly-`.
+- Minor bugfix for emojis replacing the player's name when typing a whisper.
+- Chat input box is now displayed over the plane icons.
+
+&nbsp;
+
 ## Oct 05 2018
 - Emoticons are converted to emojis while typing.
 - New setting for disabling emoticons conversion.
@@ -120,7 +129,6 @@
 ## Apr 15 2018
 
 - When spectating, now you can re-spawn with keys 1-5.
-- Chat input box is not displayed over plane icons.
 - Long messages are split preserving whole words.
 - Chat bubbles are now semi-translucent.
 - Scoreboard font made smaller.
