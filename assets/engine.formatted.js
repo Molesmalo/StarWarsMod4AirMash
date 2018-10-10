@@ -34027,7 +34027,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.5100801",
+window.SWAM_version = "2.5101001",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34154,7 +34154,7 @@ function SWAM() {
     }
     function replaceChatEmotes(Bt) {
         let Xt = SWAM.getEmotesList()
-          , Gt = Bt.match(/-[A-Za-z0-9]*-/g);
+          , Gt = Bt.match(/-[\w]+-/g);
         if (null != Gt) {
             let Yt = "";
             for (let Ht of Gt)
@@ -36342,7 +36342,8 @@ function SWAM() {
                 this.alpha -= this.fade,
                 this.sprite.position.set(this.pos.x, this.pos.y);
                 let Vt = this.flick ? Math.random() * this.size : this.size;
-                this.sprite.scale.set(Vt / 10 / game.scale)
+                this.sprite.scale.set(Vt / 10 / game.scale),
+                this.sprite.visible = Graphics.inScreen(this.pos, 128)
             }
             exists() {
                 return 0.1 <= this.alpha && 1 <= this.size
