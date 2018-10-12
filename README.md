@@ -14,9 +14,11 @@ While originally StarMash was created as a complete new skin for the game, as it
 
 Extensions can be defined as plugins that other users can create and share, to add new features to the game. Themes are new skins that change the graphics and sounds of the game.
 
-There's several extensions made by other members of our community. You can find a list with some of them [HERE](https://tiny.cc/starmashextensions).
+There's several extensions made by other members of our community. You can find a list with some of them [HERE](https://tiny.cc/starmashextensions). 
 
+Finally, if you are interested in creating Extensions and Themes, [check this guide](#how-to-create-extensions-and-themes).
 
+<br>
 <br>
 
 # **HOW TO USE THIS MOD?**
@@ -43,13 +45,13 @@ The Steps:
 <br>
 
 
-# Features and Help:
+## Features and Help:
 
 [For a list of features included in the Mod, check this page.](https://molesmalo.github.io/StarWarsMod4AirMash/Features)
 
 <br>
 
-# Changelog
+## Changelog
 
 - [Follow this link](https://molesmalo.github.io/StarWarsMod4AirMash/changelog) to check the most recent changes to the Mod.
 
@@ -76,7 +78,7 @@ Galleries:
 <br>
 
 
-# **When using the StarMash v.2 Theme, consider this**
+## **When using the StarMash v.2 Theme, consider this**
 
 *MAC USERS:*
 
