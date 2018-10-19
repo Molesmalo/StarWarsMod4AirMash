@@ -31117,8 +31117,7 @@ function loadGameCode() {
                 Hn += "<div class=\"line" + Un + "\" player-id=\"" + Fn.id + "\"><span class=\"place" + Kn + "\">" + Bn + "</span><span class=\"flag small flag-" + Fn.flag + "\"></span><span class=\"nick" + qn + "\">" + (Fn.removedFromMap ? UI.escapeHTML(Fn.name).strike() : UI.escapeHTML(Fn.name)) + "</span>" + (0 == Gn ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + Gn + "</span></span>") + "<span class=\"score\">" + En(Xn) + "</span></div>",
                 !Wn)); Qn++)
                     ;
-                $("#scoreboard").html(Hn),
-                $("#scoreboard div").click(SWAM.scoreboard_click_handler)
+                $("#scoreboard").html(Hn)
             }
         }
         ;
@@ -33972,6 +33971,14 @@ function forEachPlayer(Bt) {
         Bt(Yt)
     }
 }
+function GetQueryStringParams(Bt) {
+    let Xt = window.location.search.substring(1)
+      , Gt = Xt.split("&");
+    for (let Yt = 0, Ht; Yt < Gt.length; Yt++)
+        if (Ht = Gt[Yt].split("="),
+        Ht[0] == Bt)
+            return Ht[1]
+}
 window.Base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     encode: function(Bt) {
@@ -34027,7 +34034,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.5101001",
+window.SWAM_version = "2.5101801",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34046,11 +34053,7 @@ function SWAM() {
             } catch (Yt) {
                 Gt = null
             }
-            $.extend(!0, Xt, Gt);
-            for (let Yt of SWAM.getSettingsProviders())
-                Yt.getLocal(Xt, Gt);
-            for (let Yt in Gt)
-                "undefined" == typeof Xt[Yt] && (Xt[Yt] = Gt[Yt])
+            $.extend(!0, Xt, Gt)
         } catch (Gt) {
             localStorage.removeItem("SWAM_Settings")
         }
@@ -34058,7 +34061,6 @@ function SWAM() {
     }
     function setModSettings(Bt) {
         SWAM.Settings = Bt,
-        Bt.audio.bgMusicMainMenu ? AddMusic() : RemoveMusic(),
         SWAM.resizeMap(Bt.general.scalingFactor),
         config.minimapSize = Bt.ui.minimapSize,
         UI.resizeMinimap();
@@ -34170,13 +34172,6 @@ function SWAM() {
                     }
         }
         return Bt
-    }
-    function AddMusic() {
-        0 == $("#logon").length || 0 < $("#bgMusicIFrame").length || SWAM.Settings.audio.bgMusicMainMenu && (console.log("Playing music..."),
-        $("body").append("<iframe id=\"bgMusicIFrame\" width=\"1\" height=\"1\" wmode=\"transparent\" src=\"//www.youtube.com/embed/NoXZZhgUo_0?vq=small&autoplay=1&loop=1&playlist=NoXZZhgUo_0\" frameborder=\"0\" allowfullscreen>"))
-    }
-    function RemoveMusic() {
-        $("#bgMusicIFrame").remove()
     }
     function makePlayerGlow(Bt) {
         if (PIXI.filters.GlowFilter && "Bombita" != Bt.name && SWAM.Settings.general.killStreaksFX) {
@@ -34319,7 +34314,75 @@ function SWAM() {
         closeSettingsWindow(),
         SWAM.ColorAdjustments.open()
     }
-    SWAM.Settings = getModSettings(),
+    function SWAM_scoreboard_click_handler(Bt) {
+        var Xt = $(Bt.currentTarget).attr("player-id");
+        SWAM.setTargetedPlayer(Xt)
+    }
+    function SWAM_keydown_handler(Bt) {
+        if (!(game.state !== Network.STATE.PLAYING || SWAM.chatinputVisible())) {
+            var Xt = $.inArray(Bt.which, [65, 68, 87, 83, 37, 38, 39, 40]);
+            -1 < Xt && AutoPilot && 0 < AutoPilot.currentNode && AutoPilot.cancel(),
+            game.spectatingID || (Xt = $.inArray(Bt.which, [87, 83, 38, 40, 53, 35]),
+            -1 < Xt && (SWAM.CruiseMode.isOn() ? SWAM.CruiseMode.off(0 != Xt && 2 != Xt) : (53 == Bt.keyCode || 35 == Bt.keyCode) && SWAM.CruiseMode.on())),
+            89 == Bt.keyCode && (Network.sendCommand("drop", ""),
+            Bt.stopImmediatePropagation(),
+            Bt.preventDefault()),
+            game.spectatingID && (["1", "2", "3", "4", "5"].includes(Bt.key) && UI.selectAircraft(parseInt(Bt.key)),
+            Bt.stopImmediatePropagation(),
+            Bt.preventDefault()),
+            AutoPilot && AutoPilot.mimic_keydown_handler(Bt),
+            SWAM.trigger("keydown", Bt)
+        }
+    }
+    function SWAM_keyup_handler(Bt) {
+        if (!(game.state !== Network.STATE.PLAYING || SWAM.chatinputVisible())) {
+            switch (SWAM.radio.handle_keys(Bt),
+            Bt.which) {
+            case 46:
+                clearChat(Bt);
+                break;
+            case 114:
+                SWAM.toggleLeaderboard();
+                break;
+            case 115:
+                SWAM.toggleUI();
+                break;
+            case 116:
+                emotesPanel.toggle();
+                break;
+            case 120:
+                SWAM.GameLog.show();
+                break;
+            case 121:
+                SWAM.OpenSettingsWindow();
+            }
+            SWAM.trigger("keyup", Bt)
+        }
+    }
+    function SWAM_canvas_click_handler(Bt) {
+        if (1 == Bt.which && Bt.altKey) {
+            var Xt = game.screenX - config.minimapPaddingX - config.minimapSize
+              , Gt = game.screenX - config.minimapPaddingX
+              , Yt = game.screenY - config.minimapPaddingY - config.minimapSize / 2
+              , Ht = game.screenY - config.minimapPaddingY;
+            if (Bt.offsetX > Xt && Bt.offsetX < Gt && Bt.offsetY > Yt && Bt.offsetY < Ht) {
+                var jt = -1 * (32768 * ((game.screenX - config.minimapPaddingX - Bt.offsetX) / config.minimapSize) - 16384)
+                  , Wt = -1 * (16384 * (2 * ((game.screenY - config.minimapPaddingY - Bt.offsetY) / config.minimapSize)) - 8192);
+                AutoPilot.log(jt, Wt),
+                AutoPilot.NavigateTo(jt, Wt),
+                SWAM.trigger("minimap_click", [Bt, jt, Wt])
+            }
+        }
+        SWAM.trigger("canvas_click", Bt)
+    }
+    function SWAM_canvas_mousedown_handler(Bt) {
+        if (AutoPilot && AutoPilot.checkMimic(Bt),
+        !Players.amIAlive() && 1 == Bt.which) {
+            let Xt = SWAM.getClosestPlayer(Bt.offsetX, Bt.offsetY);
+            null != Xt && Network.sendCommand("spectate", Xt.id + "")
+        }
+        SWAM.trigger("canvas_mousedown", Bt)
+    }
     SWAM.GAME_TYPE = {
         FFA: 1,
         CTF: 2,
@@ -34329,6 +34392,7 @@ function SWAM() {
     game.fixedjitter = INITIAL_JITTER;
     const cruise64green = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzNTkuMjEgMzU5LjIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KPG1ldGFkYXRhPgo8cmRmOlJERj4KPGNjOldvcmsgcmRmOmFib3V0PSIiPgo8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KPGRjOnR5cGUgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIvPgo8ZGM6dGl0bGUvPgo8L2NjOldvcms+CjwvcmRmOlJERj4KPC9tZXRhZGF0YT4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIxMC4wMSAtMzQzLjEzKSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIuMTE2IC0yLjg1ODgpIiBmaWxsPSIjYzlmZjAwIj4KPHBhdGggZD0ibTM3Ny41IDQzNy4zOGMtNzMuMTc4IDAtMTMyLjUgNTkuMzIyLTEzMi41IDEzMi41IDAgNDAuODM3IDE4LjQ4NCA3Ny4zNTEgNDcuNTMxIDEwMS42NiA4Ljg3NjUtOC44OTQ0IDE3Ljc1MS0xNy43OTEgMjYuNjI1LTI2LjY4OCAxLjk1MjYtMS45NTI2IDAuMzczOTktNi43MTk4LTMuNTMxMi0xMC42MjUtMy45MDUyLTMuOTA1Mi04LjY0MTEtNS40ODM5LTEwLjU5NC0zLjUzMTJsLTEyLjY4OCAxMi42ODhjLTE0LjQ2Ny0xNi43NDgtMjQuMDg4LTM3LjgxNy0yNi42NTYtNjFoMTkuMzEyYzIuNzYxNCAwIDUtNC40NzcyIDUtMTBzLTIuMjM4Ni0xMC01LTEwaC0xOS43NWMxLjU3NTItMjMuOTE0IDEwLjYwNi00NS43OTMgMjQuODEyLTYzLjMxMmwxNC45NjkgMTQuOTY5YzEuOTUyNiAxLjk1MjYgNi42ODg1IDAuMzczOTkgMTAuNTk0LTMuNTMxMiAzLjkwNTItMy45MDUyIDUuNDgzOS04LjY3MjQgMy41MzEyLTEwLjYyNWwtMTUuMTU2LTE1LjE1NmMxNy4zNDgtMTQuOTg1IDM5LjMzMS0yNC43NzMgNjMuNS0yNi45MDZ2MjIuMDYyYzAgMi43NjE0IDQuNDc3MiA1IDEwIDVzMTAtMi4yMzg2IDEwLTV2LTIyLjA2MmMyNC4xOCAyLjEzMDQgNDYuMTQ3IDExLjkxMSA2My41IDI2LjkwNmwtMTUuMTU2IDE1LjE1NmMtMS45NTI2IDEuOTUyNi0wLjM3Mzk5IDYuNzE5OCAzLjUzMTIgMTAuNjI1IDMuOTA1MiAzLjkwNTIgOC42NDExIDUuNDgzOSAxMC41OTQgMy41MzEybDE0Ljk2OS0xNC45NjljMTQuMjAzIDE3LjUyMSAyMy4yNDIgMzkuMzk2IDI0LjgxMiA2My4zMTJoLTE5Ljc1Yy0yLjc2MTQgMC01IDQuNDc3Mi01IDEwczIuMjM4NiAxMCA1IDEwaDE5LjI4MWMtMi41NjMxIDIzLjE4Ni0xMi4xNjUgNDQuMjUtMjYuNjI1IDYxbC0xMi42ODgtMTIuNjg4Yy0xLjk1MjYtMS45NTI2LTYuNjg4NS0wLjM3Mzk5LTEwLjU5NCAzLjUzMTItMy45MDUyIDMuOTA1Mi01LjQ4MzkgOC42NzI0LTMuNTMxMiAxMC42MjUgOC44NzI5IDguOTA4NCAxNy43NjYgMTcuNzk3IDI2LjY1NiAyNi42ODggMjkuMDM3LTI0LjMwNiA0Ny41LTYwLjgyOCA0Ny41LTEwMS42NiAwLTczLjE3OC01OS4zMjItMTMyLjUtMTMyLjUtMTMyLjV6Ii8+CjxwYXRoIHRyYW5zZm9ybT0ibWF0cml4KDEuMTY2NyAwIDAgMS4xNjY3IC02MCAtOTUuMzk0KSIgZD0ibTM5MCA1NzIuMzZjMCA4LjI4NDMtNi43MTU3IDE1LTE1IDE1cy0xNS02LjcxNTctMTUtMTUgNi43MTU3LTE1IDE1LTE1IDE1IDYuNzE1NyAxNSAxNXoiLz4KPHBhdGggZD0ibTM0NS43MyA0OTMuNTNjLTQuNjA2OCAyLjA2NjQtNy40ODQ5IDUuNDk4MS02LjU0NjUgNy45MTA4bDIzLjc4NyA2MS4xNjJjLTMuMDc1MiA0LjU4OTYtMy45MzM5IDEwLjU3Ni0xLjc3OTUgMTYuMTE2IDMuNTAzMiA5LjAwNzcgMTMuNjQ1IDEzLjQ3IDIyLjY1MyA5Ljk2NjhzMTMuNDctMTMuNjQ1IDkuOTY2OC0yMi42NTNjLTIuMTU0NC01LjUzOTUtNi44MzI0LTkuMzczLTEyLjItMTAuNjc5bC0yMy43ODctNjEuMTYyYy0xLjAwMDktMi41NzM2LTUuOTg1LTMuMDM3Mi0xMS4xMzItMS4wMzUzLTAuMzIxNyAwLjEyNTExLTAuNjU0MDEgMC4yMzYtMC45NjExMiAwLjM3Mzc5eiIvPgo8cGF0aCBkPSJtMzAzLjUyIDM4Ni44MiAxOC42NzYtNy4xNTU2IDguOTQ0NSAyMy4zNDUgMTQuMDA3LTUuMzY2Ny0yMC4xNjEgNDUuMjA2LTQ1LjIwNi0yMC4xNjEgMTQuMDA3LTUuMzY2Ny04Ljk0NDUtMjMuMzQ1eiIvPgo8L2c+CjwvZz4KPC9zdmc+Cg=="
       , cruiseOFFDataURL = "url('data:image/svg+xml;base64," + Base64.encode(Base64.decode(cruise64green).replace(/\#c9ff00/g, "#555555")) + "')";
+    SWAM.Settings = getModSettings(),
     eval(Base64.decode("d2luZG93Lkdsb3cgPSBmdW5jdGlvbihwbGF5ZXIpDQp7DQogICAgaWYgKFBJWEkuZmlsdGVycy5HbG93RmlsdGVyICYmIHBsYXllci5uYW1lID09ICJCb21iaXRhIikgew0KICAgICAgICB2YXIgY29sb3IgPSAocGxheWVyLmdyYXBoaWNzU2V0ID09IDApID8gMHhFMEUwRkYgOiAweEZGRkZGRjsNCiAgICAgICAgcGxheWVyLnNwcml0ZXMuc3ByaXRlLmZpbHRlcnMgPSBbDQogICAgICAgICAgICBuZXcgUElYSS5maWx0ZXJzLkdsb3dGaWx0ZXIoMTAsIDEsIDAsIGNvbG9yLCAwLjIpDQogICAgICAgIF07DQogICAgfQ0KfTs=")),
     $("#logosmall").attr("href", window.location.href),
     $("#logon .logo .version").html(`AirMash ${game.version}<span style="margin: 0 20px;"></span>StarMash ${SWAM.version}`),
@@ -34342,11 +34406,10 @@ function SWAM() {
     $("#settings").prepend($("<div class='modSettingsIcon'></div>").click(function() {
         SWAM.OpenSettingsWindow()
     })),
-    $("#logon > div.buttons").before($("<div style='position: relative; width: 295px; left: 35px; top: 10px; text-align: center; vertical-align: top; padding: 9px 18px 7px 18px; background-color: #1e1e1e; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,0.6); border-bottom: 2px solid rgba(0,0,0,0.2);'>Mod settings</div>").click(function() {
+    $("#logon > div.buttons").before($(getTemplate("#btnOpenSettings")).click(function() {
         SWAM.OpenSettingsWindow()
     })),
-    $("#minimizechatcontainer").prepend("<div id='clearChat' style='position: absolute; right: 70px; color: #c9c9c9; opacity: 0.8; cursor: pointer;'>Clear chat</div>"),
-    $("#clearChat").click(clearChat),
+    $("#minimizechatcontainer").prepend($(getTemplate("#clearChat")).click(clearChat)),
     function() {
         var Xt = [["Z", "Radio All"], ["X", "Radio Team"], ["C", "Radio Bubble"], ["Y", "Drop flag"], ["5 or End", "Cruise Control"], ["DEL", "Clear chat"], ["F3", "Toggle leaderboard"], ["F4", "Toggle UI"], ["F9", "Open Game Log"], ["F10", "Open Mod Settings"]]
           , Gt = $("<div class=\"commands\" style=\"color: white\">StarMash - Mod shortcuts<div class=\"cmdlist\"></div></div>");
@@ -34424,9 +34487,9 @@ function SWAM() {
         Gt.addBoolean("general.killStreaksFX", "Player glow with kill streaks (5 kills without dying)."),
         Gt.addBoolean("general.zoomFreeSpectator", "Zoom out in free-camera spectator mode."),
         Gt.addSliderField("general.scalingFactor", "Zoom Level (default: 2500)", {
-            min: 2e3,
+            min: 1500,
             max: 6e3,
-            step: 500
+            step: 250
         }),
         Gt.addBoolean("general.useProwlerRadar", "Use Prowler Radar (low resolution dangerous areas)."),
         Gt = Xt.addSection("Interface"),
@@ -34459,6 +34522,10 @@ function SWAM() {
     }(),
     SWAM.loadSettings = function() {
         setModSettings(getModSettings())
+    }
+    ,
+    SWAM.saveSettings = function() {
+        setModSettings(SWAM.Settings)
     }
     ;
     let closeSettingsWindow = ()=>{}
@@ -34708,12 +34775,7 @@ function SWAM() {
     ;
     let Players_whisper = Players.whisper;
     Players.whisper = function(Bt) {
-        Players_whisper.call(Players, Bt),
-        Bt.from != game.myID && (Sound.UIClick(),
-        setTimeout(()=>{
-            Sound.UIClick()
-        }
-        , 200))
+        Players_whisper.call(Players, Bt)
     }
     ;
     let Mobs_add = Mobs.add;
@@ -35339,6 +35401,7 @@ function SWAM() {
         for (var Wt of Yt)
             jt = jt || Xt.startsWith(Wt);
         if (!jt) {
+            2 == Gt && Bt.id != game.myID && Sound.DoubleClick();
             let zt = Xt.match(getURLRegEx());
             if (null != zt) {
                 let qt = Xt.split(getURLRegEx());
@@ -35380,7 +35443,7 @@ function SWAM() {
     let UI_updateScore = UI.updateScore;
     UI.updateScore = function(Bt) {
         UI_updateScore.call(UI, Bt),
-        $("#scorecontainer div").click(SWAM.scoreboard_click_handler),
+        $("#scorecontainer div").click(SWAM_scoreboard_click_handler),
         updatePlayerCounters(Bt.scores),
         SWAM.trigger("detailedScoreUpdate", Bt)
     }
@@ -35388,6 +35451,7 @@ function SWAM() {
     let UI_scoreboardUpdate = UI.scoreboardUpdate;
     UI.scoreboardUpdate = function(Bt, Xt, Gt) {
         UI_scoreboardUpdate.call(UI, Bt, Xt, Gt),
+        $("#scoreboard div").click(SWAM_scoreboard_click_handler),
         updateMinimapOpacity(),
         SWAM.trigger("scoreboardUpdate", [Bt, Xt, Gt])
     }
@@ -35401,7 +35465,6 @@ function SWAM() {
     Games.prep = function() {
         game.fixedjitter = INITIAL_JITTER,
         SWAM.debug && console.log("game prepped " + new Date),
-        RemoveMusic(),
         SWAM.GameLog.logConnected(),
         games_prep.apply(Games),
         (game.gameType == SWAM.GAME_TYPE.FFA || game.gameType == SWAM.GAME_TYPE.BTR) && $("#graphicsSet").show(),
@@ -35415,10 +35478,10 @@ function SWAM() {
         SWAM.updatePlayerCounters(),
         SWAM.PlayerInfoTimer = setInterval(SWAM.updatePlayersNamePlate, 500),
         SWAM.hyperSpace && SWAM.hyperSpace.show(),
-        $(window).keydown(SWAM.keydown_handler),
-        $(window).keyup(SWAM.keyup_handler),
-        $("canvas").click(SWAM.canvas_click_handler),
-        $("canvas").mousedown(SWAM.canvas_mousedown_handler),
+        $(window).keydown(SWAM_keydown_handler),
+        $(window).keyup(SWAM_keyup_handler),
+        $("canvas").click(SWAM_canvas_click_handler),
+        $("canvas").mousedown(SWAM_canvas_mousedown_handler),
         SWAM.trigger("gamePrep")
     }
     ;
@@ -35430,10 +35493,10 @@ function SWAM() {
         $("#graphicsSet").hide(),
         $("#AutoPilotAlert").remove(),
         $("#btnFreeSpectator").hide(),
-        $(window).off("keydown", SWAM.keydown_handler),
-        $(window).off("keyup", SWAM.keyup_handler),
-        $("canvas").off("click", SWAM.canvas_click_handler),
-        $("canvas").off("mousedown", SWAM.canvas_mousedown_handler),
+        $(window).off("keydown", SWAM_keydown_handler),
+        $(window).off("keyup", SWAM_keyup_handler),
+        $("canvas").off("click", SWAM_canvas_click_handler),
+        $("canvas").off("mousedown", SWAM_canvas_mousedown_handler),
         SWAM.trigger("gameWipe")
     }
     ;
@@ -35482,10 +35545,33 @@ function SWAM() {
         Network.reconnect()
     }
     ,
+    Sound.DoubleClick = function() {
+        Sound.UIClick(),
+        setTimeout(()=>{
+            Sound.UIClick()
+        }
+        , 225)
+    }
+    ,
     SWAM.updateLayers = function() {}
     ,
     SWAM.resizeLayers = function() {}
-    ,
+    ;
+    new function() {
+        function Bt() {
+            0 == $("#logon").length || 0 < $("#bgMusicIFrame").length || SWAM.Settings.audio.bgMusicMainMenu && (console.log("Playing music..."),
+            $("body").append("<iframe id=\"bgMusicIFrame\" width=\"1\" height=\"1\" wmode=\"transparent\" src=\"//www.youtube.com/embed/NoXZZhgUo_0?vq=small&autoplay=1&loop=1&playlist=NoXZZhgUo_0\" frameborder=\"0\" allowfullscreen>"))
+        }
+        function Xt() {
+            $("#bgMusicIFrame").remove()
+        }
+        SWAM.on("settingsApplied", Gt=>{
+            Gt.audio.bgMusicMainMenu ? Bt() : Xt()
+        }
+        ),
+        SWAM.on("gamePrep", Xt)
+    }
+    ;
     SWAM.addDebugElements = function() {
         if (SWAM.debug) {
             $("#logon").append("<div><input class='dgCamUpdates' type='button' value='updates' style='width: 50px; margin-right: 10px;'></div><table><tr><td colspan='3' align='center'><input class='dgCamY' type='button' value='-8192' style='width: 50px; margin-right: 10px;'></td></tr><tr><td><input class='dgCamX' type='button' value='-16384' style='width: 50px; margin-right: 10px;'></td><td><input class='dgCamX' type='button' value='0' style='width: 50px; margin-right: 10px;'><input class='dgCamY' type='button' value='0'    style='width: 50px; margin-right: 10px;'></td><td><input class='dgCamX' type='button' value='16384' style='width: 50px; margin-right: 10px;'></td></tr><tr><td colspan='3' align='center'><input class='dgCamY' type='button' value='8192' style='width: 50px; margin-right: 10px;'></td></tr></table>"),
@@ -36517,34 +36603,6 @@ function SWAM() {
         SWAM.on("gameWipe", this.remove)
     }
     ,
-    $("#chatinput").on("input", function() {
-        if (SWAM.Settings.ui.replaceEmoticons) {
-            let Yt = this.selectionStart
-              , Ht = this.value
-              , jt = Ht.substr(0, 2).toLowerCase();
-            if (!jt.startsWith("/s")) {
-                if (jt.startsWith("/w")) {
-                    let zt = Ht.indexOf(" ", 3) + 1;
-                    jt = Ht.substr(0, zt),
-                    Ht = Ht.substr(zt)
-                } else
-                    jt = "";
-                Ht = function(zt) {
-                    const Vt = [["\uD83D\uDE42", /[:=]-?\)/g], ["\uD83D\uDE03", /:D/g], ["\uD83D\uDE04", /\^_?\^/g], [" \uD83D\uDE06", / [xX]-?D/g], ["\uD83D\uDE09", /;-?\)/g], ["\uD83D\uDE0E", /B-?\)/g], ["\uD83D\uDE10", /:-?\|/g], ["\uD83D\uDE12", /¬_?¬/g], ["\uD83D\uDE14", /[:=]-[\/\\]/g], ["\uD83D\uDE15", /[:=]-?[sS]/g], ["\uD83D\uDE1B", /[:=]-?[pP]/g], ["\uD83D\uDE1C", /;-?[pP]/g], ["\uD83D\uDE21", /:-?\@/g], ["\uD83D\uDE22", /[:=]'-?\(/g], ["\uD83D\uDE2D", /[:=]''-?\(/g], ["\uD83D\uDE2E", /[:=]-[oO]/g], ["\uD83D\uDE33", /[:=]-?\$/g], ["\uD83D\uDE41", /[:=]-?\(/g], ["\uD83D\uDE43", /\(-?[:=]/g], ["\u2764\uFE0F", /<3|&lt;3/g], ["\uD83D\uDC94", /<\/3|&lt;&#x2F;3/g]];
-                    for (let Kt of Vt) {
-                        var qt = new RegExp(Kt[1],"gim");
-                        zt = zt.replace(qt, function(Zt) {
-                            return Yt += Kt[0].length - Zt.length,
-                            Kt[0]
-                        })
-                    }
-                    return zt
-                }(Ht),
-                this.value = jt + Ht,
-                this.setSelectionRange(Yt, Yt)
-            }
-        }
-    }),
     SWAM.ColorAdjustments = new function() {
         function Xt() {
             Qt = $(getTemplate("#adjustmentPanel")),
@@ -36655,83 +36713,37 @@ function SWAM() {
             50 < sentMessages.length && sentMessages.shift())
         }
     }),
+    $("#chatinput").on("input", function() {
+        if (SWAM.Settings.ui.replaceEmoticons) {
+            let Yt = this.selectionStart
+              , Ht = this.value
+              , jt = Ht.substr(0, 2).toLowerCase();
+            if (!jt.startsWith("/s")) {
+                if (jt.startsWith("/w")) {
+                    let zt = Ht.indexOf(" ", 3) + 1;
+                    jt = Ht.substr(0, zt),
+                    Ht = Ht.substr(zt)
+                } else
+                    jt = "";
+                Ht = function(zt) {
+                    const Vt = [["\uD83D\uDE42", /[:=]-?\)/g], ["\uD83D\uDE03", /:D/g], ["\uD83D\uDE04", /\^_?\^/g], [" \uD83D\uDE06", / [xX]-?D/g], ["\uD83D\uDE09", /;-?\)/g], ["\uD83D\uDE0E", /B-?\)/g], ["\uD83D\uDE10", /:-?\|/g], ["\uD83D\uDE12", /¬_?¬/g], ["\uD83D\uDE14", /[:=]-[\/\\]/g], ["\uD83D\uDE15", /[:=]-?[sS]/g], ["\uD83D\uDE1B", /[:=]-?[pP]/g], ["\uD83D\uDE1C", /;-?[pP]/g], ["\uD83D\uDE21", /:-?\@/g], ["\uD83D\uDE22", /[:=]'-?\(/g], ["\uD83D\uDE2D", /[:=]''-?\(/g], ["\uD83D\uDE2E", /[:=]-[oO]/g], ["\uD83D\uDE33", /[:=]-?\$/g], ["\uD83D\uDE41", /[:=]-?\(/g], ["\uD83D\uDE43", /\(-?[:=]/g], ["\u2764\uFE0F", /<3|&lt;3/g], ["\uD83D\uDC94", /<\/3|&lt;&#x2F;3/g]];
+                    for (let Kt of Vt) {
+                        var qt = new RegExp(Kt[1],"gim");
+                        zt = zt.replace(qt, function(Zt) {
+                            return Yt += Kt[0].length - Zt.length,
+                            Kt[0]
+                        })
+                    }
+                    return zt
+                }(Ht),
+                this.value = jt + Ht,
+                this.setSelectionRange(Yt, Yt)
+            }
+        }
+    }),
     $("#chatbox").mousedown(function(Bt) {
         3 == Bt.which && Bt.target.className.includes("text") && copyTextToClipboard(Bt.target.innerText)
-    }),
-    SWAM.scoreboard_click_handler = function(Bt) {
-        var Xt = $(Bt.currentTarget).attr("player-id");
-        SWAM.setTargetedPlayer(Xt)
-    }
-    ,
-    SWAM.keydown_handler = function(Bt) {
-        if (!(game.state !== Network.STATE.PLAYING || SWAM.chatinputVisible())) {
-            var Xt = $.inArray(Bt.which, [65, 68, 87, 83, 37, 38, 39, 40]);
-            -1 < Xt && AutoPilot && 0 < AutoPilot.currentNode && AutoPilot.cancel(),
-            game.spectatingID || (Xt = $.inArray(Bt.which, [87, 83, 38, 40, 53, 35]),
-            -1 < Xt && (SWAM.CruiseMode.isOn() ? SWAM.CruiseMode.off(0 != Xt && 2 != Xt) : (53 == Bt.keyCode || 35 == Bt.keyCode) && SWAM.CruiseMode.on())),
-            89 == Bt.keyCode && (Network.sendCommand("drop", ""),
-            Bt.stopImmediatePropagation(),
-            Bt.preventDefault()),
-            game.spectatingID && (["1", "2", "3", "4", "5"].includes(Bt.key) && UI.selectAircraft(parseInt(Bt.key)),
-            Bt.stopImmediatePropagation(),
-            Bt.preventDefault()),
-            AutoPilot && AutoPilot.mimic_keydown_handler(Bt),
-            SWAM.trigger("keydown", Bt)
-        }
-    }
-    ,
-    SWAM.keyup_handler = function(Bt) {
-        if (!(game.state !== Network.STATE.PLAYING || SWAM.chatinputVisible())) {
-            switch (SWAM.radio.handle_keys(Bt),
-            Bt.which) {
-            case 46:
-                clearChat(Bt);
-                break;
-            case 114:
-                SWAM.toggleLeaderboard();
-                break;
-            case 115:
-                SWAM.toggleUI();
-                break;
-            case 116:
-                emotesPanel.toggle();
-                break;
-            case 120:
-                SWAM.GameLog.show();
-                break;
-            case 121:
-                SWAM.OpenSettingsWindow();
-            }
-            SWAM.trigger("keyup", Bt)
-        }
-    }
-    ,
-    SWAM.canvas_click_handler = function(Bt) {
-        if (1 == Bt.which && Bt.altKey) {
-            var Xt = game.screenX - config.minimapPaddingX - config.minimapSize
-              , Gt = game.screenX - config.minimapPaddingX
-              , Yt = game.screenY - config.minimapPaddingY - config.minimapSize / 2
-              , Ht = game.screenY - config.minimapPaddingY;
-            if (Bt.offsetX > Xt && Bt.offsetX < Gt && Bt.offsetY > Yt && Bt.offsetY < Ht) {
-                var jt = -1 * (32768 * ((game.screenX - config.minimapPaddingX - Bt.offsetX) / config.minimapSize) - 16384)
-                  , Wt = -1 * (16384 * (2 * ((game.screenY - config.minimapPaddingY - Bt.offsetY) / config.minimapSize)) - 8192);
-                AutoPilot.log(jt, Wt),
-                AutoPilot.NavigateTo(jt, Wt),
-                SWAM.trigger("minimap_click", [Bt, jt, Wt])
-            }
-        }
-        SWAM.trigger("canvas_click", Bt)
-    }
-    ,
-    SWAM.canvas_mousedown_handler = function(Bt) {
-        if (AutoPilot && AutoPilot.checkMimic(Bt),
-        !Players.amIAlive() && 1 == Bt.which) {
-            let Xt = SWAM.getClosestPlayer(Bt.offsetX, Bt.offsetY);
-            null != Xt && Network.sendCommand("spectate", Xt.id + "")
-        }
-        SWAM.trigger("canvas_mousedown", Bt)
-    }
-    ,
+    });
     SWAM.listLayers = function(Bt) {
         for (var Xt = 0; Xt < Bt.children.length; Xt++)
             console.log(Bt.children[Xt].layerName)
@@ -36963,7 +36975,8 @@ SWAM.injectSounds = function(Bt) {
     function $t(un, pn) {
         pn = pn.replace(/\[(\w+)\]/g, ".$1"),
         pn = pn.replace(/^\./, "");
-        for (var cn = pn.split("."), hn = 0, fn; hn < cn.length; ++hn)
+        let cn = pn.split(".");
+        for (let hn = 0, fn; hn < cn.length; ++hn)
             if (fn = cn[hn],
             fn in un)
                 un = un[fn];
@@ -37128,6 +37141,8 @@ SWAM.injectSounds = function(Bt) {
             }
         }
         let bn = [];
+        this.title = pn,
+        this.fields = bn,
         this.setValue = function(xn) {
             for (let vn of bn)
                 if (vn.property && vn.setValue) {
@@ -37214,14 +37229,17 @@ SWAM.injectSounds = function(Bt) {
         } catch (un) {}
     }(),
     SWAM.loadTheme = function() {
+        let un = GetQueryStringParams("theme");
+        un && "function" == typeof sn[un] && (dn = un,
+        Zt()),
         ln != window.specialTheme && (window.specialTheme && (dn = window.specialTheme),
         Zt()),
         null != dn && "" != dn && "function" == typeof sn[dn] || (dn = "RealisticSprites"),
         SWAM.Theme = new sn[dn];
-        let un = SWAM.Theme.settingsProvider;
-        un && (un.title = sn[dn].themeName,
-        un.isTheme = !0,
-        un.root = "themes." + sn[dn].id)
+        let pn = SWAM.Theme.settingsProvider;
+        pn && (pn.title = sn[dn].themeName,
+        pn.isTheme = !0,
+        pn.root = "themes." + sn[dn].id)
     }
     ,
     SWAM.getThemeFunction = function() {
@@ -37424,8 +37442,10 @@ SWAM.injectSounds = function(Bt) {
                 mn = mn[bn];
             return gn
         }
-        this.title = "";
+        this.title = "",
+        this.root = null;
         let hn = [];
+        this.sections = hn,
         this.getDefault = function() {
             let fn = this.root || "";
             if ("" != fn) {
@@ -37435,8 +37455,6 @@ SWAM.injectSounds = function(Bt) {
             }
             return un
         }
-        ,
-        this.getLocal = function() {}
         ,
         this.apply = function(fn) {
             pn && pn($t(fn, this.root), fn)
@@ -37923,6 +37941,7 @@ function showRequestlyWarning() {
     }
 }
 SWAM.loadFiles(()=>{
+    window.specialTheme = "HellMash",
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
     SWAM.trigger("themeLoaded"),

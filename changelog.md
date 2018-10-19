@@ -5,6 +5,11 @@
 <br>
 <br>
 
+## Oct 18 2018
+- 2 New Themes: 🔥 HellMash and Limbo 🔥
+
+&nbsp;
+
 ## Oct 08 2018
 - New Color Adjustment Panel: lets you adjust color settings. Open it from the Settings Window.
 - Replaced STATSBOT flag with a bot image.
