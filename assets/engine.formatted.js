@@ -36317,7 +36317,7 @@ function SWAM() {
             };
             let Zt = "";
             for (let Qt in Kt)
-                Zt += `.emote-${Qt} { width: 32px; height: 32px; background: url(${getFilePath("gui.png")}) -${Kt[Qt][0] / 2}px  -${Kt[Qt][1] / 2}px; background-size: 512px; background-repeat: no-repeat; } `;
+                Zt += `.emote-${Qt} { width: 32px; height: 32px; background: url("https://airma.sh/assets/gui.png")}) -${Kt[Qt][0] / 2}px  -${Kt[Qt][1] / 2}px; background-size: 512px; background-repeat: no-repeat; } `;
             return Zt
         }
         let Wt = null
