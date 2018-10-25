@@ -38001,7 +38001,7 @@ SWAM.hideLoadingScreen = function() {
     delete SWAM.hideLoadingScreen
 }
 ,
-SWAM.on("gameLoaded", ()=>{
+SWAM.on("gameRunning", ()=>{
     if ("starma.sh" == location.hostname.toLowerCase()) {
         if (window.location.hash.toLowerCase().startsWith("#importsettings")) {
             let Bt = JSON.parse(atob(window.location.hash.replace("#importsettings", "")));
