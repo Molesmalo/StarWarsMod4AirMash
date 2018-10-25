@@ -31071,18 +31071,20 @@ function loadGameCode() {
                 game.graphics.layers.ui3.removeChild(Gt[Nn].sprite),
                 Gt[Nn].sprite.destroy(),
                 delete Gt[Nn];
-            for (var Yn = 0, Hn = "", jn = {}, Wn = !1, zn = 0, Vn = {}, qn = "", Kn = "", Zn = "", Qn = 0, Fn, Bn, Un, Xn, Gn; Qn < Ln.length; Qn++)
-                null != (Fn = Players.get(Ln[Qn].id)) && (Vn = Tools.decodeMinimapCoords(Ln[Qn].x, Ln[Qn].y),
+            var Yn = 0, Hn = "", jn = {}, Wn = !1, zn = 0, Vn = {}, qn = "", Kn = "", Zn = "", Qn = 0, Fn, Bn, Un, Xn, Gn;
+            for (Qn = 0; Qn < Ln.length; Qn++)
+                Fn = Players.get(Ln[Qn].id),
+                null != Fn && (Vn = Tools.decodeMinimapCoords(Ln[Qn].x, Ln[Qn].y),
                 Fn.scorePlace = Qn + 1,
                 Fn.lowResPos.x = Vn.x,
                 Fn.lowResPos.y = Vn.y,
                 Fn.removedFromMap = 0 == Ln[Qn].x && 0 == Ln[Qn].y,
-                Ln[Qn].id == game.myID ? zn = Qn + 1 : 0 == Ln[Qn].x && 0 == Ln[Qn].y || (jn[Fn.id] = !0,
+                Ln[Qn].id == game.myID ? zn = Qn + 1 : (0 != Ln[Qn].x || 0 != Ln[Qn].y) && (jn[Fn.id] = !0,
                 null == Gt[Ln[Qn].id] ? (Zn = "minimapMob",
                 2 == game.gameType && 1 == Fn.team && (Zn = "minimapBlue"),
-                0 < Ln.length && Fn.id == Ln[0].id && (Zn = "minimap1"),
-                1 < Ln.length && Fn.id == Ln[1].id && (Zn = "minimap2"),
-                2 < Ln.length && Fn.id == Ln[2].id && (Zn = "minimap3"),
+                0 == Qn && (Zn = "minimap1"),
+                1 == Qn && (Zn = "minimap2"),
+                2 == Qn && (Zn = "minimap3"),
                 SWAM.targetedPlayer == Fn.id && (Zn = "minimapTarget"),
                 Gt[Ln[Qn].id] = {
                     sprite: Textures.init(Zn),
@@ -31095,28 +31097,27 @@ function loadGameCode() {
                 null == jn[Jn] && (game.graphics.layers.ui1.removeChild(Gt[Jn].sprite),
                 Gt[Jn].sprite.destroy(),
                 delete Gt[Jn]);
-            if (0 != zn) {
+            if (!SWAM.Settings.ui.useExtendedScoreboard && 0 != zn) {
                 for (kn = kn ? Tools.clamp(kn, 1, On.length) : On.length,
-                Qn = 0; Qn < kn && (null == (Fn = Players.get(On[Qn].id)) || (Yn++,
-                Bn = 1 == Yn ? "<span class=\"badge scoreboard gold\"></span>" : 2 == Yn ? "<span class=\"badge scoreboard silver\"></span>" : 3 == Yn ? "<span class=\"badge scoreboard bronze\"></span>" : Yn + ".",
-                Un = Fn.me() ? " sel" : "",
-                Xn = On[Qn].score,
-                Gn = On[Qn].level,
-                zn > kn && Yn == kn - 1 && (Hn += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
-                !0,
-                Fn = Players.get(game.myID),
-                Bn = zn + ".",
-                Xn = game.myScore,
-                Gn = game.myLevel,
-                Un = " sel",
-                Wn = !0),
-                qn = "",
-                2 == game.gameType && (qn = " team-" + Fn.team),
-                Kn = "",
-                4 == (Bn + "").length && (Kn = " bigger"),
-                Hn += "<div class=\"line" + Un + "\" player-id=\"" + Fn.id + "\"><span class=\"place" + Kn + "\">" + Bn + "</span><span class=\"flag small flag-" + Fn.flag + "\"></span><span class=\"nick" + qn + "\">" + (Fn.removedFromMap ? UI.escapeHTML(Fn.name).strike() : UI.escapeHTML(Fn.name)) + "</span>" + (0 == Gn ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + Gn + "</span></span>") + "<span class=\"score\">" + En(Xn) + "</span></div>",
-                !Wn)); Qn++)
-                    ;
+                Qn = 0; Qn < kn && !Wn; Qn++)
+                    Fn = Players.get(On[Qn].id),
+                    null == Fn || (Yn++,
+                    Bn = 1 == Yn ? "<span class=\"badge scoreboard gold\"></span>" : 2 == Yn ? "<span class=\"badge scoreboard silver\"></span>" : 3 == Yn ? "<span class=\"badge scoreboard bronze\"></span>" : Yn + ".",
+                    Un = Fn.me() ? " sel" : "",
+                    Xn = On[Qn].score,
+                    Gn = On[Qn].level,
+                    zn > kn && Yn == kn - 1 && (Hn += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
+                    Fn = Players.get(game.myID),
+                    Bn = zn + ".",
+                    Xn = game.myScore,
+                    Gn = game.myLevel,
+                    Un = " sel",
+                    Wn = !0),
+                    qn = "",
+                    2 == game.gameType && (qn = " team-" + Fn.team),
+                    Kn = "",
+                    4 == (Bn + "").length && (Kn = " bigger"),
+                    Hn += "<div class=\"line" + Un + "\" player-id=\"" + Fn.id + "\"><span class=\"place" + Kn + "\">" + Bn + "</span><span class=\"flag small flag-" + Fn.flag + "\"></span><span class=\"nick" + qn + "\">" + (Fn.removedFromMap ? UI.escapeHTML(Fn.name).strike() : UI.escapeHTML(Fn.name)) + "</span>" + (0 == Gn ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + Gn + "</span></span>") + "<span class=\"score\">" + En(Xn) + "</span></div>");
                 $("#scoreboard").html(Hn)
             }
         }
@@ -33653,7 +33654,7 @@ jQuery.cachedScript = function(Bt, Xt) {
     jQuery.ajax(Xt)
 }
 ,
-$.cachedScript("https://cdn.jsdelivr.net/npm/pixi-filters@2.5.0/dist/pixi-filters.js");
+SWAM.dependencies = ["https://cdn.jsdelivr.net/npm/pixi-filters@2.5.0/dist/pixi-filters.js"];
 function getURLRegEx(Bt) {
     return Bt = "undefined" == typeof Bt || Bt,
     /(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[\/?#]\S*)?/img
@@ -34034,7 +34035,7 @@ window.Base64 = {
         return Xt
     }
 },
-window.SWAM_version = "2.5101801",
+window.SWAM_version = "2.5102401",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34472,6 +34473,7 @@ function SWAM() {
                 showWhoKilledWho: !0,
                 showLogConnections: !0,
                 useSquaredScene: !0,
+                useExtendedScoreboard: !0,
                 minimapSize: 240,
                 replaceEmoticons: !0
             },
@@ -34489,7 +34491,7 @@ function SWAM() {
         Gt.addSliderField("general.scalingFactor", "Zoom Level (default: 2500)", {
             min: 1500,
             max: 6e3,
-            step: 250
+            step: 500
         }),
         Gt.addBoolean("general.useProwlerRadar", "Use Prowler Radar (low resolution dangerous areas)."),
         Gt = Xt.addSection("Interface"),
@@ -34497,6 +34499,7 @@ function SWAM() {
         Gt.addBoolean("ui.showWhoKilledWho", "Log: Show Who killed Who."),
         Gt.addBoolean("ui.showLogConnections", "Log: Show players joining/leaving."),
         Gt.addBoolean("ui.useSquaredScene", "Preserve an almost-squared game area."),
+        Gt.addBoolean("ui.useExtendedScoreboard", "Use an extended scoreboard."),
         Gt.addSliderField("ui.minimapSize", "Minimap Size (default: 240)", {
             min: 50,
             max: 700,
@@ -35444,6 +35447,7 @@ function SWAM() {
     UI.updateScore = function(Bt) {
         UI_updateScore.call(UI, Bt),
         $("#scorecontainer div").click(SWAM_scoreboard_click_handler),
+        UI.scoreboardUpdate2(Bt.scores),
         updatePlayerCounters(Bt.scores),
         SWAM.trigger("detailedScoreUpdate", Bt)
     }
@@ -35451,14 +35455,55 @@ function SWAM() {
     let UI_scoreboardUpdate = UI.scoreboardUpdate;
     UI.scoreboardUpdate = function(Bt, Xt, Gt) {
         UI_scoreboardUpdate.call(UI, Bt, Xt, Gt),
-        $("#scoreboard div").click(SWAM_scoreboard_click_handler),
         updateMinimapOpacity(),
+        SWAM.Settings.ui.useExtendedScoreboard || $("#scoreboard div").click(SWAM_scoreboard_click_handler),
         SWAM.trigger("scoreboardUpdate", [Bt, Xt, Gt])
     }
-    ;
+    ,
+    UI.scoreboardUpdate2 = function(Bt) {
+        if (SWAM.Settings.ui.useExtendedScoreboard) {
+            let Wt = 0, zt = "", Vt = !1, qt = 0, Kt = "", Zt = "", Qt = 0, Xt, Gt, Yt, Ht, jt;
+            Bt.sort(function(en, tn) {
+                return tn.score - en.score
+            }),
+            qt = Bt.findIndex(en=>en.id == game.myID);
+            var Jt = function(en) {
+                var tn = "";
+                en += "";
+                for (var nn = 0; nn < en.length; nn++)
+                    tn += "<span>" + en[nn] + "</span>";
+                return tn
+            };
+            let $t = 100;
+            for ($t = $t ? Tools.clamp($t, 1, Bt.length) : Bt.length,
+            Qt = 0; Qt < $t && !Vt; Qt++)
+                Xt = Players.get(Bt[Qt].id),
+                null == Xt || (Wt++,
+                Gt = 1 == Wt ? "<span class=\"badge scoreboard gold\"></span>" : 2 == Wt ? "<span class=\"badge scoreboard silver\"></span>" : 3 == Wt ? "<span class=\"badge scoreboard bronze\"></span>" : Wt + ".",
+                Yt = Xt.me() ? " sel" : "",
+                Ht = Bt[Qt].score,
+                jt = Bt[Qt].level,
+                qt > $t && Wt == $t - 1 && qt != $t && (zt += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
+                Xt = Players.get(game.myID),
+                Gt = qt + ".",
+                Ht = game.myScore,
+                jt = game.myLevel,
+                Yt = " sel",
+                Vt = !0),
+                Kt = "",
+                2 == game.gameType && (Kt = " team-" + Xt.team),
+                Zt = "",
+                4 == (Gt + "").length && (Zt = " bigger"),
+                zt += "<div class=\"line" + Yt + "\" player-id=\"" + Xt.id + "\"><span class=\"place" + Zt + "\">" + Gt + "</span><span class=\"flag small flag-" + Xt.flag + "\"></span><span class=\"nick" + Kt + "\">" + (Xt.removedFromMap ? UI.escapeHTML(Xt.name).strike() : UI.escapeHTML(Xt.name)) + "</span>" + (0 == jt ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + jt + "</span></span>") + "<span class=\"score\">" + Jt(Ht) + "</span></div>");
+            $("#scoreboard").html(zt).perfectScrollbar(),
+            $("#scoreboard div").click(SWAM_scoreboard_click_handler)
+        }
+    }
+    ,
+    UI.scoreboardUpdate2.interval = setInterval(()=>Network.getScores(), 5e3);
     let Games_performPing = Games.performPing;
     Games.performPing = function() {
-        "airma.sh" != window.location.host.toLowerCase() || Games_performPing.call(Games)
+        "airma.sh" != window.location.host.toLowerCase() || SWAM.debug || Games_performPing.call(Games)
     }
     ;
     let games_prep = Games.prep;
@@ -36165,7 +36210,7 @@ function SWAM() {
                 let Vt = jt[0]
                   , qt = isScrolledToBottom(Vt);
                 jt.append(zt),
-                1e3 < jt.children().length && jt.children().first().remove(),
+                500 < jt.children().length && jt.children().first().remove(),
                 qt && (Vt.scrollTop = Vt.scrollHeight)
             }
         }
@@ -36254,13 +36299,13 @@ function SWAM() {
         }
     }
     ;
-    let emotesPanel = new function Bt() {
+    let emotesPanel = new function() {
         function Gt() {
-            let qt = SWAM.getEmotesList().slice().filter(Kt=>"x" != Kt).sort();
-            return [...new Set(qt)]
+            let Kt = SWAM.getEmotesList().slice().filter(Zt=>"x" != Zt).sort();
+            return [...new Set(Kt)]
         }
         function Ht() {
-            const qt = {
+            const Kt = {
                 tf: [340, 404],
                 pepe: [412, 476],
                 clap: [268, 476],
@@ -36270,13 +36315,14 @@ function SWAM() {
                 cry: [340, 548],
                 rage: [412, 404]
             };
-            let Kt = "";
-            for (let Zt in qt)
-                Kt += `.emote-${Zt} { width: 32px; height: 32px; background: url(${getFilePath("gui.png")}) -${qt[Zt][0] / 2}px  -${qt[Zt][1] / 2}px; background-size: 512px; background-repeat: no-repeat; } `;
-            return Kt
+            let Zt = "";
+            for (let Qt in Kt)
+                Zt += `.emote-${Qt} { width: 32px; height: 32px; background: url(${getFilePath("gui.png")}) -${Kt[Qt][0] / 2}px  -${Kt[Qt][1] / 2}px; background-size: 512px; background-repeat: no-repeat; } `;
+            return Zt
         }
         let Wt = null
-          , zt = null;
+          , zt = null
+          , Vt = this;
         this.visible = function() {
             return "none" !== Wt.css("display")
         }
@@ -36291,7 +36337,7 @@ function SWAM() {
             zt = closeWhenClickOutside(Wt))
         }
         ;
-        let Vt = this.hide = function() {
+        let qt = this.hide = function() {
             Wt.fadeOut("fast"),
             $(document).off("mousedown", "", zt),
             Sound.UIClick()
@@ -36304,43 +36350,43 @@ function SWAM() {
                 maxHeight: "80%",
                 display: "none"
             }).hide();
-            let qt = ""
-              , Kt = 0;
-            Gt().forEach(Qt=>{
-                qt += `<div class="emoteSample" data-name="${Qt}"><div class="emote emote-${Qt}"></div><div>/${Qt}</div></div>`,
-                Kt++
+            let Kt = ""
+              , Zt = 0;
+            Gt().forEach(Jt=>{
+                Kt += `<div class="emoteSample" data-name="${Jt}"><div class="emote emote-${Jt}"></div><div>/${Jt}</div></div>`,
+                Zt++
             }
             );
-            let Zt = $(qt);
-            $(".modalContent", Wt).append(Zt),
+            let Qt = $(Kt);
+            $(".modalContent", Wt).append(Qt),
             $("body").append(Wt),
-            Wt.on("click", ".emoteSample", Qt=>{
-                UI.parseCommand("/" + $(Qt.currentTarget).data("name")),
-                Vt()
+            Wt.on("click", ".emoteSample", Jt=>{
+                UI.parseCommand("/" + $(Jt.currentTarget).data("name")),
+                qt()
             }
             ),
-            SWAM.on("keyup", Qt=>{
-                27 == Qt.which && Bt.visible() && Bt.hide()
+            SWAM.on("keyup", Jt=>{
+                27 == Jt.which && Vt.visible() && Vt.hide()
             }
             )
         }
         )(),
         function() {
-            let qt = SWAM.getEmotesList();
-            const Kt = getFilePath("emotes.png");
-            let Zt = "";
-            Zt += Ht();
-            for (let Jt = 8; Jt < qt.length; Jt++) {
-                let $t = qt[Jt]
-                  , en = Jt - 8;
-                if ("x" != $t) {
-                    let on = 100 * Math.floor(en / 16)
-                      , sn = $t.replace(/ /g, "");
-                    Zt += `.emote-${sn} { ` + "width: 32px; height: 32px; " + `background: url(${Kt}) -${100 * (en % 16)}%  -${on}% ; ` + "background-size: 1600%;} "
+            let Kt = SWAM.getEmotesList();
+            const Zt = getFilePath("emotes.png");
+            let Qt = "";
+            Qt += Ht();
+            for (let $t = 8; $t < Kt.length; $t++) {
+                let en = Kt[$t]
+                  , tn = $t - 8;
+                if ("x" != en) {
+                    let sn = 100 * Math.floor(tn / 16)
+                      , dn = en.replace(/ /g, "");
+                    Qt += `.emote-${dn} { ` + "width: 32px; height: 32px; " + `background: url(${Zt}) -${100 * (tn % 16)}%  -${sn}% ; ` + "background-size: 1600%;} "
                 }
             }
-            let Qt = `<style type='text/css'>${Zt}</style>`;
-            $("body").append(Qt)
+            let Jt = `<style type='text/css'>${Qt}</style>`;
+            $("body").append(Jt)
         }(),
         Wt.css("display", "block"),
         Wt.css("display", "none")
@@ -36772,15 +36818,15 @@ SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
     };
     const Wt = ["tf", "pepe", "clap", "lol", "bro", "kappa", "cry", "rage", "watchingyou", "cool", "party", "facepalm", "hehe", "wink", "joke", "sweeteyes", "insult", "angry", "fury", "yell", "lol", "cry", "sad", "zzz", "mime", "salute", "lotfl", "loser", "fgun", "fguns", "dab", "doh", "derp", "nerd", "flushed", "rolleyes", "drunk", "tblue", "tred", "thief", "greedy", "blah", "stopit", "tired", "drool", "devil", "devilfury", "king1", "king2", "king3", "old", "leader", "dog", "doglol", "dogrr", "dogoh", "clap", "victory", "fu", "tup", "tdown", "h5", "hs", "wave", "ass", "x", "x", "x", "x", "x", "x", "x", "redcap", "bluecap", "bluefire", "redfire", "fire", "alert", "shield", "inferno", "turtle", "turtled", "heli", "pred", "goli", "prow", "nado", "uplove", "poo", "poosad", "pooangry", "poobull", "bones", "jolly", "wflag", "bomb", "heart", "bear", "bird", "chicken", "peace", "party1", "party2", "beer", "rambo", "joker", "vader", "yoda", "godfather", "hawkes", "monkey", "narf", "steamr", "noob1", "noob2", "dragon", "bot", "nobot", "noprow", "noheli", "putin", "trump", "kim", "rip", "boom", "canttouch", "bang", "ddd", "revenge", "rekt", "skullpilot", "hellpilot", "acepilot", "pigpilot", "ndt", "raptor", "gg", "ggwp", "bs", "nyan", "elon", "think", "missibis", "pluto", "shrug", "ace", "salty", "mvp", "stop", "camp", "bananas", "mine"];
     let zt = {};
-    for (let Kt = 8; Kt < Wt.length; Kt++) {
-        let Zt = Wt[Kt]
-          , Qt = Kt - 8;
-        "x" == Zt || (zt["emote_" + Zt] = ["emotes", [64 * (Qt % 16), 64 * Math.floor(Qt / 16), 64, 64]])
+    for (let Zt = 8; Zt < Wt.length; Zt++) {
+        let Qt = Wt[Zt]
+          , Jt = Zt - 8;
+        "x" == Qt || (zt["emote_" + Qt] = ["emotes", [64 * (Jt % 16), 64 * Math.floor(Jt / 16), 64, 64]])
     }
-    for (let Kt in SWAM.getEmotesList = ()=>Wt,
+    for (let Zt in SWAM.getEmotesList = ()=>Wt,
     $.extend(jt, zt),
     jt)
-        Xt[Kt] = jt[Kt];
+        Xt[Zt] = jt[Zt];
     var qt = {
         minimap1: {
             texture: "ui_minimap_1",
@@ -36811,9 +36857,12 @@ SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
             scale: .12
         }
     };
-    for (let Kt in qt)
-        Yt[Kt] = qt[Kt];
-    SWAM.Theme && SWAM.Theme.injectTextures && SWAM.Theme.injectTextures(Bt, Xt, Gt, Yt, Ht)
+    for (let Zt in qt)
+        Yt[Zt] = qt[Zt];
+    SWAM.Theme && SWAM.Theme.injectTextures && SWAM.Theme.injectTextures(Bt, Xt, Gt, Yt, Ht);
+    let Kt = new PIXI.loaders.Loader;
+    Kt.add(Object.values(Bt)),
+    Kt.load(()=>SWAM.trigger("texturesInjected"))
 }
 ,
 SWAM.injectSounds = function(Bt) {
@@ -36877,8 +36926,9 @@ SWAM.injectSounds = function(Bt) {
             )()
         }
         return new Promise(pn=>{
-            let hn = [];
-            for (let fn in rn)
+            let hn = [...SWAM.dependencies];
+            for (let fn in delete SWAM.dependencies,
+            rn)
                 rn[fn].enabled && hn.push(rn[fn].url);
             un(hn, function() {
                 hn = Wt().dependencies,
@@ -37289,7 +37339,7 @@ SWAM.injectSounds = function(Bt) {
             throw "An extension with that name has already been registered!";
         let pn = [];
         try {
-            "StarMashThemes" !== un.id && (on[un.id] = un);
+            on[un.id] = un;
             for (let hn of un.themes)
                 qt(hn),
                 pn.push(hn);
@@ -37940,19 +37990,51 @@ function showRequestlyWarning() {
         $("body").append(Xt).css("overflow", "hidden")
     }
 }
+SWAM.hideLoadingScreen = function() {
+    let Bt = config.overdrawOptimize;
+    config.overdrawOptimize = !1,
+    setTimeout(()=>{
+        $("#LoadingMainScreen").fadeOut(1e3)
+    }
+    , 300),
+    setTimeout(()=>config.overdrawOptimize = Bt, 1e3),
+    delete SWAM.hideLoadingScreen
+}
+,
+SWAM.on("gameLoaded", ()=>{
+    if ("starma.sh" == location.hostname.toLowerCase()) {
+        if (window.location.hash.toLowerCase().startsWith("#importsettings")) {
+            let Bt = JSON.parse(atob(window.location.hash.replace("#importsettings", "")));
+            Tools.setSettings(Bt),
+            $("#playername").val(Bt.name),
+            window.location = location.origin
+        }
+        $("#loginbutton").off("click").click(()=>{
+            let Xt = $(getTemplate("#loginInstructions"));
+            return $("#logon").append(Xt),
+            Xt.fadeIn(500),
+            closeWhenClickOutside(Xt),
+            !1
+        }
+        )
+    }
+}
+),
 SWAM.loadFiles(()=>{
+    let Xt = Date.now();
     window.specialTheme = "HellMash",
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
     SWAM.trigger("themeLoaded"),
-    loadGameCode(),
-    SWAM.Theme.loadGameModules(),
-    SWAM.trigger("gameLoaded"),
-    RunGame(),
-    SWAM(),
-    setTimeout(function() {
-        $("#LoadingMainScreen").remove()
-    }, 2e3),
-    SWAM.trigger("gameRunning")
+    SWAM.one("texturesInjected", function() {
+        SWAM.Theme.loadGameModules(),
+        SWAM.trigger("gameLoaded"),
+        RunGame(),
+        SWAM(),
+        SWAM.hideLoadingScreen(),
+        console.log("loading time: ", Date.now() - Xt),
+        SWAM.trigger("gameRunning")
+    }),
+    loadGameCode()
 }
 );

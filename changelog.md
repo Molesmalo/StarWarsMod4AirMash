@@ -5,6 +5,13 @@
 <br>
 <br>
 
+## Oct 24 2018
+- New Extended Scoreboard
+- Login instructions for starma.sh
+- Some internal refactoring
+
+&nbsp;
+
 ## Oct 18 2018
 - 2 New Themes: 🔥 HellMash and Limbo 🔥
 
