@@ -27891,14 +27891,6 @@ function loadGameCode() {
             })
         }
         ,
-        Network.resizeHorizon2 = function(bn, xn) {
-            game.state == Network.STATE.PLAYING && cn({
-                c: gn.HORIZON,
-                horizonX: bn,
-                horizonY: xn
-            })
-        }
-        ,
         Network.detectConnectivity = function() {
             game.lagging = 1300 < game.timeNetwork - $t
         }
@@ -28170,8 +28162,8 @@ function loadGameCode() {
                     protocol: game.protocol,
                     name: game.myName,
                     session: config.settings.session ? config.settings.session : "none",
-                    horizonX: Math.ceil(game.halfScreenX / game.scale),
-                    horizonY: Math.ceil(game.halfScreenY / game.scale),
+                    horizonX: Math.ceil(16000 / game.scale),
+                    horizonY: Math.ceil(8e3 / game.scale),
                     flag: game.myFlag
                 })
             }
@@ -31117,7 +31109,7 @@ function loadGameCode() {
                     2 == game.gameType && (qn = " team-" + Fn.team),
                     Kn = "",
                     4 == (Bn + "").length && (Kn = " bigger"),
-                    Hn += "<div class=\"line" + Un + "\" player-id=\"" + Fn.id + "\"><span class=\"place" + Kn + "\">" + Bn + "</span><span class=\"flag small flag-" + Fn.flag + "\"></span><span class=\"nick" + qn + "\">" + (Fn.removedFromMap ? UI.escapeHTML(Fn.name).strike() : UI.escapeHTML(Fn.name)) + "</span>" + (0 == Gn ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + Gn + "</span></span>") + "<span class=\"score\">" + En(Xn) + "</span></div>");
+                    Hn += "<div class=\"line" + Un + "\" data-playerid=\"" + Fn.id + "\"><span class=\"place" + Kn + "\">" + Bn + "</span><span class=\"flag small flag-" + Fn.flag + "\"></span><span class=\"nick" + qn + "\">" + (Fn.removedFromMap ? UI.escapeHTML(Fn.name).strike() : UI.escapeHTML(Fn.name)) + "</span>" + (0 == Gn ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + Gn + "</span></span>") + "<span class=\"score\">" + En(Xn) + "</span></div>");
                 $("#scoreboard").html(Hn)
             }
         }
@@ -31623,7 +31615,7 @@ function loadGameCode() {
                     null != (Un = Players.get(Ln[zn].id)) && (Xn = 2 >= zn ? "&nbsp;<div class=\"badge detail " + kn[zn] + "\"></div>" : zn + 1 + ".",
                     Gn = Un.me() ? " sel" : "",
                     Yn = On.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " team-" + Un.team : On.c != Network.SERVERPACKET.SCORE_DETAILED_BTR || Ln[zn].alive ? "" : " inactive",
-                    Hn += "<div class=\"item" + Gn + "\" player-id=\"" + Un.id + "\"><div class=\"name\"><div class=\"position\">",
+                    Hn += "<div class=\"item" + Gn + "\" data-playerid=\"" + Un.id + "\"><div class=\"name\"><div class=\"position\">",
                     Hn += Xn + "</div><div class=\"flag small flag-" + Un.flag + "\"></div>",
                     Hn += "<div class=\"player" + Yn + "\">" + (Un.removedFromMap ? UI.escapeHTML(Un.name).strike() : UI.escapeHTML(Un.name)) + "</div></div>",
                     On.c == Network.SERVERPACKET.SCORE_DETAILED_BTR && (0 == Ln[zn].wins ? Hn += "<div class=\"wins\">&nbsp;</div>" : Hn += "<div class=\"wins\">" + Ln[zn].wins + "<div class=\"wins-container\">&nbsp;<div class=\"wins-icon\"></div></div></div>"),
@@ -31660,27 +31652,47 @@ function loadGameCode() {
         }
         ,
         UI.popMenu = function(On, Ln) {
+            function kn(Un, Xn) {
+                var Yn = {}
+                  , Hn = {}
+                  , jn = {}
+                  , Wn = {};
+                return jn.x = Xn.outerWidth(),
+                jn.y = Xn.outerHeight(),
+                Yn.x = Un.pageX,
+                Yn.y = Un.pageY,
+                Wn = $(On.target).parent().offset(),
+                Hn.x = Wn.left + jn.x > $(window).width() + $(window).scrollLeft() ? $(window).width() - jn.x : Wn.left,
+                Hn.y = Yn.y + jn.y > $(window).height() + $(window).scrollTop() ? Yn.y - jn.y : Yn.y,
+                Xn.css({
+                    top: Hn.y,
+                    left: Hn.x,
+                    zIndex: 1e3
+                }),
+                Hn
+            }
             if (game.state == Network.STATE.LOGIN)
                 return Games.closeDropdowns(),
                 void UI.closeLogin();
             Ln || game.state != Network.STATE.PLAYING || UI.closeAllPanels();
-            var kn = $(On.target).parent().data("playerid");
-            if (null == kn && (kn = $(On.target).data("playerid")),
-            null != kn && kn != game.myID) {
-                var Nn = Players.get(kn);
-                if (null == Nn)
+            var Nn = $(On.target).parent().data("playerid");
+            if (null == Nn && (Nn = $(On.target).data("playerid")),
+            $(On.target).parents("#chatlines").length && (Ln = !0),
+            null != Nn && Nn != game.myID && Ln) {
+                var Fn = Players.get(Nn);
+                if (null == Fn)
                     return !0;
-                var Fn = {
+                var Bn = {
                     left: "20px",
                     top: $(On.target).parent()[0].getBoundingClientRect().top - 166 + "px"
                 };
-                $t || (Fn.display = "block",
+                $t || (Bn.display = "block",
                 $t = !0);
-                var Bn = null == Yt[Nn.id] ? "Ignore" : "Unignore"
-                  , Un = "<div class=\"header\">" + UI.escapeHTML(Nn.name) + "</div><div class=\"item\" onclick=\"UI.contextWhisper()\">Whisper</div><div class=\"item\" onclick=\"UI.context" + Bn + "()\">" + Bn + "</div><div class=\"item\" onclick=\"UI.contextVotemute()\">Vote mute</div><div class=\"arrow\"></div>";
-                return $("#contextmenu").html(Un),
-                $("#contextmenu").css(Fn),
-                en = Nn.id,
+                let Un = null == Yt[Fn.id] ? "Ignore" : "Unignore"
+                  , Xn = "<div class=\"header\">" + UI.escapeHTML(Fn.name) + "</div><div class=\"item\" onclick=\"UI.contextWhisper()\">Whisper</div><div class=\"item\" onclick=\"UI.context" + Un + "()\">" + Un + "</div><div class=\"item\" onclick=\"UI.contextVotemute()\">Vote mute</div>";
+                return $("#contextmenu").html(Xn).css(Bn),
+                kn(On, $("#contextmenu")),
+                en = Fn.id,
                 On.stopPropagation(),
                 !1
             }
@@ -34037,7 +34049,7 @@ window.Base64 = {
 },
 window.SWAM_version = "2.5102401",
 SWAM.version = window.SWAM_version,
-SWAM.debug = !1;
+SWAM.debug = !0;
 function SWAM() {
     function getDefaultModSettings() {
         var Bt = {};
@@ -34314,10 +34326,6 @@ function SWAM() {
     function openColorAdjustments() {
         closeSettingsWindow(),
         SWAM.ColorAdjustments.open()
-    }
-    function SWAM_scoreboard_click_handler(Bt) {
-        var Xt = $(Bt.currentTarget).attr("player-id");
-        SWAM.setTargetedPlayer(Xt)
     }
     function SWAM_keydown_handler(Bt) {
         if (!(game.state !== Network.STATE.PLAYING || SWAM.chatinputVisible())) {
@@ -35446,8 +35454,7 @@ function SWAM() {
     let UI_updateScore = UI.updateScore;
     UI.updateScore = function(Bt) {
         UI_updateScore.call(UI, Bt),
-        $("#scorecontainer div").click(SWAM_scoreboard_click_handler),
-        UI.scoreboardUpdate2(Bt.scores),
+        ExtendedScoreboard.update(Bt.scores),
         updatePlayerCounters(Bt.scores),
         SWAM.trigger("detailedScoreUpdate", Bt)
     }
@@ -35456,51 +35463,9 @@ function SWAM() {
     UI.scoreboardUpdate = function(Bt, Xt, Gt) {
         UI_scoreboardUpdate.call(UI, Bt, Xt, Gt),
         updateMinimapOpacity(),
-        SWAM.Settings.ui.useExtendedScoreboard || $("#scoreboard div").click(SWAM_scoreboard_click_handler),
         SWAM.trigger("scoreboardUpdate", [Bt, Xt, Gt])
     }
-    ,
-    UI.scoreboardUpdate2 = function(Bt) {
-        if (SWAM.Settings.ui.useExtendedScoreboard) {
-            let Wt = 0, zt = "", Vt = !1, qt = 0, Kt = "", Zt = "", Qt = 0, Xt, Gt, Yt, Ht, jt;
-            Bt.sort(function(en, tn) {
-                return tn.score - en.score
-            }),
-            qt = Bt.findIndex(en=>en.id == game.myID);
-            var Jt = function(en) {
-                var tn = "";
-                en += "";
-                for (var nn = 0; nn < en.length; nn++)
-                    tn += "<span>" + en[nn] + "</span>";
-                return tn
-            };
-            let $t = 100;
-            for ($t = $t ? Tools.clamp($t, 1, Bt.length) : Bt.length,
-            Qt = 0; Qt < $t && !Vt; Qt++)
-                Xt = Players.get(Bt[Qt].id),
-                null == Xt || (Wt++,
-                Gt = 1 == Wt ? "<span class=\"badge scoreboard gold\"></span>" : 2 == Wt ? "<span class=\"badge scoreboard silver\"></span>" : 3 == Wt ? "<span class=\"badge scoreboard bronze\"></span>" : Wt + ".",
-                Yt = Xt.me() ? " sel" : "",
-                Ht = Bt[Qt].score,
-                jt = Bt[Qt].level,
-                qt > $t && Wt == $t - 1 && qt != $t && (zt += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
-                Xt = Players.get(game.myID),
-                Gt = qt + ".",
-                Ht = game.myScore,
-                jt = game.myLevel,
-                Yt = " sel",
-                Vt = !0),
-                Kt = "",
-                2 == game.gameType && (Kt = " team-" + Xt.team),
-                Zt = "",
-                4 == (Gt + "").length && (Zt = " bigger"),
-                zt += "<div class=\"line" + Yt + "\" player-id=\"" + Xt.id + "\"><span class=\"place" + Zt + "\">" + Gt + "</span><span class=\"flag small flag-" + Xt.flag + "\"></span><span class=\"nick" + Kt + "\">" + (Xt.removedFromMap ? UI.escapeHTML(Xt.name).strike() : UI.escapeHTML(Xt.name)) + "</span>" + (0 == jt ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + jt + "</span></span>") + "<span class=\"score\">" + Jt(Ht) + "</span></div>");
-            $("#scoreboard").html(zt).perfectScrollbar(),
-            $("#scoreboard div").click(SWAM_scoreboard_click_handler)
-        }
-    }
-    ,
-    UI.scoreboardUpdate2.interval = setInterval(()=>Network.getScores(), 5e3);
+    ;
     let Games_performPing = Games.performPing;
     Games.performPing = function() {
         "airma.sh" != window.location.host.toLowerCase() || SWAM.debug || Games_performPing.call(Games)
@@ -36734,7 +36699,61 @@ function SWAM() {
         }
     }
     ;
-    let sentMessages = []
+    let ExtendedScoreboard = new function() {
+        function Bt() {
+            let Xt = $("#scoreboard")[0].getBoundingClientRect()
+              , Gt = $("canvas")[0].getBoundingClientRect()
+              , Yt = "0px";
+            Xt.left < Gt.right && (Yt = Math.round(parseInt(config.minimapPaddingY) + parseInt(config.minimapSize / 2) + 5) + "px"),
+            $("#scoreboard").css({
+                bottom: Yt
+            })
+        }
+        this.update = function(Xt) {
+            if (SWAM.Settings.ui.useExtendedScoreboard) {
+                let zt = 0, Vt = "", qt = !1, Kt = 0, Zt = "", Qt = "", Jt = 0, $t = "", Gt, Yt, Ht, jt, Wt;
+                Xt.sort(function(nn, an) {
+                    return an.score - nn.score
+                }),
+                Kt = Xt.findIndex(nn=>nn.id == game.myID);
+                var en = function(nn) {
+                    var an = "";
+                    nn += "";
+                    for (var rn = 0; rn < nn.length; rn++)
+                        an += "<span>" + nn[rn] + "</span>";
+                    return an
+                };
+                let tn = 100;
+                for (tn = tn ? Tools.clamp(tn, 1, Xt.length) : Xt.length,
+                Jt = 0; Jt < tn && !qt; Jt++)
+                    Gt = Players.get(Xt[Jt].id),
+                    null == Gt || (zt++,
+                    Yt = 4 > zt ? "<span class=\"badge scoreboard " + [, "gold", "silver", "bronze"][zt] + "\"></span>" : zt + ".",
+                    Ht = Gt.me() ? " sel" : "",
+                    jt = Xt[Jt].score,
+                    Wt = Xt[Jt].level,
+                    $t = Gt.removedFromMap ? UI.escapeHTML(Gt.name).strike() : UI.escapeHTML(Gt.name),
+                    Kt > tn && zt == tn - 1 && Kt != tn && (Vt += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
+                    Gt = Players.get(game.myID),
+                    Yt = Kt + ".",
+                    jt = game.myScore,
+                    Wt = game.myLevel,
+                    Ht = " sel",
+                    qt = !0),
+                    Zt = "",
+                    2 == game.gameType && (Zt = " team-" + Gt.team),
+                    Qt = "",
+                    4 == (Yt + "").length && (Qt = " bigger"),
+                    Vt += `<div class="line ${Ht}" data-playerid="${Gt.id}"><span class="place ${Qt}">` + Yt + `</span><span class="flag small flag-${Gt.flag}"></span>` + `<span class="nick ${Zt}">${$t}</span>` + (0 == Wt ? "" : `<span class="holder">&nbsp;<span class="rank">${Wt}</span></span>`) + "<span class=\"score\">" + en(jt) + "</span></div>");
+                $("#scoreboard").html(Vt).perfectScrollbar()
+            }
+        }
+        ,
+        this.interval = setInterval(()=>Network.getScores(), 5e3),
+        SWAM.one("gamePrep", Bt),
+        SWAM.on("rendererResized", Bt)
+    }
+      , sentMessages = []
       , sentMessageIndex = 0;
     $("#chatinput").keydown(function(Bt) {
         let Xt = $("#chatinput");
@@ -36789,7 +36808,11 @@ function SWAM() {
     }),
     $("#chatbox").mousedown(function(Bt) {
         3 == Bt.which && Bt.target.className.includes("text") && copyTextToClipboard(Bt.target.innerText)
-    });
+    }),
+    $("#scoreboard, #scorecontainer").on("click", "div", function(Bt) {
+        var Xt = $(Bt.currentTarget).attr("data-playerid");
+        SWAM.setTargetedPlayer(Xt)
+    }),
     SWAM.listLayers = function(Bt) {
         for (var Xt = 0; Xt < Bt.children.length; Xt++)
             console.log(Bt.children[Xt].layerName)
@@ -37960,7 +37983,7 @@ SWAM.Audio = {
     }
 };
 function getFilePath(Bt) {
-    return "https://molesmalo.github.io/StarWarsMod4AirMash/assets/" + Bt + "?" + SWAM_version
+    return "https://localhost/" + Bt + "?" + SWAM_version
 }
 $(function() {
     (function() {

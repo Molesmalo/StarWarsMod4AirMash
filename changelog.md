@@ -5,6 +5,13 @@
 <br>
 <br>
 
+## Oct 26 2018
+- Smarter positioning for Extended Scoreboard: No longer overlaps with the Minimap, and extends to the bottom if Squared game area is enabled.
+- Context menu in scoreboard: Right click a player's name in Scoreboard, to open the menu for that player.
+- Smarter positioning for Players' context menu (game-wise).
+
+&nbsp;
+
 ## Oct 24 2018
 - New Extended Scoreboard
 - Login instructions for starma.sh
