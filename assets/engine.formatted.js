@@ -34047,9 +34047,9 @@ window.Base64 = {
         return Gt
     }
 },
-window.SWAM_version = "2.5102601",
+window.SWAM_version = "2.5103101",
 SWAM.version = window.SWAM_version,
-SWAM.debug = !0;
+SWAM.debug = !1;
 function SWAM() {
     function getDefaultModSettings() {
         var Bt = {};
@@ -37990,7 +37990,7 @@ SWAM.Audio = {
     }
 };
 function getFilePath(Bt) {
-    return "https://localhost/" + Bt + "?" + SWAM_version
+    return "https://molesmalo.github.io/StarWarsMod4AirMash/assets/" + Bt + "?" + SWAM_version
 }
 $(function() {
     (function() {
