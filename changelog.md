@@ -5,8 +5,13 @@
 <br>
 <br>
 
+## Oct 31 2018
+- Bubble messages (not emotes) are logged in chat window.
+
+&nbsp;
+
 ## Oct 26 2018
-- Smarter positioning for Extended Scoreboard: No longer overlaps with the Minimap, and extends to the bottom if Squared game area is enabled.
+- Extended Scoreboard no longer overlaps with the Minimap, and extends to the bottom if Squared game area is enabled.
 - Context menu in scoreboard: Right click a player's name in Scoreboard, to open the menu for that player.
 - Smarter positioning for Players' context menu (game-wise).
 

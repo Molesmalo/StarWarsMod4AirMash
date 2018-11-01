@@ -1,13 +1,13 @@
 "use strict";
-!function(Bt, Xt) {
-    "object" == typeof module && "object" == typeof module.exports ? module.exports = Bt.document ? Xt(Bt, !0) : function(Gt) {
-        if (!Gt.document)
+!function(Bt, Gt) {
+    "object" == typeof module && "object" == typeof module.exports ? module.exports = Bt.document ? Gt(Bt, !0) : function(Xt) {
+        if (!Xt.document)
             throw new Error("jQuery requires a window with a document");
-        return Xt(Gt)
+        return Gt(Xt)
     }
-    : Xt(Bt)
-}("undefined" == typeof window ? this : window, function(Bt, Xt) {
-    function Gt(Cr, Pr) {
+    : Gt(Bt)
+}("undefined" == typeof window ? this : window, function(Bt, Gt) {
+    function Xt(Cr, Pr) {
         var Ar = (Pr = Pr || kn).createElement("script");
         Ar.text = Cr,
         Pr.head.appendChild(Ar).parentNode.removeChild(Ar)
@@ -27,9 +27,9 @@
             return Mr === Pr !== Ar
         }) : "string" == typeof Pr ? aa.test(Pr) ? Vn.filter(Pr, Cr, Ar) : (Pr = Vn.filter(Pr, Cr),
         Vn.grep(Cr, function(Mr) {
-            return -1 < Xn.call(Pr, Mr) !== Ar && 1 === Mr.nodeType
+            return -1 < Gn.call(Pr, Mr) !== Ar && 1 === Mr.nodeType
         })) : Vn.grep(Cr, function(Mr) {
-            return -1 < Xn.call(Pr, Mr) !== Ar
+            return -1 < Gn.call(Pr, Mr) !== Ar
         })
     }
     function Wt(Cr, Pr) {
@@ -128,7 +128,7 @@
             ha.set(Cr[Ar], "globalEval", !Pr || ha.get(Pr[Ar], "globalEval"))
     }
     function an(Cr, Pr, Ar, Mr, Rr) {
-        for (var Fr = Pr.createDocumentFragment(), Br = [], Ur = 0, Xr = Cr.length, Ir, Dr, Or, Lr, kr, Nr; Ur < Xr; Ur++)
+        for (var Fr = Pr.createDocumentFragment(), Br = [], Ur = 0, Gr = Cr.length, Ir, Dr, Or, Lr, kr, Nr; Ur < Gr; Ur++)
             if ((Ir = Cr[Ur]) || 0 === Ir)
                 if ("object" === Vn.type(Ir))
                     Vn.merge(Br, Ir.nodeType ? [Ir] : Ir);
@@ -229,11 +229,11 @@
     }
     function fn(Cr, Pr, Ar, Mr) {
         Pr = Bn.apply([], Pr);
-        var Nr = 0, Fr = Cr.length, Ur = Pr[0], Xr = Vn.isFunction(Ur), Rr, Ir, Dr, Or, Lr, kr;
-        if (Xr || 1 < Fr && "string" == typeof Ur && !zn.checkClone && La.test(Ur))
-            return Cr.each(function(Gr) {
-                var Yr = Cr.eq(Gr);
-                Xr && (Pr[0] = Ur.call(this, Gr, Yr.html())),
+        var Nr = 0, Fr = Cr.length, Ur = Pr[0], Gr = Vn.isFunction(Ur), Rr, Ir, Dr, Or, Lr, kr;
+        if (Gr || 1 < Fr && "string" == typeof Ur && !zn.checkClone && La.test(Ur))
+            return Cr.each(function(Xr) {
+                var Yr = Cr.eq(Xr);
+                Gr && (Pr[0] = Ur.call(this, Xr, Yr.html())),
                 fn(Yr, Pr, Ar, Mr)
             });
         if (Fr && (Rr = an(Pr, Cr[0].ownerDocument, !1, Cr, Mr),
@@ -250,7 +250,7 @@
                 Vn.map(Dr, pn),
                 Nr = 0; Nr < Or; Nr++)
                     Lr = Dr[Nr],
-                    wa.test(Lr.type || "") && !ha.access(Lr, "globalEval") && Vn.contains(kr, Lr) && (Lr.src ? Vn._evalUrl && Vn._evalUrl(Lr.src) : Gt(Lr.textContent.replace(Na, ""), kr))
+                    wa.test(Lr.type || "") && !ha.access(Lr, "globalEval") && Vn.contains(kr, Lr) && (Lr.src ? Vn._evalUrl && Vn._evalUrl(Lr.src) : Xt(Lr.textContent.replace(Na, ""), kr))
         }
         return Cr
     }
@@ -344,10 +344,10 @@
         }), Lr = function() {
             if (Rr)
                 return !1;
-            for (var Fr = za || En(), Br = Math.max(0, kr.startTime + kr.duration - Fr), Ur = 1 - (Br / kr.duration || 0), Xr = 0, Gr = kr.tweens.length; Xr < Gr; Xr++)
-                kr.tweens[Xr].run(Ur);
+            for (var Fr = za || En(), Br = Math.max(0, kr.startTime + kr.duration - Fr), Ur = 1 - (Br / kr.duration || 0), Gr = 0, Xr = kr.tweens.length; Gr < Xr; Gr++)
+                kr.tweens[Gr].run(Ur);
             return Or.notifyWith(Cr, [kr, Ur, Br]),
-            1 > Ur && Gr ? Br : (Gr || Or.notifyWith(Cr, [kr, 1, 0]),
+            1 > Ur && Xr ? Br : (Xr || Or.notifyWith(Cr, [kr, 1, 0]),
             Or.resolveWith(Cr, [kr]),
             !1)
         }, kr = Or.promise({
@@ -380,23 +380,23 @@
             }
         }), Nr = kr.props, Mr, Rr;
         for (!function(Fr, Br) {
-            var Ur, Xr, Gr, Yr, Hr;
+            var Ur, Gr, Xr, Yr, Hr;
             for (Ur in Fr)
-                if (Xr = Vn.camelCase(Ur),
-                Gr = Br[Xr],
+                if (Gr = Vn.camelCase(Ur),
+                Xr = Br[Gr],
                 Yr = Fr[Ur],
-                Array.isArray(Yr) && (Gr = Yr[1],
+                Array.isArray(Yr) && (Xr = Yr[1],
                 Yr = Fr[Ur] = Yr[0]),
-                Ur !== Xr && (Fr[Xr] = Yr,
+                Ur !== Gr && (Fr[Gr] = Yr,
                 delete Fr[Ur]),
-                (Hr = Vn.cssHooks[Xr]) && ("expand"in Hr))
+                (Hr = Vn.cssHooks[Gr]) && ("expand"in Hr))
                     for (Ur in Yr = Hr.expand(Yr),
-                    delete Fr[Xr],
+                    delete Fr[Gr],
                     Yr)
                         (Ur in Fr) || (Fr[Ur] = Yr[Ur],
-                        Br[Ur] = Gr);
+                        Br[Ur] = Xr);
                 else
-                    Br[Xr] = Gr
+                    Br[Gr] = Xr
         }(Nr, kr.opts.specialEasing); Ir < Dr; Ir++)
             if (Mr = Pn.prefilters[Ir].call(kr, Cr, Nr, kr.opts))
                 return Vn.isFunction(Mr.stop) && (Vn._queueHooks(kr.elem, kr.opts.queue).stop = Vn.proxy(Mr.stop, Mr)),
@@ -468,10 +468,10 @@
       , Fn = Ln.slice
       , Bn = Ln.concat
       , Un = Ln.push
-      , Xn = Ln.indexOf
-      , Gn = {}
-      , Yn = Gn.toString
-      , Hn = Gn.hasOwnProperty
+      , Gn = Ln.indexOf
+      , Xn = {}
+      , Yn = Xn.toString
+      , Hn = Xn.hasOwnProperty
       , jn = Hn.toString
       , Wn = jn.call(Object)
       , zn = {}
@@ -572,10 +572,10 @@
             return !0
         },
         type: function(Cr) {
-            return null == Cr ? Cr + "" : "object" == typeof Cr || "function" == typeof Cr ? Gn[Yn.call(Cr)] || "object" : typeof Cr
+            return null == Cr ? Cr + "" : "object" == typeof Cr || "function" == typeof Cr ? Xn[Yn.call(Cr)] || "object" : typeof Cr
         },
         globalEval: function(Cr) {
-            Gt(Cr)
+            Xt(Cr)
         },
         camelCase: function(Cr) {
             return Cr.replace(Kn, "ms-").replace(Zn, Qn)
@@ -600,7 +600,7 @@
             Ar
         },
         inArray: function(Cr, Pr, Ar) {
-            return null == Pr ? -1 : Xn.call(Pr, Cr, Ar)
+            return null == Pr ? -1 : Gn.call(Pr, Cr, Ar)
         },
         merge: function(Cr, Pr) {
             for (var Ar = +Pr.length, Mr = 0, Rr = Cr.length; Mr < Ar; Mr++)
@@ -643,7 +643,7 @@
     }),
     "function" == typeof Symbol && (Vn.fn[Symbol.iterator] = Ln[Symbol.iterator]),
     Vn.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "), function(Cr, Pr) {
-        Gn["[object " + Pr + "]"] = Pr.toLowerCase()
+        Xn["[object " + Pr + "]"] = Pr.toLowerCase()
     });
     var Jn = function(Cr) {
         function Pr(Ki, Zi, Qi, Ji) {
@@ -654,7 +654,7 @@
             if (!Ji && ((Zi ? Zi.ownerDocument || Zi : pi) !== ai && ni(Zi),
             Zi = Zi || ai,
             ii)) {
-                if (11 !== so && (ao = Gi.exec(Ki)))
+                if (11 !== so && (ao = Xi.exec(Ki)))
                     if (!($i = ao[1])) {
                         if (ao[2])
                             return Ti.apply(Qi, Zi.getElementsByTagName(Ki)),
@@ -765,7 +765,7 @@
                 Ji += Ki[Zi].value;
             return Ji
         }
-        function Xr(Ki, Zi, Qi) {
+        function Gr(Ki, Zi, Qi) {
             var Ji = Zi.dir
               , $i = Zi.next
               , eo = $i || Ji
@@ -800,7 +800,7 @@
                 return !1
             }
         }
-        function Gr(Ki) {
+        function Xr(Ki) {
             return 1 < Ki.length ? function(Zi, Qi, Ji) {
                 for (var $i = Ki.length; $i--; )
                     if (!Ki[$i](Zi, Qi, Ji))
@@ -846,9 +846,9 @@
             })
         }
         function jr(Ki) {
-            for (var $i = Ki.length, eo = Vr.relative[Ki[0].type], to = eo || Vr.relative[" "], no = eo ? 1 : 0, ao = Xr(function(oo) {
+            for (var $i = Ki.length, eo = Vr.relative[Ki[0].type], to = eo || Vr.relative[" "], no = eo ? 1 : 0, ao = Gr(function(oo) {
                 return oo === Zi
-            }, to, !0), ro = Xr(function(oo) {
+            }, to, !0), ro = Gr(function(oo) {
                 return -1 < Ei(Zi, oo)
             }, to, !0), io = [function(oo, so, lo) {
                 var uo = !eo && (lo || so !== $r) || ((Zi = so).nodeType ? ao(oo, so, lo) : ro(oo, so, lo));
@@ -857,18 +857,18 @@
             }
             ], Zi, Qi, Ji; no < $i; no++)
                 if (Qi = Vr.relative[Ki[no].type])
-                    io = [Xr(Gr(io), Qi)];
+                    io = [Gr(Xr(io), Qi)];
                 else {
                     if ((Qi = Vr.filter[Ki[no].type].apply(null, Ki[no].matches))[ui]) {
                         for (Ji = ++no; Ji < $i && !Vr.relative[Ki[Ji].type]; Ji++)
                             ;
-                        return Hr(1 < no && Gr(io), 1 < no && Ur(Ki.slice(0, no - 1).concat({
+                        return Hr(1 < no && Xr(io), 1 < no && Ur(Ki.slice(0, no - 1).concat({
                             value: " " === Ki[no - 2].type ? "*" : ""
                         })).replace(Ii, "$1"), Qi, no < Ji && jr(Ki.slice(no, Ji)), Ji < $i && jr(Ki = Ki.slice(Ji)), Ji < $i && Ur(Ki))
                     }
                     io.push(Qi)
                 }
-            return Gr(io)
+            return Xr(io)
         }
         var ui = "sizzle" + 1 * new Date, pi = Cr.document, ci = 0, hi = 0, fi = Ar(), gi = Ar(), mi = Ar(), yi = function(Ki, Zi) {
             return Ki === Zi && (ti = !0),
@@ -887,14 +887,14 @@
             CHILD: /^:(only|first|last|nth|nth-last)-(child|of-type)(?:\([\x20\t\r\n\f]*(even|odd|(([+-]|)(\d*)n|)[\x20\t\r\n\f]*(?:([+-]|)[\x20\t\r\n\f]*(\d+)|))[\x20\t\r\n\f]*\)|)/i,
             bool: /^(?:checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped)$/i,
             needsContext: /^[\x20\t\r\n\f]*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\([\x20\t\r\n\f]*((?:-\d)?\d*)[\x20\t\r\n\f]*\)|)(?=[^-]|$)/i
-        }, Bi = /^(?:input|select|textarea|button)$/i, Ui = /^h\d$/i, Xi = /^[^{]+\{\s*\[native \w/, Gi = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, Yi = /[+~]/, Hi = /\\([\da-f]{1,6}[\x20\t\r\n\f]?|([\x20\t\r\n\f])|.)/ig, ji = function(Ki, Zi, Qi) {
+        }, Bi = /^(?:input|select|textarea|button)$/i, Ui = /^h\d$/i, Gi = /^[^{]+\{\s*\[native \w/, Xi = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, Yi = /[+~]/, Hi = /\\([\da-f]{1,6}[\x20\t\r\n\f]?|([\x20\t\r\n\f])|.)/ig, ji = function(Ki, Zi, Qi) {
             var Ji = "0x" + Zi - 65536;
             return Ji != Ji || Qi ? Zi : 0 > Ji ? String.fromCharCode(Ji + 65536) : String.fromCharCode(55296 | Ji >> 10, 56320 | 1023 & Ji)
         }, Wi = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g, zi = function(Ki, Zi) {
             return Zi ? "\0" === Ki ? "\uFFFD" : Ki.slice(0, -1) + "\\" + Ki.charCodeAt(Ki.length - 1).toString(16) + " " : "\\" + Ki
         }, Vi = function() {
             ni()
-        }, qi = Xr(function(Ki) {
+        }, qi = Gr(function(Ki) {
             return !0 === Ki.disabled && ("form"in Ki || "label"in Ki)
         }, {
             dir: "parentNode",
@@ -935,7 +935,7 @@
                 return $i.appendChild(ai.createComment("")),
                 !$i.getElementsByTagName("*").length
             }),
-            zr.getElementsByClassName = Xi.test(ai.getElementsByClassName),
+            zr.getElementsByClassName = Gi.test(ai.getElementsByClassName),
             zr.getById = Rr(function($i) {
                 return ri.appendChild($i).id = ui,
                 !ai.getElementsByName || !ai.getElementsByName(ui).length
@@ -996,7 +996,7 @@
             ,
             si = [],
             oi = [],
-            (zr.qsa = Xi.test(ai.querySelectorAll)) && (Rr(function($i) {
+            (zr.qsa = Gi.test(ai.querySelectorAll)) && (Rr(function($i) {
                 ri.appendChild($i).innerHTML = "<a id='" + ui + "'></a><select id='" + ui + "-\r\\' msallowcapture=''><option selected=''></option></select>",
                 $i.querySelectorAll("[msallowcapture^='']").length && oi.push("[*^$]=" + Ci + "*(?:''|\"\")"),
                 $i.querySelectorAll("[selected]").length || oi.push("\\[" + Ci + "*(?:value|" + wi + ")"),
@@ -1016,15 +1016,15 @@
                 $i.querySelectorAll("*,:x"),
                 oi.push(",.*:")
             })),
-            (zr.matchesSelector = Xi.test(di = ri.matches || ri.webkitMatchesSelector || ri.mozMatchesSelector || ri.oMatchesSelector || ri.msMatchesSelector)) && Rr(function($i) {
+            (zr.matchesSelector = Gi.test(di = ri.matches || ri.webkitMatchesSelector || ri.mozMatchesSelector || ri.oMatchesSelector || ri.msMatchesSelector)) && Rr(function($i) {
                 zr.disconnectedMatch = di.call($i, "*"),
                 di.call($i, "[s!='']:x"),
                 si.push("!=", ":(" + Pi + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + ("\\[" + Ci + "*(" + Pi + ")(?:" + Ci + "*([*^$|!~]?=)" + Ci + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + Pi + "))|)" + Ci + "*\\]") + ")*)|.*)\\)|)")
             }),
             oi = oi.length && new RegExp(oi.join("|")),
             si = si.length && new RegExp(si.join("|")),
-            Zi = Xi.test(ri.compareDocumentPosition),
-            li = Zi || Xi.test(ri.contains) ? function($i, eo) {
+            Zi = Gi.test(ri.compareDocumentPosition),
+            li = Zi || Gi.test(ri.contains) ? function($i, eo) {
                 var to = 9 === $i.nodeType ? $i.documentElement : $i
                   , no = eo && eo.parentNode;
                 return $i === no || no && 1 === no.nodeType && (to.contains ? to.contains(no) : $i.compareDocumentPosition && 16 & $i.compareDocumentPosition(no))
@@ -1616,7 +1616,7 @@
             return this.pushStack(1 < Ir.length ? Vn.uniqueSort(Ir) : Ir)
         },
         index: function(Cr) {
-            return Cr ? "string" == typeof Cr ? Xn.call(Vn(Cr), this[0]) : Xn.call(this, Cr.jquery ? Cr[0] : Cr) : this[0] && this[0].parentNode ? this.first().prevAll().length : -1
+            return Cr ? "string" == typeof Cr ? Gn.call(Vn(Cr), this[0]) : Gn.call(this, Cr.jquery ? Cr[0] : Cr) : this[0] && this[0].parentNode ? this.first().prevAll().length : -1
         },
         add: function(Cr, Pr) {
             return this.pushStack(Vn.uniqueSort(Vn.merge(this.get(), Vn(Cr, Pr))))
@@ -1783,18 +1783,18 @@
                 then: function(Ir, Dr, Or) {
                     function Lr(Nr, Fr, Br, Ur) {
                         return function() {
-                            var Xr = this
-                              , Gr = arguments
+                            var Gr = this
+                              , Xr = arguments
                               , Yr = function() {
                                 var jr, Wr;
                                 if (!(Nr < kr)) {
-                                    if ((jr = Br.apply(Xr, Gr)) === Fr.promise())
+                                    if ((jr = Br.apply(Gr, Xr)) === Fr.promise())
                                         throw new TypeError("Thenable self-resolution");
                                     Wr = jr && ("object" == typeof jr || "function" == typeof jr) && jr.then,
                                     Vn.isFunction(Wr) ? Ur ? Wr.call(jr, Lr(kr, Fr, zt, Ur), Lr(kr, Fr, Vt, Ur)) : (kr++,
-                                    Wr.call(jr, Lr(kr, Fr, zt, Ur), Lr(kr, Fr, Vt, Ur), Lr(kr, Fr, zt, Fr.notifyWith))) : (Br !== zt && (Xr = void 0,
-                                    Gr = [jr]),
-                                    (Ur || Fr.resolveWith)(Xr, Gr))
+                                    Wr.call(jr, Lr(kr, Fr, zt, Ur), Lr(kr, Fr, Vt, Ur), Lr(kr, Fr, zt, Fr.notifyWith))) : (Br !== zt && (Gr = void 0,
+                                    Xr = [jr]),
+                                    (Ur || Fr.resolveWith)(Gr, Xr))
                                 }
                             }
                               , Hr = Ur ? Yr : function() {
@@ -1802,9 +1802,9 @@
                                     Yr()
                                 } catch (jr) {
                                     Vn.Deferred.exceptionHook && Vn.Deferred.exceptionHook(jr, Hr.stackTrace),
-                                    Nr + 1 >= kr && (Br !== Vt && (Xr = void 0,
-                                    Gr = [jr]),
-                                    Fr.rejectWith(Xr, Gr))
+                                    Nr + 1 >= kr && (Br !== Vt && (Gr = void 0,
+                                    Xr = [jr]),
+                                    Fr.rejectWith(Gr, Xr))
                                 }
                             }
                             ;
@@ -2143,7 +2143,7 @@
     Vn.event = {
         global: {},
         add: function(Cr, Pr, Ar, Mr, Rr) {
-            var Yr = ha.get(Cr), Ir, Dr, Or, Lr, kr, Nr, Fr, Br, Ur, Xr, Gr;
+            var Yr = ha.get(Cr), Ir, Dr, Or, Lr, kr, Nr, Fr, Br, Ur, Gr, Xr;
             if (Yr)
                 for (Ar.handler && (Ar = (Ir = Ar).handler,
                 Rr = Ir.selector),
@@ -2155,45 +2155,45 @@
                 }
                 ),
                 kr = (Pr = (Pr || "").match(da) || [""]).length; kr--; )
-                    Ur = Gr = (Or = Ia.exec(Pr[kr]) || [])[1],
-                    Xr = (Or[2] || "").split(".").sort(),
+                    Ur = Xr = (Or = Ia.exec(Pr[kr]) || [])[1],
+                    Gr = (Or[2] || "").split(".").sort(),
                     Ur && (Fr = Vn.event.special[Ur] || {},
                     Ur = (Rr ? Fr.delegateType : Fr.bindType) || Ur,
                     Fr = Vn.event.special[Ur] || {},
                     Nr = Vn.extend({
                         type: Ur,
-                        origType: Gr,
+                        origType: Xr,
                         data: Mr,
                         handler: Ar,
                         guid: Ar.guid,
                         selector: Rr,
                         needsContext: Rr && Vn.expr.match.needsContext.test(Rr),
-                        namespace: Xr.join(".")
+                        namespace: Gr.join(".")
                     }, Ir),
                     (Br = Lr[Ur]) || ((Br = Lr[Ur] = []).delegateCount = 0,
-                    Fr.setup && !1 !== Fr.setup.call(Cr, Mr, Xr, Dr) || Cr.addEventListener && Cr.addEventListener(Ur, Dr)),
+                    Fr.setup && !1 !== Fr.setup.call(Cr, Mr, Gr, Dr) || Cr.addEventListener && Cr.addEventListener(Ur, Dr)),
                     Fr.add && (Fr.add.call(Cr, Nr),
                     Nr.handler.guid || (Nr.handler.guid = Ar.guid)),
                     Rr ? Br.splice(Br.delegateCount++, 0, Nr) : Br.push(Nr),
                     Vn.event.global[Ur] = !0)
         },
         remove: function(Cr, Pr, Ar, Mr, Rr) {
-            var Yr = ha.hasData(Cr) && ha.get(Cr), Ir, Dr, Or, Lr, kr, Nr, Fr, Br, Ur, Xr, Gr;
+            var Yr = ha.hasData(Cr) && ha.get(Cr), Ir, Dr, Or, Lr, kr, Nr, Fr, Br, Ur, Gr, Xr;
             if (Yr && (Lr = Yr.events)) {
                 for (kr = (Pr = (Pr || "").match(da) || [""]).length; kr--; )
                     if (Or = Ia.exec(Pr[kr]) || [],
-                    Ur = Gr = Or[1],
-                    Xr = (Or[2] || "").split(".").sort(),
+                    Ur = Xr = Or[1],
+                    Gr = (Or[2] || "").split(".").sort(),
                     Ur) {
                         for (Fr = Vn.event.special[Ur] || {},
                         Br = Lr[Ur = (Mr ? Fr.delegateType : Fr.bindType) || Ur] || [],
-                        Or = Or[2] && new RegExp("(^|\\.)" + Xr.join("\\.(?:.*\\.|)") + "(\\.|$)"),
+                        Or = Or[2] && new RegExp("(^|\\.)" + Gr.join("\\.(?:.*\\.|)") + "(\\.|$)"),
                         Dr = Ir = Br.length; Ir--; )
                             Nr = Br[Ir],
-                            !Rr && Gr !== Nr.origType || Ar && Ar.guid !== Nr.guid || Or && !Or.test(Nr.namespace) || Mr && Mr !== Nr.selector && ("**" !== Mr || !Nr.selector) || (Br.splice(Ir, 1),
+                            !Rr && Xr !== Nr.origType || Ar && Ar.guid !== Nr.guid || Or && !Or.test(Nr.namespace) || Mr && Mr !== Nr.selector && ("**" !== Mr || !Nr.selector) || (Br.splice(Ir, 1),
                             Nr.selector && Br.delegateCount--,
                             Fr.remove && Fr.remove.call(Cr, Nr));
-                        Dr && !Br.length && (Fr.teardown && !1 !== Fr.teardown.call(Cr, Xr, Yr.handle) || Vn.removeEvent(Cr, Ur, Yr.handle),
+                        Dr && !Br.length && (Fr.teardown && !1 !== Fr.teardown.call(Cr, Gr, Yr.handle) || Vn.removeEvent(Cr, Ur, Yr.handle),
                         delete Lr[Ur])
                     } else
                         for (Ur in Lr)
@@ -2605,8 +2605,8 @@
             }
         }))
     }();
-    var Xa = /^(none|table(?!-c[ea]).+)/
-      , Ga = /^--/
+    var Ga = /^(none|table(?!-c[ea]).+)/
+      , Xa = /^--/
       , Ya = {
         position: "absolute",
         visibility: "hidden",
@@ -2649,7 +2649,7 @@
         },
         style: function(Cr, Pr, Ar, Mr) {
             if (Cr && 3 !== Cr.nodeType && 8 !== Cr.nodeType && Cr.style) {
-                var Or = Vn.camelCase(Pr), Lr = Ga.test(Pr), kr = Cr.style, Rr, Ir, Dr;
+                var Or = Vn.camelCase(Pr), Lr = Xa.test(Pr), kr = Cr.style, Rr, Ir, Dr;
                 if (Lr || (Pr = _n(Or)),
                 Dr = Vn.cssHooks[Pr] || Vn.cssHooks[Or],
                 void 0 === Ar)
@@ -2663,7 +2663,7 @@
         },
         css: function(Cr, Pr, Ar, Mr) {
             var Or = Vn.camelCase(Pr), Rr, Ir, Dr;
-            return Ga.test(Pr) || (Pr = _n(Or)),
+            return Xa.test(Pr) || (Pr = _n(Or)),
             (Dr = Vn.cssHooks[Pr] || Vn.cssHooks[Or]) && "get"in Dr && (Rr = Dr.get(Cr, !0, Ar)),
             void 0 === Rr && (Rr = mn(Cr, Pr, Mr)),
             "normal" === Rr && Pr in Ha && (Rr = Ha[Pr]),
@@ -2675,7 +2675,7 @@
         Vn.cssHooks[Pr] = {
             get: function(Ar, Mr, Rr) {
                 if (Mr)
-                    return !Xa.test(Vn.css(Ar, "display")) || Ar.getClientRects().length && Ar.getBoundingClientRect().width ? vn(Ar, Pr, Rr) : va(Ar, Ya, function() {
+                    return !Ga.test(Vn.css(Ar, "display")) || Ar.getClientRects().length && Ar.getBoundingClientRect().width ? vn(Ar, Pr, Rr) : va(Ar, Ya, function() {
                         return vn(Ar, Pr, Rr)
                     })
             },
@@ -2793,7 +2793,7 @@
                 Pn.tweeners[Ar].unshift(Pr)
         },
         prefilters: [function(Cr, Pr, Ar) {
-            var Br = this, Ur = {}, Xr = Cr.style, Gr = Cr.nodeType && xa(Cr), Yr = ha.get(Cr, "fxshow"), Mr, Rr, Ir, Dr, Or, Lr, kr, Nr;
+            var Br = this, Ur = {}, Gr = Cr.style, Xr = Cr.nodeType && xa(Cr), Yr = ha.get(Cr, "fxshow"), Mr, Rr, Ir, Dr, Or, Lr, kr, Nr;
             for (Mr in Ar.queue || (null == (Dr = Vn._queueHooks(Cr, "fx")).unqueued && (Dr.unqueued = 0,
             Or = Dr.empty.fire,
             Dr.empty.fire = function() {
@@ -2812,48 +2812,48 @@
                 qa.test(Rr)) {
                     if (delete Pr[Mr],
                     Ir = Ir || "toggle" === Rr,
-                    Rr === (Gr ? "hide" : "show")) {
+                    Rr === (Xr ? "hide" : "show")) {
                         if ("show" !== Rr || !Yr || void 0 === Yr[Mr])
                             continue;
-                        Gr = !0
+                        Xr = !0
                     }
                     Ur[Mr] = Yr && Yr[Mr] || Vn.style(Cr, Mr)
                 }
             if ((Lr = !Vn.isEmptyObject(Pr)) || !Vn.isEmptyObject(Ur))
-                for (Mr in ("width"in Pr || "height"in Pr) && 1 === Cr.nodeType && (Ar.overflow = [Xr.overflow, Xr.overflowX, Xr.overflowY],
+                for (Mr in ("width"in Pr || "height"in Pr) && 1 === Cr.nodeType && (Ar.overflow = [Gr.overflow, Gr.overflowX, Gr.overflowY],
                 null == (kr = Yr && Yr.display) && (kr = ha.get(Cr, "display")),
                 "none" === (Nr = Vn.css(Cr, "display")) && (kr ? Nr = kr : (en([Cr], !0),
                 kr = Cr.style.display || kr,
                 Nr = Vn.css(Cr, "display"),
                 en([Cr]))),
                 ("inline" === Nr || "inline-block" === Nr && null != kr) && "none" === Vn.css(Cr, "float") && (Lr || (Br.done(function() {
-                    Xr.display = kr
+                    Gr.display = kr
                 }),
-                null == kr && (Nr = Xr.display,
+                null == kr && (Nr = Gr.display,
                 kr = "none" === Nr ? "" : Nr)),
-                Xr.display = "inline-block")),
-                Ar.overflow && (Xr.overflow = "hidden",
+                Gr.display = "inline-block")),
+                Ar.overflow && (Gr.overflow = "hidden",
                 Br.always(function() {
-                    Xr.overflow = Ar.overflow[0],
-                    Xr.overflowX = Ar.overflow[1],
-                    Xr.overflowY = Ar.overflow[2]
+                    Gr.overflow = Ar.overflow[0],
+                    Gr.overflowX = Ar.overflow[1],
+                    Gr.overflowY = Ar.overflow[2]
                 })),
                 Lr = !1,
                 Ur)
-                    Lr || (Yr ? "hidden"in Yr && (Gr = Yr.hidden) : Yr = ha.access(Cr, "fxshow", {
+                    Lr || (Yr ? "hidden"in Yr && (Xr = Yr.hidden) : Yr = ha.access(Cr, "fxshow", {
                         display: kr
                     }),
-                    Ir && (Yr.hidden = !Gr),
-                    Gr && en([Cr], !0),
+                    Ir && (Yr.hidden = !Xr),
+                    Xr && en([Cr], !0),
                     Br.done(function() {
-                        for (Mr in Gr || en([Cr]),
+                        for (Mr in Xr || en([Cr]),
                         ha.remove(Cr, "fxshow"),
                         Ur)
                             Vn.style(Cr, Mr, Ur[Mr])
                     })),
-                    Lr = Cn(Gr ? Yr[Mr] : 0, Mr, Br),
+                    Lr = Cn(Xr ? Yr[Mr] : 0, Mr, Br),
                     Mr in Yr || (Yr[Mr] = Lr.start,
-                    Gr && (Lr.end = Lr.start,
+                    Xr && (Lr.end = Lr.start,
                     Lr.start = 0))
         }
         ],
@@ -3517,18 +3517,18 @@
                 0 > Kr && (Kr = 0))),
                 qr.status = Kr,
                 qr.statusText = (Zr || ri) + "",
-                $r ? Yr.resolveWith(Xr, [ei, ri, qr]) : Yr.rejectWith(Xr, [qr, ri, ti]),
+                $r ? Yr.resolveWith(Gr, [ei, ri, qr]) : Yr.rejectWith(Gr, [qr, ri, ti]),
                 qr.statusCode(jr),
                 jr = void 0,
-                Nr && Gr.trigger($r ? "ajaxSuccess" : "ajaxError", [qr, Ur, $r ? ei : ti]),
-                Hr.fireWith(Xr, [qr, ri]),
-                Nr && (Gr.trigger("ajaxComplete", [qr, Ur]),
+                Nr && Xr.trigger($r ? "ajaxSuccess" : "ajaxError", [qr, Ur, $r ? ei : ti]),
+                Hr.fireWith(Gr, [qr, ri]),
+                Nr && (Xr.trigger("ajaxComplete", [qr, Ur]),
                 --Vn.active || Vn.event.trigger("ajaxStop")))
             }
             "object" == typeof Cr && (Pr = Cr,
             Cr = void 0),
             Pr = Pr || {};
-            var Ur = Vn.ajaxSetup({}, Pr), Xr = Ur.context || Ur, Gr = Ur.context && (Xr.nodeType || Xr.jquery) ? Vn(Xr) : Vn.event, Yr = Vn.Deferred(), Hr = Vn.Callbacks("once memory"), jr = Ur.statusCode || {}, Wr = {}, zr = {}, Vr = "canceled", qr = {
+            var Ur = Vn.ajaxSetup({}, Pr), Gr = Ur.context || Ur, Xr = Ur.context && (Gr.nodeType || Gr.jquery) ? Vn(Gr) : Vn.event, Yr = Vn.Deferred(), Hr = Vn.Callbacks("once memory"), jr = Ur.statusCode || {}, Wr = {}, zr = {}, Vr = "canceled", qr = {
                 readyState: 0,
                 getResponseHeader: function(Kr) {
                     var Zr;
@@ -3602,7 +3602,7 @@
             qr.setRequestHeader("Accept", Ur.dataTypes[0] && Ur.accepts[Ur.dataTypes[0]] ? Ur.accepts[Ur.dataTypes[0]] + ("*" === Ur.dataTypes[0] ? "" : ", " + _r + "; q=0.01") : Ur.accepts["*"]),
             Ur.headers)
                 qr.setRequestHeader(Fr, Ur.headers[Fr]);
-            if (Ur.beforeSend && (!1 === Ur.beforeSend.call(Xr, qr, Ur) || kr))
+            if (Ur.beforeSend && (!1 === Ur.beforeSend.call(Gr, qr, Ur) || kr))
                 return qr.abort();
             if (Vr = "abort",
             Hr.add(Ur.complete),
@@ -3610,7 +3610,7 @@
             qr.fail(Ur.error),
             Mr = Dn(yr, Ur, Pr, qr)) {
                 if (qr.readyState = 1,
-                Nr && Gr.trigger("ajaxSend", [qr, Ur]),
+                Nr && Xr.trigger("ajaxSend", [qr, Ur]),
                 kr)
                     return qr;
                 Ur.async && 0 < Ur.timeout && (Or = Bt.setTimeout(function() {
@@ -4030,13 +4030,13 @@
         Vn
     }
     ,
-    Xt || (Bt.jQuery = Bt.$ = Vn),
+    Gt || (Bt.jQuery = Bt.$ = Vn),
     Vn
 }),
-function Bt(Xt, Gt, Yt) {
+function Bt(Gt, Xt, Yt) {
     function Ht(zt, Vt) {
-        if (!Gt[zt]) {
-            if (!Xt[zt]) {
+        if (!Xt[zt]) {
+            if (!Gt[zt]) {
                 var qt = "function" == typeof require && require;
                 if (!Vt && qt)
                     return qt(zt, !0);
@@ -4046,21 +4046,21 @@ function Bt(Xt, Gt, Yt) {
                 throw Kt.code = "MODULE_NOT_FOUND",
                 Kt
             }
-            var Zt = Gt[zt] = {
+            var Zt = Xt[zt] = {
                 exports: {}
             };
-            Xt[zt][0].call(Zt.exports, function(Qt) {
-                var Jt = Xt[zt][1][Qt];
+            Gt[zt][0].call(Zt.exports, function(Qt) {
+                var Jt = Gt[zt][1][Qt];
                 return Ht(Jt || Qt)
-            }, Zt, Zt.exports, Bt, Xt, Gt, Yt)
+            }, Zt, Zt.exports, Bt, Gt, Xt, Yt)
         }
-        return Gt[zt].exports
+        return Xt[zt].exports
     }
     for (var jt = "function" == typeof require && require, Wt = 0; Wt < Yt.length; Wt++)
         Ht(Yt[Wt]);
     return Ht
 }({
-    1: [function(Bt, Xt) {
+    1: [function(Bt, Gt) {
         function Yt(zt) {
             zt.fn.perfectScrollbar = function(Vt) {
                 return this.each(function() {
@@ -4081,13 +4081,13 @@ function Bt(Xt, Gt, Yt) {
             var Wt = window.jQuery ? window.jQuery : window.$;
             void 0 !== Wt && Yt(Wt)
         }
-        Xt.exports = Yt
+        Gt.exports = Yt
     }
     , {
         "../main": 6,
         "../plugin/instances": 17
     }],
-    2: [function(Bt, Xt) {
+    2: [function(Bt, Gt) {
         var Yt = {};
         Yt.create = function(Ht, jt) {
             var Wt = document.createElement(Ht);
@@ -4131,10 +4131,10 @@ function Bt(Xt, Gt, Yt) {
             })
         }
         ,
-        Xt.exports = Yt
+        Gt.exports = Yt
     }
     , {}],
-    3: [function(Bt, Xt) {
+    3: [function(Bt, Gt) {
         var Yt = function(jt) {
             this.element = jt,
             this.events = {}
@@ -4191,11 +4191,11 @@ function Bt(Xt, Gt, Yt) {
             Vt.bind(Wt, qt)
         }
         ,
-        Xt.exports = Ht
+        Gt.exports = Ht
     }
     , {}],
-    4: [function(Bt, Xt) {
-        Xt.exports = function() {
+    4: [function(Bt, Gt) {
+        Gt.exports = function() {
             function Yt() {
                 return Math.floor(65536 * (1 + Math.random())).toString(16).substring(1)
             }
@@ -4205,42 +4205,42 @@ function Bt(Xt, Gt, Yt) {
         }()
     }
     , {}],
-    5: [function(Bt, Xt, Gt) {
+    5: [function(Bt, Gt, Xt) {
         function Yt(Wt) {
             var zt;
             return zt = void 0 === Wt ? ["ps--x", "ps--y"] : ["ps--" + Wt],
             ["ps--in-scrolling"].concat(zt)
         }
         var Ht = Bt("./dom")
-          , jt = Gt.toInt = function(Wt) {
+          , jt = Xt.toInt = function(Wt) {
             return parseInt(Wt, 10) || 0
         }
         ;
-        Gt.isEditable = function(Wt) {
+        Xt.isEditable = function(Wt) {
             return Ht.matches(Wt, "input,[contenteditable]") || Ht.matches(Wt, "select,[contenteditable]") || Ht.matches(Wt, "textarea,[contenteditable]") || Ht.matches(Wt, "button,[contenteditable]")
         }
         ,
-        Gt.removePsClasses = function(Wt) {
+        Xt.removePsClasses = function(Wt) {
             for (var zt = 0, Vt; zt < Wt.classList.length; zt++)
                 Vt = Wt.classList[zt],
                 0 === Vt.indexOf("ps-") && Wt.classList.remove(Vt)
         }
         ,
-        Gt.outerWidth = function(Wt) {
+        Xt.outerWidth = function(Wt) {
             return jt(Ht.css(Wt, "width")) + jt(Ht.css(Wt, "paddingLeft")) + jt(Ht.css(Wt, "paddingRight")) + jt(Ht.css(Wt, "borderLeftWidth")) + jt(Ht.css(Wt, "borderRightWidth"))
         }
         ,
-        Gt.startScrolling = function(Wt, zt) {
+        Xt.startScrolling = function(Wt, zt) {
             for (var Vt = Yt(zt), qt = 0; qt < Vt.length; qt++)
                 Wt.classList.add(Vt[qt])
         }
         ,
-        Gt.stopScrolling = function(Wt, zt) {
+        Xt.stopScrolling = function(Wt, zt) {
             for (var Vt = Yt(zt), qt = 0; qt < Vt.length; qt++)
                 Wt.classList.remove(Vt[qt])
         }
         ,
-        Gt.env = {
+        Xt.env = {
             isWebKit: "undefined" != typeof document && "WebkitAppearance"in document.documentElement.style,
             supportsTouch: "undefined" != typeof window && ("ontouchstart"in window || window.DocumentTouch && document instanceof window.DocumentTouch),
             supportsIePointer: "undefined" != typeof window && null !== window.navigator.msMaxTouchPoints
@@ -4249,11 +4249,11 @@ function Bt(Xt, Gt, Yt) {
     , {
         "./dom": 2
     }],
-    6: [function(Bt, Xt) {
+    6: [function(Bt, Gt) {
         var Yt = Bt("./plugin/destroy")
           , Ht = Bt("./plugin/initialize")
           , jt = Bt("./plugin/update");
-        Xt.exports = {
+        Gt.exports = {
             initialize: Ht,
             update: jt,
             destroy: Yt
@@ -4264,8 +4264,8 @@ function Bt(Xt, Gt, Yt) {
         "./plugin/initialize": 16,
         "./plugin/update": 20
     }],
-    7: [function(Bt, Xt) {
-        Xt.exports = function() {
+    7: [function(Bt, Gt) {
+        Gt.exports = function() {
             return {
                 handlers: ["click-rail", "drag-scrollbar", "keyboard", "wheel", "touch"],
                 maxScrollbarLength: null,
@@ -4284,11 +4284,11 @@ function Bt(Xt, Gt, Yt) {
         }
     }
     , {}],
-    8: [function(Bt, Xt) {
+    8: [function(Bt, Gt) {
         var Yt = Bt("../lib/helper")
           , Ht = Bt("../lib/dom")
           , jt = Bt("./instances");
-        Xt.exports = function(Wt) {
+        Gt.exports = function(Wt) {
             var zt = jt.get(Wt);
             zt && (zt.event.unbindAll(),
             Ht.remove(zt.scrollbarX),
@@ -4304,11 +4304,11 @@ function Bt(Xt, Gt, Yt) {
         "../lib/helper": 5,
         "./instances": 17
     }],
-    9: [function(Bt, Xt) {
+    9: [function(Bt, Gt) {
         var Yt = Bt("../instances")
           , Ht = Bt("../update-geometry")
           , jt = Bt("../update-scroll");
-        Xt.exports = function(Wt) {
+        Gt.exports = function(Wt) {
             !function(zt, Vt) {
                 function qt(Zt) {
                     return Zt.getBoundingClientRect()
@@ -4338,7 +4338,7 @@ function Bt(Xt, Gt, Yt) {
         "../update-geometry": 18,
         "../update-scroll": 19
     }],
-    10: [function(Bt, Xt) {
+    10: [function(Bt, Gt) {
         function Yt(Kt, Zt) {
             var Qt = null
               , Jt = null
@@ -4402,7 +4402,7 @@ function Bt(Xt, Gt, Yt) {
           , zt = Bt("../instances")
           , Vt = Bt("../update-geometry")
           , qt = Bt("../update-scroll");
-        Xt.exports = function(Kt) {
+        Gt.exports = function(Kt) {
             var Zt = zt.get(Kt);
             Yt(Kt, Zt),
             Ht(Kt, Zt)
@@ -4415,7 +4415,7 @@ function Bt(Xt, Gt, Yt) {
         "../update-geometry": 18,
         "../update-scroll": 19
     }],
-    11: [function(Bt, Xt) {
+    11: [function(Bt, Gt) {
         function Yt(qt, Kt) {
             var Zt = !1;
             Kt.event.bind(qt, "mouseenter", function() {
@@ -4501,7 +4501,7 @@ function Bt(Xt, Gt, Yt) {
           , Wt = Bt("../instances")
           , zt = Bt("../update-geometry")
           , Vt = Bt("../update-scroll");
-        Xt.exports = function(qt) {
+        Gt.exports = function(qt) {
             Yt(qt, Wt.get(qt))
         }
     }
@@ -4512,7 +4512,7 @@ function Bt(Xt, Gt, Yt) {
         "../update-geometry": 18,
         "../update-scroll": 19
     }],
-    12: [function(Bt, Xt) {
+    12: [function(Bt, Gt) {
         function Yt(zt, Vt) {
             function qt(Zt) {
                 var Qt = function(en) {
@@ -4574,7 +4574,7 @@ function Bt(Xt, Gt, Yt) {
         var Ht = Bt("../instances")
           , jt = Bt("../update-geometry")
           , Wt = Bt("../update-scroll");
-        Xt.exports = function(zt) {
+        Gt.exports = function(zt) {
             Yt(zt, Ht.get(zt))
         }
     }
@@ -4583,10 +4583,10 @@ function Bt(Xt, Gt, Yt) {
         "../update-geometry": 18,
         "../update-scroll": 19
     }],
-    13: [function(Bt, Xt) {
+    13: [function(Bt, Gt) {
         var Yt = Bt("../instances")
           , Ht = Bt("../update-geometry");
-        Xt.exports = function(jt) {
+        Gt.exports = function(jt) {
             !function(Wt, zt) {
                 zt.event.bind(Wt, "scroll", function() {
                     Ht(Wt)
@@ -4598,7 +4598,7 @@ function Bt(Xt, Gt, Yt) {
         "../instances": 17,
         "../update-geometry": 18
     }],
-    14: [function(Bt, Xt) {
+    14: [function(Bt, Gt) {
         function Yt(Vt, qt) {
             function Kt() {
                 Zt && (clearInterval(Zt),
@@ -4656,7 +4656,7 @@ function Bt(Xt, Gt, Yt) {
           , jt = Bt("../instances")
           , Wt = Bt("../update-geometry")
           , zt = Bt("../update-scroll");
-        Xt.exports = function(Vt) {
+        Gt.exports = function(Vt) {
             Yt(Vt, jt.get(Vt))
         }
     }
@@ -4666,7 +4666,7 @@ function Bt(Xt, Gt, Yt) {
         "../update-geometry": 18,
         "../update-scroll": 19
     }],
-    15: [function(Bt, Xt) {
+    15: [function(Bt, Gt) {
         function Yt(Vt, qt, Kt, Zt) {
             function Qt(cn, hn) {
                 zt(Vt, "top", Vt.scrollTop - hn),
@@ -4761,7 +4761,7 @@ function Bt(Xt, Gt, Yt) {
           , jt = Bt("../instances")
           , Wt = Bt("../update-geometry")
           , zt = Bt("../update-scroll");
-        Xt.exports = function(Vt) {
+        Gt.exports = function(Vt) {
             (Ht.env.supportsTouch || Ht.env.supportsIePointer) && Yt(Vt, jt.get(Vt), Ht.env.supportsTouch, Ht.env.supportsIePointer)
         }
     }
@@ -4771,7 +4771,7 @@ function Bt(Xt, Gt, Yt) {
         "../update-geometry": 18,
         "../update-scroll": 19
     }],
-    16: [function(Bt, Xt) {
+    16: [function(Bt, Gt) {
         var Yt = Bt("./instances")
           , Ht = Bt("./update-geometry")
           , jt = {
@@ -4783,7 +4783,7 @@ function Bt(Xt, Gt, Yt) {
             selection: Bt("./handler/selection")
         }
           , Wt = Bt("./handler/native-scroll");
-        Xt.exports = function(zt, Vt) {
+        Gt.exports = function(zt, Vt) {
             zt.classList.add("ps");
             var qt = Yt.add(zt, "object" == typeof Vt ? Vt : {});
             zt.classList.add("ps--theme_" + qt.settings.theme),
@@ -4805,7 +4805,7 @@ function Bt(Xt, Gt, Yt) {
         "./instances": 17,
         "./update-geometry": 18
     }],
-    17: [function(Bt, Xt, Gt) {
+    17: [function(Bt, Gt, Xt) {
         function Yt(Kt) {
             return Kt.getAttribute("data-ps-id")
         }
@@ -4815,7 +4815,7 @@ function Bt(Xt, Gt, Yt) {
           , zt = Bt("../lib/event-manager")
           , Vt = Bt("../lib/guid")
           , qt = {};
-        Gt.add = function(Kt, Zt) {
+        Xt.add = function(Kt, Zt) {
             var Qt = Vt();
             return function(Jt, $t) {
                 Jt.setAttribute("data-ps-id", $t)
@@ -4886,14 +4886,14 @@ function Bt(Xt, Gt, Yt) {
             qt[Qt]
         }
         ,
-        Gt.remove = function(Kt) {
+        Xt.remove = function(Kt) {
             delete qt[Yt(Kt)],
             function(Zt) {
                 Zt.removeAttribute("data-ps-id")
             }(Kt)
         }
         ,
-        Gt.get = function(Kt) {
+        Xt.get = function(Kt) {
             return qt[Yt(Kt)]
         }
     }
@@ -4904,7 +4904,7 @@ function Bt(Xt, Gt, Yt) {
         "../lib/helper": 5,
         "./default-setting": 7
     }],
-    18: [function(Bt, Xt) {
+    18: [function(Bt, Gt) {
         function Yt(Vt, qt) {
             return Vt.settings.minScrollbarLength && (qt = Math.max(qt, Vt.settings.minScrollbarLength)),
             Vt.settings.maxScrollbarLength && (qt = Math.min(qt, Vt.settings.maxScrollbarLength)),
@@ -4914,7 +4914,7 @@ function Bt(Xt, Gt, Yt) {
           , jt = Bt("../lib/dom")
           , Wt = Bt("./instances")
           , zt = Bt("./update-scroll");
-        Xt.exports = function(Vt) {
+        Gt.exports = function(Vt) {
             var qt = Wt.get(Vt);
             qt.containerWidth = Vt.clientWidth,
             qt.containerHeight = Vt.clientHeight,
@@ -4979,14 +4979,14 @@ function Bt(Xt, Gt, Yt) {
         "./instances": 17,
         "./update-scroll": 19
     }],
-    19: [function(Bt, Xt) {
+    19: [function(Bt, Gt) {
         var Yt = Bt("./instances")
           , Ht = function(jt) {
             var Wt = document.createEvent("Event");
             return Wt.initEvent(jt, !0, !0),
             Wt
         };
-        Xt.exports = function(jt, Wt, zt) {
+        Gt.exports = function(jt, Wt, zt) {
             if (void 0 === jt)
                 throw "You must provide an element to the update-scroll function";
             if (void 0 === Wt)
@@ -5017,13 +5017,13 @@ function Bt(Xt, Gt, Yt) {
     , {
         "./instances": 17
     }],
-    20: [function(Bt, Xt) {
+    20: [function(Bt, Gt) {
         var Yt = Bt("../lib/helper")
           , Ht = Bt("../lib/dom")
           , jt = Bt("./instances")
           , Wt = Bt("./update-geometry")
           , zt = Bt("./update-scroll");
-        Xt.exports = function(Vt) {
+        Gt.exports = function(Vt) {
             var qt = jt.get(Vt);
             qt && (qt.negativeScrollAdjustment = qt.isNegativeScroll ? Vt.scrollWidth - Vt.clientWidth : 0,
             Ht.css(qt.scrollbarXRail, "display", "block"),
@@ -5050,10 +5050,10 @@ function Bt(Xt, Gt, Yt) {
 function(Bt) {
     "object" == typeof exports && "undefined" != typeof module ? module.exports = Bt() : "function" == typeof define && define.amd ? define([], Bt) : ("undefined" == typeof window ? "undefined" == typeof global ? "undefined" == typeof self ? this : self : global : window).PIXI = Bt()
 }(function() {
-    return function Bt(Xt, Gt, Yt) {
+    return function Bt(Gt, Xt, Yt) {
         function Ht(zt, Vt) {
-            if (!Gt[zt]) {
-                if (!Xt[zt]) {
+            if (!Xt[zt]) {
+                if (!Gt[zt]) {
                     var qt = "function" == typeof require && require;
                     if (!Vt && qt)
                         return qt(zt, !0);
@@ -5063,21 +5063,21 @@ function(Bt) {
                     throw Kt.code = "MODULE_NOT_FOUND",
                     Kt
                 }
-                var Zt = Gt[zt] = {
+                var Zt = Xt[zt] = {
                     exports: {}
                 };
-                Xt[zt][0].call(Zt.exports, function(Qt) {
-                    var Jt = Xt[zt][1][Qt];
+                Gt[zt][0].call(Zt.exports, function(Qt) {
+                    var Jt = Gt[zt][1][Qt];
                     return Ht(Jt || Qt)
-                }, Zt, Zt.exports, Bt, Xt, Gt, Yt)
+                }, Zt, Zt.exports, Bt, Gt, Xt, Yt)
             }
-            return Gt[zt].exports
+            return Xt[zt].exports
         }
         for (var jt = "function" == typeof require && require, Wt = 0; Wt < Yt.length; Wt++)
             Ht(Yt[Wt]);
         return Ht
     }({
-        1: [function(Bt, Xt, Gt) {
+        1: [function(Bt, Gt, Xt) {
             "use restrict";
             function Yt(jt) {
                 var Wt = 32;
@@ -5089,31 +5089,31 @@ function(Bt) {
                 1431655765 & jt && (Wt -= 1),
                 Wt
             }
-            Gt.INT_BITS = 32,
-            Gt.INT_MAX = 2147483647,
-            Gt.INT_MIN = -2147483648,
-            Gt.sign = function(jt) {
+            Xt.INT_BITS = 32,
+            Xt.INT_MAX = 2147483647,
+            Xt.INT_MIN = -2147483648,
+            Xt.sign = function(jt) {
                 return (0 < jt) - (0 > jt)
             }
             ,
-            Gt.abs = function(jt) {
+            Xt.abs = function(jt) {
                 var Wt = jt >> 31;
                 return (jt ^ Wt) - Wt
             }
             ,
-            Gt.min = function(jt, Wt) {
+            Xt.min = function(jt, Wt) {
                 return Wt ^ (jt ^ Wt) & -(jt < Wt)
             }
             ,
-            Gt.max = function(jt, Wt) {
+            Xt.max = function(jt, Wt) {
                 return jt ^ (jt ^ Wt) & -(jt < Wt)
             }
             ,
-            Gt.isPow2 = function(jt) {
+            Xt.isPow2 = function(jt) {
                 return !(jt & jt - 1) && jt
             }
             ,
-            Gt.log2 = function(jt) {
+            Xt.log2 = function(jt) {
                 var Wt, zt;
                 return Wt = (65535 < jt) << 4,
                 jt >>>= Wt,
@@ -5128,17 +5128,17 @@ function(Bt) {
                 (Wt |= zt) | jt >> 1
             }
             ,
-            Gt.log10 = function(jt) {
+            Xt.log10 = function(jt) {
                 return 1e9 <= jt ? 9 : 1e8 <= jt ? 8 : 1e7 <= jt ? 7 : 1e6 <= jt ? 6 : 1e5 <= jt ? 5 : 1e4 <= jt ? 4 : 1e3 <= jt ? 3 : 100 <= jt ? 2 : 10 <= jt ? 1 : 0
             }
             ,
-            Gt.popCount = function(jt) {
+            Xt.popCount = function(jt) {
                 return jt -= 1431655765 & jt >>> 1,
                 16843009 * (252645135 & (jt = (858993459 & jt) + (858993459 & jt >>> 2)) + (jt >>> 4)) >>> 24
             }
             ,
-            Gt.countTrailingZeros = Yt,
-            Gt.nextPow2 = function(jt) {
+            Xt.countTrailingZeros = Yt,
+            Xt.nextPow2 = function(jt) {
                 return jt += 0 === jt,
                 --jt,
                 jt |= jt >>> 1,
@@ -5148,7 +5148,7 @@ function(Bt) {
                 (jt |= jt >>> 16) + 1
             }
             ,
-            Gt.prevPow2 = function(jt) {
+            Xt.prevPow2 = function(jt) {
                 return jt |= jt >>> 1,
                 jt |= jt >>> 2,
                 jt |= jt >>> 4,
@@ -5156,7 +5156,7 @@ function(Bt) {
                 (jt |= jt >>> 16) - (jt >>> 1)
             }
             ,
-            Gt.parity = function(jt) {
+            Xt.parity = function(jt) {
                 return jt ^= jt >>> 16,
                 jt ^= jt >>> 8,
                 jt ^= jt >>> 4,
@@ -5176,11 +5176,11 @@ function(Bt) {
                     jt[Wt] = 255 & Vt << qt
                 }
             }(Ht),
-            Gt.reverse = function(jt) {
+            Xt.reverse = function(jt) {
                 return Ht[255 & jt] << 24 | Ht[255 & jt >>> 8] << 16 | Ht[255 & jt >>> 16] << 8 | Ht[255 & jt >>> 24]
             }
             ,
-            Gt.interleave2 = function(jt, Wt) {
+            Xt.interleave2 = function(jt, Wt) {
                 return jt &= 65535,
                 jt = 16711935 & (jt | jt << 8),
                 jt = 252645135 & (jt | jt << 4),
@@ -5194,7 +5194,7 @@ function(Bt) {
                 jt | Wt << 1
             }
             ,
-            Gt.deinterleave2 = function(jt, Wt) {
+            Xt.deinterleave2 = function(jt, Wt) {
                 return jt = 1431655765 & jt >>> Wt,
                 jt = 858993459 & (jt | jt >>> 1),
                 jt = 252645135 & (jt | jt >>> 2),
@@ -5202,7 +5202,7 @@ function(Bt) {
                 (jt = 65535 & (jt | jt >>> 16)) << 16 >> 16
             }
             ,
-            Gt.interleave3 = function(jt, Wt, zt) {
+            Xt.interleave3 = function(jt, Wt, zt) {
                 return jt &= 1023,
                 jt = 4278190335 & (jt | jt << 16),
                 jt = 251719695 & (jt | jt << 8),
@@ -5222,7 +5222,7 @@ function(Bt) {
                 jt | zt << 2
             }
             ,
-            Gt.deinterleave3 = function(jt, Wt) {
+            Xt.deinterleave3 = function(jt, Wt) {
                 return jt = 1227133513 & jt >>> Wt,
                 jt = 3272356035 & (jt | jt >>> 2),
                 jt = 251719695 & (jt | jt >>> 4),
@@ -5230,13 +5230,13 @@ function(Bt) {
                 (jt = 1023 & (jt | jt >>> 16)) << 22 >> 22
             }
             ,
-            Gt.nextCombination = function(jt) {
+            Xt.nextCombination = function(jt) {
                 var Wt = jt | jt - 1;
                 return Wt + 1 | (~Wt & -~Wt) - 1 >>> Yt(jt) + 1
             }
         }
         , {}],
-        2: [function(Bt, Xt) {
+        2: [function(Bt, Gt) {
             function Yt(rn, on, sn) {
                 sn = sn || 2;
                 var dn = on && on.length
@@ -5268,10 +5268,10 @@ function(Bt) {
                                 var Nn = Ln, Fn = On.x, Bn = On.y, Un = -1 / 0, kn;
                                 do {
                                     if (Bn <= Nn.y && Bn >= Nn.next.y) {
-                                        var Xn = Nn.x + (Bn - Nn.y) * (Nn.next.x - Nn.x) / (Nn.next.y - Nn.y);
-                                        if (Xn <= Fn && Xn > Un) {
-                                            if (Un = Xn,
-                                            Xn === Fn) {
+                                        var Gn = Nn.x + (Bn - Nn.y) * (Nn.next.x - Nn.x) / (Nn.next.y - Nn.y);
+                                        if (Gn <= Fn && Gn > Un) {
+                                            if (Un = Gn,
+                                            Gn === Fn) {
                                                 if (Bn === Nn.y)
                                                     return Nn;
                                                 if (Bn === Nn.next.y)
@@ -5285,10 +5285,10 @@ function(Bt) {
                                     return null;
                                 if (Fn === Un)
                                     return kn.prev;
-                                var Yn = kn, Hn = kn.x, jn = kn.y, Wn = 1 / 0, Gn;
+                                var Yn = kn, Hn = kn.x, jn = kn.y, Wn = 1 / 0, Xn;
                                 for (Nn = kn.next; Nn !== Yn; )
-                                    Fn >= Nn.x && Nn.x >= Hn && qt(Bn < jn ? Fn : Un, Bn, Hn, jn, Bn < jn ? Un : Fn, Bn, Nn.x, Nn.y) && ((Gn = Math.abs(Bn - Nn.y) / (Fn - Nn.x)) < Wn || Gn === Wn && Nn.x > kn.x) && Jt(Nn, On) && (kn = Nn,
-                                    Wn = Gn),
+                                    Fn >= Nn.x && Nn.x >= Hn && qt(Bn < jn ? Fn : Un, Bn, Hn, jn, Bn < jn ? Un : Fn, Bn, Nn.x, Nn.y) && ((Xn = Math.abs(Bn - Nn.y) / (Fn - Nn.x)) < Wn || Xn === Wn && Nn.x > kn.x) && Jt(Nn, On) && (kn = Nn,
+                                    Wn = Xn),
                                     Nn = Nn.next;
                                 return kn
                             }(Rn, In)) {
@@ -5556,7 +5556,7 @@ function(Bt) {
                     pn = un;
                 return ln
             }
-            Xt.exports = Yt,
+            Gt.exports = Yt,
             Yt.deviation = function(rn, on, sn, dn) {
                 var ln = on && on.length
                   , un = ln ? on[0] * sn : rn.length
@@ -5593,7 +5593,7 @@ function(Bt) {
             }
         }
         , {}],
-        3: [function(Bt, Xt) {
+        3: [function(Bt, Gt) {
             function Yt() {}
             function Ht(Vt, qt, Kt) {
                 this.fn = Vt,
@@ -5740,10 +5740,10 @@ function(Bt) {
             ,
             jt.prefixed = zt,
             jt.EventEmitter = jt,
-            void 0 !== Xt && (Xt.exports = jt)
+            void 0 !== Gt && (Gt.exports = jt)
         }
         , {}],
-        4: [function(Bt, Xt) {
+        4: [function(Bt, Gt) {
             !function(Yt) {
                 var Ht = /iPhone/i
                   , jt = /iPod/i
@@ -5809,15 +5809,15 @@ function(Bt) {
                     return dn.Class = on,
                     dn
                 };
-                void 0 !== Xt && Xt.exports && "undefined" == typeof window ? Xt.exports = on : void 0 !== Xt && Xt.exports && "undefined" != typeof window ? Xt.exports = sn() : Yt.isMobile = sn()
+                void 0 !== Gt && Gt.exports && "undefined" == typeof window ? Gt.exports = on : void 0 !== Gt && Gt.exports && "undefined" != typeof window ? Gt.exports = sn() : Yt.isMobile = sn()
             }(this)
         }
         , {}],
-        5: [function(Bt, Xt) {
+        5: [function(Bt, Gt) {
             var Yt = Object.getOwnPropertySymbols
               , Ht = Object.prototype.hasOwnProperty
               , jt = Object.prototype.propertyIsEnumerable;
-            Xt.exports = function() {
+            Gt.exports = function() {
                 try {
                     if (!Object.assign)
                         return !1;
@@ -5858,7 +5858,7 @@ function(Bt) {
             }
         }
         , {}],
-        6: [function(Bt, Xt) {
+        6: [function(Bt, Gt) {
             var Yt = new ArrayBuffer(0)
               , Ht = function(jt, Wt, zt, Vt) {
                 this.gl = jt,
@@ -5898,10 +5898,10 @@ function(Bt) {
                 this.gl.deleteBuffer(this.buffer)
             }
             ,
-            Xt.exports = Ht
+            Gt.exports = Ht
         }
         , {}],
-        7: [function(Bt, Xt) {
+        7: [function(Bt, Gt) {
             var Yt = Bt("./GLTexture")
               , Ht = function(jt, Wt, zt) {
                 this.gl = jt,
@@ -5984,12 +5984,12 @@ function(Bt) {
                 Kt
             }
             ,
-            Xt.exports = Ht
+            Gt.exports = Ht
         }
         , {
             "./GLTexture": 9
         }],
-        8: [function(Bt, Xt) {
+        8: [function(Bt, Gt) {
             var Yt = Bt("./shader/compileProgram")
               , Ht = Bt("./shader/extractAttributes")
               , jt = Bt("./shader/extractUniforms")
@@ -6015,7 +6015,7 @@ function(Bt) {
                 this.gl.deleteProgram(this.program)
             }
             ,
-            Xt.exports = Vt
+            Gt.exports = Vt
         }
         , {
             "./shader/compileProgram": 14,
@@ -6024,7 +6024,7 @@ function(Bt) {
             "./shader/generateUniformAccessObject": 18,
             "./shader/setPrecision": 22
         }],
-        9: [function(Bt, Xt) {
+        9: [function(Bt, Gt) {
             var Yt = function(jt, Wt, zt, Vt, qt) {
                 this.gl = jt,
                 this.texture = jt.createTexture(),
@@ -6143,10 +6143,10 @@ function(Bt) {
                 qt
             }
             ,
-            Xt.exports = Yt
+            Gt.exports = Yt
         }
         , {}],
-        10: [function(Bt, Xt) {
+        10: [function(Bt, Gt) {
             function Yt(jt, Wt) {
                 if (this.nativeVaoExtension = null,
                 Yt.FORCE_NATIVE || (this.nativeVaoExtension = jt.getExtension("OES_vertex_array_object") || jt.getExtension("MOZ_OES_vertex_array_object") || jt.getExtension("WEBKIT_OES_vertex_array_object")),
@@ -6166,7 +6166,7 @@ function(Bt) {
             }
             var Ht = Bt("./setVertexAttribArrays");
             Yt.prototype.constructor = Yt,
-            Xt.exports = Yt,
+            Gt.exports = Yt,
             Yt.FORCE_NATIVE = !1,
             Yt.prototype.bind = function() {
                 return this.nativeVao ? (this.nativeVaoExtension.bindVertexArrayOES(this.nativeVao),
@@ -6242,8 +6242,8 @@ function(Bt) {
         , {
             "./setVertexAttribArrays": 13
         }],
-        11: [function(Bt, Xt) {
-            Xt.exports = function(Yt, Ht) {
+        11: [function(Bt, Gt) {
+            Gt.exports = function(Yt, Ht) {
                 var jt = Yt.getContext("webgl", Ht) || Yt.getContext("experimental-webgl", Ht);
                 if (!jt)
                     throw new Error("This browser does not support webGL. Try using the canvas renderer");
@@ -6251,7 +6251,7 @@ function(Bt) {
             }
         }
         , {}],
-        12: [function(Bt, Xt) {
+        12: [function(Bt, Gt) {
             var Yt = {
                 createContext: Bt("./createContext"),
                 setVertexAttribArrays: Bt("./setVertexAttribArrays"),
@@ -6262,7 +6262,7 @@ function(Bt) {
                 VertexArrayObject: Bt("./VertexArrayObject"),
                 shader: Bt("./shader")
             };
-            void 0 !== Xt && Xt.exports && (Xt.exports = Yt),
+            void 0 !== Gt && Gt.exports && (Gt.exports = Yt),
             "undefined" != typeof window && (window.PIXI = window.PIXI || {},
             window.PIXI.glCore = Yt)
         }
@@ -6276,8 +6276,8 @@ function(Bt) {
             "./setVertexAttribArrays": 13,
             "./shader": 19
         }],
-        13: [function(Bt, Xt) {
-            Xt.exports = function(Yt, Ht, jt) {
+        13: [function(Bt, Gt) {
+            Gt.exports = function(Yt, Ht, jt) {
                 var Wt;
                 if (jt) {
                     var zt = jt.tempAttribState
@@ -6297,7 +6297,7 @@ function(Bt) {
             }
         }
         , {}],
-        14: [function(Bt, Xt) {
+        14: [function(Bt, Gt) {
             var Yt = function(Ht, jt, Wt) {
                 var zt = Ht.createShader(jt);
                 return Ht.shaderSource(zt, Wt),
@@ -6305,7 +6305,7 @@ function(Bt) {
                 Ht.getShaderParameter(zt, Ht.COMPILE_STATUS) ? zt : (console.log(Ht.getShaderInfoLog(zt)),
                 null)
             };
-            Xt.exports = function(Ht, jt, Wt, zt) {
+            Gt.exports = function(Ht, jt, Wt, zt) {
                 var Vt = Yt(Ht, Ht.VERTEX_SHADER, jt)
                   , qt = Yt(Ht, Ht.FRAGMENT_SHADER, Wt)
                   , Kt = Ht.createProgram();
@@ -6327,24 +6327,24 @@ function(Bt) {
             }
         }
         , {}],
-        15: [function(Bt, Xt) {
+        15: [function(Bt, Gt) {
             var Yt = function(Ht) {
                 for (var jt = Array(Ht), Wt = 0; Wt < jt.length; Wt++)
                     jt[Wt] = !1;
                 return jt
             };
-            Xt.exports = function(Ht, jt) {
+            Gt.exports = function(Ht, jt) {
                 return "float" === Ht ? 0 : "vec2" === Ht ? new Float32Array(2 * jt) : "vec3" === Ht ? new Float32Array(3 * jt) : "vec4" === Ht ? new Float32Array(4 * jt) : "int" === Ht || "sampler2D" === Ht ? 0 : "ivec2" === Ht ? new Int32Array(2 * jt) : "ivec3" === Ht ? new Int32Array(3 * jt) : "ivec4" === Ht ? new Int32Array(4 * jt) : "bool" != Ht && ("bvec2" === Ht ? Yt(2 * jt) : "bvec3" === Ht ? Yt(3 * jt) : "bvec4" === Ht ? Yt(4 * jt) : "mat2" === Ht ? new Float32Array([1, 0, 0, 1]) : "mat3" === Ht ? new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]) : "mat4" === Ht ? new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]) : void 0)
             }
         }
         , {}],
-        16: [function(Bt, Xt) {
+        16: [function(Bt, Gt) {
             var Yt = Bt("./mapType")
               , Ht = Bt("./mapSize")
               , jt = function(Wt, zt, Vt, qt) {
                 gl.vertexAttribPointer(this.location, this.size, Wt || gl.FLOAT, zt || !1, Vt || 0, qt || 0)
             };
-            Xt.exports = function(Wt, zt) {
+            Gt.exports = function(Wt, zt) {
                 for (var Vt = {}, qt = Wt.getProgramParameter(zt, Wt.ACTIVE_ATTRIBUTES), Kt = 0; Kt < qt; Kt++) {
                     var Zt = Wt.getActiveAttrib(zt, Kt)
                       , Qt = Yt(Wt, Zt.type);
@@ -6362,10 +6362,10 @@ function(Bt) {
             "./mapSize": 20,
             "./mapType": 21
         }],
-        17: [function(Bt, Xt) {
+        17: [function(Bt, Gt) {
             var Yt = Bt("./mapType")
               , Ht = Bt("./defaultValue");
-            Xt.exports = function(jt, Wt) {
+            Gt.exports = function(jt, Wt) {
                 for (var zt = {}, Vt = jt.getProgramParameter(Wt, jt.ACTIVE_UNIFORMS), qt = 0; qt < Vt; qt++) {
                     var Kt = jt.getActiveUniform(Wt, qt)
                       , Zt = Kt.name.replace(/\[.*?\]/, "")
@@ -6384,7 +6384,7 @@ function(Bt) {
             "./defaultValue": 15,
             "./mapType": 21
         }],
-        18: [function(Bt, Xt) {
+        18: [function(Bt, Gt) {
             var Yt = function(Kt) {
                 var Zt = Wt.replace("%%", Kt);
                 return new Function(Zt)
@@ -6438,7 +6438,7 @@ function(Bt) {
                 bvec4: "uniform4iv(location, value)",
                 sampler2D: "uniform1iv(location, value)"
             };
-            Xt.exports = function(Kt, Zt) {
+            Gt.exports = function(Kt, Zt) {
                 for (var Qt = {
                     data: {},
                     gl: Kt
@@ -6459,8 +6459,8 @@ function(Bt) {
             }
         }
         , {}],
-        19: [function(Bt, Xt) {
-            Xt.exports = {
+        19: [function(Bt, Gt) {
+            Gt.exports = {
                 compileProgram: Bt("./compileProgram"),
                 defaultValue: Bt("./defaultValue"),
                 extractAttributes: Bt("./extractAttributes"),
@@ -6481,7 +6481,7 @@ function(Bt) {
             "./mapType": 21,
             "./setPrecision": 22
         }],
-        20: [function(Bt, Xt) {
+        20: [function(Bt, Gt) {
             var Yt = {
                 float: 1,
                 vec2: 2,
@@ -6500,12 +6500,12 @@ function(Bt) {
                 mat4: 16,
                 sampler2D: 1
             };
-            Xt.exports = function(Ht) {
+            Gt.exports = function(Ht) {
                 return Yt[Ht]
             }
         }
         , {}],
-        21: [function(Bt, Xt) {
+        21: [function(Bt, Gt) {
             var Yt = null
               , Ht = {
                 FLOAT: "float",
@@ -6525,7 +6525,7 @@ function(Bt) {
                 FLOAT_MAT4: "mat4",
                 SAMPLER_2D: "sampler2D"
             };
-            Xt.exports = function(jt, Wt) {
+            Gt.exports = function(jt, Wt) {
                 if (!Yt) {
                     var zt = Object.keys(Ht);
                     Yt = {};
@@ -6537,13 +6537,13 @@ function(Bt) {
             }
         }
         , {}],
-        22: [function(Bt, Xt) {
-            Xt.exports = function(Yt, Ht) {
+        22: [function(Bt, Gt) {
+            Gt.exports = function(Yt, Ht) {
                 return "precision" === Yt.substring(0, 9) ? Yt : "precision " + Ht + " float;\n" + Yt
             }
         }
         , {}],
-        23: [function(Bt, Xt, Gt) {
+        23: [function(Bt, Gt, Xt) {
             (function(Yt) {
                 function Ht(qt, Kt) {
                     for (var Zt = 0, Qt = qt.length - 1, Jt; 0 <= Qt; Qt--)
@@ -6567,7 +6567,7 @@ function(Bt) {
                   , zt = function(qt) {
                     return Wt.exec(qt).slice(1)
                 };
-                Gt.resolve = function() {
+                Xt.resolve = function() {
                     for (var qt = "", Kt = !1, Zt = arguments.length - 1, Qt; -1 <= Zt && !Kt; Zt--) {
                         if (Qt = 0 <= Zt ? arguments[Zt] : Yt.cwd(),
                         "string" != typeof Qt)
@@ -6581,8 +6581,8 @@ function(Bt) {
                     (Kt ? "/" : "") + qt || "."
                 }
                 ,
-                Gt.normalize = function(qt) {
-                    var Kt = Gt.isAbsolute(qt)
+                Xt.normalize = function(qt) {
+                    var Kt = Xt.isAbsolute(qt)
                       , Zt = "/" === Vt(qt, -1);
                     return (qt = Ht(jt(qt.split("/"), function(Qt) {
                         return !!Qt
@@ -6591,20 +6591,20 @@ function(Bt) {
                     (Kt ? "/" : "") + qt
                 }
                 ,
-                Gt.isAbsolute = function(qt) {
+                Xt.isAbsolute = function(qt) {
                     return "/" === qt.charAt(0)
                 }
                 ,
-                Gt.join = function() {
+                Xt.join = function() {
                     var qt = Array.prototype.slice.call(arguments, 0);
-                    return Gt.normalize(jt(qt, function(Kt) {
+                    return Xt.normalize(jt(qt, function(Kt) {
                         if ("string" != typeof Kt)
                             throw new TypeError("Arguments to path.join must be strings");
                         return Kt
                     }).join("/"))
                 }
                 ,
-                Gt.relative = function(qt, Kt) {
+                Xt.relative = function(qt, Kt) {
                     function Zt(an) {
                         for (var rn = 0; rn < an.length && "" === an[rn]; rn++)
                             ;
@@ -6612,8 +6612,8 @@ function(Bt) {
                             ;
                         return rn > on ? [] : an.slice(rn, on - rn + 1)
                     }
-                    qt = Gt.resolve(qt).substr(1),
-                    Kt = Gt.resolve(Kt).substr(1);
+                    qt = Xt.resolve(qt).substr(1),
+                    Kt = Xt.resolve(Kt).substr(1);
                     for (var Qt = Zt(qt.split("/")), Jt = Zt(Kt.split("/")), $t = Math.min(Qt.length, Jt.length), en = $t, tn = 0; tn < $t; tn++)
                         if (Qt[tn] !== Jt[tn]) {
                             en = tn;
@@ -6625,9 +6625,9 @@ function(Bt) {
                     return (nn = nn.concat(Jt.slice(en))).join("/")
                 }
                 ,
-                Gt.sep = "/",
-                Gt.delimiter = ":",
-                Gt.dirname = function(qt) {
+                Xt.sep = "/",
+                Xt.delimiter = ":",
+                Xt.dirname = function(qt) {
                     var Kt = zt(qt)
                       , Zt = Kt[0]
                       , Qt = Kt[1];
@@ -6635,13 +6635,13 @@ function(Bt) {
                     Zt + Qt) : "."
                 }
                 ,
-                Gt.basename = function(qt, Kt) {
+                Xt.basename = function(qt, Kt) {
                     var Zt = zt(qt)[2];
                     return Kt && Zt.substr(-1 * Kt.length) === Kt && (Zt = Zt.substr(0, Zt.length - Kt.length)),
                     Zt
                 }
                 ,
-                Gt.extname = function(qt) {
+                Xt.extname = function(qt) {
                     return zt(qt)[3]
                 }
                 ;
@@ -6654,7 +6654,7 @@ function(Bt) {
         , {
             _process: 24
         }],
-        24: [function(Bt, Xt) {
+        24: [function(Bt, Gt) {
             function Yt() {
                 throw new Error("setTimeout has not been defined")
             }
@@ -6718,7 +6718,7 @@ function(Bt) {
                 this.array = an
             }
             function qt() {}
-            var Qt = Xt.exports = {}, Kt, Zt;
+            var Qt = Gt.exports = {}, Kt, Zt;
             !function() {
                 try {
                     Kt = "function" == typeof setTimeout ? setTimeout : Yt
@@ -6781,7 +6781,7 @@ function(Bt) {
             }
         }
         , {}],
-        25: [function(Bt, Xt, Gt) {
+        25: [function(Bt, Gt, Xt) {
             (function(Yt) {
                 !function(Ht) {
                     function jt(Tn) {
@@ -6886,8 +6886,8 @@ function(Bt) {
                         }
                         return Bn.join("")
                     }
-                    var en = "object" == typeof Gt && Gt && !Gt.nodeType && Gt
-                      , tn = "object" == typeof Xt && Xt && !Xt.nodeType && Xt
+                    var en = "object" == typeof Xt && Xt && !Xt.nodeType && Xt
+                      , tn = "object" == typeof Gt && Gt && !Gt.nodeType && Gt
                       , nn = "object" == typeof Yt && Yt;
                     nn.global !== nn && nn.window !== nn && nn.self !== nn || (Ht = nn);
                     var on = 2147483647, sn = 36, dn = 1, ln = 26, cn = 72, hn = 128, fn = "-", gn = /^xn--/, mn = /[^\x20-\x7E]/, yn = /[\x2E\u3002\uFF0E\uFF61]/g, _n = {
@@ -6916,7 +6916,7 @@ function(Bt) {
                     },
                     en && tn))
                         Ht.punycode = an;
-                    else if (Xt.exports == en)
+                    else if (Gt.exports == en)
                         tn.exports = an;
                     else
                         for (rn in an)
@@ -6926,11 +6926,11 @@ function(Bt) {
             ).call(this, "undefined" == typeof global ? "undefined" == typeof self ? "undefined" == typeof window ? {} : window : self : global)
         }
         , {}],
-        26: [function(Bt, Xt) {
+        26: [function(Bt, Gt) {
             function Yt(jt, Wt) {
                 return Object.prototype.hasOwnProperty.call(jt, Wt)
             }
-            Xt.exports = function(jt, Wt, zt, Vt) {
+            Gt.exports = function(jt, Wt, zt, Vt) {
                 Wt = Wt || "&",
                 zt = zt || "=";
                 var qt = {};
@@ -6959,7 +6959,7 @@ function(Bt) {
             }
         }
         , {}],
-        27: [function(Bt, Xt) {
+        27: [function(Bt, Gt) {
             function Yt(zt, Vt) {
                 if (zt.map)
                     return zt.map(Vt);
@@ -6979,7 +6979,7 @@ function(Bt) {
                     return "";
                 }
             };
-            Xt.exports = function(zt, Vt, qt, Kt) {
+            Gt.exports = function(zt, Vt, qt, Kt) {
                 return Vt = Vt || "&",
                 qt = qt || "=",
                 null === zt && (zt = void 0),
@@ -7002,15 +7002,15 @@ function(Bt) {
             }
         }
         , {}],
-        28: [function(Bt, Xt, Gt) {
-            Gt.decode = Gt.parse = Bt("./decode"),
-            Gt.encode = Gt.stringify = Bt("./encode")
+        28: [function(Bt, Gt, Xt) {
+            Xt.decode = Xt.parse = Bt("./decode"),
+            Xt.encode = Xt.stringify = Bt("./encode")
         }
         , {
             "./decode": 26,
             "./encode": 27
         }],
-        29: [function(Bt, Xt, Gt) {
+        29: [function(Bt, Gt, Xt) {
             function Yt() {
                 this.protocol = null,
                 this.slashes = null,
@@ -7034,21 +7034,21 @@ function(Bt) {
             }
             var jt = Bt("punycode")
               , Wt = Bt("./util");
-            Gt.parse = Ht,
-            Gt.resolve = function(on, sn) {
+            Xt.parse = Ht,
+            Xt.resolve = function(on, sn) {
                 return Ht(on, !1, !0).resolve(sn)
             }
             ,
-            Gt.resolveObject = function(on, sn) {
+            Xt.resolveObject = function(on, sn) {
                 return on ? Ht(on, !1, !0).resolveObject(sn) : sn
             }
             ,
-            Gt.format = function(on) {
+            Xt.format = function(on) {
                 return Wt.isString(on) && (on = Ht(on)),
                 on instanceof Yt ? on.format() : Yt.prototype.format.call(on)
             }
             ,
-            Gt.Url = Yt;
+            Xt.Url = Yt;
             var zt = /^([a-z0-9.+-]+:)/i
               , Vt = /:[0-9]*$/
               , qt = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/
@@ -7351,8 +7351,8 @@ function(Bt) {
             punycode: 25,
             querystring: 28
         }],
-        30: [function(Bt, Xt) {
-            Xt.exports = {
+        30: [function(Bt, Gt) {
+            Gt.exports = {
                 isString: function(Yt) {
                     return "string" == typeof Yt
                 },
@@ -7368,8 +7368,8 @@ function(Bt) {
             }
         }
         , {}],
-        31: [function(Bt, Xt) {
-            Xt.exports = function(Yt, Ht, jt) {
+        31: [function(Bt, Gt) {
+            Gt.exports = function(Yt, Ht, jt) {
                 var zt = Yt.length, Wt;
                 if (!(Ht >= zt || 0 === jt)) {
                     var Vt = zt - (jt = Ht + jt > zt ? zt - Ht : jt);
@@ -7380,13 +7380,13 @@ function(Bt) {
             }
         }
         , {}],
-        32: [function(Bt, Xt, Gt) {
+        32: [function(Bt, Gt, Xt) {
             function Yt(Zt) {
                 return Zt && Zt.__esModule ? Zt : {
                     default: Zt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(Zt) {
                 return typeof Zt
             }
@@ -7562,7 +7562,7 @@ function(Bt) {
                 ,
                 Zt
             }();
-            Gt.default = Kt
+            Xt.default = Kt
         }
         , {
             "./Resource": 33,
@@ -7570,7 +7570,7 @@ function(Bt) {
             "mini-signals": 38,
             "parse-uri": 39
         }],
-        33: [function(Bt, Xt, Gt) {
+        33: [function(Bt, Gt, Xt) {
             function Yt(Jt) {
                 return Jt && Jt.__esModule ? Jt : {
                     default: Jt
@@ -7584,7 +7584,7 @@ function(Bt) {
             function Wt(Jt) {
                 return Jt.toString().replace("object ", "")
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var zt = function() {
                 function Jt($t, en) {
                     for (var tn = 0, nn; tn < en.length; tn++)
@@ -7921,7 +7921,7 @@ function(Bt) {
                 }]),
                 Jt
             }();
-            Gt.default = Qt,
+            Xt.default = Qt,
             Qt.STATUS_FLAGS = {
                 NONE: 0,
                 DATA_URL: 1,
@@ -7998,7 +7998,7 @@ function(Bt) {
             "mini-signals": 38,
             "parse-uri": 39
         }],
-        34: [function(Bt, Xt, Gt) {
+        34: [function(Bt, Gt, Xt) {
             function Yt() {}
             function Ht(jt) {
                 return function() {
@@ -8009,8 +8009,8 @@ function(Bt) {
                     Wt.apply(this, arguments)
                 }
             }
-            Gt.__esModule = !0,
-            Gt.eachSeries = function(jt, Wt, zt, Vt) {
+            Xt.__esModule = !0,
+            Xt.eachSeries = function(jt, Wt, zt, Vt) {
                 var qt = 0
                   , Kt = jt.length;
                 !function Zt(Qt) {
@@ -8020,7 +8020,7 @@ function(Bt) {
                 }()
             }
             ,
-            Gt.queue = function(jt, Wt) {
+            Xt.queue = function(jt, Wt) {
                 function zt(Kt, Zt, Qt) {
                     if (null != Qt && "function" != typeof Qt)
                         throw new Error("task callback must be a function");
@@ -8109,9 +8109,9 @@ function(Bt) {
             }
         }
         , {}],
-        35: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.encodeBinary = function(Ht) {
+        35: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.encodeBinary = function(Ht) {
                 for (var jt = "", Wt = 0; Wt < Ht.length; ) {
                     for (var zt = [0, 0, 0], Vt = [0, 0, 0, 0], qt = 0; qt < zt.length; ++qt)
                         zt[qt] = Wt < Ht.length ? 255 & Ht.charCodeAt(Wt++) : 0;
@@ -8134,7 +8134,7 @@ function(Bt) {
             }
         }
         , {}],
-        36: [function(Bt, Xt) {
+        36: [function(Bt, Gt) {
             var Yt = Bt("./Loader").default
               , Ht = Bt("./Resource").default
               , jt = Bt("./async")
@@ -8142,8 +8142,8 @@ function(Bt) {
             Yt.Resource = Ht,
             Yt.async = jt,
             Yt.base64 = Wt,
-            Xt.exports = Yt,
-            Xt.exports.default = Yt
+            Gt.exports = Yt,
+            Gt.exports.default = Yt
         }
         , {
             "./Loader": 32,
@@ -8151,13 +8151,13 @@ function(Bt) {
             "./async": 34,
             "./b64": 35
         }],
-        37: [function(Bt, Xt, Gt) {
+        37: [function(Bt, Gt, Xt) {
             function Yt(Vt) {
                 return Vt && Vt.__esModule ? Vt : {
                     default: Vt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(Vt) {
                 return typeof Vt
             }
@@ -8165,7 +8165,7 @@ function(Bt) {
                 return Vt && "function" == typeof Symbol && Vt.constructor === Symbol && Vt !== Symbol.prototype ? "symbol" : typeof Vt
             }
             ;
-            Gt.blobMiddlewareFactory = function() {
+            Xt.blobMiddlewareFactory = function() {
                 return function(Vt, qt) {
                     if (Vt.data) {
                         if (Vt.xhr && Vt.xhrType === jt.default.XHR_RESPONSE_TYPE.BLOB)
@@ -8214,7 +8214,7 @@ function(Bt) {
             "../../Resource": 33,
             "../../b64": 35
         }],
-        38: [function(Bt, Xt, Gt) {
+        38: [function(Bt, Gt, Xt) {
             function Yt(Vt, qt) {
                 if (!(Vt instanceof qt))
                     throw new TypeError("Cannot call a class as a function")
@@ -8227,7 +8227,7 @@ function(Bt) {
                 qt._owner = Vt,
                 qt
             }
-            Object.defineProperty(Gt, "__esModule", {
+            Object.defineProperty(Xt, "__esModule", {
                 value: !0
             });
             var jt = function() {
@@ -8343,12 +8343,12 @@ function(Bt) {
                 Vt
             }();
             zt.MiniSignalBinding = Wt,
-            Gt.default = zt,
-            Xt.exports = Gt.default
+            Xt.default = zt,
+            Gt.exports = Xt.default
         }
         , {}],
-        39: [function(Bt, Xt) {
-            Xt.exports = function(Yt, Ht) {
+        39: [function(Bt, Gt) {
+            Gt.exports = function(Yt, Ht) {
                 Ht = Ht || {};
                 for (var jt = {
                     key: ["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"],
@@ -8370,13 +8370,13 @@ function(Bt) {
             }
         }
         , {}],
-        40: [function(Bt, Xt, Gt) {
+        40: [function(Bt, Gt, Xt) {
             function Yt(Qt) {
                 return Qt && Qt.__esModule ? Qt : {
                     default: Qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function(Qt) {
                 if (Qt && Qt.__esModule)
                     return Qt;
@@ -8567,7 +8567,7 @@ function(Bt) {
                 ,
                 Qt
             }();
-            Gt.default = Zt,
+            Xt.default = Zt,
             Ht.WebGLRenderer.registerPlugin("accessibility", Zt),
             Ht.CanvasRenderer.registerPlugin("accessibility", Zt)
         }
@@ -8576,9 +8576,9 @@ function(Bt) {
             "./accessibleTarget": 41,
             ismobilejs: 4
         }],
-        41: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = {
+        41: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = {
                 accessible: !1,
                 accessibleTitle: null,
                 accessibleHint: null,
@@ -8588,22 +8588,22 @@ function(Bt) {
             }
         }
         , {}],
-        42: [function(Bt, Xt, Gt) {
+        42: [function(Bt, Gt, Xt) {
             function Yt(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("./accessibleTarget");
-            Object.defineProperty(Gt, "accessibleTarget", {
+            Object.defineProperty(Xt, "accessibleTarget", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             });
             var jt = Bt("./AccessibilityManager");
-            Object.defineProperty(Gt, "AccessibilityManager", {
+            Object.defineProperty(Xt, "AccessibilityManager", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
@@ -8614,13 +8614,13 @@ function(Bt) {
             "./AccessibilityManager": 40,
             "./accessibleTarget": 41
         }],
-        43: [function(Bt, Xt, Gt) {
+        43: [function(Bt, Gt, Xt) {
             function Yt(Zt) {
                 return Zt && Zt.__esModule ? Zt : {
                     default: Zt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function Zt(Qt, Jt) {
                     for (var $t = 0, en; $t < Jt.length; $t++)
@@ -8712,7 +8712,7 @@ function(Bt) {
                 }]),
                 Zt
             }();
-            Gt.default = Kt
+            Xt.default = Kt
         }
         , {
             "./autoDetectRenderer": 45,
@@ -8721,7 +8721,7 @@ function(Bt) {
             "./settings": 101,
             "./ticker": 120
         }],
-        44: [function(Bt, Xt, Gt) {
+        44: [function(Bt, Gt, Xt) {
             function Yt(zt, Vt) {
                 if (zt instanceof Array) {
                     if ("precision" !== zt[0].substring(0, 9)) {
@@ -8733,7 +8733,7 @@ function(Bt) {
                     return "precision " + Vt + " float;\n" + zt;
                 return zt
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("pixi-gl-core")
               , jt = function(zt) {
                 return zt && zt.__esModule ? zt : {
@@ -8767,20 +8767,20 @@ function(Bt) {
                 }(Vt, zt),
                 Vt
             }(Ht.GLShader);
-            Gt.default = Wt
+            Xt.default = Wt
         }
         , {
             "./settings": 101,
             "pixi-gl-core": 12
         }],
-        45: [function(Bt, Xt, Gt) {
+        45: [function(Bt, Gt, Xt) {
             function Yt(zt) {
                 return zt && zt.__esModule ? zt : {
                     default: zt
                 }
             }
-            Gt.__esModule = !0,
-            Gt.autoDetectRenderer = function(zt, Vt, qt, Kt) {
+            Xt.__esModule = !0,
+            Xt.autoDetectRenderer = function(zt, Vt, qt, Kt) {
                 var Zt = zt && zt.forceCanvas;
                 return void 0 !== Kt && (Zt = Kt),
                 !Zt && Ht.isWebGLSupported() ? new Wt.default(zt,Vt,qt) : new jt.default(zt,Vt,qt)
@@ -8804,18 +8804,18 @@ function(Bt) {
             "./renderers/webgl/WebGLRenderer": 84,
             "./utils": 124
         }],
-        46: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.VERSION = "4.5.6",
-            Gt.PI_2 = 2 * Math.PI,
-            Gt.RAD_TO_DEG = 180 / Math.PI,
-            Gt.DEG_TO_RAD = Math.PI / 180,
-            Gt.RENDERER_TYPE = {
+        46: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.VERSION = "4.5.6",
+            Xt.PI_2 = 2 * Math.PI,
+            Xt.RAD_TO_DEG = 180 / Math.PI,
+            Xt.DEG_TO_RAD = Math.PI / 180,
+            Xt.RENDERER_TYPE = {
                 UNKNOWN: 0,
                 WEBGL: 1,
                 CANVAS: 2
             },
-            Gt.BLEND_MODES = {
+            Xt.BLEND_MODES = {
                 NORMAL: 0,
                 ADD: 1,
                 MULTIPLY: 2,
@@ -8837,7 +8837,7 @@ function(Bt) {
                 ADD_NPM: 18,
                 SCREEN_NPM: 19
             },
-            Gt.DRAW_MODES = {
+            Xt.DRAW_MODES = {
                 POINTS: 0,
                 LINES: 1,
                 LINE_LOOP: 2,
@@ -8846,43 +8846,43 @@ function(Bt) {
                 TRIANGLE_STRIP: 5,
                 TRIANGLE_FAN: 6
             },
-            Gt.SCALE_MODES = {
+            Xt.SCALE_MODES = {
                 LINEAR: 0,
                 NEAREST: 1
             },
-            Gt.WRAP_MODES = {
+            Xt.WRAP_MODES = {
                 CLAMP: 0,
                 REPEAT: 1,
                 MIRRORED_REPEAT: 2
             },
-            Gt.GC_MODES = {
+            Xt.GC_MODES = {
                 AUTO: 0,
                 MANUAL: 1
             },
-            Gt.URL_FILE_EXTENSION = /\.(\w{3,4})(?:$|\?|#)/i,
-            Gt.DATA_URI = /^\s*data:(?:([\w-]+)\/([\w+.-]+))?(?:;(charset=[\w-]+|base64))?,(.*)/i,
-            Gt.SVG_SIZE = /<svg[^>]*(?:\s(width|height)=('|")(\d*(?:\.\d+)?)(?:px)?('|"))[^>]*(?:\s(width|height)=('|")(\d*(?:\.\d+)?)(?:px)?('|"))[^>]*>/i,
-            Gt.SHAPES = {
+            Xt.URL_FILE_EXTENSION = /\.(\w{3,4})(?:$|\?|#)/i,
+            Xt.DATA_URI = /^\s*data:(?:([\w-]+)\/([\w+.-]+))?(?:;(charset=[\w-]+|base64))?,(.*)/i,
+            Xt.SVG_SIZE = /<svg[^>]*(?:\s(width|height)=('|")(\d*(?:\.\d+)?)(?:px)?('|"))[^>]*(?:\s(width|height)=('|")(\d*(?:\.\d+)?)(?:px)?('|"))[^>]*>/i,
+            Xt.SHAPES = {
                 POLY: 0,
                 RECT: 1,
                 CIRC: 2,
                 ELIP: 3,
                 RREC: 4
             },
-            Gt.PRECISION = {
+            Xt.PRECISION = {
                 LOW: "lowp",
                 MEDIUM: "mediump",
                 HIGH: "highp"
             },
-            Gt.TRANSFORM_MODE = {
+            Xt.TRANSFORM_MODE = {
                 STATIC: 0,
                 DYNAMIC: 1
             },
-            Gt.TEXT_GRADIENT = {
+            Xt.TEXT_GRADIENT = {
                 LINEAR_VERTICAL: 0,
                 LINEAR_HORIZONTAL: 1
             },
-            Gt.UPDATE_PRIORITY = {
+            Xt.UPDATE_PRIORITY = {
                 INTERACTION: 50,
                 HIGH: 25,
                 NORMAL: 0,
@@ -8891,8 +8891,8 @@ function(Bt) {
             }
         }
         , {}],
-        47: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        47: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = Bt("../math")
               , Ht = function() {
                 function jt() {
@@ -9072,13 +9072,13 @@ function(Bt) {
                 ,
                 jt
             }();
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "../math": 70
         }],
-        48: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        48: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -9339,20 +9339,20 @@ function(Bt) {
                     default: Wt
                 }
             }(Bt("./DisplayObject")).default);
-            Gt.default = jt,
+            Xt.default = jt,
             jt.prototype.containerUpdateTransform = jt.prototype.updateTransform
         }
         , {
             "../utils": 124,
             "./DisplayObject": 49
         }],
-        49: [function(Bt, Xt, Gt) {
+        49: [function(Bt, Gt, Xt) {
             function Yt(Jt) {
                 return Jt && Jt.__esModule ? Jt : {
                     default: Jt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function Jt($t, en) {
                     for (var tn = 0, nn; tn < en.length; tn++)
@@ -9621,7 +9621,7 @@ function(Bt) {
                 }]),
                 $t
             }(jt.default);
-            Gt.default = Qt,
+            Xt.default = Qt,
             Qt.prototype.displayObjectUpdateTransform = Qt.prototype.updateTransform
         }
         , {
@@ -9633,8 +9633,8 @@ function(Bt) {
             "./TransformStatic": 52,
             eventemitter3: 3
         }],
-        50: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        50: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -9742,14 +9742,14 @@ function(Bt) {
                     default: Wt
                 }
             }(Bt("./TransformBase")).default);
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../math": 70,
             "./TransformBase": 51
         }],
-        51: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        51: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = Bt("../math")
               , Ht = function() {
                 function jt() {
@@ -9779,15 +9779,15 @@ function(Bt) {
                 ,
                 jt
             }();
-            Gt.default = Ht,
+            Xt.default = Ht,
             Ht.prototype.updateWorldTransform = Ht.prototype.updateTransform,
             Ht.IDENTITY = new Ht
         }
         , {
             "../math": 70
         }],
-        52: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        52: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -9910,19 +9910,19 @@ function(Bt) {
                     default: Wt
                 }
             }(Bt("./TransformBase")).default);
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../math": 70,
             "./TransformBase": 51
         }],
-        53: [function(Bt, Xt, Gt) {
+        53: [function(Bt, Gt, Xt) {
             function Yt(sn) {
                 return sn && sn.__esModule ? sn : {
                     default: sn
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("../display/Container")), jt = Yt(Bt("../textures/RenderTexture")), Wt = Yt(Bt("../textures/Texture")), zt = Yt(Bt("./GraphicsData")), Vt = Yt(Bt("../sprites/Sprite")), qt = Bt("../math"), Kt = Bt("../utils"), Zt = Bt("../const"), Qt = Yt(Bt("../display/Bounds")), Jt = Yt(Bt("./utils/bezierCurveTo")), $t = Yt(Bt("../renderers/canvas/CanvasRenderer")), en, tn = new qt.Matrix, nn = new qt.Point, an = new Float32Array(4), rn = new Float32Array(4), on = function(sn) {
                 function dn() {
                     var ln = 0 < arguments.length && void 0 !== arguments[0] && arguments[0];
@@ -10359,7 +10359,7 @@ function(Bt) {
                 ,
                 dn
             }(Ht.default);
-            Gt.default = on,
+            Xt.default = on,
             on._SPRITE_TEXTURE = null
         }
         , {
@@ -10375,8 +10375,8 @@ function(Bt) {
             "./GraphicsData": 54,
             "./utils/bezierCurveTo": 56
         }],
-        54: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        54: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Ht(jt, Wt, zt, Vt, qt, Kt, Zt, Qt) {
                     !function(Jt, $t) {
@@ -10411,11 +10411,11 @@ function(Bt) {
                 ,
                 Ht
             }();
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {}],
-        55: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        55: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
@@ -10552,16 +10552,16 @@ function(Bt) {
                 ,
                 Wt
             }();
-            Gt.default = jt,
+            Xt.default = jt,
             Yt.default.registerPlugin("graphics", jt)
         }
         , {
             "../../const": 46,
             "../../renderers/canvas/CanvasRenderer": 77
         }],
-        56: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Yt, Ht, jt, Wt, zt, Vt, qt, Kt) {
+        56: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Yt, Ht, jt, Wt, zt, Vt, qt, Kt) {
                 var Zt = 8 < arguments.length && void 0 !== arguments[8] ? arguments[8] : []
                   , Qt = 0
                   , Jt = 0
@@ -10577,13 +10577,13 @@ function(Bt) {
             }
         }
         , {}],
-        57: [function(Bt, Xt, Gt) {
+        57: [function(Bt, Gt, Xt) {
             function Yt(en) {
                 return en && en.__esModule ? en : {
                     default: en
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("../../utils")
               , jt = Bt("../../const")
               , Wt = Yt(Bt("../../renderers/webgl/utils/ObjectRenderer"))
@@ -10701,7 +10701,7 @@ function(Bt) {
                 ,
                 tn
             }(Wt.default);
-            Gt.default = $t,
+            Xt.default = $t,
             zt.default.registerPlugin("graphics", $t)
         }
         , {
@@ -10716,8 +10716,8 @@ function(Bt) {
             "./utils/buildRectangle": 63,
             "./utils/buildRoundedRectangle": 64
         }],
-        58: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        58: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(jt) {
                 return jt && jt.__esModule ? jt : {
                     default: jt
@@ -10771,13 +10771,13 @@ function(Bt) {
                 ,
                 jt
             }();
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "pixi-gl-core": 12
         }],
-        59: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        59: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Ht) {
                 function jt(Wt) {
                     return function(zt, Vt) {
@@ -10809,14 +10809,14 @@ function(Bt) {
                     default: Ht
                 }
             }(Bt("../../../Shader")).default);
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {
             "../../../Shader": 44
         }],
-        60: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Wt, zt, Vt) {
+        60: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Wt, zt, Vt) {
                 var qt = Wt.shape, Kt = qt.x, Zt = qt.y, Qt, Jt;
                 if (Wt.type === Ht.SHAPES.CIRC ? (Qt = qt.radius,
                 Jt = qt.radius) : (Qt = qt.width,
@@ -10866,9 +10866,9 @@ function(Bt) {
             "../../../utils": 124,
             "./buildLine": 61
         }],
-        61: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(jt, Wt, zt) {
+        61: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(jt, Wt, zt) {
                 jt.nativeLines ? function(Vt, qt) {
                     var Kt = 0
                       , Zt = Vt.points;
@@ -11013,14 +11013,14 @@ function(Bt) {
             "../../../math": 70,
             "../../../utils": 124
         }],
-        62: [function(Bt, Xt, Gt) {
+        62: [function(Bt, Gt, Xt) {
             function Yt(zt) {
                 return zt && zt.__esModule ? zt : {
                     default: zt
                 }
             }
-            Gt.__esModule = !0,
-            Gt.default = function(zt, Vt, qt) {
+            Xt.__esModule = !0,
+            Xt.default = function(zt, Vt, qt) {
                 zt.points = zt.shape.points.slice();
                 var Kt = zt.points;
                 if (zt.fill && 6 <= Kt.length) {
@@ -11063,9 +11063,9 @@ function(Bt) {
             "./buildLine": 61,
             earcut: 2
         }],
-        63: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(jt, Wt, zt) {
+        63: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(jt, Wt, zt) {
                 var Vt = jt.shape
                   , qt = Vt.x
                   , Kt = Vt.y
@@ -11111,7 +11111,7 @@ function(Bt) {
             "../../../utils": 124,
             "./buildLine": 61
         }],
-        64: [function(Bt, Xt, Gt) {
+        64: [function(Bt, Gt, Xt) {
             function Yt(qt) {
                 return qt && qt.__esModule ? qt : {
                     default: qt
@@ -11131,8 +11131,8 @@ function(Bt) {
                     en.push(on, sn);
                 return en
             }
-            Gt.__esModule = !0,
-            Gt.default = function(qt, Kt, Zt) {
+            Xt.__esModule = !0,
+            Xt.default = function(qt, Kt, Zt) {
                 var Qt = qt.shape
                   , Jt = Qt.x
                   , $t = Qt.y
@@ -11175,7 +11175,7 @@ function(Bt) {
             "./buildLine": 61,
             earcut: 2
         }],
-        65: [function(Bt, Xt, Gt) {
+        65: [function(Bt, Gt, Xt) {
             function Yt(On) {
                 if (On && On.__esModule)
                     return On;
@@ -11191,11 +11191,11 @@ function(Bt) {
                     default: On
                 }
             }
-            Gt.__esModule = !0,
-            Gt.autoDetectRenderer = Gt.Application = Gt.Filter = Gt.SpriteMaskFilter = Gt.Quad = Gt.RenderTarget = Gt.ObjectRenderer = Gt.WebGLManager = Gt.Shader = Gt.CanvasRenderTarget = Gt.TextureUvs = Gt.VideoBaseTexture = Gt.BaseRenderTexture = Gt.RenderTexture = Gt.BaseTexture = Gt.Texture = Gt.Spritesheet = Gt.CanvasGraphicsRenderer = Gt.GraphicsRenderer = Gt.GraphicsData = Gt.Graphics = Gt.TextMetrics = Gt.TextStyle = Gt.Text = Gt.SpriteRenderer = Gt.CanvasTinter = Gt.CanvasSpriteRenderer = Gt.Sprite = Gt.TransformBase = Gt.TransformStatic = Gt.Transform = Gt.Container = Gt.DisplayObject = Gt.Bounds = Gt.glCore = Gt.WebGLRenderer = Gt.CanvasRenderer = Gt.ticker = Gt.utils = Gt.settings = void 0;
+            Xt.__esModule = !0,
+            Xt.autoDetectRenderer = Xt.Application = Xt.Filter = Xt.SpriteMaskFilter = Xt.Quad = Xt.RenderTarget = Xt.ObjectRenderer = Xt.WebGLManager = Xt.Shader = Xt.CanvasRenderTarget = Xt.TextureUvs = Xt.VideoBaseTexture = Xt.BaseRenderTexture = Xt.RenderTexture = Xt.BaseTexture = Xt.Texture = Xt.Spritesheet = Xt.CanvasGraphicsRenderer = Xt.GraphicsRenderer = Xt.GraphicsData = Xt.Graphics = Xt.TextMetrics = Xt.TextStyle = Xt.Text = Xt.SpriteRenderer = Xt.CanvasTinter = Xt.CanvasSpriteRenderer = Xt.Sprite = Xt.TransformBase = Xt.TransformStatic = Xt.Transform = Xt.Container = Xt.DisplayObject = Xt.Bounds = Xt.glCore = Xt.WebGLRenderer = Xt.CanvasRenderer = Xt.ticker = Xt.utils = Xt.settings = void 0;
             var jt = Bt("./const");
             Object.keys(jt).forEach(function(On) {
-                "default" !== On && "__esModule" !== On && Object.defineProperty(Gt, On, {
+                "default" !== On && "__esModule" !== On && Object.defineProperty(Xt, On, {
                     enumerable: !0,
                     get: function() {
                         return jt[On]
@@ -11204,7 +11204,7 @@ function(Bt) {
             });
             var Wt = Bt("./math");
             Object.keys(Wt).forEach(function(On) {
-                "default" !== On && "__esModule" !== On && Object.defineProperty(Gt, On, {
+                "default" !== On && "__esModule" !== On && Object.defineProperty(Xt, On, {
                     enumerable: !0,
                     get: function() {
                         return Wt[On]
@@ -11212,245 +11212,245 @@ function(Bt) {
                 })
             });
             var zt = Bt("pixi-gl-core");
-            Object.defineProperty(Gt, "glCore", {
+            Object.defineProperty(Xt, "glCore", {
                 enumerable: !0,
                 get: function() {
                     return Ht(zt).default
                 }
             });
             var Vt = Bt("./display/Bounds");
-            Object.defineProperty(Gt, "Bounds", {
+            Object.defineProperty(Xt, "Bounds", {
                 enumerable: !0,
                 get: function() {
                     return Ht(Vt).default
                 }
             });
             var qt = Bt("./display/DisplayObject");
-            Object.defineProperty(Gt, "DisplayObject", {
+            Object.defineProperty(Xt, "DisplayObject", {
                 enumerable: !0,
                 get: function() {
                     return Ht(qt).default
                 }
             });
             var Kt = Bt("./display/Container");
-            Object.defineProperty(Gt, "Container", {
+            Object.defineProperty(Xt, "Container", {
                 enumerable: !0,
                 get: function() {
                     return Ht(Kt).default
                 }
             });
             var Zt = Bt("./display/Transform");
-            Object.defineProperty(Gt, "Transform", {
+            Object.defineProperty(Xt, "Transform", {
                 enumerable: !0,
                 get: function() {
                     return Ht(Zt).default
                 }
             });
             var Qt = Bt("./display/TransformStatic");
-            Object.defineProperty(Gt, "TransformStatic", {
+            Object.defineProperty(Xt, "TransformStatic", {
                 enumerable: !0,
                 get: function() {
                     return Ht(Qt).default
                 }
             });
             var Jt = Bt("./display/TransformBase");
-            Object.defineProperty(Gt, "TransformBase", {
+            Object.defineProperty(Xt, "TransformBase", {
                 enumerable: !0,
                 get: function() {
                     return Ht(Jt).default
                 }
             });
             var $t = Bt("./sprites/Sprite");
-            Object.defineProperty(Gt, "Sprite", {
+            Object.defineProperty(Xt, "Sprite", {
                 enumerable: !0,
                 get: function() {
                     return Ht($t).default
                 }
             });
             var en = Bt("./sprites/canvas/CanvasSpriteRenderer");
-            Object.defineProperty(Gt, "CanvasSpriteRenderer", {
+            Object.defineProperty(Xt, "CanvasSpriteRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Ht(en).default
                 }
             });
             var tn = Bt("./sprites/canvas/CanvasTinter");
-            Object.defineProperty(Gt, "CanvasTinter", {
+            Object.defineProperty(Xt, "CanvasTinter", {
                 enumerable: !0,
                 get: function() {
                     return Ht(tn).default
                 }
             });
             var nn = Bt("./sprites/webgl/SpriteRenderer");
-            Object.defineProperty(Gt, "SpriteRenderer", {
+            Object.defineProperty(Xt, "SpriteRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Ht(nn).default
                 }
             });
             var an = Bt("./text/Text");
-            Object.defineProperty(Gt, "Text", {
+            Object.defineProperty(Xt, "Text", {
                 enumerable: !0,
                 get: function() {
                     return Ht(an).default
                 }
             });
             var rn = Bt("./text/TextStyle");
-            Object.defineProperty(Gt, "TextStyle", {
+            Object.defineProperty(Xt, "TextStyle", {
                 enumerable: !0,
                 get: function() {
                     return Ht(rn).default
                 }
             });
             var on = Bt("./text/TextMetrics");
-            Object.defineProperty(Gt, "TextMetrics", {
+            Object.defineProperty(Xt, "TextMetrics", {
                 enumerable: !0,
                 get: function() {
                     return Ht(on).default
                 }
             });
             var sn = Bt("./graphics/Graphics");
-            Object.defineProperty(Gt, "Graphics", {
+            Object.defineProperty(Xt, "Graphics", {
                 enumerable: !0,
                 get: function() {
                     return Ht(sn).default
                 }
             });
             var dn = Bt("./graphics/GraphicsData");
-            Object.defineProperty(Gt, "GraphicsData", {
+            Object.defineProperty(Xt, "GraphicsData", {
                 enumerable: !0,
                 get: function() {
                     return Ht(dn).default
                 }
             });
             var ln = Bt("./graphics/webgl/GraphicsRenderer");
-            Object.defineProperty(Gt, "GraphicsRenderer", {
+            Object.defineProperty(Xt, "GraphicsRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Ht(ln).default
                 }
             });
             var un = Bt("./graphics/canvas/CanvasGraphicsRenderer");
-            Object.defineProperty(Gt, "CanvasGraphicsRenderer", {
+            Object.defineProperty(Xt, "CanvasGraphicsRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Ht(un).default
                 }
             });
             var pn = Bt("./textures/Spritesheet");
-            Object.defineProperty(Gt, "Spritesheet", {
+            Object.defineProperty(Xt, "Spritesheet", {
                 enumerable: !0,
                 get: function() {
                     return Ht(pn).default
                 }
             });
             var cn = Bt("./textures/Texture");
-            Object.defineProperty(Gt, "Texture", {
+            Object.defineProperty(Xt, "Texture", {
                 enumerable: !0,
                 get: function() {
                     return Ht(cn).default
                 }
             });
             var hn = Bt("./textures/BaseTexture");
-            Object.defineProperty(Gt, "BaseTexture", {
+            Object.defineProperty(Xt, "BaseTexture", {
                 enumerable: !0,
                 get: function() {
                     return Ht(hn).default
                 }
             });
             var fn = Bt("./textures/RenderTexture");
-            Object.defineProperty(Gt, "RenderTexture", {
+            Object.defineProperty(Xt, "RenderTexture", {
                 enumerable: !0,
                 get: function() {
                     return Ht(fn).default
                 }
             });
             var gn = Bt("./textures/BaseRenderTexture");
-            Object.defineProperty(Gt, "BaseRenderTexture", {
+            Object.defineProperty(Xt, "BaseRenderTexture", {
                 enumerable: !0,
                 get: function() {
                     return Ht(gn).default
                 }
             });
             var mn = Bt("./textures/VideoBaseTexture");
-            Object.defineProperty(Gt, "VideoBaseTexture", {
+            Object.defineProperty(Xt, "VideoBaseTexture", {
                 enumerable: !0,
                 get: function() {
                     return Ht(mn).default
                 }
             });
             var yn = Bt("./textures/TextureUvs");
-            Object.defineProperty(Gt, "TextureUvs", {
+            Object.defineProperty(Xt, "TextureUvs", {
                 enumerable: !0,
                 get: function() {
                     return Ht(yn).default
                 }
             });
             var _n = Bt("./renderers/canvas/utils/CanvasRenderTarget");
-            Object.defineProperty(Gt, "CanvasRenderTarget", {
+            Object.defineProperty(Xt, "CanvasRenderTarget", {
                 enumerable: !0,
                 get: function() {
                     return Ht(_n).default
                 }
             });
             var bn = Bt("./Shader");
-            Object.defineProperty(Gt, "Shader", {
+            Object.defineProperty(Xt, "Shader", {
                 enumerable: !0,
                 get: function() {
                     return Ht(bn).default
                 }
             });
             var xn = Bt("./renderers/webgl/managers/WebGLManager");
-            Object.defineProperty(Gt, "WebGLManager", {
+            Object.defineProperty(Xt, "WebGLManager", {
                 enumerable: !0,
                 get: function() {
                     return Ht(xn).default
                 }
             });
             var vn = Bt("./renderers/webgl/utils/ObjectRenderer");
-            Object.defineProperty(Gt, "ObjectRenderer", {
+            Object.defineProperty(Xt, "ObjectRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Ht(vn).default
                 }
             });
             var Tn = Bt("./renderers/webgl/utils/RenderTarget");
-            Object.defineProperty(Gt, "RenderTarget", {
+            Object.defineProperty(Xt, "RenderTarget", {
                 enumerable: !0,
                 get: function() {
                     return Ht(Tn).default
                 }
             });
             var Sn = Bt("./renderers/webgl/utils/Quad");
-            Object.defineProperty(Gt, "Quad", {
+            Object.defineProperty(Xt, "Quad", {
                 enumerable: !0,
                 get: function() {
                     return Ht(Sn).default
                 }
             });
             var En = Bt("./renderers/webgl/filters/spriteMask/SpriteMaskFilter");
-            Object.defineProperty(Gt, "SpriteMaskFilter", {
+            Object.defineProperty(Xt, "SpriteMaskFilter", {
                 enumerable: !0,
                 get: function() {
                     return Ht(En).default
                 }
             });
             var wn = Bt("./renderers/webgl/filters/Filter");
-            Object.defineProperty(Gt, "Filter", {
+            Object.defineProperty(Xt, "Filter", {
                 enumerable: !0,
                 get: function() {
                     return Ht(wn).default
                 }
             });
             var Cn = Bt("./Application");
-            Object.defineProperty(Gt, "Application", {
+            Object.defineProperty(Xt, "Application", {
                 enumerable: !0,
                 get: function() {
                     return Ht(Cn).default
                 }
             });
             var Pn = Bt("./autoDetectRenderer");
-            Object.defineProperty(Gt, "autoDetectRenderer", {
+            Object.defineProperty(Xt, "autoDetectRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Pn.autoDetectRenderer
@@ -11461,11 +11461,11 @@ function(Bt) {
               , Rn = Ht(Bt("./settings"))
               , In = Ht(Bt("./renderers/canvas/CanvasRenderer"))
               , Dn = Ht(Bt("./renderers/webgl/WebGLRenderer"));
-            Gt.settings = Rn.default,
-            Gt.utils = An,
-            Gt.ticker = Mn,
-            Gt.CanvasRenderer = In.default,
-            Gt.WebGLRenderer = Dn.default
+            Xt.settings = Rn.default,
+            Xt.utils = An,
+            Xt.ticker = Mn,
+            Xt.CanvasRenderer = In.default,
+            Xt.WebGLRenderer = Dn.default
         }
         , {
             "./Application": 43,
@@ -11511,11 +11511,11 @@ function(Bt) {
             "./utils": 124,
             "pixi-gl-core": 12
         }],
-        66: [function(Bt, Xt, Gt) {
+        66: [function(Bt, Gt, Xt) {
             function Yt(Qt) {
                 return 0 > Qt ? -1 : 0 < Qt ? 1 : 0
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function(Qt) {
                 return Qt && Qt.__esModule ? Qt : {
                     default: Qt
@@ -11593,13 +11593,13 @@ function(Bt) {
                     Qt.append(tn)
                 }
             };
-            Gt.default = Zt
+            Xt.default = Zt
         }
         , {
             "./Matrix": 67
         }],
-        67: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        67: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -11859,13 +11859,13 @@ function(Bt) {
                 }]),
                 Wt
             }();
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "./Point": 69
         }],
-        68: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        68: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function jt(Wt, zt) {
                     for (var Vt = 0, qt; Vt < zt.length; Vt++)
@@ -11929,11 +11929,11 @@ function(Bt) {
                 }]),
                 jt
             }();
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {}],
-        69: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        69: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Ht() {
                     var jt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : 0
@@ -11964,74 +11964,74 @@ function(Bt) {
                 ,
                 Ht
             }();
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {}],
-        70: [function(Bt, Xt, Gt) {
+        70: [function(Bt, Gt, Xt) {
             function Yt(Jt) {
                 return Jt && Jt.__esModule ? Jt : {
                     default: Jt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("./Point");
-            Object.defineProperty(Gt, "Point", {
+            Object.defineProperty(Xt, "Point", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             });
             var jt = Bt("./ObservablePoint");
-            Object.defineProperty(Gt, "ObservablePoint", {
+            Object.defineProperty(Xt, "ObservablePoint", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
                 }
             });
             var Wt = Bt("./Matrix");
-            Object.defineProperty(Gt, "Matrix", {
+            Object.defineProperty(Xt, "Matrix", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Wt).default
                 }
             });
             var zt = Bt("./GroupD8");
-            Object.defineProperty(Gt, "GroupD8", {
+            Object.defineProperty(Xt, "GroupD8", {
                 enumerable: !0,
                 get: function() {
                     return Yt(zt).default
                 }
             });
             var Vt = Bt("./shapes/Circle");
-            Object.defineProperty(Gt, "Circle", {
+            Object.defineProperty(Xt, "Circle", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Vt).default
                 }
             });
             var qt = Bt("./shapes/Ellipse");
-            Object.defineProperty(Gt, "Ellipse", {
+            Object.defineProperty(Xt, "Ellipse", {
                 enumerable: !0,
                 get: function() {
                     return Yt(qt).default
                 }
             });
             var Kt = Bt("./shapes/Polygon");
-            Object.defineProperty(Gt, "Polygon", {
+            Object.defineProperty(Xt, "Polygon", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Kt).default
                 }
             });
             var Zt = Bt("./shapes/Rectangle");
-            Object.defineProperty(Gt, "Rectangle", {
+            Object.defineProperty(Xt, "Rectangle", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Zt).default
                 }
             });
             var Qt = Bt("./shapes/RoundedRectangle");
-            Object.defineProperty(Gt, "RoundedRectangle", {
+            Object.defineProperty(Xt, "RoundedRectangle", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Qt).default
@@ -12049,8 +12049,8 @@ function(Bt) {
             "./shapes/Rectangle": 74,
             "./shapes/RoundedRectangle": 75
         }],
-        71: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        71: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
@@ -12092,14 +12092,14 @@ function(Bt) {
                 ,
                 Wt
             }();
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../../const": 46,
             "./Rectangle": 74
         }],
-        72: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        72: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
@@ -12142,14 +12142,14 @@ function(Bt) {
                 ,
                 Wt
             }();
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../../const": 46,
             "./Rectangle": 74
         }],
-        73: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        73: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
@@ -12196,14 +12196,14 @@ function(Bt) {
                 ,
                 Wt
             }();
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../../const": 46,
             "../Point": 69
         }],
-        74: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        74: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -12313,13 +12313,13 @@ function(Bt) {
                 }]),
                 Wt
             }();
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../../const": 46
         }],
-        75: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        75: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = Bt("../../const")
               , Ht = function() {
                 function jt() {
@@ -12367,18 +12367,18 @@ function(Bt) {
                 ,
                 jt
             }();
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "../../const": 46
         }],
-        76: [function(Bt, Xt, Gt) {
+        76: [function(Bt, Gt, Xt) {
             function Yt($t) {
                 return $t && $t.__esModule ? $t : {
                     default: $t
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function $t(en, tn) {
                     for (var nn = 0, an; nn < tn.length; nn++)
@@ -12515,7 +12515,7 @@ function(Bt) {
                 }]),
                 en
             }(Zt.default);
-            Gt.default = Jt
+            Xt.default = Jt
         }
         , {
             "../const": 46,
@@ -12526,13 +12526,13 @@ function(Bt) {
             "../utils": 124,
             eventemitter3: 3
         }],
-        77: [function(Bt, Xt, Gt) {
+        77: [function(Bt, Gt, Xt) {
             function Yt(Qt) {
                 return Qt && Qt.__esModule ? Qt : {
                     default: Qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("../SystemRenderer"))
               , jt = Yt(Bt("./utils/CanvasMaskManager"))
               , Wt = Yt(Bt("./utils/CanvasRenderTarget"))
@@ -12652,7 +12652,7 @@ function(Bt) {
                 ,
                 Jt
             }(Ht.default);
-            Gt.default = Zt,
+            Xt.default = Zt,
             Vt.pluginTarget.mixin(Zt)
         }
         , {
@@ -12664,8 +12664,8 @@ function(Bt) {
             "./utils/CanvasRenderTarget": 79,
             "./utils/mapCanvasBlendModesToPixi": 81
         }],
-        78: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        78: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = Bt("../../../const")
               , Ht = function() {
                 function jt(Wt) {
@@ -12756,13 +12756,13 @@ function(Bt) {
                 ,
                 jt
             }();
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "../../../const": 46
         }],
-        79: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        79: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -12828,12 +12828,12 @@ function(Bt) {
                 }]),
                 Wt
             }();
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../../../settings": 101
         }],
-        80: [function(Bt, Xt, Gt) {
+        80: [function(Bt, Gt, Xt) {
             function Yt(Ht) {
                 var jt = document.createElement("canvas");
                 jt.width = 6,
@@ -12843,8 +12843,8 @@ function(Bt) {
                 Wt.fillRect(0, 0, 6, 1),
                 jt
             }
-            Gt.__esModule = !0,
-            Gt.default = function() {
+            Xt.__esModule = !0,
+            Xt.default = function() {
                 if ("undefined" == typeof document)
                     return !1;
                 var Ht = Yt("#ff00ff")
@@ -12864,9 +12864,9 @@ function(Bt) {
             }
         }
         , {}],
-        81: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function() {
+        81: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function() {
                 var jt = 0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : [];
                 return (0,
                 Ht.default)() ? (jt[Yt.BLEND_MODES.NORMAL] = "source-over",
@@ -12919,8 +12919,8 @@ function(Bt) {
             "../../../const": 46,
             "./canUseNewCanvasBlendModes": 80
         }],
-        82: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        82: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = Bt("../../const")
               , Ht = function(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
@@ -12969,14 +12969,14 @@ function(Bt) {
                 ,
                 Wt
             }();
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../../const": 46,
             "../../settings": 101
         }],
-        83: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        83: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = Bt("pixi-gl-core")
               , Ht = Bt("../../const")
               , jt = function(Vt) {
@@ -13076,7 +13076,7 @@ function(Bt) {
                 ,
                 Vt
             }();
-            Gt.default = zt
+            Xt.default = zt
         }
         , {
             "../../const": 46,
@@ -13084,13 +13084,13 @@ function(Bt) {
             "./utils/RenderTarget": 96,
             "pixi-gl-core": 12
         }],
-        84: [function(Bt, Xt, Gt) {
+        84: [function(Bt, Gt, Xt) {
             function Yt(sn) {
                 return sn && sn.__esModule ? sn : {
                     default: sn
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("../SystemRenderer"))
               , jt = Yt(Bt("./managers/MaskManager"))
               , Wt = Yt(Bt("./managers/StencilManager"))
@@ -13372,7 +13372,7 @@ function(Bt) {
                 ,
                 dn
             }(Ht.default);
-            Gt.default = on,
+            Xt.default = on,
             tn.pluginTarget.mixin(on)
         }
         , {
@@ -13392,8 +13392,8 @@ function(Bt) {
             "./utils/validateContext": 100,
             "pixi-gl-core": 12
         }],
-        85: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        85: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(jt) {
                 return jt && jt.__esModule ? jt : {
                     default: jt
@@ -13493,18 +13493,18 @@ function(Bt) {
                 ,
                 jt
             }();
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "./utils/mapWebGLBlendModesToPixi": 98
         }],
-        86: [function(Bt, Xt, Gt) {
+        86: [function(Bt, Gt, Xt) {
             function Yt(Zt) {
                 return Zt && Zt.__esModule ? Zt : {
                     default: Zt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function Zt(Qt, Jt) {
                     for (var $t = 0, en; $t < Jt.length; $t++)
@@ -13574,7 +13574,7 @@ function(Bt) {
                 }]),
                 Zt
             }();
-            Gt.default = Kt
+            Xt.default = Kt
         }
         , {
             "../../../const": 46,
@@ -13582,7 +13582,7 @@ function(Bt) {
             "../../../utils": 124,
             "./extractUniformsFromSrc": 87
         }],
-        87: [function(Bt, Xt, Gt) {
+        87: [function(Bt, Gt, Xt) {
             function Yt(jt) {
                 for (var Wt = /^(projectionMatrix|uSampler|filterArea|filterClamp)$/, zt = {}, Vt = void 0, qt = jt.replace(/\s+/g, " ").split(/\s*;\s*/), Kt = 0, Zt; Kt < qt.length; Kt++)
                     if (Zt = qt[Kt].trim(),
@@ -13601,8 +13601,8 @@ function(Bt) {
                     }
                 return zt
             }
-            Gt.__esModule = !0,
-            Gt.default = function(jt, Wt) {
+            Xt.__esModule = !0,
+            Xt.default = function(jt, Wt) {
                 var Vt = Yt(jt)
                   , qt = Yt(Wt);
                 return Object.assign(Vt, qt)
@@ -13617,16 +13617,16 @@ function(Bt) {
         , {
             "pixi-gl-core": 12
         }],
-        88: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.calculateScreenSpaceMatrix = function(Ht, jt, Wt) {
+        88: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.calculateScreenSpaceMatrix = function(Ht, jt, Wt) {
                 var zt = Ht.identity();
                 return zt.translate(jt.x / Wt.width, jt.y / Wt.height),
                 zt.scale(Wt.width, Wt.height),
                 zt
             }
             ,
-            Gt.calculateNormalizedScreenSpaceMatrix = function(Ht, jt, Wt) {
+            Xt.calculateNormalizedScreenSpaceMatrix = function(Ht, jt, Wt) {
                 var zt = Ht.identity();
                 zt.translate(jt.x / Wt.width, jt.y / Wt.height);
                 var Vt = Wt.width / jt.width
@@ -13635,7 +13635,7 @@ function(Bt) {
                 zt
             }
             ,
-            Gt.calculateSpriteMatrix = function(Ht, jt, Wt, zt) {
+            Xt.calculateSpriteMatrix = function(Ht, jt, Wt, zt) {
                 var Vt = zt._texture.baseTexture
                   , qt = Ht.set(Wt.width, 0, 0, Wt.height, jt.x, jt.y)
                   , Kt = zt.worldTransform.copy(Yt.Matrix.TEMP_MATRIX);
@@ -13651,8 +13651,8 @@ function(Bt) {
         , {
             "../../../math": 70
         }],
-        89: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        89: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
@@ -13700,14 +13700,14 @@ function(Bt) {
                 ,
                 zt
             }(Yt.default));
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../../../../math": 70,
             "../Filter": 86,
             path: 23
         }],
-        90: [function(Bt, Xt, Gt) {
+        90: [function(Bt, Gt, Xt) {
             function Yt($t) {
                 return $t && $t.__esModule ? $t : {
                     default: $t
@@ -13717,7 +13717,7 @@ function(Bt) {
                 if (!($t instanceof en))
                     throw new TypeError("Cannot call a class as a function")
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var jt = Yt(Bt("./WebGLManager"))
               , Wt = Yt(Bt("../utils/RenderTarget"))
               , zt = Yt(Bt("../utils/Quad"))
@@ -13980,7 +13980,7 @@ function(Bt) {
                 ,
                 en
             }(jt.default);
-            Gt.default = Jt
+            Xt.default = Jt
         }
         , {
             "../../../Shader": 44,
@@ -13991,13 +13991,13 @@ function(Bt) {
             "./WebGLManager": 93,
             "bit-twiddle": 1
         }],
-        91: [function(Bt, Xt, Gt) {
+        91: [function(Bt, Gt, Xt) {
             function Yt(zt) {
                 return zt && zt.__esModule ? zt : {
                     default: zt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("./WebGLManager"))
               , jt = Yt(Bt("../filters/spriteMask/SpriteMaskFilter"))
               , Wt = function(zt) {
@@ -14096,14 +14096,14 @@ function(Bt) {
                 ,
                 Vt
             }(Ht.default);
-            Gt.default = Wt
+            Xt.default = Wt
         }
         , {
             "../filters/spriteMask/SpriteMaskFilter": 89,
             "./WebGLManager": 93
         }],
-        92: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        92: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(jt) {
                 return jt && jt.__esModule ? jt : {
                     default: jt
@@ -14186,13 +14186,13 @@ function(Bt) {
                 ,
                 Wt
             }(Yt.default);
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "./WebGLManager": 93
         }],
-        93: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        93: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Ht(jt) {
                     !function(Wt, zt) {
@@ -14211,11 +14211,11 @@ function(Bt) {
                 ,
                 Ht
             }();
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {}],
-        94: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        94: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Ht) {
                 function jt() {
                     return function(Wt, zt) {
@@ -14257,18 +14257,18 @@ function(Bt) {
                     default: Ht
                 }
             }(Bt("../managers/WebGLManager")).default);
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {
             "../managers/WebGLManager": 93
         }],
-        95: [function(Bt, Xt, Gt) {
+        95: [function(Bt, Gt, Xt) {
             function Yt(zt) {
                 return zt && zt.__esModule ? zt : {
                     default: zt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("pixi-gl-core"))
               , jt = Yt(Bt("../../../utils/createIndicesForQuads"))
               , Wt = function() {
@@ -14338,14 +14338,14 @@ function(Bt) {
                 ,
                 zt
             }();
-            Gt.default = Wt
+            Xt.default = Wt
         }
         , {
             "../../../utils/createIndicesForQuads": 122,
             "pixi-gl-core": 12
         }],
-        96: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        96: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = Bt("../../../math")
               , Ht = Bt("../../../const")
               , jt = function(Vt) {
@@ -14443,7 +14443,7 @@ function(Bt) {
                 ,
                 Vt
             }();
-            Gt.default = zt
+            Xt.default = zt
         }
         , {
             "../../../const": 46,
@@ -14451,9 +14451,9 @@ function(Bt) {
             "../../../settings": 101,
             "pixi-gl-core": 12
         }],
-        97: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(jt, Wt) {
+        97: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(jt, Wt) {
                 var zt = !Wt;
                 if (0 === jt)
                     throw new Error("Invalid value of `0` passed to `checkMaxIfStatementsInShader`");
@@ -14490,9 +14490,9 @@ function(Bt) {
         , {
             "pixi-gl-core": 12
         }],
-        98: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Ht) {
+        98: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Ht) {
                 var jt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : [];
                 return jt[Yt.BLEND_MODES.NORMAL] = [Ht.ONE, Ht.ONE_MINUS_SRC_ALPHA],
                 jt[Yt.BLEND_MODES.ADD] = [Ht.ONE, Ht.DST_ALPHA],
@@ -14522,9 +14522,9 @@ function(Bt) {
         , {
             "../../../const": 46
         }],
-        99: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Ht) {
+        99: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Ht) {
                 var jt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {};
                 return jt[Yt.DRAW_MODES.POINTS] = Ht.POINTS,
                 jt[Yt.DRAW_MODES.LINES] = Ht.LINES,
@@ -14541,23 +14541,23 @@ function(Bt) {
         , {
             "../../../const": 46
         }],
-        100: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Yt) {
+        100: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Yt) {
                 Yt.getContextAttributes().stencil || console.warn("Provided WebGL context does not have a stencil buffer, masks may not render correctly")
             }
         }
         , {}],
-        101: [function(Bt, Xt, Gt) {
+        101: [function(Bt, Gt, Xt) {
             function Yt(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("./utils/maxRecommendedTextures"))
               , jt = Yt(Bt("./utils/canUploadSameBuffer"));
-            Gt.default = {
+            Xt.default = {
                 TARGET_FPMS: .06,
                 MIPMAP_TEXTURES: !0,
                 RESOLUTION: 1,
@@ -14596,13 +14596,13 @@ function(Bt) {
             "./utils/canUploadSameBuffer": 121,
             "./utils/maxRecommendedTextures": 126
         }],
-        102: [function(Bt, Xt, Gt) {
+        102: [function(Bt, Gt, Xt) {
             function Yt(Qt) {
                 return Qt && Qt.__esModule ? Qt : {
                     default: Qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function Qt(Jt, $t) {
                     for (var en = 0, tn; en < $t.length; en++)
@@ -14867,7 +14867,7 @@ function(Bt) {
                 }]),
                 Jt
             }(qt.default);
-            Gt.default = Zt
+            Xt.default = Zt
         }
         , {
             "../const": 46,
@@ -14876,13 +14876,13 @@ function(Bt) {
             "../textures/Texture": 115,
             "../utils": 124
         }],
-        103: [function(Bt, Xt, Gt) {
+        103: [function(Bt, Gt, Xt) {
             function Yt(Kt) {
                 return Kt && Kt.__esModule ? Kt : {
                     default: Kt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("../../renderers/canvas/CanvasRenderer"))
               , jt = Bt("../../const")
               , Wt = Bt("../../math")
@@ -14935,7 +14935,7 @@ function(Bt) {
                 ,
                 Kt
             }();
-            Gt.default = qt,
+            Xt.default = qt,
             Ht.default.registerPlugin("sprite", qt)
         }
         , {
@@ -14944,8 +14944,8 @@ function(Bt) {
             "../../renderers/canvas/CanvasRenderer": 77,
             "./CanvasTinter": 104
         }],
-        104: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        104: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = Bt("../../utils")
               , Ht = {
                 getTintedTexture: function(jt, Wt) {
@@ -15049,14 +15049,14 @@ function(Bt) {
                 tintMethod: 0
             };
             Ht.tintMethod = Ht.canUseMultiply ? Ht.tintWithMultiply : Ht.tintWithPerPixel,
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "../../renderers/canvas/utils/canUseNewCanvasBlendModes": 80,
             "../../utils": 124
         }],
-        105: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        105: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Ht(jt) {
                     !function(Wt, zt) {
@@ -15076,16 +15076,16 @@ function(Bt) {
                 ,
                 Ht
             }();
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {}],
-        106: [function(Bt, Xt, Gt) {
+        106: [function(Bt, Gt, Xt) {
             function Yt(nn) {
                 return nn && nn.__esModule ? nn : {
                     default: nn
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("../../renderers/webgl/utils/ObjectRenderer"))
               , jt = Yt(Bt("../../renderers/webgl/WebGLRenderer"))
               , Wt = Yt(Bt("../../utils/createIndicesForQuads"))
@@ -15275,9 +15275,9 @@ function(Bt) {
                         for (Cn = 0; Cn < on; ++Cn)
                             gn[Cn]._virtalBoundId = -1;
                         for (Cn = 0; Cn < xn; ++Cn) {
-                            for (var Bn = pn[Cn], Un = Bn.textureCount, Xn = 0; Xn < Un; Xn++)
-                                bn = Bn.textures[Xn],
-                                gn[Bn.ids[Xn]] !== bn && this.renderer.bindTexture(bn, Bn.ids[Xn], !0),
+                            for (var Bn = pn[Cn], Un = Bn.textureCount, Gn = 0; Gn < Un; Gn++)
+                                bn = Bn.textures[Gn],
+                                gn[Bn.ids[Gn]] !== bn && this.renderer.bindTexture(bn, Bn.ids[Gn], !0),
                                 bn._virtalBoundId = -1;
                             this.renderer.state.setBlendMode(Bn.blend),
                             rn.drawElements(rn.TRIANGLES, 6 * Bn.size, rn.UNSIGNED_SHORT, 2 * (6 * Bn.start))
@@ -15316,7 +15316,7 @@ function(Bt) {
                 ,
                 an
             }(Ht.default);
-            Gt.default = tn,
+            Xt.default = tn,
             jt.default.registerPlugin("sprite", tn)
         }
         , {
@@ -15331,9 +15331,9 @@ function(Bt) {
             "bit-twiddle": 1,
             "pixi-gl-core": 12
         }],
-        107: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(jt, Wt) {
+        107: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(jt, Wt) {
                 var zt = Ht;
                 zt = (zt = zt.replace(/%count%/gi, Wt)).replace(/%forloop%/gi, function(Zt) {
                     var Qt = "";
@@ -15367,13 +15367,13 @@ function(Bt) {
             "../../Shader": 44,
             path: 23
         }],
-        108: [function(Bt, Xt, Gt) {
+        108: [function(Bt, Gt, Xt) {
             function Yt(tn) {
                 return tn && tn.__esModule ? tn : {
                     default: tn
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function tn(nn, an) {
                     for (var rn = 0, on; rn < an.length; rn++)
@@ -15665,7 +15665,7 @@ function(Bt) {
                 }]),
                 nn
             }(jt.default);
-            Gt.default = en
+            Xt.default = en
         }
         , {
             "../const": 46,
@@ -15678,8 +15678,8 @@ function(Bt) {
             "./TextMetrics": 109,
             "./TextStyle": 110
         }],
-        109: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        109: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function jt(Wt, zt, Vt, qt, Kt, Zt, Qt, Jt, $t) {
                     !function(en, tn) {
@@ -15798,7 +15798,7 @@ function(Bt) {
                 ,
                 jt
             }();
-            Gt.default = Yt;
+            Xt.default = Yt;
             var Ht = document.createElement("canvas");
             Ht.width = Ht.height = 10,
             Yt._canvas = Ht,
@@ -15806,7 +15806,7 @@ function(Bt) {
             Yt._fonts = {}
         }
         , {}],
-        110: [function(Bt, Xt, Gt) {
+        110: [function(Bt, Gt, Xt) {
             function Yt(Kt) {
                 return "number" == typeof Kt ? (0,
                 zt.hex2string)(Kt) : ("string" == typeof Kt && 0 === Kt.indexOf("0x") && (Kt = Kt.replace("0x", "#")),
@@ -15820,7 +15820,7 @@ function(Bt) {
                 }
                 return Yt(Kt)
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var jt = function() {
                 function Kt(Zt, Qt) {
                     for (var Jt = 0, $t; Jt < Qt.length; Jt++)
@@ -16167,19 +16167,19 @@ function(Bt) {
                 }]),
                 Kt
             }();
-            Gt.default = qt
+            Xt.default = qt
         }
         , {
             "../const": 46,
             "../utils": 124
         }],
-        111: [function(Bt, Xt, Gt) {
+        111: [function(Bt, Gt, Xt) {
             function Yt(zt) {
                 return zt && zt.__esModule ? zt : {
                     default: zt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("./BaseTexture"))
               , jt = Yt(Bt("../settings"))
               , Wt = function(zt) {
@@ -16238,19 +16238,19 @@ function(Bt) {
                 ,
                 Vt
             }(Ht.default);
-            Gt.default = Wt
+            Xt.default = Wt
         }
         , {
             "../settings": 101,
             "./BaseTexture": 112
         }],
-        112: [function(Bt, Xt, Gt) {
+        112: [function(Bt, Gt, Xt) {
             function Yt(Kt) {
                 return Kt && Kt.__esModule ? Kt : {
                     default: Kt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("../utils")
               , jt = Yt(Bt("../settings"))
               , Wt = Yt(Bt("eventemitter3"))
@@ -16548,7 +16548,7 @@ function(Bt) {
                 ,
                 Zt
             }(Wt.default);
-            Gt.default = qt
+            Xt.default = qt
         }
         , {
             "../settings": 101,
@@ -16557,13 +16557,13 @@ function(Bt) {
             "bit-twiddle": 1,
             eventemitter3: 3
         }],
-        113: [function(Bt, Xt, Gt) {
+        113: [function(Bt, Gt, Xt) {
             function Yt(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("./BaseRenderTexture"))
               , jt = function(Wt) {
                 function zt(Vt, qt) {
@@ -16619,14 +16619,14 @@ function(Bt) {
                 ,
                 zt
             }(Yt(Bt("./Texture")).default);
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "./BaseRenderTexture": 111,
             "./Texture": 115
         }],
-        114: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        114: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function zt(Vt, qt) {
                     for (var Kt = 0, Zt; Kt < qt.length; Kt++)
@@ -16730,13 +16730,13 @@ function(Bt) {
                 ,
                 zt
             }();
-            Gt.default = Wt
+            Xt.default = Wt
         }
         , {
             "../": 65,
             "../utils": 124
         }],
-        115: [function(Bt, Xt, Gt) {
+        115: [function(Bt, Gt, Xt) {
             function Yt($t) {
                 return $t && $t.__esModule ? $t : {
                     default: $t
@@ -16751,7 +16751,7 @@ function(Bt) {
                 ,
                 $t.emit = function() {}
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var jt = function() {
                 function $t(en, tn) {
                     for (var nn = 0, an; nn < tn.length; nn++)
@@ -16983,7 +16983,7 @@ function(Bt) {
                 }]),
                 en
             }(qt.default);
-            Gt.default = Jt,
+            Xt.default = Jt,
             Jt.EMPTY = new Jt(new Wt.default()),
             Ht(Jt.EMPTY),
             Ht(Jt.EMPTY.baseTexture),
@@ -17008,8 +17008,8 @@ function(Bt) {
             "./VideoBaseTexture": 117,
             eventemitter3: 3
         }],
-        116: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        116: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(jt) {
                 return jt && jt.__esModule ? jt : {
                     default: jt
@@ -17068,12 +17068,12 @@ function(Bt) {
                 ,
                 jt
             }();
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "../math/GroupD8": 66
         }],
-        117: [function(Bt, Xt, Gt) {
+        117: [function(Bt, Gt, Xt) {
             function Yt(Kt, Zt) {
                 Zt || (Zt = "video/" + Kt.substr(Kt.lastIndexOf(".") + 1));
                 var Qt = document.createElement("source");
@@ -17081,7 +17081,7 @@ function(Bt) {
                 Qt.type = Zt,
                 Qt
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function Kt(Zt, Qt) {
                     for (var Jt = 0, $t; Jt < Qt.length; Jt++)
@@ -17221,7 +17221,7 @@ function(Bt) {
                 }]),
                 Zt
             }(jt.default);
-            Gt.default = qt,
+            Xt.default = qt,
             qt.fromUrls = qt.fromUrl
         }
         , {
@@ -17230,13 +17230,13 @@ function(Bt) {
             "../utils": 124,
             "./BaseTexture": 112
         }],
-        118: [function(Bt, Xt, Gt) {
+        118: [function(Bt, Gt, Xt) {
             function Yt(qt) {
                 return qt && qt.__esModule ? qt : {
                     default: qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function qt(Kt, Zt) {
                     for (var Qt = 0, Jt; Qt < Zt.length; Qt++)
@@ -17375,15 +17375,15 @@ function(Bt) {
                 }]),
                 qt
             }();
-            Gt.default = Vt
+            Xt.default = Vt
         }
         , {
             "../const": 46,
             "../settings": 101,
             "./TickerListener": 119
         }],
-        119: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        119: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Ht(jt) {
                     var Wt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : null
@@ -17436,12 +17436,12 @@ function(Bt) {
                 ,
                 Ht
             }();
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {}],
-        120: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.Ticker = Gt.shared = void 0;
+        120: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.Ticker = Xt.shared = void 0;
             var Yt = function(jt) {
                 return jt && jt.__esModule ? jt : {
                     default: jt
@@ -17451,22 +17451,22 @@ function(Bt) {
             Ht.autoStart = !0,
             Ht.destroy = function() {}
             ,
-            Gt.shared = Ht,
-            Gt.Ticker = Yt.default
+            Xt.shared = Ht,
+            Xt.Ticker = Yt.default
         }
         , {
             "./Ticker": 118
         }],
-        121: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function() {
+        121: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function() {
                 return !(navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform))
             }
         }
         , {}],
-        122: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Yt) {
+        122: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Yt) {
                 for (var Ht = 6 * Yt, jt = new Uint16Array(Ht), Wt = 0, zt = 0; Wt < Ht; Wt += 6,
                 zt += 4)
                     jt[Wt + 0] = zt + 0,
@@ -17479,9 +17479,9 @@ function(Bt) {
             }
         }
         , {}],
-        123: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(jt) {
+        123: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(jt) {
                 var Wt = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : window.location;
                 if (0 === jt.indexOf("data:"))
                     return "";
@@ -17502,7 +17502,7 @@ function(Bt) {
         , {
             url: 29
         }],
-        124: [function(Bt, Xt, Gt) {
+        124: [function(Bt, Gt, Xt) {
             function Yt(an) {
                 if (an && an.__esModule)
                     return an;
@@ -17518,13 +17518,13 @@ function(Bt) {
                     default: an
                 }
             }
-            Gt.__esModule = !0,
-            Gt.premultiplyBlendMode = Gt.BaseTextureCache = Gt.TextureCache = Gt.mixins = Gt.pluginTarget = Gt.EventEmitter = Gt.removeItems = Gt.isMobile = void 0,
-            Gt.uid = function() {
+            Xt.__esModule = !0,
+            Xt.premultiplyBlendMode = Xt.BaseTextureCache = Xt.TextureCache = Xt.mixins = Xt.pluginTarget = Xt.EventEmitter = Xt.removeItems = Xt.isMobile = void 0,
+            Xt.uid = function() {
                 return ++Jt
             }
             ,
-            Gt.hex2rgb = function(an, rn) {
+            Xt.hex2rgb = function(an, rn) {
                 return rn = rn || [],
                 rn[0] = (255 & an >> 16) / 255,
                 rn[1] = (255 & an >> 8) / 255,
@@ -17532,21 +17532,21 @@ function(Bt) {
                 rn
             }
             ,
-            Gt.hex2string = function(an) {
+            Xt.hex2string = function(an) {
                 return an = an.toString(16),
                 "#" + (an = "000000".substr(0, 6 - an.length) + an)
             }
             ,
-            Gt.rgb2hex = function(an) {
+            Xt.rgb2hex = function(an) {
                 return (255 * an[0] << 16) + (255 * an[1] << 8) + (0 | 255 * an[2])
             }
             ,
-            Gt.getResolutionOfUrl = function(an, rn) {
+            Xt.getResolutionOfUrl = function(an, rn) {
                 var on = Wt.default.RETINA_PREFIX.exec(an);
                 return on ? parseFloat(on[1]) : void 0 === rn ? 1 : rn
             }
             ,
-            Gt.decomposeDataUri = function(an) {
+            Xt.decomposeDataUri = function(an) {
                 var rn = jt.DATA_URI.exec(an);
                 if (rn)
                     return {
@@ -17557,13 +17557,13 @@ function(Bt) {
                     }
             }
             ,
-            Gt.getUrlFileExtension = function(an) {
+            Xt.getUrlFileExtension = function(an) {
                 var rn = jt.URL_FILE_EXTENSION.exec(an);
                 if (rn)
                     return rn[1].toLowerCase()
             }
             ,
-            Gt.getSvgSize = function(an) {
+            Xt.getSvgSize = function(an) {
                 var rn = jt.SVG_SIZE.exec(an)
                   , on = {};
                 return rn && (on[rn[1]] = Math.round(parseFloat(rn[3])),
@@ -17571,11 +17571,11 @@ function(Bt) {
                 on
             }
             ,
-            Gt.skipHello = function() {
+            Xt.skipHello = function() {
                 $t = !0
             }
             ,
-            Gt.sayHello = function(an) {
+            Xt.sayHello = function(an) {
                 if (!$t) {
                     if (-1 < navigator.userAgent.toLowerCase().indexOf("chrome")) {
                         var rn = ["\n %c %c %c PixiJS " + jt.VERSION + " - \u2730 " + an + " \u2730  %c  %c  http://www.pixijs.com/  %c %c \u2665%c\u2665%c\u2665 \n\n", "background: #ff66a5; padding:5px 0;", "background: #ff66a5; padding:5px 0;", "color: #ff66a5; background: #030307; padding:5px 0;", "background: #ff66a5; padding:5px 0;", "background: #ffc3dc; padding:5px 0;", "background: #ff66a5; padding:5px 0;", "color: #ff2424; background: #fff; padding:5px 0;", "color: #ff2424; background: #fff; padding:5px 0;", "color: #ff2424; background: #fff; padding:5px 0;"];
@@ -17586,7 +17586,7 @@ function(Bt) {
                 }
             }
             ,
-            Gt.isWebGLSupported = function() {
+            Xt.isWebGLSupported = function() {
                 var an = {
                     stencil: !0,
                     failIfMajorPerformanceCaveat: !0
@@ -17608,29 +17608,29 @@ function(Bt) {
                 }
             }
             ,
-            Gt.sign = function(an) {
+            Xt.sign = function(an) {
                 return 0 === an ? 0 : 0 > an ? -1 : 1
             }
             ,
-            Gt.destroyTextureCache = function() {
+            Xt.destroyTextureCache = function() {
                 for (var an in en)
                     en[an].destroy();
                 for (an in tn)
                     tn[an].destroy()
             }
             ,
-            Gt.clearTextureCache = function() {
+            Xt.clearTextureCache = function() {
                 for (var an in en)
                     delete en[an];
                 for (an in tn)
                     delete tn[an]
             }
             ,
-            Gt.correctBlendMode = function(an, rn) {
+            Xt.correctBlendMode = function(an, rn) {
                 return nn[rn ? 1 : 0][an]
             }
             ,
-            Gt.premultiplyTint = function(an, rn) {
+            Xt.premultiplyTint = function(an, rn) {
                 if (1 === rn)
                     return (255 * rn << 24) + an;
                 if (0 === rn)
@@ -17644,7 +17644,7 @@ function(Bt) {
                 (255 * rn << 24) + (on << 16) + (sn << 8) + dn
             }
             ,
-            Gt.premultiplyRgba = function(an, rn, on, sn) {
+            Xt.premultiplyRgba = function(an, rn, on, sn) {
                 return on = on || new Float32Array(4),
                 sn || void 0 === sn ? (on[0] = an[0] * rn,
                 on[1] = an[1] * rn,
@@ -17655,7 +17655,7 @@ function(Bt) {
                 on
             }
             ,
-            Gt.premultiplyTintToRgba = function(an, rn, on, sn) {
+            Xt.premultiplyTintToRgba = function(an, rn, on, sn) {
                 return on = on || new Float32Array(4),
                 on[0] = (255 & an >> 16) / 255,
                 on[1] = (255 & an >> 8) / 255,
@@ -17677,14 +17677,14 @@ function(Bt) {
               , Qt = Ht(Bt("./mapPremultipliedBlendModes"))
               , Jt = 0
               , $t = !1;
-            Gt.isMobile = Kt,
-            Gt.removeItems = Zt.default,
-            Gt.EventEmitter = zt.default,
-            Gt.pluginTarget = Vt.default,
-            Gt.mixins = qt;
-            var en = Gt.TextureCache = Object.create(null)
-              , tn = Gt.BaseTextureCache = Object.create(null)
-              , nn = Gt.premultiplyBlendMode = (0,
+            Xt.isMobile = Kt,
+            Xt.removeItems = Zt.default,
+            Xt.EventEmitter = zt.default,
+            Xt.pluginTarget = Vt.default,
+            Xt.mixins = qt;
+            var en = Xt.TextureCache = Object.create(null)
+              , tn = Xt.BaseTextureCache = Object.create(null)
+              , nn = Xt.premultiplyBlendMode = (0,
             Qt.default)()
         }
         , {
@@ -17697,9 +17697,9 @@ function(Bt) {
             ismobilejs: 4,
             "remove-array-items": 31
         }],
-        125: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function() {
+        125: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function() {
                 for (var Ht = [], jt = [], Wt = 0; 32 > Wt; Wt++)
                     Ht[Wt] = Wt,
                     jt[Wt] = Wt;
@@ -17720,9 +17720,9 @@ function(Bt) {
         , {
             "../const": 46
         }],
-        126: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Ht) {
+        126: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Ht) {
                 return Yt.default.tablet || Yt.default.phone ? 4 : Ht
             }
             ;
@@ -17735,20 +17735,20 @@ function(Bt) {
         , {
             ismobilejs: 4
         }],
-        127: [function(Bt, Xt, Gt) {
+        127: [function(Bt, Gt, Xt) {
             function Yt(jt, Wt) {
                 if (jt && Wt)
                     for (var zt = Object.keys(Wt), Vt = 0, qt; Vt < zt.length; ++Vt)
                         qt = zt[Vt],
                         Object.defineProperty(jt, qt, Object.getOwnPropertyDescriptor(Wt, qt))
             }
-            Gt.__esModule = !0,
-            Gt.mixin = Yt,
-            Gt.delayMixin = function(jt, Wt) {
+            Xt.__esModule = !0,
+            Xt.mixin = Yt,
+            Xt.delayMixin = function(jt, Wt) {
                 Ht.push(jt, Wt)
             }
             ,
-            Gt.performMixins = function() {
+            Xt.performMixins = function() {
                 for (var jt = 0; jt < Ht.length; jt += 2)
                     Yt(Ht[jt], Ht[jt + 1]);
                 Ht.length = 0
@@ -17757,9 +17757,9 @@ function(Bt) {
             var Ht = []
         }
         , {}],
-        128: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = {
+        128: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = {
                 mixin: function(Yt) {
                     !function(Ht) {
                         Ht.__plugins = {},
@@ -17784,9 +17784,9 @@ function(Bt) {
             }
         }
         , {}],
-        129: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Yt) {
+        129: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Yt) {
                 var Ht = Yt.width, jt = Yt.height, Wt = Yt.getContext("2d"), zt = Wt.getImageData(0, 0, Ht, jt).data, Vt = zt.length, qt = {
                     top: null,
                     left: null,
@@ -17809,7 +17809,7 @@ function(Bt) {
             }
         }
         , {}],
-        130: [function(Bt, Xt, Gt) {
+        130: [function(Bt, Gt, Xt) {
             function Yt(Ht) {
                 var jt = new Error().stack;
                 void 0 === jt ? console.warn("Deprecation Warning: ", Ht) : (jt = jt.split("\n").splice(3).join("\n"),
@@ -17818,8 +17818,8 @@ function(Bt) {
                 console.groupEnd()) : (console.warn("Deprecation Warning: ", Ht),
                 console.warn(jt)))
             }
-            Gt.__esModule = !0,
-            Gt.default = function(Ht) {
+            Xt.__esModule = !0,
+            Xt.default = function(Ht) {
                 var jt = Ht.mesh
                   , Wt = Ht.particles
                   , zt = Ht.extras
@@ -18341,8 +18341,8 @@ function(Bt) {
             }
         }
         , {}],
-        131: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        131: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Wt) {
                 if (Wt && Wt.__esModule)
                     return Wt;
@@ -18407,28 +18407,28 @@ function(Bt) {
                 ,
                 Wt
             }();
-            Gt.default = jt,
+            Xt.default = jt,
             Yt.CanvasRenderer.registerPlugin("extract", jt)
         }
         , {
             "../../core": 65
         }],
-        132: [function(Bt, Xt, Gt) {
+        132: [function(Bt, Gt, Xt) {
             function Yt(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("./webgl/WebGLExtract");
-            Object.defineProperty(Gt, "webgl", {
+            Object.defineProperty(Xt, "webgl", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             });
             var jt = Bt("./canvas/CanvasExtract");
-            Object.defineProperty(Gt, "canvas", {
+            Object.defineProperty(Xt, "canvas", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
@@ -18439,8 +18439,8 @@ function(Bt) {
             "./canvas/CanvasExtract": 131,
             "./webgl/WebGLExtract": 133
         }],
-        133: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        133: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Wt) {
                 if (Wt && Wt.__esModule)
                     return Wt;
@@ -18522,14 +18522,14 @@ function(Bt) {
                 ,
                 Wt
             }();
-            Gt.default = jt,
+            Xt.default = jt,
             Yt.WebGLRenderer.registerPlugin("extract", jt)
         }
         , {
             "../../core": 65
         }],
-        134: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        134: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -18695,18 +18695,18 @@ function(Bt) {
                 }]),
                 zt
             }(Ht.Sprite);
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../core": 65
         }],
-        135: [function(Bt, Xt, Gt) {
+        135: [function(Bt, Gt, Xt) {
             function Yt(qt) {
                 return qt && qt.__esModule ? qt : {
                     default: qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function qt(Kt, Zt) {
                     for (var Qt = 0, Jt; Qt < Zt.length; Qt++)
@@ -18968,7 +18968,7 @@ function(Bt) {
                 }]),
                 Kt
             }(jt.Container);
-            Gt.default = Vt,
+            Xt.default = Vt,
             Vt.fonts = {}
         }
         , {
@@ -18976,8 +18976,8 @@ function(Bt) {
             "../core/math/ObservablePoint": 68,
             "../core/settings": 101
         }],
-        136: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        136: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function zt(Vt, qt) {
                     for (var Kt = 0, Zt; Kt < qt.length; Kt++)
@@ -19062,18 +19062,18 @@ function(Bt) {
                 }]),
                 zt
             }();
-            Gt.default = Wt
+            Xt.default = Wt
         }
         , {
             "../core/math/Matrix": 67
         }],
-        137: [function(Bt, Xt, Gt) {
+        137: [function(Bt, Gt, Xt) {
             function Yt(Kt) {
                 return Kt && Kt.__esModule ? Kt : {
                     default: Kt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function Kt(Zt, Qt) {
                     for (var Jt = 0, $t; Jt < Qt.length; Jt++)
@@ -19277,7 +19277,7 @@ function(Bt) {
                 }]),
                 Zt
             }(jt.Sprite);
-            Gt.default = qt
+            Xt.default = qt
         }
         , {
             "../core": 65,
@@ -19529,44 +19529,44 @@ function(Bt) {
         , {
             "../core": 65
         }],
-        141: [function(Bt, Xt, Gt) {
+        141: [function(Bt, Gt, Xt) {
             function Yt(qt) {
                 return qt && qt.__esModule ? qt : {
                     default: qt
                 }
             }
-            Gt.__esModule = !0,
-            Gt.BitmapText = Gt.TilingSpriteRenderer = Gt.TilingSprite = Gt.TextureTransform = Gt.AnimatedSprite = void 0;
+            Xt.__esModule = !0,
+            Xt.BitmapText = Xt.TilingSpriteRenderer = Xt.TilingSprite = Xt.TextureTransform = Xt.AnimatedSprite = void 0;
             var Ht = Bt("./AnimatedSprite");
-            Object.defineProperty(Gt, "AnimatedSprite", {
+            Object.defineProperty(Xt, "AnimatedSprite", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             });
             var jt = Bt("./TextureTransform");
-            Object.defineProperty(Gt, "TextureTransform", {
+            Object.defineProperty(Xt, "TextureTransform", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
                 }
             });
             var Wt = Bt("./TilingSprite");
-            Object.defineProperty(Gt, "TilingSprite", {
+            Object.defineProperty(Xt, "TilingSprite", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Wt).default
                 }
             });
             var zt = Bt("./webgl/TilingSpriteRenderer");
-            Object.defineProperty(Gt, "TilingSpriteRenderer", {
+            Object.defineProperty(Xt, "TilingSpriteRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Yt(zt).default
                 }
             });
             var Vt = Bt("./BitmapText");
-            Object.defineProperty(Gt, "BitmapText", {
+            Object.defineProperty(Xt, "BitmapText", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Vt).default
@@ -19586,8 +19586,8 @@ function(Bt) {
             "./getGlobalPosition": 140,
             "./webgl/TilingSpriteRenderer": 142
         }],
-        142: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        142: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(zt) {
                 if (zt && zt.__esModule)
                     return zt;
@@ -19680,7 +19680,7 @@ function(Bt) {
                 ,
                 Vt
             }(Yt.ObjectRenderer);
-            Gt.default = Wt,
+            Xt.default = Wt,
             Yt.WebGLRenderer.registerPlugin("tilingSprite", Wt)
         }
         , {
@@ -19688,13 +19688,13 @@ function(Bt) {
             "../../core/const": 46,
             path: 23
         }],
-        143: [function(Bt, Xt, Gt) {
+        143: [function(Bt, Gt, Xt) {
             function Yt(qt) {
                 return qt && qt.__esModule ? qt : {
                     default: qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function qt(Kt, Zt) {
                     for (var Qt = 0, Jt; Qt < Zt.length; Qt++)
@@ -19807,20 +19807,20 @@ function(Bt) {
                 }]),
                 Kt
             }(jt.Filter);
-            Gt.default = Vt
+            Xt.default = Vt
         }
         , {
             "../../core": 65,
             "./BlurXFilter": 144,
             "./BlurYFilter": 145
         }],
-        144: [function(Bt, Xt, Gt) {
+        144: [function(Bt, Gt, Xt) {
             function Yt(Kt) {
                 return Kt && Kt.__esModule ? Kt : {
                     default: Kt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function Kt(Zt, Qt) {
                     for (var Jt = 0, $t; Jt < Qt.length; Jt++)
@@ -19934,7 +19934,7 @@ function(Bt) {
                 }]),
                 Zt
             }(jt.Filter);
-            Gt.default = qt
+            Xt.default = qt
         }
         , {
             "../../core": 65,
@@ -19942,13 +19942,13 @@ function(Bt) {
             "./generateBlurVertSource": 147,
             "./getMaxBlurKernelSize": 148
         }],
-        145: [function(Bt, Xt, Gt) {
+        145: [function(Bt, Gt, Xt) {
             function Yt(Kt) {
                 return Kt && Kt.__esModule ? Kt : {
                     default: Kt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function() {
                 function Kt(Zt, Qt) {
                     for (var Jt = 0, $t; Jt < Qt.length; Jt++)
@@ -20062,7 +20062,7 @@ function(Bt) {
                 }]),
                 Zt
             }(jt.Filter);
-            Gt.default = qt
+            Xt.default = qt
         }
         , {
             "../../core": 65,
@@ -20070,9 +20070,9 @@ function(Bt) {
             "./generateBlurVertSource": 147,
             "./getMaxBlurKernelSize": 148
         }],
-        146: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(jt) {
+        146: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(jt) {
                 for (var Wt = Yt[jt], zt = Wt.length, Vt = Ht, qt = "", Kt = void 0, Zt = 0, Qt; Zt < jt; Zt++)
                     Qt = "gl_FragColor += texture2D(uSampler, vBlurTexCoords[%index%]) * %value%;".replace("%index%", Zt),
                     Kt = Zt,
@@ -20094,9 +20094,9 @@ function(Bt) {
               , Ht = ["varying vec2 vBlurTexCoords[%size%];", "uniform sampler2D uSampler;", "void main(void)", "{", "    gl_FragColor = vec4(0.0);", "    %blur%", "}"].join("\n")
         }
         , {}],
-        147: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Ht, jt) {
+        147: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Ht, jt) {
                 var Wt = Math.ceil(Ht / 2), zt = Yt, Vt = "", qt;
                 qt = jt ? "vBlurTexCoords[%index%] = aTextureCoord + vec2(%sampleIndex% * strength, 0.0);" : "vBlurTexCoords[%index%] = aTextureCoord + vec2(0.0, %sampleIndex% * strength);";
                 for (var Kt = 0, Zt; Kt < Ht; Kt++)
@@ -20110,17 +20110,17 @@ function(Bt) {
             var Yt = ["attribute vec2 aVertexPosition;", "attribute vec2 aTextureCoord;", "uniform float strength;", "uniform mat3 projectionMatrix;", "varying vec2 vBlurTexCoords[%size%];", "void main(void)", "{", "gl_Position = vec4((projectionMatrix * vec3((aVertexPosition), 1.0)).xy, 0.0, 1.0);", "%blur%", "}"].join("\n")
         }
         , {}],
-        148: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function(Yt) {
+        148: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function(Yt) {
                 for (var Ht = Yt.getParameter(Yt.MAX_VARYING_VECTORS), jt = 15; jt > Ht; )
                     jt -= 2;
                 return jt
             }
         }
         , {}],
-        149: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        149: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -20335,15 +20335,15 @@ function(Bt) {
                 }]),
                 zt
             }(Ht.Filter));
-            Gt.default = jt,
+            Xt.default = jt,
             jt.prototype.grayscale = jt.prototype.greyscale
         }
         , {
             "../../core": 65,
             path: 23
         }],
-        150: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        150: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -20427,14 +20427,14 @@ function(Bt) {
                 }]),
                 zt
             }(Ht.Filter));
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../../core": 65,
             path: 23
         }],
-        151: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        151: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(jt) {
                 if (jt && jt.__esModule)
                     return jt;
@@ -20473,70 +20473,70 @@ function(Bt) {
                 }(Wt, jt),
                 Wt
             }(Yt.Filter));
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "../../core": 65,
             path: 23
         }],
-        152: [function(Bt, Xt, Gt) {
+        152: [function(Bt, Gt, Xt) {
             function Yt(Qt) {
                 return Qt && Qt.__esModule ? Qt : {
                     default: Qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("./fxaa/FXAAFilter");
-            Object.defineProperty(Gt, "FXAAFilter", {
+            Object.defineProperty(Xt, "FXAAFilter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             });
             var jt = Bt("./noise/NoiseFilter");
-            Object.defineProperty(Gt, "NoiseFilter", {
+            Object.defineProperty(Xt, "NoiseFilter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
                 }
             });
             var Wt = Bt("./displacement/DisplacementFilter");
-            Object.defineProperty(Gt, "DisplacementFilter", {
+            Object.defineProperty(Xt, "DisplacementFilter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Wt).default
                 }
             });
             var zt = Bt("./blur/BlurFilter");
-            Object.defineProperty(Gt, "BlurFilter", {
+            Object.defineProperty(Xt, "BlurFilter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(zt).default
                 }
             });
             var Vt = Bt("./blur/BlurXFilter");
-            Object.defineProperty(Gt, "BlurXFilter", {
+            Object.defineProperty(Xt, "BlurXFilter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Vt).default
                 }
             });
             var qt = Bt("./blur/BlurYFilter");
-            Object.defineProperty(Gt, "BlurYFilter", {
+            Object.defineProperty(Xt, "BlurYFilter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(qt).default
                 }
             });
             var Kt = Bt("./colormatrix/ColorMatrixFilter");
-            Object.defineProperty(Gt, "ColorMatrixFilter", {
+            Object.defineProperty(Xt, "ColorMatrixFilter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Kt).default
                 }
             });
             var Zt = Bt("./void/VoidFilter");
-            Object.defineProperty(Gt, "VoidFilter", {
+            Object.defineProperty(Xt, "VoidFilter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Zt).default
@@ -20553,8 +20553,8 @@ function(Bt) {
             "./noise/NoiseFilter": 153,
             "./void/VoidFilter": 154
         }],
-        153: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        153: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -20630,14 +20630,14 @@ function(Bt) {
                 }]),
                 zt
             }(Ht.Filter));
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../../core": 65,
             path: 23
         }],
-        154: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        154: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(jt) {
                 if (jt && jt.__esModule)
                     return jt;
@@ -20678,14 +20678,14 @@ function(Bt) {
                 }(Wt, jt),
                 Wt
             }(Yt.Filter));
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "../../core": 65,
             path: 23
         }],
-        155: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        155: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -20765,13 +20765,13 @@ function(Bt) {
                 }]),
                 Wt
             }();
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "../core": 65
         }],
-        156: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        156: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Ht() {
                     !function(jt, Wt) {
@@ -20796,16 +20796,16 @@ function(Bt) {
                 ,
                 Ht
             }();
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {}],
-        157: [function(Bt, Xt, Gt) {
+        157: [function(Bt, Gt, Xt) {
             function Yt($t) {
                 return $t && $t.__esModule ? $t : {
                     default: $t
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function($t) {
                 return typeof $t
             }
@@ -21291,7 +21291,7 @@ function(Bt) {
                 ,
                 en
             }(qt.default);
-            Gt.default = Jt,
+            Xt.default = Jt,
             jt.WebGLRenderer.registerPlugin("interaction", Jt),
             jt.CanvasRenderer.registerPlugin("interaction", Jt)
         }
@@ -21303,8 +21303,8 @@ function(Bt) {
             "./interactiveTarget": 160,
             eventemitter3: 3
         }],
-        158: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        158: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function jt(Wt, zt) {
                     for (var Vt = 0, qt; Vt < zt.length; Vt++)
@@ -21378,7 +21378,7 @@ function(Bt) {
                 }]),
                 jt
             }();
-            Gt.default = Ht,
+            Xt.default = Ht,
             Ht.FLAGS = Object.freeze({
                 NONE: 0,
                 OVER: 1,
@@ -21387,43 +21387,43 @@ function(Bt) {
             })
         }
         , {}],
-        159: [function(Bt, Xt, Gt) {
+        159: [function(Bt, Gt, Xt) {
             function Yt(qt) {
                 return qt && qt.__esModule ? qt : {
                     default: qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("./InteractionData");
-            Object.defineProperty(Gt, "InteractionData", {
+            Object.defineProperty(Xt, "InteractionData", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             });
             var jt = Bt("./InteractionManager");
-            Object.defineProperty(Gt, "InteractionManager", {
+            Object.defineProperty(Xt, "InteractionManager", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
                 }
             });
             var Wt = Bt("./interactiveTarget");
-            Object.defineProperty(Gt, "interactiveTarget", {
+            Object.defineProperty(Xt, "interactiveTarget", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Wt).default
                 }
             });
             var zt = Bt("./InteractionTrackingData");
-            Object.defineProperty(Gt, "InteractionTrackingData", {
+            Object.defineProperty(Xt, "InteractionTrackingData", {
                 enumerable: !0,
                 get: function() {
                     return Yt(zt).default
                 }
             });
             var Vt = Bt("./InteractionEvent");
-            Object.defineProperty(Gt, "InteractionEvent", {
+            Object.defineProperty(Xt, "InteractionEvent", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Vt).default
@@ -21437,9 +21437,9 @@ function(Bt) {
             "./InteractionTrackingData": 158,
             "./interactiveTarget": 160
         }],
-        160: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = {
+        160: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = {
                 interactive: !1,
                 interactiveChildren: !0,
                 hitArea: null,
@@ -21458,13 +21458,13 @@ function(Bt) {
             }
         }
         , {}],
-        161: [function(Bt, Xt, Gt) {
+        161: [function(Bt, Gt, Xt) {
             function Yt(Vt, qt) {
                 Vt.bitmapFont = zt.BitmapText.registerFont(Vt.data, qt)
             }
-            Gt.__esModule = !0,
-            Gt.parse = Yt,
-            Gt.default = function() {
+            Xt.__esModule = !0,
+            Xt.parse = Yt,
+            Xt.default = function() {
                 return function(Vt, qt) {
                     if (!(Vt.data && Vt.type === Wt.Resource.TYPE.XML))
                         qt();
@@ -21514,49 +21514,49 @@ function(Bt) {
             path: 23,
             "resource-loader": 36
         }],
-        162: [function(Bt, Xt, Gt) {
+        162: [function(Bt, Gt, Xt) {
             function Yt(Qt) {
                 return Qt && Qt.__esModule ? Qt : {
                     default: Qt
                 }
             }
-            Gt.__esModule = !0,
-            Gt.shared = Gt.Resource = Gt.textureParser = Gt.getResourcePath = Gt.spritesheetParser = Gt.parseBitmapFontData = Gt.bitmapFontParser = Gt.Loader = void 0;
+            Xt.__esModule = !0,
+            Xt.shared = Xt.Resource = Xt.textureParser = Xt.getResourcePath = Xt.spritesheetParser = Xt.parseBitmapFontData = Xt.bitmapFontParser = Xt.Loader = void 0;
             var Ht = Bt("./bitmapFontParser");
-            Object.defineProperty(Gt, "bitmapFontParser", {
+            Object.defineProperty(Xt, "bitmapFontParser", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             }),
-            Object.defineProperty(Gt, "parseBitmapFontData", {
+            Object.defineProperty(Xt, "parseBitmapFontData", {
                 enumerable: !0,
                 get: function() {
                     return Ht.parse
                 }
             });
             var jt = Bt("./spritesheetParser");
-            Object.defineProperty(Gt, "spritesheetParser", {
+            Object.defineProperty(Xt, "spritesheetParser", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
                 }
             }),
-            Object.defineProperty(Gt, "getResourcePath", {
+            Object.defineProperty(Xt, "getResourcePath", {
                 enumerable: !0,
                 get: function() {
                     return jt.getResourcePath
                 }
             });
             var Wt = Bt("./textureParser");
-            Object.defineProperty(Gt, "textureParser", {
+            Object.defineProperty(Xt, "textureParser", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Wt).default
                 }
             });
             var zt = Bt("resource-loader");
-            Object.defineProperty(Gt, "Resource", {
+            Object.defineProperty(Xt, "Resource", {
                 enumerable: !0,
                 get: function() {
                     return zt.Resource
@@ -21564,11 +21564,11 @@ function(Bt) {
             });
             var Vt = Yt(Bt("../core/Application"))
               , qt = Yt(Bt("./loader"));
-            Gt.Loader = qt.default;
+            Xt.Loader = qt.default;
             var Kt = new qt.default;
             Kt.destroy = function() {}
             ,
-            Gt.shared = Kt;
+            Xt.shared = Kt;
             var Zt = Vt.default.prototype;
             Zt._loader = null,
             Object.defineProperty(Zt, "loader", {
@@ -21595,13 +21595,13 @@ function(Bt) {
             "./textureParser": 165,
             "resource-loader": 36
         }],
-        163: [function(Bt, Xt, Gt) {
+        163: [function(Bt, Gt, Xt) {
             function Yt(Jt) {
                 return Jt && Jt.__esModule ? Jt : {
                     default: Jt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("resource-loader"))
               , jt = Bt("resource-loader/lib/middlewares/parsing/blob")
               , Wt = Yt(Bt("eventemitter3"))
@@ -21663,7 +21663,7 @@ function(Bt) {
                 ,
                 $t
             }(Ht.default);
-            for (var Zt in Gt.default = Kt,
+            for (var Zt in Xt.default = Kt,
             Wt.default.prototype)
                 Kt.prototype[Zt] = Wt.default.prototype[Zt];
             Kt._pixiMiddleware = [jt.blobMiddlewareFactory, zt.default, Vt.default, qt.default];
@@ -21678,12 +21678,12 @@ function(Bt) {
             "resource-loader": 36,
             "resource-loader/lib/middlewares/parsing/blob": 37
         }],
-        164: [function(Bt, Xt, Gt) {
+        164: [function(Bt, Gt, Xt) {
             function Yt(zt, Vt) {
                 return zt.isDataUrl ? zt.data.meta.image : jt.default.resolve(zt.url.replace(Vt, ""), zt.data.meta.image)
             }
-            Gt.__esModule = !0,
-            Gt.default = function() {
+            Xt.__esModule = !0,
+            Xt.default = function() {
                 return function(zt, Vt) {
                     var qt = zt.name + "_image";
                     if (zt.data && zt.type === Ht.Resource.TYPE.JSON && zt.data.frames && !this.resources[qt]) {
@@ -21707,7 +21707,7 @@ function(Bt) {
                 }
             }
             ,
-            Gt.getResourcePath = Yt;
+            Xt.getResourcePath = Yt;
             var Ht = Bt("resource-loader")
               , jt = function(zt) {
                 return zt && zt.__esModule ? zt : {
@@ -21721,9 +21721,9 @@ function(Bt) {
             "resource-loader": 36,
             url: 29
         }],
-        165: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0,
-            Gt.default = function() {
+        165: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0,
+            Xt.default = function() {
                 return function(jt, Wt) {
                     jt.data && jt.type === Yt.Resource.TYPE.IMAGE && (jt.texture = Ht.default.fromLoader(jt.data, jt.url, jt.name)),
                     Wt()
@@ -21741,8 +21741,8 @@ function(Bt) {
             "../core/textures/Texture": 115,
             "resource-loader": 36
         }],
-        166: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        166: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function qt(Kt, Zt) {
                     for (var Qt = 0, Jt; Qt < Zt.length; Qt++)
@@ -21886,7 +21886,7 @@ function(Bt) {
                 }]),
                 Kt
             }(Ht.Container);
-            Gt.default = Vt,
+            Xt.default = Vt,
             Vt.DRAW_MODES = {
                 TRIANGLE_MESH: 0,
                 TRIANGLES: 1
@@ -21896,8 +21896,8 @@ function(Bt) {
             "../core": 65,
             "../extras/TextureTransform": 136
         }],
-        167: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        167: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Wt(zt, Vt) {
                     for (var qt = 0, Kt; qt < Vt.length; qt++)
@@ -22081,13 +22081,13 @@ function(Bt) {
                     default: Wt
                 }
             }(Bt("./Plane")).default);
-            Gt.default = jt
+            Xt.default = jt
         }
         , {
             "./Plane": 168
         }],
-        168: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        168: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(jt) {
                 return jt && jt.__esModule ? jt : {
                     default: jt
@@ -22156,13 +22156,13 @@ function(Bt) {
                 ,
                 Wt
             }(Yt.default);
-            Gt.default = Ht
+            Xt.default = Ht
         }
         , {
             "./Mesh": 166
         }],
-        169: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        169: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Ht) {
                 function jt(Wt, zt) {
                     !function(qt, Kt) {
@@ -22268,13 +22268,13 @@ function(Bt) {
                     default: Ht
                 }
             }(Bt("./Mesh")).default);
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {
             "./Mesh": 166
         }],
-        170: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        170: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Wt) {
                 if (Wt && Wt.__esModule)
                     return Wt;
@@ -22417,57 +22417,57 @@ function(Bt) {
                 ,
                 Wt
             }();
-            Gt.default = jt,
+            Xt.default = jt,
             Yt.CanvasRenderer.registerPlugin("mesh", jt)
         }
         , {
             "../../core": 65,
             "../Mesh": 166
         }],
-        171: [function(Bt, Xt, Gt) {
+        171: [function(Bt, Gt, Xt) {
             function Yt(Kt) {
                 return Kt && Kt.__esModule ? Kt : {
                     default: Kt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("./Mesh");
-            Object.defineProperty(Gt, "Mesh", {
+            Object.defineProperty(Xt, "Mesh", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             });
             var jt = Bt("./webgl/MeshRenderer");
-            Object.defineProperty(Gt, "MeshRenderer", {
+            Object.defineProperty(Xt, "MeshRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
                 }
             });
             var Wt = Bt("./canvas/CanvasMeshRenderer");
-            Object.defineProperty(Gt, "CanvasMeshRenderer", {
+            Object.defineProperty(Xt, "CanvasMeshRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Wt).default
                 }
             });
             var zt = Bt("./Plane");
-            Object.defineProperty(Gt, "Plane", {
+            Object.defineProperty(Xt, "Plane", {
                 enumerable: !0,
                 get: function() {
                     return Yt(zt).default
                 }
             });
             var Vt = Bt("./NineSlicePlane");
-            Object.defineProperty(Gt, "NineSlicePlane", {
+            Object.defineProperty(Xt, "NineSlicePlane", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Vt).default
                 }
             });
             var qt = Bt("./Rope");
-            Object.defineProperty(Gt, "Rope", {
+            Object.defineProperty(Xt, "Rope", {
                 enumerable: !0,
                 get: function() {
                     return Yt(qt).default
@@ -22482,13 +22482,13 @@ function(Bt) {
             "./canvas/CanvasMeshRenderer": 170,
             "./webgl/MeshRenderer": 172
         }],
-        172: [function(Bt, Xt, Gt) {
+        172: [function(Bt, Gt, Xt) {
             function Yt(qt) {
                 return qt && qt.__esModule ? qt : {
                     default: qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function(qt) {
                 if (qt && qt.__esModule)
                     return qt;
@@ -22571,7 +22571,7 @@ function(Bt) {
                 ,
                 Kt
             }(Ht.ObjectRenderer);
-            Gt.default = Vt,
+            Xt.default = Vt,
             Ht.WebGLRenderer.registerPlugin("mesh", Vt)
         }
         , {
@@ -22580,8 +22580,8 @@ function(Bt) {
             path: 23,
             "pixi-gl-core": 12
         }],
-        173: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        173: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function zt(Vt, qt) {
                     for (var Kt = 0, Zt; Kt < qt.length; Kt++)
@@ -22743,28 +22743,28 @@ function(Bt) {
                 }]),
                 Vt
             }(Ht.Container);
-            Gt.default = Wt
+            Xt.default = Wt
         }
         , {
             "../core": 65,
             "../core/utils": 124
         }],
-        174: [function(Bt, Xt, Gt) {
+        174: [function(Bt, Gt, Xt) {
             function Yt(Wt) {
                 return Wt && Wt.__esModule ? Wt : {
                     default: Wt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("./ParticleContainer");
-            Object.defineProperty(Gt, "ParticleContainer", {
+            Object.defineProperty(Xt, "ParticleContainer", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             });
             var jt = Bt("./webgl/ParticleRenderer");
-            Object.defineProperty(Gt, "ParticleRenderer", {
+            Object.defineProperty(Xt, "ParticleRenderer", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
@@ -22775,13 +22775,13 @@ function(Bt) {
             "./ParticleContainer": 173,
             "./webgl/ParticleRenderer": 176
         }],
-        175: [function(Bt, Xt, Gt) {
+        175: [function(Bt, Gt, Xt) {
             function Yt(zt) {
                 return zt && zt.__esModule ? zt : {
                     default: zt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Yt(Bt("pixi-gl-core"))
               , jt = Yt(Bt("../../core/utils/createIndicesForQuads"))
               , Wt = function() {
@@ -22875,19 +22875,19 @@ function(Bt) {
                 ,
                 zt
             }();
-            Gt.default = Wt
+            Xt.default = Wt
         }
         , {
             "../../core/utils/createIndicesForQuads": 122,
             "pixi-gl-core": 12
         }],
-        176: [function(Bt, Xt, Gt) {
+        176: [function(Bt, Gt, Xt) {
             function Yt(qt) {
                 return qt && qt.__esModule ? qt : {
                     default: qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function(qt) {
                 if (qt && qt.__esModule)
                     return qt;
@@ -23115,7 +23115,7 @@ function(Bt) {
                 ,
                 Kt
             }(Ht.ObjectRenderer);
-            Gt.default = Vt,
+            Xt.default = Vt,
             Ht.WebGLRenderer.registerPlugin("particle", Vt)
         }
         , {
@@ -23124,8 +23124,8 @@ function(Bt) {
             "./ParticleBuffer": 175,
             "./ParticleShader": 177
         }],
-        177: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        177: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function(Ht) {
                 function jt(Wt) {
                     return function(zt, Vt) {
@@ -23157,7 +23157,7 @@ function(Bt) {
                     default: Ht
                 }
             }(Bt("../../core/Shader")).default);
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {
             "../../core/Shader": 44
@@ -23232,7 +23232,7 @@ function(Bt) {
             ).call(this, "undefined" == typeof global ? "undefined" == typeof self ? "undefined" == typeof window ? {} : window : self : global)
         }
         , {}],
-        182: [function(Bt, Xt, Gt) {
+        182: [function(Bt, Gt, Xt) {
             function Yt($t, en) {
                 var tn = !1;
                 if ($t && $t._textures && $t._textures.length)
@@ -23282,7 +23282,7 @@ function(Bt) {
                 return $t instanceof Kt.TextStyle && (-1 === en.indexOf($t) && en.push($t),
                 !0)
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Kt = function($t) {
                 if ($t && $t.__esModule)
                     return $t;
@@ -23397,13 +23397,13 @@ function(Bt) {
                 ,
                 $t
             }();
-            Gt.default = Jt
+            Xt.default = Jt
         }
         , {
             "../core": 65,
             "./limiters/CountLimiter": 185
         }],
-        183: [function(Bt, Xt, Gt) {
+        183: [function(Bt, Gt, Xt) {
             function Yt(zt, Vt) {
                 if (Vt instanceof Ht.BaseTexture) {
                     var qt = Vt.source
@@ -23414,7 +23414,7 @@ function(Bt) {
                 }
                 return !1
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = function(zt) {
                 if (zt && zt.__esModule)
                     return zt;
@@ -23470,50 +23470,50 @@ function(Bt) {
                     default: zt
                 }
             }(Bt("../BasePrepare")).default);
-            Gt.default = Wt,
+            Xt.default = Wt,
             Ht.CanvasRenderer.registerPlugin("prepare", Wt)
         }
         , {
             "../../core": 65,
             "../BasePrepare": 182
         }],
-        184: [function(Bt, Xt, Gt) {
+        184: [function(Bt, Gt, Xt) {
             function Yt(qt) {
                 return qt && qt.__esModule ? qt : {
                     default: qt
                 }
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Ht = Bt("./webgl/WebGLPrepare");
-            Object.defineProperty(Gt, "webgl", {
+            Object.defineProperty(Xt, "webgl", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Ht).default
                 }
             });
             var jt = Bt("./canvas/CanvasPrepare");
-            Object.defineProperty(Gt, "canvas", {
+            Object.defineProperty(Xt, "canvas", {
                 enumerable: !0,
                 get: function() {
                     return Yt(jt).default
                 }
             });
             var Wt = Bt("./BasePrepare");
-            Object.defineProperty(Gt, "BasePrepare", {
+            Object.defineProperty(Xt, "BasePrepare", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Wt).default
                 }
             });
             var zt = Bt("./limiters/CountLimiter");
-            Object.defineProperty(Gt, "CountLimiter", {
+            Object.defineProperty(Xt, "CountLimiter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(zt).default
                 }
             });
             var Vt = Bt("./limiters/TimeLimiter");
-            Object.defineProperty(Gt, "TimeLimiter", {
+            Object.defineProperty(Xt, "TimeLimiter", {
                 enumerable: !0,
                 get: function() {
                     return Yt(Vt).default
@@ -23527,8 +23527,8 @@ function(Bt) {
             "./limiters/TimeLimiter": 186,
             "./webgl/WebGLPrepare": 187
         }],
-        185: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        185: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Ht(jt) {
                     !function(Wt, zt) {
@@ -23548,11 +23548,11 @@ function(Bt) {
                 ,
                 Ht
             }();
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {}],
-        186: [function(Bt, Xt, Gt) {
-            Gt.__esModule = !0;
+        186: [function(Bt, Gt, Xt) {
+            Xt.__esModule = !0;
             var Yt = function() {
                 function Ht(jt) {
                     !function(Wt, zt) {
@@ -23572,10 +23572,10 @@ function(Bt) {
                 ,
                 Ht
             }();
-            Gt.default = Yt
+            Xt.default = Yt
         }
         , {}],
-        187: [function(Bt, Xt, Gt) {
+        187: [function(Bt, Gt, Xt) {
             function Yt(Vt, qt) {
                 return qt instanceof Wt.BaseTexture && (qt._glTextures[Vt.CONTEXT_UID] || Vt.textureManager.updateTexture(qt),
                 !0)
@@ -23588,7 +23588,7 @@ function(Bt) {
                 return Vt instanceof Wt.Graphics && (qt.push(Vt),
                 !0)
             }
-            Gt.__esModule = !0;
+            Xt.__esModule = !0;
             var Wt = function(Vt) {
                 if (Vt && Vt.__esModule)
                     return Vt;
@@ -23635,14 +23635,14 @@ function(Bt) {
                     default: Vt
                 }
             }(Bt("../BasePrepare")).default);
-            Gt.default = zt,
+            Xt.default = zt,
             Wt.WebGLRenderer.registerPlugin("prepare", zt)
         }
         , {
             "../../core": 65,
             "../BasePrepare": 182
         }],
-        188: [function(Bt, Xt, Gt) {
+        188: [function(Bt, Gt, Xt) {
             (function(Yt) {
                 function Ht(an) {
                     if (an && an.__esModule)
@@ -23654,11 +23654,11 @@ function(Bt) {
                     return rn.default = an,
                     rn
                 }
-                Gt.__esModule = !0,
-                Gt.loader = Gt.prepare = Gt.particles = Gt.mesh = Gt.loaders = Gt.interaction = Gt.filters = Gt.extras = Gt.extract = Gt.accessibility = void 0;
+                Xt.__esModule = !0,
+                Xt.loader = Xt.prepare = Xt.particles = Xt.mesh = Xt.loaders = Xt.interaction = Xt.filters = Xt.extras = Xt.extract = Xt.accessibility = void 0;
                 var jt = Bt("./polyfill");
                 Object.keys(jt).forEach(function(an) {
-                    "default" !== an && "__esModule" !== an && Object.defineProperty(Gt, an, {
+                    "default" !== an && "__esModule" !== an && Object.defineProperty(Xt, an, {
                         enumerable: !0,
                         get: function() {
                             return jt[an]
@@ -23667,7 +23667,7 @@ function(Bt) {
                 });
                 var Wt = Bt("./core");
                 Object.keys(Wt).forEach(function(an) {
-                    "default" !== an && "__esModule" !== an && Object.defineProperty(Gt, an, {
+                    "default" !== an && "__esModule" !== an && Object.defineProperty(Xt, an, {
                         enumerable: !0,
                         get: function() {
                             return Wt[an]
@@ -23690,19 +23690,19 @@ function(Bt) {
                   , tn = Ht(Bt("./prepare"));
                 Wt.utils.mixins.performMixins();
                 var nn = Jt.shared || null;
-                Gt.accessibility = Vt,
-                Gt.extract = qt,
-                Gt.extras = Kt,
-                Gt.filters = Zt,
-                Gt.interaction = Qt,
-                Gt.loaders = Jt,
-                Gt.mesh = $t,
-                Gt.particles = en,
-                Gt.prepare = tn,
-                Gt.loader = nn,
+                Xt.accessibility = Vt,
+                Xt.extract = qt,
+                Xt.extras = Kt,
+                Xt.filters = Zt,
+                Xt.interaction = Qt,
+                Xt.loaders = Jt,
+                Xt.mesh = $t,
+                Xt.particles = en,
+                Xt.prepare = tn,
+                Xt.loader = nn,
                 "function" == typeof zt.default && (0,
-                zt.default)(Gt),
-                Yt.PIXI = Gt
+                zt.default)(Xt),
+                Yt.PIXI = Xt
             }
             ).call(this, "undefined" == typeof global ? "undefined" == typeof self ? "undefined" == typeof window ? {} : window : self : global)
         }
@@ -23728,7 +23728,7 @@ function() {
     };
     Bt.prototype = {
         init: function() {
-            var Kt = this || Xt;
+            var Kt = this || Gt;
             return Kt._counter = 1e3,
             Kt._codecs = {},
             Kt._howls = [],
@@ -23746,7 +23746,7 @@ function() {
             Kt
         },
         volume: function(Kt) {
-            var Zt = this || Xt;
+            var Zt = this || Gt;
             if (Kt = parseFloat(Kt),
             Zt.ctx || qt(),
             void 0 !== Kt && 0 <= Kt && 1 >= Kt) {
@@ -23764,7 +23764,7 @@ function() {
             return Zt._volume
         },
         mute: function(Kt) {
-            var Zt = this || Xt;
+            var Zt = this || Gt;
             Zt.ctx || qt(),
             Zt._muted = Kt,
             Zt.usingWebAudio && (Zt.masterGain.gain.value = Kt ? 0 : Zt._volume);
@@ -23776,7 +23776,7 @@ function() {
             return Zt
         },
         unload: function() {
-            for (var Kt = this || Xt, Zt = Kt._howls.length - 1; 0 <= Zt; Zt--)
+            for (var Kt = this || Gt, Zt = Kt._howls.length - 1; 0 <= Zt; Zt--)
                 Kt._howls[Zt].unload();
             return Kt.usingWebAudio && Kt.ctx && void 0 !== Kt.ctx.close && (Kt.ctx.close(),
             Kt.ctx = null,
@@ -23784,10 +23784,10 @@ function() {
             Kt
         },
         codecs: function(Kt) {
-            return (this || Xt)._codecs[Kt.replace(/^x-/, "")]
+            return (this || Gt)._codecs[Kt.replace(/^x-/, "")]
         },
         _setup: function() {
-            var Kt = this || Xt;
+            var Kt = this || Gt;
             if (Kt.state = Kt.ctx ? Kt.ctx.state || "running" : "running",
             Kt._autoSuspend(),
             !Kt.usingWebAudio)
@@ -23806,7 +23806,7 @@ function() {
             Kt
         },
         _setupCodecs: function() {
-            var Kt = this || Xt
+            var Kt = this || Gt
               , Zt = null;
             try {
                 Zt = "undefined" == typeof Audio ? null : new Audio
@@ -23837,7 +23837,7 @@ function() {
             Kt
         },
         _enableMobileAudio: function() {
-            var Kt = this || Xt
+            var Kt = this || Gt
               , Zt = /iPhone|iPad|iPod|Android|BlackBerry|BB10|Silk|Mobi/i.test(Kt._navigator && Kt._navigator.userAgent)
               , Qt = !!("ontouchend"in window || Kt._navigator && 0 < Kt._navigator.maxTouchPoints || Kt._navigator && 0 < Kt._navigator.msMaxTouchPoints);
             if (!Kt._mobileEnabled && Kt.ctx && (Zt || Qt)) {
@@ -23846,7 +23846,7 @@ function() {
                 Kt.unload()),
                 Kt._scratchBuffer = Kt.ctx.createBuffer(1, 1, 22050);
                 var Jt = function() {
-                    Xt._autoResume();
+                    Gt._autoResume();
                     var $t = Kt.ctx.createBufferSource();
                     $t.buffer = Kt._scratchBuffer,
                     $t.connect(Kt.ctx.destination),
@@ -23867,7 +23867,7 @@ function() {
         },
         _autoSuspend: function() {
             var Kt = this;
-            if (Kt.autoSuspend && Kt.ctx && void 0 !== Kt.ctx.suspend && Xt.usingWebAudio) {
+            if (Kt.autoSuspend && Kt.ctx && void 0 !== Kt.ctx.suspend && Gt.usingWebAudio) {
                 for (var Zt = 0; Zt < Kt._howls.length; Zt++)
                     if (Kt._howls[Zt]._webAudio)
                         for (var Qt = 0; Qt < Kt._howls[Zt]._sounds.length; Qt++)
@@ -23888,7 +23888,7 @@ function() {
         },
         _autoResume: function() {
             var Kt = this;
-            if (Kt.ctx && void 0 !== Kt.ctx.resume && Xt.usingWebAudio)
+            if (Kt.ctx && void 0 !== Kt.ctx.resume && Gt.usingWebAudio)
                 return "running" === Kt.state && Kt._suspendTimer ? (clearTimeout(Kt._suspendTimer),
                 Kt._suspendTimer = null) : "suspended" === Kt.state ? (Kt.ctx.resume().then(function() {
                     Kt.state = "running";
@@ -23900,14 +23900,14 @@ function() {
                 Kt
         }
     };
-    var Xt = new Bt
-      , Gt = function(Kt) {
+    var Gt = new Bt
+      , Xt = function(Kt) {
         Kt.src && 0 !== Kt.src.length ? this.init(Kt) : console.error("An array of source files must be passed with any new Howl.")
     };
-    Gt.prototype = {
+    Xt.prototype = {
         init: function(Kt) {
             var Zt = this;
-            return Xt.ctx || qt(),
+            return Gt.ctx || qt(),
             Zt._autoplay = Kt.autoplay || !1,
             Zt._format = "string" == typeof Kt.format ? [Kt.format] : Kt.format,
             Zt._html5 = Kt.html5 || !1,
@@ -23962,9 +23962,9 @@ function() {
                 fn: Kt.onseek
             }] : [],
             Zt._onresume = [],
-            Zt._webAudio = Xt.usingWebAudio && !Zt._html5,
-            void 0 !== Xt.ctx && Xt.ctx && Xt.mobileAutoEnable && Xt._enableMobileAudio(),
-            Xt._howls.push(Zt),
+            Zt._webAudio = Gt.usingWebAudio && !Zt._html5,
+            void 0 !== Gt.ctx && Gt.ctx && Gt.mobileAutoEnable && Gt._enableMobileAudio(),
+            Gt._howls.push(Zt),
             Zt._autoplay && Zt._queue.push({
                 event: "play",
                 action: function() {
@@ -23976,7 +23976,7 @@ function() {
         },
         load: function() {
             var Kt = null;
-            if (Xt.noAudio)
+            if (Gt.noAudio)
                 this._emit("loaderror", null, "No audio support.");
             else {
                 "string" == typeof this._src && (this._src = [this._src]);
@@ -23993,7 +23993,7 @@ function() {
                         Qt && (Qt = Qt[1].toLowerCase())
                     }
                     if (Qt || console.warn("No file extension was found. Consider using the \"format\" property or specify an extension."),
-                    Qt && Xt.codecs(Qt)) {
+                    Qt && Gt.codecs(Qt)) {
                         Kt = this._src[Zt];
                         break
                     }
@@ -24047,7 +24047,7 @@ function() {
                     Qt._emit("play", tn._id)
                 }, 0),
                 tn._id;
-            Qt._webAudio && Xt._autoResume();
+            Qt._webAudio && Gt._autoResume();
             var an = Math.max(0, 0 < tn._seek ? tn._seek : Qt._sprite[Kt][0] / 1e3)
               , rn = Math.max(0, (Qt._sprite[Kt][0] + Qt._sprite[Kt][1]) / 1e3 - an)
               , on = 1e3 * rn / Math.abs(tn._rate);
@@ -24063,21 +24063,21 @@ function() {
                 var dn = function() {
                     Qt._refreshBuffer(tn);
                     var cn = tn._muted || Qt._muted ? 0 : tn._volume;
-                    sn.gain.setValueAtTime(cn, Xt.ctx.currentTime),
-                    tn._playStart = Xt.ctx.currentTime,
+                    sn.gain.setValueAtTime(cn, Gt.ctx.currentTime),
+                    tn._playStart = Gt.ctx.currentTime,
                     void 0 === sn.bufferSource.start ? tn._loop ? sn.bufferSource.noteGrainOn(0, an, 86400) : sn.bufferSource.noteGrainOn(0, an, rn) : tn._loop ? sn.bufferSource.start(0, an, 86400) : sn.bufferSource.start(0, an, rn),
                     on != 1 / 0 && (Qt._endTimers[tn._id] = setTimeout(Qt._ended.bind(Qt, tn), on)),
                     Zt || setTimeout(function() {
                         Qt._emit("play", tn._id)
                     }, 0)
                 };
-                "running" === Xt.state ? dn() : (Qt.once("resume", dn),
+                "running" === Gt.state ? dn() : (Qt.once("resume", dn),
                 Qt._clearTimer(tn._id))
             } else {
                 var ln = function() {
                     sn.currentTime = an,
-                    sn.muted = tn._muted || Qt._muted || Xt._muted || sn.muted,
-                    sn.volume = tn._volume * Xt.volume(),
+                    sn.muted = tn._muted || Qt._muted || Gt._muted || sn.muted,
+                    sn.volume = tn._volume * Gt.volume(),
                     sn.playbackRate = tn._rate;
                     try {
                         if (sn.play(),
@@ -24089,15 +24089,15 @@ function() {
                         Qt._emit("playerror", tn._id, cn)
                     }
                 }
-                  , un = window && window.ejecta || !sn.readyState && Xt._navigator.isCocoonJS;
+                  , un = window && window.ejecta || !sn.readyState && Gt._navigator.isCocoonJS;
                 if (4 === sn.readyState || un)
                     ln();
                 else {
                     var pn = function() {
                         ln(),
-                        sn.removeEventListener(Xt._canPlayEvent, pn, !1)
+                        sn.removeEventListener(Gt._canPlayEvent, pn, !1)
                     };
-                    sn.addEventListener(Xt._canPlayEvent, pn, !1),
+                    sn.addEventListener(Gt._canPlayEvent, pn, !1),
                     Qt._clearTimer(tn._id)
                 }
             }
@@ -24177,7 +24177,7 @@ function() {
             for (var Jt = Qt._getSoundIds(Zt), $t = 0, en; $t < Jt.length; $t++)
                 en = Qt._soundById(Jt[$t]),
                 en && (en._muted = Kt,
-                Qt._webAudio && en._node ? en._node.gain.setValueAtTime(Kt ? 0 : en._volume, Xt.ctx.currentTime) : en._node && (en._node.muted = !!Xt._muted || Kt),
+                Qt._webAudio && en._node ? en._node.gain.setValueAtTime(Kt ? 0 : en._volume, Gt.ctx.currentTime) : en._node && (en._node.muted = !!Gt._muted || Kt),
                 Qt._emit("mute", en._id));
             return Qt
         },
@@ -24203,7 +24203,7 @@ function() {
             for (var en = 0; en < Zt.length; en++)
                 ($t = Qt._soundById(Zt[en])) && ($t._volume = Kt,
                 Jt[2] || Qt._stopFade(Zt[en]),
-                Qt._webAudio && $t._node && !$t._muted ? $t._node.gain.setValueAtTime(Kt, Xt.ctx.currentTime) : $t._node && !$t._muted && ($t._node.volume = Kt * Xt.volume()),
+                Qt._webAudio && $t._node && !$t._muted ? $t._node.gain.setValueAtTime(Kt, Gt.ctx.currentTime) : $t._node && !$t._muted && ($t._node.volume = Kt * Gt.volume()),
                 Qt._emit("volume", $t._id));
             return Qt
         },
@@ -24222,7 +24222,7 @@ function() {
                 if (an = en._soundById(tn[nn]),
                 an && (Jt || en._stopFade(tn[nn]),
                 en._webAudio && !an._muted)) {
-                    var rn = Xt.ctx.currentTime;
+                    var rn = Gt.ctx.currentTime;
                     an._volume = Kt,
                     null == $t && an._node.gain.setValueAtTime(Kt, rn),
                     an._node.gain.linearRampToValueAtTime(Zt, rn + Qt / 1e3)
@@ -24252,7 +24252,7 @@ function() {
         },
         _stopFade: function(Kt) {
             var Zt = this._soundById(Kt);
-            return Zt && Zt._interval && (this._webAudio && Zt._node.gain.cancelScheduledValues(Xt.ctx.currentTime),
+            return Zt && Zt._interval && (this._webAudio && Zt._node.gain.cancelScheduledValues(Gt.ctx.currentTime),
             clearInterval(Zt._interval),
             Zt._interval = null,
             this._emit("fade", Kt)),
@@ -24297,7 +24297,7 @@ function() {
             for (var en = 0; en < Zt.length; en++)
                 if ($t = Qt._soundById(Zt[en])) {
                     $t._rateSeek = Qt.seek(Zt[en]),
-                    $t._playStart = Qt._webAudio ? Xt.ctx.currentTime : $t._playStart,
+                    $t._playStart = Qt._webAudio ? Gt.ctx.currentTime : $t._playStart,
                     $t._rate = Kt,
                     Qt._webAudio && $t._node && $t._node.bufferSource ? $t._node.bufferSource.playbackRate.value = Kt : $t._node && ($t._node.playbackRate = Kt);
                     var tn = Qt.seek(Zt[en])
@@ -24327,7 +24327,7 @@ function() {
             if ($t) {
                 if (!("number" == typeof Kt && 0 <= Kt)) {
                     if (Qt._webAudio) {
-                        var en = Qt.playing(Zt) ? Xt.ctx.currentTime - $t._playStart : 0
+                        var en = Qt.playing(Zt) ? Gt.ctx.currentTime - $t._playStart : 0
                           , tn = $t._rateSeek ? $t._rateSeek - $t._seek : 0;
                         return $t._seek + (tn + en * Math.abs($t._rate))
                     }
@@ -24366,22 +24366,22 @@ function() {
         unload: function() {
             for (var Kt = this, Zt = Kt._sounds, Qt = 0; Qt < Zt.length; Qt++) {
                 (Zt[Qt]._paused || Kt.stop(Zt[Qt]._id),
-                !Kt._webAudio) && (/MSIE |Trident\//.test(Xt._navigator && Xt._navigator.userAgent) || (Zt[Qt]._node.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA"),
+                !Kt._webAudio) && (/MSIE |Trident\//.test(Gt._navigator && Gt._navigator.userAgent) || (Zt[Qt]._node.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA"),
                 Zt[Qt]._node.removeEventListener("error", Zt[Qt]._errorFn, !1),
-                Zt[Qt]._node.removeEventListener(Xt._canPlayEvent, Zt[Qt]._loadFn, !1)),
+                Zt[Qt]._node.removeEventListener(Gt._canPlayEvent, Zt[Qt]._loadFn, !1)),
                 delete Zt[Qt]._node,
                 Kt._clearTimer(Zt[Qt]._id);
-                var Jt = Xt._howls.indexOf(Kt);
-                0 <= Jt && Xt._howls.splice(Jt, 1)
+                var Jt = Gt._howls.indexOf(Kt);
+                0 <= Jt && Gt._howls.splice(Jt, 1)
             }
             var $t = !0;
-            for (Qt = 0; Qt < Xt._howls.length; Qt++)
-                if (Xt._howls[Qt]._src === Kt._src) {
+            for (Qt = 0; Qt < Gt._howls.length; Qt++)
+                if (Gt._howls[Qt]._src === Kt._src) {
                     $t = !1;
                     break
                 }
             return Ht && $t && delete Ht[Kt._src],
-            Xt.noAudio = !1,
+            Gt.noAudio = !1,
             Kt._state = "unloaded",
             Kt._sounds = [],
             Kt = null,
@@ -24458,7 +24458,7 @@ function() {
                 this._emit("play", Kt._id),
                 Kt._seek = Kt._start || 0,
                 Kt._rateSeek = 0,
-                Kt._playStart = Xt.ctx.currentTime;
+                Kt._playStart = Gt.ctx.currentTime;
                 var Jt = 1e3 * (Kt._stop - Kt._start) / Math.abs(Kt._rate);
                 this._endTimers[Kt._id] = setTimeout(this._ended.bind(this, Kt), Jt)
             }
@@ -24468,7 +24468,7 @@ function() {
             Kt._rateSeek = 0,
             this._clearTimer(Kt._id),
             this._cleanBuffer(Kt._node),
-            Xt._autoSuspend()),
+            Gt._autoSuspend()),
             this._webAudio || Qt || this.stop(Kt._id),
             this
         },
@@ -24515,7 +24515,7 @@ function() {
             return [Kt]
         },
         _refreshBuffer: function(Kt) {
-            return Kt._node.bufferSource = Xt.ctx.createBufferSource(),
+            return Kt._node.bufferSource = Gt.ctx.createBufferSource(),
             Kt._node.bufferSource.buffer = Ht[this._src],
             Kt._panner ? Kt._node.bufferSource.connect(Kt._panner) : Kt._node.bufferSource.connect(Kt._node),
             Kt._node.bufferSource.loop = Kt._loop,
@@ -24551,25 +24551,25 @@ function() {
             this._paused = !0,
             this._ended = !0,
             this._sprite = "__default",
-            this._id = ++Xt._counter,
+            this._id = ++Gt._counter,
             Kt._sounds.push(this),
             this.create(),
             this
         },
         create: function() {
             var Kt = this._parent
-              , Zt = Xt._muted || this._muted || this._parent._muted ? 0 : this._volume;
-            return Kt._webAudio ? (this._node = void 0 === Xt.ctx.createGain ? Xt.ctx.createGainNode() : Xt.ctx.createGain(),
-            this._node.gain.setValueAtTime(Zt, Xt.ctx.currentTime),
+              , Zt = Gt._muted || this._muted || this._parent._muted ? 0 : this._volume;
+            return Kt._webAudio ? (this._node = void 0 === Gt.ctx.createGain ? Gt.ctx.createGainNode() : Gt.ctx.createGain(),
+            this._node.gain.setValueAtTime(Zt, Gt.ctx.currentTime),
             this._node.paused = !0,
-            this._node.connect(Xt.masterGain)) : (this._node = new Audio,
+            this._node.connect(Gt.masterGain)) : (this._node = new Audio,
             this._errorFn = this._errorListener.bind(this),
             this._node.addEventListener("error", this._errorFn, !1),
             this._loadFn = this._loadListener.bind(this),
-            this._node.addEventListener(Xt._canPlayEvent, this._loadFn, !1),
+            this._node.addEventListener(Gt._canPlayEvent, this._loadFn, !1),
             this._node.src = Kt._src,
             this._node.preload = "auto",
-            this._node.volume = Zt * Xt.volume(),
+            this._node.volume = Zt * Gt.volume(),
             this._node.load()),
             this
         },
@@ -24584,7 +24584,7 @@ function() {
             this._paused = !0,
             this._ended = !0,
             this._sprite = "__default",
-            this._id = ++Xt._counter,
+            this._id = ++Gt._counter,
             this
         },
         _errorListener: function() {
@@ -24600,7 +24600,7 @@ function() {
             "loaded" !== Kt._state && (Kt._state = "loaded",
             Kt._emit("load"),
             Kt._loadQueue()),
-            this._node.removeEventListener(Xt._canPlayEvent, this._loadFn, !1)
+            this._node.removeEventListener(Gt._canPlayEvent, this._loadFn, !1)
         }
     };
     var Ht = {}
@@ -24642,7 +24642,7 @@ function() {
         }
     }
       , zt = function(Kt, Zt) {
-        Xt.ctx.decodeAudioData(Kt, function(Qt) {
+        Gt.ctx.decodeAudioData(Kt, function(Qt) {
             Qt && 0 < Zt._sounds.length && (Ht[Zt._src] = Qt,
             Vt(Zt, Qt))
         }, function() {
@@ -24660,99 +24660,99 @@ function() {
     }
       , qt = function() {
         try {
-            "undefined" == typeof AudioContext ? "undefined" == typeof webkitAudioContext ? Xt.usingWebAudio = !1 : Xt.ctx = new webkitAudioContext : Xt.ctx = new AudioContext
+            "undefined" == typeof AudioContext ? "undefined" == typeof webkitAudioContext ? Gt.usingWebAudio = !1 : Gt.ctx = new webkitAudioContext : Gt.ctx = new AudioContext
         } catch ($t) {
-            Xt.usingWebAudio = !1
+            Gt.usingWebAudio = !1
         }
-        var Kt = /iP(hone|od|ad)/.test(Xt._navigator && Xt._navigator.platform)
-          , Zt = Xt._navigator && Xt._navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)
+        var Kt = /iP(hone|od|ad)/.test(Gt._navigator && Gt._navigator.platform)
+          , Zt = Gt._navigator && Gt._navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)
           , Qt = Zt ? parseInt(Zt[1], 10) : null;
         if (Kt && Qt && 9 > Qt) {
-            var Jt = /safari/.test(Xt._navigator && Xt._navigator.userAgent.toLowerCase());
-            (Xt._navigator && Xt._navigator.standalone && !Jt || Xt._navigator && !Xt._navigator.standalone && !Jt) && (Xt.usingWebAudio = !1)
+            var Jt = /safari/.test(Gt._navigator && Gt._navigator.userAgent.toLowerCase());
+            (Gt._navigator && Gt._navigator.standalone && !Jt || Gt._navigator && !Gt._navigator.standalone && !Jt) && (Gt.usingWebAudio = !1)
         }
-        Xt.usingWebAudio && (Xt.masterGain = void 0 === Xt.ctx.createGain ? Xt.ctx.createGainNode() : Xt.ctx.createGain(),
-        Xt.masterGain.gain.value = Xt._muted ? 0 : 1,
-        Xt.masterGain.connect(Xt.ctx.destination)),
-        Xt._setup()
+        Gt.usingWebAudio && (Gt.masterGain = void 0 === Gt.ctx.createGain ? Gt.ctx.createGainNode() : Gt.ctx.createGain(),
+        Gt.masterGain.gain.value = Gt._muted ? 0 : 1,
+        Gt.masterGain.connect(Gt.ctx.destination)),
+        Gt._setup()
     };
     "function" == typeof define && define.amd && define([], function() {
         return {
-            Howler: Xt,
-            Howl: Gt
+            Howler: Gt,
+            Howl: Xt
         }
     }),
-    "undefined" != typeof exports && (exports.Howler = Xt,
-    exports.Howl = Gt),
+    "undefined" != typeof exports && (exports.Howler = Gt,
+    exports.Howl = Xt),
     "undefined" == typeof window ? "undefined" != typeof global && (global.HowlerGlobal = Bt,
-    global.Howler = Xt,
-    global.Howl = Gt,
+    global.Howler = Gt,
+    global.Howl = Xt,
     global.Sound = Yt) : (window.HowlerGlobal = Bt,
-    window.Howler = Xt,
-    window.Howl = Gt,
+    window.Howler = Gt,
+    window.Howl = Xt,
     window.Sound = Yt)
 }(),
 function() {
     HowlerGlobal.prototype._pos = [0, 0, 0],
     HowlerGlobal.prototype._orientation = [0, 0, -1, 0, 1, 0],
-    HowlerGlobal.prototype.stereo = function(Xt) {
+    HowlerGlobal.prototype.stereo = function(Gt) {
         if (!this.ctx || !this.ctx.listener)
             return this;
-        for (var Gt = this._howls.length - 1; 0 <= Gt; Gt--)
-            this._howls[Gt].stereo(Xt);
+        for (var Xt = this._howls.length - 1; 0 <= Xt; Xt--)
+            this._howls[Xt].stereo(Gt);
         return this
     }
     ,
-    HowlerGlobal.prototype.pos = function(Xt, Gt, Yt) {
-        return this.ctx && this.ctx.listener ? (Gt = "number" == typeof Gt ? Gt : this._pos[1],
+    HowlerGlobal.prototype.pos = function(Gt, Xt, Yt) {
+        return this.ctx && this.ctx.listener ? (Xt = "number" == typeof Xt ? Xt : this._pos[1],
         Yt = "number" == typeof Yt ? Yt : this._pos[2],
-        "number" == typeof Xt ? (this._pos = [Xt, Gt, Yt],
+        "number" == typeof Gt ? (this._pos = [Gt, Xt, Yt],
         this.ctx.listener.setPosition(this._pos[0], this._pos[1], this._pos[2]),
         this) : this._pos) : this
     }
     ,
-    HowlerGlobal.prototype.orientation = function(Xt, Gt, Yt, Ht, jt, Wt) {
+    HowlerGlobal.prototype.orientation = function(Gt, Xt, Yt, Ht, jt, Wt) {
         if (!this.ctx || !this.ctx.listener)
             return this;
         var zt = this._orientation;
-        return Gt = "number" == typeof Gt ? Gt : zt[1],
+        return Xt = "number" == typeof Xt ? Xt : zt[1],
         Yt = "number" == typeof Yt ? Yt : zt[2],
         Ht = "number" == typeof Ht ? Ht : zt[3],
         jt = "number" == typeof jt ? jt : zt[4],
         Wt = "number" == typeof Wt ? Wt : zt[5],
-        "number" == typeof Xt ? (this._orientation = [Xt, Gt, Yt, Ht, jt, Wt],
-        this.ctx.listener.setOrientation(Xt, Gt, Yt, Ht, jt, Wt),
+        "number" == typeof Gt ? (this._orientation = [Gt, Xt, Yt, Ht, jt, Wt],
+        this.ctx.listener.setOrientation(Gt, Xt, Yt, Ht, jt, Wt),
         this) : zt
     }
     ,
-    Howl.prototype.init = function(Xt) {
-        return function(Gt) {
-            return this._orientation = Gt.orientation || [1, 0, 0],
-            this._stereo = Gt.stereo || null,
-            this._pos = Gt.pos || null,
+    Howl.prototype.init = function(Gt) {
+        return function(Xt) {
+            return this._orientation = Xt.orientation || [1, 0, 0],
+            this._stereo = Xt.stereo || null,
+            this._pos = Xt.pos || null,
             this._pannerAttr = {
-                coneInnerAngle: void 0 === Gt.coneInnerAngle ? 360 : Gt.coneInnerAngle,
-                coneOuterAngle: void 0 === Gt.coneOuterAngle ? 360 : Gt.coneOuterAngle,
-                coneOuterGain: void 0 === Gt.coneOuterGain ? 0 : Gt.coneOuterGain,
-                distanceModel: void 0 === Gt.distanceModel ? "inverse" : Gt.distanceModel,
-                maxDistance: void 0 === Gt.maxDistance ? 1e4 : Gt.maxDistance,
-                panningModel: void 0 === Gt.panningModel ? "HRTF" : Gt.panningModel,
-                refDistance: void 0 === Gt.refDistance ? 1 : Gt.refDistance,
-                rolloffFactor: void 0 === Gt.rolloffFactor ? 1 : Gt.rolloffFactor
+                coneInnerAngle: void 0 === Xt.coneInnerAngle ? 360 : Xt.coneInnerAngle,
+                coneOuterAngle: void 0 === Xt.coneOuterAngle ? 360 : Xt.coneOuterAngle,
+                coneOuterGain: void 0 === Xt.coneOuterGain ? 0 : Xt.coneOuterGain,
+                distanceModel: void 0 === Xt.distanceModel ? "inverse" : Xt.distanceModel,
+                maxDistance: void 0 === Xt.maxDistance ? 1e4 : Xt.maxDistance,
+                panningModel: void 0 === Xt.panningModel ? "HRTF" : Xt.panningModel,
+                refDistance: void 0 === Xt.refDistance ? 1 : Xt.refDistance,
+                rolloffFactor: void 0 === Xt.rolloffFactor ? 1 : Xt.rolloffFactor
             },
-            this._onstereo = Gt.onstereo ? [{
-                fn: Gt.onstereo
+            this._onstereo = Xt.onstereo ? [{
+                fn: Xt.onstereo
             }] : [],
-            this._onpos = Gt.onpos ? [{
-                fn: Gt.onpos
+            this._onpos = Xt.onpos ? [{
+                fn: Xt.onpos
             }] : [],
-            this._onorientation = Gt.onorientation ? [{
-                fn: Gt.onorientation
+            this._onorientation = Xt.onorientation ? [{
+                fn: Xt.onorientation
             }] : [],
-            Xt.call(this, Gt)
+            Gt.call(this, Xt)
         }
     }(Howl.prototype.init),
-    Howl.prototype.stereo = function(Xt, Gt) {
+    Howl.prototype.stereo = function(Gt, Xt) {
         var Yt = this;
         if (!Yt._webAudio)
             return Yt;
@@ -24760,33 +24760,33 @@ function() {
             return Yt._queue.push({
                 event: "stereo",
                 action: function() {
-                    Yt.stereo(Xt, Gt)
+                    Yt.stereo(Gt, Xt)
                 }
             }),
             Yt;
         var Ht = void 0 === Howler.ctx.createStereoPanner ? "spatial" : "stereo";
-        if (void 0 === Gt) {
-            if ("number" != typeof Xt)
+        if (void 0 === Xt) {
+            if ("number" != typeof Gt)
                 return Yt._stereo;
-            Yt._stereo = Xt,
-            Yt._pos = [Xt, 0, 0]
+            Yt._stereo = Gt,
+            Yt._pos = [Gt, 0, 0]
         }
-        for (var jt = Yt._getSoundIds(Gt), Wt = 0, zt; Wt < jt.length; Wt++)
+        for (var jt = Yt._getSoundIds(Xt), Wt = 0, zt; Wt < jt.length; Wt++)
             if (zt = Yt._soundById(jt[Wt]),
             zt) {
-                if ("number" != typeof Xt)
+                if ("number" != typeof Gt)
                     return zt._stereo;
-                zt._stereo = Xt,
-                zt._pos = [Xt, 0, 0],
+                zt._stereo = Gt,
+                zt._pos = [Gt, 0, 0],
                 zt._node && (zt._pannerAttr.panningModel = "equalpower",
                 zt._panner && zt._panner.pan || Bt(zt, Ht),
-                "spatial" == Ht ? zt._panner.setPosition(Xt, 0, Math.abs(1 - Xt)) : zt._panner.pan.value = Xt),
+                "spatial" == Ht ? zt._panner.setPosition(Gt, 0, Math.abs(1 - Gt)) : zt._panner.pan.value = Gt),
                 Yt._emit("stereo", zt._id)
             }
         return Yt
     }
     ,
-    Howl.prototype.pos = function(Xt, Gt, Yt, Ht) {
+    Howl.prototype.pos = function(Gt, Xt, Yt, Ht) {
         var jt = this;
         if (!jt._webAudio)
             return jt;
@@ -24794,31 +24794,31 @@ function() {
             return jt._queue.push({
                 event: "pos",
                 action: function() {
-                    jt.pos(Xt, Gt, Yt, Ht)
+                    jt.pos(Gt, Xt, Yt, Ht)
                 }
             }),
             jt;
-        if (Gt = "number" == typeof Gt ? Gt : 0,
+        if (Xt = "number" == typeof Xt ? Xt : 0,
         Yt = "number" == typeof Yt ? Yt : -.5,
         void 0 === Ht) {
-            if ("number" != typeof Xt)
+            if ("number" != typeof Gt)
                 return jt._pos;
-            jt._pos = [Xt, Gt, Yt]
+            jt._pos = [Gt, Xt, Yt]
         }
         for (var Wt = jt._getSoundIds(Ht), zt = 0, Vt; zt < Wt.length; zt++)
             if (Vt = jt._soundById(Wt[zt]),
             Vt) {
-                if ("number" != typeof Xt)
+                if ("number" != typeof Gt)
                     return Vt._pos;
-                Vt._pos = [Xt, Gt, Yt],
+                Vt._pos = [Gt, Xt, Yt],
                 Vt._node && (Vt._panner && !Vt._panner.pan || Bt(Vt, "spatial"),
-                Vt._panner.setPosition(Xt, Gt, Yt)),
+                Vt._panner.setPosition(Gt, Xt, Yt)),
                 jt._emit("pos", Vt._id)
             }
         return jt
     }
     ,
-    Howl.prototype.orientation = function(Xt, Gt, Yt, Ht) {
+    Howl.prototype.orientation = function(Gt, Xt, Yt, Ht) {
         var jt = this;
         if (!jt._webAudio)
             return jt;
@@ -24826,33 +24826,33 @@ function() {
             return jt._queue.push({
                 event: "orientation",
                 action: function() {
-                    jt.orientation(Xt, Gt, Yt, Ht)
+                    jt.orientation(Gt, Xt, Yt, Ht)
                 }
             }),
             jt;
-        if (Gt = "number" == typeof Gt ? Gt : jt._orientation[1],
+        if (Xt = "number" == typeof Xt ? Xt : jt._orientation[1],
         Yt = "number" == typeof Yt ? Yt : jt._orientation[2],
         void 0 === Ht) {
-            if ("number" != typeof Xt)
+            if ("number" != typeof Gt)
                 return jt._orientation;
-            jt._orientation = [Xt, Gt, Yt]
+            jt._orientation = [Gt, Xt, Yt]
         }
         for (var Wt = jt._getSoundIds(Ht), zt = 0, Vt; zt < Wt.length; zt++)
             if (Vt = jt._soundById(Wt[zt]),
             Vt) {
-                if ("number" != typeof Xt)
+                if ("number" != typeof Gt)
                     return Vt._orientation;
-                Vt._orientation = [Xt, Gt, Yt],
+                Vt._orientation = [Gt, Xt, Yt],
                 Vt._node && (Vt._panner || (Vt._pos || (Vt._pos = jt._pos || [0, 0, -0.5]),
                 Bt(Vt, "spatial")),
-                Vt._panner.setOrientation(Xt, Gt, Yt)),
+                Vt._panner.setOrientation(Gt, Xt, Yt)),
                 jt._emit("orientation", Vt._id)
             }
         return jt
     }
     ,
     Howl.prototype.pannerAttr = function() {
-        var Ht = arguments, Xt, Gt, Yt;
+        var Ht = arguments, Gt, Xt, Yt;
         if (!this._webAudio)
             return this;
         if (0 === Ht.length)
@@ -24860,42 +24860,42 @@ function() {
         if (1 === Ht.length) {
             if ("object" != typeof Ht[0])
                 return (Yt = this._soundById(parseInt(Ht[0], 10))) ? Yt._pannerAttr : this._pannerAttr;
-            Xt = Ht[0],
-            void 0 == Gt && (Xt.pannerAttr || (Xt.pannerAttr = {
-                coneInnerAngle: Xt.coneInnerAngle,
-                coneOuterAngle: Xt.coneOuterAngle,
-                coneOuterGain: Xt.coneOuterGain,
-                distanceModel: Xt.distanceModel,
-                maxDistance: Xt.maxDistance,
-                refDistance: Xt.refDistance,
-                rolloffFactor: Xt.rolloffFactor,
-                panningModel: Xt.panningModel
+            Gt = Ht[0],
+            void 0 == Xt && (Gt.pannerAttr || (Gt.pannerAttr = {
+                coneInnerAngle: Gt.coneInnerAngle,
+                coneOuterAngle: Gt.coneOuterAngle,
+                coneOuterGain: Gt.coneOuterGain,
+                distanceModel: Gt.distanceModel,
+                maxDistance: Gt.maxDistance,
+                refDistance: Gt.refDistance,
+                rolloffFactor: Gt.rolloffFactor,
+                panningModel: Gt.panningModel
             }),
             this._pannerAttr = {
-                coneInnerAngle: void 0 === Xt.pannerAttr.coneInnerAngle ? this._coneInnerAngle : Xt.pannerAttr.coneInnerAngle,
-                coneOuterAngle: void 0 === Xt.pannerAttr.coneOuterAngle ? this._coneOuterAngle : Xt.pannerAttr.coneOuterAngle,
-                coneOuterGain: void 0 === Xt.pannerAttr.coneOuterGain ? this._coneOuterGain : Xt.pannerAttr.coneOuterGain,
-                distanceModel: void 0 === Xt.pannerAttr.distanceModel ? this._distanceModel : Xt.pannerAttr.distanceModel,
-                maxDistance: void 0 === Xt.pannerAttr.maxDistance ? this._maxDistance : Xt.pannerAttr.maxDistance,
-                refDistance: void 0 === Xt.pannerAttr.refDistance ? this._refDistance : Xt.pannerAttr.refDistance,
-                rolloffFactor: void 0 === Xt.pannerAttr.rolloffFactor ? this._rolloffFactor : Xt.pannerAttr.rolloffFactor,
-                panningModel: void 0 === Xt.pannerAttr.panningModel ? this._panningModel : Xt.pannerAttr.panningModel
+                coneInnerAngle: void 0 === Gt.pannerAttr.coneInnerAngle ? this._coneInnerAngle : Gt.pannerAttr.coneInnerAngle,
+                coneOuterAngle: void 0 === Gt.pannerAttr.coneOuterAngle ? this._coneOuterAngle : Gt.pannerAttr.coneOuterAngle,
+                coneOuterGain: void 0 === Gt.pannerAttr.coneOuterGain ? this._coneOuterGain : Gt.pannerAttr.coneOuterGain,
+                distanceModel: void 0 === Gt.pannerAttr.distanceModel ? this._distanceModel : Gt.pannerAttr.distanceModel,
+                maxDistance: void 0 === Gt.pannerAttr.maxDistance ? this._maxDistance : Gt.pannerAttr.maxDistance,
+                refDistance: void 0 === Gt.pannerAttr.refDistance ? this._refDistance : Gt.pannerAttr.refDistance,
+                rolloffFactor: void 0 === Gt.pannerAttr.rolloffFactor ? this._rolloffFactor : Gt.pannerAttr.rolloffFactor,
+                panningModel: void 0 === Gt.pannerAttr.panningModel ? this._panningModel : Gt.pannerAttr.panningModel
             })
         } else
-            2 === Ht.length && (Xt = Ht[0],
-            Gt = parseInt(Ht[1], 10));
-        for (var jt = this._getSoundIds(Gt), Wt = 0; Wt < jt.length; Wt++)
+            2 === Ht.length && (Gt = Ht[0],
+            Xt = parseInt(Ht[1], 10));
+        for (var jt = this._getSoundIds(Xt), Wt = 0; Wt < jt.length; Wt++)
             if (Yt = this._soundById(jt[Wt])) {
                 var zt = Yt._pannerAttr;
                 zt = {
-                    coneInnerAngle: void 0 === Xt.coneInnerAngle ? zt.coneInnerAngle : Xt.coneInnerAngle,
-                    coneOuterAngle: void 0 === Xt.coneOuterAngle ? zt.coneOuterAngle : Xt.coneOuterAngle,
-                    coneOuterGain: void 0 === Xt.coneOuterGain ? zt.coneOuterGain : Xt.coneOuterGain,
-                    distanceModel: void 0 === Xt.distanceModel ? zt.distanceModel : Xt.distanceModel,
-                    maxDistance: void 0 === Xt.maxDistance ? zt.maxDistance : Xt.maxDistance,
-                    refDistance: void 0 === Xt.refDistance ? zt.refDistance : Xt.refDistance,
-                    rolloffFactor: void 0 === Xt.rolloffFactor ? zt.rolloffFactor : Xt.rolloffFactor,
-                    panningModel: void 0 === Xt.panningModel ? zt.panningModel : Xt.panningModel
+                    coneInnerAngle: void 0 === Gt.coneInnerAngle ? zt.coneInnerAngle : Gt.coneInnerAngle,
+                    coneOuterAngle: void 0 === Gt.coneOuterAngle ? zt.coneOuterAngle : Gt.coneOuterAngle,
+                    coneOuterGain: void 0 === Gt.coneOuterGain ? zt.coneOuterGain : Gt.coneOuterGain,
+                    distanceModel: void 0 === Gt.distanceModel ? zt.distanceModel : Gt.distanceModel,
+                    maxDistance: void 0 === Gt.maxDistance ? zt.maxDistance : Gt.maxDistance,
+                    refDistance: void 0 === Gt.refDistance ? zt.refDistance : Gt.refDistance,
+                    rolloffFactor: void 0 === Gt.rolloffFactor ? zt.rolloffFactor : Gt.rolloffFactor,
+                    panningModel: void 0 === Gt.panningModel ? zt.panningModel : Gt.panningModel
                 };
                 var Vt = Yt._panner;
                 Vt ? (Vt.coneInnerAngle = zt.coneInnerAngle,
@@ -24911,47 +24911,47 @@ function() {
         return this
     }
     ,
-    Sound.prototype.init = function(Xt) {
+    Sound.prototype.init = function(Gt) {
         return function() {
-            var Gt = this._parent;
-            this._orientation = Gt._orientation,
-            this._stereo = Gt._stereo,
-            this._pos = Gt._pos,
-            this._pannerAttr = Gt._pannerAttr,
-            Xt.call(this),
-            this._stereo ? Gt.stereo(this._stereo) : this._pos && Gt.pos(this._pos[0], this._pos[1], this._pos[2], this._id)
+            var Xt = this._parent;
+            this._orientation = Xt._orientation,
+            this._stereo = Xt._stereo,
+            this._pos = Xt._pos,
+            this._pannerAttr = Xt._pannerAttr,
+            Gt.call(this),
+            this._stereo ? Xt.stereo(this._stereo) : this._pos && Xt.pos(this._pos[0], this._pos[1], this._pos[2], this._id)
         }
     }(Sound.prototype.init),
-    Sound.prototype.reset = function(Xt) {
+    Sound.prototype.reset = function(Gt) {
         return function() {
-            var Gt = this._parent;
-            return this._orientation = Gt._orientation,
-            this._pos = Gt._pos,
-            this._pannerAttr = Gt._pannerAttr,
-            Xt.call(this)
+            var Xt = this._parent;
+            return this._orientation = Xt._orientation,
+            this._pos = Xt._pos,
+            this._pannerAttr = Xt._pannerAttr,
+            Gt.call(this)
         }
     }(Sound.prototype.reset);
-    var Bt = function(Xt, Gt) {
-        "spatial" === (Gt = Gt || "spatial") ? (Xt._panner = Howler.ctx.createPanner(),
-        Xt._panner.coneInnerAngle = Xt._pannerAttr.coneInnerAngle,
-        Xt._panner.coneOuterAngle = Xt._pannerAttr.coneOuterAngle,
-        Xt._panner.coneOuterGain = Xt._pannerAttr.coneOuterGain,
-        Xt._panner.distanceModel = Xt._pannerAttr.distanceModel,
-        Xt._panner.maxDistance = Xt._pannerAttr.maxDistance,
-        Xt._panner.refDistance = Xt._pannerAttr.refDistance,
-        Xt._panner.rolloffFactor = Xt._pannerAttr.rolloffFactor,
-        Xt._panner.panningModel = Xt._pannerAttr.panningModel,
-        Xt._panner.setOrientation(Xt._orientation[0], Xt._orientation[1], Xt._orientation[2])) : (Xt._panner = Howler.ctx.createStereoPanner(),
-        Xt._panner.pan.value = Xt._stereo),
-        Xt._panner.connect(Xt._node),
-        Xt._paused || Xt._parent.pause(Xt._id, !0).play(Xt._id)
+    var Bt = function(Gt, Xt) {
+        "spatial" === (Xt = Xt || "spatial") ? (Gt._panner = Howler.ctx.createPanner(),
+        Gt._panner.coneInnerAngle = Gt._pannerAttr.coneInnerAngle,
+        Gt._panner.coneOuterAngle = Gt._pannerAttr.coneOuterAngle,
+        Gt._panner.coneOuterGain = Gt._pannerAttr.coneOuterGain,
+        Gt._panner.distanceModel = Gt._pannerAttr.distanceModel,
+        Gt._panner.maxDistance = Gt._pannerAttr.maxDistance,
+        Gt._panner.refDistance = Gt._pannerAttr.refDistance,
+        Gt._panner.rolloffFactor = Gt._pannerAttr.rolloffFactor,
+        Gt._panner.panningModel = Gt._pannerAttr.panningModel,
+        Gt._panner.setOrientation(Gt._orientation[0], Gt._orientation[1], Gt._orientation[2])) : (Gt._panner = Howler.ctx.createStereoPanner(),
+        Gt._panner.pan.value = Gt._stereo),
+        Gt._panner.connect(Gt._node),
+        Gt._paused || Gt._parent.pause(Gt._id, !0).play(Gt._id)
     }
 }(),
 function(Bt) {
     "object" == typeof exports && "undefined" != typeof module ? module.exports = Bt() : "function" == typeof define && define.amd ? define([], Bt) : ("undefined" == typeof window ? "undefined" == typeof global ? "undefined" == typeof self ? this : self : global : window).nipplejs = Bt()
 }(function() {
     function Bt() {}
-    function Xt(Qt, Jt) {
+    function Gt(Qt, Jt) {
         return this.identifier = Jt.identifier,
         this.position = Jt.position,
         this.frontPosition = Jt.frontPosition,
@@ -24968,8 +24968,8 @@ function(Bt) {
         },
         this.config(Jt),
         "dynamic" === this.options.mode && (this.options.restOpacity = 0),
-        this.id = Xt.id,
-        Xt.id += 1,
+        this.id = Gt.id,
+        Gt.id += 1,
         this.buildEl().stylize(),
         this.instance = {
             el: this.ui.el,
@@ -24992,15 +24992,15 @@ function(Bt) {
         },
         this.instance
     }
-    function Gt(Qt, Jt) {
+    function Xt(Qt, Jt) {
         return this.nipples = [],
         this.idles = [],
         this.actives = [],
         this.ids = [],
         this.pressureIntervals = {},
         this.manager = Qt,
-        this.id = Gt.id,
-        Gt.id += 1,
+        this.id = Xt.id,
+        Xt.id += 1,
         this.defaults = {
             zone: document.body,
             multitouch: !1,
@@ -25241,10 +25241,10 @@ function(Bt) {
         this
     }
     ,
-    Xt.prototype = new Bt,
-    Xt.constructor = Xt,
-    Xt.id = 0,
-    Xt.prototype.buildEl = function() {
+    Gt.prototype = new Bt,
+    Gt.constructor = Gt,
+    Gt.id = 0,
+    Gt.prototype.buildEl = function() {
         return this.ui = {},
         this.options.dataOnly ? this : (this.ui.el = document.createElement("div"),
         this.ui.back = document.createElement("div"),
@@ -25258,7 +25258,7 @@ function(Bt) {
         this)
     }
     ,
-    Xt.prototype.stylize = function() {
+    Gt.prototype.stylize = function() {
         if (this.options.dataOnly)
             return this;
         var Qt = this.options.fadeTime + "ms"
@@ -25298,7 +25298,7 @@ function(Bt) {
         this
     }
     ,
-    Xt.prototype.applyStyles = function(Qt) {
+    Gt.prototype.applyStyles = function(Qt) {
         for (var Jt in this.ui)
             if (this.ui.hasOwnProperty(Jt))
                 for (var $t in Qt[Jt])
@@ -25306,17 +25306,17 @@ function(Bt) {
         return this
     }
     ,
-    Xt.prototype.addToDom = function() {
+    Gt.prototype.addToDom = function() {
         return this.options.dataOnly || document.body.contains(this.ui.el) ? this : (this.options.zone.appendChild(this.ui.el),
         this)
     }
     ,
-    Xt.prototype.removeFromDom = function() {
+    Gt.prototype.removeFromDom = function() {
         return this.options.dataOnly || !document.body.contains(this.ui.el) ? this : (this.options.zone.removeChild(this.ui.el),
         this)
     }
     ,
-    Xt.prototype.destroy = function() {
+    Gt.prototype.destroy = function() {
         clearTimeout(this.removeTimeout),
         clearTimeout(this.showTimeout),
         clearTimeout(this.restTimeout),
@@ -25325,7 +25325,7 @@ function(Bt) {
         this.off()
     }
     ,
-    Xt.prototype.show = function(Qt) {
+    Gt.prototype.show = function(Qt) {
         var Jt = this;
         return Jt.options.dataOnly ? Jt : (clearTimeout(Jt.removeTimeout),
         clearTimeout(Jt.showTimeout),
@@ -25342,7 +25342,7 @@ function(Bt) {
         Jt)
     }
     ,
-    Xt.prototype.hide = function(Qt) {
+    Gt.prototype.hide = function(Qt) {
         var Jt = this;
         return Jt.options.dataOnly ? Jt : (Jt.ui.el.style.opacity = Jt.options.restOpacity,
         clearTimeout(Jt.removeTimeout),
@@ -25358,7 +25358,7 @@ function(Bt) {
         Jt)
     }
     ,
-    Xt.prototype.restPosition = function(Qt) {
+    Gt.prototype.restPosition = function(Qt) {
         var Jt = this;
         Jt.frontPosition = {
             x: 0,
@@ -25382,14 +25382,14 @@ function(Bt) {
         }, Jt.options.fadeTime)
     }
     ,
-    Xt.prototype.restCallback = function() {
+    Gt.prototype.restCallback = function() {
         var Qt = {};
         Qt.front = Kt.getTransitionStyle("transition", "none", ""),
         this.applyStyles(Qt),
         this.trigger("rested", this.instance)
     }
     ,
-    Xt.prototype.resetDirection = function() {
+    Gt.prototype.resetDirection = function() {
         this.direction = {
             x: !1,
             y: !1,
@@ -25397,7 +25397,7 @@ function(Bt) {
         }
     }
     ,
-    Xt.prototype.computeDirection = function(Qt) {
+    Gt.prototype.computeDirection = function(Qt) {
         var tn = Qt.angle.radian, nn = Math.PI / 4, an = Math.PI / 2, Jt, $t, en;
         if (Jt = tn > nn && tn < 3 * nn ? "up" : tn > -nn && tn <= nn ? "left" : tn > 3 * -nn && tn <= -nn ? "down" : "right",
         $t = tn > -an && tn < an ? "left" : "right",
@@ -25425,10 +25425,10 @@ function(Bt) {
         return Qt
     }
     ,
-    Gt.prototype = new Bt,
-    Gt.constructor = Gt,
-    Gt.id = 0,
-    Gt.prototype.prepareNipples = function() {
+    Xt.prototype = new Bt,
+    Xt.constructor = Xt,
+    Xt.id = 0,
+    Xt.prototype.prepareNipples = function() {
         var Qt = this.nipples;
         Qt.on = this.on.bind(this),
         Qt.off = this.off.bind(this),
@@ -25448,13 +25448,13 @@ function(Bt) {
         }
     }
     ,
-    Gt.prototype.bindings = function() {
+    Xt.prototype.bindings = function() {
         this.bindEvt(this.options.zone, "start"),
         this.options.zone.style.touchAction = "none",
         this.options.zone.style.msTouchAction = "none"
     }
     ,
-    Gt.prototype.begin = function() {
+    Xt.prototype.begin = function() {
         var Qt = this.options;
         if ("static" === Qt.mode) {
             var Jt = this.createNipple(Qt.position, this.manager.getIdentifier());
@@ -25463,7 +25463,7 @@ function(Bt) {
         }
     }
     ,
-    Gt.prototype.createNipple = function(Qt, Jt) {
+    Xt.prototype.createNipple = function(Qt, Jt) {
         var $t = Kt.getScroll()
           , en = {}
           , tn = this.options;
@@ -25489,7 +25489,7 @@ function(Bt) {
                 y: an.top + $t.y
             }
         }
-        var rn = new Xt(this,{
+        var rn = new Gt(this,{
             color: tn.color,
             size: tn.size,
             threshold: tn.threshold,
@@ -25514,11 +25514,11 @@ function(Bt) {
         rn
     }
     ,
-    Gt.prototype.updateBox = function() {
+    Xt.prototype.updateBox = function() {
         this.box = this.options.zone.getBoundingClientRect()
     }
     ,
-    Gt.prototype.bindNipple = function(Qt) {
+    Xt.prototype.bindNipple = function(Qt) {
         var $t = this, en = function(tn, nn) {
             Jt = tn.type + " " + nn.id + ":" + tn.type,
             $t.trigger(Jt, nn)
@@ -25529,7 +25529,7 @@ function(Bt) {
         Qt.on("plain:up plain:right plain:down plain:left", en)
     }
     ,
-    Gt.prototype.pressureFn = function(Qt, Jt, $t) {
+    Xt.prototype.pressureFn = function(Qt, Jt, $t) {
         var en = this
           , tn = 0;
         clearInterval(en.pressureIntervals[$t]),
@@ -25542,7 +25542,7 @@ function(Bt) {
         .bind(en), 100)
     }
     ,
-    Gt.prototype.onstart = function(Qt) {
+    Xt.prototype.onstart = function(Qt) {
         var Jt = this
           , $t = Jt.options;
         return Qt = Kt.prepareEvent(Qt),
@@ -25554,7 +25554,7 @@ function(Bt) {
         !1)
     }
     ,
-    Gt.prototype.processOnStart = function(Qt) {
+    Xt.prototype.processOnStart = function(Qt) {
         var $t = this, en = $t.options, tn = $t.manager.getIdentifier(Qt), nn = Qt.force || Qt.pressure || Qt.webkitForce || 0, an = {
             x: Qt.pageX,
             y: Qt.pageY
@@ -25581,14 +25581,14 @@ function(Bt) {
         return rn
     }
     ,
-    Gt.prototype.getOrCreate = function(Qt, Jt) {
+    Xt.prototype.getOrCreate = function(Qt, Jt) {
         var en = this.options, $t;
         return /(semi|static)/.test(en.mode) ? ($t = this.idles[0]) ? (this.idles.splice(0, 1),
         $t) : "semi" === en.mode ? this.createNipple(Jt, Qt) : (console.warn("Coudln't find the needed nipple."),
         !1) : $t = this.createNipple(Jt, Qt)
     }
     ,
-    Gt.prototype.processOnMove = function(Qt) {
+    Xt.prototype.processOnMove = function(Qt) {
         var Jt = this.options
           , $t = this.manager.getIdentifier(Qt)
           , en = this.nipples.get($t);
@@ -25632,7 +25632,7 @@ function(Bt) {
         this.trigger("move " + en.id + ":move", dn)
     }
     ,
-    Gt.prototype.processOnEnd = function(Qt) {
+    Xt.prototype.processOnEnd = function(Qt) {
         var Jt = this
           , $t = Jt.options
           , en = Jt.manager.getIdentifier(Qt)
@@ -25655,7 +25655,7 @@ function(Bt) {
         /(semi|static)/.test($t.mode) && (Jt.manager.ids[nn.id] = nn.identifier))
     }
     ,
-    Gt.prototype.onDestroyed = function(Qt, Jt) {
+    Xt.prototype.onDestroyed = function(Qt, Jt) {
         0 <= this.nipples.indexOf(Jt) && this.nipples.splice(this.nipples.indexOf(Jt), 1),
         0 <= this.actives.indexOf(Jt) && this.actives.splice(this.actives.indexOf(Jt), 1),
         0 <= this.idles.indexOf(Jt) && this.idles.splice(this.idles.indexOf(Jt), 1),
@@ -25664,7 +25664,7 @@ function(Bt) {
         this.manager.unbindDocument()
     }
     ,
-    Gt.prototype.destroy = function() {
+    Xt.prototype.destroy = function() {
         for (var Qt in this.unbindEvt(this.options.zone, "start"),
         this.nipples.forEach(function(Jt) {
             Jt.destroy()
@@ -25698,7 +25698,7 @@ function(Bt) {
     }
     ,
     Yt.prototype.createCollection = function(Qt) {
-        var Jt = new Gt(this,Qt);
+        var Jt = new Xt(this,Qt);
         return this.bindCollection(Jt),
         this.collections.push(Jt),
         Jt
@@ -25970,8 +25970,8 @@ function() {
     window.UI = {},
     window.Games = {},
     window.Sound = {};
-    var Bt = function(Gt, Yt) {
-        Tools.updateTime(Gt),
+    var Bt = function(Xt, Yt) {
+        Tools.updateTime(Xt),
         Tools.debugStartFrame(),
         game.state == Network.STATE.PLAYING ? (Input.update(),
         Network.detectConnectivity(),
@@ -25984,9 +25984,9 @@ function() {
         Yt || Graphics.render(),
         Tools.debugEndFrame()
     }
-      , Xt = function() {
-        var Gt = performance.now() - game.time;
-        450 < Gt && !game.focus && Bt(Gt / 16.666, !0)
+      , Gt = function() {
+        var Xt = performance.now() - game.time;
+        450 < Xt && !game.focus && Bt(Xt / 16.666, !0)
     };
     window.RunGame = function() {
         game.state = Network.STATE.LOGIN,
@@ -26001,17 +26001,17 @@ function() {
         Input.setup(),
         Games.setup(),
         Sound.setup();
-        var Gt = new PIXI.ticker.Ticker;
-        Gt.add(Bt),
-        Gt.start(),
-        setInterval(Xt, 500),
-        Graphics.ticker = Gt
+        var Xt = new PIXI.ticker.Ticker;
+        Xt.add(Bt),
+        Xt.start(),
+        setInterval(Gt, 500),
+        Graphics.ticker = Xt
     }
 }();
 class Vector {
-    constructor(Bt, Xt) {
+    constructor(Bt, Gt) {
         this.x = Bt,
-        this.y = Xt
+        this.y = Gt
     }
     add(Bt) {
         this.x += Bt,
@@ -26056,16 +26056,16 @@ class Vector {
     static diag(Bt) {
         return new Vector(Bt,Bt)
     }
-    static create(Bt, Xt) {
-        return new Vector(Math.sin(Bt) * Xt,-Math.cos(Bt) * Xt)
+    static create(Bt, Gt) {
+        return new Vector(Math.sin(Bt) * Gt,-Math.cos(Bt) * Gt)
     }
-    static createOff(Bt, Xt, Gt) {
-        return new Vector(Bt.x + Math.sin(Xt) * Gt,Bt.y - Math.cos(Xt) * Gt)
+    static createOff(Bt, Gt, Xt) {
+        return new Vector(Bt.x + Math.sin(Gt) * Xt,Bt.y - Math.cos(Gt) * Xt)
     }
 }
 function loadGameCode() {
     !function() {
-        var Gt = {}
+        var Xt = {}
           , Yt = 0
           , Ht = {
             started: !1,
@@ -26446,13 +26446,13 @@ function loadGameCode() {
         }
         ;
         var Kt = function(Jt) {
-            return Tools.clamp(Math.floor(Jt / Gt.size) + Gt.bucketsHalfX, 0, Gt.bucketsMaxX)
+            return Tools.clamp(Math.floor(Jt / Xt.size) + Xt.bucketsHalfX, 0, Xt.bucketsMaxX)
         }
           , Zt = function(Jt) {
-            return Tools.clamp(Math.floor(Jt / Gt.size) + Gt.bucketsHalfY, 0, Gt.bucketsMaxY)
+            return Tools.clamp(Math.floor(Jt / Xt.size) + Xt.bucketsHalfY, 0, Xt.bucketsMaxY)
         };
         Tools.initBuckets = function() {
-            Gt = {
+            Xt = {
                 size: config.bucketSize,
                 halfSize: parseInt(config.bucketSize / 2),
                 bucketsMaxX: parseInt(config.mapWidth / config.bucketSize) - 1,
@@ -26460,9 +26460,9 @@ function loadGameCode() {
                 bucketsHalfX: parseInt(config.mapWidth / config.bucketSize / 2),
                 bucketsHalfY: parseInt(config.mapHeight / config.bucketSize / 2)
             };
-            for (var Jt = 0; Jt <= Gt.bucketsMaxX; Jt++) {
+            for (var Jt = 0; Jt <= Xt.bucketsMaxX; Jt++) {
                 game.buckets.push([]);
-                for (var $t = 0; $t <= Gt.bucketsMaxY; $t++)
+                for (var $t = 0; $t <= Xt.bucketsMaxY; $t++)
                     game.buckets[Jt].push([[]])
             }
             for (var en = 0; en < config.doodads.length; en++)
@@ -26472,7 +26472,7 @@ function loadGameCode() {
         }
         ,
         Tools.getBucketBounds = function(Jt, $t, en) {
-            return [Tools.clamp(Math.floor((Jt.x - $t) / Gt.size) + Gt.bucketsHalfX, 0, Gt.bucketsMaxX), Tools.clamp(Math.floor((Jt.x + $t) / Gt.size) + Gt.bucketsHalfX, 0, Gt.bucketsMaxX), Tools.clamp(Math.floor((Jt.y - en) / Gt.size) + Gt.bucketsHalfY, 0, Gt.bucketsMaxY), Tools.clamp(Math.floor((Jt.y + en) / Gt.size) + Gt.bucketsHalfY, 0, Gt.bucketsMaxY)]
+            return [Tools.clamp(Math.floor((Jt.x - $t) / Xt.size) + Xt.bucketsHalfX, 0, Xt.bucketsMaxX), Tools.clamp(Math.floor((Jt.x + $t) / Xt.size) + Xt.bucketsHalfX, 0, Xt.bucketsMaxX), Tools.clamp(Math.floor((Jt.y - en) / Xt.size) + Xt.bucketsHalfY, 0, Xt.bucketsMaxY), Tools.clamp(Math.floor((Jt.y + en) / Xt.size) + Xt.bucketsHalfY, 0, Xt.bucketsMaxY)]
         }
         ,
         Tools.deferUpdate = function(Jt) {
@@ -26559,7 +26559,7 @@ function loadGameCode() {
         }
     }(),
     function() {
-        var Gt = {
+        var Xt = {
             map_sea: "assets/map_sea.jpg",
             map_sea_mask: "assets/map_sea_mask.jpg",
             map_forest: "assets/map_forest.jpg",
@@ -27110,10 +27110,10 @@ function loadGameCode() {
             }
         }
           , Wt = {};
-        SWAM && SWAM.injectTextures(Gt, Yt, Ht, jt, Wt),
+        SWAM && SWAM.injectTextures(Xt, Yt, Ht, jt, Wt),
         Textures.load = function() {
-            for (var zt in Gt)
-                Wt[zt] = new PIXI.Texture.fromImage(Gt[zt]);
+            for (var zt in Xt)
+                Wt[zt] = new PIXI.Texture.fromImage(Xt[zt]);
             var Vt;
             for (var qt in Yt)
                 Vt = Yt[qt],
@@ -27155,7 +27155,7 @@ function loadGameCode() {
             lastOverdraw: Vector.zero(),
             lastOverdrawTime: 0,
             shake: 0
-        }, Ht = {}, jt = {}, Wt = {}, Gt;
+        }, Ht = {}, jt = {}, Wt = {}, Xt;
         Graphics.setup = function() {
             Kt(window.innerWidth, window.innerHeight),
             zt(),
@@ -27179,12 +27179,12 @@ function loadGameCode() {
             };
             config.settings.hidpi && (an.resolution = 2);
             try {
-                Gt = new PIXI.WebGLRenderer(game.screenX,game.screenY,an),
-                Graphics.renderer = Gt
+                Xt = new PIXI.WebGLRenderer(game.screenX,game.screenY,an),
+                Graphics.renderer = Xt
             } catch (rn) {
                 return void UI.popBigMsg(2)
             }
-            document.body.appendChild(Gt.view)
+            document.body.appendChild(Xt.view)
         }
           , Vt = function() {
             for (var an of ["game", "ui0", "ui1", "ui2", "ui3", "ui4", "hudHealth", "hudEnergy", "flags", "doodads", "map", "sea", "objects", "groundobjects", "fields", "shadows", "powerups", "crates", "aircraft", "aircraftme", "glows", "playernames", "bubbles", "thrusters", "projectiles", "smoke", "explosions"])
@@ -27239,7 +27239,7 @@ function loadGameCode() {
               , sn = rn + config.overdraw;
             Kt(an, rn),
             Zt(),
-            Gt.resize(an, rn),
+            Xt.resize(an, rn),
             Ht.render.resize(on, sn),
             Ht.shadows.resize(an, rn),
             Ht.shadowsSprite.scale.set(game.screenX / game.shadowX, game.screenY / game.shadowY),
@@ -27294,8 +27294,8 @@ function loadGameCode() {
             }
         }
           , Jt = function() {
-            var an = Gt.width + config.overdraw
-              , rn = Gt.height + config.overdraw;
+            var an = Xt.width + config.overdraw
+              , rn = Xt.height + config.overdraw;
             Ht.sea = Textures.tile("map_sea", an, rn),
             Ht.sea_mask = Textures.sprite("map_sea_mask"),
             Ht.sea_mask.scale.set(8, 8),
@@ -27459,15 +27459,15 @@ function loadGameCode() {
                 Ht[an + "_mask"].position.set(ln, un);
             null != Ht.polygons && null != Ht.polygons.position && Ht.polygons.position.set(-rn * game.scale, -on * game.scale),
             Yt.lastOverdrawTime = game.time,
-            Gt.render(Wt.sea, Ht.render),
-            Gt.render(Wt.map, Ht.render)
+            Xt.render(Wt.sea, Ht.render),
+            Xt.render(Wt.map, Ht.render)
         };
         Graphics.renderBackground = nn,
         Graphics.render = function() {
-            Gt.render(Wt.shadows, Ht.shadows, !0),
-            Gt.render(Wt.hudEnergy, jt.hudTextureEnergy, !0),
-            Gt.render(Wt.hudHealth, jt.hudTextureHealth, !0),
-            Gt.render(Wt.game)
+            Xt.render(Wt.shadows, Ht.shadows, !0),
+            Xt.render(Wt.hudEnergy, jt.hudTextureEnergy, !0),
+            Xt.render(Wt.hudHealth, jt.hudTextureHealth, !0),
+            Xt.render(Wt.game)
         }
     }
     ,
@@ -27478,7 +27478,7 @@ function loadGameCode() {
             lastOverdraw: Vector.zero(),
             lastOverdrawTime: 0,
             shake: 0
-        }, Ht = {}, jt = {}, Wt = {}, Gt;
+        }, Ht = {}, jt = {}, Wt = {}, Xt;
         Graphics.setup = function() {
             Kt(window.innerWidth, window.innerHeight),
             zt(),
@@ -27502,12 +27502,12 @@ function loadGameCode() {
             };
             config.settings.hidpi && (an.resolution = 2);
             try {
-                Gt = new PIXI.WebGLRenderer(game.screenX,game.screenY,an),
-                Graphics.renderer = Gt
+                Xt = new PIXI.WebGLRenderer(game.screenX,game.screenY,an),
+                Graphics.renderer = Xt
             } catch (rn) {
                 return void UI.popBigMsg(2)
             }
-            document.body.appendChild(Gt.view)
+            document.body.appendChild(Xt.view)
         }
           , Vt = function() {
             for (var an of ["game", "ui0", "ui1", "ui2", "ui3", "ui4", "hudHealth", "hudEnergy", "flags", "doodads", "map", "sea", "objects", "groundobjects", "fields", "shadows", "powerups", "crates", "aircraft", "aircraftme", "glows", "playernames", "bubbles", "thrusters", "projectiles", "smoke", "explosions"])
@@ -27579,7 +27579,7 @@ function loadGameCode() {
               , sn = rn + config.overdraw;
             Kt(an, rn),
             Zt(),
-            Gt.resize(an, rn),
+            Xt.resize(an, rn),
             Ht.render.resize(on, sn),
             Ht.shadows.resize(an, rn),
             Ht.shadowsSprite.scale.set(game.screenX / game.shadowX, game.screenY / game.shadowY),
@@ -27634,8 +27634,8 @@ function loadGameCode() {
             }
         }
           , Jt = function() {
-            var an = Gt.width + config.overdraw
-              , rn = Gt.height + config.overdraw;
+            var an = Xt.width + config.overdraw
+              , rn = Xt.height + config.overdraw;
             Ht.sea = Textures.tile("map_sea", an, rn),
             Ht.forest = Textures.tile("map_forest", an, rn),
             Ht.forest_mask = Textures.sprite("map_forest_mask"),
@@ -27777,20 +27777,20 @@ function loadGameCode() {
                 for (an of ["forest", "sand", "rock"])
                     Ht[an + "_mask"].position.set(ln, un);
             Yt.lastOverdrawTime = game.time,
-            Gt.render(Wt.sea, Ht.render),
-            Gt.render(Wt.map, Ht.render)
+            Xt.render(Wt.sea, Ht.render),
+            Xt.render(Wt.map, Ht.render)
         };
         Graphics.renderBackground = nn,
         Graphics.render = function() {
-            Gt.render(Wt.shadows, Ht.shadows, !0),
-            Gt.render(Wt.hudEnergy, jt.hudTextureEnergy, !0),
-            Gt.render(Wt.hudHealth, jt.hudTextureHealth, !0),
-            Gt.render(Wt.game)
+            Xt.render(Wt.shadows, Ht.shadows, !0),
+            Xt.render(Wt.hudEnergy, jt.hudTextureEnergy, !0),
+            Xt.render(Wt.hudHealth, jt.hudTextureHealth, !0),
+            Xt.render(Wt.game)
         }
     }
     ,
     !function() {
-        var Gt = null
+        var Xt = null
           , Yt = null
           , Ht = !1
           , jt = ""
@@ -27897,7 +27897,7 @@ function loadGameCode() {
         ,
         Network.shutdown = function() {
             null != zt && clearInterval(zt),
-            null != Gt && Gt.close(),
+            null != Xt && Xt.close(),
             null != Yt && Yt.close(),
             Ht = !1,
             Wt = !1,
@@ -28155,8 +28155,8 @@ function loadGameCode() {
         Network.setup = function() {
             jt = DEVELOPMENT ? -1 == document.domain.indexOf("192.168.") ? "ws://" + game.playHost + ".airmash.devel:8000/" + game.playPath : "ws://" + document.domain + ":8010/" + game.playPath : "wss://game-" + game.playHost + ".airma.sh/" + game.playPath,
             Yt && Ht && Yt.close(),
-            (Gt = new WebSocket(jt)).binaryType = "arraybuffer",
-            Gt.onopen = function() {
+            (Xt = new WebSocket(jt)).binaryType = "arraybuffer",
+            Xt.onopen = function() {
                 cn({
                     c: gn.LOGIN,
                     protocol: game.protocol,
@@ -28168,15 +28168,15 @@ function loadGameCode() {
                 })
             }
             ,
-            Gt.onclose = function() {
+            Xt.onclose = function() {
                 null != zt && clearInterval(zt),
                 game.state !== Network.STATE.CONNECTING && (game.state = Network.STATE.CONNECTING,
                 !1 === en && Network.reconnectMessage())
             }
             ,
-            Gt.onerror = function() {}
+            Xt.onerror = function() {}
             ,
-            Gt.onmessage = function(bn) {
+            Xt.onmessage = function(bn) {
                 on(pn(bn.data))
             }
         }
@@ -28467,7 +28467,7 @@ function loadGameCode() {
             return Tn
         }
           , cn = function(bn, xn) {
-            xn ? Yt.send(un(bn)) : Gt.send(un(bn))
+            xn ? Yt.send(un(bn)) : Xt.send(un(bn))
         }
           , hn = {
             UP: 1,
@@ -28645,7 +28645,7 @@ function loadGameCode() {
         }
     }(),
     function() {
-        var Gt = {}
+        var Xt = {}
           , Yt = {}
           , Ht = {}
           , jt = null
@@ -28840,7 +28840,7 @@ function loadGameCode() {
                         return null == tn[Sn] ? (Ht[Tn] || (Ht[Tn] = !0,
                         UI.controlKey(Tn, Sn, !0)),
                         vn.preventDefault(),
-                        !1) : (Gt[Sn] || (Gt[Sn] = !0,
+                        !1) : (Xt[Sn] || (Xt[Sn] = !0,
                         bn(Sn)),
                         Yt[Tn] || (Yt[Tn] = !0),
                         vn.preventDefault(),
@@ -28854,7 +28854,7 @@ function loadGameCode() {
                   , Sn = Input.getBind(Tn);
                 if (null == tn[Sn] && Ht[Tn] && (Ht[Tn] = !1),
                 !cn(Tn))
-                    return Gt[Sn] && (Gt[Sn] = !1,
+                    return Xt[Sn] && (Xt[Sn] = !1,
                     xn(Sn)),
                     Yt[Tn] && (Yt[Tn] = !1),
                     vn.preventDefault(),
@@ -29013,16 +29013,16 @@ function loadGameCode() {
         }
         ,
         Input.keyState = function(vn) {
-            return Gt[vn]
+            return Xt[vn]
         }
         ,
         Input.clearKeys = function(vn) {
             if (game.state === Network.STATE.PLAYING) {
                 for (var Tn of dn)
-                    if (Gt[Tn]) {
+                    if (Xt[Tn]) {
                         if (vn && (Yt[38] || Yt[40] || Yt[37] || Yt[39]))
                             continue;
-                        Gt[Tn] = !1,
+                        Xt[Tn] = !1,
                         xn(Tn)
                     }
                 for (var Sn in Yt)
@@ -29141,8 +29141,8 @@ function loadGameCode() {
         }
         ;
         var yn = function(vn, Tn) {
-            (Gt[vn] == !Tn || Tn && null == Gt[vn]) && (Network.sendKey(vn, Tn),
-            Gt[vn] = Tn)
+            (Xt[vn] == !Tn || Tn && null == Xt[vn]) && (Network.sendKey(vn, Tn),
+            Xt[vn] = Tn)
         }
           , _n = function(vn, Tn) {
             var Sn = Players.getMe();
@@ -29192,24 +29192,24 @@ function loadGameCode() {
         }
           , xn = function(vn) {
             3 != game.myType || "STRAFELEFT" !== vn && "STRAFERIGHT" !== vn ? -1 !== dn.indexOf(vn) && Network.sendKey(vn, !1) : (xn("STRAFELEFT" === vn ? "LEFT" : "RIGHT"),
-            Gt["STRAFERIGHT" === vn ? "STRAFELEFT" : "STRAFERIGHT"] || xn("SPECIAL"))
+            Xt["STRAFERIGHT" === vn ? "STRAFELEFT" : "STRAFERIGHT"] || xn("SPECIAL"))
         }
     }();
     class Bt {
-        constructor(Gt, Yt) {
-            this.id = Gt.id,
-            this.status = Gt.status,
-            this.level = null == Gt.level || 0 == Gt.level ? null : Gt.level,
-            this.reel = 1 == Gt.reel,
-            this.name = Gt.name,
-            this.type = Gt.type,
-            this.team = Gt.team,
-            this.pos = new Vector(Gt.posX,Gt.posY),
-            this.lowResPos = new Vector(Gt.posX,Gt.posY),
+        constructor(Xt, Yt) {
+            this.id = Xt.id,
+            this.status = Xt.status,
+            this.level = null == Xt.level || 0 == Xt.level ? null : Xt.level,
+            this.reel = 1 == Xt.reel,
+            this.name = Xt.name,
+            this.type = Xt.type,
+            this.team = Xt.team,
+            this.pos = new Vector(Xt.posX,Xt.posY),
+            this.lowResPos = new Vector(Xt.posX,Xt.posY),
             this.speed = Vector.zero(),
             this.speedupgrade = 0,
-            this.rot = Gt.rot,
-            this.flag = Gt.flag,
+            this.rot = Xt.rot,
+            this.flag = Xt.flag,
             this.speedLength = 0,
             this.sprites = {},
             this.randomness = Tools.rand(0, 1e5),
@@ -29258,17 +29258,17 @@ function loadGameCode() {
                 lastBounceSound: 0
             },
             this.setupGraphics(),
-            0 == this.status ? (Tools.decodeUpgrades(this, Gt.upgrades),
+            0 == this.status ? (Tools.decodeUpgrades(this, Xt.upgrades),
             this.updatePowerups()) : (this.hidden = !0,
             this.me() && UI.visibilityHUD(!1)),
             this.reel ? (this._prevPos = null,
             this._offset = null) : this.visibilityUpdate(),
             (!Yt && this.render || this.me()) && (this.scale = 0,
             this.state.scaleLevel = 0),
-            this.me() && (game.myType = Gt.type,
-            UI.aircraftSelected(Gt.type))
+            this.me() && (game.myType = Xt.type,
+            UI.aircraftSelected(Xt.type))
         }
-        setupGraphics(Gt) {
+        setupGraphics(Xt) {
             var Yt = null;
             switch (this.me() && (Yt = {
                 layer: "aircraftme"
@@ -29347,7 +29347,7 @@ function loadGameCode() {
                 this.sprites.thruster1Shadow = Textures.init("thrusterShadow"),
                 this.sprites.thruster2Shadow = Textures.init("thrusterShadow");
             }
-            if (this.reel || Gt || (this.setupNameplate(),
+            if (this.reel || Xt || (this.setupNameplate(),
             this.setupChatBubbles(),
             null != this.level && this.setupLevelPlate()),
             config.debug.collisions) {
@@ -29359,20 +29359,20 @@ function loadGameCode() {
                 game.graphics.layers.explosions.addChild(this.col)
             }
         }
-        reteam(Gt) {
-            this.team = Gt,
+        reteam(Xt) {
+            this.team = Xt,
             this.sprites.name.style = new PIXI.TextStyle(this.nameplateTextStyle()),
             UI.changeMinimapTeam(this.id, this.team)
         }
         nameplateTextStyle() {
             if (2 == game.gameType)
-                var Gt = 1 == this.team ? "#4076E2" : "#EA4242";
+                var Xt = 1 == this.team ? "#4076E2" : "#EA4242";
             else
-                Gt = this.team == game.myTeam ? "#FFFFFF" : "#FFEC52";
+                Xt = this.team == game.myTeam ? "#FFFFFF" : "#FFEC52";
             return {
                 fontFamily: "MontserratWeb, Helvetica, sans-serif",
                 fontSize: config.playerNameSize || "28px",
-                fill: Gt,
+                fill: Xt,
                 dropShadow: !0,
                 dropShadowBlur: 10,
                 dropShadowDistance: 0,
@@ -29380,9 +29380,9 @@ function loadGameCode() {
             }
         }
         setupNameplate() {
-            var Gt = "";
-            2 == game.gameType && (Gt = "  \u25A0"),
-            this.sprites.name = new PIXI.Text(this.name + Gt,this.nameplateTextStyle()),
+            var Xt = "";
+            2 == game.gameType && (Xt = "  \u25A0"),
+            this.sprites.name = new PIXI.Text(this.name + Xt,this.nameplateTextStyle()),
             this.sprites.name.scale.set(.5, .5),
             this.sprites.flag = Textures.sprite("flag_" + this.flag),
             this.sprites.flag.scale.set(.4, .4),
@@ -29422,10 +29422,10 @@ function loadGameCode() {
             this.sprites.bubble.pivot.set(.5, 34),
             game.graphics.layers.bubbles.addChild(this.sprites.bubble)
         }
-        visibilityUpdate(Gt) {
+        visibilityUpdate(Xt) {
             this.culled = !Graphics.inScreen(this.pos, 128);
             var Yt = !(this.hidden || this.culled || this.timedout);
-            if (Gt || this.render != Yt) {
+            if (Xt || this.render != Yt) {
                 switch (this.sprites.sprite.visible = Yt,
                 this.sprites.shadow.visible = Yt,
                 this.sprites.flag.visible = Yt,
@@ -29459,11 +29459,11 @@ function loadGameCode() {
                 Yt || Sound.clearThruster(this.id)
             }
         }
-        stealth(Gt) {
+        stealth(Xt) {
             this.lastPacket = game.timeNetwork,
-            this.energy = Gt.energy,
-            this.energyRegen = Gt.energyRegen,
-            Gt.state ? (this.stealthed = !0,
+            this.energy = Xt.energy,
+            this.energyRegen = Xt.energyRegen,
+            Xt.state ? (this.stealthed = !0,
             this.state.stealthLevel = 0,
             this.team != game.myTeam && (this.keystate.LEFT && delete this.keystate.LEFT,
             this.keystate.RIGHT && delete this.keystate.RIGHT)) : this.unstealth()
@@ -29473,34 +29473,34 @@ function loadGameCode() {
             this.state.stealthLevel = 0,
             this.opacity(1)
         }
-        opacity(Gt) {
-            this.alpha = Gt,
-            this.sprites.sprite.alpha = Gt,
-            this.sprites.shadow.alpha = Gt,
-            this.sprites.flag.alpha = Gt,
-            this.sprites.name.alpha = Gt,
-            this.sprites.badge.alpha = Gt,
-            this.sprites.powerup.alpha = .75 * Gt,
-            this.sprites.powerupCircle.alpha = .75 * Gt,
-            null != this.sprites.level && (this.sprites.level.alpha = Gt,
-            this.sprites.levelBorder.alpha = .4 * Gt),
-            5 == this.type && (this.sprites.thruster1.alpha = Gt,
-            this.sprites.thruster1Glow.alpha = Gt,
-            this.sprites.thruster2.alpha = Gt,
-            this.sprites.thruster2Glow.alpha = Gt)
+        opacity(Xt) {
+            this.alpha = Xt,
+            this.sprites.sprite.alpha = Xt,
+            this.sprites.shadow.alpha = Xt,
+            this.sprites.flag.alpha = Xt,
+            this.sprites.name.alpha = Xt,
+            this.sprites.badge.alpha = Xt,
+            this.sprites.powerup.alpha = .75 * Xt,
+            this.sprites.powerupCircle.alpha = .75 * Xt,
+            null != this.sprites.level && (this.sprites.level.alpha = Xt,
+            this.sprites.levelBorder.alpha = .4 * Xt),
+            5 == this.type && (this.sprites.thruster1.alpha = Xt,
+            this.sprites.thruster1Glow.alpha = Xt,
+            this.sprites.thruster2.alpha = Xt,
+            this.sprites.thruster2Glow.alpha = Xt)
         }
-        kill(Gt) {
+        kill(Xt) {
             if (this.status = 1,
             this.keystate = {},
-            this.pos.x = Gt.posX,
-            this.pos.y = Gt.posY,
+            this.pos.x = Xt.posX,
+            this.pos.y = Xt.posY,
             this.speed = Vector.zero(),
             this.me() && UI.resetPowerups(),
             this.resetPowerups(),
             this.hidden = !0,
             this.visibilityUpdate(),
             this.stealthed && this.unstealth(),
-            !this.culled && !0 !== Gt.spectate) {
+            !this.culled && !0 !== Xt.spectate) {
                 switch (this.type) {
                 case 1:
                     Particles.explosion(this.pos.clone(), Tools.rand(1.5, 2), Tools.randInt(2, 3));
@@ -29521,7 +29521,7 @@ function loadGameCode() {
         me() {
             return game.myID == this.id
         }
-        destroy(Gt) {
+        destroy(Xt) {
             var Yt = this.me() ? game.graphics.layers.aircraftme : game.graphics.layers.aircraft;
             switch (Yt.removeChild(this.sprites.sprite),
             game.graphics.layers.shadows.removeChild(this.sprites.shadow),
@@ -29555,7 +29555,7 @@ function loadGameCode() {
                 game.graphics.layers.shadows.removeChild(this.sprites.rotorShadow),
                 this.sprites.rotorShadow.destroy();
             }
-            Gt && !this.reel && (game.graphics.layers.playernames.removeChild(this.sprites.badge, this.sprites.name, this.sprites.flag),
+            Xt && !this.reel && (game.graphics.layers.playernames.removeChild(this.sprites.badge, this.sprites.name, this.sprites.flag),
             null != this.sprites.level && (game.graphics.layers.playernames.removeChild(this.sprites.level, this.sprites.levelBorder),
             this.sprites.level.destroy({
                 texture: !0,
@@ -29573,7 +29573,7 @@ function loadGameCode() {
                 children: !0
             }))
         }
-        sayBubble(Gt) {
+        sayBubble(Xt) {
             this.state.bubbleTime = game.time,
             this.state.bubbleFade = 0,
             this.state.bubble || (this.state.bubble = !0,
@@ -29582,7 +29582,7 @@ function loadGameCode() {
             this.sprites.bubble.alpha = 0,
             this.sprites.bubble.scale.set(0, 0)),
             this.sprites.bubble.cacheAsBitmap = !1;
-            var Yt = UI.isEmote(Gt.text, !0);
+            var Yt = UI.isEmote(Xt.text, !0);
             if (Yt) {
                 this.sprites.bubbleText.visible = !1,
                 this.sprites.emote.texture = Textures.get("emote_" + Yt),
@@ -29592,7 +29592,7 @@ function loadGameCode() {
             } else
                 this.sprites.bubbleText.visible = !0,
                 this.sprites.emote.visible = !1,
-                this.sprites.bubbleText.text = Gt.text,
+                this.sprites.bubbleText.text = Xt.text,
                 Ht = this.sprites.bubbleText.width,
                 this.sprites.bubbleText.position.set(-Ht / 2, -7);
             this.sprites.bubbleLeft.position.set(-Ht / 2 - 17, -21),
@@ -29603,7 +29603,7 @@ function loadGameCode() {
             this.sprites.bubble.cacheAsBitmap = !0,
             this.state.bubbleTextWidth = Ht
         }
-        networkKey(Gt, Yt) {
+        networkKey(Xt, Yt) {
             this.lastPacket = game.timeNetwork,
             1 == this.status && this.revive(),
             null != Yt.posX && (this.reducedFactor = Tools.reducedFactor(),
@@ -29624,10 +29624,10 @@ function loadGameCode() {
             Yt.c == Network.SERVERPACKET.EVENT_BOUNCE && 300 < game.time - this.state.lastBounceSound && (this.state.lastBounceSound = game.time,
             Sound.playerImpact(this.pos, this.type, this.speed.length() / config.ships[this.type].maxSpeed))
         }
-        updateLevel(Gt) {
-            this.me() && (1 == Gt.type && Games.showLevelUP(Gt.level),
-            UI.updateMyLevel(Gt.level)),
-            this.level = Gt.level,
+        updateLevel(Xt) {
+            this.me() && (1 == Xt.type && Games.showLevelUP(Xt.level),
+            UI.updateMyLevel(Xt.level)),
+            this.level = Xt.level,
             this.setupLevelPlate()
         }
         setupLevelPlate() {
@@ -29649,8 +29649,8 @@ function loadGameCode() {
             this.sprites.level.visible = this.render,
             this.sprites.levelBorder.visible = this.render
         }
-        powerup(Gt) {
-            UI.addPowerup(Gt.type, Gt.duration)
+        powerup(Xt) {
+            UI.addPowerup(Xt.type, Xt.duration)
         }
         resetPowerups() {
             this.powerupActive && (this.sprites.powerup.visible = !1,
@@ -29664,16 +29664,16 @@ function loadGameCode() {
             this.state.powerupFadeState = 0
         }
         updatePowerups() {
-            var Gt = !1;
+            var Xt = !1;
             this.powerups.shield != this.powerupsShown.shield && (this.powerupsShown.shield = this.powerups.shield,
             this.powerups.shield && (this.sprites.powerup.texture = Textures.get("powerup_shield"),
             this.sprites.powerupCircle.tint = 16777215),
-            Gt = !0),
+            Xt = !0),
             this.powerups.rampage != this.powerupsShown.rampage && (this.powerupsShown.rampage = this.powerups.rampage,
             this.powerups.rampage && (this.sprites.powerup.texture = Textures.get("powerup_rampage"),
             this.sprites.powerupCircle.tint = 16712448),
-            Gt = !0),
-            Gt && (this.powerupActive = this.powerups.shield || this.powerups.rampage,
+            Xt = !0),
+            Xt && (this.powerupActive = this.powerups.shield || this.powerups.rampage,
             this.powerupActive ? (this.state.powerupFade = 0,
             this.state.powerupFadeState = 0,
             this.sprites.powerup.visible = !0,
@@ -29681,26 +29681,26 @@ function loadGameCode() {
             this.state.powerupFade = 0,
             this.state.powerupFadeState = 1))
         }
-        impact(Gt, Yt, Ht, jt) {
+        impact(Xt, Yt, Ht, jt) {
             this.health = Ht,
             this.healthRegen = jt,
             this.stealthed && this.unstealth(),
-            200 != Gt && Mobs.explosion(Yt, Gt),
+            200 != Xt && Mobs.explosion(Yt, Xt),
             this.me() && 0 == this.status && Graphics.shakeCamera(Yt, 8)
         }
-        changeType(Gt) {
-            this.type != Gt.type && (this.destroy(!1),
-            this.type = Gt.type,
+        changeType(Xt) {
+            this.type != Xt.type && (this.destroy(!1),
+            this.type = Xt.type,
             this.setupGraphics(!0),
             this.visibilityUpdate(!0))
         }
-        respawn(Gt) {
+        respawn(Xt) {
             this.lastPacket = game.timeNetwork,
             this.status = 0,
             this.keystate = {},
-            this.pos.x = Gt.posX,
-            this.pos.y = Gt.posY,
-            this.rot = Gt.rot,
+            this.pos.x = Xt.posX,
+            this.pos.y = Xt.posY,
+            this.rot = Xt.rot,
             this.speed.x = 0,
             this.speed.y = 0,
             this.health = 1,
@@ -29716,7 +29716,7 @@ function loadGameCode() {
             this.timedout = !1,
             this.visibilityUpdate(),
             this.me() && UI.resetPowerups(),
-            Tools.decodeUpgrades(this, Gt.upgrades),
+            Tools.decodeUpgrades(this, Xt.upgrades),
             this.updatePowerups(),
             (this.render || this.me()) && (this.scale = 0,
             this.state.scaleLevel = 0),
@@ -29741,22 +29741,22 @@ function loadGameCode() {
             this.energyRegen = 1,
             this.stealthed && this.unstealth()
         }
-        changeFlag(Gt) {
-            this.flag = Gt.flag,
-            this.sprites.flag.texture = Textures.get("flag_" + Gt.flag)
+        changeFlag(Xt) {
+            this.flag = Xt.flag,
+            this.sprites.flag.texture = Textures.get("flag_" + Xt.flag)
         }
-        changeBadge(Gt) {
-            this.sprites.badge.texture = Textures.get(Gt)
+        changeBadge(Xt) {
+            this.sprites.badge.texture = Textures.get(Xt)
         }
         updateNameplate() {
             if (!this.reel) {
-                var Gt = (this.sprites.name.width + this.sprites.flag.width + 10) / 2
-                  , Yt = this.pos.x - Gt + (this.state.hasBadge ? 12 : 0) - (null == this.level ? 0 : this.sprites.level.width / 2 + 8)
+                var Xt = (this.sprites.name.width + this.sprites.flag.width + 10) / 2
+                  , Yt = this.pos.x - Xt + (this.state.hasBadge ? 12 : 0) - (null == this.level ? 0 : this.sprites.level.width / 2 + 8)
                   , Ht = this.pos.y + this.state.nameplateDist * this.scale;
                 this.sprites.name.position.set(Yt + 40, Ht),
                 this.sprites.flag.position.set(Yt + 15, Ht + 10),
-                null != this.level && (this.sprites.level.position.set(Yt + 2 * Gt + 13, Ht + 2),
-                this.sprites.levelBorder.position.set(Yt + 2 * Gt + 7.75, Ht - .5)),
+                null != this.level && (this.sprites.level.position.set(Yt + 2 * Xt + 13, Ht + 2),
+                this.sprites.levelBorder.position.set(Yt + 2 * Xt + 7.75, Ht - .5)),
                 this.state.hasBadge && this.sprites.badge.position.set(Yt - 28, Ht)
             }
         }
@@ -29770,17 +29770,17 @@ function loadGameCode() {
             1 <= this.state.bubbleFade && (this.state.bubble = !1,
             this.sprites.bubble.visible = !1)) : (this.sprites.bubble.scale.set(Tools.easing.outElastic(this.state.bubbleProgress, .5)),
             this.sprites.bubble.alpha = 1);
-            var Gt = 0 == (this.state.bubbleTextWidth + game.screenX) % 2 ? .5 : 0
+            var Xt = 0 == (this.state.bubbleTextWidth + game.screenX) % 2 ? .5 : 0
               , Yt = 0 == game.screenY % 2 ? 0 : .5
               , Ht = this.state.nameplateDist * this.scale;
             this.powerupActive && (Ht += 60),
-            this.sprites.bubble.position.set(this.pos.x * game.scale + Gt, (this.pos.y - Ht) * game.scale + Yt)
+            this.sprites.bubble.position.set(this.pos.x * game.scale + Xt, (this.pos.y - Ht) * game.scale + Yt)
         }
         detectTimeout() {
             if (!this.me()) {
-                var Gt = this.timedout;
+                var Xt = this.timedout;
                 this.timedout = !game.lagging && 3e3 < game.timeNetwork - this.lastPacket,
-                this.timedout && !Gt && (this.boost = !1,
+                this.timedout && !Xt && (this.boost = !1,
                 this.strafe = !1,
                 this.flagspeed = !1,
                 this.speed = Vector.zero(),
@@ -29798,19 +29798,19 @@ function loadGameCode() {
             this.keystate = {},
             this.resetPowerups())
         }
-        update(Gt) {
+        update(Xt) {
             if (this.reel)
-                this.clientCalcs(Gt);
+                this.clientCalcs(Xt);
             else {
                 if (this.detectTimeout(),
                 this.visibilityUpdate(),
                 !this.render)
-                    return this.health += Gt * this.healthRegen,
+                    return this.health += Xt * this.healthRegen,
                     void (1 <= this.health && (this.health = 1));
-                if (!(!1 !== this.reducedFactor && (Gt -= this.reducedFactor,
+                if (!(!1 !== this.reducedFactor && (Xt -= this.reducedFactor,
                 this.reducedFactor = !1,
-                0 >= Gt))) {
-                    var zt = .51 < Gt ? Math.round(Gt) : 1, Vt = Gt / zt, qt = 2 * Math.PI, Kt = this.boost ? 1.5 : 1, Yt, Ht, jt, Wt;
+                0 >= Xt))) {
+                    var zt = .51 < Xt ? Math.round(Xt) : 1, Vt = Xt / zt, qt = 2 * Math.PI, Kt = this.boost ? 1.5 : 1, Yt, Ht, jt, Wt;
                     for (Yt = 0; Yt < zt; Yt++) {
                         this.energy += Vt * this.energyRegen,
                         1 <= this.energy && (this.energy = 1),
@@ -29846,11 +29846,11 @@ function loadGameCode() {
                     -8160 > this.pos.y && (this.pos.y = -8160),
                     8160 < this.pos.y && (this.pos.y = 8160)),
                     Sound.updateThruster(0, this),
-                    SWAM && SWAM.OnPlayerUpdate(this, Gt)
+                    SWAM && SWAM.OnPlayerUpdate(this, Xt)
                 }
             }
         }
-        clientCalcs(Gt) {
+        clientCalcs(Xt) {
             switch (this.type) {
             case 1:
             case 2:
@@ -29859,24 +29859,24 @@ function loadGameCode() {
                 var Yt = !1
                   , Ht = !1
                   , jt = this.boost ? 1.5 : 1;
-                !1 !== (Yt = this.keystate.LEFT ? .3 : this.keystate.RIGHT ? -.3 : 0) && (this.state.thrustDir = Tools.converge(this.state.thrustDir, Yt, .1 * Gt)),
-                !1 !== (Ht = this.keystate.UP ? 1 : this.keystate.DOWN ? -1 : 0) && (this.state.thrustLevel = Tools.converge(this.state.thrustLevel, Ht * jt, .2 * Gt));
+                !1 !== (Yt = this.keystate.LEFT ? .3 : this.keystate.RIGHT ? -.3 : 0) && (this.state.thrustDir = Tools.converge(this.state.thrustDir, Yt, .1 * Xt)),
+                !1 !== (Ht = this.keystate.UP ? 1 : this.keystate.DOWN ? -1 : 0) && (this.state.thrustLevel = Tools.converge(this.state.thrustLevel, Ht * jt, .2 * Xt));
                 break;
             case 3:
-                this.state.thrustDir += (.2 + this.speed.length() / 50) * Gt;
+                this.state.thrustDir += (.2 + this.speed.length() / 50) * Xt;
             }
             this.culled || this.render && (!this.stealthed && .4 > this.health && Particles.planeDamage(this),
             !this.stealthed && .2 > this.health && Particles.planeDamage(this),
             this.boost && Particles.planeBoost(this, 0 <= Ht),
-            5 == this.type && this.stealthed && (this.state.stealthLevel += .03 * Gt,
+            5 == this.type && this.stealthed && (this.state.stealthLevel += .03 * Xt,
             this.state.stealthLevel = Tools.clamp(this.state.stealthLevel, 0, this.team == game.myTeam ? .5 : 1),
             this.opacity(1 - this.state.stealthLevel)),
-            this.state.scaleLevel += .005 * Gt,
+            this.state.scaleLevel += .005 * Xt,
             1 <= this.state.scaleLevel ? (this.state.scaleLevel = 1,
             this.scale = 1) : this.scale = Tools.easing.outElastic(this.state.scaleLevel, .5),
-            this.powerupActive && (this.state.powerupAngle += .075 * Gt,
-            0 == this.state.powerupFadeState ? (this.state.powerupFade += .05 * Gt,
-            1 <= this.state.powerupFade && (this.state.powerupFade = 1)) : (this.state.powerupFade += .05 * Gt,
+            this.powerupActive && (this.state.powerupAngle += .075 * Xt,
+            0 == this.state.powerupFadeState ? (this.state.powerupFade += .05 * Xt,
+            1 <= this.state.powerupFade && (this.state.powerupFade = 1)) : (this.state.powerupFade += .05 * Xt,
             1 <= this.state.powerupFade && (this.powerupActive = !1,
             this.sprites.powerup.visible = !1,
             this.sprites.powerupCircle.visible = !1))))
@@ -29941,22 +29941,22 @@ function loadGameCode() {
         }
     }
     !function() {
-        var Gt = {}
+        var Xt = {}
           , Yt = [-1, -1, -1]
           , Ht = ["badge_gold", "badge_silver", "badge_bronze"];
         Players.update = function() {
             var jt, Wt;
-            for (jt in Gt)
-                0 == (Wt = Gt[jt]).status && (Wt.update(game.timeFactor),
+            for (jt in Xt)
+                0 == (Wt = Xt[jt]).status && (Wt.update(game.timeFactor),
                 Wt.updateGraphics(game.timeFactor));
             if (null != game.spectatingID) {
-                if (null == (Wt = Gt[game.spectatingID]))
+                if (null == (Wt = Xt[game.spectatingID]))
                     return;
                 if (3e3 < game.timeNetwork - Wt.lastPacket)
                     return;
                 Graphics.setCamera(Wt.pos.x, Wt.pos.y)
             } else if (null != game.myID) {
-                if (null == (Wt = Gt[game.myID]))
+                if (null == (Wt = Xt[game.myID]))
                     return;
                 0 == Wt.status && UI.updateHUD(Wt.health, Wt.energy, Wt),
                 Graphics.setCamera(Wt.pos.x, Wt.pos.y)
@@ -29964,15 +29964,15 @@ function loadGameCode() {
         }
         ,
         Players.add = function(jt, Wt) {
-            Gt[jt.id] = new Bt(jt,Wt)
+            Xt[jt.id] = new Bt(jt,Wt)
         }
         ,
         Players.get = function(jt) {
-            return Gt[jt]
+            return Xt[jt]
         }
         ,
         Players.getMe = function() {
-            return Gt[game.myID]
+            return Xt[game.myID]
         }
         ,
         Players.amIAlive = function() {
@@ -29982,20 +29982,20 @@ function loadGameCode() {
         ,
         Players.getIDs = function() {
             var jt = {};
-            for (var Wt in Gt)
+            for (var Wt in Xt)
                 jt[Wt] = !0;
             return jt
         }
         ,
         Players.getByName = function(jt) {
-            for (var Wt in Gt)
-                if (Gt[Wt].name === jt)
-                    return Gt[Wt];
+            for (var Wt in Xt)
+                if (Xt[Wt].name === jt)
+                    return Xt[Wt];
             return null
         }
         ,
         Players.network = function(jt, Wt) {
-            var zt = Gt[Wt.id];
+            var zt = Xt[Wt.id];
             null != zt && (jt === Network.SERVERPACKET.PLAYER_UPDATE || jt === Network.SERVERPACKET.PLAYER_FIRE || jt === Network.SERVERPACKET.EVENT_BOOST || jt === Network.SERVERPACKET.EVENT_BOUNCE ? zt.networkKey(jt, Wt) : jt === Network.SERVERPACKET.CHAT_SAY ? zt.sayBubble(Wt) : jt === Network.SERVERPACKET.PLAYER_RESPAWN ? zt.respawn(Wt) : jt === Network.SERVERPACKET.PLAYER_FLAG ? (Wt.id == game.myID && (game.myFlag = game.lastFlagSet,
             Tools.setSettings({
                 flag: game.lastFlagSet
@@ -30004,25 +30004,25 @@ function loadGameCode() {
         }
         ,
         Players.stealth = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && Wt.stealth(jt)
         }
         ,
         Players.leaveHorizon = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && Wt.leaveHorizon()
         }
         ,
         Players.updateBadges = function(jt) {
             for (var zt = Tools.clamp(jt.length, 0, 3), Vt = [], qt = 0, Wt; qt < zt; qt++)
-                null != (Wt = Gt[jt[qt].id]) && (Vt.push(Wt.id),
+                null != (Wt = Xt[jt[qt].id]) && (Vt.push(Wt.id),
                 Wt.state.badge != qt && (Wt.state.badge = qt,
                 Wt.changeBadge(Ht[qt])),
                 Wt.state.hasBadge || (Wt.state.hasBadge = !0,
                 Wt.render && (Wt.sprites.badge.visible = !0)));
             for (var Kt = 0; Kt < Yt.length; Kt++)
                 if (-1 == Vt.indexOf(Yt[Kt])) {
-                    if (null == (Wt = Gt[Yt[Kt]]))
+                    if (null == (Wt = Xt[Yt[Kt]]))
                         continue;
                     Wt.state.hasBadge && (Wt.state.hasBadge = !1,
                     Wt.sprites.badge.visible = !1)
@@ -30031,29 +30031,29 @@ function loadGameCode() {
         }
         ,
         Players.chat = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && UI.addChatLine(Wt, jt.text, 0)
         }
         ,
         Players.teamChat = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && UI.addChatLine(Wt, jt.text, 3)
         }
         ,
         Players.votemutePass = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && UI.chatVotemutePass(Wt)
         }
         ,
         Players.whisper = function(jt) {
             var Wt;
             if (jt.to == game.myID) {
-                if (null == (zt = Gt[jt.from]))
+                if (null == (zt = Xt[jt.from]))
                     return;
                 Wt = 2
             } else {
                 var zt;
-                if (null == (zt = Gt[jt.to]))
+                if (null == (zt = Xt[jt.to]))
                     return;
                 Wt = 1
             }
@@ -30062,7 +30062,7 @@ function loadGameCode() {
         ,
         Players.impact = function(jt) {
             for (var Wt = 0, zt; Wt < jt.players.length; Wt++)
-                zt = Gt[jt.players[Wt].id],
+                zt = Xt[jt.players[Wt].id],
                 null != zt && zt.impact(jt.type, new Vector(jt.posX,jt.posY), jt.players[Wt].health, jt.players[Wt].healthRegen)
         }
         ,
@@ -30071,23 +30071,23 @@ function loadGameCode() {
         }
         ,
         Players.updateLevel = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && Wt.updateLevel(jt)
         }
         ,
         Players.reteam = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && Wt.reteam(jt.team)
         }
         ,
         Players.kill = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             if (null != Wt)
                 if (0 != jt.killer || 0 != jt.posX || 0 != jt.posY) {
                     if (Wt.kill(jt),
                     Wt.me()) {
                         UI.visibilityHUD(!1);
-                        var zt = Gt[jt.killer];
+                        var zt = Xt[jt.killer];
                         null != zt && UI.killedBy(zt),
                         UI.showSpectator("<div onclick=\"Network.spectateNext()\" class=\"spectate\">ENTER SPECTATOR MODE</div>")
                     } else
@@ -30107,40 +30107,40 @@ function loadGameCode() {
         Players.destroy = function(jt) {
             jt == game.spectatingID && ($("#spectator-tag").html("Spectating"),
             Games.spectatorSwitch(jt));
-            var Wt = Gt[jt];
+            var Wt = Xt[jt];
             null != Wt && (Wt.destroy(!0),
-            delete Gt[jt])
+            delete Xt[jt])
         }
         ,
         Players.changeType = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && Wt.changeType(jt)
         }
         ,
         Players.count = function() {
             var Wt = 0, zt = 0, jt;
-            for (jt in Gt)
+            for (jt in Xt)
                 Wt++,
-                Gt[jt].culled && zt++;
+                Xt[jt].culled && zt++;
             return [Wt - zt, Wt]
         }
         ,
         Players.wipe = function() {
-            for (var jt in Gt)
-                Gt[jt].destroy(!0),
-                delete Gt[jt]
+            for (var jt in Xt)
+                Xt[jt].destroy(!0),
+                delete Xt[jt]
         }
     }();
-    class Xt {
-        constructor(Gt) {
-            this.id = Gt.id,
-            this.type = Gt.type,
-            this.pos = new Vector(Gt.posX,Gt.posY),
+    class Gt {
+        constructor(Xt) {
+            this.id = Xt.id,
+            this.type = Xt.type,
+            this.pos = new Vector(Xt.posX,Xt.posY),
             this.spriteRot = 0,
             this.missile = 1 == this.type || 2 == this.type || 3 == this.type || 5 == this.type || 6 == this.type || 7 == this.type,
-            this.missile && Gt.c !== Network.SERVERPACKET.MOB_UPDATE_STATIONARY ? (this.speed = new Vector(Gt.speedX,Gt.speedY),
-            this.accel = new Vector(Gt.accelX,Gt.accelY),
-            this.maxSpeed = Gt.maxSpeed,
+            this.missile && Xt.c !== Network.SERVERPACKET.MOB_UPDATE_STATIONARY ? (this.speed = new Vector(Xt.speedX,Xt.speedY),
+            this.accel = new Vector(Xt.accelX,Xt.accelY),
+            this.maxSpeed = Xt.maxSpeed,
             this.exhaust = config.mobs[this.type].exhaust,
             this.lastAccelX = 0,
             this.lastAccelY = 0,
@@ -30211,11 +30211,11 @@ function loadGameCode() {
             case 4:
             case 8:
             case 9:
-                var Gt = "crateUpgrade";
-                8 == this.type ? Gt = "crateShield" : 9 == this.type && (Gt = "crateRampage"),
+                var Xt = "crateUpgrade";
+                8 == this.type ? Xt = "crateShield" : 9 == this.type && (Xt = "crateRampage"),
                 this.state.baseScale = .33,
                 this.state.baseScaleShadow = .33 * (2.4 / config.shadowScaling),
-                this.sprites.sprite = Textures.init(Gt, {
+                this.sprites.sprite = Textures.init(Xt, {
                     scale: this.state.baseScale
                 }),
                 this.sprites.shadow = Textures.init("crateShadow", {
@@ -30223,11 +30223,11 @@ function loadGameCode() {
                 });
             }
         }
-        despawn(Gt) {
+        despawn(Xt) {
             return 4 == this.type || 8 == this.type || 9 == this.type ? (this.state.inactive = !0,
             this.state.despawnTicker = 0,
-            this.state.despawnType = Gt,
-            void (1 == Gt && 4 != this.type && Sound.powerup(this.type, this.pos))) : void (this.state.inactive = !0,
+            this.state.despawnType = Xt,
+            void (1 == Xt && 4 != this.type && Sound.powerup(this.type, this.pos))) : void (this.state.inactive = !0,
             this.state.despawnTicker = 0,
             this.sprites.thruster.renderable = !1,
             this.sprites.thrusterGlow.renderable = !1,
@@ -30236,7 +30236,7 @@ function loadGameCode() {
             this.accel.y = 0,
             this.missile && Sound.updateThruster(1, this, !1))
         }
-        destroy(Gt) {
+        destroy(Xt) {
             switch (this.type) {
             case 1:
             case 2:
@@ -30261,36 +30261,36 @@ function loadGameCode() {
                 game.graphics.layers.crates.removeChild(this.sprites.sprite),
                 game.graphics.layers.shadows.removeChild(this.sprites.shadow);
             }
-            Gt.c === Network.SERVERPACKET.MOB_DESPAWN_COORDS && (Mobs.explosion(this.pos, Gt.type),
+            Xt.c === Network.SERVERPACKET.MOB_DESPAWN_COORDS && (Mobs.explosion(this.pos, Xt.type),
             this.missile && Sound.updateThruster(1, this, !1))
         }
-        network(Gt) {
+        network(Xt) {
             this.lastPacket = game.timeNetwork,
-            Gt.c === Network.SERVERPACKET.MOB_UPDATE && (this.reducedFactor = Tools.reducedFactor()),
-            this.pos.x = Gt.posX,
-            this.pos.y = Gt.posY,
-            null != Gt.speedX && (this.speed.x = Gt.speedX,
-            this.speed.y = Gt.speedY),
-            null != Gt.accelX && (this.accel.x = Gt.accelX,
-            this.accel.y = Gt.accelY)
+            Xt.c === Network.SERVERPACKET.MOB_UPDATE && (this.reducedFactor = Tools.reducedFactor()),
+            this.pos.x = Xt.posX,
+            this.pos.y = Xt.posY,
+            null != Xt.speedX && (this.speed.x = Xt.speedX,
+            this.speed.y = Xt.speedY),
+            null != Xt.accelX && (this.accel.x = Xt.accelX,
+            this.accel.y = Xt.accelY)
         }
-        visible(Gt) {
-            Gt == this.visibility && Gt != this.culled || (this.sprites.sprite.visible = Gt,
-            this.sprites.shadow.visible = Gt,
-            4 != this.type && 8 != this.type && 9 != this.type && (this.sprites.thruster.visible = Gt,
-            this.sprites.thrusterGlow.visible = Gt),
-            this.visibility = Gt)
+        visible(Xt) {
+            Xt == this.visibility && Xt != this.culled || (this.sprites.sprite.visible = Xt,
+            this.sprites.shadow.visible = Xt,
+            4 != this.type && 8 != this.type && 9 != this.type && (this.sprites.thruster.visible = Xt,
+            this.sprites.thrusterGlow.visible = Xt),
+            this.visibility = Xt)
         }
         visibilityUpdate() {
             this.culled = !Graphics.inScreen(this.pos, 128),
             this.visible(!this.culled)
         }
-        update(Gt) {
+        update(Xt) {
             if (this.visibilityUpdate(),
-            !(!1 !== this.reducedFactor && (Gt -= this.reducedFactor,
+            !(!1 !== this.reducedFactor && (Xt -= this.reducedFactor,
             this.reducedFactor = !1,
-            0 >= Gt))) {
-                var Wt = .51 < Gt ? Math.round(Gt) : 1, zt = Gt / Wt, Yt, Ht, jt;
+            0 >= Xt))) {
+                var Wt = .51 < Xt ? Math.round(Xt) : 1, zt = Xt / Wt, Yt, Ht, jt;
                 for (Yt = 0; Yt < Wt; Yt++)
                     if (this.stationary)
                         this.clientCalcs(zt);
@@ -30314,9 +30314,9 @@ function loadGameCode() {
                 this.state.inactive && 0 < this.sprites.sprite.alpha && (this.sprites.sprite.alpha -= 0.2)
             }
         }
-        clientCalcs(Gt) {
+        clientCalcs(Xt) {
             if (!this.forDeletion)
-                switch (this.state.luminosity -= .075 * Gt,
+                switch (this.state.luminosity -= .075 * Xt,
                 0 > this.state.luminosity && (this.state.luminosity = 0),
                 this.type) {
                 case 1:
@@ -30327,7 +30327,7 @@ function loadGameCode() {
                 case 7:
                     var Yt = 1;
                     if (this.state.inactive) {
-                        if (this.state.despawnTicker += .01 * Gt,
+                        if (this.state.despawnTicker += .01 * Xt,
                         .75 < this.state.despawnTicker,
                         1 < this.state.despawnTicker)
                             return void (this.forDeletion = !0);
@@ -30336,14 +30336,14 @@ function loadGameCode() {
                     if (!this.culled && .3 < Yt) {
                         var Ht = this.speed.angle() + Math.PI;
                         Ht - this.spriteRot >= Math.PI ? this.spriteRot += 2 * Math.PI : this.spriteRot - Ht > Math.PI && (this.spriteRot -= 2 * Math.PI),
-                        this.spriteRot = Tools.converge(this.spriteRot, Ht, .1 * Gt),
+                        this.spriteRot = Tools.converge(this.spriteRot, Ht, .1 * Xt),
                         Particles.missileSmoke(this, this.exhaust, Yt)
                     }
                     break;
                 case 4:
                 case 8:
                 case 9:
-                    if (this.state.inactive && (this.state.despawnTicker += .05 * Gt,
+                    if (this.state.inactive && (this.state.despawnTicker += .05 * Xt,
                     1 < this.state.despawnTicker))
                         return void (this.forDeletion = !0);
                 }
@@ -30378,39 +30378,39 @@ function loadGameCode() {
         }
     }
     !function() {
-        var Gt = {}
+        var Xt = {}
           , Yt = []
           , Ht = {};
         Mobs.add = function(jt, Wt) {
-            Gt[jt.id] = new Xt(jt),
-            Wt && Gt[jt.id].network(jt)
+            Xt[jt.id] = new Gt(jt),
+            Wt && Xt[jt.id].network(jt)
         }
         ,
         Mobs.get = function(jt) {
-            return Gt[jt]
+            return Xt[jt]
         }
         ,
         Mobs.update = function() {
             var jt, Wt;
-            for (jt in Gt)
-                (Wt = Gt[jt]).update(game.timeFactor),
+            for (jt in Xt)
+                (Wt = Xt[jt]).update(game.timeFactor),
                 Wt.forDeletion ? Mobs.destroy(Wt) : Wt.updateGraphics(game.timeFactor)
         }
         ,
         Mobs.network = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null == Wt ? Mobs.add(jt, !0) : Wt.network(jt)
         }
         ,
         Mobs.despawn = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && Wt.despawn(jt.type)
         }
         ,
         Mobs.destroy = function(jt) {
-            var Wt = Gt[jt.id];
+            var Wt = Xt[jt.id];
             null != Wt && (Wt.destroy(jt),
-            delete Gt[jt.id])
+            delete Xt[jt.id])
         }
         ,
         Mobs.explosion = function(jt, Wt) {
@@ -30420,16 +30420,16 @@ function loadGameCode() {
         ,
         Mobs.count = function() {
             var Wt = 0, zt = 0, jt;
-            for (jt in Gt)
+            for (jt in Xt)
                 Wt++,
-                Gt[jt].culled && zt++;
+                Xt[jt].culled && zt++;
             return [Wt - zt, Wt]
         }
         ,
         Mobs.wipe = function() {
-            for (var jt in Gt)
-                Gt[jt].destroy({}),
-                delete Gt[jt]
+            for (var jt in Xt)
+                Xt[jt].destroy({}),
+                delete Xt[jt]
         }
         ,
         Mobs.countDoodads = function() {
@@ -30482,7 +30482,7 @@ function loadGameCode() {
         }
     }(),
     function() {
-        class Gt {
+        class Xt {
             constructor(jt, Wt, zt, Vt) {
                 this.maxParticles = Wt,
                 this.container = new PIXI.Container,
@@ -30690,9 +30690,9 @@ function loadGameCode() {
         var Yt = {};
         Math.PI,
         Particles.setup = function() {
-            Yt.smoke = new Gt(game.graphics.layers.smoke,2e3),
-            Yt.shadows = new Gt(game.graphics.layers.shadows,2e3,null,!0),
-            Yt.explosions = new Gt(game.graphics.layers.explosions,2e3)
+            Yt.smoke = new Xt(game.graphics.layers.smoke,2e3),
+            Yt.shadows = new Xt(game.graphics.layers.shadows,2e3,null,!0),
+            Yt.explosions = new Xt(game.graphics.layers.explosions,2e3)
         }
         ,
         Particles.update = function() {
@@ -30822,7 +30822,7 @@ function loadGameCode() {
         Particles.PTYPE = Ht
     }(),
     function() {
-        var Gt = {}
+        var Xt = {}
           , Yt = {}
           , Ht = null
           , jt = !1
@@ -31007,10 +31007,10 @@ function loadGameCode() {
             On.sprite.position.set(game.screenX - config.minimapPaddingX - config.minimapSize * ((16384 - On.x) / 32768), game.screenY - config.minimapPaddingY - config.minimapSize / 2 * ((8192 - On.y) / 16384))
         };
         UI.wipeAllMinimapMobs = function() {
-            for (var On in Gt)
-                game.graphics.layers.ui1.removeChild(Gt[On].sprite),
-                Gt[On].sprite.destroy(),
-                delete Gt[On]
+            for (var On in Xt)
+                game.graphics.layers.ui1.removeChild(Xt[On].sprite),
+                Xt[On].sprite.destroy(),
+                delete Xt[On]
         }
         ,
         UI.showSpectator = function(On) {
@@ -31046,24 +31046,24 @@ function loadGameCode() {
         }
         ,
         UI.changeMinimapTeam = function(On, Ln) {
-            if (null != Gt[On] && null != Gt[On].sprite) {
+            if (null != Xt[On] && null != Xt[On].sprite) {
                 var kn = 1 == Ln ? "minimapBlue" : "minimapMob";
-                Gt[On].sprite.texture = Textures.getNamed(kn)
+                Xt[On].sprite.texture = Textures.getNamed(kn)
             }
         }
         ,
         UI.getMinimapMobs = function() {
-            return Gt
+            return Xt
         }
         ,
         UI.scoreboardUpdate = function(On, Ln, kn) {
-            for (var Nn in Gt)
-                game.graphics.layers.ui1.removeChild(Gt[Nn].sprite),
-                game.graphics.layers.ui2.removeChild(Gt[Nn].sprite),
-                game.graphics.layers.ui3.removeChild(Gt[Nn].sprite),
-                Gt[Nn].sprite.destroy(),
-                delete Gt[Nn];
-            var Yn = 0, Hn = "", jn = {}, Wn = !1, zn = 0, Vn = {}, qn = "", Kn = "", Zn = "", Qn = 0, Fn, Bn, Un, Xn, Gn;
+            for (var Nn in Xt)
+                game.graphics.layers.ui1.removeChild(Xt[Nn].sprite),
+                game.graphics.layers.ui2.removeChild(Xt[Nn].sprite),
+                game.graphics.layers.ui3.removeChild(Xt[Nn].sprite),
+                Xt[Nn].sprite.destroy(),
+                delete Xt[Nn];
+            var Yn = 0, Hn = "", jn = {}, Wn = !1, zn = 0, Vn = {}, qn = "", Kn = "", Zn = "", Qn = 0, Fn, Bn, Un, Gn, Xn;
             for (Qn = 0; Qn < Ln.length; Qn++)
                 Fn = Players.get(Ln[Qn].id),
                 null != Fn && (Vn = Tools.decodeMinimapCoords(Ln[Qn].x, Ln[Qn].y),
@@ -31072,23 +31072,23 @@ function loadGameCode() {
                 Fn.lowResPos.y = Vn.y,
                 Fn.removedFromMap = 0 == Ln[Qn].x && 0 == Ln[Qn].y,
                 Ln[Qn].id == game.myID ? zn = Qn + 1 : (0 != Ln[Qn].x || 0 != Ln[Qn].y) && (jn[Fn.id] = !0,
-                null == Gt[Ln[Qn].id] ? (Zn = "minimapMob",
+                null == Xt[Ln[Qn].id] ? (Zn = "minimapMob",
                 2 == game.gameType && 1 == Fn.team && (Zn = "minimapBlue"),
                 0 == Qn && (Zn = "minimap1"),
                 1 == Qn && (Zn = "minimap2"),
                 2 == Qn && (Zn = "minimap3"),
                 SWAM.targetedPlayer == Fn.id && (Zn = "minimapTarget"),
-                Gt[Ln[Qn].id] = {
+                Xt[Ln[Qn].id] = {
                     sprite: Textures.init(Zn),
                     x: Vn.x,
                     y: Vn.y
-                }) : (Gt[Ln[Qn].id].x = Vn.x,
-                Gt[Ln[Qn].id].y = Vn.y),
-                Sn(Gt[Ln[Qn].id])));
-            for (var Jn in Gt)
-                null == jn[Jn] && (game.graphics.layers.ui1.removeChild(Gt[Jn].sprite),
-                Gt[Jn].sprite.destroy(),
-                delete Gt[Jn]);
+                }) : (Xt[Ln[Qn].id].x = Vn.x,
+                Xt[Ln[Qn].id].y = Vn.y),
+                Sn(Xt[Ln[Qn].id])));
+            for (var Jn in Xt)
+                null == jn[Jn] && (game.graphics.layers.ui1.removeChild(Xt[Jn].sprite),
+                Xt[Jn].sprite.destroy(),
+                delete Xt[Jn]);
             if (!SWAM.Settings.ui.useExtendedScoreboard && 0 != zn) {
                 for (kn = kn ? Tools.clamp(kn, 1, On.length) : On.length,
                 Qn = 0; Qn < kn && !Wn; Qn++)
@@ -31096,20 +31096,20 @@ function loadGameCode() {
                     null == Fn || (Yn++,
                     Bn = 1 == Yn ? "<span class=\"badge scoreboard gold\"></span>" : 2 == Yn ? "<span class=\"badge scoreboard silver\"></span>" : 3 == Yn ? "<span class=\"badge scoreboard bronze\"></span>" : Yn + ".",
                     Un = Fn.me() ? " sel" : "",
-                    Xn = On[Qn].score,
-                    Gn = On[Qn].level,
+                    Gn = On[Qn].score,
+                    Xn = On[Qn].level,
                     zn > kn && Yn == kn - 1 && (Hn += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
                     Fn = Players.get(game.myID),
                     Bn = zn + ".",
-                    Xn = game.myScore,
-                    Gn = game.myLevel,
+                    Gn = game.myScore,
+                    Xn = game.myLevel,
                     Un = " sel",
                     Wn = !0),
                     qn = "",
                     2 == game.gameType && (qn = " team-" + Fn.team),
                     Kn = "",
                     4 == (Bn + "").length && (Kn = " bigger"),
-                    Hn += "<div class=\"line" + Un + "\" data-playerid=\"" + Fn.id + "\"><span class=\"place" + Kn + "\">" + Bn + "</span><span class=\"flag small flag-" + Fn.flag + "\"></span><span class=\"nick" + qn + "\">" + (Fn.removedFromMap ? UI.escapeHTML(Fn.name).strike() : UI.escapeHTML(Fn.name)) + "</span>" + (0 == Gn ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + Gn + "</span></span>") + "<span class=\"score\">" + En(Xn) + "</span></div>");
+                    Hn += "<div class=\"line" + Un + "\" data-playerid=\"" + Fn.id + "\"><span class=\"place" + Kn + "\">" + Bn + "</span><span class=\"flag small flag-" + Fn.flag + "\"></span><span class=\"nick" + qn + "\">" + (Fn.removedFromMap ? UI.escapeHTML(Fn.name).strike() : UI.escapeHTML(Fn.name)) + "</span>" + (0 == Xn ? "" : "<span class=\"holder\">&nbsp;<span class=\"rank\">" + Xn + "</span></span>") + "<span class=\"score\">" + En(Gn) + "</span></div>");
                 $("#scoreboard").html(Hn)
             }
         }
@@ -31197,17 +31197,17 @@ function loadGameCode() {
                 } else
                     Bn = "<div id=\"chat-" + Wt + "\" class=\"line\"><span class=\"tag team\">TEAM</span><span class=\"playersel\" data-playerid=\"" + On.id + "\"><span class=\"nick blue\">" + UI.escapeHTML(On.name) + "</span></span><span class=\"text blue\">" + Ln + "</span></div>",
                     Vt = -1;
-                var Xn = "#chat-" + (Wt - config.maxChatLines);
-                if ($(Xn).length && $(Xn).remove(),
+                var Gn = "#chat-" + (Wt - config.maxChatLines);
+                if ($(Gn).length && $(Gn).remove(),
                 $("#chatlines").append(Bn),
                 Kt)
                     Zt++,
                     $("#chatunreadlines").html(Zt),
                     1 == Zt && UI.show("#chatunreadlines", !0);
                 else {
-                    var Gn = $("#chatbox");
-                    1 != kn && 2 != kn && On.id != game.myID && Gn.is(":hover") || (Gn.perfectScrollbar("update"),
-                    Gn.scrollTop(Gn[0].scrollHeight))
+                    var Xn = $("#chatbox");
+                    1 != kn && 2 != kn && On.id != game.myID && Xn.is(":hover") || (Xn.perfectScrollbar("update"),
+                    Xn.scrollTop(Xn[0].scrollHeight))
                 }
             }
         }
@@ -31288,8 +31288,8 @@ function loadGameCode() {
             for (var On in game.graphics.gui.minimap.scale.set(config.minimapSize / 512),
             game.graphics.gui.minimap.position.set(game.screenX - config.minimapPaddingX, game.screenY - config.minimapPaddingY),
             game.graphics.gui.minimap_box.scale.set(.03 + 2 * config.minimapSize * (game.screenX / game.scale / 32768) / 64, .03 + config.minimapSize * (game.screenY / game.scale / 16384) / 64),
-            Gt)
-                Sn(Gt[On]);
+            Xt)
+                Sn(Xt[On]);
             Games.update(!0)
         }
         ,
@@ -31611,12 +31611,12 @@ function loadGameCode() {
                 On.c == Network.SERVERPACKET.SCORE_DETAILED_BTR ? Nn = [["name", "&nbsp;"], ["wins", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]] : On.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (Nn = [["name", "&nbsp;"], ["captures", "&nbsp;"], ["kills", "Kills"], ["deaths", "Deaths"], ["bounty", "Bounty"], ["rank", "Level"], ["ping", "Ping"]]);
                 for (var Fn = "", Bn = 0; Bn < Nn.length; Bn++)
                     Fn += "<div class=\"" + Nn[Bn][0] + "\">" + Nn[Bn][1] + "</div>";
-                for (var Yn = "", Hn = "", jn = -1, Wn = -1, zn = 0, Un, Xn, Gn; zn < Ln.length; zn++)
-                    null != (Un = Players.get(Ln[zn].id)) && (Xn = 2 >= zn ? "&nbsp;<div class=\"badge detail " + kn[zn] + "\"></div>" : zn + 1 + ".",
-                    Gn = Un.me() ? " sel" : "",
+                for (var Yn = "", Hn = "", jn = -1, Wn = -1, zn = 0, Un, Gn, Xn; zn < Ln.length; zn++)
+                    null != (Un = Players.get(Ln[zn].id)) && (Gn = 2 >= zn ? "&nbsp;<div class=\"badge detail " + kn[zn] + "\"></div>" : zn + 1 + ".",
+                    Xn = Un.me() ? " sel" : "",
                     Yn = On.c == Network.SERVERPACKET.SCORE_DETAILED_CTF ? " team-" + Un.team : On.c != Network.SERVERPACKET.SCORE_DETAILED_BTR || Ln[zn].alive ? "" : " inactive",
-                    Hn += "<div class=\"item" + Gn + "\" data-playerid=\"" + Un.id + "\"><div class=\"name\"><div class=\"position\">",
-                    Hn += Xn + "</div><div class=\"flag small flag-" + Un.flag + "\"></div>",
+                    Hn += "<div class=\"item" + Xn + "\" data-playerid=\"" + Un.id + "\"><div class=\"name\"><div class=\"position\">",
+                    Hn += Gn + "</div><div class=\"flag small flag-" + Un.flag + "\"></div>",
                     Hn += "<div class=\"player" + Yn + "\">" + (Un.removedFromMap ? UI.escapeHTML(Un.name).strike() : UI.escapeHTML(Un.name)) + "</div></div>",
                     On.c == Network.SERVERPACKET.SCORE_DETAILED_BTR && (0 == Ln[zn].wins ? Hn += "<div class=\"wins\">&nbsp;</div>" : Hn += "<div class=\"wins\">" + Ln[zn].wins + "<div class=\"wins-container\">&nbsp;<div class=\"wins-icon\"></div></div></div>"),
                     On.c == Network.SERVERPACKET.SCORE_DETAILED_CTF && (0 == Ln[zn].captures ? Hn += "<div class=\"captures\">&nbsp;</div>" : Hn += "<div class=\"captures\">" + Ln[zn].captures + "<div class=\"captures-container\">&nbsp;<div class=\"captures-icon\"></div></div></div>"),
@@ -31652,19 +31652,19 @@ function loadGameCode() {
         }
         ,
         UI.popMenu = function(On, Ln) {
-            function kn(Un, Xn) {
+            function kn(Un, Gn) {
                 var Yn = {}
                   , Hn = {}
                   , jn = {}
                   , Wn = {};
-                return jn.x = Xn.outerWidth(),
-                jn.y = Xn.outerHeight(),
+                return jn.x = Gn.outerWidth(),
+                jn.y = Gn.outerHeight(),
                 Yn.x = Un.pageX,
                 Yn.y = Un.pageY,
                 Wn = $(On.target).parent().offset(),
                 Hn.x = Wn.left + jn.x > $(window).width() + $(window).scrollLeft() ? $(window).width() - jn.x : Wn.left,
                 Hn.y = Yn.y + jn.y > $(window).height() + $(window).scrollTop() ? Yn.y - jn.y : Yn.y,
-                Xn.css({
+                Gn.css({
                     top: Hn.y,
                     left: Hn.x,
                     zIndex: 1e3
@@ -31689,8 +31689,8 @@ function loadGameCode() {
                 $t || (Bn.display = "block",
                 $t = !0);
                 let Un = null == Yt[Fn.id] ? "Ignore" : "Unignore"
-                  , Xn = "<div class=\"header\">" + UI.escapeHTML(Fn.name) + "</div><div class=\"item\" onclick=\"UI.contextWhisper()\">Whisper</div><div class=\"item\" onclick=\"UI.context" + Un + "()\">" + Un + "</div><div class=\"item\" onclick=\"UI.contextVotemute()\">Vote mute</div>";
-                return $("#contextmenu").html(Xn).css(Bn),
+                  , Gn = "<div class=\"header\">" + UI.escapeHTML(Fn.name) + "</div><div class=\"item\" onclick=\"UI.contextWhisper()\">Whisper</div><div class=\"item\" onclick=\"UI.context" + Un + "()\">" + Un + "</div><div class=\"item\" onclick=\"UI.contextVotemute()\">Vote mute</div>";
+                return $("#contextmenu").html(Gn).css(Bn),
                 kn(On, $("#contextmenu")),
                 en = Fn.id,
                 On.stopPropagation(),
@@ -31796,8 +31796,8 @@ function loadGameCode() {
                 an && on - 100 == Bn && UI.popTooltip(null, 100 + Bn));
             if (null != kn) {
                 if (0 != kn) {
-                    var Xn = "+" + Math.round(100 * (config.upgrades[Fn[kn]].factor[yn[Fn[kn]]] - 1)) + "% " + ["", "Speed", "Defense", "Energy Regen", "Missile Speed"][kn];
-                    UI.showMessage("information", "<span class=\"info\">UPGRADE</span>" + Xn, 3e3),
+                    var Gn = "+" + Math.round(100 * (config.upgrades[Fn[kn]].factor[yn[Fn[kn]]] - 1)) + "% " + ["", "Speed", "Defense", "Energy Regen", "Missile Speed"][kn];
+                    UI.showMessage("information", "<span class=\"info\">UPGRADE</span>" + Gn, 3e3),
                     Sound.playerUpgrade()
                 }
                 gn.upgrades = Ln,
@@ -31937,20 +31937,20 @@ function loadGameCode() {
                 var Bn = xn[kn]
                   , Un = ["", "Agility", "Defense", "Regen", "Damage"];
                 Fn += "<div class=\"header\">" + Bn[0] + "</div>";
-                for (var Xn = 1; 4 >= Xn; Xn++)
-                    Fn += "<div class=\"item\"><div class=\"name\">" + Un[Xn] + "</div><div class=\"val\">&nbsp;<div class=\"bar\"><div class=\"progress\" style=\"width: " + Bn[Xn] + "%\"></div></div></div></div>";
+                for (var Gn = 1; 4 >= Gn; Gn++)
+                    Fn += "<div class=\"item\"><div class=\"name\">" + Un[Gn] + "</div><div class=\"val\">&nbsp;<div class=\"bar\"><div class=\"progress\" style=\"width: " + Bn[Gn] + "%\"></div></div></div></div>";
                 Fn += "<div class=\"item\"><div class=\"special\">" + Bn[5] + "</div><div class=\"desc\">" + Bn[6] + "</div></div>",
                 Fn += "<div class=\"item\"><div class=\"clickto\">Click to respawn</div></div>"
             } else {
-                var Gn = ["", "speed", "defense", "energy", "missile"]
+                var Xn = ["", "speed", "defense", "energy", "missile"]
                   , Yn = kn - 100
-                  , Hn = yn[Gn[Yn]]
-                  , jn = "+" + Math.round(100 * (config.upgrades[Gn[Yn]].factor[yn[Gn[Yn]]] - 1)) + "%";
+                  , Hn = yn[Xn[Yn]]
+                  , jn = "+" + Math.round(100 * (config.upgrades[Xn[Yn]].factor[yn[Xn[Yn]]] - 1)) + "%";
                 (Fn += "<div class=\"header\">" + xn[kn][0] + "</div>",
-                Fn += "<div class=\"item\"><div class=\"level\">" + Hn + " / " + (config.upgrades[Gn[Yn]].factor.length - 1) + "</div>",
+                Fn += "<div class=\"item\"><div class=\"level\">" + Hn + " / " + (config.upgrades[Xn[Yn]].factor.length - 1) + "</div>",
                 0 < Hn && (Fn += "<div class=\"percent\">" + jn + "</div></div>"),
-                Hn < config.upgrades[Gn[Yn]].factor.length - 1) ? (Fn += "<div class=\"item smaller\"><div class=\"requires\">Requires 1 upgrade point</div></div>",
-                Fn += "<div class=\"item smaller\"><div class=\"clickto\">Click to upgrade to " + (jn = "+" + Math.round(100 * (config.upgrades[Gn[Yn]].factor[yn[Gn[Yn]] + 1] - 1)) + "%") + "</div></div>") : Fn += "<div class=\"item smaller\"><div class=\"clickto\">Max upgrade reached</div></div>"
+                Hn < config.upgrades[Xn[Yn]].factor.length - 1) ? (Fn += "<div class=\"item smaller\"><div class=\"requires\">Requires 1 upgrade point</div></div>",
+                Fn += "<div class=\"item smaller\"><div class=\"clickto\">Click to upgrade to " + (jn = "+" + Math.round(100 * (config.upgrades[Xn[Yn]].factor[yn[Xn[Yn]] + 1] - 1)) + "%") + "</div></div>") : Fn += "<div class=\"item smaller\"><div class=\"clickto\">Max upgrade reached</div></div>"
             }
             Fn += "<div class=\"arrow\"></div>",
             null == Ln && $("#tooltip").css({
@@ -32136,7 +32136,7 @@ function loadGameCode() {
         }
     }(),
     function() {
-        var Gt = !1
+        var Xt = !1
           , Yt = !1
           , Ht = !1
           , jt = ["", "Free For All", "Capture The Flag", "Battle Royale"]
@@ -32383,7 +32383,7 @@ function loadGameCode() {
         ,
         Games.closeDropdowns = function() {
             Yt && Games.updateType(!1),
-            Gt && Games.updateRegion(!1)
+            Xt && Games.updateRegion(!1)
         }
         ,
         Games.updateRegion = function(En, wn) {
@@ -32391,9 +32391,9 @@ function loadGameCode() {
               , Pn = null;
             if (Jt && !tn) {
                 if (null != wn && (wn.stopPropagation(),
-                Gt || Sound.UIClick()),
+                Xt || Sound.UIClick()),
                 En && UI.closeLogin(),
-                null == En && (En = Gt),
+                null == En && (En = Xt),
                 En) {
                     Yt && Games.updateType(!1),
                     Cn += "<div class=\"item\"><div class=\"region header\">REGION</div><div class=\"players header\">PLAYERS</div><div class=\"ping header\">PING</div><div class=\"clear\"></div></div>";
@@ -32426,7 +32426,7 @@ function loadGameCode() {
                     $("#playregion").addClass("hoverable");
                 $("#playregion").html(Cn),
                 $("#playregion").css(Pn),
-                Gt = En
+                Xt = En
             }
         }
         ;
@@ -32453,7 +32453,7 @@ function loadGameCode() {
                 En && UI.closeLogin(),
                 null == En && (En = Yt),
                 En) {
-                    if (Gt && Games.updateRegion(!1),
+                    if (Xt && Games.updateRegion(!1),
                     Cn += "<div class=\"item\"><div class=\"gametype header\">GAME</div><div class=\"players header\">PLAYERS</div><div class=\"clear\"></div></div>",
                     null == (Dn = gn()))
                         return;
@@ -32941,22 +32941,22 @@ function loadGameCode() {
               , Bn = new Vector(Cn.x + game.halfScreenX / game.scale + 64,Cn.y + game.halfScreenY / game.scale + 64);
             if (Tools.distance(En.x, En.y, kn.x, kn.y) > wn || Tools.distance(En.x, En.y, Nn.x, Nn.y) > wn || Tools.distance(En.x, En.y, Fn.x, Fn.y) > wn || Tools.distance(En.x, En.y, Bn.x, Bn.y) > wn)
                 for (var Un = -Pn; Un <= Pn; Un++)
-                    for (var Xn = -An; Xn <= An; Xn++)
+                    for (var Gn = -An; Gn <= An; Gn++)
                         if (Mn = 64 * (Math.floor(Cn.x / 64) + .5) + 64 * Un,
-                        Rn = 64 * (Math.floor(Cn.y / 64) + .5) + 64 * Xn,
+                        Rn = 64 * (Math.floor(Cn.y / 64) + .5) + 64 * Gn,
                         !((On = Tools.distance(Mn, Rn, En.x, En.y)) < wn) && (In = Mn + "_" + Rn,
                         Dn[In] = !0,
                         null == an[In])) {
-                            var Gn = Textures.sprite("hotsmoke_" + Tools.randInt(1, 4));
-                            Gn.scale.set(Tools.rand(1.5, 2.5)),
-                            Gn.anchor.set(.5, .5),
-                            Gn.position.set(Mn, Rn),
+                            var Xn = Textures.sprite("hotsmoke_" + Tools.randInt(1, 4));
+                            Xn.scale.set(Tools.rand(1.5, 2.5)),
+                            Xn.anchor.set(.5, .5),
+                            Xn.position.set(Mn, Rn),
                             Ln = 1,
-                            .5 < Tools.rand(0, 1) && (Gn.blendMode = PIXI.BLEND_MODES.ADD,
+                            .5 < Tools.rand(0, 1) && (Xn.blendMode = PIXI.BLEND_MODES.ADD,
                             Ln = .5),
-                            game.graphics.layers.powerups.addChild(Gn),
+                            game.graphics.layers.powerups.addChild(Xn),
                             an[In] = {
-                                sprite: Gn,
+                                sprite: Xn,
                                 rotation: Tools.rand(0, 100),
                                 rotationSpeed: Tools.rand(-.0025, .0025),
                                 opacity: 0,
@@ -33008,7 +33008,7 @@ function loadGameCode() {
         }
     }(),
     window.loadSounds_Default = function() {
-        var Gt = {}
+        var Xt = {}
           , Yt = {}
           , Ht = {}
           , jt = 0
@@ -33075,7 +33075,7 @@ function loadGameCode() {
                         En[Cn] = fn[wn][Cn];
                 Yt[wn] = new Howl(En)
             }
-            Gt = new Howl(gn)
+            Xt = new Howl(gn)
         }
         ,
         Sound.toggle = function() {
@@ -33088,7 +33088,7 @@ function loadGameCode() {
         }
         ;
         var mn = function() {
-            config.settings.sound || Gt.stop()
+            config.settings.sound || Xt.stop()
         }
           , yn = function(En) {
             var wn = hn[En];
@@ -33197,7 +33197,7 @@ function loadGameCode() {
                         return;
                     var Rn = Yt[En]
                 } else
-                    Rn = Gt;
+                    Rn = Xt;
                 if (!(null != wn && .01 > wn)) {
                     var In = Rn.play(Mn ? void 0 : En);
                     if ("thruster" === En || "missile" === En || "chopper" === En) {
@@ -33216,7 +33216,7 @@ function loadGameCode() {
                         return;
                     var In = Yt[wn]
                 } else
-                    In = Gt;
+                    In = Xt;
                 null != Cn && In.volume(Cn, En),
                 null != Mn && In.fade(Mn[0], Mn[1], Mn[2], En, 4 == Mn.length || null),
                 null != An && In.rate(An, En),
@@ -33229,7 +33229,7 @@ function loadGameCode() {
                     return;
                 var Pn = Yt[wn]
             } else
-                Pn = Gt;
+                Pn = Xt;
             Pn.stop(En)
         };
         Sound.clearThruster = function(En) {
@@ -33323,7 +33323,7 @@ function loadGameCode() {
     }
     ,
     window.loadSounds_SWAM = function() {
-        var Gt = {}
+        var Xt = {}
           , Yt = {}
           , Ht = {}
           , jt = 0
@@ -33398,7 +33398,7 @@ function loadGameCode() {
                         En[Cn] = fn[wn][Cn];
                 Yt[wn] = new Howl(En)
             }
-            Gt = new Howl(gn)
+            Xt = new Howl(gn)
         }
         ,
         Sound.toggle = function() {
@@ -33411,7 +33411,7 @@ function loadGameCode() {
         }
         ;
         var mn = function() {
-            config.settings.sound || Gt.stop()
+            config.settings.sound || Xt.stop()
         }
           , yn = function(En) {
             var wn = hn[En];
@@ -33520,7 +33520,7 @@ function loadGameCode() {
                         return;
                     var Rn = Yt[En]
                 } else
-                    Rn = Gt;
+                    Rn = Xt;
                 if (!(null != wn && .01 > wn)) {
                     var In = Rn.play(Mn ? void 0 : En);
                     if ("thruster" === En || "missile" === En || "chopper" === En) {
@@ -33539,7 +33539,7 @@ function loadGameCode() {
                         return;
                     var In = Yt[wn]
                 } else
-                    In = Gt;
+                    In = Xt;
                 null != Cn && In.volume(Cn, En),
                 null != Mn && In.fade(Mn[0], Mn[1], Mn[2], En, 4 == Mn.length || null),
                 null != An && In.rate(An, En),
@@ -33552,7 +33552,7 @@ function loadGameCode() {
                     return;
                 var Pn = Yt[wn]
             } else
-                Pn = Gt;
+                Pn = Xt;
             Pn.stop(En)
         };
         Sound.clearThruster = function(En) {
@@ -33657,13 +33657,13 @@ function loadGameCode() {
         }
     }
 }
-jQuery.cachedScript = function(Bt, Xt) {
-    return Xt = $.extend(Xt || {}, {
+jQuery.cachedScript = function(Bt, Gt) {
+    return Gt = $.extend(Gt || {}, {
         dataType: "script",
         cache: !0,
         url: Bt
     }),
-    jQuery.ajax(Xt)
+    jQuery.ajax(Gt)
 }
 ,
 SWAM.dependencies = ["https://cdn.jsdelivr.net/npm/pixi-filters@2.5.0/dist/pixi-filters.js"];
@@ -33671,18 +33671,18 @@ function getURLRegEx(Bt) {
     return Bt = "undefined" == typeof Bt || Bt,
     /(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[\/?#]\S*)?/img
 }
-!function(Bt, Xt) {
+!function(Bt, Gt) {
     "use strict";
-    "function" == typeof define && define.amd ? define("stackframe", [], Xt) : "object" == typeof exports ? module.exports = Xt() : Bt.StackFrame = Xt()
+    "function" == typeof define && define.amd ? define("stackframe", [], Gt) : "object" == typeof exports ? module.exports = Gt() : Bt.StackFrame = Gt()
 }(this, function() {
     "use strict";
     function Bt(Qt) {
         return !isNaN(parseFloat(Qt)) && isFinite(Qt)
     }
-    function Xt(Qt) {
+    function Gt(Qt) {
         return Qt.charAt(0).toUpperCase() + Qt.substring(1)
     }
-    function Gt(Qt) {
+    function Xt(Qt) {
         return function() {
             return this[Qt]
         }
@@ -33690,7 +33690,7 @@ function getURLRegEx(Bt) {
     function Yt(Qt) {
         if (Qt instanceof Object)
             for (var Jt = 0; Jt < Vt.length; Jt++)
-                Qt.hasOwnProperty(Vt[Jt]) && void 0 !== Qt[Vt[Jt]] && this["set" + Xt(Vt[Jt])](Qt[Vt[Jt]])
+                Qt.hasOwnProperty(Vt[Jt]) && void 0 !== Qt[Vt[Jt]] && this["set" + Gt(Vt[Jt])](Qt[Vt[Jt]])
     }
     var Ht = ["isConstructor", "isEval", "isNative", "isToplevel"]
       , jt = ["columnNumber", "lineNumber"]
@@ -33727,15 +33727,15 @@ function getURLRegEx(Bt) {
         }
     };
     for (var qt = 0; qt < Ht.length; qt++)
-        Yt.prototype["get" + Xt(Ht[qt])] = Gt(Ht[qt]),
-        Yt.prototype["set" + Xt(Ht[qt])] = function(Qt) {
+        Yt.prototype["get" + Gt(Ht[qt])] = Xt(Ht[qt]),
+        Yt.prototype["set" + Gt(Ht[qt])] = function(Qt) {
             return function(Jt) {
                 this[Qt] = !!Jt
             }
         }(Ht[qt]);
     for (var Kt = 0; Kt < jt.length; Kt++)
-        Yt.prototype["get" + Xt(jt[Kt])] = Gt(jt[Kt]),
-        Yt.prototype["set" + Xt(jt[Kt])] = function(Qt) {
+        Yt.prototype["get" + Gt(jt[Kt])] = Xt(jt[Kt]),
+        Yt.prototype["set" + Gt(jt[Kt])] = function(Qt) {
             return function(Jt) {
                 if (!Bt(Jt))
                     throw new TypeError(Qt + " must be a Number");
@@ -33743,27 +33743,27 @@ function getURLRegEx(Bt) {
             }
         }(jt[Kt]);
     for (var Zt = 0; Zt < Wt.length; Zt++)
-        Yt.prototype["get" + Xt(Wt[Zt])] = Gt(Wt[Zt]),
-        Yt.prototype["set" + Xt(Wt[Zt])] = function(Qt) {
+        Yt.prototype["get" + Gt(Wt[Zt])] = Xt(Wt[Zt]),
+        Yt.prototype["set" + Gt(Wt[Zt])] = function(Qt) {
             return function(Jt) {
                 this[Qt] = Jt + ""
             }
         }(Wt[Zt]);
     return Yt
 }),
-function(Bt, Xt) {
+function(Bt, Gt) {
     "use strict";
-    "function" == typeof define && define.amd ? define("error-stack-parser", ["stackframe"], Xt) : "object" == typeof exports ? module.exports = Xt(require("stackframe")) : Bt.ErrorStackParser = Xt(Bt.StackFrame)
+    "function" == typeof define && define.amd ? define("error-stack-parser", ["stackframe"], Gt) : "object" == typeof exports ? module.exports = Gt(require("stackframe")) : Bt.ErrorStackParser = Gt(Bt.StackFrame)
 }(this, function(Bt) {
     "use strict";
-    var Xt = /(^|@)\S+\:\d+/
-      , Gt = /^\s*at .*(\S+\:\d+|\(native\))/m
+    var Gt = /(^|@)\S+\:\d+/
+      , Xt = /^\s*at .*(\S+\:\d+|\(native\))/m
       , Yt = /^(eval@)?(\[native code\])?$/;
     return {
         parse: function(Ht) {
             if ("undefined" != typeof Ht.stacktrace || "undefined" != typeof Ht["opera#sourceloc"])
                 return this.parseOpera(Ht);
-            if (Ht.stack && Ht.stack.match(Gt))
+            if (Ht.stack && Ht.stack.match(Xt))
                 return this.parseV8OrIE(Ht);
             if (Ht.stack)
                 return this.parseFFOrSafari(Ht);
@@ -33778,7 +33778,7 @@ function(Bt, Xt) {
         },
         parseV8OrIE: function(Ht) {
             var jt = Ht.stack.split("\n").filter(function(Wt) {
-                return !!Wt.match(Gt)
+                return !!Wt.match(Xt)
             }, this);
             return jt.map(function(Wt) {
                 -1 < Wt.indexOf("(eval ") && (Wt = Wt.replace(/eval code/g, "eval").replace(/(\(eval at [^\()]*)|(\)\,.*$)/g, ""));
@@ -33843,7 +33843,7 @@ function(Bt, Xt) {
         },
         parseOpera11: function(Ht) {
             var jt = Ht.stack.split("\n").filter(function(Wt) {
-                return !!Wt.match(Xt) && !Wt.match(/^Error created at/)
+                return !!Wt.match(Gt) && !Wt.match(/^Error created at/)
             }, this);
             return jt.map(function(Wt) {
                 var Vt = Wt.split("@"), qt = this.extractLocation(Vt.pop()), Kt = Vt.shift() || "", Zt = Kt.replace(/<anonymous function(: (\w+))?>/, "$2").replace(/\([^\)]*\)/g, "") || void 0, zt;
@@ -33868,17 +33868,17 @@ function ReplaceWhitespaceNames() {
     })
 }
 function toUnicode(Bt) {
-    for (var Xt = "", Gt = 0, Yt; Gt < Bt.length; Gt++) {
-        for (Yt = Bt.charCodeAt(Gt).toString(16).toUpperCase(); 4 > Yt.length; )
+    for (var Gt = "", Xt = 0, Yt; Xt < Bt.length; Xt++) {
+        for (Yt = Bt.charCodeAt(Xt).toString(16).toUpperCase(); 4 > Yt.length; )
             Yt = "0" + Yt;
         Yt = "\\u" + Yt,
-        Xt += Yt
+        Gt += Yt
     }
-    return Xt
+    return Gt
 }
 function copyTextToClipboard(Bt) {
-    var Xt = document.createElement("textarea");
-    $(Xt).css({
+    var Gt = document.createElement("textarea");
+    $(Gt).css({
         position: "fixed",
         top: 0,
         left: 0,
@@ -33890,13 +33890,13 @@ function copyTextToClipboard(Bt) {
         boxShadow: "none",
         background: "transparent"
     }),
-    Xt.value = Bt,
-    document.body.appendChild(Xt),
-    Xt.select();
+    Gt.value = Bt,
+    document.body.appendChild(Gt),
+    Gt.select();
     try {
         document.execCommand("copy")
     } catch (Yt) {}
-    document.body.removeChild(Xt)
+    document.body.removeChild(Gt)
 }
 function confirmDialog(Bt) {
     Bt = $.extend({
@@ -33907,26 +33907,26 @@ function confirmDialog(Bt) {
         yes: function() {},
         no: function() {}
     }, Bt);
-    var Xt = getTemplate("#confirmDialog");
-    Xt = Xt.replace(/\$title/g, Bt.title).replace(/\$message/g, Bt.message);
-    var Gt = $(Xt);
-    $("body").append(Gt),
-    Gt.focus().keydown(function(Yt) {
+    var Gt = getTemplate("#confirmDialog");
+    Gt = Gt.replace(/\$title/g, Bt.title).replace(/\$message/g, Bt.message);
+    var Xt = $(Gt);
+    $("body").append(Xt),
+    Xt.focus().keydown(function(Yt) {
         Yt.stopImmediatePropagation()
     }).keyup(function(Yt) {
         Yt.stopImmediatePropagation()
     }),
-    $("#confirmYes", Gt).val(Bt.yesText).click(function() {
-        Gt.remove(),
+    $("#confirmYes", Xt).val(Bt.yesText).click(function() {
+        Xt.remove(),
         Bt.yes()
     }),
-    $("#confirmNo", Gt).val(Bt.noText).click(function() {
-        Gt.remove(),
+    $("#confirmNo", Xt).val(Bt.noText).click(function() {
+        Xt.remove(),
         Bt.no()
     })
 }
-function getTemplate(Bt, Xt=!0) {
-    return Xt ? $(Bt, SWAM.Templates)[0].outerHTML : $(Bt, SWAM.Templates).html()
+function getTemplate(Bt, Gt=!0) {
+    return Gt ? $(Bt, SWAM.Templates)[0].outerHTML : $(Bt, SWAM.Templates).html()
 }
 function getTemplateContent(Bt) {
     return $(Bt, SWAM.Templates).html()
@@ -33940,15 +33940,15 @@ function createModal(Bt) {
         maxHeight: "800px",
         closeOnEsc: !0
     }, Bt);
-    var Xt = getTemplate(".modalContainer");
-    Xt = Xt.replace(/\$title/g, Bt.title);
-    var Gt = $(Xt);
+    var Gt = getTemplate(".modalContainer");
+    Gt = Gt.replace(/\$title/g, Bt.title);
+    var Xt = $(Gt);
     let Yt = parseInt(Bt.width.replace("px", "")) / 2;
     if (!Bt.top) {
         let Ht = parseInt(Bt.maxHeight.replace("px", "")) / 2;
         Bt.top = "calc(50% - " + Ht + "px)"
     }
-    return $(".modalDialog", Gt).css({
+    return $(".modalDialog", Xt).css({
         height: Bt.height,
         width: Bt.width,
         top: Bt.top,
@@ -33956,138 +33956,138 @@ function createModal(Bt) {
         maxHeight: Bt.maxHeight,
         overflowY: "auto"
     }),
-    $(".modalContent", Gt).html(Bt.content),
+    $(".modalContent", Xt).html(Bt.content),
     Sound.UIClick(),
-    $("body").append(Gt),
-    Gt.focus().keydown(function(Ht) {
-        Bt.closeOnEsc && 27 == Ht.which && Gt.remove(),
+    $("body").append(Xt),
+    Xt.focus().keydown(function(Ht) {
+        Bt.closeOnEsc && 27 == Ht.which && Xt.remove(),
         Ht.stopImmediatePropagation()
     }).keyup(function(Ht) {
         Ht.stopImmediatePropagation()
     }),
-    Gt
+    Xt
 }
-function closeWhenClickOutside(Bt, Xt=null) {
-    let Gt = function(Yt) {
+function closeWhenClickOutside(Bt, Gt=null) {
+    let Xt = function(Yt) {
         Bt.is(Yt.target) || 0 !== Bt.has(Yt.target).length || (Bt.hide(),
-        $(document).off("mousedown", Gt),
+        $(document).off("mousedown", Xt),
         Sound.UIClick(),
-        Xt && Xt())
+        Gt && Gt())
     };
-    return $(document).mousedown(Gt),
-    Gt
+    return $(document).mousedown(Xt),
+    Xt
 }
 function forEachPlayer(Bt) {
-    let Xt = Players.getIDs();
-    for (let Gt in Xt) {
-        let Yt = Players.get(Gt);
+    let Gt = Players.getIDs();
+    for (let Xt in Gt) {
+        let Yt = Players.get(Xt);
         Bt(Yt)
     }
 }
 function GetQueryStringParams(Bt) {
-    let Xt = window.location.search.substring(1)
-      , Gt = Xt.split("&");
-    for (let Yt = 0, Ht; Yt < Gt.length; Yt++)
-        if (Ht = Gt[Yt].split("="),
+    let Gt = window.location.search.substring(1)
+      , Xt = Gt.split("&");
+    for (let Yt = 0, Ht; Yt < Xt.length; Yt++)
+        if (Ht = Xt[Yt].split("="),
         Ht[0] == Bt)
             return Ht[1]
 }
 window.Base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     encode: function(Bt) {
-        var Xt = "", Gt, Yt, Ht, jt, Wt, zt, Vt, qt = 0;
+        var Gt = "", Xt, Yt, Ht, jt, Wt, zt, Vt, qt = 0;
         for (Bt = Base64._utf8_encode(Bt); qt < Bt.length; )
-            Gt = Bt.charCodeAt(qt++),
+            Xt = Bt.charCodeAt(qt++),
             Yt = Bt.charCodeAt(qt++),
             Ht = Bt.charCodeAt(qt++),
-            jt = Gt >> 2,
-            Wt = (3 & Gt) << 4 | Yt >> 4,
+            jt = Xt >> 2,
+            Wt = (3 & Xt) << 4 | Yt >> 4,
             zt = (15 & Yt) << 2 | Ht >> 6,
             Vt = 63 & Ht,
             isNaN(Yt) ? zt = Vt = 64 : isNaN(Ht) && (Vt = 64),
-            Xt = Xt + this._keyStr.charAt(jt) + this._keyStr.charAt(Wt) + this._keyStr.charAt(zt) + this._keyStr.charAt(Vt);
-        return Xt
+            Gt = Gt + this._keyStr.charAt(jt) + this._keyStr.charAt(Wt) + this._keyStr.charAt(zt) + this._keyStr.charAt(Vt);
+        return Gt
     },
     decode: function(Bt) {
-        var Xt = "", qt = 0, Gt, Yt, Ht, jt, Wt, zt, Vt;
+        var Gt = "", qt = 0, Xt, Yt, Ht, jt, Wt, zt, Vt;
         for (Bt = Bt.replace(/[^A-Za-z0-9+/=]/g, ""); qt < Bt.length; )
             jt = this._keyStr.indexOf(Bt.charAt(qt++)),
             Wt = this._keyStr.indexOf(Bt.charAt(qt++)),
             zt = this._keyStr.indexOf(Bt.charAt(qt++)),
             Vt = this._keyStr.indexOf(Bt.charAt(qt++)),
-            Gt = jt << 2 | Wt >> 4,
+            Xt = jt << 2 | Wt >> 4,
             Yt = (15 & Wt) << 4 | zt >> 2,
             Ht = (3 & zt) << 6 | Vt,
-            Xt += String.fromCharCode(Gt),
-            64 != zt && (Xt += String.fromCharCode(Yt)),
-            64 != Vt && (Xt += String.fromCharCode(Ht));
-        return Xt = Base64._utf8_decode(Xt),
-        Xt
+            Gt += String.fromCharCode(Xt),
+            64 != zt && (Gt += String.fromCharCode(Yt)),
+            64 != Vt && (Gt += String.fromCharCode(Ht));
+        return Gt = Base64._utf8_decode(Gt),
+        Gt
     },
     _utf8_encode: function(Bt) {
         Bt = Bt.replace(/rn/g, "n");
-        for (var Xt = "", Gt = 0, Yt; Gt < Bt.length; Gt++)
-            Yt = Bt.charCodeAt(Gt),
-            128 > Yt ? Xt += String.fromCharCode(Yt) : 127 < Yt && 2048 > Yt ? (Xt += String.fromCharCode(192 | Yt >> 6),
-            Xt += String.fromCharCode(128 | 63 & Yt)) : (Xt += String.fromCharCode(224 | Yt >> 12),
-            Xt += String.fromCharCode(128 | 63 & Yt >> 6),
-            Xt += String.fromCharCode(128 | 63 & Yt));
-        return Xt
+        for (var Gt = "", Xt = 0, Yt; Xt < Bt.length; Xt++)
+            Yt = Bt.charCodeAt(Xt),
+            128 > Yt ? Gt += String.fromCharCode(Yt) : 127 < Yt && 2048 > Yt ? (Gt += String.fromCharCode(192 | Yt >> 6),
+            Gt += String.fromCharCode(128 | 63 & Yt)) : (Gt += String.fromCharCode(224 | Yt >> 12),
+            Gt += String.fromCharCode(128 | 63 & Yt >> 6),
+            Gt += String.fromCharCode(128 | 63 & Yt));
+        return Gt
     },
     _utf8_decode: function(Bt) {
-        for (var Xt = "", Gt = 0, Yt = 0, jt = 0; Gt < Bt.length; )
-            Yt = Bt.charCodeAt(Gt),
-            128 > Yt ? (Xt += String.fromCharCode(Yt),
-            Gt++) : 191 < Yt && 224 > Yt ? (jt = Bt.charCodeAt(Gt + 1),
-            Xt += String.fromCharCode((31 & Yt) << 6 | 63 & jt),
-            Gt += 2) : (jt = Bt.charCodeAt(Gt + 1),
-            c3 = Bt.charCodeAt(Gt + 2),
-            Xt += String.fromCharCode((15 & Yt) << 12 | (63 & jt) << 6 | 63 & c3),
-            Gt += 3);
-        return Xt
+        for (var Gt = "", Xt = 0, Yt = 0, jt = 0; Xt < Bt.length; )
+            Yt = Bt.charCodeAt(Xt),
+            128 > Yt ? (Gt += String.fromCharCode(Yt),
+            Xt++) : 191 < Yt && 224 > Yt ? (jt = Bt.charCodeAt(Xt + 1),
+            Gt += String.fromCharCode((31 & Yt) << 6 | 63 & jt),
+            Xt += 2) : (jt = Bt.charCodeAt(Xt + 1),
+            c3 = Bt.charCodeAt(Xt + 2),
+            Gt += String.fromCharCode((15 & Yt) << 12 | (63 & jt) << 6 | 63 & c3),
+            Xt += 3);
+        return Gt
     }
 },
 window.SWAM_version = "2.5102601",
 SWAM.version = window.SWAM_version,
-SWAM.debug = !1;
+SWAM.debug = !0;
 function SWAM() {
     function getDefaultModSettings() {
         var Bt = {};
-        for (let Xt of SWAM.getSettingsProviders())
-            Bt = jQuery.extend(!0, Bt, Xt.getDefault());
+        for (let Gt of SWAM.getSettingsProviders())
+            Bt = jQuery.extend(!0, Bt, Gt.getDefault());
         return Bt
     }
     function getModSettings() {
-        let Xt = getDefaultModSettings();
+        let Gt = getDefaultModSettings();
         try {
-            let Gt = null;
+            let Xt = null;
             try {
-                Gt = JSON.parse(localStorage.getItem("SWAM_Settings"))
+                Xt = JSON.parse(localStorage.getItem("SWAM_Settings"))
             } catch (Yt) {
-                Gt = null
+                Xt = null
             }
-            $.extend(!0, Xt, Gt)
-        } catch (Gt) {
+            $.extend(!0, Gt, Xt)
+        } catch (Xt) {
             localStorage.removeItem("SWAM_Settings")
         }
-        return Xt
+        return Gt
     }
     function setModSettings(Bt) {
         SWAM.Settings = Bt,
         SWAM.resizeMap(Bt.general.scalingFactor),
         config.minimapSize = Bt.ui.minimapSize,
         UI.resizeMinimap();
-        for (let Xt of SWAM.getSettingsProviders())
+        for (let Gt of SWAM.getSettingsProviders())
             try {
-                Xt.apply(Bt)
-            } catch (Gt) {
-                console.error(Gt)
+                Gt.apply(Bt)
+            } catch (Xt) {
+                console.error(Xt)
             }
         SWAM.trigger("settingsApplied", Bt),
         localStorage.setItem("SWAM_Settings", JSON.stringify(Bt))
     }
     function freeSpectatorMode(Bt) {
-        function Xt(Gt, Yt) {
+        function Gt(Xt, Yt) {
             let Ht = 1e5
               , jt = Players.getIDs()
               , Wt = Players.getMe()
@@ -34095,7 +34095,7 @@ function SWAM() {
             for (let Vt in jt) {
                 let qt = Players.get(Vt);
                 if (!qt.me() && !(5 == qt.type && qt.team != Wt.team && qt.stealthed)) {
-                    let $t = Tools.distance(Gt, Yt, qt.pos.x, qt.pos.y);
+                    let $t = Tools.distance(Xt, Yt, qt.pos.x, qt.pos.y);
                     $t < Ht && (zt = qt,
                     Ht = $t)
                 }
@@ -34110,9 +34110,9 @@ function SWAM() {
         SWAM.debug && console.log("camera handler added"),
         freeSpectator.interval = setInterval(function() {
             freeSpectator.position = Graphics.getCamera().clone();
-            let Gt = Xt(freeSpectator.position.x, freeSpectator.position.y);
-            null != Gt && (freeSpectator.ignore_next = !0,
-            Network.sendCommand("spectate", Gt.id + ""),
+            let Xt = Gt(freeSpectator.position.x, freeSpectator.position.y);
+            null != Xt && (freeSpectator.ignore_next = !0,
+            Network.sendCommand("spectate", Xt.id + ""),
             setTimeout(function() {
                 Network.sendCommand("spectate", game.myID + "")
             }, 100))
@@ -34123,27 +34123,27 @@ function SWAM() {
         SWAM.debug && console.log("camera handler removed"))
     }
     function ResizeNamePlates(Bt) {
-        let Xt = Math.round(25 * Bt / 2500) + "px"
-          , Gt = Math.round(20 * Bt / 2500) + "px";
-        if (config.playerNameSize = Xt,
-        config.playerLevelSize = Gt,
+        let Gt = Math.round(25 * Bt / 2500) + "px"
+          , Xt = Math.round(20 * Bt / 2500) + "px";
+        if (config.playerNameSize = Gt,
+        config.playerLevelSize = Xt,
         game.state == Network.STATE.PLAYING) {
             let Yt = Players.getIDs();
             for (let jt in Yt) {
                 var Ht = Players.get(jt);
-                Ht.sprites.name.style.fontSize = Xt,
-                Ht.sprites.level && (Ht.sprites.level.style.fontSize = Gt)
+                Ht.sprites.name.style.fontSize = Gt,
+                Ht.sprites.level && (Ht.sprites.level.style.fontSize = Xt)
             }
         }
     }
-    function splitAndSend(Bt, Xt, Gt, Yt) {
-        Gt = Gt || 100,
+    function splitAndSend(Bt, Gt, Xt, Yt) {
+        Xt = Xt || 100,
         Yt = Yt || 1100;
-        let Ht = new RegExp(`(.{1,${Gt}})( +|$\n?)|(.{1,${Gt}})`,"g")
+        let Ht = new RegExp(`(.{1,${Xt}})( +|$\n?)|(.{1,${Xt}})`,"g")
           , jt = Bt.match(Ht) || []
           , Wt = 0;
         var zt = function() {
-            Xt.call(Network, jt[Wt++]),
+            Gt.call(Network, jt[Wt++]),
             Wt < jt.length && setTimeout(zt, Yt)
         };
         zt()
@@ -34158,8 +34158,8 @@ function SWAM() {
     function isFlag(Bt) {
         if (Bt = Bt.toLowerCase(),
         Bt.startsWith("flag")) {
-            let Xt = Bt.substr(4);
-            if (flagsByCode[Xt])
+            let Gt = Bt.substr(4);
+            if (flagsByCode[Gt])
                 return !0
         }
         return !1
@@ -34168,14 +34168,14 @@ function SWAM() {
         return config.adjustmentFilter ? [config.adjustmentFilter, ...Bt] : Bt
     }
     function replaceChatEmotes(Bt) {
-        let Xt = SWAM.getEmotesList()
-          , Gt = Bt.match(/-[\w]+-/g);
-        if (null != Gt) {
+        let Gt = SWAM.getEmotesList()
+          , Xt = Bt.match(/-[\w]+-/g);
+        if (null != Xt) {
             let Yt = "";
-            for (let Ht of Gt)
+            for (let Ht of Xt)
                 if (!(3 > Ht.length))
                     if (Yt = Ht.substr(1, Ht.length - 2).toLowerCase(),
-                    Xt.includes(Yt)) {
+                    Gt.includes(Yt)) {
                         let zt = `<span class="emote-${Yt} chatboxEmote" title="${Yt}"></span>`;
                         Bt = Bt.replace(Ht, zt)
                     } else if (isFlag(Yt)) {
@@ -34188,45 +34188,45 @@ function SWAM() {
     }
     function makePlayerGlow(Bt) {
         if (PIXI.filters.GlowFilter && "Bombita" != Bt.name && SWAM.Settings.general.killStreaksFX) {
-            var Xt = 1 == Bt.team ? 3386111 : 16737894;
-            Bt.sprites.sprite.filters = [new PIXI.filters.GlowFilter(10,1,0,Xt,0.2)]
+            var Gt = 1 == Bt.team ? 3386111 : 16737894;
+            Bt.sprites.sprite.filters = [new PIXI.filters.GlowFilter(10,1,0,Gt,0.2)]
         }
     }
     function removePlayerGlow(Bt) {
         PIXI.filters.GlowFilter && "Bombita" != Bt.name && (Bt.sprites.sprite.filters = [])
     }
-    function controlKillsDeaths(Bt, Xt) {
-        if (null != Bt && null != Xt && (++Bt.totalKills,
+    function controlKillsDeaths(Bt, Gt) {
+        if (null != Bt && null != Gt && (++Bt.totalKills,
         ++Bt.killCount,
-        ++Xt.deathCount,
+        ++Gt.deathCount,
         5 <= Bt.killCount && makePlayerGlow(Bt),
-        Xt.killCount = 0,
-        removePlayerGlow(Xt),
-        Bt.id == game.myID || Xt.id == game.myID)) {
-            let Gt = Bt.id == game.myID ? Bt : Xt;
-            $("#score-kills").html(Gt.killCount + "<br/>" + Gt.totalKills),
-            $("#score-deaths").html(Gt.deathCount)
+        Gt.killCount = 0,
+        removePlayerGlow(Gt),
+        Bt.id == game.myID || Gt.id == game.myID)) {
+            let Xt = Bt.id == game.myID ? Bt : Gt;
+            $("#score-kills").html(Xt.killCount + "<br/>" + Xt.totalKills),
+            $("#score-deaths").html(Xt.deathCount)
         }
     }
     function updatePlayerCounters(Bt) {
-        Bt.forEach(Xt=>{
-            let Gt = Players.get(Xt.id);
-            Gt.totalKills = Xt.kills,
-            Gt.deathCount = Xt.deaths,
-            Gt.captures = Xt.captures ? Xt.captures : 0
+        Bt.forEach(Gt=>{
+            let Xt = Players.get(Gt.id);
+            Xt.totalKills = Gt.kills,
+            Xt.deathCount = Gt.deaths,
+            Xt.captures = Gt.captures ? Gt.captures : 0
         }
         )
     }
     function updateMinimapOpacity() {
         clearInterval(updateMinimapOpacity.interval);
         let Bt = UI.getMinimapMobs();
-        for (let Xt in Bt)
-            Bt[Xt].sprite.alpha = 1;
+        for (let Gt in Bt)
+            Bt[Gt].sprite.alpha = 1;
         SWAM.ArrowIndicator.BLUE.arrow.alpha = 1,
         SWAM.ArrowIndicator.RED.arrow.alpha = 1,
         updateMinimapOpacity.interval = setInterval(()=>{
-            for (let Xt in Bt)
-                Bt[Xt].sprite.alpha -= 0.02;
+            for (let Gt in Bt)
+                Bt[Gt].sprite.alpha -= 0.02;
             SWAM.ArrowIndicator.BLUE.arrow.alpha -= 0.02,
             SWAM.ArrowIndicator.RED.arrow.alpha -= 0.02
         }
@@ -34236,14 +34236,14 @@ function SWAM() {
         function Bt() {
             Zt = Players.getByName("STATSBOT"),
             Zt && Zt.flag == 10 ? (Kt.html("Loading..."),
-            Gt()) : Kt.html("")
+            Xt()) : Kt.html("")
         }
-        function Xt() {
+        function Gt() {
             clearInterval(Qt),
             Jt = new Date,
             Wt()
         }
-        function Gt() {
+        function Xt() {
             SWAM.on("chatLineAdded", jt),
             Network.sendWhisper(Zt.id, zt)
         }
@@ -34287,37 +34287,37 @@ function SWAM() {
         SWAM.one("gameWipe", ()=>{
             clearInterval(Qt),
             SWAM.off("scoreboardUpdate", Bt),
-            SWAM.off("CTF_MatchStarted", Xt),
+            SWAM.off("CTF_MatchStarted", Gt),
             SWAM.off("chatLineAdded", jt),
             Kt.remove()
         }
         ),
         SWAM.one("scoreboardUpdate", Bt),
-        SWAM.on("CTF_MatchStarted", Xt))
+        SWAM.on("CTF_MatchStarted", Gt))
     }
-    function screenToMap(Bt, Xt) {
-        let Gt = Graphics.getCamera()
-          , Yt = Gt.x - game.halfScreenX / game.scale
-          , Ht = Gt.y - game.halfScreenY / game.scale;
+    function screenToMap(Bt, Gt) {
+        let Xt = Graphics.getCamera()
+          , Yt = Xt.x - game.halfScreenX / game.scale
+          , Ht = Xt.y - game.halfScreenY / game.scale;
         return Bt = Yt + Bt / game.scale,
-        Xt = Ht + Xt / game.scale,
+        Gt = Ht + Gt / game.scale,
         {
             x: Bt,
-            y: Xt
+            y: Gt
         }
     }
-    function MapToScreen(Bt, Xt) {
-        let Gt = Graphics.getCamera()
-          , Yt = (Bt - Gt.x) * game.scale + game.halfScreenX
-          , Ht = (Xt - Gt.y) * game.scale + game.halfScreenY;
+    function MapToScreen(Bt, Gt) {
+        let Xt = Graphics.getCamera()
+          , Yt = (Bt - Xt.x) * game.scale + game.halfScreenX
+          , Ht = (Gt - Xt.y) * game.scale + game.halfScreenY;
         return {
             x: Yt,
             y: Ht
         }
     }
     function isScrolledToBottom(Bt) {
-        var Xt = $(Bt);
-        return 1 > Bt.scrollHeight - Xt.scrollTop() - Xt.outerHeight()
+        var Gt = $(Bt);
+        return 1 > Bt.scrollHeight - Gt.scrollTop() - Gt.outerHeight()
     }
     function clearChat() {
         $("#chatlines").html(""),
@@ -34329,10 +34329,10 @@ function SWAM() {
     }
     function SWAM_keydown_handler(Bt) {
         if (!(game.state !== Network.STATE.PLAYING || SWAM.chatinputVisible())) {
-            var Xt = $.inArray(Bt.which, [65, 68, 87, 83, 37, 38, 39, 40]);
-            -1 < Xt && AutoPilot && 0 < AutoPilot.currentNode && AutoPilot.cancel(),
-            game.spectatingID || (Xt = $.inArray(Bt.which, [87, 83, 38, 40, 53, 35]),
-            -1 < Xt && (SWAM.CruiseMode.isOn() ? SWAM.CruiseMode.off(0 != Xt && 2 != Xt) : (53 == Bt.keyCode || 35 == Bt.keyCode) && SWAM.CruiseMode.on())),
+            var Gt = $.inArray(Bt.which, [65, 68, 87, 83, 37, 38, 39, 40]);
+            -1 < Gt && AutoPilot && 0 < AutoPilot.currentNode && AutoPilot.cancel(),
+            game.spectatingID || (Gt = $.inArray(Bt.which, [87, 83, 38, 40, 53, 35]),
+            -1 < Gt && (SWAM.CruiseMode.isOn() ? SWAM.CruiseMode.off(0 != Gt && 2 != Gt) : (53 == Bt.keyCode || 35 == Bt.keyCode) && SWAM.CruiseMode.on())),
             89 == Bt.keyCode && (Network.sendCommand("drop", ""),
             Bt.stopImmediatePropagation(),
             Bt.preventDefault()),
@@ -34370,11 +34370,11 @@ function SWAM() {
     }
     function SWAM_canvas_click_handler(Bt) {
         if (1 == Bt.which && Bt.altKey) {
-            var Xt = game.screenX - config.minimapPaddingX - config.minimapSize
-              , Gt = game.screenX - config.minimapPaddingX
+            var Gt = game.screenX - config.minimapPaddingX - config.minimapSize
+              , Xt = game.screenX - config.minimapPaddingX
               , Yt = game.screenY - config.minimapPaddingY - config.minimapSize / 2
               , Ht = game.screenY - config.minimapPaddingY;
-            if (Bt.offsetX > Xt && Bt.offsetX < Gt && Bt.offsetY > Yt && Bt.offsetY < Ht) {
+            if (Bt.offsetX > Gt && Bt.offsetX < Xt && Bt.offsetY > Yt && Bt.offsetY < Ht) {
                 var jt = -1 * (32768 * ((game.screenX - config.minimapPaddingX - Bt.offsetX) / config.minimapSize) - 16384)
                   , Wt = -1 * (16384 * (2 * ((game.screenY - config.minimapPaddingY - Bt.offsetY) / config.minimapSize)) - 8192);
                 AutoPilot.log(jt, Wt),
@@ -34387,8 +34387,8 @@ function SWAM() {
     function SWAM_canvas_mousedown_handler(Bt) {
         if (AutoPilot && AutoPilot.checkMimic(Bt),
         !Players.amIAlive() && 1 == Bt.which) {
-            let Xt = SWAM.getClosestPlayer(Bt.offsetX, Bt.offsetY);
-            null != Xt && Network.sendCommand("spectate", Xt.id + "")
+            let Gt = SWAM.getClosestPlayer(Bt.offsetX, Bt.offsetY);
+            null != Gt && Network.sendCommand("spectate", Gt.id + "")
         }
         SWAM.trigger("canvas_mousedown", Bt)
     }
@@ -34420,42 +34420,42 @@ function SWAM() {
     })),
     $("#minimizechatcontainer").prepend($(getTemplate("#clearChat")).click(clearChat)),
     function() {
-        var Xt = [["Z", "Radio All"], ["X", "Radio Team"], ["C", "Radio Bubble"], ["Y", "Drop flag"], ["5 or End", "Cruise Control"], ["DEL", "Clear chat"], ["F3", "Toggle leaderboard"], ["F4", "Toggle UI"], ["F9", "Open Game Log"], ["F10", "Open Mod Settings"]]
-          , Gt = $("<div class=\"commands\" style=\"color: white\">StarMash - Mod shortcuts<div class=\"cmdlist\"></div></div>");
-        for (var Ht of Xt) {
+        var Gt = [["Z", "Radio All"], ["X", "Radio Team"], ["C", "Radio Bubble"], ["Y", "Drop flag"], ["5 or End", "Cruise Control"], ["DEL", "Clear chat"], ["F3", "Toggle leaderboard"], ["F4", "Toggle UI"], ["F9", "Open Game Log"], ["F10", "Open Mod Settings"]]
+          , Xt = $("<div class=\"commands\" style=\"color: white\">StarMash - Mod shortcuts<div class=\"cmdlist\"></div></div>");
+        for (var Ht of Gt) {
             var jt = "<span class=\"nowrap\"><div class=\"cmd\">$key</div><div class=\"desc\">$desc</div></span>".replace(/\$key/g, Ht[0]).replace(/\$desc/g, Ht[1]);
-            $(".cmdlist", Gt).append(jt)
+            $(".cmdlist", Xt).append(jt)
         }
-        $("#howtoplay .hiddenstuff").append(Gt)
+        $("#howtoplay .hiddenstuff").append(Xt)
     }(),
     window.showRequestlyUpdate && showRequestlyWarning(),
     function() {
         if (!SWAM.Settings.ui || SWAM.Settings.ui.showReddit) {
             var Bt = getTemplate("#redditPanel")
-              , Xt = $(Bt);
-            let Gt = "";
+              , Gt = $(Bt);
+            let Xt = "";
             return $.get("https://www.reddit.com/r/airmash/hot.json?limit=25", Yt=>{
                 try {
                     for (let jt of Yt.data.children) {
                         let Wt = jt.data.stickied ? "sticky" : "";
-                        Gt += `<div><a target='_blank' class='${Wt}' ` + `href='https://reddit.com${jt.data.permalink}'>${jt.data.title}</a> ` + `(${jt.data.num_comments})` + `<span class='author'>- ${jt.data.author}</span></div>`
+                        Xt += `<div><a target='_blank' class='${Wt}' ` + `href='https://reddit.com${jt.data.permalink}'>${jt.data.title}</a> ` + `(${jt.data.num_comments})` + `<span class='author'>- ${jt.data.author}</span></div>`
                     }
                 } catch (jt) {}
-                $(".redditPosts", Xt).html(Gt),
-                $("#logon").after(Xt),
-                Xt.perfectScrollbar({
+                $(".redditPosts", Gt).html(Xt),
+                $("#logon").after(Gt),
+                Gt.perfectScrollbar({
                     suppressScrollX: !0
                 })
             }
             ),
-            Xt
+            Gt
         }
     }(),
     function() {
         var Bt = getTemplate("#changelogPanel")
-          , Xt = $(Bt);
-        $("#logon").before(Xt),
-        Xt.perfectScrollbar({
+          , Gt = $(Bt);
+        $("#logon").before(Gt),
+        Gt.perfectScrollbar({
             suppressScrollX: !0
         })
     }(),
@@ -34467,7 +34467,7 @@ function SWAM() {
         SWAM.OpenExtensionsWindow()
     })),
     function() {
-        let Xt = new SettingsProvider({
+        let Gt = new SettingsProvider({
             general: {
                 powerupsFX: !0,
                 killStreaksFX: !0,
@@ -34490,46 +34490,46 @@ function SWAM() {
                 bgMusicMainMenu: !1
             }
         });
-        Xt.root = "",
-        Xt.title = "Mod Settings";
-        let Gt = Xt.addSection("General");
-        Gt.addBoolean("general.powerupsFX", "Visual effects for powerups."),
-        Gt.addBoolean("general.killStreaksFX", "Player glow with kill streaks (5 kills without dying)."),
-        Gt.addBoolean("general.zoomFreeSpectator", "Zoom out in free-camera spectator mode."),
-        Gt.addSliderField("general.scalingFactor", "Zoom Level (default: 2500)", {
+        Gt.root = "",
+        Gt.title = "Mod Settings";
+        let Xt = Gt.addSection("General");
+        Xt.addBoolean("general.powerupsFX", "Visual effects for powerups."),
+        Xt.addBoolean("general.killStreaksFX", "Player glow with kill streaks (5 kills without dying)."),
+        Xt.addBoolean("general.zoomFreeSpectator", "Zoom out in free-camera spectator mode."),
+        Xt.addSliderField("general.scalingFactor", "Zoom Level (default: 2500)", {
             min: 1500,
             max: 6e3,
             step: 500
         }),
-        Gt.addBoolean("general.useProwlerRadar", "Use Prowler Radar (low resolution dangerous areas)."),
-        Gt = Xt.addSection("Interface"),
-        Gt.addBoolean("ui.showReddit", "Reddit: Display discussion panel. (changes will be made on next load)."),
-        Gt.addBoolean("ui.showWhoKilledWho", "Log: Show Who killed Who."),
-        Gt.addBoolean("ui.showLogConnections", "Log: Show players joining/leaving."),
-        Gt.addBoolean("ui.useSquaredScene", "Preserve an almost-squared game area."),
-        Gt.addBoolean("ui.useExtendedScoreboard", "Use an extended scoreboard."),
-        Gt.addSliderField("ui.minimapSize", "Minimap Size (default: 240)", {
+        Xt.addBoolean("general.useProwlerRadar", "Use Prowler Radar (low resolution dangerous areas)."),
+        Xt = Gt.addSection("Interface"),
+        Xt.addBoolean("ui.showReddit", "Reddit: Display discussion panel. (changes will be made on next load)."),
+        Xt.addBoolean("ui.showWhoKilledWho", "Log: Show Who killed Who."),
+        Xt.addBoolean("ui.showLogConnections", "Log: Show players joining/leaving."),
+        Xt.addBoolean("ui.useSquaredScene", "Preserve an almost-squared game area."),
+        Xt.addBoolean("ui.useExtendedScoreboard", "Use an extended scoreboard."),
+        Xt.addSliderField("ui.minimapSize", "Minimap Size (default: 240)", {
             min: 50,
             max: 700,
             step: 10
         }),
-        Gt.addBoolean("ui.replaceEmoticons", "Replace emoticons with emojis while typing. :) \uD83E\uDC46 \uD83D\uDE42"),
-        Gt.addButton("Color Adjustments panel", {
+        Xt.addBoolean("ui.replaceEmoticons", "Replace emoticons with emojis while typing. :) \uD83E\uDC46 \uD83D\uDE42"),
+        Xt.addButton("Color Adjustments panel", {
             click: openColorAdjustments,
             css: {
                 minWidth: "400px"
             }
         }),
-        window.showRequestlyUpdate && Gt.addButton("Show again Requestly update steps", {
+        window.showRequestlyUpdate && Xt.addButton("Show again Requestly update steps", {
             click: showRequestlyWarningAgain,
             css: {
                 minWidth: "400px"
             }
         }),
-        Gt = Xt.addSection("Audio"),
-        Gt.addBoolean("audio.voiceEventsCTF", "CTF: Voice messages for flag events."),
-        Gt.addBoolean("audio.bgMusicMainMenu", "Main Menu: Play background music."),
-        SWAM.settingsProvider = Xt
+        Xt = Gt.addSection("Audio"),
+        Xt.addBoolean("audio.voiceEventsCTF", "CTF: Voice messages for flag events."),
+        Xt.addBoolean("audio.bgMusicMainMenu", "Main Menu: Play background music."),
+        SWAM.settingsProvider = Gt
     }(),
     SWAM.loadSettings = function() {
         setModSettings(getModSettings())
@@ -34545,14 +34545,14 @@ function SWAM() {
         function Bt(jt) {
             $("#modVersion", Ht).html(SWAM.version);
             let Wt = $.extend({}, jt);
-            for (let zt of Gt)
+            for (let zt of Xt)
                 zt.setValues(Wt)
         }
-        function Xt() {
+        function Gt() {
             Ht.remove(),
             Sound.UIClick()
         }
-        let Gt = [];
+        let Xt = [];
         var Yt = getModSettings();
         let Ht = createModal({
             title: "StarMash Settings",
@@ -34570,7 +34570,7 @@ function SWAM() {
                 setValues: function() {}
             };
             zt = $.extend(zt, jt.setWindow(Yt, Ht)),
-            Gt.push(zt)
+            Xt.push(zt)
         }
         Bt(Yt),
         $(".divRestore", Ht).click(()=>{
@@ -34579,19 +34579,19 @@ function SWAM() {
         }
         ),
         $(".btnAccept", Ht).click(()=>{
-            for (let jt of Gt)
+            for (let jt of Xt)
                 jt.accept();
             setModSettings(Yt),
-            Xt()
+            Gt()
         }
         ),
         $(".btnCancel", Ht).click(()=>{
-            for (let jt of Gt)
+            for (let jt of Xt)
                 jt.cancel();
-            Xt()
+            Gt()
         }
         ),
-        closeSettingsWindow = Xt
+        closeSettingsWindow = Gt
     }
     ,
     SWAM.panX = function(Bt) {
@@ -34633,22 +34633,22 @@ function SWAM() {
         prevSF: 0
     };
     SWAM.moveCamera = function(Bt) {
-        let Xt = freeSpectator.panIncrement;
-        var Gt = $.inArray(Bt.which, [37, 38, 39, 40]);
-        if (-1 < Gt) {
+        let Gt = freeSpectator.panIncrement;
+        var Xt = $.inArray(Bt.which, [37, 38, 39, 40]);
+        if (-1 < Xt) {
             let Yt = Graphics.getCamera();
             switch (Bt.which) {
             case 37:
-                Graphics.setCamera(Yt.x - Xt, Yt.y);
+                Graphics.setCamera(Yt.x - Gt, Yt.y);
                 break;
             case 38:
-                Graphics.setCamera(Yt.x, Yt.y - Xt);
+                Graphics.setCamera(Yt.x, Yt.y - Gt);
                 break;
             case 39:
-                Graphics.setCamera(Yt.x + Xt, Yt.y);
+                Graphics.setCamera(Yt.x + Gt, Yt.y);
                 break;
             case 40:
-                Graphics.setCamera(Yt.x, Yt.y + Xt);
+                Graphics.setCamera(Yt.x, Yt.y + Gt);
             }
             return freeSpectator.position = Graphics.getCamera().clone(),
             !1
@@ -34663,13 +34663,13 @@ function SWAM() {
     }
     ,
     SWAM.ZoomTo = function(Bt) {
-        let Xt = config.scalingFactor
-          , Gt = setInterval(function() {
-            Xt < Bt ? (config.scalingFactor += 100,
+        let Gt = config.scalingFactor
+          , Xt = setInterval(function() {
+            Gt < Bt ? (config.scalingFactor += 100,
             config.scalingFactor >= Bt && (config.scalingFactor = Bt,
-            clearInterval(Gt))) : (config.scalingFactor -= 100,
+            clearInterval(Xt))) : (config.scalingFactor -= 100,
             config.scalingFactor <= Bt && (config.scalingFactor = Bt,
-            clearInterval(Gt))),
+            clearInterval(Xt))),
             game.state == Network.STATE.PLAYING && SWAM.resizeMap(config.scalingFactor)
         }, 20)
     }
@@ -34695,32 +34695,32 @@ function SWAM() {
     }
     ;
     let Players_add = Players.add;
-    Players.add = function(Bt, Xt) {
-        Players_add.call(Players, Bt, Xt);
-        let Gt = Players.get(Bt.id);
-        Gt.scorePlace = 0,
-        Gt.totalKills = 0,
-        Gt.killCount = 0,
-        Gt.deathCount = 0,
-        Gt.captures = 0,
-        Gt.lastMessageTime = 0,
-        Gt.spamBlock = !0,
+    Players.add = function(Bt, Gt) {
+        Players_add.call(Players, Bt, Gt);
+        let Xt = Players.get(Bt.id);
+        Xt.scorePlace = 0,
+        Xt.totalKills = 0,
+        Xt.killCount = 0,
+        Xt.deathCount = 0,
+        Xt.captures = 0,
+        Xt.lastMessageTime = 0,
+        Xt.spamBlock = !0,
         setTimeout(()=>{
-            delete Gt.spamBlock
+            delete Xt.spamBlock
         }
         , 1388),
-        Gt.sprites.bubble && (Gt.sprites.bubble.alpha = Gt.sprites.bubbleCenter.alpha = Gt.sprites.bubbleLeft.alpha = Gt.sprites.bubblePoint.alpha = Gt.sprites.bubbleRight.alpha = 0.4,
-        Gt.sprites.bubbleText.alpha = 0.85);
-        game.state !== Network.STATE.PLAYING || (Gt.name = Gt.name.replace(nonprintRegex, "\uFFFD"),
-        SWAM.GameLog.logPlayerConnection(Gt, !0),
-        SWAM.trigger("playerAdded", Gt))
+        Xt.sprites.bubble && (Xt.sprites.bubble.alpha = Xt.sprites.bubbleCenter.alpha = Xt.sprites.bubbleLeft.alpha = Xt.sprites.bubblePoint.alpha = Xt.sprites.bubbleRight.alpha = 0.4,
+        Xt.sprites.bubbleText.alpha = 0.85);
+        game.state !== Network.STATE.PLAYING || (Xt.name = Xt.name.replace(nonprintRegex, "\uFFFD"),
+        SWAM.GameLog.logPlayerConnection(Xt, !0),
+        SWAM.trigger("playerAdded", Xt))
     }
     ;
     let Players_destroy = Players.destroy;
     Players.destroy = function(Bt) {
-        let Xt = Players.get(Bt);
-        SWAM.GameLog.logPlayerConnection(Xt, !1),
-        SWAM.trigger("playerDestroyed", Xt),
+        let Gt = Players.get(Bt);
+        SWAM.GameLog.logPlayerConnection(Gt, !1),
+        SWAM.trigger("playerDestroyed", Gt),
         Players_destroy.call(Players, Bt)
     }
     ;
@@ -34732,16 +34732,16 @@ function SWAM() {
     }
     ;
     let Players_network = Players.network;
-    Players.network = function(Bt, Xt) {
-        Bt == Network.SERVERPACKET.CHAT_SAY && (Xt.originalText = Xt.text,
-        Xt.text = Xt.text.replace(/﷽/g, "\uFFFD")),
-        Players_network.call(Players, Bt, Xt);
-        Bt === Network.SERVERPACKET.CHAT_SAY ? SWAM.trigger("playerSay", Xt) : Bt === Network.SERVERPACKET.PLAYER_RESPAWN ? (Xt.id == game.myID && (SWAM.CruiseMode.off(),
+    Players.network = function(Bt, Gt) {
+        Bt == Network.SERVERPACKET.CHAT_SAY && (Gt.originalText = Gt.text,
+        Gt.text = Gt.text.replace(/﷽/g, "\uFFFD")),
+        Players_network.call(Players, Bt, Gt);
+        Bt === Network.SERVERPACKET.CHAT_SAY ? SWAM.trigger("playerSay", Gt) : Bt === Network.SERVERPACKET.PLAYER_RESPAWN ? (Gt.id == game.myID && (SWAM.CruiseMode.off(),
         SWAM.hyperSpace && SWAM.hyperSpace.show(),
         $("body").removeClass("spectatorMode"),
         $("#btnFreeSpectator").hide(),
         freeSpectatorMode(!1)),
-        SWAM.trigger("playerRespawned", Xt)) : Bt === Network.SERVERPACKET.PLAYER_UPDATE || Bt === Network.SERVERPACKET.PLAYER_FIRE || Bt === Network.SERVERPACKET.EVENT_BOOST || Bt === Network.SERVERPACKET.EVENT_BOUNCE ? AutoPilot && AutoPilot.mimicUpdate(Bt, Xt) : Bt === Network.SERVERPACKET.PLAYER_FLAG ? SWAM.trigger("playerChangedFlag", Xt) : void 0
+        SWAM.trigger("playerRespawned", Gt)) : Bt === Network.SERVERPACKET.PLAYER_UPDATE || Bt === Network.SERVERPACKET.PLAYER_FIRE || Bt === Network.SERVERPACKET.EVENT_BOOST || Bt === Network.SERVERPACKET.EVENT_BOUNCE ? AutoPilot && AutoPilot.mimicUpdate(Bt, Gt) : Bt === Network.SERVERPACKET.PLAYER_FLAG ? SWAM.trigger("playerChangedFlag", Gt) : void 0
     }
     ;
     let Players_changeType = Players.changeType;
@@ -34765,14 +34765,14 @@ function SWAM() {
     ;
     let Players_kill = Players.kill;
     Players.kill = function(Bt) {
-        var Xt = Players.get(Bt.id);
-        if (null != Xt)
-            if (Xt.id == game.myID && SWAM.CruiseMode.off(),
+        var Gt = Players.get(Bt.id);
+        if (null != Gt)
+            if (Gt.id == game.myID && SWAM.CruiseMode.off(),
             0 != Bt.killer || 0 != Bt.posX || 0 != Bt.posY) {
-                let Gt = Players.get(Bt.killer);
-                controlKillsDeaths(Gt, Xt),
-                SWAM.GameLog.logKill(Gt, Xt),
-                SWAM.trigger("playerKilled", [Bt, Xt, Gt])
+                let Xt = Players.get(Bt.killer);
+                controlKillsDeaths(Xt, Gt),
+                SWAM.GameLog.logKill(Xt, Gt),
+                SWAM.trigger("playerKilled", [Bt, Gt, Xt])
             } else
                 SWAM.debug && console.log("playerkilled", Bt);
         Players_kill.call(Players, Bt)
@@ -34790,9 +34790,9 @@ function SWAM() {
     }
     ;
     let Mobs_add = Mobs.add;
-    Mobs.add = function(Bt, Xt, Gt) {
-        Mobs_add.call(Mobs, Bt, Xt, Gt),
-        SWAM.trigger("mobAdded", [Bt, Xt, Gt])
+    Mobs.add = function(Bt, Gt, Xt) {
+        Mobs_add.call(Mobs, Bt, Gt, Xt),
+        SWAM.trigger("mobAdded", [Bt, Gt, Xt])
     }
     ;
     let Mobs_despawn = Mobs.despawn;
@@ -34818,10 +34818,10 @@ function SWAM() {
         splitAndSend(Bt, Network_sendMethods[1])
     }
     ,
-    Network.sendWhisper = function(Bt, Xt) {
-        Xt = replaceSpecialWordsInChat(Xt),
-        splitAndSend(Xt, function(Gt) {
-            Network_sendMethods[2].call(Network, Bt, Gt)
+    Network.sendWhisper = function(Bt, Gt) {
+        Gt = replaceSpecialWordsInChat(Gt),
+        splitAndSend(Gt, function(Xt) {
+            Network_sendMethods[2].call(Network, Bt, Xt)
         })
     }
     ,
@@ -34833,13 +34833,13 @@ function SWAM() {
     ;
     let Network_force = Network.force;
     Network.force = function(Bt) {
-        let Xt = Network_force.call(Network, Bt);
+        let Gt = Network_force.call(Network, Bt);
         if (Bt.c == Network.SERVERPACKET.EVENT_REPEL) {
-            let Gt = Players.get(Bt.id)
+            let Xt = Players.get(Bt.id)
               , Yt = Bt.mobs.map(Ht=>Mobs.get(Ht.id));
-            SWAM.trigger("mobsRepeled", [Gt, Yt])
+            SWAM.trigger("mobsRepeled", [Xt, Yt])
         }
-        return Xt
+        return Gt
     }
     ;
     let flagsByCode = {};
@@ -35218,38 +35218,37 @@ function SWAM() {
     }, {
         code: "BG",
         name: "Bulgaria"
-    }].forEach((Bt,Xt)=>{
+    }].forEach((Bt,Gt)=>{
         Bt && (flagsByCode[Bt.code.toLowerCase()] = Bt,
-        Bt.index = Xt)
+        Bt.index = Gt)
     }
     );
     let Textures_get = Textures.get;
     Textures.get = function(Bt) {
         if (Bt.startsWith("emote_flag")) {
-            let Xt = Bt.substr(10).toLowerCase();
-            flagsByCode[Xt] && (Bt = "flag_" + flagsByCode[Xt].index)
+            let Gt = Bt.substr(10).toLowerCase();
+            flagsByCode[Gt] && (Bt = "flag_" + flagsByCode[Gt].index)
         }
         return Textures_get(Bt)
     }
     ,
-    UI.isEmote = function(Bt, Xt) {
+    UI.isEmote = function(Bt, Gt) {
         if ("x" == Bt)
             return !1;
-        let Gt = SWAM.getEmotesList();
-        if (Xt) {
+        let Xt = SWAM.getEmotesList();
+        if (Gt) {
             let Ht = Bt.toLowerCase()
               , jt = Ht.match(/^-flag([a-zA-Z]{2}|communist|confederate|imperial|rainbow|jolly)-$/);
             if (jt && isFlag(Ht.substring(1, Ht.length - 1)))
                 return Ht.substring(1, Ht.length - 1)
-        }
-        if (isFlag(Bt))
+        } else if (isFlag(Bt))
             return Bt.toLowerCase();
-        for (var Yt = 0; Yt < Gt.length; Yt++)
-            if (Xt) {
-                if (Bt === ":" + Gt[Yt] + ":" || Bt === "-" + Gt[Yt] + "-")
-                    return Gt[Yt];
-            } else if (Bt === Gt[Yt])
-                return Gt[Yt];
+        for (var Yt = 0; Yt < Xt.length; Yt++)
+            if (Gt) {
+                if (Bt === ":" + Xt[Yt] + ":" || Bt === "-" + Xt[Yt] + "-")
+                    return Xt[Yt];
+            } else if (Bt === Xt[Yt])
+                return Xt[Yt];
         return !1
     }
     ,
@@ -35261,19 +35260,19 @@ function SWAM() {
     UI.parseCommand = function(Bt) {
         if ("/" !== Bt[0])
             return !1;
-        var Xt = Bt.split(" ")
-          , Gt = Xt[0].substr(1).toLowerCase();
-        if (0 == Gt.length)
+        var Gt = Bt.split(" ")
+          , Xt = Gt[0].substr(1).toLowerCase();
+        if (0 == Xt.length)
             return !1;
         let Yt = Bt.indexOf(" ");
-        if ("name" === Gt)
+        if ("name" === Xt)
             -1 == Yt ? UI.addChatMessage("Usage: /name your_name") : Network.reconnectAs(Bt.substr(Yt + 1));
-        else if ("reconnect" === Gt)
+        else if ("reconnect" === Xt)
             Network.reconnect();
-        else if ("emotes" === Gt)
+        else if ("emotes" === Xt)
             emotesPanel.show();
-        else if (UI.isTeamEmote(Gt) || UI.isEmote(Gt))
-            Network.sendSay("-" + Gt + "-");
+        else if (UI.isTeamEmote(Xt) || UI.isEmote(Xt))
+            Network.sendSay("-" + Xt + "-");
         else
             return UI_parseCommand(Bt);
         return !0
@@ -35286,8 +35285,8 @@ function SWAM() {
     }
     ;
     let UI_addPowerup = UI.addPowerup;
-    UI.addPowerup = function(Bt, Xt) {
-        UI_addPowerup.call(UI, Bt, Xt);
+    UI.addPowerup = function(Bt, Gt) {
+        UI_addPowerup.call(UI, Bt, Gt);
         SWAM.Settings.general.powerupsFX && (game.graphics.layers.game.filters = 1 == Bt ? getFilters([new PIXI.filters.AdjustmentFilter({
             gamma: 1,
             saturation: 0.8,
@@ -35323,7 +35322,7 @@ function SWAM() {
         SWAM.prevPowerupTimeout = setTimeout(function() {
             game.graphics.layers.game.filters = getFilters([]),
             delete SWAM.prevPowerupTimeout
-        }, Xt))
+        }, Gt))
     }
     ;
     let UI_resetPowerups = UI.resetPowerups;
@@ -35333,25 +35332,25 @@ function SWAM() {
     }
     ;
     let UI_updateUpgrades = UI.updateUpgrades;
-    UI.updateUpgrades = function(Bt, Xt, Gt=0) {
-        UI_updateUpgrades.call(UI, Bt, Xt, Gt);
-        const jt = ["", "speed", "defense", "energy", "missile"][Gt]
-          , Wt = Bt[Gt - 1];
+    UI.updateUpgrades = function(Bt, Gt, Xt=0) {
+        UI_updateUpgrades.call(UI, Bt, Gt, Xt);
+        const jt = ["", "speed", "defense", "energy", "missile"][Xt]
+          , Wt = Bt[Xt - 1];
         let zt = 0;
-        0 != Gt && (zt = Math.round(100 * (config.upgrades[jt].factor[Wt] - 1)) + "%"),
-        SWAM.trigger("playerUpgraded2", [Bt, Xt, Gt, ["", "Speed", "Defense", "Energy Regen", "Missile Speed"][Gt], zt])
+        0 != Xt && (zt = Math.round(100 * (config.upgrades[jt].factor[Wt] - 1)) + "%"),
+        SWAM.trigger("playerUpgraded2", [Bt, Gt, Xt, ["", "Speed", "Defense", "Energy Regen", "Missile Speed"][Xt], zt])
     }
     ,
     UI.updateStats = function(Bt) {
-        let Xt = "";
-        if (2 == game.gameType) {
+        let Gt = "";
+        if (game.gameType == SWAM.GAME_TYPE.CTF) {
             let Ht = 0
               , jt = 0;
             forEachPlayer(Wt=>{
                 1 == Wt.team ? Ht++ : jt++
             }
             ),
-            Xt = "<span class='greyed'>&nbsp;&nbsp;(<span style='color: #4076E2'>" + Ht + "</span>&nbsp;/&nbsp;<span style='color: #EA4242'>" + jt + "</span>)<span class='greyed'>"
+            Gt = "<span class='greyed'>&nbsp;&nbsp;(<span style='color: #4076E2'>" + Ht + "</span>&nbsp;/&nbsp;<span style='color: #EA4242'>" + jt + "</span>)<span class='greyed'>"
         }
         if (game.fixedjitter == INITIAL_JITTER) {
             let Ht = Math.max(Bt.ping, 130)
@@ -35360,9 +35359,9 @@ function SWAM() {
             game.fixedjitter = Wt - Bt.ping
         }
         Bt.ping -= game.fixedjitter;
-        var Gt = Bt.playerstotal
+        var Xt = Bt.playerstotal
           , Yt = "";
-        Yt += "<div class=\"item\"><span class=\"icon-container\"><div class=\"icon players\"></div></span><span class=\"greyed\">" + Bt.playersgame + "&nbsp;/&nbsp;</span>" + Gt + Xt + "<span class=\"icon-container padded\"><div class=\"icon ping\"></div></span>" + Bt.ping + "<span class=\"millis\">ms</span></div>",
+        Yt += "<div class=\"item\"><span class=\"icon-container\"><div class=\"icon players\"></div></span><span class=\"greyed\">" + Bt.playersgame + "&nbsp;/&nbsp;</span>" + Xt + Gt + "<span class=\"icon-container padded\"><div class=\"icon ping\"></div></span>" + Bt.ping + "<span class=\"millis\">ms</span></div>",
         $("#gameinfo").html(Yt),
         game.ping = Bt.ping
     }
@@ -35374,14 +35373,14 @@ function SWAM() {
             SWAM.trigger("serverMessageReceived", [Bt])
         } catch (jt) {}
         if (game.gameType === SWAM.GAME_TYPE.CTF) {
-            const Xt = "<span class=\"info inline\"><span class=\"blueflag\"></span></span>"
-              , Gt = "<span class=\"info inline\"><span class=\"redflag\"></span></span>";
-            let Yt = Bt.text.includes(Xt)
-              , Ht = Bt.text.includes(Gt);
+            const Gt = "<span class=\"info inline\"><span class=\"blueflag\"></span></span>"
+              , Xt = "<span class=\"info inline\"><span class=\"redflag\"></span></span>";
+            let Yt = Bt.text.includes(Gt)
+              , Ht = Bt.text.includes(Xt);
             if (2 == Bt.type && (Yt || Ht)) {
                 let jt, Wt;
-                Yt && (jt = Bt.text.substring(Xt.length)),
-                Ht && (jt = Bt.text.substring(Gt.length)),
+                Yt && (jt = Bt.text.substring(Gt.length)),
+                Ht && (jt = Bt.text.substring(Xt.length)),
                 Wt = jt.substring(0, jt.indexOf(" ")).toLowerCase();
                 let zt = jt.substring(Bt.text.indexOf(" by ") + 4)
                   , Vt = 0
@@ -35403,26 +35402,26 @@ function SWAM() {
     }
     ;
     let UI_addChatLine = UI.addChatLine;
-    UI.addChatLine = function(Bt, Xt, Gt) {
+    UI.addChatLine = function(Bt, Gt, Xt) {
         let Yt = ["-SWAM-PONG"];
         if (Bt.lastMessageTime = new Date().getTime(),
-        2 == Gt && Bt.spamBlock && "STATSBOT" != Bt.name)
-            return void console.log("SPAM BLOCKED: ", Xt);
-        let jt = -1 < $.inArray(Xt.toUpperCase(), ["-SWAM-PING"]);
+        2 == Xt && Bt.spamBlock && "STATSBOT" != Bt.name)
+            return void console.log("SPAM BLOCKED: ", Gt);
+        let jt = -1 < $.inArray(Gt.toUpperCase(), ["-SWAM-PING"]);
         for (var Wt of Yt)
-            jt = jt || Xt.startsWith(Wt);
+            jt = jt || Gt.startsWith(Wt);
         if (!jt) {
-            2 == Gt && Bt.id != game.myID && Sound.DoubleClick();
-            let zt = Xt.match(getURLRegEx());
+            2 == Xt && Bt.id != game.myID && Sound.DoubleClick();
+            let zt = Gt.match(getURLRegEx());
             if (null != zt) {
-                let qt = Xt.split(getURLRegEx());
-                Xt = "";
+                let qt = Gt.split(getURLRegEx());
+                Gt = "";
                 for (let Kt = 0; Kt < qt.length; Kt++)
-                    Xt += replaceChatEmotes(UI.escapeHTML(qt[Kt])),
-                    Kt < zt.length && (Xt += "<a href='" + zt[Kt] + "' target='_blank' style='text-decoration: underline;'>" + zt[Kt] + "</a>")
+                    Gt += replaceChatEmotes(UI.escapeHTML(qt[Kt])),
+                    Kt < zt.length && (Gt += "<a href='" + zt[Kt] + "' target='_blank' style='text-decoration: underline;'>" + zt[Kt] + "</a>")
             } else
-                Xt = replaceChatEmotes(UI.escapeHTML(Xt));
-            UI_addChatLine.call(UI, Bt, Xt, Gt, !1);
+                Gt = replaceChatEmotes(UI.escapeHTML(Gt));
+            UI_addChatLine.call(UI, Bt, Gt, Xt, !1);
             let Vt = UI.getIgnored();
             if (!Vt[Bt.id]) {
                 let qt = $("#chatlines div").last().find("span.flag");
@@ -35430,23 +35429,23 @@ function SWAM() {
                     let Kt = qt.attr("class").split(/\s+/);
                     qt.removeClass(Kt[1]).removeClass(Kt[2]).addClass("emote emote-bot flag-statsbot")
                 }
-                SWAM.trigger("chatLineAdded", [Bt, Xt, Gt])
+                SWAM.trigger("chatLineAdded", [Bt, Gt, Xt])
             }
         } else {
-            let zt = Xt;
-            if (Xt = Xt.toUpperCase(),
-            "-SWAM-PING" == Xt) {
+            let zt = Gt;
+            if (Gt = Gt.toUpperCase(),
+            "-SWAM-PING" == Gt) {
                 if (Bt.id != game.myID && !window.anonmod) {
                     let Vt = "starma.sh" === location.hostname.toLowerCase() ? "SM" : "AM"
                       , qt = SWAM.getThemeFunction().themeName;
                     Network.sendWhisper(Bt.id, `-SWAM-PONG ${Vt} ${qt}`)
                 }
-                return void UI_addChatLine.call(UI, Bt, Xt, Gt)
+                return void UI_addChatLine.call(UI, Bt, Gt, Xt)
             }
-            if (2 == Gt && Bt.id != game.myID && Xt.startsWith("-SWAM-PONG")) {
+            if (2 == Xt && Bt.id != game.myID && Gt.startsWith("-SWAM-PONG")) {
                 let Vt = zt.substr(11, 2).trim()
                   , qt = zt.substring(14).trim();
-                UI_addChatLine.call(UI, Bt, `I'm using STARMASH, ${Vt}, theme: ${qt}`, Gt)
+                UI_addChatLine.call(UI, Bt, `I'm using STARMASH, ${Vt}, theme: ${qt}`, Xt)
             }
         }
     }
@@ -35460,10 +35459,10 @@ function SWAM() {
     }
     ;
     let UI_scoreboardUpdate = UI.scoreboardUpdate;
-    UI.scoreboardUpdate = function(Bt, Xt, Gt) {
-        UI_scoreboardUpdate.call(UI, Bt, Xt, Gt),
+    UI.scoreboardUpdate = function(Bt, Gt, Xt) {
+        UI_scoreboardUpdate.call(UI, Bt, Gt, Xt),
         updateMinimapOpacity(),
-        SWAM.trigger("scoreboardUpdate", [Bt, Xt, Gt])
+        SWAM.trigger("scoreboardUpdate", [Bt, Gt, Xt])
     }
     ;
     let Games_performPing = Games.performPing;
@@ -35523,8 +35522,8 @@ function SWAM() {
     }
     ;
     let games_showCTFWin = Games.showCTFWin;
-    Games.showCTFWin = function(Bt, Xt) {
-        Bt.t = Xt || 5,
+    Games.showCTFWin = function(Bt, Gt) {
+        Bt.t = Gt || 5,
         games_showCTFWin.call(Games, Bt),
         $("#custom-msg").last().addClass("customCTFWin").css({
             "background-image": `url("${getFilePath(game.myTeam == Bt.w ? "ctfvictory.png" : "ctfdefeat.png")}")`,
@@ -35539,15 +35538,15 @@ function SWAM() {
     }
     ;
     let graphics_resizeRenderer = Graphics.resizeRenderer;
-    Graphics.resizeRenderer = function(Bt, Xt) {
-        SWAM.Settings.ui.useSquaredScene ? (Bt = Bt > 1.15 * Xt ? 1.15 * Xt : Bt,
-        graphics_resizeRenderer.call(Graphics, Bt, Xt),
+    Graphics.resizeRenderer = function(Bt, Gt) {
+        SWAM.Settings.ui.useSquaredScene ? (Bt = Bt > 1.15 * Gt ? 1.15 * Gt : Bt,
+        graphics_resizeRenderer.call(Graphics, Bt, Gt),
         $("canvas").css({
             "margin-left": 0.5 * (window.innerWidth - $("canvas").width()) + "px"
-        })) : (graphics_resizeRenderer.call(Graphics, Bt, Xt),
+        })) : (graphics_resizeRenderer.call(Graphics, Bt, Gt),
         $("canvas").css("margin-left", "")),
-        SWAM.resizeLayers(Bt, Xt),
-        SWAM.trigger("rendererResized", [Bt, Xt])
+        SWAM.resizeLayers(Bt, Gt),
+        SWAM.trigger("rendererResized", [Bt, Gt])
     }
     ,
     Network.reconnectAs = function(Bt) {
@@ -35572,33 +35571,33 @@ function SWAM() {
             0 == $("#logon").length || 0 < $("#bgMusicIFrame").length || SWAM.Settings.audio.bgMusicMainMenu && (console.log("Playing music..."),
             $("body").append("<iframe id=\"bgMusicIFrame\" width=\"1\" height=\"1\" wmode=\"transparent\" src=\"//www.youtube.com/embed/NoXZZhgUo_0?vq=small&autoplay=1&loop=1&playlist=NoXZZhgUo_0\" frameborder=\"0\" allowfullscreen>"))
         }
-        function Xt() {
+        function Gt() {
             $("#bgMusicIFrame").remove()
         }
-        SWAM.on("settingsApplied", Gt=>{
-            Gt.audio.bgMusicMainMenu ? Bt() : Xt()
+        SWAM.on("settingsApplied", Xt=>{
+            Xt.audio.bgMusicMainMenu ? Bt() : Gt()
         }
         ),
-        SWAM.on("gamePrep", Xt)
+        SWAM.on("gamePrep", Gt)
     }
     ;
     SWAM.addDebugElements = function() {
         if (SWAM.debug) {
             $("#logon").append("<div><input class='dgCamUpdates' type='button' value='updates' style='width: 50px; margin-right: 10px;'></div><table><tr><td colspan='3' align='center'><input class='dgCamY' type='button' value='-8192' style='width: 50px; margin-right: 10px;'></td></tr><tr><td><input class='dgCamX' type='button' value='-16384' style='width: 50px; margin-right: 10px;'></td><td><input class='dgCamX' type='button' value='0' style='width: 50px; margin-right: 10px;'><input class='dgCamY' type='button' value='0'    style='width: 50px; margin-right: 10px;'></td><td><input class='dgCamX' type='button' value='16384' style='width: 50px; margin-right: 10px;'></td></tr><tr><td colspan='3' align='center'><input class='dgCamY' type='button' value='8192' style='width: 50px; margin-right: 10px;'></td></tr></table>"),
-            $("#logon input.dgCamX").click(function(Xt) {
-                let Gt = $(Xt.target).val();
-                Graphics.setCamera(parseFloat(Gt), Graphics.getCamera().y)
+            $("#logon input.dgCamX").click(function(Gt) {
+                let Xt = $(Gt.target).val();
+                Graphics.setCamera(parseFloat(Xt), Graphics.getCamera().y)
             }),
-            $("#logon input.dgCamY").click(function(Xt) {
-                let Gt = $(Xt.target).val();
-                Graphics.setCamera(Graphics.getCamera().x, parseFloat(Gt))
+            $("#logon input.dgCamY").click(function(Gt) {
+                let Xt = $(Gt.target).val();
+                Graphics.setCamera(Graphics.getCamera().x, parseFloat(Xt))
             }),
             $("#logon input.dgCamUpdates").click(function() {
                 SWAM.doUpdates = !SWAM.doUpdates
             });
             let Bt = $("#logon")[0];
-            $(window).keydown(function(Xt) {
-                game.state === Network.STATE.PLAYING || "none" == Bt.style.display || SWAM.moveCamera(Xt)
+            $(window).keydown(function(Gt) {
+                game.state === Network.STATE.PLAYING || "none" == Bt.style.display || SWAM.moveCamera(Gt)
             })
         }
     }
@@ -35612,17 +35611,17 @@ function SWAM() {
     SWAM.getLeaders = function() {
         let Bt = {};
         if (game.gameType == SWAM.GAME_TYPE.CTF) {
-            let Xt = null
-              , Gt = null;
+            let Gt = null
+              , Xt = null;
             forEachPlayer(Yt=>{
-                1 == Yt.team ? (null == Xt || Yt.scorePlace < Xt.scorePlace) && (Xt = Yt) : (null == Gt || Yt.scorePlace < Gt.scorePlace) && (Gt = Yt)
+                1 == Yt.team ? (null == Gt || Yt.scorePlace < Gt.scorePlace) && (Gt = Yt) : (null == Xt || Yt.scorePlace < Xt.scorePlace) && (Xt = Yt)
             }
             ),
-            null != Xt && (Bt[Xt.id] = Xt),
-            null != Gt && (Bt[Gt.id] = Gt)
+            null != Gt && (Bt[Gt.id] = Gt),
+            null != Xt && (Bt[Xt.id] = Xt)
         } else {
-            forEachPlayer(Gt=>{
-                1 == Gt.scorePlace && (Bt[Gt.id] = Gt)
+            forEachPlayer(Xt=>{
+                1 == Xt.scorePlace && (Bt[Xt.id] = Xt)
             }
             )
         }
@@ -35668,13 +35667,13 @@ function SWAM() {
                 SWAM.CruiseMode.toggle()
             });
             $("#sidebar").append(Bt),
-            $("#CruiseControl").mouseenter(function(Xt) {
-                let Gt = "<div class='header'>Cruise Control</div>";
-                Gt += "<div class='item'><div class='desc'>Makes the ship advance automatically at full speed.  Toggle with '5' or 'END' keys.</div></div>",
-                Gt += "<div class=\"arrow\"></div>",
-                $("#tooltip").html(Gt),
+            $("#CruiseControl").mouseenter(function(Gt) {
+                let Xt = "<div class='header'>Cruise Control</div>";
+                Xt += "<div class='item'><div class='desc'>Makes the ship advance automatically at full speed.  Toggle with '5' or 'END' keys.</div></div>",
+                Xt += "<div class=\"arrow\"></div>",
+                $("#tooltip").html(Xt),
                 UI.show("#tooltip");
-                let Yt = Xt.currentTarget.getBoundingClientRect();
+                let Yt = Gt.currentTarget.getBoundingClientRect();
                 $("#tooltip").css({
                     left: Math.round(Yt.left + 60) + "px",
                     top: Math.round(Yt.top - 10) + "px"
@@ -35725,8 +35724,8 @@ function SWAM() {
         send: function(Bt) {
             this.channelMethods[this.currentChannel](Bt)
         },
-        sendTo: function(Bt, Xt) {
-            this.channelMethods[Bt](Xt)
+        sendTo: function(Bt, Gt) {
+            this.channelMethods[Bt](Gt)
         },
         channelNames: ["* Radio to All *", "* Radio to TEAM *", "* CLOSE RANGE signal *"],
         channelKeys: ["Z", "X", "C"],
@@ -35737,7 +35736,7 @@ function SWAM() {
             if (null != Bt)
                 try {
                     SWAM.radio.options = JSON.parse(Bt)
-                } catch (Xt) {
+                } catch (Gt) {
                     var Bt = null;
                     localStorage.removeItem("radioMessages")
                 }
@@ -35748,33 +35747,33 @@ function SWAM() {
         },
         showConfig: function(Bt) {
             this.hide();
-            var Xt = getTemplateContent("#Radio_Customization_Title");
-            Xt = Xt.replace(/\$channel/g, SWAM.radio.channelNames[Bt]);
-            let Gt = createModal({
-                title: Xt,
+            var Gt = getTemplateContent("#Radio_Customization_Title");
+            Gt = Gt.replace(/\$channel/g, SWAM.radio.channelNames[Bt]);
+            let Xt = createModal({
+                title: Gt,
                 content: getTemplateContent("#Radio_Customization_Content"),
                 width: "550px",
                 maxHeight: "450px",
                 height: "450px"
             });
             for (var Yt = getTemplateContent("#Radio_Customization_Message"), Ht = 0; 10 > Ht; Ht++) {
-                Xt = Yt.replace(/\$index/g, 9 > Ht ? Ht + 1 : "0");
-                var jt = $(Xt);
+                Gt = Yt.replace(/\$index/g, 9 > Ht ? Ht + 1 : "0");
+                var jt = $(Gt);
                 $("input", jt).val(SWAM.radio.options[Bt][Ht]),
-                $(".optionList", Gt).append(jt)
+                $(".optionList", Xt).append(jt)
             }
-            $("body").append(Gt),
-            Gt.focus(),
-            $("#radioCustomizeSave", Gt).click(function() {
-                for (var Wt = $("input", Gt), zt = 0; zt < Wt.length; zt++)
+            $("body").append(Xt),
+            Xt.focus(),
+            $("#radioCustomizeSave", Xt).click(function() {
+                for (var Wt = $("input", Xt), zt = 0; zt < Wt.length; zt++)
                     SWAM.radio.options[Bt][zt] = Wt[zt].value;
                 localStorage.setItem("radioMessages", JSON.stringify(SWAM.radio.options)),
-                Gt.remove()
+                Xt.remove()
             }),
-            $("#radioCustomizeCancel", Gt).click(function() {
-                Gt.remove()
+            $("#radioCustomizeCancel", Xt).click(function() {
+                Xt.remove()
             }),
-            $("#radioRestoreThis", Gt).click(function() {
+            $("#radioRestoreThis", Xt).click(function() {
                 confirmDialog({
                     title: "Are you sure? This will delete all customized messages for this panel and restore them to default.",
                     message: SWAM.radio.channelNames[Bt] + "   -  Confirmation needed",
@@ -35783,22 +35782,22 @@ function SWAM() {
                         SWAM.radio.options[Bt] = Wt,
                         localStorage.setItem("radioMessages", JSON.stringify(SWAM.radio.options)),
                         SWAM.radio.loadOptions(),
-                        Gt.remove()
+                        Xt.remove()
                     }
                 })
             }),
-            $("#radioRestoreAll", Gt).click(function() {
+            $("#radioRestoreAll", Xt).click(function() {
                 confirmDialog({
                     title: "Are you sure? This will delete all customized messages and restore them to default.",
                     message: "Confirmation needed",
                     yes: function() {
                         localStorage.removeItem("radioMessages"),
                         SWAM.radio.loadOptions(),
-                        Gt.remove()
+                        Xt.remove()
                     }
                 })
             }),
-            $(Gt).keydown(function(Wt) {
+            $(Xt).keydown(function(Wt) {
                 Wt.stopImmediatePropagation()
             }).keyup(function(Wt) {
                 Wt.stopImmediatePropagation()
@@ -35806,34 +35805,34 @@ function SWAM() {
         },
         show: function(Bt) {
             SWAM.radio.currentChannel = Bt;
-            for (var Xt = SWAM.radio.options, Gt = "Close Menu - Press " + SWAM.radio.channelKeys[Bt] + "<div>-----</div>", Yt = 0; Yt < Xt[Bt].length; Yt++)
-                Gt += "<div><span style='margin-right: 15px;'>" + (Yt + 1) % 10 + ".</span>" + Xt[Bt][Yt] + "</div>";
+            for (var Gt = SWAM.radio.options, Xt = "Close Menu - Press " + SWAM.radio.channelKeys[Bt] + "<div>-----</div>", Yt = 0; Yt < Gt[Bt].length; Yt++)
+                Xt += "<div><span style='margin-right: 15px;'>" + (Yt + 1) % 10 + ".</span>" + Gt[Bt][Yt] + "</div>";
             $("#radioChannel").html(SWAM.radio.channelNames[Bt]),
-            $("#radioOptions").html(Gt),
+            $("#radioOptions").html(Xt),
             $("#radioPanel").show()
         },
         hide: function() {
             $("#radioPanel").hide()
         },
         handle_keys: function(Bt) {
-            var Xt = $.inArray(Bt.which, [90, 88, 67]);
-            if (-1 < Xt && (SWAM.radio.visible() && Xt == SWAM.radio.currentChannel ? SWAM.radio.hide() : SWAM.radio.show(Xt)),
+            var Gt = $.inArray(Bt.which, [90, 88, 67]);
+            if (-1 < Gt && (SWAM.radio.visible() && Gt == SWAM.radio.currentChannel ? SWAM.radio.hide() : SWAM.radio.show(Gt)),
             27 == Bt.which && SWAM.radio.visible() && SWAM.radio.hide(),
             48 <= Bt.which && 57 >= Bt.which && SWAM.radio.visible()) {
                 SWAM.radio.hide();
                 let Ht = "";
-                Xt = Bt.which - 49,
-                -1 == Xt && (Xt = 9);
+                Gt = Bt.which - 49,
+                -1 == Gt && (Gt = 9);
                 let jt = SWAM.radio.options
                   , Wt = SWAM.radio.currentChannel;
-                if (0 <= Xt && Xt < jt[Wt].length) {
-                    Ht = jt[Wt][Xt];
-                    var Gt = Ht.split(/\s*\|\s*/);
-                    Xt = 0;
+                if (0 <= Gt && Gt < jt[Wt].length) {
+                    Ht = jt[Wt][Gt];
+                    var Xt = Ht.split(/\s*\|\s*/);
+                    Gt = 0;
                     var Yt = function() {
-                        0 < Gt[Xt].length && SWAM.radio.sendTo(Wt, Gt[Xt]),
-                        Xt++,
-                        Xt < Gt.length && setTimeout(Yt, 1500)
+                        0 < Xt[Gt].length && SWAM.radio.sendTo(Wt, Xt[Gt]),
+                        Gt++,
+                        Gt < Xt.length && setTimeout(Yt, 1500)
                     };
                     Yt()
                 } else
@@ -35846,7 +35845,7 @@ function SWAM() {
     },
     SWAM.radio.append();
     let ProwlerRadar = new function() {
-        function Xt(Zt) {
+        function Gt(Zt) {
             if (zt) {
                 let Qt = Wt[Zt.id];
                 Qt || (Qt = new PIXI.Graphics,
@@ -35860,7 +35859,7 @@ function SWAM() {
                 Qt.renderable = Zt.removedFromMap || 1 != game.myType && 4 != game.myType || 5 != Zt.type || Zt.team == Players.getMe().team || Zt.hidden || Zt.render && !Zt.stealthed ? !1 : !0
             }
         }
-        function Gt() {
+        function Xt() {
             var Zt = Players.getIDs()
               , Qt = Players.getMe();
             if (Kt.hide(),
@@ -35871,7 +35870,7 @@ function SWAM() {
                         var en = Tools.distance($t.lowResPos.x, $t.lowResPos.y, Qt.pos.x, Qt.pos.y);
                         en < Vt && Kt.show()
                     }
-                    Xt($t, Qt)
+                    Gt($t, Qt)
                 }
         }
         function Ht() {
@@ -35897,16 +35896,16 @@ function SWAM() {
         ,
         SWAM.on("settingsApplied", this.updateSettings.bind(this)),
         SWAM.on("playerChangedType", Zt=>{
-            Xt(Players.get(Zt.id))
+            Gt(Players.get(Zt.id))
         }
         ),
         SWAM.on("playerKilled", (Zt,Qt)=>{
-            Xt(Qt)
+            Gt(Qt)
         }
         ),
         SWAM.on("playerStealth", Zt=>{
             let Qt = Players.get(Zt.id);
-            Xt(Qt)
+            Gt(Qt)
         }
         ),
         SWAM.on("playerDestroyed", Zt=>{
@@ -35915,7 +35914,7 @@ function SWAM() {
         ),
         SWAM.on("gamePrep", ()=>{
             $("body").append(Kt),
-            qt = setInterval(Gt, 500)
+            qt = setInterval(Xt, 500)
         }
         ),
         SWAM.on("gameWipe", ()=>{
@@ -35926,9 +35925,9 @@ function SWAM() {
         )
     }
       , SpectatorOnStart = new function() {
-        function Xt() {
+        function Gt() {
             clearTimeout(Ht),
-            SWAM.off("keydown", Xt)
+            SWAM.off("keydown", Gt)
         }
         let Ht = 0
           , jt = !1;
@@ -35937,10 +35936,10 @@ function SWAM() {
             Ht = 0)
         }),
         SWAM.on("CTF_MatchStarted", function() {
-            jt && (SWAM.on("keydown", Xt),
+            jt && (SWAM.on("keydown", Gt),
             Ht = setTimeout(()=>{
                 Network.spectateForce(),
-                SWAM.off("keydown", Xt),
+                SWAM.off("keydown", Gt),
                 jt = !1,
                 Ht = 0
             }
@@ -35955,16 +35954,16 @@ function SWAM() {
         return "none" !== $("#chatinput").css("display")
     }
     ,
-    SWAM.getClosestPlayer = function(Bt, Xt) {
-        let Gt = screenToMap(Bt, Xt);
-        Bt = Gt.x,
-        Xt = Gt.y;
+    SWAM.getClosestPlayer = function(Bt, Gt) {
+        let Xt = screenToMap(Bt, Gt);
+        Bt = Xt.x,
+        Gt = Xt.y;
         let Yt = 1e5
           , Ht = Players.getIDs()
           , jt = null;
         for (let Wt in Ht) {
             let zt = Players.get(Wt)
-              , Vt = Tools.distance(Bt, Xt, zt.pos.x, zt.pos.y);
+              , Vt = Tools.distance(Bt, Gt, zt.pos.x, zt.pos.y);
             Vt < Yt && (jt = zt,
             Yt = Vt)
         }
@@ -35973,11 +35972,11 @@ function SWAM() {
     }
     ,
     !function() {
-        const Xt = {
+        const Gt = {
             BLUE: 1,
             RED: 2
         }
-          , Gt = {
+          , Xt = {
             position: {
                 x: 0,
                 y: 0
@@ -36003,7 +36002,7 @@ function SWAM() {
         };
         let Ht = Kt=>Kt.render ? Kt.pos : Kt.lowResPos;
         SWAM.on("CTF_Flag", Kt=>{
-            let Zt = 1 == Kt.flag ? Gt : Yt;
+            let Zt = 1 == Kt.flag ? Xt : Yt;
             if (1 == Kt.type)
                 Zt.isCarried = !1,
                 Zt.player = null,
@@ -36020,7 +36019,7 @@ function SWAM() {
         );
         class Wt {
             constructor(Kt) {
-                this.flag = Kt == Xt.BLUE ? Gt : Yt
+                this.flag = Kt == Gt.BLUE ? Xt : Yt
             }
             getPosition() {
                 return this.flag.isCarried ? Ht(this.flag.player) : this.flag.position
@@ -36128,31 +36127,31 @@ function SWAM() {
             }
         }
         ;
-        let Vt = new Wt(Xt.BLUE)
-          , qt = new Wt(Xt.RED);
+        let Vt = new Wt(Gt.BLUE)
+          , qt = new Wt(Gt.RED);
         SWAM.ArrowIndicator.BLUE = new zt(Vt,255),
         SWAM.ArrowIndicator.RED = new zt(qt,16711680)
     }(),
     SWAM.SmallLog = new function() {
-        let Xt = null;
+        let Gt = null;
         SWAM.on("gamePrep", ()=>{
-            Xt = $(getTemplate("#WhoKilledWho")).click(()=>{
+            Gt = $(getTemplate("#WhoKilledWho")).click(()=>{
                 SWAM.GameLog.show()
             }
             ),
-            $("body").append(Xt)
+            $("body").append(Gt)
         }
         ),
         SWAM.on("gameWipe", ()=>{
-            Xt && (Xt.remove(),
-            Xt = null)
+            Gt && (Gt.remove(),
+            Gt = null)
         }
         ),
-        this.add = function(Gt) {
-            if (game.state === Network.STATE.PLAYING && 0 != Xt.length) {
-                let Yt = $(Gt);
-                Xt.append(Yt);
-                let Ht = Xt[0];
+        this.add = function(Xt) {
+            if (game.state === Network.STATE.PLAYING && 0 != Gt.length) {
+                let Yt = $(Xt);
+                Gt.append(Yt);
+                let Ht = Gt[0];
                 Ht.scrollTop = Ht.scrollHeight,
                 setTimeout(function() {
                     Yt.remove()
@@ -36162,7 +36161,7 @@ function SWAM() {
     }
     ,
     SWAM.GameLog = new function() {
-        let Gt = !0
+        let Xt = !0
           , Yt = !1
           , Ht = null
           , jt = null;
@@ -36170,7 +36169,7 @@ function SWAM() {
         this.add = function(Wt) {
             if (game.state === Network.STATE.PLAYING) {
                 let zt = $(Wt);
-                zt.hasClass("flwkw") && !Gt && zt.hide(),
+                zt.hasClass("flwkw") && !Xt && zt.hide(),
                 zt.hasClass("flplayer") && !Yt && zt.hide();
                 let Vt = jt[0]
                   , qt = isScrolledToBottom(Vt);
@@ -36238,7 +36237,7 @@ function SWAM() {
             jt = $(".fullLogcontent", Wt),
             $(".modalContent", Ht).append(Wt),
             $(".chkFLKills", Wt).click(()=>{
-                Gt = !Gt,
+                Xt = !Xt,
                 $(".flwkw", Wt).toggle()
             }
             ),
@@ -36257,15 +36256,15 @@ function SWAM() {
     ,
     SWAM.updatePlayersNamePlate = function() {
         var Bt = Players.getIDs()
-          , Xt = Players.getMe();
-        for (var Gt in Bt) {
-            var Yt = Players.get(Gt);
-            "undefined" != typeof Yt.scorePlace && (Yt.sprites.name.text = Yt.scorePlace + ". " + Yt.name + (Yt.team == Xt.team ? " [" + Math.floor(100 * parseFloat(Yt.health)) + "]" : ""))
+          , Gt = Players.getMe();
+        for (var Xt in Bt) {
+            var Yt = Players.get(Xt);
+            "undefined" != typeof Yt.scorePlace && (Yt.sprites.name.text = Yt.scorePlace + ". " + Yt.name + (Yt.team == Gt.team ? " [" + Math.floor(100 * parseFloat(Yt.health)) + "]" : ""))
         }
     }
     ;
     let emotesPanel = new function() {
-        function Gt() {
+        function Xt() {
             let Kt = SWAM.getEmotesList().slice().filter(Zt=>"x" != Zt).sort();
             return [...new Set(Kt)]
         }
@@ -36317,7 +36316,7 @@ function SWAM() {
             }).hide();
             let Kt = ""
               , Zt = 0;
-            Gt().forEach(Jt=>{
+            Xt().forEach(Jt=>{
                 Kt += `<div class="emoteSample" data-name="${Jt}"><div class="emote emote-${Jt}"></div><div>/${Jt}</div></div>`,
                 Zt++
             }
@@ -36377,11 +36376,11 @@ function SWAM() {
             }
             return [Math.round(255 * Zt), Math.round(255 * Qt), Math.round(255 * Jt)]
         }
-        const Xt = {
+        const Gt = {
             x: -9050,
             y: -1450
         }
-          , Gt = {
+          , Xt = {
             x: 8074,
             y: -905
         };
@@ -36474,7 +36473,7 @@ function SWAM() {
         SWAM.fx.startFireworks = Vt=>{
             function qt() {
                 let Qt, Jt, $t;
-                return Vt ? (Qt = 1 == Vt ? Xt : Gt,
+                return Vt ? (Qt = 1 == Vt ? Gt : Xt,
                 Jt = 700,
                 $t = 500) : (Qt = Graphics.getCamera(),
                 Jt = game.halfScreenX / game.scale,
@@ -36511,8 +36510,8 @@ function SWAM() {
             for (let en in $t)
                 Qt[en] = ($t[en] - 1) / Zt
         }
-        function Xt($t, en) {
-            Gt(),
+        function Gt($t, en) {
+            Xt(),
             Jt = new Date,
             qt = !0,
             Vt = 0,
@@ -36525,7 +36524,7 @@ function SWAM() {
             Kt.start(),
             game.graphics.layers.map.filters = [new PIXI.filters.AdjustmentFilter]
         }
-        function Gt() {
+        function Xt() {
             Kt.stop()
         }
         function Yt() {
@@ -36562,7 +36561,7 @@ function SWAM() {
                 for (let en in Qt)
                     game.graphics.layers.map.filters[0][en] -= Qt[en] / 4;
             else
-                Gt(),
+                Xt(),
                 Yt();
             Vt++,
             Graphics.renderBackground()
@@ -36582,7 +36581,7 @@ function SWAM() {
                 blue: 0.7,
                 alpha: 1.5
             }),
-            Xt(SWAM.ArrowIndicator.BLUE.tracker.flag.BASE_COORDINATES, 3355647)
+            Gt(SWAM.ArrowIndicator.BLUE.tracker.flag.BASE_COORDINATES, 3355647)
         }
         ,
         this.showRed = function() {
@@ -36596,11 +36595,11 @@ function SWAM() {
                 blue: 0.3,
                 alpha: 1.2
             }),
-            Xt(SWAM.ArrowIndicator.RED.tracker.flag.BASE_COORDINATES, 16724787)
+            Gt(SWAM.ArrowIndicator.RED.tracker.flag.BASE_COORDINATES, 16724787)
         }
         ,
         this.remove = function() {
-            Gt(),
+            Xt(),
             jt.scale.set(0),
             Wt.removeChild(jt),
             game.graphics.layers.map.filters = []
@@ -36615,15 +36614,15 @@ function SWAM() {
     }
     ,
     SWAM.ColorAdjustments = new function() {
-        function Xt() {
+        function Gt() {
             Qt = $(getTemplate("#adjustmentPanel")),
             $("body").append(Qt),
-            $(".toggleAdvanced", Qt).click(Gt),
+            $(".toggleAdvanced", Qt).click(Xt),
             $("input", Qt).change(Yt),
             $(".reset", Qt).click(jt),
             $(".close", Qt).click(Ht)
         }
-        function Gt() {
+        function Xt() {
             $(".advancedColorAdjustments", Qt).toggle(100)
         }
         function Yt() {
@@ -36688,7 +36687,7 @@ function SWAM() {
         )(),
         Kt(),
         this.open = function() {
-            if (0 == $("#adjustmentPanel").length ? Xt() : $("#adjustmentPanel").show(),
+            if (0 == $("#adjustmentPanel").length ? Gt() : $("#adjustmentPanel").show(),
             config.adjustmentFilter) {
                 let $t = config.adjustmentFilter;
                 for (let en in Jt)
@@ -36701,50 +36700,51 @@ function SWAM() {
     ;
     let ExtendedScoreboard = new function() {
         function Bt() {
-            let Xt = $("#scoreboard")[0].getBoundingClientRect()
-              , Gt = $("canvas")[0].getBoundingClientRect()
+            let Gt = $("#scoreboard")[0].getBoundingClientRect()
+              , Xt = $("canvas")[0].getBoundingClientRect()
               , Yt = "0px";
-            Xt.left < Gt.right && (Yt = Math.round(parseInt(config.minimapPaddingY) + parseInt(config.minimapSize / 2) + 5) + "px"),
+            Gt.left < Xt.right && (Yt = Math.round(parseInt(config.minimapPaddingY) + parseInt(config.minimapSize / 2) + 5) + "px"),
             $("#scoreboard").css({
                 bottom: Yt
             })
         }
-        this.update = function(Xt) {
+        this.update = function(Gt) {
             if (SWAM.Settings.ui.useExtendedScoreboard) {
-                let zt = 0, Vt = "", qt = !1, Kt = 0, Zt = "", Qt = "", Jt = 0, $t = "", Gt, Yt, Ht, jt, Wt;
-                Xt.sort(function(nn, an) {
-                    return an.score - nn.score
+                let zt = 0, Vt = "", qt = !1, Kt = 0, Zt = "", Qt = "", Jt = 0, $t = "", en = "", Xt, Yt, Ht, jt, Wt;
+                Gt.sort(function(an, rn) {
+                    return rn.score - an.score
                 }),
-                Kt = Xt.findIndex(nn=>nn.id == game.myID);
-                var en = function(nn) {
-                    var an = "";
-                    nn += "";
-                    for (var rn = 0; rn < nn.length; rn++)
-                        an += "<span>" + nn[rn] + "</span>";
-                    return an
+                Kt = Gt.findIndex(an=>an.id == game.myID);
+                var tn = function(an) {
+                    var rn = "";
+                    an += "";
+                    for (var on = 0; on < an.length; on++)
+                        rn += "<span>" + an[on] + "</span>";
+                    return rn
                 };
-                let tn = 100;
-                for (tn = tn ? Tools.clamp(tn, 1, Xt.length) : Xt.length,
-                Jt = 0; Jt < tn && !qt; Jt++)
-                    Gt = Players.get(Xt[Jt].id),
-                    null == Gt || (zt++,
+                let nn = 100;
+                for (nn = nn ? Tools.clamp(nn, 1, Gt.length) : Gt.length,
+                Jt = 0; Jt < nn && !qt; Jt++)
+                    Xt = Players.get(Gt[Jt].id),
+                    null == Xt || (zt++,
                     Yt = 4 > zt ? "<span class=\"badge scoreboard " + [, "gold", "silver", "bronze"][zt] + "\"></span>" : zt + ".",
-                    Ht = Gt.me() ? " sel" : "",
-                    jt = Xt[Jt].score,
-                    Wt = Xt[Jt].level,
-                    $t = Gt.removedFromMap ? UI.escapeHTML(Gt.name).strike() : UI.escapeHTML(Gt.name),
-                    Kt > tn && zt == tn - 1 && Kt != tn && (Vt += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
-                    Gt = Players.get(game.myID),
+                    Ht = Xt.me() ? " sel" : "",
+                    jt = Gt[Jt].score,
+                    Wt = Gt[Jt].level,
+                    $t = UI.escapeHTML(Xt.name),
+                    en = Xt.removedFromMap ? " spectator" : "",
+                    Kt > nn && zt == nn - 1 && Kt != nn && (Vt += "<div class=\"line dottedline\">&middot; &middot; &middot;</div>",
+                    Xt = Players.get(game.myID),
                     Yt = Kt + ".",
                     jt = game.myScore,
                     Wt = game.myLevel,
                     Ht = " sel",
                     qt = !0),
                     Zt = "",
-                    2 == game.gameType && (Zt = " team-" + Gt.team),
+                    game.gameType == SWAM.GAME_TYPE.CTF && (Zt = " team-" + Xt.team),
                     Qt = "",
                     4 == (Yt + "").length && (Qt = " bigger"),
-                    Vt += `<div class="line ${Ht}" data-playerid="${Gt.id}"><span class="place ${Qt}">` + Yt + `</span><span class="flag small flag-${Gt.flag}"></span>` + `<span class="nick ${Zt}">${$t}</span>` + (0 == Wt ? "" : `<span class="holder">&nbsp;<span class="rank">${Wt}</span></span>`) + "<span class=\"score\">" + en(jt) + "</span></div>");
+                    Vt += `<div class="line ${Ht}" data-playerid="${Xt.id}"><span class="place ${Qt}">` + Yt + `</span><span class="flag small flag-${Xt.flag}"></span>` + `<span class="nick ${Zt + en}">${$t}</span>` + (0 == Wt ? "" : `<span class="holder">&nbsp;<span class="rank">${Wt}</span></span>`) + "<span class=\"score\">" + tn(jt) + "</span></div>");
                 $("#scoreboard").html(Vt).perfectScrollbar()
             }
         }
@@ -36753,27 +36753,34 @@ function SWAM() {
         SWAM.one("gamePrep", Bt),
         SWAM.on("rendererResized", Bt)
     }
-      , sentMessages = []
+    ;
+    SWAM.on("playerSay", Bt=>{
+        let Gt = Players.get(Bt.id);
+        !Gt || UI.getIgnored()[Gt.id] || UI.isEmote(Bt.text, !0) || !Graphics.inScreen(Gt.pos, 128) || (UI.addChatLine(Gt, "\uD83D\uDCAC " + Bt.text, 0),
+        $("#chatlines div:last-of-type .text").addClass("chatSay"))
+    }
+    );
+    let sentMessages = []
       , sentMessageIndex = 0;
     $("#chatinput").keydown(function(Bt) {
-        let Xt = $("#chatinput");
-        if ("" == Xt.val() || Xt.val() == sentMessages[sentMessageIndex]) {
+        let Gt = $("#chatinput");
+        if ("" == Gt.val() || Gt.val() == sentMessages[sentMessageIndex]) {
             if (38 == Bt.which && 0 < sentMessageIndex)
                 return sentMessageIndex--,
-                Xt.val(sentMessages[sentMessageIndex]),
+                Gt.val(sentMessages[sentMessageIndex]),
                 Bt.stopImmediatePropagation(),
                 Bt.preventDefault(),
                 !1;
             if (40 == Bt.which && sentMessageIndex < sentMessages.length)
                 return sentMessageIndex++,
-                sentMessageIndex < sentMessages.length ? Xt.val(sentMessages[sentMessageIndex]) : Xt.val(""),
+                sentMessageIndex < sentMessages.length ? Gt.val(sentMessages[sentMessageIndex]) : Gt.val(""),
                 Bt.stopImmediatePropagation(),
                 Bt.preventDefault(),
                 !1
         }
         if (13 == Bt.which) {
-            let Gt = Xt.val();
-            "" != Gt && (sentMessages.push(Gt),
+            let Xt = Gt.val();
+            "" != Xt && (sentMessages.push(Xt),
             sentMessageIndex = sentMessages.length,
             50 < sentMessages.length && sentMessages.shift())
         }
@@ -36810,12 +36817,12 @@ function SWAM() {
         3 == Bt.which && Bt.target.className.includes("text") && copyTextToClipboard(Bt.target.innerText)
     }),
     $("#scoreboard, #scorecontainer").on("click", "div", function(Bt) {
-        var Xt = $(Bt.currentTarget).attr("data-playerid");
-        SWAM.setTargetedPlayer(Xt)
+        var Gt = $(Bt.currentTarget).attr("data-playerid");
+        SWAM.setTargetedPlayer(Gt)
     }),
     SWAM.listLayers = function(Bt) {
-        for (var Xt = 0; Xt < Bt.children.length; Xt++)
-            console.log(Bt.children[Xt].layerName)
+        for (var Gt = 0; Gt < Bt.children.length; Gt++)
+            console.log(Bt.children[Gt].layerName)
     }
     ,
     SWAM.debug,
@@ -36830,7 +36837,7 @@ function SWAM() {
     }
     , 1))
 }
-SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
+SWAM.injectTextures = function(Bt, Gt, Xt, Yt, Ht) {
     $.extend(Bt, {
         emotes: getFilePath("emotes.png")
     });
@@ -36849,7 +36856,7 @@ SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
     for (let Zt in SWAM.getEmotesList = ()=>Wt,
     $.extend(jt, zt),
     jt)
-        Xt[Zt] = jt[Zt];
+        Gt[Zt] = jt[Zt];
     var qt = {
         minimap1: {
             texture: "ui_minimap_1",
@@ -36882,7 +36889,7 @@ SWAM.injectTextures = function(Bt, Xt, Gt, Yt, Ht) {
     };
     for (let Zt in qt)
         Yt[Zt] = qt[Zt];
-    SWAM.Theme && SWAM.Theme.injectTextures && SWAM.Theme.injectTextures(Bt, Xt, Gt, Yt, Ht);
+    SWAM.Theme && SWAM.Theme.injectTextures && SWAM.Theme.injectTextures(Bt, Gt, Xt, Yt, Ht);
     let Kt = new PIXI.loaders.Loader;
     Kt.add(Object.values(Bt)),
     Kt.load(()=>SWAM.trigger("texturesInjected"))
@@ -36906,7 +36913,7 @@ SWAM.injectSounds = function(Bt) {
         return pn.guid = un.guid = un.guid || $.guid++,
         pn
     }
-    function Gt() {
+    function Xt() {
         let un = {
             StarMashThemes: {
                 url: getFilePath("swam.themes.js"),
@@ -37291,12 +37298,12 @@ SWAM.injectSounds = function(Bt) {
         pn.prototype
     }
     ;
-    let rn = Gt(), on = {}, sn = {}, dn = "", ln;
+    let rn = Xt(), on = {}, sn = {}, dn = "", ln;
     "#clean" == window.location.hash ? Zt() : "#noextensions" != window.location.hash && function() {
         try {
             let un = localStorage.getItem("SWAM_Extensions");
             null != un && (un = JSON.parse(un),
-            un.extensionsToLoad && (rn = $.extend(un.extensionsToLoad, Gt())),
+            un.extensionsToLoad && (rn = $.extend(un.extensionsToLoad, Xt())),
             un.selectedTheme && "" != un.selectedTheme && (dn = un.selectedTheme),
             un.lastSpecialTheme && (ln = un.lastSpecialTheme))
         } catch (un) {}
@@ -37598,31 +37605,31 @@ window.AutoPilot = {
             AutoPilot.Matrix = zt
         })
     },
-    angleTo: function(Bt, Xt) {
-        var Gt = Math.atan2(-Bt.x + Xt.x, Bt.y - Xt.y);
-        return 0 > Gt && (Gt += 2 * Math.PI),
-        Gt
+    angleTo: function(Bt, Gt) {
+        var Xt = Math.atan2(-Bt.x + Gt.x, Bt.y - Gt.y);
+        return 0 > Xt && (Xt += 2 * Math.PI),
+        Xt
     },
-    angleToNeg: function(Bt, Xt) {
-        return Math.atan2(-Bt.x + Xt.x, Bt.y - Xt.y)
+    angleToNeg: function(Bt, Gt) {
+        return Math.atan2(-Bt.x + Gt.x, Bt.y - Gt.y)
     },
-    mapCoordX: function(Bt, Xt) {
-        return Xt |= 0,
-        Math.floor((Bt + 16384 + Xt) / 100)
+    mapCoordX: function(Bt, Gt) {
+        return Gt |= 0,
+        Math.floor((Bt + 16384 + Gt) / 100)
     },
-    mapCoordY: function(Bt, Xt) {
-        return Xt |= 0,
-        Math.floor((Bt + 8192 + Xt) / 100)
+    mapCoordY: function(Bt, Gt) {
+        return Gt |= 0,
+        Math.floor((Bt + 8192 + Gt) / 100)
     },
-    getGraphBoundingBox: function(Bt, Xt, Gt) {
+    getGraphBoundingBox: function(Bt, Gt, Xt) {
         return {
             p1: {
-                x: this.mapCoordX(Bt, -Gt),
-                y: this.mapCoordY(Xt, -Gt)
+                x: this.mapCoordX(Bt, -Xt),
+                y: this.mapCoordY(Gt, -Xt)
             },
             p2: {
-                x: this.mapCoordX(Bt, Gt),
-                y: this.mapCoordY(Xt, Gt)
+                x: this.mapCoordX(Bt, Xt),
+                y: this.mapCoordY(Gt, Xt)
             }
         }
     },
@@ -37674,12 +37681,12 @@ window.AutoPilot = {
     tgs: function() {
         this.NavigateTo(this.greenland.x, this.greenland.y)
     },
-    NavigateTo: function(Bt, Xt) {
-        var Gt = Players.getMe()
-          , Yt = this.mapCoordX(Gt.pos.x)
-          , Ht = this.mapCoordY(Gt.pos.y)
+    NavigateTo: function(Bt, Gt) {
+        var Xt = Players.getMe()
+          , Yt = this.mapCoordX(Xt.pos.x)
+          , Ht = this.mapCoordY(Xt.pos.y)
           , jt = this.mapCoordX(Bt)
-          , Wt = this.mapCoordY(Xt);
+          , Wt = this.mapCoordY(Gt);
         AutoPilot.path = this.SearchPath(Yt, Ht, jt, Wt),
         AutoPilot.debug && (AutoPilot.erasePath(),
         AutoPilot.drawPath()),
@@ -37693,15 +37700,15 @@ window.AutoPilot = {
     },
     drawnPath: null,
     drawPath: function() {
-        for (var Bt = AutoPilot.path, Xt = new PIXI.Graphics, Gt = 0; Gt < Bt.length; Gt++) {
-            var Yt = Bt[Gt][0]
-              , Ht = Bt[Gt][1];
-            Xt.beginFill(65280, .2),
-            Xt.drawRect(100 * Yt - 16384, 100 * Ht - 8192, 100, 100),
-            Xt.endFill()
+        for (var Bt = AutoPilot.path, Gt = new PIXI.Graphics, Xt = 0; Xt < Bt.length; Xt++) {
+            var Yt = Bt[Xt][0]
+              , Ht = Bt[Xt][1];
+            Gt.beginFill(65280, .2),
+            Gt.drawRect(100 * Yt - 16384, 100 * Ht - 8192, 100, 100),
+            Gt.endFill()
         }
-        this.drawnPath = Xt,
-        game.graphics.layers.objects.addChild(Xt)
+        this.drawnPath = Gt,
+        game.graphics.layers.objects.addChild(Gt)
     },
     Test: function() {
         if (window.res = this.SearchPath(111, 11, 161, 46),
@@ -37722,22 +37729,22 @@ window.AutoPilot = {
     currentNode: 0,
     moveNext1: function() {
         var Bt = AutoPilot.path[this.currentNode].y
-          , Xt = AutoPilot.path[this.currentNode].x;
-        this.moveTo(100 * Bt - 16384 + 50, 100 * Xt - 8192 + 50, !0)
+          , Gt = AutoPilot.path[this.currentNode].x;
+        this.moveTo(100 * Bt - 16384 + 50, 100 * Gt - 8192 + 50, !0)
     },
     moveNext: function() {
         var Bt = AutoPilot.path[this.currentNode][0]
-          , Xt = AutoPilot.path[this.currentNode][1];
-        this.moveTo(100 * Bt - 16384 + 50, 100 * Xt - 8192 + 50, !0)
+          , Gt = AutoPilot.path[this.currentNode][1];
+        this.moveTo(100 * Bt - 16384 + 50, 100 * Gt - 8192 + 50, !0)
     },
     prevX: 0,
     prevY: 0,
     rotating: !1,
-    rotateTo: function(Bt, Xt, Gt=250, Yt) {
-        var Ht = Bt - Xt.rot;
+    rotateTo: function(Bt, Gt, Xt=250, Yt) {
+        var Ht = Bt - Gt.rot;
         Ht > Math.PI && (Ht -= 2 * Math.PI),
         Ht < -Math.PI && (Ht += 2 * Math.PI);
-        let jt = Math.round(1e3 * (Math.abs(Ht) / (60 * config.ships[Xt.type].turnFactor)))
+        let jt = Math.round(1e3 * (Math.abs(Ht) / (60 * config.ships[Gt.type].turnFactor)))
           , Wt = 0 < Ht ? AutoPilot.right : AutoPilot.left
           , zt = 0 >= Ht ? AutoPilot.right : AutoPilot.left;
         AutoPilot.rotating = !0,
@@ -37748,10 +37755,10 @@ window.AutoPilot = {
                 AutoPilot.rotating = !1,
                 Yt && Yt()
             }
-            , Gt)
+            , Xt)
         }, jt)
     },
-    moveTo: function(Bt, Xt, Gt) {
+    moveTo: function(Bt, Gt, Xt) {
         function Yt() {
             if (!AutoPilot.exit) {
                 if (Ht = Players.getMe(),
@@ -37763,7 +37770,7 @@ window.AutoPilot = {
                     return void AutoPilot.cancel();
                 var jt = AutoPilot.angleTo(Ht.pos, {
                     x: Bt,
-                    y: Xt
+                    y: Gt
                 })
                   , Wt = !0
                   , zt = jt - Ht.rot;
@@ -37779,11 +37786,11 @@ window.AutoPilot = {
                           , qt = 100 * AutoPilot.path[AutoPilot.currentNode + 1].x - 8192 + 50;
                         jt = AutoPilot.angleTo(Ht.pos, {
                             x: Bt,
-                            y: Xt
+                            y: Gt
                         });
                         var Kt = AutoPilot.angleTo({
                             x: Bt,
-                            y: Xt
+                            y: Gt
                         }, {
                             x: Vt,
                             y: qt
@@ -37794,25 +37801,25 @@ window.AutoPilot = {
                         AutoPilot.stop()
                     }, 50)
                 }
-                !AutoPilot.exit && 100 < Tools.distance(Ht.pos.x, Ht.pos.y, Bt, Xt) ? setTimeout(Yt, 100) : !AutoPilot.exit && Gt && AutoPilot.currentNode < AutoPilot.path.length - 1 ? (AutoPilot.currentNode++,
+                !AutoPilot.exit && 100 < Tools.distance(Ht.pos.x, Ht.pos.y, Bt, Gt) ? setTimeout(Yt, 100) : !AutoPilot.exit && Xt && AutoPilot.currentNode < AutoPilot.path.length - 1 ? (AutoPilot.currentNode++,
                 AutoPilot.moveNext()) : AutoPilot.fullStop()
             }
         }
         AutoPilot.debug && console.log(this.currentNode),
-        Gt |= !1,
+        Xt |= !1,
         AutoPilot.exit = !1;
         var Ht = Players.getMe();
         this.prevX = Ht.pos.x,
         this.prevY = Ht.pos.y,
         Yt()
     },
-    SearchPath: function(Bt, Xt, Gt, Yt) {
+    SearchPath: function(Bt, Gt, Xt, Yt) {
         let Ht = new PF.Grid(AutoPilot.Matrix), jt = new PF.AStarFinder({
             allowDiagonal: !0,
             dontCrossCorners: !0
         }), Wt, zt;
         try {
-            Wt = jt.findPath(Bt, Xt, Gt, Yt, Ht),
+            Wt = jt.findPath(Bt, Gt, Xt, Yt, Ht),
             zt = PF.Util.smoothenPath(Ht, Wt)
         } catch (Vt) {
             console.log("error pf: ", Wt, zt)
@@ -37822,14 +37829,14 @@ window.AutoPilot = {
     mimicTarget: 0,
     checkMimic: function(Bt) {
         if (3 == Bt.which && Bt.altKey) {
-            let Xt = SWAM.getClosestPlayer(Bt.offsetX, Bt.offsetY);
-            if (Xt.id == game.myID)
+            let Gt = SWAM.getClosestPlayer(Bt.offsetX, Bt.offsetY);
+            if (Gt.id == game.myID)
                 AutoPilot.mimicTarget = 0,
                 Network.sendSay("Mimicking stopped"),
                 Network.sendKey("UP", !1),
                 Network.sendKey("DOWN", !1);
-            else if (Network.sendSay("Mimicking " + Xt.name + " ..."),
-            AutoPilot.mimicTarget = Xt.id,
+            else if (Network.sendSay("Mimicking " + Gt.name + " ..."),
+            AutoPilot.mimicTarget = Gt.id,
             AutoPilot.aligned = !1,
             AutoPilot.mimicPaused = !0,
             !AutoPilot.aligned)
@@ -37844,11 +37851,11 @@ window.AutoPilot = {
             36 == Bt.keyCode || 190 == Bt.keyCode)
                 if (AutoPilot.mimicPaused = !AutoPilot.mimicPaused,
                 AutoPilot.mimicPaused) {
-                    let Xt = Players.getMe();
-                    Xt.keystate.UP && Network.sendKey("UP", !1),
-                    Xt.keystate.DOWN && Network.sendKey("DOWN", !1),
-                    Xt.keystate.LEFT && Network.sendKey("LEFT", !1),
-                    Xt.keystate.RIGHT && Network.sendKey("RIGHT", !1),
+                    let Gt = Players.getMe();
+                    Gt.keystate.UP && Network.sendKey("UP", !1),
+                    Gt.keystate.DOWN && Network.sendKey("DOWN", !1),
+                    Gt.keystate.LEFT && Network.sendKey("LEFT", !1),
+                    Gt.keystate.RIGHT && Network.sendKey("RIGHT", !1),
                     Network.sendSay("paused")
                 } else
                     Network.sendSay("resumed");
@@ -37867,13 +37874,13 @@ window.AutoPilot = {
     reverseMimic: !1,
     mimicRotation: function(Bt) {
         if (this.mimicTarget != game.myID) {
-            let Xt = Players.getMe()
-              , Gt = Players.get(this.mimicTarget)
-              , Yt = Xt.rot - Gt.rot;
+            let Gt = Players.getMe()
+              , Xt = Players.get(this.mimicTarget)
+              , Yt = Gt.rot - Xt.rot;
             if (!this.rotating && 0.05 < Math.abs(Yt)) {
-                console.log(`rotating... delta: ${Yt}   me.rot: ${Xt.rot}   player.rot: ${Gt.rot}`);
+                console.log(`rotating... delta: ${Yt}   me.rot: ${Gt.rot}   player.rot: ${Xt.rot}`);
                 let Ht = AutoPilot.reverseMimic ? Math.PI : 0;
-                AutoPilot.rotateTo(Gt.rot + Ht, Xt, 250, function() {
+                AutoPilot.rotateTo(Xt.rot + Ht, Gt, 250, function() {
                     AutoPilot.aligned = !0,
                     Bt && (AutoPilot.mimicPaused = !1)
                 })
@@ -37889,8 +37896,8 @@ window.AutoPilot = {
         , 250)),
         this.lastState.stealthed = Bt.state)
     },
-    mimicUpdate: function(Bt, Xt) {
-        function Gt(Wt, zt) {
+    mimicUpdate: function(Bt, Gt) {
+        function Xt(Wt, zt) {
             let Vt = Wt;
             AutoPilot.reverseMimic && ("UP" == Wt ? Vt = "DOWN" : "DOWN" == Wt && (Vt = "UP")),
             AutoPilot.lastState.keystate[Wt] != zt[Wt] && (console.log("sending key: " + Vt + " - " + zt[Wt]),
@@ -37906,25 +37913,25 @@ window.AutoPilot = {
         let Ht = {
             keystate: {}
         };
-        if (Xt.id != game.myID && Xt.id == AutoPilot.mimicTarget && !AutoPilot.mimicPaused) {
-            if (null == Xt.keystate)
+        if (Gt.id != game.myID && Gt.id == AutoPilot.mimicTarget && !AutoPilot.mimicPaused) {
+            if (null == Gt.keystate)
                 return Bt == Network.SERVERPACKET.PLAYER_FIRE ? (Network.sendKey("FIRE", !0),
                 void setTimeout(function() {
                     Network.sendKey("FIRE", !1)
-                }, 100)) : void (Bt == Network.SERVERPACKET.EVENT_BOOST && AutoPilot.lastState.boost != Xt.boost && (Network.sendKey("SPECIAL", Xt.boost),
-                AutoPilot.lastState.boost = Xt.boost));
-            Tools.decodeKeystate(Ht, Xt.keystate);
+                }, 100)) : void (Bt == Network.SERVERPACKET.EVENT_BOOST && AutoPilot.lastState.boost != Gt.boost && (Network.sendKey("SPECIAL", Gt.boost),
+                AutoPilot.lastState.boost = Gt.boost));
+            Tools.decodeKeystate(Ht, Gt.keystate);
             var jt = {};
             jt[Network.SERVERPACKET.PLAYER_UPDATE] = "update",
             jt[Network.SERVERPACKET.PLAYER_FIRE] = "fire",
             jt[Network.SERVERPACKET.EVENT_BOOST] = "boost",
             jt[Network.SERVERPACKET.EVENT_BOUNCE] = "bounce",
             Yt(),
-            null != Xt.keystate && (console.log("event: " + Bt[Bt]),
-            Gt("UP", Ht.keystate),
-            Gt("DOWN", Ht.keystate),
-            Gt("LEFT", Ht.keystate),
-            Gt("RIGHT", Ht.keystate)),
+            null != Gt.keystate && (console.log("event: " + Bt[Bt]),
+            Xt("UP", Ht.keystate),
+            Xt("DOWN", Ht.keystate),
+            Xt("LEFT", Ht.keystate),
+            Xt("RIGHT", Ht.keystate)),
             AutoPilot.lastkeys = $.extend(AutoPilot.lastState, Ht)
         }
     },
@@ -37959,31 +37966,31 @@ SWAM.Audio = {
                 OursRecovered_2: [20200, 1800]
             }
         });
-        SWAM.Audio.playFlagEvent = function(Xt, Gt) {
+        SWAM.Audio.playFlagEvent = function(Gt, Xt) {
             if (config.settings.sound) {
                 var Yt = null;
-                for (let Ht in 1 != Gt && 2 != Gt && (Gt = 1),
+                for (let Ht in 1 != Xt && 2 != Xt && (Xt = 1),
                 SWAM.Audio.Flag)
-                    if (SWAM.Audio.Flag[Ht] == Xt) {
-                        Yt = Ht + "_" + Gt;
+                    if (SWAM.Audio.Flag[Ht] == Gt) {
+                        Yt = Ht + "_" + Xt;
                         break
                     }
                 null != Yt && SWAM.Audio.play(Yt)
             }
         }
         ,
-        SWAM.Audio.play = function(Xt) {
+        SWAM.Audio.play = function(Gt) {
             if (config.settings.sound) {
-                let Gt = Bt.play(Xt);
+                let Xt = Bt.play(Gt);
                 setTimeout(function() {
-                    Bt.stop(Gt)
-                }, Bt._sprite[Xt][1])
+                    Bt.stop(Xt)
+                }, Bt._sprite[Gt][1])
             }
         }
     }
 };
 function getFilePath(Bt) {
-    return "https://molesmalo.github.io/StarWarsMod4AirMash/assets/" + Bt + "?" + SWAM_version
+    return "https://localhost/" + Bt + "?" + SWAM_version
 }
 $(function() {
     (function() {
@@ -38004,13 +38011,13 @@ function showRequestlyWarning() {
         accepted: !1
     }, Bt),
     !Bt.accepted) {
-        let Xt = $(getTemplate("#RequestlyWarning"));
-        $("#btnRequestlyAccept", Xt).click(function() {
+        let Gt = $(getTemplate("#RequestlyWarning"));
+        $("#btnRequestlyAccept", Gt).click(function() {
             Bt.accepted = !0,
             localStorage.setItem("requestlyWarning", JSON.stringify(Bt)),
-            Xt.remove()
+            Gt.remove()
         }),
-        $("body").append(Xt).css("overflow", "hidden")
+        $("body").append(Gt).css("overflow", "hidden")
     }
 }
 SWAM.hideLoadingScreen = function() {
@@ -38033,10 +38040,10 @@ SWAM.on("gameRunning", ()=>{
             window.location = location.origin
         }
         $("#loginbutton").off("click").click(()=>{
-            let Xt = $(getTemplate("#loginInstructions"));
-            return $("#logon").append(Xt),
-            Xt.fadeIn(500),
-            closeWhenClickOutside(Xt),
+            let Gt = $(getTemplate("#loginInstructions"));
+            return $("#logon").append(Gt),
+            Gt.fadeIn(500),
+            closeWhenClickOutside(Gt),
             !1
         }
         )
@@ -38044,7 +38051,7 @@ SWAM.on("gameRunning", ()=>{
 }
 ),
 SWAM.loadFiles(()=>{
-    let Xt = Date.now();
+    let Gt = Date.now();
     window.specialTheme = "HellMash",
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
@@ -38055,7 +38062,7 @@ SWAM.loadFiles(()=>{
         RunGame(),
         SWAM(),
         SWAM.hideLoadingScreen(),
-        console.log("loading time: ", Date.now() - Xt),
+        console.log("loading time: ", Date.now() - Gt),
         SWAM.trigger("gameRunning")
     }),
     loadGameCode()
