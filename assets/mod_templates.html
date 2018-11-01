@@ -1,7 +1,7 @@
 <style id="ModStyles" type="text/css">
 
     /*------------------------------------------------------------------------
-        SLIDER CONTROL
+        SWITCH CONTROL
     ------------------------------------------------------------------------*/
     .switch {
         vertical-align: middle;
@@ -42,11 +42,13 @@
     }
     
     input:checked + .slider {
-      background-color: #2196F3;
+      /* background-color: #2196F3; */
+      background-color: rgb(27, 119, 194);
     }
     
     input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
+      /* box-shadow: 0 0 1px #2196F3; */
+      box-shadow: 0 0 1px rgb(27, 119, 194);
     }
     
     input:checked + .slider:before {
@@ -75,19 +77,255 @@
     </label>*/
 
     /*------------------------------------------------------------------------
+        SLIDER CONTROL
+    ------------------------------------------------------------------------*/
+
+    input[type=range] {
+        -webkit-appearance: none;
+        background-color: rgba(0,0,0,0);
+        margin: 3px 0;
+        width: 200px;
+        margin-right: 10px;
+    }
+    input[type=range]:focus {
+        outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        background: #202020;
+        border-radius: 25px;
+        border: 0.2px solid #010101;
+    }
+    input[type=range]::-webkit-slider-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        border: 1px solid #404040;
+        height: 16px;
+        width: 25px;
+        border-radius: 25px;
+        background: #808080;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -3.2px;
+    }
+    input[type=range]:focus::-webkit-slider-runnable-track {
+        background: #6d6d6d;
+    }
+    input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        background: #202020;
+        border-radius: 25px;
+        border: 0.2px solid #010101;
+    }
+    input[type=range]::-moz-range-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        border: 1px solid #404040;
+        height: 16px;
+        width: 25px;
+        border-radius: 25px;
+        background: #808080;
+        cursor: pointer;
+    }
+    input[type=range]::-ms-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+    input[type=range]::-ms-fill-lower {
+        background: #000000;
+        border: 0.2px solid #010101;
+        border-radius: 50px;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range]::-ms-fill-upper {
+        background: #202020;
+        border: 0.2px solid #010101;
+        border-radius: 50px;
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    input[type=range]::-ms-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        border: 1px solid #404040;
+        height: 16px;
+        width: 25px;
+        border-radius: 25px;
+        background: #808080;
+        cursor: pointer;
+        height: 10px;
+    }
+    input[type=range]:focus::-ms-fill-lower {
+        background: #202020;
+    }
+    input[type=range]:focus::-ms-fill-upper {
+        background: #6d6d6d;
+    }
+
+    /*------------------------------------------------------------------------
+        MODAL CONTAINER
+    ------------------------------------------------------------------------*/
+
+    .modalContainer
+    {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+        outline: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+        z-index: 30;
+    }
+    .modalDialog
+    {
+        position: absolute;
+        width: 600px;
+        min-height: 180px;
+        max-height: 800px;
+
+        overflow-y: auto;
+        
+        left: calc(50% - 300px);
+        top: 50px;
+        
+        background-color: rgba(0,0,0,0.75); /*rgba(0,0,0,1);*/
+        box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+        border-radius: 9px;
+        border-bottom: 2px solid rgba(0,0,0,0.3);
+        border-top: 2px solid rgba(255,255,255,0.08);
+        box-sizing: border-box;
+        padding: 18px 18px 0 18px;
+        cursor: default;
+
+        color: white;
+        font-family: verdana,arial,helvetica,sans-serif;
+    }
+    .modalTitle
+    {
+        font-size: 20px;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    /* fix outline added on focus by tabindex */
+    .modalContent > div[tabindex="1"]:focus
+    {
+        outline: none;
+    }
+
+    /*------------------------------------------------------------------------
+        Modified Game Elements
+    ------------------------------------------------------------------------*/
+
+    body {
+        /* background: black url("https://i.imgur.com/c3m8C6H.jpg") no-repeat fixed center; */
+        /* background: black url("https://i.imgur.com/FC9k2Q5.jpg") no-repeat fixed center; */
+        background: black url("https://i.imgur.com/gNJDaJg.jpg") no-repeat fixed center;
+        /*background: black url("https://i.imgur.com/2qxMKgT.jpg") no-repeat fixed center;*/
+
+
+        background-size: cover;
+    }
+
+    #logon {
+        height: 400px;
+    }
+
+    #logon .logo {
+        background-image: url('data:image/png;base64,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');
+        margin-left: -154px;
+        width: 308px;
+        height: 90px;
+    }
+
+    #logosmall {
+        background-image: url('data:image/png;base64,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');
+    }
+
+    #logon .logo .version {
+        position: fixed;
+        left: 0;
+        bottom: 60px;
+        font-size: 10px;
+        width: 100%;
+        color: #c8c8c8;
+        text-align: center;
+    }
+
+    #sidebar, canvas {
+        -webkit-box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    #sidebar
+    {
+        -moz-transform: scale(.8);
+        -webkit-transform: scale(.8);
+        -o-transform: scale(.8);
+        transform: scale(.8);
+        -moz-transform-origin: left top;
+        -webkit-transform-origin: left top;
+        -o-transform-origin: left top;
+        transform-origin: left top;
+    }
+
+    #chatinput { z-index: 1; }
+
+    #chatbox .line .text.chatSay { color: #fff; }
+
+    /* ----------------- SCOREBOARD ------------------------------ */
+
+    #scoreboard {
+        width: 240px;
+        font-size: 10px;
+        overflow: auto;
+    }
+
+    #scoreboard .line {
+        margin-bottom: 6px;
+        line-height: 12px;
+        cursor: pointer;
+    }
+
+    #scoreboard .nick.spectator {
+        text-decoration: line-through;
+    }
+
+    /*------------------------------------------------------------------------
         Kills Deaths UI
     ------------------------------------------------------------------------*/
+    #scorebig {
+        right: 0px;
+    }
+
+    #scorebig .container-upgrades,
+    #scorebig .container-rank,
+    #scorebig .container-kills,
+    #scorebig .container-deaths
+    {
+        font-size: 15px;
+    }
 
     #scorebig .upgrades,
     #scorebig .container-upgrades
     {
-        right: 140px;
+        right: 160px;
     }
 
     #scorebig .rank,
     #scorebig .container-rank
     {
-        right: 90px;
+        right: 110px;
     }
 
     #scorebig .kills,
@@ -111,18 +349,18 @@
         width: 40px;
         top: 82px;
         font-weight: bold;
-        font-size: 19px;
+        /* font-size: 19px; */
     }
     
     #scorebig .kills,
     #scorebig .container-kills
     {
-        right: 40px;
+        right: 60px;
     }
     #scorebig .deaths,
     #scorebig .container-deaths
     {
-        right: -10px;
+        right: 10px;
     }
     #scorebig #score-kills,
     #scorebig #score-deaths
@@ -132,12 +370,213 @@
         border-radius: 5px;
         padding: 2px 8px 2px 8px;
     }
+    #scorebig #score-kills
+    {
+        font-size: 15px;
+    }
+
+    /*------------------------------------------------------------------------
+        MOD STUFF
+    ------------------------------------------------------------------------*/
+
+    #matchTime {
+        position: absolute;
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        top: 35px;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 12px;
+        text-shadow: 0 0 3px rgba(0,0,0,0.8);
+        /*color: #c8c8c8;*/
+        color: #a0a0a0;
+        cursor: default;
+        /*pointer-events: none;*/
+    }
+
+    /* Players name in view all window */
+    div.name > div.player
+    {
+        cursor: pointer;
+    }
+
+    .spectatorMode > #btnFreeSpectator {
+        display: block;
+    }
+
+    #btnFreeSpectator {
+        display: none;
+        position: absolute;
+        left: 50%;
+        margin: -75px;
+        bottom: 200px;
+        width: 150px;
+        height: 25px;
+        padding: 5px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 5px;
+        text-align: center;
+        color: #b4b4b4;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    #clearChat {
+        position: absolute;
+        right: 70px;
+        color: #c9c9c9;
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    #chatbox {
+        font-size: 12px;
+        font-family: verdana,arial,helvetica,sans-serif;
+    }
+
+    #howtoplay { top: 80px; margin-top: 0; }
+
+    /* to make it continuous */
+    #sidebar .spacer { background-color: rgba(0,0,0,.2); }
+
+    #settings {
+        width: 135px;
+    }
+
+    .leaderBoardIcon
+    {
+        position: absolute;
+        right: 66px;
+        top: 0;
+        width: 33px;
+        height: 31px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+        background-position: 7px 6px;
+        background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMjAuMTg4cHgiIGhlaWdodD0iMjAuMTg4cHgiIHZpZXdCb3g9IjAgMCAyMC4xODggMjAuMTg4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyMC4xODggMjAuMTg4IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik0xOS4xNzIsMTcuMjk3YzAsMS4wNC0wLjg1LDEuODkzLTEuODkzLDEuODkzSDIuOTIzDQoJYy0xLjA0MSwwLTEuODkzLTAuODUzLTEuODkzLTEuODkzVjIuOTQxYzAtMS4wNDMsMC44NTItMS44OTMsMS44OTMtMS44OTNoMTQuMzU3YzEuMDQzLDAsMS44OTIsMC44NDksMS44OTIsMS44OTNWMTcuMjk3DQoJTDE5LjE3MiwxNy4yOTd6Ii8+DQo8Zz4NCgk8bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iNy44MDgiIHkxPSI1LjM3IiB4Mj0iMTYuMjgxIiB5Mj0iNS4zNyIvPg0KCTxsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI3LjgwOCIgeTE9IjEwLjQ3MyIgeDI9IjE2LjI4MSIgeTI9IjEwLjQ3MyIvPg0KCTxsaW5lIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI3LjgwOCIgeTE9IjE1LjUwNCIgeDI9IjE2LjI4MSIgeTI9IjE1LjUwNCIvPg0KPC9nPg0KPGNpcmNsZSBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjUuMTg4IiBjeT0iNS4zNyIgcj0iMC43OTciLz4NCjxjaXJjbGUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1LjE4OCIgY3k9IjEwLjQ3MyIgcj0iMC43OTciLz4NCjxjaXJjbGUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1LjE4OCIgY3k9IjE1LjUwNCIgcj0iMC43OTciLz4NCjwvc3ZnPg0K");
+        opacity: .8;
+    }
+
+    .modSettingsIcon
+    {
+        position: absolute;
+        right: 99px;
+        top: 0;
+        width: 33px;
+        height: 31px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+        background-position: 7px 6px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='445.1' height='445.1' viewBox='0 0 445.1 445.1'%3E%3Cpath d='m442.8 184.2c-1.6-2-3.6-3.2-6.1-3.6l-53-8.1c-2.9-9.3-6.9-18.7-11.9-28.4 3.5-4.8 8.7-11.6 15.6-20.4s11.9-15.2 14.8-19.3c1.5-2.1 2.3-4.3 2.3-6.7 0-2.7-0.7-4.8-2-6.4-7-9.9-22.9-26.3-47.8-49.3-2.3-1.9-4.7-2.9-7.2-2.9-2.9 0-5.2 0.9-7 2.6l-41.1 31c-7.9-4.1-16.6-7.6-26.1-10.7l-8.1-53.3c-0.2-2.5-1.3-4.6-3.3-6.2-2-1.6-4.4-2.5-7.1-2.5h-64.3c-5.6 0-9.1 2.7-10.4 8.1-2.5 9.7-5.3 27.6-8.4 53.9-9.1 2.9-17.9 6.6-26.4 11l-40-31c-2.5-1.9-5-2.9-7.5-2.9-4.2 0-13.4 6.9-27.4 20.7s-23.5 24.2-28.6 31.2c-1.7 2.5-2.6 4.7-2.6 6.7 0 2.3 1 4.6 2.9 7 12.9 15.7 23.3 29 31 40-4.8 8.9-8.6 17.8-11.3 26.7l-53.9 8.1c-2.1 0.4-4 1.6-5.5 3.8-1.5 2.1-2.3 4.3-2.3 6.7v64.3c0 2.5 0.8 4.8 2.3 6.8 1.5 2 3.6 3.2 6.1 3.6l53 7.8c2.7 9.5 6.7 19 11.9 28.7-3.5 4.8-8.7 11.6-15.6 20.4-7 8.8-11.9 15.2-14.8 19.3-1.5 2.1-2.3 4.3-2.3 6.7 0 2.5 0.7 4.7 2 6.7 7.5 10.4 23.5 26.7 47.8 48.7 2.1 2.1 4.5 3.2 7.2 3.2 2.9 0 5.3-0.9 7.2-2.6l40.9-31c7.9 4.1 16.6 7.6 26.1 10.7l8.1 53.3c0.2 2.5 1.3 4.6 3.3 6.2 2 1.6 4.4 2.5 7.1 2.5h64.3c5.6 0 9.1-2.7 10.4-8.1 2.5-9.7 5.3-27.6 8.4-53.9 9.1-2.9 17.9-6.6 26.4-11l40 31.3c2.7 1.7 5.2 2.6 7.5 2.6 4.2 0 13.3-6.9 27.2-20.6 13.9-13.7 23.5-24.1 28.7-31.3 1.7-1.9 2.6-4.2 2.6-6.7s-1-4.9-2.9-7.2c-13.9-17-24.2-30.3-31-40 3.9-7.1 7.6-15.9 11.3-26.4l53.6-8.1c2.3-0.4 4.3-1.6 5.8-3.8s2.3-4.4 2.3-6.7v-64.3c0-2.5-0.8-4.8-2.3-6.8m-167.8 90.8c-14.5 14.5-32 21.7-52.5 21.7s-38-7.2-52.5-21.7c-14.5-14.5-21.7-32-21.7-52.4s7.2-38 21.7-52.5c14.5-14.5 32-21.7 52.5-21.7 20.5 0 38 7.2 52.5 21.7 14.5 14.5 21.7 32 21.7 52.5 0 20.5-7.2 38-21.7 52.4' fill='%23fff'/%3E%3C/svg%3E");
+        opacity: .8;
+    }
+
+    #custom-msg.ctfwin
+    {
+        /*display: none;*/
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: transparent;
+        box-shadow: none;
+        border: 0;
+        box-sizing: initial;
+        cursor: default;
+
+        margin-left: -250px;
+        margin-top: -218px;
+        width: 500px;
+        height: 436px;
+
+        background-repeat: no-repeat;
+        /*background-image: url("https://localhost/ctfvictory.png");*/
+    }
+    #custom-msg.customCTFWin .trophy
+    {
+        display: none;
+    }
+    #custom-msg.customCTFWin .bounty
+    {
+        top: 195px;
+        position: relative;
+        color: white;
+        font-weight: normal;
+        font-size: 16px;
+    }
+    #custom-msg.customCTFWin .winner .player
+    {
+        top: 285px;
+        font-weight: normal;
+        background-color: transparent;
+        text-shadow:0px 0px 4px #fff,0px 0px 10px #fff;  /* http://angrytools.com/css-generator/text-shadow/  */
+    }
+
+    .emoteSample
+    {
+        background-color: #333;
+        /*-webkit-box-shadow: 0px 0px 5px 1px rgba(136,136,136,1);*/
+        -webkit-box-shadow: 0px 0px 1px 1px rgb(90, 90, 90);
+        -moz-box-shadow: 0px 0px 1px 1px rgb(90, 90, 90);
+        box-shadow: 0px 0px 1px 1px rgb(90, 90, 90);
+
+        margin: 5px 5px;
+        display: inline-block;
+        min-width: 70px;
+        font-size: 11px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .emote
+    {
+        margin: auto auto;
+        /* transform: scale(0.75); */
+    }
+
+    .chatboxEmote
+    {
+        display: inline-block;
+        vertical-align: middle;
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    .emote-bot.flag-statsbot
+    {
+        width: 13px;
+        height: 13px;
+        margin: 0 9px 0 4px;
+    }
+
+    /* ----- Destroy and Destroyed Messages ----- */
+
+    #msg-destroyed,
+    #msg-default,
+    .message .playerbig,
+    .message .player {
+        font-size: 25px;
+        padding: 0px 0px 0px 50px;
+        vertical-align: middle;
+    }
+
+    .message .player .flag.big,
+    .message .playerbig .flag.big {
+        width: 30px;
+        height: 22px;
+        margin-right: 12px;
+        background-size: 30px auto;
+    }
 
 </style>
 
     
 <div id='confirmDialog' tabindex='1'
-    style='position: fixed;
+    style='
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -168,56 +607,33 @@
         </div>
     </div>
 </div>
+
+
 <div class='modalContainer' tabindex='1'>
     <div class='modalDialog'>
-        <style type="text/css">
-            .modalContainer
-            {
-                position: fixed;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0,0,0,.5);
-                outline: none;
-                overflow-x: hidden;
-                overflow-y: auto;
-                z-index: 30;
-            }
-            .modalDialog
-            {
-                position: absolute;
-                width: 600px;
-                min-height: 180px;
-                max-height: 800px;
-
-                overflow-y: auto;
-                
-                left: calc(50% - 300px);
-                top: 50px;
-                
-                background-color: rgba(0,0,0,1);
-                box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
-                border-radius: 9px;
-                border-bottom: 2px solid rgba(0,0,0,0.3);
-                border-top: 2px solid rgba(255,255,255,0.08);
-                box-sizing: border-box;
-                padding: 18px 18px 0 18px;
-                cursor: default;
-
-                color: white;
-                font-family: verdana,arial,helvetica,sans-serif;
-            }
-            .modalTitle
-            {
-                font-size: 20px;
-                color: white;
-                margin-bottom: 10px;
-            }
-        </style>
         <div class='modalTitle'>$title</div>
         <div class='modalContent'></div>
     </div>
+</div>
+
+<!------------------------------------------------>
+<div id="btnOpenSettings"
+    style='position: relative;
+    width: 295px;
+    left: 35px;
+    top: 10px;
+    text-align: center;
+    vertical-align: top;
+    padding: 9px 18px 7px 18px;
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+    border-bottom: 2px solid rgba(0,0,0,0.2);'>
+    Mod settings
 </div>
 
 <div class="SWAM_Settings">
@@ -359,125 +775,10 @@
         }
 
     </style>
-    <style type="text/css">
-        .SWAM_Settings input[type=range] {
-            -webkit-appearance: none;
-            background-color: rgba(0,0,0,0);
-            margin: 3px 0;
-            width: 200px;
-            margin-right: 10px;
-        }
-        .SWAM_Settings input[type=range]:focus {
-            outline: none;
-        }
-        .SWAM_Settings input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            background: #202020;
-            border-radius: 25px;
-            border: 0.2px solid #010101;
-        }
-        .SWAM_Settings input[type=range]::-webkit-slider-thumb {
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            border: 1px solid #404040;
-            height: 16px;
-            width: 25px;
-            border-radius: 25px;
-            background: #808080;
-            cursor: pointer;
-            -webkit-appearance: none;
-            margin-top: -3.2px;
-        }
-        .SWAM_Settings input[type=range]:focus::-webkit-slider-runnable-track {
-            background: #6d6d6d;
-        }
-        .SWAM_Settings input[type=range]::-moz-range-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            background: #202020;
-            border-radius: 25px;
-            border: 0.2px solid #010101;
-        }
-        .SWAM_Settings input[type=range]::-moz-range-thumb {
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            border: 1px solid #404040;
-            height: 16px;
-            width: 25px;
-            border-radius: 25px;
-            background: #808080;
-            cursor: pointer;
-        }
-        .SWAM_Settings input[type=range]::-ms-track {
-            width: 100%;
-            height: 10px;
-            cursor: pointer;
-            background: transparent;
-            border-color: transparent;
-            color: transparent;
-        }
-        .SWAM_Settings input[type=range]::-ms-fill-lower {
-            background: #000000;
-            border: 0.2px solid #010101;
-            border-radius: 50px;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        }
-        .SWAM_Settings input[type=range]::-ms-fill-upper {
-            background: #202020;
-            border: 0.2px solid #010101;
-            border-radius: 50px;
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-        }
-        .SWAM_Settings input[type=range]::-ms-thumb {
-            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-            border: 1px solid #404040;
-            height: 16px;
-            width: 25px;
-            border-radius: 25px;
-            background: #808080;
-            cursor: pointer;
-            height: 10px;
-        }
-        .SWAM_Settings input[type=range]:focus::-ms-fill-lower {
-            background: #202020;
-        }
-        .SWAM_Settings input[type=range]:focus::-ms-fill-upper {
-            background: #6d6d6d;
-        }
-
-    </style>
 
     <div class="sectionsContainer">
         <div class="section">
             <span>Version&nbsp;&nbsp;</span>&nbsp;<span id="modVersion"></span>
-        </div>
-        <div class="section">
-            <div class="title">General</div>
-            <ul class="values">
-                <li><label><input type="checkbox" class='chkPowerupsFX' />Visual effects for powerups.</label></li>
-                <li><label><input type="checkbox" class='chkKillstreaks' />Player glow with kill streaks (5 kills without dying)</label></li>
-                <li><label><input type="checkbox" class='chkZoomSpectator' />Zoom out in free-camera spectator mode.</label></li>
-            </ul>
-        </div>
-        <div class="section">
-            <div class="title">Interface</div>
-            <ul class="values">
-                <li><label><input type="checkbox" class='chkReddit' />Reddit: Load and display discussion panel. (changes will be made on next load)</label></li>
-                <li><label><input type="checkbox" class='chkLogWhoKilledWho' />Log: Show Who killed Who</label></li>
-                <li><label><input type="checkbox" class='chkLogConnections' />Log: Show players joining/leaving</label></li>
-            </ul>
-        </div>
-        <div class="section">
-            <div class="title">Audio</div>
-            <div class="values">
-                <ul>
-                    <li><label><input type="checkbox" class='chkVoiceEventsCTF' />CTF: Voice messages for flag events.</label></li>
-                    <li><label><input type="checkbox" class='chkBgMusicMainMenu' />Main Menu: Play background music.</label></li>
-                </ul>
-            </div>
         </div>
     </div>
     <div style="clear:both; text-align: center;">
@@ -488,6 +789,7 @@
     </div>
 </div>
 
+
 <script id="Settings_section" type="text/template">
     <div class="section">
         <div class="title">Title</div>
@@ -496,75 +798,14 @@
     </div>
 </script>
 
+
 <script id="Settings_section_separator" type="text/template">
     <div class="section">
         <div class="sectionSeparator">Title</div>
     </div>
 </script>
 
-<script id="Vanilla_Settings" type="text/template">
-    <div class="section">
-        <div class="title">Background</div>
-        <div class="values">
-            <ul class="swamVanilla">
-                <li><label><input type="checkbox" class='chkSea' />Sea depth</label></li>
-                <li><label><input type="checkbox" class='chkForest' />Forest</label></li>
-                <li><label><input type="checkbox" class='chkSand' />Sand</label></li>
-                <li><label><input type="checkbox" class='chkRock' />Rock</label></li>
-                <li><label><input type="checkbox" class='chkPolygons' />Continents</label></li>
-                <li><label><input type="checkbox" class='chkShadows' />Shadows</label></li>
-                <li><label><input type="checkbox" class='chkSmoke' />Missile's Smoke</label></li>
-            </ul>
-        </div>
-    </div>
-</script>
-
-<script id="StarMash1_Settings" type="text/template">
-    <div class="section">
-        <div class="title">Background</div>
-        <div class="values">
-            <ul class="swamNebulas">
-                <li><label><input type="checkbox" class='chkNebula' data-layer="blue" data-index='0'/>Blue nebulas</label></li>
-                <li><label><input type="checkbox" class='chkNebula' data-layer="green"   data-index='1'/>Green nebulas</label></li>
-                <li><label><input type="checkbox" class='chkNebula' data-layer="red"   data-index='3'/>Red nebulas</label></li>
-            </ul>
-        </div>
-    </div>
-</script>
-
-<script id="StarMash2_Settings" type="text/template">
-    <div class="section">
-        <div class="title">Background</div>
-        <div class="values">
-            <div class="btn btnRegenerate" onclick="SWAM.RandomizeBackground();">Generate New Background</div>
-            <ul class="swamNebulas">
-                <li><label><input type="checkbox" class='chkNebula' data-layer="blue" data-index='0'/>Blue nebulas</label></li>
-                <li><label><input type="checkbox" class='chkNebula' data-layer="green"   data-index='1'/>Green nebulas</label></li>
-                <li><label><input type="checkbox" class='chkNebula' data-layer="red"   data-index='3'/>Red nebulas</label></li>
-            </ul>
-        </div>
-    </div>
-    <div class="section">
-        <div class="title">Asteroid field layers</div>
-        <div class="values">
-            <select class='selAsteroidLayers'>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-        </div>
-    </div>
-    <div class="section">
-        <div class="title">Decorative objects</div>
-        <ul class="values swamDecorations">
-            <li><label><input type="checkbox" class='chkDecorations' data-layer="stellar" />Distant stellar objects</label></li>
-            <li><label><input type="checkbox" class='chkDecorations' data-layer="planets"/>Planets</label></li>
-            <li><label><input type="checkbox" class='chkDecorations' data-layer="moons" />Moons</label></li>
-            <li><label><input type="checkbox" class='chkDecorations' data-layer="ships" />Ships</label></li>
-        </ul>
-    </div>
-</script>
+<!------------------------------------------------>
 
 <div id="btnOpenExtensions"
     style='position: relative;
@@ -582,7 +823,9 @@
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
     border-bottom: 2px solid rgba(0,0,0,0.2);'>
-    Themes and extensions</div>
+    Themes and extensions
+</div>
+
 
 <div class="SWAM_Extensions">
     <style type="text/css">
@@ -591,10 +834,24 @@
             padding-bottom: 50px;
             color: #c5c5c5;
         }
+        .SWAM_Extensions .divAcceptCancel
+        {
+            clear:both;
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            left: calc(50% - 100px);
+        }
         .SWAM_Extensions .sectionsContainer
         {
             overflow-y: auto;
-            max-height: 600px;
+            /*max-height: 600px;*/
+            position: absolute;
+            top: 50px;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            padding-left: 10px
         }
         .SWAM_Extensions .btn,
         .SWAM_Extensions .btnSmall {
@@ -713,6 +970,13 @@
         {
             margin: auto;
         }
+
+        span.extensionsLink a {
+            margin-left: 20px;
+            text-decoration: underline;
+            color: #a3a3a3 !important;
+            line-height: 25px;
+        }
     </style>
 
     <div class="sectionsContainer">
@@ -724,15 +988,19 @@
             </div>
         </div>
         <div class="section">
-            <input class='btn btnNew' type='button' value='Add new extension/theme' style="width: 250px;">
+            <input class='btn btnNew' type='button' value='Add new extension' style="width: 250px;">
+            <span class="extensionsLink">
+                <a href="https://tiny.cc/starmashextensions" target="_blank">Find extensions here</a>
+            </span>
         </div>
     </div>
-    <div style="clear:both; text-align: center;">
+    <div class="divAcceptCancel">
         <input class='btn btnAccept' type='button' value='Accept'>
         <span style='margin-left: 40px'></span>
         <input class='btn btnCancel' type='button' value='Cancel'>
     </div>
 </div>
+
 
 <div id="ExtensionEditPanel">
     <div class="section">
@@ -771,6 +1039,74 @@
     </div> 
 </div>
 
+<!------------------------------------------------>
+
+<script id="Radio_Panel" type="text/template">
+    <div id='radioPanel' style='
+        display: none;
+        position: absolute;
+        bottom: 180px;
+        left: 60px;
+        width: 300px;
+        height: auto;
+        max-width: 700px;
+        opacity:0.9;
+        overflow: hidden;
+        padding: 8px;
+        font-size: 12px;
+        color: white;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+        background-color: rgba(0,0,0,0.5);
+        border: 1px solid #555555;
+        border-radius: 3px;' >
+        <div id='radioChannel' style='color: yellow;'>* Radio not available *</div>
+        <div id='btnRadioConfig' style='
+            color: #888888;
+            text-decoration: underline;
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            cursor: pointer;'>[Customize Messages]</div>
+        <hr/>
+        <div id='radioOptions'></div>
+    </div>
+</script>
+
+<script id="Radio_Customization_Title" type="text/template">
+    Customize messages for: <span style='color: yellow'>$channel</span>
+</script>
+
+<script id="Radio_Customization_Content" type="text/template">
+    <div style='color: #AAAAAA'>Enter the messages below. Use '|' character to separate multiple lines in the same meesage.</div>
+    <div class='optionList'></div>
+    <div style='color: #888888; text-decoration: underline; cursor: pointer; margin: 10px;'>
+        <hr/>
+        <span id='radioRestoreThis'>[Restore THIS panel to default]</span><span id='radioRestoreAll' style='margin-left: 30px;'>[Restore ALL messages to default]</span>
+    </div>
+    <div style='width: 210px; position: absolute; left: calc(50% - 100px); margin-top: 20px;'>
+        <input id='radioCustomizeSave' type='button' value='Save' style='width: 80px; height: 25px; background-color: #228a12; color: white; border-radius: 4px; font-size=16px; text-shadow: 0 -1px 0 rgba(0,0,0,0.6); border: 2px solid rgba(0,0,0,.2)'>
+        <span style='margin-left: 40px'></span>
+        <input id='radioCustomizeCancel' type='button' value='Cancel' style='width: 80px; height: 25px; background-color: #555555; color: white; border-radius: 4px; font-size=16px; text-shadow: 0 -1px 0 rgba(0,0,0,0.6); border: 2px solid rgba(0,0,0,.2)'>
+    </div>
+</script>
+
+<script id="Radio_Customization_Message" type="text/template">
+    <div style='margin: 5px;'>
+        <span style='margin-right: 10px; color:white;'>$index</span>
+        <input type='text' maxlength: '150' value = '' style='
+            font-size: 13px;
+            font-family: MontserratWeb,Helvetica,sans-serif;
+            width: 450px;
+            background-color: rgba(0,0,0,0.5);
+            color: #dcdcdc;
+            text-shadow: 0 0 3px rgba(0,0,0,0.8);
+            border: 1px solid #555555;
+            border-radius: 3px;
+            padding-left: 12px;'>
+    </div>
+</script>
+
+<!------------------------------------------------>
 
 <div id="redditPanel">
     <style type="text/css">
@@ -837,92 +1173,6 @@
     </div>
 </div>
 
-<div id="changelogPanel">
-    <style type="text/css">
-        #changelogPanel {
-            position: absolute;
-            width: 300px;
-            height: 400px;
-            left: 50px;
-            top: 40%;
-            margin-top: -140px;
-            overflow-x: hidden;
-            overflow-y: auto;
-            font-size: 11px;
-
-            background-color: rgba(0,0,0,0.75);
-            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
-            border-radius: 9px;
-            border-bottom: 2px solid rgba(0,0,0,0.3);
-            border-top: 2px solid rgba(255,255,255,0.08);
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        #changelogPanel .title
-        {
-            padding: 5px;
-            border-bottom: 1px solid rgb(15, 15, 15);
-            background-color: #101010;
-        }
-        #changelogPanel .title a{
-            color: white;
-            font-size: 12pt;
-        }
-        #changelogPanel .changelogContent .date
-        {
-            color: rgb(79, 128, 219);
-            margin-left: 10px;
-            margin-bottom: 10px;
-            margin-top: 5px;
-        }
-        #changelogPanel ul
-        {
-            list-style-type: disc;
-            margin-bottom: 20px;
-        }
-        #changelogPanel li
-        {
-            margin-left: 0px;
-            padding: 8px 5px;
-            color: rgb(146, 146, 146);
-        }
-        #changelogPanel key
-        {
-            color: white;
-            padding-left: 10px;
-            padding-right: 10px;
-            background-color: rgb(114, 103, 66);
-        }
-
-        @media only screen and (max-width: 1100px)
-        {
-            #changelogPanel {
-                display: none;
-            }
-        }
-    </style>
-    <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
-    <div class="changelogContent">
-        <div class="date">Feb 22 2018</div>
-        <ul>
-            <li>Some planets are now darker for better contrast</li>
-            <li>Added a changelog panel to the main screen</li>
-            <li>Added a Game Log Window. Open it by clicking the WHO killed Who panel or...</li>
-            <li><b>New Shortcut: </b><key>F9</key> opens Game Log Window</li>
-            <li>Show the number of players for each team in CTF</li>
-            <li>After a background is generated, a panel is shown for 10 seconds to generate a new one.</li>
-            <li>Added button in settings to regenerate background.</li>
-            <li>CHAT: Copy text from chat panel by right clicking a message</li>
-            <li>CHAT: Valid URLS (need http/https) are converted to links</li>
-            <li>CHAT: <b>New shortcut: </b><key>DEL</key> to clear chat panel</li>
-            <li><b>New shortcut: </b><key>F10</key> opens Mod Settings window</li>
-        </ul>
-    </div>
-</div>
-
 
 <div id="regenerateBackground">
     <style type='text/css'>
@@ -980,36 +1230,62 @@
             border-radius: 2px;
         }
     </style>
-    <div class="title">You you don't like the generated background, you can generate a new one!</div>
+    <div class="title">If you don't like the generated background, you can generate a new one!</div>
     <div id="btnRegenerate">Generate New Background</div>
     <div class="timerContainer">
         <div class="timerIndicator"></div>
     </div>
 </div>
 
-<div id="fullLogTemplate">
+<div id='clearChat' style='
+    position: absolute;
+    right: 70px;
+    color: #c9c9c9;
+    opacity: 0.8;
+    cursor: pointer;'>
+    Clear chat
+</div>
+
+<div id='WhoKilledWho' 
+    style='position: absolute; top: 40px; left: 60px; width: 400px; height: 100px; opacity:0.9; overflow: hidden; padding: 8px; font-size: 12px; color: white; cursor: pointer;'>
+    <!-- "<span style='font-size: 10px; color: #c3c3c3; position: absolute; top: 0px;'>[Open full log]</span>" +  -->
+</div>
+
+
+<div id="fullLogTemplate" tabindex="1">
     <style type="text/css">
         .fullLogcontent
         {
             overflow-y: auto;
             height: 400px;
-            max-height: 700px;
         }
         #fullLog ul {
             list-style: none;
             padding: 0px;
             margin: 0px;
+            margin-bottom: 15px;
         }
         #fullLog li {
             padding: 5px;
         }
 
+        #fullLog .message 
+        {
+            pointer-events: initial;
+        }
+
+        #fullLog .blueflag,
+        #fullLog .redflag
+        {
+            width: 20px;
+            height: 20px;
+            background-size: 20px 20px;
+        }
     </style>
     <ul>
         <li><label><input type="checkbox" class='chkFLKills' checked="checked"/>Display kill log</label></li>
         <li><label><input type="checkbox" class='chkFLPlayers'/>Display players connection log.</label></li>
     </ul>
-    <hr/>
     <div class="fullLogcontent"></div>
 </div>
 
@@ -1020,3 +1296,533 @@
     <div class="deaths">DEATHS</div>
     <div class="container-deaths"><div id="score-deaths">-</div></div>
 </script>
+
+
+<div id="adjustmentPanel">
+    <style class="text/css">
+        #adjustmentPanel
+        {
+            z-index: 1;
+            width: 365px;
+            min-height: 200px;
+            position: fixed;
+            top: 100px;
+            left: 100px;
+
+            padding: 5px;
+
+            background-color: rgba(0,0,0,0.75);
+            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+            border-radius: 9px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.08);
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        #adjustmentPanel .title {
+            width: 85px;
+            display: inline-block;
+            color: #d2d2d2;
+        }
+
+        #adjustmentPanel .sliderValue {
+            font-size: 10pt;
+            font-family: 'MontserratWeb',Helvetica,sans-serif;
+            padding-left: 14px;
+            background-color: #1e1e1e;
+            color: #d2d2d2;
+            border: none;
+            border-bottom: 2px solid #141414;
+            box-shadow: 0 0 16px 0 rgba(0,0,0,0.6);
+            border-radius: 5px;
+            box-sizing: border-box;
+            height: 30px;
+            margin-right: 10px;
+        }
+        #adjustmentPanel .sliderValue {
+            padding: 5px;
+            min-width: 40px;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        #adjustmentPanel div
+        {
+            padding: 5px;
+            color: #d2d2d2;
+        }
+
+        #adjustmentPanel .btn {
+            width: 80px;
+            height: 25px;
+            background-color: #555555;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+            text-align: center;
+            border: 2px solid rgba(0,0,0,.2);
+            cursor: pointer;
+        }
+
+        #adjustmentPanel .advancedColorAdjustments
+        {
+            display: none;
+        }
+        #adjustmentPanel .toggleAdvanced
+        {
+            color: #2196F3;
+            margin: 10px auto;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+    <div>Note: In some devices, setting values here might make the game rendering slightly slower.</div>
+    <div class="basicColorAdjustments">
+        <div>
+            <label>
+                <span class="title">Gamma</span>
+                <span class='sliderValue gamma'>100</span>
+                <input type='range' class='sdrGamma' value='100' min='0' max='200' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Brightness</span>
+                <span class='sliderValue brightness'>100</span>
+                <input type='range' class='sdrBrightness' value='100' min='0' max='200' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Contrast</span>
+                <span class='sliderValue contrast'>100</span>
+                <input type='range' class='sdrContrast' value='100' min='0' max='200' step='5' />
+            </label>
+        </div>
+    </div>
+    <div class="toggleAdvanced">▶ Color Settings</div>
+    <div class="advancedColorAdjustments">
+        <div>
+            <label>
+                <span class="title">Saturation</span>
+                <span class='sliderValue saturation'>100</span>
+                <input type='range' class='sdrSaturation' value='100' min='0' max='200' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Red</span>
+                <span class='sliderValue red'>100</span>
+                <input type='range' class='sdrRed' value='100' min='0' max='500' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Green</span>
+                <span class='sliderValue green'>100</span>
+                <input type='range' class='sdrGreen' value='100' min='0' max='500' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Blue</span>
+                <span class='sliderValue blue'>100</span>
+                <input type='range' class='sdrBlue' value='100' min='0' max='500' step='5' />
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="title">Alpha</span>
+                <span class='sliderValue alpha'>100</span>
+                <input type='range' class='sdrAlpha' value='100' min='0' max='500' step='5' />
+            </label>
+        </div>
+    </div>
+
+    <div>
+        <input class='btn reset' type='button' value='Reset' style="width: 120px; left: 10px;">
+        <input class='btn close' type='button' value='Close' style="width: 120px; right: 10px; position: absolute;">
+    </div>
+</div>
+
+
+<div id="changelogPanel">
+    <style type="text/css">
+        #changelogPanel {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            left: 50px;
+            top: 40%;
+            margin-top: -140px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-size: 11px;
+
+            background-color: rgba(0,0,0,0.75);
+            box-shadow: 0 10px 59px -9px rgba(0,0,0,0.7);
+            border-radius: 9px;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.08);
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #changelogPanel .title
+        {
+            padding: 5px;
+            border-bottom: 1px solid rgb(15, 15, 15);
+            background-color: #101010;
+        }
+        #changelogPanel .title a{
+            color: white;
+            font-size: 12pt;
+        }
+        #changelogPanel .changelogContent .date
+        {
+            color: rgb(79, 128, 219);
+            margin-left: 10px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+        #changelogPanel ul
+        {
+            list-style-type: disc;
+            margin-bottom: 20px;
+        }
+        #changelogPanel li
+        {
+            margin-left: 0px;
+            padding: 8px 5px;
+            color: rgb(146, 146, 146);
+            opacity: 0.8;
+        }
+        #changelogPanel key
+        {
+            color: white;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: rgb(114, 103, 66);
+        }
+
+        #changelogPanel cmd
+        {
+            color: #00d4ae;
+            padding-left: 4px;
+            padding-right: 4px;
+            background-color: rgb(0, 19, 70);
+        }
+
+        @media only screen and (max-width: 1100px)
+        {
+            #changelogPanel {
+                display: none;
+            }
+        }
+    </style>
+    <div class="title"><a target="_blank" href="https://github.com/Molesmalo/StarWarsMod4AirMash/blob/master/changelog.md" >Latest Mod Changes</a></div>
+    <div class="changelogContent">
+
+        <div class="date">Oct 31 2018</div>
+        <ul>
+            <li>Bubble messages (not emotes) are logged in chat window.</li>
+        </ul>
+
+        <div class="date">Oct 26 2018</div>
+        <ul>
+            <li>Extended Scoreboard no longer overlaps with the Minimap, and extends to the bottom if Squared game area is enabled.</li>
+            <li>Context menu in Scoreboard: <key>Right Click</key> a player's name to open the menu.</li>
+            <li>Smarter positioning for Players' context menu (game-wise).</li>
+        </ul>
+
+        <div class="date">Oct 24 2018</div>
+        <ul>
+            <li>New Extended Scoreboard</li>
+            <li>Login instructions for starma.sh</li>
+            <li>Some internal refactoring</li>
+        </ul>
+
+        <div class="date">Oct 18 2018</div>
+        <ul>
+            <li>2 New Themes: 🔥 HellMash and Limbo 🔥</li>
+        </ul>
+
+        <div class="date">Oct 08 2018</div>
+        <ul>
+            <li>New Color Adjustment Panel: lets you adjust color settings. Open it from the Settings Window.</li>
+            <li>Replaced STATSBOT flag with a bot image.</li>
+            <li>New Emotes: 125 flags (all the game flags) can now be used as emotes like <cmd>-flagUS-</cmd> or <cmd>-flagjolly-</cmd>.</li>
+            <li>Minor bugfix for emojis replacing the player's name when typing a whisper.</li>
+            <li>Chat input box is nowº displayed over the plane icons.</li>
+        </ul>
+
+        <div class="date">Oct 05 2018</div>
+        <ul>
+            <li>Chat: Emoticons are converted to emojis while typing.</li>
+            <li>New setting for disabling emoticons conversion.</li>
+        </ul>
+
+        <div class="date">Sep 30 2018</div>
+        <ul>
+            <li>- Emotes in chat! Just write, -emote- e.g.: -poo-</li>
+        </ul>
+
+        <div class="date">Sep 29 2018</div>
+        <ul>
+            <li>Fireworks! When a CTF match ends, a fireworks show begins!</li>
+            <li>New ending screen for CTF.</li>
+            <li>Fireworks now spawn in winner's base.</li>
+            <li>Flag Returned events are now logged in the full Game Log window.</li>
+            <li>Radio panels and Game Log can now be closed with <key>ESC<key> key.</li>
+        </ul>
+    
+
+        <div class="date">Sep 28 2018</div>
+        <ul>
+            <li>Fireworks! When a CTF match ends, a fireworks show begins!</li>
+        </ul>
+
+        <div class="date">Sep 24 2018</div>
+        <ul>
+            <li>57 new emotes!</li>
+            <li><cmd>/take</cmd> sends <cmd>tblue</cmd> or <cmd>tred</cmd> emotes depending on the user's team.</li>
+            <li>8 new emotes</li>
+            <li>Spam blocker for bot messages.</li>
+            <li>Other bugs fixed</li>
+        </ul>
+
+        <div class="date">Sep 18 2018</div>
+        <ul>
+            <li>Wave effect after CTF's match ending. The world is ours!</li>
+            <li>New chat input commands:<br>
+                <cmd>/cap</cmd> sends -redcap- or -bluecap- emotes depending on the user's team.<br>
+                <cmd>/burn</cmd> sends -redfire- or -bluefire- emotes depending on the user's team.<br>
+                When chatting, sending just "shrug" sends ¯\_(ツ)_/¯.
+            </li>
+            <li>8 new emotes</li>
+            <li>Minor bugfixes</li>
+        </ul>
+
+        <div class="date">Sep 17 2018</div>
+        <ul>
+            <li>New Emotes panel now available.<br>
+                Press <key>F5</key> to open/close or /emotes.</li>
+            <li>New chat input commands:<br>
+                <cmd>/reconnect</cmd> to reconnect. (handy for fast team switching).<br>
+                <cmd>/name YourName</cmd> to reconnect with <i>YourName</i> as your new name.
+            </li>
+        </ul>
+
+        <div class="date">Sep 13 2018</div>
+        <ul>
+            <li>New Emotes!</li>
+            <li>Use <cmd>/emotes</cmd> to list all the options. Can be used by anyone!</li>
+            <li>I'm open for suggestions!</li>
+            <li>Extensions: new <b>spectate</b> event.</li>
+        </ul>
+
+        <div class="date">Ago 23 2018</div>
+        <ul>
+            <li>Default Theme is now Realistic Sprites.</li>
+        </ul>
+
+        <div class="date">Jun 15 2018</div>
+        <ul>
+            <li>New Theme! World Cup Russia 2018: This is what happens when you let football invade Airmash!</li>
+            <li>Themes list sorted by name.</li>
+            <li>Vamos Argentina! ⚽😁</li>
+        </ul>
+
+        <div class="date">Jun 14 2018</div>
+        <ul>
+            <li>New Theme! Realistic Sprites - BETA 1! This theme adds more detailed and realistic graphics to the game.</li>
+        </ul>
+
+        <div class="date">Jun 5 2018</div>
+        <ul>
+            <li>New Theme! <b>PixelArt 8-Bit.</b> Let's celebrate AirMash's 6 Months with something new, from the past! Because everything old is new again!</li>
+        </ul>
+
+        <div class="date">May 31 2018</div>
+        <ul>
+            <li>Go back to spectator mode after match start if the player was spectating before.</li>
+            <li>Added "<i>Player</i> left." message in chat, when a player that talked recently leaves the game.</li>
+            <li>Player Names: Cyrillic Unicode block now replaced with �.</li>
+            <li>Link to extensions list in Themes and Extensions window.</li>
+        </ul>
+
+        <div class="date">May 23 2018</div>
+        <ul>
+            <li>Repelled missiles now change color.</li>
+            <li>Prowler radar: Low resolution danger zones.</li>
+            <li>Several bugs fixed.</li>
+        </ul>
+
+        <div class="date">Apr 25 2018</div>
+        <ul>
+            <li>New on-screen timer indicating match duration.</li>
+            <li>New option to play with squarish game area.</li>
+            <li>Minimap dots and arrows now change opacity as the position gets older.</li>
+            <li>Adjusted size for plane icons.</li>
+            <li>StarMash v2: Added DeathStar</li>
+            <li>Vanilla: refactored to allow more customization for new themes.</li>
+        </ul>
+    
+        <div class="date">Apr 15 2018</div>
+        <ul>
+            <li>When spectating, now you can re-spawn with keys 1-5.</li>
+            <li>Long messages are split preserving whole words.</li>
+            <li>Chat bubbles are now semi-translucent.</li>
+            <li>Scoreboard font made smaller.</li>
+            <li>Players' level box scales with zoom.</li>
+            <li>Info panel for level, upgrades, kills and deaths are smaller.</li>
+            <li>Extensions: checks for ignored players before triggering chat events.</li>
+            <li>Extensions: New events, check documentation.</li>
+        </ul>
+
+        <div class="date">Mar 27 2018</div>
+        <ul>
+            <li><b>Arrow Indicators:<b> In CTF, when a flag is being carried, an arrow is shown pointing in its direction.</li>
+            <li>Fixed: Some icons are now vectorial, for HiDPI displays.</li>
+            <li>Fixed: Alignamet of bounty panel.</li>
+            <li>Re-enabled some special characters.</li>
+            <li>Replaced [WS] with � for non-printable characters for player names.</li>
+            <li>Vanilla Theme:<br>
+                - Fixed: Plane names still displayed SW equivalents.<br>
+                - Fixed: rendering optimization re-enabled.<br>
+                - Fixed: Button for changing plane graphics (Imperial/Rebel) removed.
+            </li>
+            <li>Extensions: new events (chatLineAdded, CTF_Flag).</li>
+        </ul>
+
+        <div class="date">Mar 21 2018</div>
+        <ul>
+            <li>Vanilla Theme: Color for missiles and players is now <b>optional.</b></li>
+            <li>New setting for minimap size. Solves minimap being really tiny in some displays.</li>
+            <li>Extensions: new events.</li>
+        </ul>
+    
+        <div class="date">Mar 13 2018</div>
+        <ul>
+            <li><b><u>Breaking Update! Requestly config needs update, for the Mod to work correctly.</u></b></li>
+            <li><b>UI:</b> New K/D counters</li>
+            <li>Mimic players enabled (with respective shortcuts)</li>
+            <li>Zoom slider in settings</li>
+            <li><b><u>Themes:</u></b> Now it's possible to switch themes from the game itself.</li>
+            <li>Vanilla Theme: AirMash default theme, with some minor changes.</li>
+            <li>StarMash v.1 Theme: A theme with no parallaxing background, similar to StarMash v1.</li>
+            <li>StarMash v.2 Theme: the default theme for StarMash.</li>
+            <li>Christmas 2017 Theme: a demo extension and theme recycling the Christmas Mod assets.</li>
+            <li><b><u>Extensions:</u></b> New extensions framework, so other devs can create their own plugins for StarMash</li>
+            <li><b>Extensions Window:</b> Here you can add/remove third-party extensions for StarMash!</li>
+            <li>-SWAM-PING now informs the theme used.</li>
+        </ul>
+
+        <div class="date">Feb 22 2018</div>
+        <ul>
+            <li>Some planets are now darker for better contrast</li>
+            <li>Added a changelog panel to the main screen</li>
+            <li>Added a Game Log Window. Open it by clicking the WHO killed Who panel or...</li>
+            <li><b>New Shortcut: </b><key>F9</key> opens Game Log Window</li>
+            <li>Show the number of players for each team in CTF</li>
+            <li>After a background is generated, a panel is shown for 10 seconds to generate a new one.</li>
+            <li>Added button in settings to regenerate background.</li>
+            <li>CHAT: Copy text from chat panel by right clicking a message</li>
+            <li>CHAT: Valid URLS (need http/https) are converted to links</li>
+            <li>CHAT: <b>New shortcut: </b><key>DEL</key> to clear chat panel</li>
+            <li><b>New shortcut: </b><key>F10</key> opens Mod Settings window</li>
+        </ul>
+    </div>
+</div>
+
+
+<div id='RequestlyWarning' style='position: fixed; top:0px; left:0px; width: 100%; height: 100%; background-color: black; z-index: 1000; '>
+    <div id='LoadingText' style='
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    font-size: 15pt;
+    color: #d89b69;
+    text-align: center;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;'>
+        Attention! If you use Requestly to load StarMash, this update requires a new configuration file: 
+        <a href='https://raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/redirect_rules/requestly_rules.txt'><u>that you can find here!</u></a>. 
+        <br>
+        I you haven't already updated it yet, please follow this steps:<br><br>
+        <ul style="text-align: left; list-style: none; font-size: 12pt; color: #888; max-width: 800px; margin: auto auto;">
+            <li>1- <a href='https://raw.githubusercontent.com/Molesmalo/StarWarsMod4AirMash/master/redirect_rules/requestly_rules.txt' target="_blank">
+                    <u>Open this link</u></a>
+                    and then right click on the page, on the context menu select  "Save as..." to download the new configuration file to your device.</li>
+            <li>2- Open Requestly's configuration page, by clicking the blue 'r' icon next to the address bar.</li>
+            <li>3- Select all the existing rules (by clicking the box to the left of "Name & Description").</li>
+            <li>4- Click the trash bin icon, in the upper right corner of the page.</li>
+            <li>5- Confirm the deletion.  The rules list should now be empty.</li>
+            <li>6- Click the "Upload Rules" blue button in the upper right corner of the page.</li>
+            <li>7- Select the file you downloaded in step 1.</li>
+            <li>8- Close Requestly's configuration page.</li>
+            <li>9- Go back to <a href='https://airma.sh/' target="_blank"><u>AirMash</u></a> and hit:  Ctrl+F5  you are on Windows, or Cmnd+Shift+R  on Mac to force a full refresh.</li>
+            <li>10- Enjoy StarMash!</li>
+            <li><br></li>
+            <li>You can view this message again by opening Mod Settings window, and clicking:  "Show again Requestly update steps".</li>
+        </ul>
+        <br><br>
+
+        After closing this message, it won't show up again! Make sure you followed those steps before you continue.<br>
+        
+        <a href='https://www.reddit.com/r/airmash' target="_blank">
+            <u>If you have questions, check AirMash's reddit board.</u></a>
+        <br>
+        <div id="btnRequestlyAccept"
+        style='
+        margin: auto auto;
+        text-align: center;
+        width: 300px;
+        margin-top: 20px;
+        text-align: center;
+        padding: 9px 18px 7px 18px;
+        background-color: #1e1e1e;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #fff;
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
+        border-bottom: 2px solid rgba(0,0,0,0.2);'>
+        I understand!</div>
+    </div>
+</div>
+
+<div id='loginInstructions' class='modalDialog' style='display: none; background-color: rgba(40, 40, 40, 0.97); font-size: 15px; padding: 20px;'>
+    <style>
+        #loginInstructions a {
+            text-decoration: underline;
+            color: #2196F3;
+        }
+        #loginInstructions li {
+            margin: 18px 0px;
+        }
+    </style>
+    To login in Starmash, please follow this steps:
+    <ul>
+        <li>Drag the following link to your bookmarks bar: 
+            <a href="javascript:if (location.hostname.toLowerCase() != 'starma.sh'){window.toexport=$.extend({},config.settings);delete toexport.keybinds;window.location='https://starma.sh#importsettings'+btoa(JSON.stringify(window.toexport));}">
+                Login StarMash</a>.
+        </li>
+        <li>Open <a href="https://airma.sh" target="_blank">Airmash's homepage</a>.</li>
+        <li>If you are not logged in, press the <b>Sign In</b> button, and login.</li>
+        <li>Enter any room.</li>
+        <li>Once inside, click the bookmark you just created, called <b>"Login StarMash"</b>.</li>
+    </ul>
+    <br>
+    You are then redirected to starma.sh, logged in! After this, you can delete the bookmark, as it is no longer needed.
+    <br><br><hr><br>
+    Another method to use Starmash with your account is <a href="https://tiny.cc/starmash" target="_blank">following this instructions</a>.
+</div>
