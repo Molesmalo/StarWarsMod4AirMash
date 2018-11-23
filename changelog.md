@@ -5,6 +5,11 @@
 <br>
 <br>
 
+## Nov 23 2018
+- Doomsday in-game event 🔥
+
+&nbsp;
+
 ## Oct 31 2018
 - Bubble messages (not emotes) are logged in chat window.
 
