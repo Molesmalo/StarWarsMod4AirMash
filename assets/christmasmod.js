@@ -28,11 +28,26 @@
         // This method called by StarMash when the game is loading
         injectTextures(files, textureInfo, flagTextureInfo, spriteInfo, textures) 
         {
+            /*
             for(let i in files)
             {
                 //files[i] = "//localhost/Christmas/" + getFileName(files[i]);
                 files[i] = "//raw.githubusercontent.com/Molesmalo/AirMashChristmasMod/master/assets/" + getFileName(files[i]);
-            }
+            }*/
+
+            const toChange = {
+                "map_sea.jpg":         null,
+                "map_forest.jpg":      null,
+                "map_rock.jpg":        null,
+                "map_sand.jpg":        null,
+                "aircraft.png":        null,
+                "shadows.png":         null,
+                "items.png":           null,
+                "mountains.png":       null,
+                "particles.png":       null,
+    
+            };
+            changeTextureFiles(files, toChange, "https://raw.githubusercontent.com/Molesmalo/AirMashChristmasMod/master/assets/");
         }
     }
 
@@ -51,7 +66,7 @@
         id: "Christmas2017",
         description: "Happy holidays and merry Christmas!",
         author: "Bombita",
-        version: "1.0",
+        version: "1.1",
         themes: [ Christmas2017Theme ]
     });
 }();
