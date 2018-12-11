@@ -31689,7 +31689,8 @@ function loadGameCode() {
                 $t = !0);
                 let Un = null == Yt[Fn.id] ? "Ignore" : "Unignore"
                   , Gn = "<div class=\"header\">" + UI.escapeHTML(Fn.name) + "</div><div class=\"item\" onclick=\"UI.contextWhisper()\">Whisper</div><div class=\"item\" onclick=\"UI.context" + Un + "()\">" + Un + "</div><div class=\"item\" onclick=\"UI.contextVotemute()\">Vote mute</div>";
-                return $("#contextmenu").html(Gn).css(Bn),
+                return SWAM.PopMenuItems && (Gn += SWAM.PopMenuItems),
+                $("#contextmenu").html(Gn).css(Bn),
                 kn(On, $("#contextmenu")),
                 en = Fn.id,
                 On.stopPropagation(),
@@ -31723,6 +31724,10 @@ function loadGameCode() {
         ,
         UI.getIgnored = function() {
             return Yt
+        }
+        ,
+        UI.getPopMenuPlayer = function() {
+            return en
         }
         ,
         UI.chatVotemute = function(On) {
@@ -34046,7 +34051,7 @@ window.Base64 = {
         return Gt
     }
 },
-window.SWAM_version = "2.5112302",
+window.SWAM_version = "2.5121001",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -35383,9 +35388,18 @@ function SWAM() {
                   , Vt = 0
                   , qt = Players.getMe().team
                   , Kt = Yt ? 1 : 2;
-                "taken" === Wt ? Vt = qt == Kt ? SWAM.Audio.Flag.OursTaken : SWAM.Audio.Flag.EnemyTaken : "captured" === Wt ? (SWAM.GameLog.logFlag(Bt.text),
-                Vt = qt == Kt ? SWAM.Audio.Flag.OursCaptured : SWAM.Audio.Flag.EnemyCaptured) : "returned" === Wt ? (SWAM.GameLog.logFlag(Bt.text),
-                Vt = qt == Kt ? SWAM.Audio.Flag.OursRecovered : SWAM.Audio.Flag.EnemyRecovered) : void 0,
+                switch (Wt) {
+                case "taken":
+                    Vt = qt == Kt ? SWAM.Audio.Flag.OursTaken : SWAM.Audio.Flag.EnemyTaken;
+                    break;
+                case "captured":
+                    SWAM.GameLog.logFlag(Bt.text);
+                    Vt = qt == Kt ? SWAM.Audio.Flag.OursCaptured : SWAM.Audio.Flag.EnemyCaptured;
+                    break;
+                case "returned":
+                    SWAM.GameLog.logFlag(Bt.text),
+                    Vt = qt == Kt ? SWAM.Audio.Flag.OursRecovered : SWAM.Audio.Flag.EnemyRecovered;
+                }
                 SWAM.Settings && SWAM.Settings.audio && SWAM.Settings.audio.voiceEventsCTF && SWAM.Audio.playFlagEvent(Vt, qt),
                 SWAM.trigger("CTF_FlagEvent", [Vt, Kt, Wt, zt])
             }
@@ -36216,7 +36230,9 @@ function SWAM() {
         }
         ,
         this.logFlag = function(Wt) {
-            this.add("<div class='message' style='position: relative; display: block;'>" + Wt + "</div>")
+            let zt = "<div class='message' style='position: relative; display: block;'>" + Wt + "</div>";
+            return this.add(zt),
+            zt
         }
         ,
         this.logNewMatch = function() {
@@ -38068,56 +38084,10 @@ SWAM.loadFiles(()=>{
         console.log("loading time: ", Date.now() - Gt),
         SWAM.trigger("gameRunning")
     }),
-    loadGameCode()
+    loadGameCode();
+    const Xt = getFilePath("logon.png");
+    $("#logon").css({
+        background: `url(${Xt}) no-repeat center`
+    })
 }
-),
-!function() {
-    function Bt() {
-        let Xt = $("<div id='hellmashPrankMessage' class='modalDialog' style='display: none; font-size: 20px; padding: 20px; text-align: center;'>\uD83D\uDD25 Congratulations! \uD83D\uDD25<br><br> It's been a pleasure playing with you'all. Airmash might come back soon!.... in the meantime, STEAMROLLER's dev server can be used through <a href='https://starma.sh'>https://starma.sh</a><br><br>\uD83D\uDD25  Happy Doomsday! \uD83D\uDD25 </div></div>");
-        $("body").append(Xt),
-        Xt.fadeIn(500),
-        setTimeout(()=>{
-            Xt.remove()
-        }
-        , 2e4)
-    }
-    let Gt = new Date("Nov 23 23:26:40 2018 GMT");
-    setInterval(()=>{
-        let Xt = Gt.getTime() - Date.now();
-        0 < Xt && 1e3 > Xt && (Games.handleFirewall({
-            c: 33,
-            type: 1,
-            status: 1,
-            posX: 0,
-            posY: 0,
-            radius: 17000,
-            speed: -2000
-        }),
-        setTimeout(()=>{
-            Games.handleFirewall({
-                c: 33,
-                type: 1,
-                status: 1,
-                posX: 0,
-                posY: 0,
-                radius: 0,
-                speed: 2000
-            }),
-            setTimeout(()=>{
-                Games.handleFirewall({
-                    c: 33,
-                    type: 1,
-                    status: 0,
-                    posX: 0,
-                    posY: 0,
-                    radius: 17000,
-                    speed: -1500
-                }),
-                Bt()
-            }
-            , 2e4)
-        }
-        , 2e4))
-    }
-    , 1e3)
-}();
+);
