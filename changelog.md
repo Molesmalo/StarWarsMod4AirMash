@@ -5,6 +5,18 @@
 <br>
 <br>
 
+## Dec 15 2018
+- Improved Autopilot.
+- Preserve chat after using `/reconnect`.
+- Fixed bug in RealisticSprites Theme preventing it to load correctly.
+
+&nbsp;
+
+## Dec 10 2018
+- Birthday background in Main Screen.
+
+&nbsp;
+
 ## Nov 23 2018
 - Doomsday in-game event 🔥
 
