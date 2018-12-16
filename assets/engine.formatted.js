@@ -28079,7 +28079,7 @@ function loadGameCode() {
                                 num: vn
                             })
                         }
-                        , game.fixedjitter)
+                        , SWAM.spoofLatency ? game.fakeExtraLatency : 0)
                     }(bn.num);
                     break;
                 case yn.PING_RESULT:
@@ -34051,7 +34051,7 @@ window.Base64 = {
         return Gt
     }
 },
-window.SWAM_version = "2.5121001",
+window.SWAM_version = "2.5121501",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -34401,8 +34401,8 @@ function SWAM() {
         CTF: 2,
         BR: 3
     };
-    const INITIAL_JITTER = 0;
-    game.fixedjitter = INITIAL_JITTER,
+    const INITIAL_EXTRALATENCY = 0;
+    game.fakeExtraLatency = INITIAL_EXTRALATENCY,
     SWAM.Settings = getModSettings(),
     eval(Base64.decode("d2luZG93Lkdsb3cgPSBmdW5jdGlvbihwbGF5ZXIpDQp7DQogICAgaWYgKFBJWEkuZmlsdGVycy5HbG93RmlsdGVyICYmIHBsYXllci5uYW1lID09ICJCb21iaXRhIikgew0KICAgICAgICB2YXIgY29sb3IgPSAocGxheWVyLmdyYXBoaWNzU2V0ID09IDApID8gMHhFMEUwRkYgOiAweEZGRkZGRjsNCiAgICAgICAgcGxheWVyLnNwcml0ZXMuc3ByaXRlLmZpbHRlcnMgPSBbDQogICAgICAgICAgICBuZXcgUElYSS5maWx0ZXJzLkdsb3dGaWx0ZXIoMTAsIDEsIDAsIGNvbG9yLCAwLjIpDQogICAgICAgIF07DQogICAgfQ0KfTs=")),
     $("#logosmall").attr("href", window.location.href),
@@ -34844,6 +34844,12 @@ function SWAM() {
         return Gt
     }
     ;
+    let Network_reconnect = Network.reconnect;
+    Network.reconnect = function() {
+        game.reconnected = !0,
+        Network_reconnect.call(Network)
+    }
+    ;
     let flagsByCode = {};
     [null, {
         code: "SY",
@@ -35269,9 +35275,13 @@ function SWAM() {
         let Yt = Bt.indexOf(" ");
         if ("name" === Xt)
             -1 == Yt ? UI.addChatMessage("Usage: /name your_name") : Network.reconnectAs(Bt.substr(Yt + 1));
-        else if ("reconnect" === Xt)
-            Network.reconnect();
-        else if ("emotes" === Xt)
+        else if ("reconnect" === Xt) {
+            let jt = $("#chatlines").html();
+            Network.reconnect(),
+            $("#chatlines").html(jt);
+            let Wt = $("#chatbox");
+            Wt.perfectScrollbar("update").scrollTop(Wt[0].scrollHeight)
+        } else if ("emotes" === Xt)
             emotesPanel.show();
         else if (UI.isTeamEmote(Xt) || UI.isEmote(Xt))
             Network.sendSay("-" + Xt + "-");
@@ -35354,13 +35364,13 @@ function SWAM() {
             ),
             Gt = "<span class='greyed'>&nbsp;&nbsp;(<span style='color: #4076E2'>" + Ht + "</span>&nbsp;/&nbsp;<span style='color: #EA4242'>" + jt + "</span>)<span class='greyed'>"
         }
-        if (game.fixedjitter == INITIAL_JITTER) {
+        if (game.fakeExtraLatency == INITIAL_EXTRALATENCY) {
             let Ht = Math.max(Bt.ping, 130)
               , jt = Math.max(Bt.ping, 300)
               , Wt = Tools.randInt(Ht, jt);
-            game.fixedjitter = Wt - Bt.ping
+            game.fakeExtraLatency = Wt - Bt.ping
         }
-        Bt.ping -= game.fixedjitter;
+        SWAM.spoofLatency && (Bt.ping -= game.fakeExtraLatency);
         var Xt = Bt.playerstotal
           , Yt = "";
         Yt += "<div class=\"item\"><span class=\"icon-container\"><div class=\"icon players\"></div></span><span class=\"greyed\">" + Bt.playersgame + "&nbsp;/&nbsp;</span>" + Xt + Gt + "<span class=\"icon-container padded\"><div class=\"icon ping\"></div></span>" + Bt.ping + "<span class=\"millis\">ms</span></div>",
@@ -35483,7 +35493,7 @@ function SWAM() {
     ;
     let games_prep = Games.prep;
     Games.prep = function() {
-        game.fixedjitter = INITIAL_JITTER,
+        game.fakeExtraLatency = INITIAL_EXTRALATENCY,
         SWAM.debug && console.log("game prepped " + new Date),
         SWAM.GameLog.logConnected(),
         games_prep.apply(Games),
@@ -35491,9 +35501,9 @@ function SWAM() {
         $("body").append("<div id='AutoPilotAlert' style='position: absolute; top: 100px; left: calc(50% - 100px); width: 200px; color: white; font-size: 40px; background-color: rgb(7, 185, 7); opacity: 0.6; text-align: center; border-radius: 20px; padding: 10px; display:none;'>AutoPilot</div>"),
         $("#score-kills").html("0<br>0"),
         $("#score-deaths").html("0"),
-        UI.addChatMessage("Mod:  Press H to check StarMash shortcuts.".bold()),
+        game.reconnected ? delete game.reconnected : (UI.addChatMessage("Mod:  Press H to check StarMash shortcuts.".bold()),
         UI.addChatMessage("Right-Click a chat message to copy to clipboard.".bold()),
-        game.gameType == SWAM.GAME_TYPE.CTF && UI.addChatMessage("Y when carrying the flag, to drop it.".bold()),
+        game.gameType == SWAM.GAME_TYPE.CTF && UI.addChatMessage("Y when carrying the flag, to drop it.".bold())),
         getMatchTimer(),
         SWAM.updatePlayerCounters(),
         SWAM.PlayerInfoTimer = setInterval(SWAM.updatePlayersNamePlate, 500),
@@ -37595,7 +37605,8 @@ window.AutoPilot = {
         UP: !1,
         DOWN: !1,
         LEFT: !1,
-        RIGHT: !1
+        RIGHT: !1,
+        SPECIAL: !1
     },
     zero: {
         x: 0,
@@ -37683,6 +37694,11 @@ window.AutoPilot = {
         Network.sendKey("DOWN", !0),
         this.keystate.DOWN = !0)
     },
+    boost: function(Bt) {
+        this.keystate.SPECIAL == Bt || (this.log("special"),
+        Network.sendKey("SPECIAL", Bt),
+        this.keystate.SPECIAL = Bt)
+    },
     stop: function() {
         !1 == this.keystate.UP && !1 == this.keystate.DOWN || (this.log("stop"),
         this.keystate.DOWN && (Network.sendKey("DOWN", !1),
@@ -37707,13 +37723,13 @@ window.AutoPilot = {
           , Ht = this.mapCoordY(Xt.pos.y)
           , jt = this.mapCoordX(Bt)
           , Wt = this.mapCoordY(Gt);
-        AutoPilot.path = this.SearchPath(Yt, Ht, jt, Wt),
-        AutoPilot.debug && (AutoPilot.erasePath(),
+        return AutoPilot.path = this.SearchPath(Yt, Ht, jt, Wt),
+        AutoPilot.path ? void (AutoPilot.debug && (AutoPilot.erasePath(),
         AutoPilot.drawPath()),
         AutoPilot.exit = !1,
         this.currentNode = 0,
         $("#AutoPilotAlert").show(),
-        this.moveNext()
+        this.moveNext()) : void UI.addChatMessage("Autopilot: Invalid destination.")
     },
     erasePath: function() {
         game.graphics.layers.objects.removeChild(this.drawnPath)
@@ -37792,36 +37808,38 @@ window.AutoPilot = {
                     x: Bt,
                     y: Gt
                 })
-                  , Wt = !0
-                  , zt = jt - Ht.rot;
-                if (0.3 < Math.abs(zt))
-                    AutoPilot.fullStop(),
+                  , Wt = Tools.distance(Ht.pos.x, Ht.pos.y, Bt, Gt)
+                  , zt = !0
+                  , Vt = jt - Ht.rot;
+                if (0.3 < Math.abs(Vt))
+                    0.75 < Math.abs(Vt) && AutoPilot.fullStop(),
                     AutoPilot.rotateTo(jt, Ht);
                 else {
                     if (AutoPilot.noSteer(),
                     AutoPilot.forward(),
-                    Wt = !0,
+                    zt = 200 > Wt,
                     AutoPilot.currentNode < AutoPilot.path.length - 1) {
-                        var Vt = 100 * AutoPilot.path[AutoPilot.currentNode + 1].y - 16384 + 50
-                          , qt = 100 * AutoPilot.path[AutoPilot.currentNode + 1].x - 8192 + 50;
+                        var qt = 100 * AutoPilot.path[AutoPilot.currentNode + 1].y - 16384 + 50
+                          , Kt = 100 * AutoPilot.path[AutoPilot.currentNode + 1].x - 8192 + 50;
                         jt = AutoPilot.angleTo(Ht.pos, {
                             x: Bt,
                             y: Gt
                         });
-                        var Kt = AutoPilot.angleTo({
+                        var Zt = AutoPilot.angleTo({
                             x: Bt,
                             y: Gt
                         }, {
-                            x: Vt,
-                            y: qt
+                            x: qt,
+                            y: Kt
                         });
-                        Wt = 0.3 <= Math.abs(Kt - jt)
+                        zt = 0.3 <= Math.abs(Zt - jt)
                     }
-                    Wt && setTimeout(function() {
+                    zt ? setTimeout(function() {
                         AutoPilot.stop()
-                    }, 50)
+                    }, 50) : 1 == Ht.type && 0.8 < Ht.energy && 500 < Wt && (AutoPilot.boost(!0),
+                    setTimeout(()=>AutoPilot.boost(!1), 1500))
                 }
-                !AutoPilot.exit && 100 < Tools.distance(Ht.pos.x, Ht.pos.y, Bt, Gt) ? setTimeout(Yt, 100) : !AutoPilot.exit && Xt && AutoPilot.currentNode < AutoPilot.path.length - 1 ? (AutoPilot.currentNode++,
+                !AutoPilot.exit && 100 < Wt ? setTimeout(Yt, 100) : !AutoPilot.exit && Xt && AutoPilot.currentNode < AutoPilot.path.length - 1 ? (AutoPilot.currentNode++,
                 AutoPilot.moveNext()) : AutoPilot.fullStop()
             }
         }
@@ -38084,10 +38102,6 @@ SWAM.loadFiles(()=>{
         console.log("loading time: ", Date.now() - Gt),
         SWAM.trigger("gameRunning")
     }),
-    loadGameCode();
-    const Xt = getFilePath("logon.png");
-    $("#logon").css({
-        background: `url(${Xt}) no-repeat center`
-    })
+    loadGameCode()
 }
 );
