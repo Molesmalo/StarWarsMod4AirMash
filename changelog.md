@@ -5,6 +5,12 @@
 <br>
 <br>
 
+## Dec 24 2018
+- Christmas Theme is back! Happy holydays! 🎅
+- Snow covered map in other themes.
+
+&nbsp;
+
 ## Dec 15 2018
 - Improved Autopilot.
 - Preserve chat after using `/reconnect`.

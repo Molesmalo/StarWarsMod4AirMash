@@ -34051,7 +34051,7 @@ window.Base64 = {
         return Gt
     }
 },
-window.SWAM_version = "2.5121501",
+window.SWAM_version = "2.5122401",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -36919,7 +36919,8 @@ SWAM.injectTextures = function(Bt, Gt, Xt, Yt, Ht) {
     };
     for (let Zt in qt)
         Yt[Zt] = qt[Zt];
-    SWAM.Theme && SWAM.Theme.injectTextures && SWAM.Theme.injectTextures(Bt, Gt, Xt, Yt, Ht);
+    SWAM.Theme && SWAM.Theme.injectTextures && SWAM.Theme.injectTextures(Bt, Gt, Xt, Yt, Ht),
+    Christmas2017Theme.addSnow(Bt);
     let Kt = new PIXI.loaders.Loader;
     Kt.add(Object.values(Bt)),
     Kt.load(()=>SWAM.trigger("texturesInjected"))
@@ -37438,7 +37439,7 @@ SWAM.injectSounds = function(Bt) {
         function cn() {
             let vn = $("#selTheme", yn);
             vn.html("");
-            let Tn = Object.values(sn).sort((Sn,En)=>Sn.themeName > En.themeName);
+            let Tn = Object.values(sn).sort((Sn,En)=>Sn.themeName < En.themeName ? -1 : Sn.themeName > En.themeName ? 1 : 0);
             $.each(Tn, function(Sn, En) {
                 vn.append($("<option>", {
                     value: En.id,
@@ -38090,6 +38091,7 @@ SWAM.on("gameRunning", ()=>{
 ),
 SWAM.loadFiles(()=>{
     let Gt = Date.now();
+    window.specialTheme = "Christmas2017Theme",
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
     SWAM.trigger("themeLoaded"),
