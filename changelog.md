@@ -8,6 +8,7 @@
 ## Dec 24 2018
 - Christmas Theme is back! Happy holydays! 🎅
 - Snow covered map in other themes.
+- Added snow weather! The further you go to the north, the stronger it is.
 
 &nbsp;
 
