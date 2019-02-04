@@ -34051,7 +34051,7 @@ window.Base64 = {
         return Gt
     }
 },
-window.SWAM_version = "2.5122601",
+window.SWAM_version = "2.6011101",
 SWAM.version = window.SWAM_version,
 SWAM.debug = !1;
 function SWAM() {
@@ -38091,7 +38091,6 @@ SWAM.on("gameRunning", ()=>{
 ),
 SWAM.loadFiles(()=>{
     let Gt = Date.now();
-    GetQueryStringParams("theme") || (window.specialTheme = "Christmas2017Theme"),
     SWAM.trigger("extensionsLoaded"),
     SWAM.loadTheme(),
     SWAM.trigger("themeLoaded"),
