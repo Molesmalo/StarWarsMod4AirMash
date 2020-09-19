@@ -5,6 +5,12 @@
 <br>
 <br>
 
+## Sep 19 2020
+- Snow disabled by default. Better late than never, sorry for the delay!
+- Stay safe everyone! 😷
+
+&nbsp;
+
 ## Dec 24 2018
 - Christmas Theme is back! Happy holydays! 🎅
 - Snow covered map in other themes.
